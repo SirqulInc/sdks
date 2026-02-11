@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PurchaseItemFullResponse
 import org.openapitools.model.PurchaseItemResponse
 import org.openapitools.model.SirqulResponse
 
 class PurchaseItemApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createPurchaseItem ( BigDecimal version, String appKey, String name, String purchaseType, String deviceId, Long accountId, String description, Integer tickets, Float price, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/purchase/create"
+    def createPurchaseItem ( String appKey, String name, String purchaseType, String deviceId, Long accountId, String description, Integer tickets, Float price, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/purchase/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class PurchaseItemApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -107,8 +102,8 @@ class PurchaseItemApi {
 
     }
 
-    def deletePurchaseItem ( BigDecimal version, Long purchaseItemId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/purchase/delete"
+    def deletePurchaseItem ( Long purchaseItemId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/purchase/delete"
 
         // params
         def queryParams = [:]
@@ -116,10 +111,6 @@ class PurchaseItemApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (purchaseItemId == null) {
             throw new RuntimeException("missing required params purchaseItemId")
@@ -144,8 +135,8 @@ class PurchaseItemApi {
 
     }
 
-    def getPurchaseItem ( BigDecimal version, Long purchaseItemId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/purchase/get"
+    def getPurchaseItem ( Long purchaseItemId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/purchase/get"
 
         // params
         def queryParams = [:]
@@ -153,10 +144,6 @@ class PurchaseItemApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (purchaseItemId == null) {
             throw new RuntimeException("missing required params purchaseItemId")
@@ -181,8 +168,8 @@ class PurchaseItemApi {
 
     }
 
-    def searchPurchaseItems ( BigDecimal version, String deviceId, Long accountId, String appKey, Boolean filterByBillable, String purchaseType, String serviceAction, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/purchase/search"
+    def searchPurchaseItems ( String deviceId, Long accountId, String appKey, Boolean filterByBillable, String purchaseType, String serviceAction, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/purchase/search"
 
         // params
         def queryParams = [:]
@@ -190,10 +177,6 @@ class PurchaseItemApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -241,8 +224,8 @@ class PurchaseItemApi {
 
     }
 
-    def updatePurchaseItem ( BigDecimal version, Long purchaseItemId, String deviceId, Long accountId, String name, String description, Integer tickets, Float price, String purchaseType, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean active, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/purchase/update"
+    def updatePurchaseItem ( Long purchaseItemId, String deviceId, Long accountId, String name, String description, Integer tickets, Float price, String purchaseType, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean active, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/purchase/update"
 
         // params
         def queryParams = [:]
@@ -250,10 +233,6 @@ class PurchaseItemApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (purchaseItemId == null) {
             throw new RuntimeException("missing required params purchaseItemId")

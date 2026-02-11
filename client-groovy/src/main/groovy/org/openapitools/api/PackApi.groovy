@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PackResponse
 import org.openapitools.model.SirqulResponse
 
 class PackApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createPack ( BigDecimal version, Long accountId, String title, Long packOrder, Integer price, Boolean highest, Boolean allocateTickets, Long ticketCount, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, String priceType, String gameLevelIds, Boolean inGame, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/pack/create"
+    def createPack ( Long accountId, String title, Long packOrder, Integer price, Boolean highest, Boolean allocateTickets, Long ticketCount, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, String priceType, String gameLevelIds, Boolean inGame, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/pack/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class PackApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -134,8 +129,8 @@ class PackApi {
 
     }
 
-    def deletePack ( BigDecimal version, Long accountId, Long packId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/pack/delete"
+    def deletePack ( Long accountId, Long packId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/pack/delete"
 
         // params
         def queryParams = [:]
@@ -143,10 +138,6 @@ class PackApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -172,8 +163,8 @@ class PackApi {
 
     }
 
-    def getPack ( BigDecimal version, Long accountId, Long packId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/pack/get"
+    def getPack ( Long accountId, Long packId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/pack/get"
 
         // params
         def queryParams = [:]
@@ -181,10 +172,6 @@ class PackApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -217,8 +204,8 @@ class PackApi {
 
     }
 
-    def searchPacks ( BigDecimal version, Long accountId, String sortField, Boolean descending, String keyword, String packType, Integer start, Integer limit, Boolean includeGameData, Boolean includeInactive, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/pack/search"
+    def searchPacks ( Long accountId, String sortField, Boolean descending, String keyword, String packType, Integer start, Integer limit, Boolean includeGameData, Boolean includeInactive, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/pack/search"
 
         // params
         def queryParams = [:]
@@ -226,10 +213,6 @@ class PackApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -283,8 +266,8 @@ class PackApi {
 
     }
 
-    def updatePack ( BigDecimal version, Long accountId, Long packId, Boolean allocateTickets, Long ticketCount, String title, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, Long packOrder, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, Integer price, String priceType, String gameLevelIds, Boolean inGame, Boolean highest, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/pack/update"
+    def updatePack ( Long accountId, Long packId, Boolean allocateTickets, Long ticketCount, String title, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, Long packOrder, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, Integer price, String priceType, String gameLevelIds, Boolean inGame, Boolean highest, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/pack/update"
 
         // params
         def queryParams = [:]
@@ -292,10 +275,6 @@ class PackApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

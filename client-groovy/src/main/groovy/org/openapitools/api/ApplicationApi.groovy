@@ -5,17 +5,16 @@ import org.openapitools.model.AccountListResponse
 import org.openapitools.model.ApplicationResponse
 import org.openapitools.model.ApplicationSettingsResponse
 import org.openapitools.model.ApplicationShortResponse
-import java.math.BigDecimal
 import org.openapitools.model.PlacementResponse
 import org.openapitools.model.SirqulResponse
 
 class ApplicationApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createApplication ( BigDecimal version, String appName, String deviceId, Long accountId, String about, String bundleId, Long appIconAssetId, Long appLogoAssetId, String facebookAppId, String facebookAppSecret, String googleApiKey, Boolean updateEULADate, String eulaVersion, String landingPageUrl, Boolean showInActivities, String activityDescription, String inviteWelcomeText, String invitePageUrl, String urlScheme, String platforms, String downloadUrls, String categoryIds, String scoringType, Integer hintCost, Integer maxScore, Float ticketsPerPoint, Boolean hasGameData, Boolean publicNotifications, Boolean useMatchingAlgorithm, Boolean globalTickets, Float buildVersion, Float apiVersion, String placementName, String placementDescription, String placementSize, Integer placementHeight, Integer placementWidth, Integer placementRefreshInterval, Boolean createObjectStore, Boolean publicContentApproval, Boolean productionMode, Integer minimumSessionLength, Integer sessionGapLength, Boolean localAdsEnabled, String sqootApiKey, String trilatProcessingType, Integer maxSampleSize, Double minRSSI, String modules, Integer authorizedCount, String authorizedServers, String defaultTimezone, String smtpPass, String metaData, String placementMetaData, Boolean ipsFloor, Boolean enableAPNSBadge, Boolean includeInReport, Long defaultAppFilterId, Boolean enableWelcomeEmail, String appleAppId, String appleTeamId, String appleAuthKeyId, File appleAuthKey, String appleIssuerId, String appStoreKeyId, File appStoreKey, File googlePrivateKeyFile, String authorizeNetApiKey, String authorizeNetTransactionKey, String emailSender, String smtpUser, String smtpHost, String vatomBusinessId, String vatomRestClientId, String vatomRestSecretKey, String twilioAccountSID, String twilioAuthToken, String twilioSenderPhoneNumber, String openAISecretKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/create"
+    def createApplication ( String appName, String deviceId, Long accountId, String about, String bundleId, Long appIconAssetId, Long appLogoAssetId, String facebookAppId, String facebookAppSecret, String googleApiKey, Boolean updateEULADate, String eulaVersion, String landingPageUrl, Boolean showInActivities, String activityDescription, String inviteWelcomeText, String invitePageUrl, String urlScheme, String platforms, String downloadUrls, String categoryIds, String scoringType, Integer hintCost, Integer maxScore, Float ticketsPerPoint, Boolean hasGameData, Boolean publicNotifications, Boolean useMatchingAlgorithm, Boolean globalTickets, Float buildVersion, Float apiVersion, String placementName, String placementDescription, String placementSize, Integer placementHeight, Integer placementWidth, Integer placementRefreshInterval, Boolean createObjectStore, Boolean publicContentApproval, Boolean productionMode, Integer minimumSessionLength, Integer sessionGapLength, Boolean localAdsEnabled, String sqootApiKey, String trilatProcessingType, Integer maxSampleSize, Double minRSSI, String modules, Integer authorizedCount, String authorizedServers, String defaultTimezone, String smtpPass, String metaData, String placementMetaData, Boolean ipsFloor, Boolean enableAPNSBadge, Boolean includeInReport, Long defaultAppFilterId, Boolean enableWelcomeEmail, String appleAppId, String appleTeamId, String appleAuthKeyId, File appleAuthKey, String appleIssuerId, String appStoreKeyId, File appStoreKey, File googlePrivateKeyFile, String authorizeNetApiKey, String authorizeNetTransactionKey, String emailSender, String smtpUser, String smtpHost, String vatomBusinessId, String vatomRestClientId, String vatomRestSecretKey, String twilioAccountSID, String twilioAuthToken, String twilioSenderPhoneNumber, String openAISecretKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/create"
 
         // params
         def queryParams = [:]
@@ -23,10 +22,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appName == null) {
             throw new RuntimeException("missing required params appName")
@@ -279,8 +274,8 @@ class ApplicationApi {
 
     }
 
-    def createApplicationPlacement ( BigDecimal version, String appKey, String size, String deviceId, Long accountId, String name, String description, Integer height, Integer width, Integer refreshInterval, Long defaultImageId, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/placement/create"
+    def createApplicationPlacement ( String appKey, String size, String deviceId, Long accountId, String name, String description, Integer height, Integer width, Integer refreshInterval, Long defaultImageId, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/placement/create"
 
         // params
         def queryParams = [:]
@@ -288,10 +283,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -344,8 +335,8 @@ class ApplicationApi {
 
     }
 
-    def deleteApplication ( BigDecimal version, Long accountId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/delete"
+    def deleteApplication ( Long accountId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/delete"
 
         // params
         def queryParams = [:]
@@ -353,10 +344,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -374,8 +361,8 @@ class ApplicationApi {
 
     }
 
-    def deleteApplicationPlacement ( BigDecimal version, Long placementId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/placement/delete"
+    def deleteApplicationPlacement ( Long placementId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/placement/delete"
 
         // params
         def queryParams = [:]
@@ -383,10 +370,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (placementId == null) {
             throw new RuntimeException("missing required params placementId")
@@ -411,8 +394,8 @@ class ApplicationApi {
 
     }
 
-    def getApplication ( BigDecimal version, String appKey, Long applicationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/get"
+    def getApplication ( String appKey, Long applicationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/get"
 
         // params
         def queryParams = [:]
@@ -420,10 +403,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (appKey != null) {
             queryParams.put("appKey", appKey)
@@ -441,8 +420,8 @@ class ApplicationApi {
 
     }
 
-    def getApplicationPlacement ( BigDecimal version, Long placementId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/placement/get"
+    def getApplicationPlacement ( Long placementId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/placement/get"
 
         // params
         def queryParams = [:]
@@ -450,10 +429,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (placementId == null) {
             throw new RuntimeException("missing required params placementId")
@@ -478,8 +453,8 @@ class ApplicationApi {
 
     }
 
-    def getApplicationVersions ( BigDecimal version, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/versions"
+    def getApplicationVersions ( Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/versions"
 
         // params
         def queryParams = [:]
@@ -487,10 +462,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -502,8 +473,8 @@ class ApplicationApi {
 
     }
 
-    def getUniqueUsersByApp ( BigDecimal version, String appKey, String q, String keyword, Long since, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/users"
+    def getUniqueUsersByApp ( String appKey, String q, String keyword, Long since, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/users"
 
         // params
         def queryParams = [:]
@@ -511,10 +482,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -554,8 +521,8 @@ class ApplicationApi {
 
     }
 
-    def listApplications ( BigDecimal version, Long accountId, String q, String keyword, String platforms, String deviceIds, String deviceVersions, String categoryIds, String sortField, Boolean hasAds, Boolean publicNotifications, Boolean filterBillable, Boolean filterContentAdmin, Boolean descending, Integer i, Integer start, Integer l, Integer limit, String applicationIds, Boolean hasObjectStore, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/list"
+    def listApplications ( Long accountId, String q, String keyword, String platforms, String deviceIds, String deviceVersions, String categoryIds, String sortField, Boolean hasAds, Boolean publicNotifications, Boolean filterBillable, Boolean filterContentAdmin, Boolean descending, Integer i, Integer start, Integer l, Integer limit, String applicationIds, Boolean hasObjectStore, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/list"
 
         // params
         def queryParams = [:]
@@ -563,10 +530,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -638,8 +601,8 @@ class ApplicationApi {
 
     }
 
-    def searchApplicationPlacement ( BigDecimal version, String appKey, String deviceId, Long accountId, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/placement/search"
+    def searchApplicationPlacement ( String appKey, String deviceId, Long accountId, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/placement/search"
 
         // params
         def queryParams = [:]
@@ -647,10 +610,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -681,8 +640,8 @@ class ApplicationApi {
 
     }
 
-    def searchApplicationSettings ( BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/settings/search"
+    def searchApplicationSettings ( String deviceId, Long accountId, Long connectionAccountId, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/settings/search"
 
         // params
         def queryParams = [:]
@@ -690,10 +649,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -729,8 +684,8 @@ class ApplicationApi {
 
     }
 
-    def searchApplications ( BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, String q, String keyword, String qSearchFields, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean hasAds, Boolean publicNotifications, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/search"
+    def searchApplications ( String deviceId, Long accountId, Double latitude, Double longitude, String q, String keyword, String qSearchFields, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean hasAds, Boolean publicNotifications, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/search"
 
         // params
         def queryParams = [:]
@@ -738,10 +693,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -801,8 +752,8 @@ class ApplicationApi {
 
     }
 
-    def updateApplication ( BigDecimal version, String appKey, String appName, String deviceId, Long accountId, String about, String bundleId, Long appIconAssetId, Long appLogoAssetId, String facebookAppId, String facebookAppSecret, String googleApiKey, Boolean updateEULADate, String eulaVersion, String landingPageUrl, Boolean showInActivities, String activityDescription, String inviteWelcomeText, String invitePageUrl, String urlScheme, String platforms, String downloadUrls, String categoryIds, String scoringType, Integer hintCost, Integer maxScore, Float ticketsPerPoint, Boolean hasGameData, Boolean publicNotifications, Boolean useMatchingAlgorithm, Boolean globalTickets, Float buildVersion, Float apiVersion, String placementName, String placementDescription, String placementSize, Integer placementHeight, Integer placementWidth, Integer placementRefreshInterval, Boolean createObjectStore, Boolean publicContentApproval, Boolean productionMode, Integer minimumSessionLength, Integer sessionGapLength, Boolean localAdsEnabled, String sqootApiKey, String trilatProcessingType, Integer maxSampleSize, Double minRSSI, String modules, Integer authorizedCount, String authorizedServers, String defaultTimezone, String smtpPass, String metaData, String placementMetaData, Boolean ipsFloor, Boolean enableAPNSBadge, Boolean includeInReport, Long defaultAppFilterId, Boolean enableWelcomeEmail, String appleAppId, String appleTeamId, String appleAuthKeyId, File appleAuthKey, String appleIssuerId, String appStoreKeyId, File appStoreKey, File googlePrivateKeyFile, String authorizeNetApiKey, String authorizeNetTransactionKey, String emailSender, String smtpUser, String smtpHost, String vatomBusinessId, String vatomRestClientId, String vatomRestSecretKey, String twilioAccountSID, String twilioAuthToken, String twilioSenderPhoneNumber, String openAISecretKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/update"
+    def updateApplication ( String appKey, String appName, String deviceId, Long accountId, String about, String bundleId, Long appIconAssetId, Long appLogoAssetId, String facebookAppId, String facebookAppSecret, String googleApiKey, Boolean updateEULADate, String eulaVersion, String landingPageUrl, Boolean showInActivities, String activityDescription, String inviteWelcomeText, String invitePageUrl, String urlScheme, String platforms, String downloadUrls, String categoryIds, String scoringType, Integer hintCost, Integer maxScore, Float ticketsPerPoint, Boolean hasGameData, Boolean publicNotifications, Boolean useMatchingAlgorithm, Boolean globalTickets, Float buildVersion, Float apiVersion, String placementName, String placementDescription, String placementSize, Integer placementHeight, Integer placementWidth, Integer placementRefreshInterval, Boolean createObjectStore, Boolean publicContentApproval, Boolean productionMode, Integer minimumSessionLength, Integer sessionGapLength, Boolean localAdsEnabled, String sqootApiKey, String trilatProcessingType, Integer maxSampleSize, Double minRSSI, String modules, Integer authorizedCount, String authorizedServers, String defaultTimezone, String smtpPass, String metaData, String placementMetaData, Boolean ipsFloor, Boolean enableAPNSBadge, Boolean includeInReport, Long defaultAppFilterId, Boolean enableWelcomeEmail, String appleAppId, String appleTeamId, String appleAuthKeyId, File appleAuthKey, String appleIssuerId, String appStoreKeyId, File appStoreKey, File googlePrivateKeyFile, String authorizeNetApiKey, String authorizeNetTransactionKey, String emailSender, String smtpUser, String smtpHost, String vatomBusinessId, String vatomRestClientId, String vatomRestSecretKey, String twilioAccountSID, String twilioAuthToken, String twilioSenderPhoneNumber, String openAISecretKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/update"
 
         // params
         def queryParams = [:]
@@ -810,10 +761,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -1073,8 +1020,8 @@ class ApplicationApi {
 
     }
 
-    def updateApplicationActive ( BigDecimal version, Long accountId, String appKey, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/active"
+    def updateApplicationActive ( Long accountId, String appKey, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/active"
 
         // params
         def queryParams = [:]
@@ -1082,10 +1029,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1118,8 +1061,8 @@ class ApplicationApi {
 
     }
 
-    def updateApplicationPlacement ( BigDecimal version, Long placementId, String deviceId, Long accountId, String name, String description, String size, Integer height, Integer width, Integer refreshInterval, Long defaultImageId, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/placement/update"
+    def updateApplicationPlacement ( Long placementId, String deviceId, Long accountId, String name, String description, String size, Integer height, Integer width, Integer refreshInterval, Long defaultImageId, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/placement/update"
 
         // params
         def queryParams = [:]
@@ -1127,10 +1070,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (placementId == null) {
             throw new RuntimeException("missing required params placementId")
@@ -1179,8 +1118,8 @@ class ApplicationApi {
 
     }
 
-    def uploadApplicationCertificate ( BigDecimal version, String appKey, String deviceId, Long accountId, File certificate, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/application/certificate/create"
+    def uploadApplicationCertificate ( String appKey, String deviceId, Long accountId, File certificate, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/application/certificate/create"
 
         // params
         def queryParams = [:]
@@ -1188,10 +1127,6 @@ class ApplicationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")

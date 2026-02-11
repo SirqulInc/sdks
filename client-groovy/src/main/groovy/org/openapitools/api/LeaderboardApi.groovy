@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.LeaderboardResponse
 import org.openapitools.model.SirqulResponse
 
 class LeaderboardApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createLeaderboard ( BigDecimal version, Long accountId, String appKey, String rankType, String leaderboardMode, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, String sortField, String title, String description, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/leaderboard/create"
+    def createLeaderboard ( Long accountId, String appKey, String rankType, String leaderboardMode, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, String sortField, String title, String description, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/leaderboard/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class LeaderboardApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -73,8 +68,8 @@ class LeaderboardApi {
 
     }
 
-    def deleteLeaderboard ( BigDecimal version, Long leaderboardId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/leaderboard/delete"
+    def deleteLeaderboard ( Long leaderboardId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/leaderboard/delete"
 
         // params
         def queryParams = [:]
@@ -82,10 +77,6 @@ class LeaderboardApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (leaderboardId == null) {
             throw new RuntimeException("missing required params leaderboardId")
@@ -107,8 +98,8 @@ class LeaderboardApi {
 
     }
 
-    def getLeaderboard ( BigDecimal version, Long leaderboardId, Long accountId, Boolean includeFullRankingList, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/leaderboard/get"
+    def getLeaderboard ( Long leaderboardId, Long accountId, Boolean includeFullRankingList, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/leaderboard/get"
 
         // params
         def queryParams = [:]
@@ -116,10 +107,6 @@ class LeaderboardApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (leaderboardId == null) {
             throw new RuntimeException("missing required params leaderboardId")
@@ -144,8 +131,8 @@ class LeaderboardApi {
 
     }
 
-    def searchLeaderboards ( BigDecimal version, Long accountId, String appKey, Boolean globalOnly, String keyword, String leaderboardIds, String rankTypes, String sortField, Boolean descending, Boolean includeInactive, Boolean includeAppResponse, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/leaderboard/search"
+    def searchLeaderboards ( Long accountId, String appKey, Boolean globalOnly, String keyword, String leaderboardIds, String rankTypes, String sortField, Boolean descending, Boolean includeInactive, Boolean includeAppResponse, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/leaderboard/search"
 
         // params
         def queryParams = [:]
@@ -153,10 +140,6 @@ class LeaderboardApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -204,8 +187,8 @@ class LeaderboardApi {
 
     }
 
-    def updateLeaderboard ( BigDecimal version, Long leaderboardId, Long accountId, String appKey, String rankType, String leaderboardMode, String sortField, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, Boolean active, String title, String description, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/leaderboard/update"
+    def updateLeaderboard ( Long leaderboardId, Long accountId, String appKey, String rankType, String leaderboardMode, String sortField, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, Boolean active, String title, String description, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/leaderboard/update"
 
         // params
         def queryParams = [:]
@@ -213,10 +196,6 @@ class LeaderboardApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (leaderboardId == null) {
             throw new RuntimeException("missing required params leaderboardId")

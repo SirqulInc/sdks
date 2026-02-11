@@ -2,7 +2,6 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AccountMiniResponse
-import java.math.BigDecimal
 import org.openapitools.model.Leg
 import org.openapitools.model.LegResponse
 import org.openapitools.model.PredictedLocationResponse
@@ -11,12 +10,12 @@ import org.openapitools.model.SirqulResponse
 import org.openapitools.model.StepResponse
 
 class TrackingApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def batchSaveTracking ( BigDecimal version, String data, String deviceId, Long accountId, Boolean generateAccounts, Boolean updateAccountLocations, String defaultTag, String slaveUID, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/batch/create"
+    def batchSaveTracking ( String data, String deviceId, Long accountId, Boolean generateAccounts, Boolean updateAccountLocations, String defaultTag, String slaveUID, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/batch/create"
 
         // params
         def queryParams = [:]
@@ -24,10 +23,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (data == null) {
             throw new RuntimeException("missing required params data")
@@ -64,8 +59,8 @@ class TrackingApi {
 
     }
 
-    def getPredictedLocations ( BigDecimal version, Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, Long threshold, String distanceUnit, Double searchRange, String sortOrder, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/predicted/get"
+    def getPredictedLocations ( Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, Long threshold, String distanceUnit, Double searchRange, String sortOrder, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/predicted/get"
 
         // params
         def queryParams = [:]
@@ -73,10 +68,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -119,8 +110,8 @@ class TrackingApi {
 
     }
 
-    def getPredictedPath ( BigDecimal version, Long accountId, Long startStepId, Long endStepId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/path/get"
+    def getPredictedPath ( Long accountId, Long startStepId, Long endStepId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/path/get"
 
         // params
         def queryParams = [:]
@@ -128,10 +119,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -164,8 +151,8 @@ class TrackingApi {
 
     }
 
-    def getPreferredLocations ( BigDecimal version, Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, String distanceUnit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/preferred/search"
+    def getPreferredLocations ( Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, String distanceUnit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/preferred/search"
 
         // params
         def queryParams = [:]
@@ -173,10 +160,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -225,8 +208,8 @@ class TrackingApi {
 
     }
 
-    def getTrackingLegs ( BigDecimal version, String deviceId, Long accountId, Long ownerId, String trackingDeviceId, Long startDate, Long endDate, String tags, Boolean getLastPoint, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/search"
+    def getTrackingLegs ( String deviceId, Long accountId, Long ownerId, String trackingDeviceId, Long startDate, Long endDate, String tags, Boolean getLastPoint, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/search"
 
         // params
         def queryParams = [:]
@@ -234,10 +217,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -273,8 +252,8 @@ class TrackingApi {
 
     }
 
-    def saveTrackingLeg ( BigDecimal version, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, String steps, String tags, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/leg/create"
+    def saveTrackingLeg ( Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, String steps, String tags, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/leg/create"
 
         // params
         def queryParams = [:]
@@ -282,10 +261,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (startLat == null) {
             throw new RuntimeException("missing required params startLat")
@@ -357,8 +332,8 @@ class TrackingApi {
 
     }
 
-    def saveTrackingStep ( BigDecimal version, Long legId, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/step/create"
+    def saveTrackingStep ( Long legId, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/step/create"
 
         // params
         def queryParams = [:]
@@ -366,10 +341,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (legId == null) {
             throw new RuntimeException("missing required params legId")
@@ -442,8 +413,8 @@ class TrackingApi {
 
     }
 
-    def searchAccountsWithTrackingLegs ( BigDecimal version, Long accountId, String keyword, Long startDate, Long endDate, String tags, String audienceIds, Double latitude, Double longitude, Double range, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/list"
+    def searchAccountsWithTrackingLegs ( Long accountId, String keyword, Long startDate, Long endDate, String tags, String audienceIds, Double latitude, Double longitude, Double range, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/list"
 
         // params
         def queryParams = [:]
@@ -451,10 +422,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -512,8 +479,8 @@ class TrackingApi {
 
     }
 
-    def searchTrackingLegs ( BigDecimal version, Long accountId, String appKey, String trackingDeviceId, Long startDate, Long endDate, String tags, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tracking/searchByBillable"
+    def searchTrackingLegs ( Long accountId, String appKey, String trackingDeviceId, Long startDate, Long endDate, String tags, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tracking/searchByBillable"
 
         // params
         def queryParams = [:]
@@ -521,10 +488,6 @@ class TrackingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

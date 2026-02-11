@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.RankFullResponse
 import org.openapitools.model.SirqulResponse
 
 class RankingApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getHistoricalRankings ( BigDecimal version, String appKey, String rankType, Long startDate, Long endDate, String deviceId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ranking/historical/search"
+    def getHistoricalRankings ( String appKey, String rankType, Long startDate, Long endDate, String deviceId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ranking/historical/search"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class RankingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -80,8 +75,8 @@ class RankingApi {
 
     }
 
-    def getRankings ( BigDecimal version, String deviceId, Long accountId, String gameType, String appKey, String q, String keyword, String rankType, String leaderboardMode, String withinAccountIds, Boolean returnUserRank, Long albumId, Long audienceId, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ranking/search"
+    def getRankings ( String deviceId, Long accountId, String gameType, String appKey, String q, String keyword, String rankType, String leaderboardMode, String withinAccountIds, Boolean returnUserRank, Long albumId, Long audienceId, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ranking/search"
 
         // params
         def queryParams = [:]
@@ -89,10 +84,6 @@ class RankingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -158,8 +149,8 @@ class RankingApi {
 
     }
 
-    def getUserRank ( BigDecimal version, String deviceId, Long accountId, String appKey, String rankType, Boolean returnUserRank, String leaderboardMode, String sortField, String keyword, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ranking/personal/ranks"
+    def getUserRank ( String deviceId, Long accountId, String appKey, String rankType, Boolean returnUserRank, String leaderboardMode, String sortField, String keyword, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ranking/personal/ranks"
 
         // params
         def queryParams = [:]
@@ -167,10 +158,6 @@ class RankingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -215,8 +202,8 @@ class RankingApi {
 
     }
 
-    def overrideUserRank ( BigDecimal version, Long accountId, Long ownerAccountId, String appKey, String rankType, Long totalScore, Long totalCount, Long totalTime, Long dailyScore, Long dailyCount, Long dailyTime, Long weeklyScore, Long weeklyCount, Long weeklyTime, Long monthlyScore, Long monthlyCount, Long monthlyTime, Long topScore, Long lowestScore, Long streakCount, Long streakBestCount, Long startDate, Long endDate, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ranking/override"
+    def overrideUserRank ( Long accountId, Long ownerAccountId, String appKey, String rankType, Long totalScore, Long totalCount, Long totalTime, Long dailyScore, Long dailyCount, Long dailyTime, Long weeklyScore, Long weeklyCount, Long weeklyTime, Long monthlyScore, Long monthlyCount, Long monthlyTime, Long topScore, Long lowestScore, Long streakCount, Long streakBestCount, Long startDate, Long endDate, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ranking/override"
 
         // params
         def queryParams = [:]
@@ -224,10 +211,6 @@ class RankingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -321,8 +304,8 @@ class RankingApi {
 
     }
 
-    def updateRankings ( BigDecimal version, Long accountId, String appKey, String rankType, Long increment, Long timeIncrement, String tag, Long startDate, Long endDate, Boolean updateGlobal, Boolean createLeaderboard, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ranking/update"
+    def updateRankings ( Long accountId, String appKey, String rankType, Long increment, Long timeIncrement, String tag, Long startDate, Long endDate, Boolean updateGlobal, Boolean createLeaderboard, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ranking/update"
 
         // params
         def queryParams = [:]
@@ -330,10 +313,6 @@ class RankingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

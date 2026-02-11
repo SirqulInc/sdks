@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ScoreResponse
 
 class ScoreApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createScore ( BigDecimal version, Long accountId, String appKey, Integer points, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Integer timeTaken, Boolean highest, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/score/create"
+    def createScore ( Long accountId, String appKey, Integer points, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Integer timeTaken, Boolean highest, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/score/create"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class ScoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -75,8 +70,8 @@ class ScoreApi {
 
     }
 
-    def getScore ( BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, String scoreObjectType, String scoreStatus, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/score/get"
+    def getScore ( Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, String scoreObjectType, String scoreStatus, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/score/get"
 
         // params
         def queryParams = [:]
@@ -84,10 +79,6 @@ class ScoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -134,8 +125,8 @@ class ScoreApi {
 
     }
 
-    def searchScores ( BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/score/search"
+    def searchScores ( Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/score/search"
 
         // params
         def queryParams = [:]
@@ -143,10 +134,6 @@ class ScoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

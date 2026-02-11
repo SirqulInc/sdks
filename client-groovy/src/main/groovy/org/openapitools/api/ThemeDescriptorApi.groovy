@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PurchaseItemListResponse
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.ThemeDescriptorResponse
 
 class ThemeDescriptorApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addOrUpdateThemeDescriptor ( BigDecimal version, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, Boolean completeWithDefaultValues, String deviceId, Long accountId, String gameType, Long themeDescriptorId, String title, String description, String connectionIdsToAdd, String connectionGroupIdsToAdd, String appVersion, String colorValueJson, String stringReplacerJson, String customJsonObjects, File iconImage, File sceneAtlasImage, File bgImage, File bgSound, String musicSelection, String locationDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/theme"
+    def addOrUpdateThemeDescriptor ( Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, Boolean completeWithDefaultValues, String deviceId, Long accountId, String gameType, Long themeDescriptorId, String title, String description, String connectionIdsToAdd, String connectionGroupIdsToAdd, String appVersion, String colorValueJson, String stringReplacerJson, String customJsonObjects, File iconImage, File sceneAtlasImage, File bgImage, File bgSound, String musicSelection, String locationDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/theme"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class ThemeDescriptorApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (publicRead == null) {
             throw new RuntimeException("missing required params publicRead")
@@ -144,8 +139,8 @@ class ThemeDescriptorApi {
 
     }
 
-    def getThemeDescriptor ( BigDecimal version, Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/theme/get"
+    def getThemeDescriptor ( Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/theme/get"
 
         // params
         def queryParams = [:]
@@ -153,10 +148,6 @@ class ThemeDescriptorApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (themeDescriptorId == null) {
             throw new RuntimeException("missing required params themeDescriptorId")
@@ -190,8 +181,8 @@ class ThemeDescriptorApi {
 
     }
 
-    def getThemeDescriptors ( BigDecimal version, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, String appVersion, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/theme/search"
+    def getThemeDescriptors ( String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, String appVersion, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/theme/search"
 
         // params
         def queryParams = [:]
@@ -199,10 +190,6 @@ class ThemeDescriptorApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (filter == null) {
             throw new RuntimeException("missing required params filter")
@@ -288,8 +275,8 @@ class ThemeDescriptorApi {
 
     }
 
-    def removeThemeDescriptor ( BigDecimal version, Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/theme/remove"
+    def removeThemeDescriptor ( Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/theme/remove"
 
         // params
         def queryParams = [:]
@@ -297,10 +284,6 @@ class ThemeDescriptorApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (themeDescriptorId == null) {
             throw new RuntimeException("missing required params themeDescriptorId")

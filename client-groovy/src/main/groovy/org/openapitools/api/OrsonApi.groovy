@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.OrsonAiAddMovieResponse
 import org.openapitools.model.OrsonAiBatchResponse
 import org.openapitools.model.OrsonAiEmotionsResponse
@@ -15,12 +14,12 @@ import org.openapitools.model.OrsonEpisodeResponse
 import org.openapitools.model.OrsonRenderResponse
 
 class OrsonApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addMovie ( BigDecimal version, Long accountId, String movieName, String thirdPartyAccountId, String tags, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/addMovie"
+    def addMovie ( Long accountId, String movieName, String thirdPartyAccountId, String tags, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/addMovie"
 
         // params
         def queryParams = [:]
@@ -28,10 +27,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -72,8 +67,8 @@ class OrsonApi {
 
     }
 
-    def aiDocs ( BigDecimal version, Long accountId, String doc, Boolean returnTopics, Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/docs"
+    def aiDocs ( Long accountId, String doc, Boolean returnTopics, Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/docs"
 
         // params
         def queryParams = [:]
@@ -81,10 +76,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -119,8 +110,8 @@ class OrsonApi {
 
     }
 
-    def aiFindImages ( BigDecimal version, Long accountId, String text, String parseFlag, String fetchFlag, String size, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/img"
+    def aiFindImages ( Long accountId, String text, String parseFlag, String fetchFlag, String size, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/img"
 
         // params
         def queryParams = [:]
@@ -128,10 +119,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -166,8 +153,8 @@ class OrsonApi {
 
     }
 
-    def aiTags ( BigDecimal version, Long accountId, String tags, String conditional, Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/tags"
+    def aiTags ( Long accountId, String tags, String conditional, Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/tags"
 
         // params
         def queryParams = [:]
@@ -175,10 +162,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -213,8 +196,8 @@ class OrsonApi {
 
     }
 
-    def aiText ( BigDecimal version, Long accountId, String terms, String conditional, Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/text"
+    def aiText ( Long accountId, String terms, String conditional, Integer limit, Integer offset, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/text"
 
         // params
         def queryParams = [:]
@@ -222,10 +205,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -260,8 +239,8 @@ class OrsonApi {
 
     }
 
-    def batch ( BigDecimal version, Long accountId, String thirdPartyAccountId, Integer limit, String operations, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/batch"
+    def batch ( Long accountId, String thirdPartyAccountId, Integer limit, String operations, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/batch"
 
         // params
         def queryParams = [:]
@@ -269,10 +248,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -309,8 +284,8 @@ class OrsonApi {
 
     }
 
-    def createInstantEpisode ( BigDecimal version, Long accountId, String data, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/stories/episodes/instant"
+    def createInstantEpisode ( Long accountId, String data, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/stories/episodes/instant"
 
         // params
         def queryParams = [:]
@@ -318,10 +293,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -347,8 +318,8 @@ class OrsonApi {
 
     }
 
-    def createVoiceCanvas ( BigDecimal version, Long accountId, String dimensions, String thirdPartyAccountId, String text, File _file, String url, Boolean parseFlag, Boolean fetchFlag, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/voiceCanvas"
+    def createVoiceCanvas ( Long accountId, String dimensions, String thirdPartyAccountId, String text, File _file, String url, Boolean parseFlag, Boolean fetchFlag, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/voiceCanvas"
 
         // params
         def queryParams = [:]
@@ -356,10 +327,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -406,8 +373,8 @@ class OrsonApi {
 
     }
 
-    def emotion ( BigDecimal version, Long accountId, String thirdPartyAccountId, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/emotion"
+    def emotion ( Long accountId, String thirdPartyAccountId, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/emotion"
 
         // params
         def queryParams = [:]
@@ -415,10 +382,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -449,8 +412,8 @@ class OrsonApi {
 
     }
 
-    def getAddMovieResult ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/addMovie/${requestId}"
+    def getAddMovieResult ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/addMovie/${requestId}"
 
         // params
         def queryParams = [:]
@@ -458,10 +421,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -484,8 +443,8 @@ class OrsonApi {
 
     }
 
-    def getBatch ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/batch/${requestId}"
+    def getBatch ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/batch/${requestId}"
 
         // params
         def queryParams = [:]
@@ -493,10 +452,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -519,8 +474,8 @@ class OrsonApi {
 
     }
 
-    def getEmotion ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/emotion/${requestId}"
+    def getEmotion ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/emotion/${requestId}"
 
         // params
         def queryParams = [:]
@@ -528,10 +483,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -554,8 +505,8 @@ class OrsonApi {
 
     }
 
-    def getEpisodeStatus ( BigDecimal version, Long episodeId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/stories/episodes/${episodeId}/status"
+    def getEpisodeStatus ( Long episodeId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/stories/episodes/${episodeId}/status"
 
         // params
         def queryParams = [:]
@@ -563,10 +514,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (episodeId == null) {
             throw new RuntimeException("missing required params episodeId")
@@ -589,8 +536,8 @@ class OrsonApi {
 
     }
 
-    def getRenderStatus ( BigDecimal version, String renderId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/stories/renders/${renderId}/status"
+    def getRenderStatus ( String renderId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/stories/renders/${renderId}/status"
 
         // params
         def queryParams = [:]
@@ -598,10 +545,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (renderId == null) {
             throw new RuntimeException("missing required params renderId")
@@ -624,8 +567,8 @@ class OrsonApi {
 
     }
 
-    def getSTT ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/stt/${requestId}"
+    def getSTT ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/stt/${requestId}"
 
         // params
         def queryParams = [:]
@@ -633,10 +576,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -659,8 +598,8 @@ class OrsonApi {
 
     }
 
-    def getTTS ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/tts/${requestId}"
+    def getTTS ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/tts/${requestId}"
 
         // params
         def queryParams = [:]
@@ -668,10 +607,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -694,8 +629,8 @@ class OrsonApi {
 
     }
 
-    def getTechTune ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/techTune/${requestId}"
+    def getTechTune ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/techTune/${requestId}"
 
         // params
         def queryParams = [:]
@@ -703,10 +638,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -729,8 +660,8 @@ class OrsonApi {
 
     }
 
-    def getTopics ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/topics/${requestId}"
+    def getTopics ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/topics/${requestId}"
 
         // params
         def queryParams = [:]
@@ -738,10 +669,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -764,8 +691,8 @@ class OrsonApi {
 
     }
 
-    def getVoiceCanvas ( BigDecimal version, String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/voiceCanvas/${requestId}"
+    def getVoiceCanvas ( String requestId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/voiceCanvas/${requestId}"
 
         // params
         def queryParams = [:]
@@ -773,10 +700,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (requestId == null) {
             throw new RuntimeException("missing required params requestId")
@@ -799,8 +722,8 @@ class OrsonApi {
 
     }
 
-    def startVideoRender ( BigDecimal version, Long accountId, String data, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/stories/renders"
+    def startVideoRender ( Long accountId, String data, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/stories/renders"
 
         // params
         def queryParams = [:]
@@ -808,10 +731,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -837,8 +756,8 @@ class OrsonApi {
 
     }
 
-    def stt ( BigDecimal version, Long accountId, String thirdPartyAccountId, String sourceLanguage, String targetLanguage, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/stt"
+    def stt ( Long accountId, String thirdPartyAccountId, String sourceLanguage, String targetLanguage, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/stt"
 
         // params
         def queryParams = [:]
@@ -846,10 +765,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -886,8 +801,8 @@ class OrsonApi {
 
     }
 
-    def summarizeTopics ( BigDecimal version, Long accountId, String thirdPartyAccountId, String doc, File _file, String url, Integer limit, Integer offset, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/topics"
+    def summarizeTopics ( Long accountId, String thirdPartyAccountId, String doc, File _file, String url, Integer limit, Integer offset, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/topics"
 
         // params
         def queryParams = [:]
@@ -895,10 +810,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -938,8 +849,8 @@ class OrsonApi {
 
     }
 
-    def techTune ( BigDecimal version, Long accountId, Integer numFacesExpected, String thirdPartyAccountId, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/techTune"
+    def techTune ( Long accountId, Integer numFacesExpected, String thirdPartyAccountId, File _file, String url, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/techTune"
 
         // params
         def queryParams = [:]
@@ -947,10 +858,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -988,8 +895,8 @@ class OrsonApi {
 
     }
 
-    def tts ( BigDecimal version, Long accountId, String text, String thirdPartyAccountId, String language, String voice, String paramCallback, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/orson/ai/tts"
+    def tts ( Long accountId, String text, String thirdPartyAccountId, String language, String voice, String paramCallback, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/orson/ai/tts"
 
         // params
         def queryParams = [:]
@@ -997,10 +904,6 @@ class OrsonApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

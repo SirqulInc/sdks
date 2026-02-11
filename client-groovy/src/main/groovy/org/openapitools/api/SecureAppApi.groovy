@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PaymentRequest
 import org.openapitools.model.ProfileResponse
 import org.openapitools.model.SirqulResponse
 
 class SecureAppApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createSecureApplication ( BigDecimal version, Long accountId, String appKey, File keyCert, File trustStore, String username, String password, Boolean active, String biometricType, String biometricPosition, String biometricPosition2, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/secure/application/create"
+    def createSecureApplication ( Long accountId, String appKey, File keyCert, File trustStore, String username, String password, Boolean active, String biometricType, String biometricPosition, String biometricPosition2, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/secure/application/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class SecureAppApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -89,8 +84,8 @@ class SecureAppApi {
 
     }
 
-    def deleteSecureApplication ( BigDecimal version, Long accountId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/secure/application/delete"
+    def deleteSecureApplication ( Long accountId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/secure/application/delete"
 
         // params
         def queryParams = [:]
@@ -98,10 +93,6 @@ class SecureAppApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -127,8 +118,8 @@ class SecureAppApi {
 
     }
 
-    def loginSecure ( BigDecimal version, String appKey, File biometricFile, String deviceId, File biometricFile2, Integer ageRestriction, Boolean returnProfile, String responseFilters, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/secure/login"
+    def loginSecure ( String appKey, File biometricFile, String deviceId, File biometricFile2, Integer ageRestriction, Boolean returnProfile, String responseFilters, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/secure/login"
 
         // params
         def queryParams = [:]
@@ -136,10 +127,6 @@ class SecureAppApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -186,8 +173,8 @@ class SecureAppApi {
 
     }
 
-    def purchaseSecure ( BigDecimal version, PaymentRequest body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/secure/purchase"
+    def purchaseSecure ( PaymentRequest body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/secure/purchase"
 
         // params
         def queryParams = [:]
@@ -195,10 +182,6 @@ class SecureAppApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (body == null) {
             throw new RuntimeException("missing required params body")
@@ -216,8 +199,8 @@ class SecureAppApi {
 
     }
 
-    def resetSecure ( BigDecimal version, Long accountId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/secure/application/reset"
+    def resetSecure ( Long accountId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/secure/application/reset"
 
         // params
         def queryParams = [:]
@@ -225,10 +208,6 @@ class SecureAppApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -254,8 +233,8 @@ class SecureAppApi {
 
     }
 
-    def updateSecureApplication ( BigDecimal version, Long accountId, String appKey, Boolean active, File keyCert, File trustStore, String username, String password, String biometricType, String biometricPosition, String biometricPosition2, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/secure/application/update"
+    def updateSecureApplication ( Long accountId, String appKey, Boolean active, File keyCert, File trustStore, String username, String password, String biometricType, String biometricPosition, String biometricPosition2, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/secure/application/update"
 
         // params
         def queryParams = [:]
@@ -263,10 +242,6 @@ class SecureAppApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.Stop
 
 class StopApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getStop ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/stop/${id}"
+    def getStop ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/stop/${id}"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class StopApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -37,8 +32,8 @@ class StopApi {
 
     }
 
-    def updateStop ( BigDecimal version, Long id, Stop body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/stop/${id}"
+    def updateStop ( Long id, Stop body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/stop/${id}"
 
         // params
         def queryParams = [:]
@@ -46,10 +41,6 @@ class StopApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")

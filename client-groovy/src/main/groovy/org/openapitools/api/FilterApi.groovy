@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.FilterResponse
 import org.openapitools.model.FilterTreeResponse
 import org.openapitools.model.SirqulResponse
 
 class FilterApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createFilter ( BigDecimal version, Long accountId, String name, String appKey, Long parentFilterId, String description, String externalId, String externalType, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/filter/create"
+    def createFilter ( Long accountId, String name, String appKey, Long parentFilterId, String description, String externalId, String externalType, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/filter/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class FilterApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -70,8 +65,8 @@ class FilterApi {
 
     }
 
-    def deleteFilter ( BigDecimal version, Long accountId, Long filterId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/filter/delete"
+    def deleteFilter ( Long accountId, Long filterId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/filter/delete"
 
         // params
         def queryParams = [:]
@@ -79,10 +74,6 @@ class FilterApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -108,8 +99,8 @@ class FilterApi {
 
     }
 
-    def getFilter ( BigDecimal version, Long filterId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/filter/get"
+    def getFilter ( Long filterId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/filter/get"
 
         // params
         def queryParams = [:]
@@ -117,10 +108,6 @@ class FilterApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (filterId == null) {
             throw new RuntimeException("missing required params filterId")
@@ -139,8 +126,8 @@ class FilterApi {
 
     }
 
-    def searchFilters ( BigDecimal version, Long accountId, String keyword, String appKey, String responseGroup, Boolean rootOnly, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/filter/search"
+    def searchFilters ( Long accountId, String keyword, String appKey, String responseGroup, Boolean rootOnly, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/filter/search"
 
         // params
         def queryParams = [:]
@@ -148,10 +135,6 @@ class FilterApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -193,8 +176,8 @@ class FilterApi {
 
     }
 
-    def updateFilter ( BigDecimal version, Long accountId, Long filterId, Long parentFilterId, String name, String description, String externalId, String externalType, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/filter/update"
+    def updateFilter ( Long accountId, Long filterId, Long parentFilterId, String name, String description, String externalId, String externalType, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/filter/update"
 
         // params
         def queryParams = [:]
@@ -202,10 +185,6 @@ class FilterApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

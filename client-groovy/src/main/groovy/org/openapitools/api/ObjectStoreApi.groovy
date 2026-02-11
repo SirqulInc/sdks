@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ObjectStoreResponse
 
 class ObjectStoreApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addField ( BigDecimal version, Long accountId, String appKey, String objectName, String fieldName, String fieldType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/field/add"
+    def addField ( Long accountId, String appKey, String objectName, String fieldName, String fieldType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/field/add"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -68,8 +63,8 @@ class ObjectStoreApi {
 
     }
 
-    def createData ( BigDecimal version, String objectName, Long accountId, String body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/data/${objectName}"
+    def createData ( String objectName, Long accountId, String body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/data/${objectName}"
 
         // params
         def queryParams = [:]
@@ -77,10 +72,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (objectName == null) {
             throw new RuntimeException("missing required params objectName")
@@ -101,8 +92,8 @@ class ObjectStoreApi {
 
     }
 
-    def createObject ( BigDecimal version, Long accountId, String appKey, String objectName, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/create"
+    def createObject ( Long accountId, String appKey, String objectName, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/create"
 
         // params
         def queryParams = [:]
@@ -110,10 +101,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -146,8 +133,8 @@ class ObjectStoreApi {
 
     }
 
-    def deleteData ( BigDecimal version, String objectName, String objectId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/data/${objectName}/${objectId}"
+    def deleteData ( String objectName, String objectId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/data/${objectName}/${objectId}"
 
         // params
         def queryParams = [:]
@@ -155,10 +142,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (objectName == null) {
             throw new RuntimeException("missing required params objectName")
@@ -181,8 +164,8 @@ class ObjectStoreApi {
 
     }
 
-    def deleteField ( BigDecimal version, Long accountId, String appKey, String objectName, String fieldName, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/field/delete"
+    def deleteField ( Long accountId, String appKey, String objectName, String fieldName, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/field/delete"
 
         // params
         def queryParams = [:]
@@ -190,10 +173,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -233,8 +212,8 @@ class ObjectStoreApi {
 
     }
 
-    def deleteObject ( BigDecimal version, Long accountId, String appKey, String objectName, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/delete"
+    def deleteObject ( Long accountId, String appKey, String objectName, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/delete"
 
         // params
         def queryParams = [:]
@@ -242,10 +221,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -278,8 +253,8 @@ class ObjectStoreApi {
 
     }
 
-    def getData ( BigDecimal version, String objectName, String objectId, Long accountId, String include, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/data/${objectName}/${objectId}"
+    def getData ( String objectName, String objectId, Long accountId, String include, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/data/${objectName}/${objectId}"
 
         // params
         def queryParams = [:]
@@ -287,10 +262,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (objectName == null) {
             throw new RuntimeException("missing required params objectName")
@@ -316,8 +287,8 @@ class ObjectStoreApi {
 
     }
 
-    def getObject ( BigDecimal version, Long accountId, String appKey, String objectName, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/get"
+    def getObject ( Long accountId, String appKey, String objectName, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/get"
 
         // params
         def queryParams = [:]
@@ -325,10 +296,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -361,8 +328,8 @@ class ObjectStoreApi {
 
     }
 
-    def searchData ( BigDecimal version, String objectName, Boolean count, Long start, Long limit, Long accountId, String criteria, String order, String include, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/data/${objectName}"
+    def searchData ( String objectName, Boolean count, Long start, Long limit, Long accountId, String criteria, String order, String include, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/data/${objectName}"
 
         // params
         def queryParams = [:]
@@ -370,10 +337,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (objectName == null) {
             throw new RuntimeException("missing required params objectName")
@@ -422,8 +385,8 @@ class ObjectStoreApi {
 
     }
 
-    def searchObject ( BigDecimal version, Long accountId, String appKey, Long start, Long limit, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/search"
+    def searchObject ( Long accountId, String appKey, Long start, Long limit, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/search"
 
         // params
         def queryParams = [:]
@@ -431,10 +394,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -477,8 +436,8 @@ class ObjectStoreApi {
 
     }
 
-    def updateData ( BigDecimal version, String objectName, String objectId, Long accountId, String body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/object/data/${objectName}/${objectId}"
+    def updateData ( String objectName, String objectId, Long accountId, String body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/object/data/${objectName}/${objectId}"
 
         // params
         def queryParams = [:]
@@ -486,10 +445,6 @@ class ObjectStoreApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (objectName == null) {
             throw new RuntimeException("missing required params objectName")

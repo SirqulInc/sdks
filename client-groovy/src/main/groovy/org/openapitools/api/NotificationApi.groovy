@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.BlockedNotificationResponse
 import org.openapitools.model.NotificationMessageListResponse
 import org.openapitools.model.NotificationRecipientResponse
@@ -10,12 +9,12 @@ import org.openapitools.model.NotificationTemplateResponse
 import org.openapitools.model.SirqulResponse
 
 class NotificationApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createNotificationTemplate ( BigDecimal version, Long accountId, String conduit, String title, String body, String appKey, String event, String tags, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/template/create"
+    def createNotificationTemplate ( Long accountId, String conduit, String title, String body, String appKey, String event, String tags, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/template/create"
 
         // params
         def queryParams = [:]
@@ -23,10 +22,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -75,8 +70,8 @@ class NotificationApi {
 
     }
 
-    def createOrUpdateBlockedNotifications ( BigDecimal version, String appKey, String data, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/blocked/batch"
+    def createOrUpdateBlockedNotifications ( String appKey, String data, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/blocked/batch"
 
         // params
         def queryParams = [:]
@@ -84,10 +79,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -116,8 +107,8 @@ class NotificationApi {
 
     }
 
-    def deleteNotificationTemplate ( BigDecimal version, Long accountId, Long notificationTemplateId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/template/delete"
+    def deleteNotificationTemplate ( Long accountId, Long notificationTemplateId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/template/delete"
 
         // params
         def queryParams = [:]
@@ -125,10 +116,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -154,8 +141,8 @@ class NotificationApi {
 
     }
 
-    def getNotificationTemplate ( BigDecimal version, Long accountId, Long notificationTemplateId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/template/get"
+    def getNotificationTemplate ( Long accountId, Long notificationTemplateId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/template/get"
 
         // params
         def queryParams = [:]
@@ -163,10 +150,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -192,8 +175,8 @@ class NotificationApi {
 
     }
 
-    def getNotifications ( BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String appKey, String eventType, String contentIds, String contentTypes, String parentIds, String parentTypes, String actionCategory, String conduits, String keyword, Boolean returnReadMessages, Boolean markAsRead, Long fromDate, Double latitude, Double longitude, Boolean returnSent, Boolean ignoreFlagged, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/search"
+    def getNotifications ( String deviceId, Long accountId, Long connectionAccountId, String appKey, String eventType, String contentIds, String contentTypes, String parentIds, String parentTypes, String actionCategory, String conduits, String keyword, Boolean returnReadMessages, Boolean markAsRead, Long fromDate, Double latitude, Double longitude, Boolean returnSent, Boolean ignoreFlagged, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/search"
 
         // params
         def queryParams = [:]
@@ -201,10 +184,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -279,8 +258,8 @@ class NotificationApi {
 
     }
 
-    def registerNotificationToken ( BigDecimal version, String token, String pushType, String deviceId, Long accountId, String environment, String appKey, String gameType, Boolean active, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/token"
+    def registerNotificationToken ( String token, String pushType, String deviceId, Long accountId, String environment, String appKey, String gameType, Boolean active, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/token"
 
         // params
         def queryParams = [:]
@@ -288,10 +267,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (token == null) {
             throw new RuntimeException("missing required params token")
@@ -341,8 +316,8 @@ class NotificationApi {
 
     }
 
-    def searchBlockedNotifications ( BigDecimal version, String appKey, Long accountId, String searchTags, String events, String conduits, String customTypes, String contentTypes, String contentIds, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/blocked/search"
+    def searchBlockedNotifications ( String appKey, Long accountId, String searchTags, String events, String conduits, String customTypes, String contentTypes, String contentIds, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/blocked/search"
 
         // params
         def queryParams = [:]
@@ -350,10 +325,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -405,8 +376,8 @@ class NotificationApi {
 
     }
 
-    def searchNotificationTemplate ( BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, String appKey, String event, String conduit, Boolean globalOnly, Boolean reservedOnly, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/template/search"
+    def searchNotificationTemplate ( Long accountId, String sortField, Boolean descending, Integer start, Integer limit, String appKey, String event, String conduit, Boolean globalOnly, Boolean reservedOnly, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/template/search"
 
         // params
         def queryParams = [:]
@@ -414,10 +385,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -482,8 +449,8 @@ class NotificationApi {
 
     }
 
-    def searchRecipients ( BigDecimal version, String sortField, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String recipientAccountIds, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/recipient/search"
+    def searchRecipients ( String sortField, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String recipientAccountIds, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/recipient/search"
 
         // params
         def queryParams = [:]
@@ -491,10 +458,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -549,8 +512,8 @@ class NotificationApi {
 
     }
 
-    def searchRecipientsCount ( BigDecimal version, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/recipient/search/count"
+    def searchRecipientsCount ( String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/recipient/search/count"
 
         // params
         def queryParams = [:]
@@ -558,10 +521,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -609,8 +568,8 @@ class NotificationApi {
 
     }
 
-    def sendBatchNotifications ( BigDecimal version, Long accountId, String appKey, String customMessage, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/batch"
+    def sendBatchNotifications ( Long accountId, String appKey, String customMessage, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/batch"
 
         // params
         def queryParams = [:]
@@ -618,10 +577,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -672,8 +627,8 @@ class NotificationApi {
 
     }
 
-    def sendCustomNotifications ( BigDecimal version, String deviceId, Long accountId, String receiverAccountIds, Boolean includeFriendGroup, String appKey, String gameType, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, String actionCategory, String subject, String customMessage, Boolean friendOnlyAPNS, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/custom"
+    def sendCustomNotifications ( String deviceId, Long accountId, String receiverAccountIds, Boolean includeFriendGroup, String appKey, String gameType, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, String actionCategory, String subject, String customMessage, Boolean friendOnlyAPNS, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/custom"
 
         // params
         def queryParams = [:]
@@ -681,10 +636,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -750,8 +701,8 @@ class NotificationApi {
 
     }
 
-    def updateNotificationTemplate ( BigDecimal version, Long accountId, Long notificationTemplateId, String title, String body, String tags, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/template/update"
+    def updateNotificationTemplate ( Long accountId, Long notificationTemplateId, String title, String body, String tags, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/template/update"
 
         // params
         def queryParams = [:]
@@ -759,10 +710,6 @@ class NotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

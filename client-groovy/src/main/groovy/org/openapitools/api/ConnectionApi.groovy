@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ConnectionGroupResponse
 import org.openapitools.model.ConnectionInfoResponse
 import org.openapitools.model.ConnectionListResponse
@@ -9,12 +8,12 @@ import org.openapitools.model.ConnectionResponse
 import org.openapitools.model.SirqulResponse
 
 class ConnectionApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addConnectionToGroup ( BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/group/addConnection"
+    def addConnectionToGroup ( Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/group/addConnection"
 
         // params
         def queryParams = [:]
@@ -22,10 +21,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -72,8 +67,8 @@ class ConnectionApi {
 
     }
 
-    def addConnectionsToGroup ( BigDecimal version, Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/connection/group/addConnections"
+    def addConnectionsToGroup ( Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/connection/group/addConnections"
 
         // params
         def queryParams = [:]
@@ -81,10 +76,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (connectionGroupId == null) {
             throw new RuntimeException("missing required params connectionGroupId")
@@ -121,8 +112,8 @@ class ConnectionApi {
 
     }
 
-    def addSubGroups ( BigDecimal version, Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/group/addSubGroup"
+    def addSubGroups ( Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/group/addSubGroup"
 
         // params
         def queryParams = [:]
@@ -130,10 +121,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -178,8 +165,8 @@ class ConnectionApi {
 
     }
 
-    def createOrUpdateConnection ( BigDecimal version, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Long groupId, String gameType, String appKey, Boolean isTrusted, Boolean ignoreFriendRequest, Boolean isContact, Boolean isBlocked, Boolean isFollowing, Boolean connectionResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/add"
+    def createOrUpdateConnection ( String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Long groupId, String gameType, String appKey, Boolean isTrusted, Boolean ignoreFriendRequest, Boolean isContact, Boolean isBlocked, Boolean isFollowing, Boolean connectionResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/add"
 
         // params
         def queryParams = [:]
@@ -187,10 +174,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -244,8 +227,8 @@ class ConnectionApi {
 
     }
 
-    def createOrUpdateGroup ( BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, String name, Long groupId, Long assetId, String connections, String description, Boolean canViewProfileInfo, Boolean canViewGameInfo, Boolean canViewFriendInfo, Boolean active, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/group"
+    def createOrUpdateGroup ( Boolean returnNulls, String deviceId, Long accountId, String name, Long groupId, Long assetId, String connections, String description, Boolean canViewProfileInfo, Boolean canViewGameInfo, Boolean canViewFriendInfo, Boolean active, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/group"
 
         // params
         def queryParams = [:]
@@ -253,10 +236,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -314,8 +293,8 @@ class ConnectionApi {
 
     }
 
-    def followAccept ( BigDecimal version, Long accountId, Long connectionAccountId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/follow/accept"
+    def followAccept ( Long accountId, Long connectionAccountId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/follow/accept"
 
         // params
         def queryParams = [:]
@@ -323,10 +302,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -359,8 +334,8 @@ class ConnectionApi {
 
     }
 
-    def followReject ( BigDecimal version, Long accountId, Long connectionAccountId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/follow/reject"
+    def followReject ( Long accountId, Long connectionAccountId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/follow/reject"
 
         // params
         def queryParams = [:]
@@ -368,10 +343,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -404,8 +375,8 @@ class ConnectionApi {
 
     }
 
-    def followRemove ( BigDecimal version, Long accountId, Long connectionAccountId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/follow/remove"
+    def followRemove ( Long accountId, Long connectionAccountId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/follow/remove"
 
         // params
         def queryParams = [:]
@@ -413,10 +384,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -449,8 +416,8 @@ class ConnectionApi {
 
     }
 
-    def followRequest ( BigDecimal version, Long accountId, Long connectionAccountId, String appKey, Boolean approvalNeeded, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/follow/request"
+    def followRequest ( Long accountId, Long connectionAccountId, String appKey, Boolean approvalNeeded, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/follow/request"
 
         // params
         def queryParams = [:]
@@ -458,10 +425,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -497,8 +460,8 @@ class ConnectionApi {
 
     }
 
-    def friendAccept ( BigDecimal version, Long friendAccountId, Boolean notifyFriend, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/friend/accept"
+    def friendAccept ( Long friendAccountId, Boolean notifyFriend, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/friend/accept"
 
         // params
         def queryParams = [:]
@@ -506,10 +469,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (friendAccountId == null) {
             throw new RuntimeException("missing required params friendAccountId")
@@ -550,8 +509,8 @@ class ConnectionApi {
 
     }
 
-    def friendReject ( BigDecimal version, Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, Boolean notifyFriend, String notificationMessage, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/friend/reject"
+    def friendReject ( Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, Boolean notifyFriend, String notificationMessage, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/friend/reject"
 
         // params
         def queryParams = [:]
@@ -559,10 +518,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (friendAccountId == null) {
             throw new RuntimeException("missing required params friendAccountId")
@@ -599,8 +554,8 @@ class ConnectionApi {
 
     }
 
-    def friendRemove ( BigDecimal version, Long friendAccountId, String deviceId, Long accountId, Boolean notifyFriend, Boolean removeFromGroups, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/friend/remove"
+    def friendRemove ( Long friendAccountId, String deviceId, Long accountId, Boolean notifyFriend, Boolean removeFromGroups, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/friend/remove"
 
         // params
         def queryParams = [:]
@@ -608,10 +563,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (friendAccountId == null) {
             throw new RuntimeException("missing required params friendAccountId")
@@ -642,8 +593,8 @@ class ConnectionApi {
 
     }
 
-    def friendRequest ( BigDecimal version, Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/friend/request"
+    def friendRequest ( Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/friend/request"
 
         // params
         def queryParams = [:]
@@ -651,10 +602,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (friendAccountId == null) {
             throw new RuntimeException("missing required params friendAccountId")
@@ -688,8 +635,8 @@ class ConnectionApi {
 
     }
 
-    def getConnectionSentFriendRequests ( BigDecimal version, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/getRequested"
+    def getConnectionSentFriendRequests ( String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/getRequested"
 
         // params
         def queryParams = [:]
@@ -697,10 +644,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -718,8 +661,8 @@ class ConnectionApi {
 
     }
 
-    def getConnections ( BigDecimal version, Boolean returnNulls, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, Long connectionAccountId, String q, String keyword, Integer i, Integer l, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/get"
+    def getConnections ( Boolean returnNulls, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, Long connectionAccountId, String q, String keyword, Integer i, Integer l, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/get"
 
         // params
         def queryParams = [:]
@@ -727,10 +670,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -811,8 +750,8 @@ class ConnectionApi {
 
     }
 
-    def getGroupDetails ( BigDecimal version, Boolean combineConnections, String deviceId, Long accountId, Long groupId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/group/details/get"
+    def getGroupDetails ( Boolean combineConnections, String deviceId, Long accountId, Long groupId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/group/details/get"
 
         // params
         def queryParams = [:]
@@ -820,10 +759,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (combineConnections == null) {
             throw new RuntimeException("missing required params combineConnections")
@@ -857,8 +792,8 @@ class ConnectionApi {
 
     }
 
-    def groupSearch ( BigDecimal version, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/connection/group/search"
+    def groupSearch ( String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/connection/group/search"
 
         // params
         def queryParams = [:]
@@ -866,10 +801,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -931,8 +862,8 @@ class ConnectionApi {
 
     }
 
-    def removeConnectionFromGroup ( BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/group/removeConnection"
+    def removeConnectionFromGroup ( Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/group/removeConnection"
 
         // params
         def queryParams = [:]
@@ -940,10 +871,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -990,8 +917,8 @@ class ConnectionApi {
 
     }
 
-    def removeConnectionsFromGroup ( BigDecimal version, Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/connection/group/removeConnections"
+    def removeConnectionsFromGroup ( Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/connection/group/removeConnections"
 
         // params
         def queryParams = [:]
@@ -999,10 +926,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (connectionGroupId == null) {
             throw new RuntimeException("missing required params connectionGroupId")
@@ -1039,8 +962,8 @@ class ConnectionApi {
 
     }
 
-    def removeGroup ( BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/group/remove"
+    def removeGroup ( Boolean returnNulls, Long groupId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/group/remove"
 
         // params
         def queryParams = [:]
@@ -1048,10 +971,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -1089,8 +1008,8 @@ class ConnectionApi {
 
     }
 
-    def removeSubGroups ( BigDecimal version, Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/connection/group/removeSubGroup"
+    def removeSubGroups ( Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/connection/group/removeSubGroup"
 
         // params
         def queryParams = [:]
@@ -1098,10 +1017,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -1146,8 +1061,8 @@ class ConnectionApi {
 
     }
 
-    def searchConnections ( BigDecimal version, Boolean returnNulls, Integer start, Integer limit, String deviceId, Long accountId, String q, String keyword, Double latitude, Double longitude, String gameType, String appKey, Integer i, Integer l, String sortField, Boolean hasLocation, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/connection/search"
+    def searchConnections ( Boolean returnNulls, Integer start, Integer limit, String deviceId, Long accountId, String q, String keyword, Double latitude, Double longitude, String gameType, String appKey, Integer i, Integer l, String sortField, Boolean hasLocation, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/connection/search"
 
         // params
         def queryParams = [:]
@@ -1155,10 +1070,6 @@ class ConnectionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")

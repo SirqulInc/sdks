@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.RegionLegSummary
 import org.openapitools.model.ReportBatchResponse
 import org.openapitools.model.ReportRegionLegSummaryBatchResponse
@@ -9,12 +8,12 @@ import org.openapitools.model.ReportResponse
 import org.openapitools.model.SirqulResponse
 
 class ReportingApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createBatch ( BigDecimal version, Long accountId, String status, Integer previewLimit, String appKey, String endpoint, String parameters, String name, Long startDate, Long endDate, String description, String pageUrl, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/report/batch/create"
+    def createBatch ( Long accountId, String status, Integer previewLimit, String appKey, String endpoint, String parameters, String name, Long startDate, Long endDate, String description, String pageUrl, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/report/batch/create"
 
         // params
         def queryParams = [:]
@@ -22,10 +21,6 @@ class ReportingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -82,8 +77,8 @@ class ReportingApi {
 
     }
 
-    def createRegionLegSummaryBatch ( BigDecimal version, List<RegionLegSummary> body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/report/region/summary/batch"
+    def createRegionLegSummaryBatch ( List<RegionLegSummary> body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/report/region/summary/batch"
 
         // params
         def queryParams = [:]
@@ -91,10 +86,6 @@ class ReportingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -108,8 +99,8 @@ class ReportingApi {
 
     }
 
-    def deleteBatch ( BigDecimal version, Long accountId, Long batchId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/report/batch/delete"
+    def deleteBatch ( Long accountId, Long batchId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/report/batch/delete"
 
         // params
         def queryParams = [:]
@@ -117,10 +108,6 @@ class ReportingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -146,8 +133,8 @@ class ReportingApi {
 
     }
 
-    def getReportBatch ( BigDecimal version, Long accountId, Long batchId, Boolean allResults, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/report/batch/get"
+    def getReportBatch ( Long accountId, Long batchId, Boolean allResults, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/report/batch/get"
 
         // params
         def queryParams = [:]
@@ -155,10 +142,6 @@ class ReportingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -191,8 +174,8 @@ class ReportingApi {
 
     }
 
-    def runReport ( BigDecimal version, Boolean desc, Long accountId, String query, String parameters, String order, Long start, Long limit, String responseFormat, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/report/run"
+    def runReport ( Boolean desc, Long accountId, String query, String parameters, String order, Long start, Long limit, String responseFormat, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/report/run"
 
         // params
         def queryParams = [:]
@@ -200,10 +183,6 @@ class ReportingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (desc == null) {
             throw new RuntimeException("missing required params desc")
@@ -243,8 +222,8 @@ class ReportingApi {
 
     }
 
-    def searchBatch ( BigDecimal version, Long accountId, Integer start, Integer limit, String names, String appKey, String status, Boolean globalAppSearch, Long startDate, Long endDate, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/report/batch/search"
+    def searchBatch ( Long accountId, Integer start, Integer limit, String names, String appKey, String status, Boolean globalAppSearch, Long startDate, Long endDate, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/report/batch/search"
 
         // params
         def queryParams = [:]
@@ -252,10 +231,6 @@ class ReportingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ServiceHub
 
 class ServiceHubApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createServiceHub ( BigDecimal version, ServiceHub body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/hub"
+    def createServiceHub ( ServiceHub body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/hub"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class ServiceHubApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -35,8 +30,8 @@ class ServiceHubApi {
 
     }
 
-    def deleteServiceHub ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/hub/${id}"
+    def deleteServiceHub ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/hub/${id}"
 
         // params
         def queryParams = [:]
@@ -44,10 +39,6 @@ class ServiceHubApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -63,8 +54,8 @@ class ServiceHubApi {
 
     }
 
-    def getServiceHub ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/hub/${id}"
+    def getServiceHub ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/hub/${id}"
 
         // params
         def queryParams = [:]
@@ -72,10 +63,6 @@ class ServiceHubApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -91,8 +78,8 @@ class ServiceHubApi {
 
     }
 
-    def postServiceHub ( BigDecimal version, Long id, ServiceHub body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/hub/${id}"
+    def postServiceHub ( Long id, ServiceHub body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/hub/${id}"
 
         // params
         def queryParams = [:]
@@ -100,10 +87,6 @@ class ServiceHubApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -121,8 +104,8 @@ class ServiceHubApi {
 
     }
 
-    def putServiceHub ( BigDecimal version, Long id, ServiceHub body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/hub/${id}"
+    def putServiceHub ( Long id, ServiceHub body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/hub/${id}"
 
         // params
         def queryParams = [:]
@@ -130,10 +113,6 @@ class ServiceHubApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -151,8 +130,8 @@ class ServiceHubApi {
 
     }
 
-    def searchServiceHubs ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Long retailerId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/hub"
+    def searchServiceHubs ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Long retailerId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/hub"
 
         // params
         def queryParams = [:]
@@ -160,10 +139,6 @@ class ServiceHubApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")

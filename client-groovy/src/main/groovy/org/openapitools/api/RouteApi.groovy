@@ -1,19 +1,18 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.Direction
 import org.openapitools.model.Route
 import org.openapitools.model.Shipment
 import org.openapitools.model.Stop
 
 class RouteApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def approveRoute ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/approve"
+    def approveRoute ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/approve"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -40,8 +35,8 @@ class RouteApi {
 
     }
 
-    def copyRoute ( BigDecimal version, Long routeId, Route body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/copy"
+    def copyRoute ( Long routeId, Route body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/copy"
 
         // params
         def queryParams = [:]
@@ -49,10 +44,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -70,8 +61,8 @@ class RouteApi {
 
     }
 
-    def createRoute ( BigDecimal version, Route body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route"
+    def createRoute ( Route body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route"
 
         // params
         def queryParams = [:]
@@ -79,10 +70,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -96,8 +83,8 @@ class RouteApi {
 
     }
 
-    def createRouteDirections ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/directions"
+    def createRouteDirections ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/directions"
 
         // params
         def queryParams = [:]
@@ -105,10 +92,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -124,8 +107,8 @@ class RouteApi {
 
     }
 
-    def createRoutePolyline ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/polyline"
+    def createRoutePolyline ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/polyline"
 
         // params
         def queryParams = [:]
@@ -133,10 +116,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -152,8 +131,8 @@ class RouteApi {
 
     }
 
-    def deleteRoute ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}"
+    def deleteRoute ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}"
 
         // params
         def queryParams = [:]
@@ -161,10 +140,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -180,8 +155,8 @@ class RouteApi {
 
     }
 
-    def disapproveRoute ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/disapprove"
+    def disapproveRoute ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/disapprove"
 
         // params
         def queryParams = [:]
@@ -189,10 +164,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -208,8 +179,8 @@ class RouteApi {
 
     }
 
-    def getRoute ( BigDecimal version, Long routeId, Boolean showInheritedProperties, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}"
+    def getRoute ( Long routeId, Boolean showInheritedProperties, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}"
 
         // params
         def queryParams = [:]
@@ -217,10 +188,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -243,8 +210,8 @@ class RouteApi {
 
     }
 
-    def getRouteDirections ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/directions"
+    def getRouteDirections ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/directions"
 
         // params
         def queryParams = [:]
@@ -252,10 +219,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -271,8 +234,8 @@ class RouteApi {
 
     }
 
-    def getRouteShipments ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/shipments"
+    def getRouteShipments ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/shipments"
 
         // params
         def queryParams = [:]
@@ -280,10 +243,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -299,8 +258,8 @@ class RouteApi {
 
     }
 
-    def getRouteStop ( BigDecimal version, Long routeId, Long stopId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/stop/${stopId}"
+    def getRouteStop ( Long routeId, Long stopId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/stop/${stopId}"
 
         // params
         def queryParams = [:]
@@ -308,10 +267,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -331,8 +286,8 @@ class RouteApi {
 
     }
 
-    def getRouteStops ( BigDecimal version, Long routeId, Boolean confirmedOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/stops"
+    def getRouteStops ( Long routeId, Boolean confirmedOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/stops"
 
         // params
         def queryParams = [:]
@@ -340,10 +295,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -366,8 +317,8 @@ class RouteApi {
 
     }
 
-    def getShipmentsAtStop ( BigDecimal version, Long routeId, Long stopId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/stop/${stopId}/shipments"
+    def getShipmentsAtStop ( Long routeId, Long stopId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/stop/${stopId}/shipments"
 
         // params
         def queryParams = [:]
@@ -375,10 +326,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -398,8 +345,8 @@ class RouteApi {
 
     }
 
-    def optimizeRoute ( BigDecimal version, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/optimize"
+    def optimizeRoute ( Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/optimize"
 
         // params
         def queryParams = [:]
@@ -407,10 +354,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -426,8 +369,8 @@ class RouteApi {
 
     }
 
-    def removeStop ( BigDecimal version, Long routeId, Long stopId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/stop/${stopId}"
+    def removeStop ( Long routeId, Long stopId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/stop/${stopId}"
 
         // params
         def queryParams = [:]
@@ -435,10 +378,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -458,8 +397,8 @@ class RouteApi {
 
     }
 
-    def reorderRouteStopsPatch ( BigDecimal version, Long routeId, List<Stop> body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/stops/reorder"
+    def reorderRouteStopsPatch ( Long routeId, List<Stop> body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/stops/reorder"
 
         // params
         def queryParams = [:]
@@ -467,10 +406,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -488,8 +423,8 @@ class RouteApi {
 
     }
 
-    def reorderRouteStopsPost ( BigDecimal version, Long routeId, List<Stop> body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/stops/reorder"
+    def reorderRouteStopsPost ( Long routeId, List<Stop> body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/stops/reorder"
 
         // params
         def queryParams = [:]
@@ -497,10 +432,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -518,8 +449,8 @@ class RouteApi {
 
     }
 
-    def searchRoutes ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includesEmpty, Boolean rootOnly, Boolean showInheritedProperties, Long hubId, Long programId, Long scheduledStart, Long scheduledEnd, Long updatedStart, Long updatedEnd, Boolean featured, Integer seatCount, Boolean approved, Boolean started, Boolean completed, Boolean valid, Long parentId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route"
+    def searchRoutes ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includesEmpty, Boolean rootOnly, Boolean showInheritedProperties, Long hubId, Long programId, Long scheduledStart, Long scheduledEnd, Long updatedStart, Long updatedEnd, Boolean featured, Integer seatCount, Boolean approved, Boolean started, Boolean completed, Boolean valid, Long parentId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route"
 
         // params
         def queryParams = [:]
@@ -527,10 +458,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -637,8 +564,8 @@ class RouteApi {
 
     }
 
-    def setDriver ( BigDecimal version, Long id, Long driverId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${id}/driver/${driverId}"
+    def setDriver ( Long id, Long driverId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${id}/driver/${driverId}"
 
         // params
         def queryParams = [:]
@@ -646,10 +573,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -669,8 +592,8 @@ class RouteApi {
 
     }
 
-    def updateRoute ( BigDecimal version, Long routeId, Route body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}"
+    def updateRoute ( Long routeId, Route body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}"
 
         // params
         def queryParams = [:]
@@ -678,10 +601,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")
@@ -699,8 +618,8 @@ class RouteApi {
 
     }
 
-    def updateRouteStop ( BigDecimal version, Long routeId, Long stopId, Stop body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/${routeId}/stop/${stopId}"
+    def updateRouteStop ( Long routeId, Long stopId, Stop body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/${routeId}/stop/${stopId}"
 
         // params
         def queryParams = [:]
@@ -708,10 +627,6 @@ class RouteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeId == null) {
             throw new RuntimeException("missing required params routeId")

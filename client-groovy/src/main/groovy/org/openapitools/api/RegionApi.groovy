@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.RegionResponse
 
 class RegionApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createRegion ( BigDecimal version, Long accountId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/region/create"
+    def createRegion ( Long accountId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/region/create"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class RegionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -108,8 +103,8 @@ class RegionApi {
 
     }
 
-    def deleteRegion ( BigDecimal version, Long accountId, Long regionId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/region/delete"
+    def deleteRegion ( Long accountId, Long regionId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/region/delete"
 
         // params
         def queryParams = [:]
@@ -117,10 +112,6 @@ class RegionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -146,8 +137,8 @@ class RegionApi {
 
     }
 
-    def getRegion ( BigDecimal version, Long regionId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/region/get"
+    def getRegion ( Long regionId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/region/get"
 
         // params
         def queryParams = [:]
@@ -155,10 +146,6 @@ class RegionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (regionId == null) {
             throw new RuntimeException("missing required params regionId")
@@ -180,8 +167,8 @@ class RegionApi {
 
     }
 
-    def searchRegions ( BigDecimal version, Long accountId, String query, String keyword, Double latitude, Double longitude, Double range, String regionClass, String visibility, String searchMode, String sortField, Boolean descending, Boolean includeParent, Boolean includeChildren, Boolean includePostalCodes, String categoryIds, String filterIds, Integer versionCode, Boolean activeOnly, Boolean showDeleted, Long lastUpdatedSince, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/region/search"
+    def searchRegions ( Long accountId, String query, String keyword, Double latitude, Double longitude, Double range, String regionClass, String visibility, String searchMode, String sortField, Boolean descending, Boolean includeParent, Boolean includeChildren, Boolean includePostalCodes, String categoryIds, String filterIds, Integer versionCode, Boolean activeOnly, Boolean showDeleted, Long lastUpdatedSince, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/region/search"
 
         // params
         def queryParams = [:]
@@ -189,10 +176,6 @@ class RegionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -270,8 +253,8 @@ class RegionApi {
 
     }
 
-    def updateRegion ( BigDecimal version, Long accountId, Long regionId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Boolean clearLists, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/region/update"
+    def updateRegion ( Long accountId, Long regionId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Boolean clearLists, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/region/update"
 
         // params
         def queryParams = [:]
@@ -279,10 +262,6 @@ class RegionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

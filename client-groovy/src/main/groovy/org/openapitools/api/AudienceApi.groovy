@@ -4,18 +4,17 @@ import org.openapitools.api.ApiUtils
 import org.openapitools.model.AgeGroupResponse
 import org.openapitools.model.AudienceDeviceResponse
 import org.openapitools.model.AudienceResponse
-import java.math.BigDecimal
 import org.openapitools.model.OfferListResponse
 import org.openapitools.model.SearchResponse
 import org.openapitools.model.SirqulResponse
 
 class AudienceApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createAudience ( BigDecimal version, Long accountId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Integer startTimeOffset, Integer endTimeOffset, Boolean sendSuggestion, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/create"
+    def createAudience ( Long accountId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Integer startTimeOffset, Integer endTimeOffset, Boolean sendSuggestion, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/create"
 
         // params
         def queryParams = [:]
@@ -23,10 +22,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -133,8 +128,8 @@ class AudienceApi {
 
     }
 
-    def deleteAudience ( BigDecimal version, Long accountId, Long audienceId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/delete"
+    def deleteAudience ( Long accountId, Long audienceId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/delete"
 
         // params
         def queryParams = [:]
@@ -142,10 +137,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -171,8 +162,8 @@ class AudienceApi {
 
     }
 
-    def getAgeGroups ( BigDecimal version, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/ageGroups"
+    def getAgeGroups ( Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/ageGroups"
 
         // params
         def queryParams = [:]
@@ -180,10 +171,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -195,8 +182,8 @@ class AudienceApi {
 
     }
 
-    def getAudience ( BigDecimal version, Long accountId, Long audienceId, String appKey, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/get"
+    def getAudience ( Long accountId, Long audienceId, String appKey, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/get"
 
         // params
         def queryParams = [:]
@@ -204,10 +191,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -245,8 +228,8 @@ class AudienceApi {
 
     }
 
-    def getAudienceList ( BigDecimal version, Long accountId, String albumIds, String keyword, String keywordFields, String sortField, Boolean descending, Integer start, Integer limit, Boolean sendSuggestion, Boolean activeOnly, Boolean groupByGroupingId, String appKey, Boolean returnGlobal, Boolean exactKeyword, String audienceType, String audienceTypes, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/search"
+    def getAudienceList ( Long accountId, String albumIds, String keyword, String keywordFields, String sortField, Boolean descending, Integer start, Integer limit, Boolean sendSuggestion, Boolean activeOnly, Boolean groupByGroupingId, String appKey, Boolean returnGlobal, Boolean exactKeyword, String audienceType, String audienceTypes, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/search"
 
         // params
         def queryParams = [:]
@@ -254,10 +237,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -326,8 +305,8 @@ class AudienceApi {
 
     }
 
-    def getDevices ( BigDecimal version, Boolean includeInactive, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/devices"
+    def getDevices ( Boolean includeInactive, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/devices"
 
         // params
         def queryParams = [:]
@@ -335,10 +314,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (includeInactive == null) {
             throw new RuntimeException("missing required params includeInactive")
@@ -357,8 +332,8 @@ class AudienceApi {
 
     }
 
-    def getExperiences ( BigDecimal version, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/experiences"
+    def getExperiences ( Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/experiences"
 
         // params
         def queryParams = [:]
@@ -366,10 +341,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -381,8 +352,8 @@ class AudienceApi {
 
     }
 
-    def getGroupedAudiences ( BigDecimal version, Long accountId, String audienceGroupingId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/grouped/get"
+    def getGroupedAudiences ( Long accountId, String audienceGroupingId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/grouped/get"
 
         // params
         def queryParams = [:]
@@ -390,10 +361,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -419,8 +386,8 @@ class AudienceApi {
 
     }
 
-    def listByAccount ( BigDecimal version, Long accountId, Integer limit, String suggestionType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/suggestion/list"
+    def listByAccount ( Long accountId, Integer limit, String suggestionType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/suggestion/list"
 
         // params
         def queryParams = [:]
@@ -428,10 +395,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -464,8 +427,8 @@ class AudienceApi {
 
     }
 
-    def listByAudience ( BigDecimal version, Integer limit, String gender, Integer age, String categoryIds, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/suggestion/offersByAudience"
+    def listByAudience ( Integer limit, String gender, Integer age, String categoryIds, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/suggestion/offersByAudience"
 
         // params
         def queryParams = [:]
@@ -473,10 +436,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (limit == null) {
             throw new RuntimeException("missing required params limit")
@@ -510,8 +469,8 @@ class AudienceApi {
 
     }
 
-    def listLastestByAccount ( BigDecimal version, Long accountId, Integer timeframe, String suggestionType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/suggestion/latest"
+    def listLastestByAccount ( Long accountId, Integer timeframe, String suggestionType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/suggestion/latest"
 
         // params
         def queryParams = [:]
@@ -519,10 +478,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -555,8 +510,8 @@ class AudienceApi {
 
     }
 
-    def sendByAccount ( BigDecimal version, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/suggestion/send"
+    def sendByAccount ( Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/suggestion/send"
 
         // params
         def queryParams = [:]
@@ -564,10 +519,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -600,8 +551,8 @@ class AudienceApi {
 
     }
 
-    def updateAudience ( BigDecimal version, Long accountId, Long audienceId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Boolean active, Boolean sendSuggestion, Integer startTimeOffset, Integer endTimeOffset, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/audience/update"
+    def updateAudience ( Long accountId, Long audienceId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Boolean active, Boolean sendSuggestion, Integer startTimeOffset, Integer endTimeOffset, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/audience/update"
 
         // params
         def queryParams = [:]
@@ -609,10 +560,6 @@ class AudienceApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

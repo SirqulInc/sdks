@@ -11,12 +11,12 @@ import org.openapitools.model.RetailerOfferResponse
 import org.openapitools.model.SirqulResponse
 
 class OfferApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def batchUpdateOfferLocations ( BigDecimal version, String data, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/location/batchUpdate"
+    def batchUpdateOfferLocations ( String data, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/location/batchUpdate"
 
         // params
         def queryParams = [:]
@@ -24,10 +24,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (data == null) {
             throw new RuntimeException("missing required params data")
@@ -52,8 +48,8 @@ class OfferApi {
 
     }
 
-    def createOffer ( BigDecimal version, Boolean includeOfferLocations, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String offerType, String specialOfferType, String offerVisibility, Boolean active, String deviceId, Long accountId, String tags, Long parentOfferId, String retailerLocationIds, String offerLocations, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/create"
+    def createOffer ( Boolean includeOfferLocations, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String offerType, String specialOfferType, String offerVisibility, Boolean active, String deviceId, Long accountId, String tags, Long parentOfferId, String retailerLocationIds, String offerLocations, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/create"
 
         // params
         def queryParams = [:]
@@ -61,10 +57,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (includeOfferLocations == null) {
             throw new RuntimeException("missing required params includeOfferLocations")
@@ -398,8 +390,8 @@ class OfferApi {
 
     }
 
-    def deleteOffer ( BigDecimal version, Long offerId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/delete"
+    def deleteOffer ( Long offerId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/delete"
 
         // params
         def queryParams = [:]
@@ -407,10 +399,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerId == null) {
             throw new RuntimeException("missing required params offerId")
@@ -435,8 +423,8 @@ class OfferApi {
 
     }
 
-    def deleteOfferLocation ( BigDecimal version, Long offerLocationId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/location/delete"
+    def deleteOfferLocation ( Long offerLocationId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/location/delete"
 
         // params
         def queryParams = [:]
@@ -444,10 +432,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerLocationId == null) {
             throw new RuntimeException("missing required params offerLocationId")
@@ -472,8 +456,8 @@ class OfferApi {
 
     }
 
-    def getOffer ( BigDecimal version, Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/get"
+    def getOffer ( Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/get"
 
         // params
         def queryParams = [:]
@@ -481,10 +465,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerId == null) {
             throw new RuntimeException("missing required params offerId")
@@ -516,8 +496,8 @@ class OfferApi {
 
     }
 
-    def getOfferDetails ( BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, Double distance, Double latitude, Double longitude, Boolean includeOfferLocations, Boolean includeRetailerLocations, Boolean includeChildOffers, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/get"
+    def getOfferDetails ( String deviceId, Long accountId, Long offerId, Long offerLocationId, Double distance, Double latitude, Double longitude, Boolean includeOfferLocations, Boolean includeRetailerLocations, Boolean includeChildOffers, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/get"
 
         // params
         def queryParams = [:]
@@ -525,10 +505,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -570,8 +546,8 @@ class OfferApi {
 
     }
 
-    def getOfferListCounts ( BigDecimal version, Double latitude, Double longitude, BigDecimal searchRange, String distanceUnit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/lists/count"
+    def getOfferListCounts ( Double latitude, Double longitude, BigDecimal searchRange, String distanceUnit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/lists/count"
 
         // params
         def queryParams = [:]
@@ -579,10 +555,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (latitude == null) {
             throw new RuntimeException("missing required params latitude")
@@ -614,8 +586,8 @@ class OfferApi {
 
     }
 
-    def getOfferLocation ( BigDecimal version, Long offerLocationId, String udid, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/location/get"
+    def getOfferLocation ( Long offerLocationId, String udid, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/location/get"
 
         // params
         def queryParams = [:]
@@ -623,10 +595,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (offerLocationId != null) {
             queryParams.put("offerLocationId", offerLocationId)
@@ -644,8 +612,8 @@ class OfferApi {
 
     }
 
-    def getOfferLocationsForRetailers ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includeRetailerLocation, String deviceId, Long accountId, String keyword, Long retailerId, Long retailerLocationId, String offerType, String specialOfferType, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/location/search"
+    def getOfferLocationsForRetailers ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includeRetailerLocation, String deviceId, Long accountId, String keyword, Long retailerId, Long retailerLocationId, String offerType, String specialOfferType, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/location/search"
 
         // params
         def queryParams = [:]
@@ -653,10 +621,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -752,8 +716,8 @@ class OfferApi {
 
     }
 
-    def getOffersForRetailers ( BigDecimal version, String offerVisibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean availableOnly, Boolean activeOnly, Boolean includeCategories, Boolean includeFilters, Boolean includeOfferLocations, String deviceId, Long accountId, String categoryIds, String filterIds, String q, String keyword, Long retailerId, Long retailerLocationId, String couponType, String offerType, String offerTypes, String specialOfferType, Integer i, Integer l, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/search"
+    def getOffersForRetailers ( String offerVisibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean availableOnly, Boolean activeOnly, Boolean includeCategories, Boolean includeFilters, Boolean includeOfferLocations, String deviceId, Long accountId, String categoryIds, String filterIds, String q, String keyword, Long retailerId, Long retailerLocationId, String couponType, String offerType, String offerTypes, String specialOfferType, Integer i, Integer l, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/search"
 
         // params
         def queryParams = [:]
@@ -761,10 +725,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerVisibility == null) {
             throw new RuntimeException("missing required params offerVisibility")
@@ -909,8 +869,8 @@ class OfferApi {
 
     }
 
-    def redeemOfferTransaction ( BigDecimal version, Long offerTransactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/transaction/update"
+    def redeemOfferTransaction ( Long offerTransactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/transaction/update"
 
         // params
         def queryParams = [:]
@@ -918,10 +878,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerTransactionId == null) {
             throw new RuntimeException("missing required params offerTransactionId")
@@ -956,8 +912,8 @@ class OfferApi {
 
     }
 
-    def searchOfferTransactionsForRetailers ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, Long retailerId, Long retailerLocationId, Long offerId, Long offerLocationId, Boolean redeemed, Boolean reservationsOnly, String couponType, String offerType, String specialOfferType, String customerAccountIds, String categoryIds, Long redeemableStartDate, Long redeemableEndDate, Integer i, Integer l, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/transaction/search"
+    def searchOfferTransactionsForRetailers ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, Long retailerId, Long retailerLocationId, Long offerId, Long offerLocationId, Boolean redeemed, Boolean reservationsOnly, String couponType, String offerType, String specialOfferType, String customerAccountIds, String categoryIds, Long redeemableStartDate, Long redeemableEndDate, Integer i, Integer l, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/transaction/search"
 
         // params
         def queryParams = [:]
@@ -965,10 +921,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -1072,8 +1024,8 @@ class OfferApi {
 
     }
 
-    def searchOffersForConsumer ( BigDecimal version, Double latitude, Double longitude, String recommendationType, Long locationId, Integer start, Integer limit, Integer maxRecommendations, String distanceUnit, String appKey, String deviceId, Long accountId, Double searchRange, String tags, String supportedPostalCodes, String keyword, String categories, String filters, String offerTypes, String type, String sortField, String recommendOfferIds, String retailerLocationIds, Long offerId, Boolean includeMission, Boolean includeCategories, Boolean includeFilters, Boolean includeExpired, Boolean includeFavorite, Boolean closestOfferOnly, String searchExpression, String groupBy, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/lists"
+    def searchOffersForConsumer ( Double latitude, Double longitude, String recommendationType, Long locationId, Integer start, Integer limit, Integer maxRecommendations, String distanceUnit, String appKey, String deviceId, Long accountId, Double searchRange, String tags, String supportedPostalCodes, String keyword, String categories, String filters, String offerTypes, String type, String sortField, String recommendOfferIds, String retailerLocationIds, Long offerId, Boolean includeMission, Boolean includeCategories, Boolean includeFilters, Boolean includeExpired, Boolean includeFavorite, Boolean closestOfferOnly, String searchExpression, String groupBy, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/lists"
 
         // params
         def queryParams = [:]
@@ -1081,10 +1033,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (latitude == null) {
             throw new RuntimeException("missing required params latitude")
@@ -1221,8 +1169,8 @@ class OfferApi {
 
     }
 
-    def topOfferTransactions ( BigDecimal version, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/top"
+    def topOfferTransactions ( Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/top"
 
         // params
         def queryParams = [:]
@@ -1230,10 +1178,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (start != null) {
             queryParams.put("start", start)
@@ -1251,8 +1195,8 @@ class OfferApi {
 
     }
 
-    def updateOffer ( BigDecimal version, Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Long parentOfferId, String retailerLocationIds, String offerLocations, String tags, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String offerType, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/update"
+    def updateOffer ( Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Long parentOfferId, String retailerLocationIds, String offerLocations, String tags, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String offerType, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/update"
 
         // params
         def queryParams = [:]
@@ -1260,10 +1204,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerId == null) {
             throw new RuntimeException("missing required params offerId")
@@ -1544,8 +1484,8 @@ class OfferApi {
 
     }
 
-    def updateOfferStatus ( BigDecimal version, String offerIds, Boolean active, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/offer/status"
+    def updateOfferStatus ( String offerIds, Boolean active, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/offer/status"
 
         // params
         def queryParams = [:]
@@ -1553,10 +1493,6 @@ class OfferApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerIds == null) {
             throw new RuntimeException("missing required params offerIds")

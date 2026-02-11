@@ -4,16 +4,15 @@ import org.openapitools.api.ApiUtils
 import org.openapitools.model.AccountMiniResponse
 import org.openapitools.model.AssignmentResponse
 import org.openapitools.model.AssignmentStatusResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class AssignmentApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def assigmentAssigneeAccountSearch ( BigDecimal version, Long accountId, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/assignee/search"
+    def assigmentAssigneeAccountSearch ( Long accountId, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/assignee/search"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -46,8 +41,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentCreate ( BigDecimal version, Long accountId, String name, Long assigneeAccountId, String description, Long retailerLocationId, String tags, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/create"
+    def assignmentCreate ( Long accountId, String name, Long assigneeAccountId, String description, Long retailerLocationId, String tags, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/create"
 
         // params
         def queryParams = [:]
@@ -55,10 +50,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -103,8 +94,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentDelete ( BigDecimal version, Long accountId, Long assignmentId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/delete"
+    def assignmentDelete ( Long accountId, Long assignmentId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/delete"
 
         // params
         def queryParams = [:]
@@ -112,10 +103,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -141,8 +128,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentGet ( BigDecimal version, Long accountId, Long assignmentId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/get"
+    def assignmentGet ( Long accountId, Long assignmentId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/get"
 
         // params
         def queryParams = [:]
@@ -150,10 +137,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -179,8 +162,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentSearch ( BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long creatorAccountId, String assigneeAccountIds, String retailerLocationIds, String currentStatusType, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/search"
+    def assignmentSearch ( Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long creatorAccountId, String assigneeAccountIds, String retailerLocationIds, String currentStatusType, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/search"
 
         // params
         def queryParams = [:]
@@ -188,10 +171,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -260,8 +239,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentStatusCreate ( BigDecimal version, Long accountId, Long assignmentId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/status/create"
+    def assignmentStatusCreate ( Long accountId, Long assignmentId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/status/create"
 
         // params
         def queryParams = [:]
@@ -269,10 +248,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -325,8 +300,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentStatusDelete ( BigDecimal version, Long accountId, Long assignmentStatusId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/status/delete"
+    def assignmentStatusDelete ( Long accountId, Long assignmentStatusId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/status/delete"
 
         // params
         def queryParams = [:]
@@ -334,10 +309,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -363,8 +334,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentStatusGet ( BigDecimal version, Long accountId, Long assignmentStatusId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/status/get"
+    def assignmentStatusGet ( Long accountId, Long assignmentStatusId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/status/get"
 
         // params
         def queryParams = [:]
@@ -372,10 +343,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -401,8 +368,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentStatusSearch ( BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long assignmentId, Long creatorAccountId, Long assigneeAccountId, Long retailerLocationId, String statusType, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/status/search"
+    def assignmentStatusSearch ( Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long assignmentId, Long creatorAccountId, Long assigneeAccountId, Long retailerLocationId, String statusType, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/status/search"
 
         // params
         def queryParams = [:]
@@ -410,10 +377,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -485,8 +448,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentStatusUpdate ( BigDecimal version, Long accountId, Long assignmentStatusId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/status/update"
+    def assignmentStatusUpdate ( Long accountId, Long assignmentStatusId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/status/update"
 
         // params
         def queryParams = [:]
@@ -494,10 +457,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -550,8 +509,8 @@ class AssignmentApi {
 
     }
 
-    def assignmentUpdate ( BigDecimal version, Long accountId, Long assignmentId, String name, String description, Long assigneeAccountId, Long retailerLocationId, String tags, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/assignment/update"
+    def assignmentUpdate ( Long accountId, Long assignmentId, String name, String description, Long assigneeAccountId, Long retailerLocationId, String tags, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/assignment/update"
 
         // params
         def queryParams = [:]
@@ -559,10 +518,6 @@ class AssignmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

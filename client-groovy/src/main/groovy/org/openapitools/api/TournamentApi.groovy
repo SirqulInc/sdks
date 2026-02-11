@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.MissionShortResponse
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.TournamentResponse
 
 class TournamentApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createTournament ( BigDecimal version, Long accountId, String appKey, String title, Integer costToPlay, Long startDate, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String missionType, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/create"
+    def createTournament ( Long accountId, String appKey, String title, Integer costToPlay, Long startDate, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String missionType, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -160,8 +155,8 @@ class TournamentApi {
 
     }
 
-    def deleteTournament ( BigDecimal version, Long accountId, Long missionId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/delete"
+    def deleteTournament ( Long accountId, Long missionId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/delete"
 
         // params
         def queryParams = [:]
@@ -169,10 +164,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -198,8 +189,8 @@ class TournamentApi {
 
     }
 
-    def getTournament ( BigDecimal version, Long accountId, Long missionId, String joinCode, String includeScores, Integer objectPreviewSize, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/get"
+    def getTournament ( Long accountId, Long missionId, String joinCode, String includeScores, Integer objectPreviewSize, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/get"
 
         // params
         def queryParams = [:]
@@ -207,10 +198,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -241,8 +228,8 @@ class TournamentApi {
 
     }
 
-    def searchObjects ( BigDecimal version, Long accountId, Long gameLevelId, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/object/search"
+    def searchObjects ( Long accountId, Long gameLevelId, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/object/search"
 
         // params
         def queryParams = [:]
@@ -250,10 +237,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -291,8 +274,8 @@ class TournamentApi {
 
     }
 
-    def searchRounds ( BigDecimal version, Long accountId, String appKey, String status, String missionType, Boolean currentOnly, String visibilities, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/round/search"
+    def searchRounds ( Long accountId, String appKey, String status, String missionType, Boolean currentOnly, String visibilities, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/round/search"
 
         // params
         def queryParams = [:]
@@ -300,10 +283,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -347,8 +326,8 @@ class TournamentApi {
 
     }
 
-    def searchTournaments ( BigDecimal version, Long accountId, String appKey, String keyword, String subType, Boolean includeInactive, String missionTypes, String filter, String sortField, Boolean descending, String visibility, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/search"
+    def searchTournaments ( Long accountId, String appKey, String keyword, String subType, Boolean includeInactive, String missionTypes, String filter, String sortField, Boolean descending, String visibility, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/search"
 
         // params
         def queryParams = [:]
@@ -356,10 +335,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -415,8 +390,8 @@ class TournamentApi {
 
     }
 
-    def submitTournamentScore ( BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, String scores, Long gameLevelId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/score"
+    def submitTournamentScore ( Long accountId, String appKey, Long missionId, Long gameId, Long packId, String scores, Long gameLevelId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/score"
 
         // params
         def queryParams = [:]
@@ -424,10 +399,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -484,8 +455,8 @@ class TournamentApi {
 
     }
 
-    def submitTournamentVote ( BigDecimal version, Long accountId, String appKey, Long missionId, Long gameObjectId, String deviceId, Boolean checkIfDeviceAlreadyVoted, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/vote"
+    def submitTournamentVote ( Long accountId, String appKey, Long missionId, Long gameObjectId, String deviceId, Boolean checkIfDeviceAlreadyVoted, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/vote"
 
         // params
         def queryParams = [:]
@@ -493,10 +464,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -542,8 +509,8 @@ class TournamentApi {
 
     }
 
-    def substituteTournamentPlayer ( BigDecimal version, Long accountId, Long missionId, Long packId, Long gameLevelId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/substitute"
+    def substituteTournamentPlayer ( Long accountId, Long missionId, Long packId, Long gameLevelId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/substitute"
 
         // params
         def queryParams = [:]
@@ -551,10 +518,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -594,8 +557,8 @@ class TournamentApi {
 
     }
 
-    def updateTournament ( BigDecimal version, Long accountId, Long missionId, String title, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, Integer costToPlay, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, Long startDate, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/tournament/update"
+    def updateTournament ( Long accountId, Long missionId, String title, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, Integer costToPlay, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, Long startDate, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/tournament/update"
 
         // params
         def queryParams = [:]
@@ -603,10 +566,6 @@ class TournamentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ProfileResponse
 import org.openapitools.model.SirqulResponse
 
 class TwitterApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def authorizeTwitter ( BigDecimal version, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/twitter/authorize"
+    def authorizeTwitter ( String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/twitter/authorize"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class TwitterApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -41,8 +36,8 @@ class TwitterApi {
 
     }
 
-    def loginTwitter ( BigDecimal version, String accessToken, String accessTokenSecret, String appKey, String responseFilters, String deviceId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/twitter/login"
+    def loginTwitter ( String accessToken, String accessTokenSecret, String appKey, String responseFilters, String deviceId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/twitter/login"
 
         // params
         def queryParams = [:]
@@ -50,10 +45,6 @@ class TwitterApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accessToken == null) {
             throw new RuntimeException("missing required params accessToken")

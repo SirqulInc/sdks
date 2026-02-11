@@ -5,12 +5,12 @@ import java.math.BigDecimal
 import org.openapitools.model.DisbursementResponse
 
 class DisbursementApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def checkDisbursements ( BigDecimal version, Long disbursementId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/disbursement/check"
+    def checkDisbursements ( Long disbursementId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/disbursement/check"
 
         // params
         def queryParams = [:]
@@ -18,10 +18,6 @@ class DisbursementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (disbursementId == null) {
             throw new RuntimeException("missing required params disbursementId")
@@ -40,8 +36,8 @@ class DisbursementApi {
 
     }
 
-    def createDisbursement ( BigDecimal version, Long accountId, Long receiverAccountId, Long originalSenderAccountId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, String introspectionParams, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/disbursement/create"
+    def createDisbursement ( Long accountId, Long receiverAccountId, Long originalSenderAccountId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, String introspectionParams, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/disbursement/create"
 
         // params
         def queryParams = [:]
@@ -49,10 +45,6 @@ class DisbursementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -114,8 +106,8 @@ class DisbursementApi {
 
     }
 
-    def getDisbursement ( BigDecimal version, Long accountId, Long disbursementId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/disbursement/get"
+    def getDisbursement ( Long accountId, Long disbursementId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/disbursement/get"
 
         // params
         def queryParams = [:]
@@ -123,10 +115,6 @@ class DisbursementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -152,8 +140,8 @@ class DisbursementApi {
 
     }
 
-    def searchDisbursements ( BigDecimal version, Long accountId, Long receiverAccountId, String statuses, String providers, Long beforeDate, Long afterDate, Integer start, Integer limit, Boolean activeOnly, String externalId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/disbursement/search"
+    def searchDisbursements ( Long accountId, Long receiverAccountId, String statuses, String providers, Long beforeDate, Long afterDate, Integer start, Integer limit, Boolean activeOnly, String externalId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/disbursement/search"
 
         // params
         def queryParams = [:]
@@ -161,10 +149,6 @@ class DisbursementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -210,8 +194,8 @@ class DisbursementApi {
 
     }
 
-    def updateDisbursement ( BigDecimal version, Long accountId, Long disbursementId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, Boolean retry, String introspectionParams, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/disbursement/update"
+    def updateDisbursement ( Long accountId, Long disbursementId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, Boolean retry, String introspectionParams, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/disbursement/update"
 
         // params
         def queryParams = [:]
@@ -219,10 +203,6 @@ class DisbursementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

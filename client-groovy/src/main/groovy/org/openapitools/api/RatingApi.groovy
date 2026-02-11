@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.RatingIndexResponse
 import org.openapitools.model.RatingResponse
 import org.openapitools.model.SirqulResponse
 
 class RatingApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createRating ( BigDecimal version, String ratableType, Long ratableId, Integer ratingValue, String deviceId, Long accountId, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/rating/create"
+    def createRating ( String ratableType, Long ratableId, Integer ratingValue, String deviceId, Long accountId, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/rating/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class RatingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (ratableType == null) {
             throw new RuntimeException("missing required params ratableType")
@@ -80,8 +75,8 @@ class RatingApi {
 
     }
 
-    def deleteRating ( BigDecimal version, Long ratingId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/rating/delete"
+    def deleteRating ( Long ratingId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/rating/delete"
 
         // params
         def queryParams = [:]
@@ -89,10 +84,6 @@ class RatingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (ratingId == null) {
             throw new RuntimeException("missing required params ratingId")
@@ -117,8 +108,8 @@ class RatingApi {
 
     }
 
-    def searchLocationRatingIndexes ( BigDecimal version, String categoryIds, String keyword, String locationType, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, Double latitude, Double longitude, Boolean returnOverallRating, String distanceUnit, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/rating/index/search"
+    def searchLocationRatingIndexes ( String categoryIds, String keyword, String locationType, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, Double latitude, Double longitude, Boolean returnOverallRating, String distanceUnit, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/rating/index/search"
 
         // params
         def queryParams = [:]
@@ -126,10 +117,6 @@ class RatingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (categoryIds != null) {
             queryParams.put("categoryIds", categoryIds)
@@ -192,8 +179,8 @@ class RatingApi {
 
     }
 
-    def searchRatingIndexes ( BigDecimal version, String ratableType, String ratableIds, String categoryIds, String secondaryType, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Boolean returnRatable, Boolean returnOverallRating, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/rating/index/search"
+    def searchRatingIndexes ( String ratableType, String ratableIds, String categoryIds, String secondaryType, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Boolean returnRatable, Boolean returnOverallRating, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/rating/index/search"
 
         // params
         def queryParams = [:]
@@ -201,10 +188,6 @@ class RatingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (ratableType == null) {
             throw new RuntimeException("missing required params ratableType")
@@ -259,8 +242,8 @@ class RatingApi {
 
     }
 
-    def searchRatings ( BigDecimal version, String deviceId, Long accountId, Long filterAccountId, String ratableType, Long ratableId, String categoryIds, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/rating/search"
+    def searchRatings ( String deviceId, Long accountId, Long filterAccountId, String ratableType, Long ratableId, String categoryIds, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/rating/search"
 
         // params
         def queryParams = [:]
@@ -268,10 +251,6 @@ class RatingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -316,8 +295,8 @@ class RatingApi {
 
     }
 
-    def updateRating ( BigDecimal version, Long ratingId, String deviceId, Long accountId, Integer ratingValue, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/rating/update"
+    def updateRating ( Long ratingId, String deviceId, Long accountId, Integer ratingValue, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/rating/update"
 
         // params
         def queryParams = [:]
@@ -325,10 +304,6 @@ class RatingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (ratingId == null) {
             throw new RuntimeException("missing required params ratingId")

@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.OfferTransactionStatusResponse
 import org.openapitools.model.SirqulResponse
 
 class OfferStatusApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createOfferTransactionStatus ( BigDecimal version, String name, Integer code, String deviceId, Long accountId, Double latitude, Double longitude, String description, String role, Boolean active, String applicationIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/status/create"
+    def createOfferTransactionStatus ( String name, Integer code, String deviceId, Long accountId, Double latitude, Double longitude, String description, String role, Boolean active, String applicationIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/status/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class OfferStatusApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (name == null) {
             throw new RuntimeException("missing required params name")
@@ -72,8 +67,8 @@ class OfferStatusApi {
 
     }
 
-    def deleteOfferTransactionStatus ( BigDecimal version, Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/status/delete"
+    def deleteOfferTransactionStatus ( Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/status/delete"
 
         // params
         def queryParams = [:]
@@ -81,10 +76,6 @@ class OfferStatusApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (statusId == null) {
             throw new RuntimeException("missing required params statusId")
@@ -115,8 +106,8 @@ class OfferStatusApi {
 
     }
 
-    def getOfferTransactionStatus ( BigDecimal version, Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/status/get"
+    def getOfferTransactionStatus ( Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/status/get"
 
         // params
         def queryParams = [:]
@@ -124,10 +115,6 @@ class OfferStatusApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (statusId == null) {
             throw new RuntimeException("missing required params statusId")
@@ -158,8 +145,8 @@ class OfferStatusApi {
 
     }
 
-    def searchOfferTransactionStatuses ( BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, String role, String appKey, String sortField, Boolean descending, Integer start, Integer limit, Boolean includeInactive, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/status/search"
+    def searchOfferTransactionStatuses ( String deviceId, Long accountId, Double latitude, Double longitude, String keyword, String role, String appKey, String sortField, Boolean descending, Integer start, Integer limit, Boolean includeInactive, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/status/search"
 
         // params
         def queryParams = [:]
@@ -167,10 +154,6 @@ class OfferStatusApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -218,8 +201,8 @@ class OfferStatusApi {
 
     }
 
-    def updateOfferTransactionStatus ( BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, Long statusId, String name, String description, Integer code, String role, Boolean active, String applicationIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/offer/status/update"
+    def updateOfferTransactionStatus ( String deviceId, Long accountId, Double latitude, Double longitude, Long statusId, String name, String description, Integer code, String role, Boolean active, String applicationIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/offer/status/update"
 
         // params
         def queryParams = [:]
@@ -227,10 +210,6 @@ class OfferStatusApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)

@@ -1,19 +1,18 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ListingFullResponse
 import org.openapitools.model.ListingGroupResponse
 import org.openapitools.model.ListingResponse
 import org.openapitools.model.SirqulResponse
 
 class ListingApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createListing ( BigDecimal version, Long accountId, String name, String filterIds, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/listing/create"
+    def createListing ( Long accountId, String name, String filterIds, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/listing/create"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class ListingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -86,8 +81,8 @@ class ListingApi {
 
     }
 
-    def deleteListing ( BigDecimal version, Long accountId, Long listingId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/listing/delete"
+    def deleteListing ( Long accountId, Long listingId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/listing/delete"
 
         // params
         def queryParams = [:]
@@ -95,10 +90,6 @@ class ListingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -124,8 +115,8 @@ class ListingApi {
 
     }
 
-    def getListing ( BigDecimal version, Long listingId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/listing/get"
+    def getListing ( Long listingId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/listing/get"
 
         // params
         def queryParams = [:]
@@ -133,10 +124,6 @@ class ListingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (listingId == null) {
             throw new RuntimeException("missing required params listingId")
@@ -155,8 +142,8 @@ class ListingApi {
 
     }
 
-    def searchListing ( BigDecimal version, Long accountId, String keyword, Integer start, Integer limit, Boolean activeOnly, Double latitude, Double longitude, Long startDate, Long endDate, String categoryIds, String filterIds, Boolean useListingOrderIds, String externalId, String externalId2, String externalGroupId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/listing/search"
+    def searchListing ( Long accountId, String keyword, Integer start, Integer limit, Boolean activeOnly, Double latitude, Double longitude, Long startDate, Long endDate, String categoryIds, String filterIds, Boolean useListingOrderIds, String externalId, String externalId2, String externalGroupId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/listing/search"
 
         // params
         def queryParams = [:]
@@ -164,10 +151,6 @@ class ListingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -224,8 +207,8 @@ class ListingApi {
 
     }
 
-    def summaryListing ( BigDecimal version, Long accountId, Long startDate, String categoryIds, Integer daysToInclude, Boolean useListingOrderIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/listing/summary"
+    def summaryListing ( Long accountId, Long startDate, String categoryIds, Integer daysToInclude, Boolean useListingOrderIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/listing/summary"
 
         // params
         def queryParams = [:]
@@ -233,10 +216,6 @@ class ListingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -263,8 +242,8 @@ class ListingApi {
 
     }
 
-    def updateListing ( BigDecimal version, Long accountId, Long listingId, String filterIds, String name, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/listing/update"
+    def updateListing ( Long accountId, Long listingId, String filterIds, String name, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/listing/update"
 
         // params
         def queryParams = [:]
@@ -272,10 +251,6 @@ class ListingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

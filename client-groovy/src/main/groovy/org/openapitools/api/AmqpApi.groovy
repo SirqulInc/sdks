@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.QueueResponse
 import org.openapitools.model.SirqulResponse
 
 class AmqpApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def consumerCreate ( BigDecimal version, String appKey, String name, String hostname, String username, String password, String dataMapping, String deviceId, Long accountId, Integer port, String virtualHost, String exchanger, String exchangerType, Integer workers, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/consumer/create"
+    def consumerCreate ( String appKey, String name, String hostname, String username, String password, String dataMapping, String deviceId, Long accountId, Integer port, String virtualHost, String exchanger, String exchangerType, Integer workers, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/consumer/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -100,8 +95,8 @@ class AmqpApi {
 
     }
 
-    def consumerUpdate ( BigDecimal version, String appKey, Long queueId, String dataMapping, String deviceId, Long accountId, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/consumer/update"
+    def consumerUpdate ( String appKey, Long queueId, String dataMapping, String deviceId, Long accountId, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/consumer/update"
 
         // params
         def queryParams = [:]
@@ -109,10 +104,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -154,8 +145,8 @@ class AmqpApi {
 
     }
 
-    def queueCreate ( BigDecimal version, String appKey, String name, String deviceId, Long accountId, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/create"
+    def queueCreate ( String appKey, String name, String deviceId, Long accountId, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/create"
 
         // params
         def queryParams = [:]
@@ -163,10 +154,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -222,8 +209,8 @@ class AmqpApi {
 
     }
 
-    def queueDelete ( BigDecimal version, Long queueId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/delete"
+    def queueDelete ( Long queueId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/delete"
 
         // params
         def queryParams = [:]
@@ -231,10 +218,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (queueId == null) {
             throw new RuntimeException("missing required params queueId")
@@ -259,8 +242,8 @@ class AmqpApi {
 
     }
 
-    def queueGet ( BigDecimal version, String deviceId, Long accountId, Long queueId, String appKey, String name, String hostname, String virtualHost, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/get"
+    def queueGet ( String deviceId, Long accountId, Long queueId, String appKey, String name, String hostname, String virtualHost, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/get"
 
         // params
         def queryParams = [:]
@@ -268,10 +251,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -304,8 +283,8 @@ class AmqpApi {
 
     }
 
-    def queuePublish ( BigDecimal version, String message, Long queueId, String appKey, String name, String hostname, String virtualHost, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/publish"
+    def queuePublish ( String message, Long queueId, String appKey, String name, String hostname, String virtualHost, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/publish"
 
         // params
         def queryParams = [:]
@@ -313,10 +292,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (message == null) {
             throw new RuntimeException("missing required params message")
@@ -350,8 +325,8 @@ class AmqpApi {
 
     }
 
-    def queueSearch ( BigDecimal version, Long queueId, String deviceId, Long accountId, String name, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/search"
+    def queueSearch ( Long queueId, String deviceId, Long accountId, String name, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/search"
 
         // params
         def queryParams = [:]
@@ -359,10 +334,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (queueId != null) {
             queryParams.put("queueId", queueId)
@@ -392,8 +363,8 @@ class AmqpApi {
 
     }
 
-    def queueUpdate ( BigDecimal version, Long queueId, String deviceId, Long accountId, String appKey, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/queue/update"
+    def queueUpdate ( Long queueId, String deviceId, Long accountId, String appKey, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/queue/update"
 
         // params
         def queryParams = [:]
@@ -401,10 +372,6 @@ class AmqpApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (queueId == null) {
             throw new RuntimeException("missing required params queueId")

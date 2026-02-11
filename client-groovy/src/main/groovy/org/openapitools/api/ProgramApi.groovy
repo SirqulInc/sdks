@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.Program
 
 class ProgramApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createProgram ( BigDecimal version, Program body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/program"
+    def createProgram ( Program body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/program"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class ProgramApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -35,8 +30,8 @@ class ProgramApi {
 
     }
 
-    def deleteProgram ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/program/${id}"
+    def deleteProgram ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/program/${id}"
 
         // params
         def queryParams = [:]
@@ -44,10 +39,6 @@ class ProgramApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -63,8 +54,8 @@ class ProgramApi {
 
     }
 
-    def getProgram ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/program/${id}"
+    def getProgram ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/program/${id}"
 
         // params
         def queryParams = [:]
@@ -72,10 +63,6 @@ class ProgramApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -91,8 +78,8 @@ class ProgramApi {
 
     }
 
-    def postProgram ( BigDecimal version, Long id, Program body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/program/${id}"
+    def postProgram ( Long id, Program body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/program/${id}"
 
         // params
         def queryParams = [:]
@@ -100,10 +87,6 @@ class ProgramApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -121,8 +104,8 @@ class ProgramApi {
 
     }
 
-    def putProgram ( BigDecimal version, Long id, Program body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/program/${id}"
+    def putProgram ( Long id, Program body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/program/${id}"
 
         // params
         def queryParams = [:]
@@ -130,10 +113,6 @@ class ProgramApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -151,8 +130,8 @@ class ProgramApi {
 
     }
 
-    def searchPrograms ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/program"
+    def searchPrograms ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/program"
 
         // params
         def queryParams = [:]
@@ -160,10 +139,6 @@ class ProgramApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")

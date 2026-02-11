@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.EmployeeResponse
 import org.openapitools.model.SirqulResponse
 
 class EmployeeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def assignEmployee ( BigDecimal version, Long accountId, Long managerAccountId, Long employeeAccountId, String role, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/assign"
+    def assignEmployee ( Long accountId, Long managerAccountId, Long employeeAccountId, String role, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/assign"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -58,8 +53,8 @@ class EmployeeApi {
 
     }
 
-    def assignToLocationEmployee ( BigDecimal version, Long accountId, Long retailerLocationId, Long employeeAccountId, Boolean assign, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/assignToLocation"
+    def assignToLocationEmployee ( Long accountId, Long retailerLocationId, Long employeeAccountId, Boolean assign, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/assignToLocation"
 
         // params
         def queryParams = [:]
@@ -67,10 +62,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -102,8 +93,8 @@ class EmployeeApi {
 
     }
 
-    def createEmployee ( BigDecimal version, Long accountId, Long managerAccountId, String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String aboutUs, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/create"
+    def createEmployee ( Long accountId, Long managerAccountId, String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String aboutUs, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/create"
 
         // params
         def queryParams = [:]
@@ -111,10 +102,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -232,8 +219,8 @@ class EmployeeApi {
 
     }
 
-    def deleteEmployee ( BigDecimal version, Long accountId, Long employeeAccountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/delete"
+    def deleteEmployee ( Long accountId, Long employeeAccountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/delete"
 
         // params
         def queryParams = [:]
@@ -241,10 +228,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -270,8 +253,8 @@ class EmployeeApi {
 
     }
 
-    def getEmployee ( BigDecimal version, Long accountId, Long employeeAccountId, String settingsAppKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/get"
+    def getEmployee ( Long accountId, Long employeeAccountId, String settingsAppKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/get"
 
         // params
         def queryParams = [:]
@@ -279,10 +262,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -311,8 +290,8 @@ class EmployeeApi {
 
     }
 
-    def searchEmployees ( BigDecimal version, Long accountId, String role, Long retailerId, Long retailerLocationId, String q, String keyword, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean activeOnly, Boolean managedOnly, String settingsAppKey, String categoryIds, String query, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/search"
+    def searchEmployees ( Long accountId, String role, Long retailerId, Long retailerLocationId, String q, String keyword, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean activeOnly, Boolean managedOnly, String settingsAppKey, String categoryIds, String query, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/search"
 
         // params
         def queryParams = [:]
@@ -320,10 +299,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -390,8 +365,8 @@ class EmployeeApi {
 
     }
 
-    def unassignEmployee ( BigDecimal version, Long accountId, Long employeeAccountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/unassign"
+    def unassignEmployee ( Long accountId, Long employeeAccountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/unassign"
 
         // params
         def queryParams = [:]
@@ -399,10 +374,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -428,8 +399,8 @@ class EmployeeApi {
 
     }
 
-    def updateEmployee ( BigDecimal version, Long accountId, Long employeeAccountId, Long managerAccountId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, Boolean active, String password, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/employee/update"
+    def updateEmployee ( Long accountId, Long employeeAccountId, Long managerAccountId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, Boolean active, String password, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/employee/update"
 
         // params
         def queryParams = [:]
@@ -437,10 +408,6 @@ class EmployeeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

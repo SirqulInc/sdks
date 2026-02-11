@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PaymentTypesResponse
 
 class BillingInfoApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addPaymentMethod ( BigDecimal version, Long accountId, Long paymentMethodId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, Boolean defaultPaymentMethod, String paymentMethodNickname, String taxId, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billing/update"
+    def addPaymentMethod ( Long accountId, Long paymentMethodId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, Boolean defaultPaymentMethod, String paymentMethodNickname, String taxId, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billing/update"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class BillingInfoApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -106,8 +101,8 @@ class BillingInfoApi {
 
     }
 
-    def createPaymentMethod ( BigDecimal version, Long accountId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, String paymentMethodNickname, String taxId, Boolean defaultPaymentMethod, String authToken, String provider, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billing/create"
+    def createPaymentMethod ( Long accountId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, String paymentMethodNickname, String taxId, Boolean defaultPaymentMethod, String authToken, String provider, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billing/create"
 
         // params
         def queryParams = [:]
@@ -115,10 +110,6 @@ class BillingInfoApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -209,8 +200,8 @@ class BillingInfoApi {
 
     }
 
-    def createSmartContract ( BigDecimal version, Long accountId, String tokenName, String tokenSymbol, Long paymentMethodId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billing/crypto/transfer"
+    def createSmartContract ( Long accountId, String tokenName, String tokenSymbol, Long paymentMethodId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billing/crypto/transfer"
 
         // params
         def queryParams = [:]
@@ -218,10 +209,6 @@ class BillingInfoApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -257,8 +244,8 @@ class BillingInfoApi {
 
     }
 
-    def getCryptoBalance ( BigDecimal version, Long accountId, Long ownerAccountId, Long paymentMethodId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billing/crypto/get"
+    def getCryptoBalance ( Long accountId, Long ownerAccountId, Long paymentMethodId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billing/crypto/get"
 
         // params
         def queryParams = [:]
@@ -266,10 +253,6 @@ class BillingInfoApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -294,8 +277,8 @@ class BillingInfoApi {
 
     }
 
-    def getPaymentMethod ( BigDecimal version, Long accountId, Long paymentMethodId, Boolean getCurrentBalance, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billing/get"
+    def getPaymentMethod ( Long accountId, Long paymentMethodId, Boolean getCurrentBalance, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billing/get"
 
         // params
         def queryParams = [:]
@@ -303,10 +286,6 @@ class BillingInfoApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -331,8 +310,8 @@ class BillingInfoApi {
 
     }
 
-    def searchPaymentMethod ( BigDecimal version, Long accountId, String provider, String type, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billing/search"
+    def searchPaymentMethod ( Long accountId, String provider, String type, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billing/search"
 
         // params
         def queryParams = [:]
@@ -340,10 +319,6 @@ class BillingInfoApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

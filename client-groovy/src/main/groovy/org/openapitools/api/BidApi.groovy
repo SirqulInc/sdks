@@ -2,16 +2,15 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.BidResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class BidApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createBid ( BigDecimal version, String biddableType, Long biddableId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/bid/create"
+    def createBid ( String biddableType, Long biddableId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/bid/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class BidApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (biddableType == null) {
             throw new RuntimeException("missing required params biddableType")
@@ -82,8 +77,8 @@ class BidApi {
 
     }
 
-    def deleteBid ( BigDecimal version, Long bidId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/bid/delete"
+    def deleteBid ( Long bidId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/bid/delete"
 
         // params
         def queryParams = [:]
@@ -91,10 +86,6 @@ class BidApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (bidId == null) {
             throw new RuntimeException("missing required params bidId")
@@ -119,8 +110,8 @@ class BidApi {
 
     }
 
-    def getBid ( BigDecimal version, Long bidId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/bid/get"
+    def getBid ( Long bidId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/bid/get"
 
         // params
         def queryParams = [:]
@@ -128,10 +119,6 @@ class BidApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (bidId == null) {
             throw new RuntimeException("missing required params bidId")
@@ -156,8 +143,8 @@ class BidApi {
 
     }
 
-    def updateBid ( BigDecimal version, Long bidId, String deviceId, Long accountId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/bid/update"
+    def updateBid ( Long bidId, String deviceId, Long accountId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/bid/update"
 
         // params
         def queryParams = [:]
@@ -165,10 +152,6 @@ class BidApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (bidId == null) {
             throw new RuntimeException("missing required params bidId")

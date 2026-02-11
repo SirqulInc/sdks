@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.Shipment
 
 class ShipmentApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def cancelShipment ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/${id}/cancel"
+    def cancelShipment ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/${id}/cancel"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class ShipmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -37,8 +32,8 @@ class ShipmentApi {
 
     }
 
-    def createShipment ( BigDecimal version, Shipment body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment"
+    def createShipment ( Shipment body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment"
 
         // params
         def queryParams = [:]
@@ -46,10 +41,6 @@ class ShipmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -63,8 +54,8 @@ class ShipmentApi {
 
     }
 
-    def deleteShipment ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/${id}"
+    def deleteShipment ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/${id}"
 
         // params
         def queryParams = [:]
@@ -72,10 +63,6 @@ class ShipmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -91,8 +78,8 @@ class ShipmentApi {
 
     }
 
-    def getShipment ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/${id}"
+    def getShipment ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/${id}"
 
         // params
         def queryParams = [:]
@@ -100,10 +87,6 @@ class ShipmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -119,8 +102,8 @@ class ShipmentApi {
 
     }
 
-    def searchShipments ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long ownerId, Long riderId, Long routeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment"
+    def searchShipments ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long ownerId, Long riderId, Long routeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment"
 
         // params
         def queryParams = [:]
@@ -128,10 +111,6 @@ class ShipmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -187,8 +166,8 @@ class ShipmentApi {
 
     }
 
-    def updateShipment ( BigDecimal version, Long id, Shipment body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/${id}"
+    def updateShipment ( Long id, Shipment body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/${id}"
 
         // params
         def queryParams = [:]
@@ -196,10 +175,6 @@ class ShipmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -217,8 +192,8 @@ class ShipmentApi {
 
     }
 
-    def updateShipmentStatus ( BigDecimal version, Long id, Map<String, Boolean> body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/${id}/status"
+    def updateShipmentStatus ( Long id, Map<String, Boolean> body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/${id}/status"
 
         // params
         def queryParams = [:]
@@ -226,10 +201,6 @@ class ShipmentApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")

@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.TokenResponse
 
 class FacebookApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getToken ( BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/facebook/getfbtoken"
+    def getToken ( String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/facebook/getfbtoken"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class FacebookApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -46,8 +41,8 @@ class FacebookApi {
 
     }
 
-    def graphInterface ( BigDecimal version, String event, String deviceId, Long accountId, String permissionableType, Long permissionableId, Long assetId, String gameType, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/facebook/graph"
+    def graphInterface ( String event, String deviceId, Long accountId, String permissionableType, Long permissionableId, Long assetId, String gameType, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/facebook/graph"
 
         // params
         def queryParams = [:]
@@ -55,10 +50,6 @@ class FacebookApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (event == null) {
             throw new RuntimeException("missing required params event")

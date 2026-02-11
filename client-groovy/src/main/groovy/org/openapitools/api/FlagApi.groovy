@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.CountResponse
 import org.openapitools.model.FlagResponse
 import org.openapitools.model.SirqulResponse
 
 class FlagApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createFlag ( BigDecimal version, String flagableType, Long flagableId, String deviceId, Long accountId, String flagDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/flag/create"
+    def createFlag ( String flagableType, Long flagableId, String deviceId, Long accountId, String flagDescription, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/flag/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class FlagApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (flagableType == null) {
             throw new RuntimeException("missing required params flagableType")
@@ -64,8 +59,8 @@ class FlagApi {
 
     }
 
-    def deleteFlag ( BigDecimal version, String deviceId, Long accountId, String itemBeingFlaggedType, Long itemBeingFlaggedId, String flagableType, Long flagableId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/flag/delete"
+    def deleteFlag ( String deviceId, Long accountId, String itemBeingFlaggedType, Long itemBeingFlaggedId, String flagableType, Long flagableId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/flag/delete"
 
         // params
         def queryParams = [:]
@@ -73,10 +68,6 @@ class FlagApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -106,8 +97,8 @@ class FlagApi {
 
     }
 
-    def getFlag ( BigDecimal version, String flagableType, Long flagableId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/flag/get"
+    def getFlag ( String flagableType, Long flagableId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/flag/get"
 
         // params
         def queryParams = [:]
@@ -115,10 +106,6 @@ class FlagApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (flagableType == null) {
             throw new RuntimeException("missing required params flagableType")
@@ -156,8 +143,8 @@ class FlagApi {
 
     }
 
-    def getFlagThreshold ( BigDecimal version, String itemBeingFlaggedType, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/flag/threshold/get"
+    def getFlagThreshold ( String itemBeingFlaggedType, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/flag/threshold/get"
 
         // params
         def queryParams = [:]
@@ -165,10 +152,6 @@ class FlagApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (itemBeingFlaggedType == null) {
             throw new RuntimeException("missing required params itemBeingFlaggedType")
@@ -194,8 +177,8 @@ class FlagApi {
 
     }
 
-    def updateFlagThreshold ( BigDecimal version, String itemBeingFlaggedType, Long threshold, String appKey, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/flag/threshold/update"
+    def updateFlagThreshold ( String itemBeingFlaggedType, Long threshold, String appKey, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/flag/threshold/update"
 
         // params
         def queryParams = [:]
@@ -203,10 +186,6 @@ class FlagApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (itemBeingFlaggedType == null) {
             throw new RuntimeException("missing required params itemBeingFlaggedType")

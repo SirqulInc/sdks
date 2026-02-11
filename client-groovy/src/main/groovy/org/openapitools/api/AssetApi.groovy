@@ -4,16 +4,15 @@ import org.openapitools.api.ApiUtils
 import org.openapitools.model.AssetFullResponse
 import org.openapitools.model.AssetResponse
 import org.openapitools.model.AssetShortResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class AssetApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def assetDownload ( BigDecimal version, String filename, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/download/${filename}"
+    def assetDownload ( String filename, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/download/${filename}"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (filename == null) {
             throw new RuntimeException("missing required params filename")
@@ -40,8 +35,8 @@ class AssetApi {
 
     }
 
-    def assetMorph ( BigDecimal version, Long offerId, String adSize, Long creativeId, Integer width, Integer height, String backgroundSize, String template, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/morph"
+    def assetMorph ( Long offerId, String adSize, Long creativeId, Integer width, Integer height, String backgroundSize, String template, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/morph"
 
         // params
         def queryParams = [:]
@@ -49,10 +44,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (offerId == null) {
             throw new RuntimeException("missing required params offerId")
@@ -93,8 +84,8 @@ class AssetApi {
 
     }
 
-    def createAsset ( BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, Long albumId, Long collectionId, String addToDefaultAlbum, Boolean addToMediaLibrary, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String app, String appKey, String searchTags, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/create"
+    def createAsset ( Boolean returnNulls, String deviceId, Long accountId, Long albumId, Long collectionId, String addToDefaultAlbum, Boolean addToMediaLibrary, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String app, String appKey, String searchTags, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/create"
 
         // params
         def queryParams = [:]
@@ -102,10 +93,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (returnNulls != null) {
             queryParams.put("returnNulls", returnNulls)
@@ -219,8 +206,8 @@ class AssetApi {
 
     }
 
-    def deleteAsset ( BigDecimal version, String assetId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/delete"
+    def deleteAsset ( String assetId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/delete"
 
         // params
         def queryParams = [:]
@@ -228,10 +215,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (assetId == null) {
             throw new RuntimeException("missing required params assetId")
@@ -262,8 +245,8 @@ class AssetApi {
 
     }
 
-    def getAsset ( BigDecimal version, Long assetId, String deviceId, Long accountId, Boolean noteDescending, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/get"
+    def getAsset ( Long assetId, String deviceId, Long accountId, Boolean noteDescending, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/get"
 
         // params
         def queryParams = [:]
@@ -271,10 +254,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (assetId == null) {
             throw new RuntimeException("missing required params assetId")
@@ -302,8 +281,8 @@ class AssetApi {
 
     }
 
-    def removeAsset ( BigDecimal version, String assetId, String deviceId, Long accountId, Long albumId, Long collectionId, Boolean removeFromDefaultAlbums, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/remove"
+    def removeAsset ( String assetId, String deviceId, Long accountId, Long albumId, Long collectionId, Boolean removeFromDefaultAlbums, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/remove"
 
         // params
         def queryParams = [:]
@@ -311,10 +290,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (assetId == null) {
             throw new RuntimeException("missing required params assetId")
@@ -354,8 +329,8 @@ class AssetApi {
 
     }
 
-    def searchAssets ( BigDecimal version, String deviceId, Long accountId, String albumIds, String assetIds, String appKey, String mediaType, String mimeType, String keyword, Integer versionCode, String versionName, Long updatedSince, Long updatedBefore, String sortField, Boolean descending, Boolean searchMediaLibrary, Boolean filterByBillable, Boolean activeOnly, Boolean returnApp, Integer start, Integer limit, String searchMode, String assetType, String approvalStatus, Long assignedAccountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/search"
+    def searchAssets ( String deviceId, Long accountId, String albumIds, String assetIds, String appKey, String mediaType, String mimeType, String keyword, Integer versionCode, String versionName, Long updatedSince, Long updatedBefore, String sortField, Boolean descending, Boolean searchMediaLibrary, Boolean filterByBillable, Boolean activeOnly, Boolean returnApp, Integer start, Integer limit, String searchMode, String assetType, String approvalStatus, Long assignedAccountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/search"
 
         // params
         def queryParams = [:]
@@ -363,10 +338,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -450,8 +421,8 @@ class AssetApi {
 
     }
 
-    def updateAsset ( BigDecimal version, Long assetId, String deviceId, Long accountId, Long albumId, Long attachedAssetId, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String searchTags, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/asset/update"
+    def updateAsset ( Long assetId, String deviceId, Long accountId, Long albumId, Long attachedAssetId, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String searchTags, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/asset/update"
 
         // params
         def queryParams = [:]
@@ -459,10 +430,6 @@ class AssetApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (assetId == null) {
             throw new RuntimeException("missing required params assetId")

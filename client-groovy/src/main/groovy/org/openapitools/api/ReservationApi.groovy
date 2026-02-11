@@ -2,17 +2,16 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AvailabilityResponse
-import java.math.BigDecimal
 import org.openapitools.model.ReservationResponse
 import org.openapitools.model.TimeSlotResponse
 
 class ReservationApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createReservation ( BigDecimal version, String deviceId, Long accountId, Long startDate, Long endDate, Long offerId, Long offerLocationId, String appKey, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/reservation/create"
+    def createReservation ( String deviceId, Long accountId, Long startDate, Long endDate, Long offerId, Long offerLocationId, String appKey, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/reservation/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class ReservationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -59,8 +54,8 @@ class ReservationApi {
 
     }
 
-    def deleteReservation ( BigDecimal version, Long reservationId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/reservation/delete"
+    def deleteReservation ( Long reservationId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/reservation/delete"
 
         // params
         def queryParams = [:]
@@ -68,10 +63,6 @@ class ReservationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (reservationId == null) {
             throw new RuntimeException("missing required params reservationId")
@@ -96,8 +87,8 @@ class ReservationApi {
 
     }
 
-    def reservableAvailability ( BigDecimal version, Long reservableId, String reservableType, String deviceId, Long accountId, String availability, String availabilitySummary, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/reservable/availability/update"
+    def reservableAvailability ( Long reservableId, String reservableType, String deviceId, Long accountId, String availability, String availabilitySummary, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/reservable/availability/update"
 
         // params
         def queryParams = [:]
@@ -105,10 +96,6 @@ class ReservationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (reservableId == null) {
             throw new RuntimeException("missing required params reservableId")
@@ -146,8 +133,8 @@ class ReservationApi {
 
     }
 
-    def searchAvailability ( BigDecimal version, Long reservableId, String reservableType, String deviceId, Long accountId, Long startDate, Long endDate, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/reservable/availability/search"
+    def searchAvailability ( Long reservableId, String reservableType, String deviceId, Long accountId, Long startDate, Long endDate, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/reservable/availability/search"
 
         // params
         def queryParams = [:]
@@ -155,10 +142,6 @@ class ReservationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (reservableId == null) {
             throw new RuntimeException("missing required params reservableId")
@@ -202,8 +185,8 @@ class ReservationApi {
 
     }
 
-    def searchReservations ( BigDecimal version, String deviceId, String appKey, Long accountId, Long filterAccountId, Long reservableId, String reservableType, String keyword, Long startDate, Long endDate, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/reservation/search"
+    def searchReservations ( String deviceId, String appKey, Long accountId, Long filterAccountId, Long reservableId, String reservableType, String keyword, Long startDate, Long endDate, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/reservation/search"
 
         // params
         def queryParams = [:]
@@ -211,10 +194,6 @@ class ReservationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -259,8 +238,8 @@ class ReservationApi {
 
     }
 
-    def searchSchedule ( BigDecimal version, Long reservableId, String reservableType, Long startDate, Long endDate, String deviceId, Long accountId, Integer timeBucketMins, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/reservable/schedule/search"
+    def searchSchedule ( Long reservableId, String reservableType, Long startDate, Long endDate, String deviceId, Long accountId, Integer timeBucketMins, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/reservable/schedule/search"
 
         // params
         def queryParams = [:]
@@ -268,10 +247,6 @@ class ReservationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (reservableId == null) {
             throw new RuntimeException("missing required params reservableId")

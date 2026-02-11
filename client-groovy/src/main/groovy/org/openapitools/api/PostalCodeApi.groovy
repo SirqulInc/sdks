@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PostalCodeResponse
 import org.openapitools.model.SirqulResponse
 
 class PostalCodeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createPostalCode ( BigDecimal version, Long accountId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/postalCode/create"
+    def createPostalCode ( Long accountId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/postalCode/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class PostalCodeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -71,8 +66,8 @@ class PostalCodeApi {
 
     }
 
-    def deletePostalCode ( BigDecimal version, Long accountId, Long postalCodeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/postalCode/delete"
+    def deletePostalCode ( Long accountId, Long postalCodeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/postalCode/delete"
 
         // params
         def queryParams = [:]
@@ -80,10 +75,6 @@ class PostalCodeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -109,8 +100,8 @@ class PostalCodeApi {
 
     }
 
-    def getPostalCode ( BigDecimal version, Long postalCodeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/postalCode/get"
+    def getPostalCode ( Long postalCodeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/postalCode/get"
 
         // params
         def queryParams = [:]
@@ -118,10 +109,6 @@ class PostalCodeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (postalCodeId == null) {
             throw new RuntimeException("missing required params postalCodeId")
@@ -140,8 +127,8 @@ class PostalCodeApi {
 
     }
 
-    def getPostalCodes ( BigDecimal version, String sortField, Boolean descending, Double latitude, Double longitude, String keyword, Double miles, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/postalCode/search"
+    def getPostalCodes ( String sortField, Boolean descending, Double latitude, Double longitude, String keyword, Double miles, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/postalCode/search"
 
         // params
         def queryParams = [:]
@@ -149,10 +136,6 @@ class PostalCodeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -196,8 +179,8 @@ class PostalCodeApi {
 
     }
 
-    def updatePostalCode ( BigDecimal version, Long accountId, Long postalCodeId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/postalCode/update"
+    def updatePostalCode ( Long accountId, Long postalCodeId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/postalCode/update"
 
         // params
         def queryParams = [:]
@@ -205,10 +188,6 @@ class PostalCodeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

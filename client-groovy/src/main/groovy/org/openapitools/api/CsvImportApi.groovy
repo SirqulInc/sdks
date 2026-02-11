@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.CsvImportResponse
 import org.openapitools.model.SirqulResponse
 
 class CsvImportApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getStatusCSV ( BigDecimal version, Long accountId, Long batchId, String responseGroup, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/csvimport/batch/status/details"
+    def getStatusCSV ( Long accountId, Long batchId, String responseGroup, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/csvimport/batch/status/details"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class CsvImportApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -69,8 +64,8 @@ class CsvImportApi {
 
     }
 
-    def listStatusCSV ( BigDecimal version, Long accountId, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/csvimport/batch/list"
+    def listStatusCSV ( Long accountId, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/csvimport/batch/list"
 
         // params
         def queryParams = [:]
@@ -78,10 +73,6 @@ class CsvImportApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -114,8 +105,8 @@ class CsvImportApi {
 
     }
 
-    def statusCSV ( BigDecimal version, Long accountId, Long batchId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/csvimport/batch/status"
+    def statusCSV ( Long accountId, Long batchId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/csvimport/batch/status"
 
         // params
         def queryParams = [:]
@@ -123,10 +114,6 @@ class CsvImportApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -152,8 +139,8 @@ class CsvImportApi {
 
     }
 
-    def uploadCSV ( BigDecimal version, Long accountId, String uploadType, File importFile, String fileFormat, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/csvimport/upload"
+    def uploadCSV ( Long accountId, String uploadType, File importFile, String fileFormat, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/csvimport/upload"
 
         // params
         def queryParams = [:]
@@ -161,10 +148,6 @@ class CsvImportApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

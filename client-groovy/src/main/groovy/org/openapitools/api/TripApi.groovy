@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.Trip
 
 class TripApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createTrip ( BigDecimal version, Trip body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip"
+    def createTrip ( Trip body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -35,8 +30,8 @@ class TripApi {
 
     }
 
-    def delete ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}"
+    def delete ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}"
 
         // params
         def queryParams = [:]
@@ -44,10 +39,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -63,8 +54,8 @@ class TripApi {
 
     }
 
-    def driveTrip ( BigDecimal version, Long id, Boolean recurrence, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/drive"
+    def driveTrip ( Long id, Boolean recurrence, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/drive"
 
         // params
         def queryParams = [:]
@@ -72,10 +63,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -98,8 +85,8 @@ class TripApi {
 
     }
 
-    def flexibleTrip ( BigDecimal version, Long id, Boolean recurrence, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/flexible"
+    def flexibleTrip ( Long id, Boolean recurrence, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/flexible"
 
         // params
         def queryParams = [:]
@@ -107,10 +94,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -133,8 +116,8 @@ class TripApi {
 
     }
 
-    def getTrip ( BigDecimal version, Long id, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}"
+    def getTrip ( Long id, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}"
 
         // params
         def queryParams = [:]
@@ -142,10 +125,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -161,8 +140,8 @@ class TripApi {
 
     }
 
-    def getTripMatches ( BigDecimal version, Long id, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean matchedHasRoute, Boolean matchedHasDriver, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/match"
+    def getTripMatches ( Long id, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean matchedHasRoute, Boolean matchedHasDriver, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/match"
 
         // params
         def queryParams = [:]
@@ -170,10 +149,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -230,8 +205,8 @@ class TripApi {
 
     }
 
-    def processTripMatches ( BigDecimal version, Long startDate, Long endDate, Long tripId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/match/process"
+    def processTripMatches ( Long startDate, Long endDate, Long tripId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/match/process"
 
         // params
         def queryParams = [:]
@@ -239,10 +214,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (startDate != null) {
             queryParams.put("startDate", startDate)
@@ -263,8 +234,8 @@ class TripApi {
 
     }
 
-    def ride ( BigDecimal version, Long id, Boolean recurrence, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/ride"
+    def ride ( Long id, Boolean recurrence, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/ride"
 
         // params
         def queryParams = [:]
@@ -272,10 +243,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -298,8 +265,8 @@ class TripApi {
 
     }
 
-    def search ( BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean hasNotifications, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip"
+    def search ( Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean hasNotifications, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip"
 
         // params
         def queryParams = [:]
@@ -307,10 +274,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -373,8 +336,8 @@ class TripApi {
 
     }
 
-    def searchTrips ( BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean matchedHasRoute, Boolean matchedHasDriver, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/match"
+    def searchTrips ( Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean matchedHasRoute, Boolean matchedHasDriver, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/match"
 
         // params
         def queryParams = [:]
@@ -382,10 +345,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -451,8 +410,8 @@ class TripApi {
 
     }
 
-    def updateLocations ( BigDecimal version, Long id, Trip body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/locations"
+    def updateLocations ( Long id, Trip body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/locations"
 
         // params
         def queryParams = [:]
@@ -460,10 +419,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -481,8 +436,8 @@ class TripApi {
 
     }
 
-    def updateRecurrenceLocations ( BigDecimal version, Long id, Trip body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/locations/recurrence"
+    def updateRecurrenceLocations ( Long id, Trip body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/locations/recurrence"
 
         // params
         def queryParams = [:]
@@ -490,10 +445,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -511,8 +462,8 @@ class TripApi {
 
     }
 
-    def updateRecurrenceShipments ( BigDecimal version, Long id, Trip body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/shipments/recurrence"
+    def updateRecurrenceShipments ( Long id, Trip body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/shipments/recurrence"
 
         // params
         def queryParams = [:]
@@ -520,10 +471,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -541,8 +488,8 @@ class TripApi {
 
     }
 
-    def updateShipments ( BigDecimal version, Long id, Trip body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}/shipments"
+    def updateShipments ( Long id, Trip body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}/shipments"
 
         // params
         def queryParams = [:]
@@ -550,10 +497,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -571,8 +514,8 @@ class TripApi {
 
     }
 
-    def updateTrip ( BigDecimal version, Long id, Trip body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/${id}"
+    def updateTrip ( Long id, Trip body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/${id}"
 
         // params
         def queryParams = [:]
@@ -580,10 +523,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")
@@ -601,8 +540,8 @@ class TripApi {
 
     }
 
-    def updateTripNotifications ( BigDecimal version, Long id, String notifications, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trip/notifications"
+    def updateTripNotifications ( Long id, String notifications, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trip/notifications"
 
         // params
         def queryParams = [:]
@@ -610,10 +549,6 @@ class TripApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")

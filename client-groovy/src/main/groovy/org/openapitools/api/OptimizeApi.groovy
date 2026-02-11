@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ImportStatuses
 import org.openapitools.model.Orders
 import org.openapitools.model.ShipmentOrder
 
 class OptimizeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getOptimizationResult ( BigDecimal version, String batchID, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/optimize/result/${batchID}"
+    def getOptimizationResult ( String batchID, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/optimize/result/${batchID}"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class OptimizeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (batchID == null) {
             throw new RuntimeException("missing required params batchID")
@@ -53,8 +48,8 @@ class OptimizeApi {
 
     }
 
-    def requestOptimization ( BigDecimal version, Orders body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/optimize/request"
+    def requestOptimization ( Orders body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/optimize/request"
 
         // params
         def queryParams = [:]
@@ -62,10 +57,6 @@ class OptimizeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 

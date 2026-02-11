@@ -3,16 +3,15 @@ package org.openapitools.api;
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AlbumContestListResponse
 import org.openapitools.model.AlbumContestResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class ContestApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addOrUpdateAlbumContest ( BigDecimal version, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, String deviceId, Long accountId, String gameType, String appKey, String contestType, Long albumContestId, String title, String description, Long albumId1, Boolean removeAlbum1, Long albumId2, Boolean removeAlbum2, Long startDate, Long endDate, String locationDescription, String connectionIdsToAdd, String connectionGroupIdsToAdd, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/album/contest"
+    def addOrUpdateAlbumContest ( Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, String deviceId, Long accountId, String gameType, String appKey, String contestType, Long albumContestId, String title, String description, Long albumId1, Boolean removeAlbum1, Long albumId2, Boolean removeAlbum2, Long startDate, Long endDate, String locationDescription, String connectionIdsToAdd, String connectionGroupIdsToAdd, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/album/contest"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class ContestApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (publicRead == null) {
             throw new RuntimeException("missing required params publicRead")
@@ -134,8 +129,8 @@ class ContestApi {
 
     }
 
-    def approveAlbumContest ( BigDecimal version, Long albumContestId, String approvalStatus, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/album/contest/approve"
+    def approveAlbumContest ( Long albumContestId, String approvalStatus, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/album/contest/approve"
 
         // params
         def queryParams = [:]
@@ -143,10 +138,6 @@ class ContestApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumContestId == null) {
             throw new RuntimeException("missing required params albumContestId")
@@ -178,8 +169,8 @@ class ContestApi {
 
     }
 
-    def deleteContest ( BigDecimal version, Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/album/contest/remove"
+    def deleteContest ( Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/album/contest/remove"
 
         // params
         def queryParams = [:]
@@ -187,10 +178,6 @@ class ContestApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumContestId == null) {
             throw new RuntimeException("missing required params albumContestId")
@@ -221,8 +208,8 @@ class ContestApi {
 
     }
 
-    def getAlbumContest ( BigDecimal version, Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/album/contest/get"
+    def getAlbumContest ( Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/album/contest/get"
 
         // params
         def queryParams = [:]
@@ -230,10 +217,6 @@ class ContestApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumContestId == null) {
             throw new RuntimeException("missing required params albumContestId")
@@ -264,8 +247,8 @@ class ContestApi {
 
     }
 
-    def getAlbumContests ( BigDecimal version, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String appKey, String appType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/album/contest/search"
+    def getAlbumContests ( String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String appKey, String appType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/album/contest/search"
 
         // params
         def queryParams = [:]
@@ -273,10 +256,6 @@ class ContestApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (filter == null) {
             throw new RuntimeException("missing required params filter")
@@ -365,8 +344,8 @@ class ContestApi {
 
     }
 
-    def voteOnAlbumContest ( BigDecimal version, Long albumContestId, Long albumId, String deviceId, Long accountId, String contestType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/album/contest/vote"
+    def voteOnAlbumContest ( Long albumContestId, Long albumId, String deviceId, Long accountId, String contestType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/album/contest/vote"
 
         // params
         def queryParams = [:]
@@ -374,10 +353,6 @@ class ContestApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumContestId == null) {
             throw new RuntimeException("missing required params albumContestId")

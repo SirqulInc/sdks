@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.WordzWordResponse
 
 class WordApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createWord ( BigDecimal version, Long accountId, String word, String definition, Boolean active, Boolean allocateTickets, Long ticketCount, Long assetId, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/word/create"
+    def createWord ( Long accountId, String word, String definition, Boolean active, Boolean allocateTickets, Long ticketCount, Long assetId, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/word/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class WordApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -85,8 +80,8 @@ class WordApi {
 
     }
 
-    def deleteWord ( BigDecimal version, Long wordId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/word/delete"
+    def deleteWord ( Long wordId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/word/delete"
 
         // params
         def queryParams = [:]
@@ -94,10 +89,6 @@ class WordApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (wordId == null) {
             throw new RuntimeException("missing required params wordId")
@@ -123,8 +114,8 @@ class WordApi {
 
     }
 
-    def getWord ( BigDecimal version, Long wordId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/word/get"
+    def getWord ( Long wordId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/word/get"
 
         // params
         def queryParams = [:]
@@ -132,10 +123,6 @@ class WordApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (wordId == null) {
             throw new RuntimeException("missing required params wordId")
@@ -161,8 +148,8 @@ class WordApi {
 
     }
 
-    def getWords ( BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/word/search"
+    def getWords ( Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/word/search"
 
         // params
         def queryParams = [:]
@@ -170,10 +157,6 @@ class WordApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -230,8 +213,8 @@ class WordApi {
 
     }
 
-    def updateWord ( BigDecimal version, Long wordId, Long accountId, Long ticketCount, String wordText, String definition, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/word/update"
+    def updateWord ( Long wordId, Long accountId, Long ticketCount, String wordText, String definition, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/word/update"
 
         // params
         def queryParams = [:]
@@ -239,10 +222,6 @@ class WordApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (wordId == null) {
             throw new RuntimeException("missing required params wordId")

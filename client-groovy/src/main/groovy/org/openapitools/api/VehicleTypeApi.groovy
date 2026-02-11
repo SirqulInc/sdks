@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.VehicleType
 
 class VehicleTypeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createVehicleType ( BigDecimal version, String vehicleType, VehicleType body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vehicle/type"
+    def createVehicleType ( String vehicleType, VehicleType body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vehicle/type"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class VehicleTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (vehicleType == null) {
             throw new RuntimeException("missing required params vehicleType")
@@ -42,8 +37,8 @@ class VehicleTypeApi {
 
     }
 
-    def deleteVehicleType ( BigDecimal version, Long vehicleTypeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vehicle/type/${vehicleTypeId}"
+    def deleteVehicleType ( Long vehicleTypeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vehicle/type/${vehicleTypeId}"
 
         // params
         def queryParams = [:]
@@ -51,10 +46,6 @@ class VehicleTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (vehicleTypeId == null) {
             throw new RuntimeException("missing required params vehicleTypeId")
@@ -70,8 +61,8 @@ class VehicleTypeApi {
 
     }
 
-    def getVehicleType ( BigDecimal version, Long vehicleTypeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vehicle/type/${vehicleTypeId}"
+    def getVehicleType ( Long vehicleTypeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vehicle/type/${vehicleTypeId}"
 
         // params
         def queryParams = [:]
@@ -79,10 +70,6 @@ class VehicleTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (vehicleTypeId == null) {
             throw new RuntimeException("missing required params vehicleTypeId")
@@ -98,8 +85,8 @@ class VehicleTypeApi {
 
     }
 
-    def searchVehicleTypes ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vehicle/type"
+    def searchVehicleTypes ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vehicle/type"
 
         // params
         def queryParams = [:]
@@ -107,10 +94,6 @@ class VehicleTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -163,8 +146,8 @@ class VehicleTypeApi {
 
     }
 
-    def updateVehicleType ( BigDecimal version, Long vehicleTypeId, String vehicleType, VehicleType body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vehicle/type/${vehicleTypeId}"
+    def updateVehicleType ( Long vehicleTypeId, String vehicleType, VehicleType body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vehicle/type/${vehicleTypeId}"
 
         // params
         def queryParams = [:]
@@ -172,10 +155,6 @@ class VehicleTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (vehicleTypeId == null) {
             throw new RuntimeException("missing required params vehicleTypeId")

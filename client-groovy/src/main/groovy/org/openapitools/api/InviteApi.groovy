@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ConsumerInviteResponse
 import org.openapitools.model.InviteResponse
 import org.openapitools.model.SirqulResponse
 
 class InviteApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def acceptInvite ( BigDecimal version, String token, Long accountId, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Boolean autoFriend, Boolean autoAttendEvent, Boolean autoFavoriteOffer, Boolean autoFavoriteOfferLocation, Boolean autoFavoriteRetailerLocation, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/accept"
+    def acceptInvite ( String token, Long accountId, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Boolean autoFriend, Boolean autoAttendEvent, Boolean autoFavoriteOffer, Boolean autoFavoriteOfferLocation, Boolean autoFavoriteRetailerLocation, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/accept"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (token == null) {
             throw new RuntimeException("missing required params token")
@@ -85,8 +80,8 @@ class InviteApi {
 
     }
 
-    def albumContestInvite ( BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long albumContestId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/albumContest"
+    def albumContestInvite ( String deviceId, Long accountId, Long appId, String appKey, Long albumContestId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/albumContest"
 
         // params
         def queryParams = [:]
@@ -94,10 +89,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -130,8 +121,8 @@ class InviteApi {
 
     }
 
-    def albumInvite ( BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long albumId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/album"
+    def albumInvite ( String deviceId, Long accountId, Long appId, String appKey, Long albumId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/album"
 
         // params
         def queryParams = [:]
@@ -139,10 +130,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -175,8 +162,8 @@ class InviteApi {
 
     }
 
-    def eventInvite ( BigDecimal version, Long accountId, String appKey, Long listingId, String receiverAccountIds, Long retailerLocationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/event"
+    def eventInvite ( Long accountId, String appKey, Long listingId, String receiverAccountIds, Long retailerLocationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/event"
 
         // params
         def queryParams = [:]
@@ -184,10 +171,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -226,8 +209,8 @@ class InviteApi {
 
     }
 
-    def gameInvite ( BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long gameLevelId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/gameLevel"
+    def gameInvite ( String deviceId, Long accountId, Long appId, String appKey, Long gameLevelId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/gameLevel"
 
         // params
         def queryParams = [:]
@@ -235,10 +218,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -271,8 +250,8 @@ class InviteApi {
 
     }
 
-    def getInvite ( BigDecimal version, Long accountId, String token, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/get"
+    def getInvite ( Long accountId, String token, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/get"
 
         // params
         def queryParams = [:]
@@ -280,10 +259,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -322,8 +297,8 @@ class InviteApi {
 
     }
 
-    def missionInvite ( BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long missionId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/mission"
+    def missionInvite ( String deviceId, Long accountId, Long appId, String appKey, Long missionId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/mission"
 
         // params
         def queryParams = [:]
@@ -331,10 +306,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -367,8 +338,8 @@ class InviteApi {
 
     }
 
-    def offerInvite ( BigDecimal version, Long accountId, String appKey, Long offerId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/offer"
+    def offerInvite ( Long accountId, String appKey, Long offerId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/offer"
 
         // params
         def queryParams = [:]
@@ -376,10 +347,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -412,8 +379,8 @@ class InviteApi {
 
     }
 
-    def offerLocationInvite ( BigDecimal version, Long accountId, String appKey, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/offerLocation"
+    def offerLocationInvite ( Long accountId, String appKey, Long offerLocationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/offerLocation"
 
         // params
         def queryParams = [:]
@@ -421,10 +388,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -457,8 +420,8 @@ class InviteApi {
 
     }
 
-    def retailerLocationInvite ( BigDecimal version, Long accountId, String appKey, Long retailerLocationId, Long albumId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/invite/retailerLocation"
+    def retailerLocationInvite ( Long accountId, String appKey, Long retailerLocationId, Long albumId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/invite/retailerLocation"
 
         // params
         def queryParams = [:]
@@ -466,10 +429,6 @@ class InviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

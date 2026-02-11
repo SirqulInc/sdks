@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.CargoType
 
 class CargoTypeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createCargoType ( BigDecimal version, CargoType body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/cargo/type"
+    def createCargoType ( CargoType body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/cargo/type"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class CargoTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -35,8 +30,8 @@ class CargoTypeApi {
 
     }
 
-    def deleteCargoType ( BigDecimal version, Long cargoTypeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/cargo/type/${cargoTypeId}"
+    def deleteCargoType ( Long cargoTypeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/cargo/type/${cargoTypeId}"
 
         // params
         def queryParams = [:]
@@ -44,10 +39,6 @@ class CargoTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (cargoTypeId == null) {
             throw new RuntimeException("missing required params cargoTypeId")
@@ -63,8 +54,8 @@ class CargoTypeApi {
 
     }
 
-    def getCargoType ( BigDecimal version, Long cargoTypeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/cargo/type/${cargoTypeId}"
+    def getCargoType ( Long cargoTypeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/cargo/type/${cargoTypeId}"
 
         // params
         def queryParams = [:]
@@ -72,10 +63,6 @@ class CargoTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (cargoTypeId == null) {
             throw new RuntimeException("missing required params cargoTypeId")
@@ -91,8 +78,8 @@ class CargoTypeApi {
 
     }
 
-    def searchCargoTypes ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/cargo/type"
+    def searchCargoTypes ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/cargo/type"
 
         // params
         def queryParams = [:]
@@ -100,10 +87,6 @@ class CargoTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -156,8 +139,8 @@ class CargoTypeApi {
 
     }
 
-    def updateCargoType ( BigDecimal version, Long cargoTypeId, CargoType body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/cargo/type/${cargoTypeId}"
+    def updateCargoType ( Long cargoTypeId, CargoType body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/cargo/type/${cargoTypeId}"
 
         // params
         def queryParams = [:]
@@ -165,10 +148,6 @@ class CargoTypeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (cargoTypeId == null) {
             throw new RuntimeException("missing required params cargoTypeId")

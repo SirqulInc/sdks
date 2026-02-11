@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.TriggerResponse
 
 class TriggerApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createTrigger ( BigDecimal version, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trigger/create"
+    def createTrigger ( Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trigger/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class TriggerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -81,8 +76,8 @@ class TriggerApi {
 
     }
 
-    def deleteTrigger ( BigDecimal version, Long accountId, Long triggerId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trigger/delete"
+    def deleteTrigger ( Long accountId, Long triggerId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trigger/delete"
 
         // params
         def queryParams = [:]
@@ -90,10 +85,6 @@ class TriggerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -119,8 +110,8 @@ class TriggerApi {
 
     }
 
-    def getTrigger ( BigDecimal version, Long accountId, Long triggerId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trigger/get"
+    def getTrigger ( Long accountId, Long triggerId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trigger/get"
 
         // params
         def queryParams = [:]
@@ -128,10 +119,6 @@ class TriggerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -157,8 +144,8 @@ class TriggerApi {
 
     }
 
-    def searchTriggers ( BigDecimal version, Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trigger/search"
+    def searchTriggers ( Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trigger/search"
 
         // params
         def queryParams = [:]
@@ -166,10 +153,6 @@ class TriggerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -221,8 +204,8 @@ class TriggerApi {
 
     }
 
-    def updateTrigger ( BigDecimal version, Long triggerId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/trigger/update"
+    def updateTrigger ( Long triggerId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/trigger/update"
 
         // params
         def queryParams = [:]
@@ -230,10 +213,6 @@ class TriggerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (triggerId == null) {
             throw new RuntimeException("missing required params triggerId")

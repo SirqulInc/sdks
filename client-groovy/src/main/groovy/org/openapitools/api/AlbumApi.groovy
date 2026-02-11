@@ -3,17 +3,16 @@ package org.openapitools.api;
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AlbumFullResponse
 import org.openapitools.model.AlbumResponse
-import java.math.BigDecimal
 import org.openapitools.model.SearchResponse
 import org.openapitools.model.SirqulResponse
 
 class AlbumApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addAlbumCollection ( BigDecimal version, String title, Boolean coverAssetNullable, Boolean includeCoverInAssetList, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Boolean anonymous, String deviceId, Long accountId, String assetsToAdd, File media, String mediaURL, Long assetId, File attachedMedia, String attachedMediaURL, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Double latitude, Double longitude, String locationDescription, String visibility, String gameType, String appKey, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String approvalStatus, String linkedObjectType, Long linkedObjectId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/create"
+    def addAlbumCollection ( String title, Boolean coverAssetNullable, Boolean includeCoverInAssetList, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Boolean anonymous, String deviceId, Long accountId, String assetsToAdd, File media, String mediaURL, Long assetId, File attachedMedia, String attachedMediaURL, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Double latitude, Double longitude, String locationDescription, String visibility, String gameType, String appKey, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String approvalStatus, String linkedObjectType, Long linkedObjectId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/create"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (title == null) {
             throw new RuntimeException("missing required params title")
@@ -206,8 +201,8 @@ class AlbumApi {
 
     }
 
-    def addAlbumUsers ( BigDecimal version, Long albumId, Boolean includeFriendGroup, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connections, String connectionGroups, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/user/add"
+    def addAlbumUsers ( Long albumId, Boolean includeFriendGroup, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connections, String connectionGroups, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/user/add"
 
         // params
         def queryParams = [:]
@@ -215,10 +210,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumId == null) {
             throw new RuntimeException("missing required params albumId")
@@ -268,8 +259,8 @@ class AlbumApi {
 
     }
 
-    def approveAlbum ( BigDecimal version, Long albumId, String deviceId, Long accountId, String approvalStatus, Boolean verified, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/approve"
+    def approveAlbum ( Long albumId, String deviceId, Long accountId, String approvalStatus, Boolean verified, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/approve"
 
         // params
         def queryParams = [:]
@@ -277,10 +268,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumId == null) {
             throw new RuntimeException("missing required params albumId")
@@ -311,8 +298,8 @@ class AlbumApi {
 
     }
 
-    def getAlbumCollection ( BigDecimal version, Boolean returnNulls, Long albumId, String deviceId, Long accountId, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/get"
+    def getAlbumCollection ( Boolean returnNulls, Long albumId, String deviceId, Long accountId, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/get"
 
         // params
         def queryParams = [:]
@@ -320,10 +307,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -370,8 +353,8 @@ class AlbumApi {
 
     }
 
-    def leaveAlbum ( BigDecimal version, Long albumId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/user/leave"
+    def leaveAlbum ( Long albumId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/user/leave"
 
         // params
         def queryParams = [:]
@@ -379,10 +362,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumId == null) {
             throw new RuntimeException("missing required params albumId")
@@ -407,8 +386,8 @@ class AlbumApi {
 
     }
 
-    def removeAlbum ( BigDecimal version, Long albumId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/delete"
+    def removeAlbum ( Long albumId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/delete"
 
         // params
         def queryParams = [:]
@@ -416,10 +395,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumId == null) {
             throw new RuntimeException("missing required params albumId")
@@ -444,8 +419,8 @@ class AlbumApi {
 
     }
 
-    def removeAlbumUsers ( BigDecimal version, Long albumId, Boolean removeFriendGroup, String deviceId, Long accountId, String connections, String connectionGroups, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/user/delete"
+    def removeAlbumUsers ( Long albumId, Boolean removeFriendGroup, String deviceId, Long accountId, String connections, String connectionGroups, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/user/delete"
 
         // params
         def queryParams = [:]
@@ -453,10 +428,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumId == null) {
             throw new RuntimeException("missing required params albumId")
@@ -494,8 +465,8 @@ class AlbumApi {
 
     }
 
-    def searchAlbums ( BigDecimal version, String filter, Long albumTypeId, String subType, Boolean includeInactive, String sortField, Boolean descending, Integer start, Integer limit, Double range, Boolean includeLiked, Boolean includeFavorited, Boolean includePermissions, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, String deviceId, Long accountId, Long connectionAccountId, Long ownerId, String albumIds, String excludeAlbumIds, Long mediaId, String keyword, String albumType, Integer limitPerAlbumType, Long dateCreated, Long updatedSince, Long updatedBefore, Long createdSince, Long createdBefore, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Double latitude, Double longitude, String appKey, String categoryIds, String categoryFilterIds, String audienceIds, String excludeAudienceIds, Boolean includeCompletable, Boolean includeRating, String searchMode, Boolean stackSearch, Integer stackWindowSize, Integer minStackPerPage, String stackPaginationIdentifier, Boolean stackDetails, Long flagCountMinimum, Boolean removeFlaggedContent, Boolean verifiedFilter, String linkedObjectType, Long linkedObjectId, Long orderAudienceId, Boolean ignoreDefaultAppFilter, String searchExpression, Boolean generateAlbums, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/search"
+    def searchAlbums ( String filter, Long albumTypeId, String subType, Boolean includeInactive, String sortField, Boolean descending, Integer start, Integer limit, Double range, Boolean includeLiked, Boolean includeFavorited, Boolean includePermissions, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, String deviceId, Long accountId, Long connectionAccountId, Long ownerId, String albumIds, String excludeAlbumIds, Long mediaId, String keyword, String albumType, Integer limitPerAlbumType, Long dateCreated, Long updatedSince, Long updatedBefore, Long createdSince, Long createdBefore, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Double latitude, Double longitude, String appKey, String categoryIds, String categoryFilterIds, String audienceIds, String excludeAudienceIds, Boolean includeCompletable, Boolean includeRating, String searchMode, Boolean stackSearch, Integer stackWindowSize, Integer minStackPerPage, String stackPaginationIdentifier, Boolean stackDetails, Long flagCountMinimum, Boolean removeFlaggedContent, Boolean verifiedFilter, String linkedObjectType, Long linkedObjectId, Long orderAudienceId, Boolean ignoreDefaultAppFilter, String searchExpression, Boolean generateAlbums, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/search"
 
         // params
         def queryParams = [:]
@@ -503,10 +474,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (filter == null) {
             throw new RuntimeException("missing required params filter")
@@ -766,8 +733,8 @@ class AlbumApi {
 
     }
 
-    def updateAlbumCollection ( BigDecimal version, Long albumId, String deviceId, Long accountId, String assetsToAdd, String assetsToRemove, Long assetId, File media, String mediaURL, Boolean active, String title, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Double latitude, Double longitude, String locationDescription, String visibility, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, Boolean anonymous, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String linkedObjectType, Long linkedObjectId, Boolean indexNow, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/album/update"
+    def updateAlbumCollection ( Long albumId, String deviceId, Long accountId, String assetsToAdd, String assetsToRemove, Long assetId, File media, String mediaURL, Boolean active, String title, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Double latitude, Double longitude, String locationDescription, String visibility, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, Boolean anonymous, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String linkedObjectType, Long linkedObjectId, Boolean indexNow, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/album/update"
 
         // params
         def queryParams = [:]
@@ -775,10 +742,6 @@ class AlbumApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (albumId == null) {
             throw new RuntimeException("missing required params albumId")

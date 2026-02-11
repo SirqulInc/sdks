@@ -6,12 +6,12 @@ import org.openapitools.model.NoteResponse
 import org.openapitools.model.SirqulResponse
 
 class NoteApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def batchOperation ( BigDecimal version, Long notableId, String notableType, String deviceId, Long accountId, String batchOperation, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/note/batch"
+    def batchOperation ( Long notableId, String notableType, String deviceId, Long accountId, String batchOperation, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/note/batch"
 
         // params
         def queryParams = [:]
@@ -19,10 +19,6 @@ class NoteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (notableId == null) {
             throw new RuntimeException("missing required params notableId")
@@ -57,8 +53,8 @@ class NoteApi {
 
     }
 
-    def createNote ( BigDecimal version, String comment, String deviceId, Long accountId, String notableType, Long notableId, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, String receiverAccountIds, Boolean returnFullResponse, Boolean initializeAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, BigDecimal assetLongitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/note/create"
+    def createNote ( String comment, String deviceId, Long accountId, String notableType, Long notableId, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, String receiverAccountIds, Boolean returnFullResponse, Boolean initializeAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, BigDecimal assetLongitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/note/create"
 
         // params
         def queryParams = [:]
@@ -66,10 +62,6 @@ class NoteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (comment == null) {
             throw new RuntimeException("missing required params comment")
@@ -211,8 +203,8 @@ class NoteApi {
 
     }
 
-    def deleteNote ( BigDecimal version, Long noteId, String deviceId, Long accountId, Double latitude, Double longitude, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/note/delete"
+    def deleteNote ( Long noteId, String deviceId, Long accountId, Double latitude, Double longitude, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/note/delete"
 
         // params
         def queryParams = [:]
@@ -220,10 +212,6 @@ class NoteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (noteId == null) {
             throw new RuntimeException("missing required params noteId")
@@ -257,8 +245,8 @@ class NoteApi {
 
     }
 
-    def getNote ( BigDecimal version, Long noteId, String deviceId, Long accountId, Boolean returnFullResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/note/get"
+    def getNote ( Long noteId, String deviceId, Long accountId, Boolean returnFullResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/note/get"
 
         // params
         def queryParams = [:]
@@ -266,10 +254,6 @@ class NoteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (noteId == null) {
             throw new RuntimeException("missing required params noteId")
@@ -297,8 +281,8 @@ class NoteApi {
 
     }
 
-    def searchNotes ( BigDecimal version, String deviceId, Long accountId, String notableType, Long notableId, String noteTypes, String appKey, String keyword, Long flagCountMinimum, Boolean flagsExceedThreshold, Boolean includeInactive, String sortField, Boolean descending, Boolean returnFullResponse, Long updatedSince, Long updatedBefore, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/note/search"
+    def searchNotes ( String deviceId, Long accountId, String notableType, Long notableId, String noteTypes, String appKey, String keyword, Long flagCountMinimum, Boolean flagsExceedThreshold, Boolean includeInactive, String sortField, Boolean descending, Boolean returnFullResponse, Long updatedSince, Long updatedBefore, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/note/search"
 
         // params
         def queryParams = [:]
@@ -306,10 +290,6 @@ class NoteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -372,8 +352,8 @@ class NoteApi {
 
     }
 
-    def updateNote ( BigDecimal version, Long noteId, String deviceId, Long accountId, String comment, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, Boolean active, Boolean updateAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, Double assetLongitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/note/update"
+    def updateNote ( Long noteId, String deviceId, Long accountId, String comment, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, Boolean active, Boolean updateAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, Double assetLongitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/note/update"
 
         // params
         def queryParams = [:]
@@ -381,10 +361,6 @@ class NoteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (noteId == null) {
             throw new RuntimeException("missing required params noteId")

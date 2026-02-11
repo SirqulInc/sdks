@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.OfferTransactionResponse
 import org.openapitools.model.SirqulResponse
 
 class WalletApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createOfferTransaction ( BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Integer status, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/wallet/create"
+    def createOfferTransaction ( String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Integer status, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/wallet/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class WalletApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -67,8 +62,8 @@ class WalletApi {
 
     }
 
-    def deleteOfferTransaction ( BigDecimal version, Long transactionId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/wallet/delete"
+    def deleteOfferTransaction ( Long transactionId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/wallet/delete"
 
         // params
         def queryParams = [:]
@@ -76,10 +71,6 @@ class WalletApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (transactionId == null) {
             throw new RuntimeException("missing required params transactionId")
@@ -104,8 +95,8 @@ class WalletApi {
 
     }
 
-    def getOfferTransaction ( BigDecimal version, Long transactionId, String deviceId, Long accountId, Boolean includeMission, Double latitude, Double longitude, Boolean returnFullResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/wallet/get"
+    def getOfferTransaction ( Long transactionId, String deviceId, Long accountId, Boolean includeMission, Double latitude, Double longitude, Boolean returnFullResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/wallet/get"
 
         // params
         def queryParams = [:]
@@ -113,10 +104,6 @@ class WalletApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (transactionId == null) {
             throw new RuntimeException("missing required params transactionId")
@@ -153,8 +140,8 @@ class WalletApi {
 
     }
 
-    def previewOfferTransaction ( BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/wallet/preview"
+    def previewOfferTransaction ( String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/wallet/preview"
 
         // params
         def queryParams = [:]
@@ -162,10 +149,6 @@ class WalletApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -207,8 +190,8 @@ class WalletApi {
 
     }
 
-    def searchOfferTransactions ( BigDecimal version, String deviceId, Long accountId, String keyword, Long retailerId, String retailerIds, Long retailerLocationId, String retailerLocationIds, String excludeRetailerLocationIds, Long offerId, String offerIds, Long offerLocationId, String offerLocationIds, String offerType, String offerTypes, String specialOfferType, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Long redeemableStartDate, Long redeemableEndDate, Boolean filterByParentOffer, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Boolean redeemed, String statuses, Boolean reservationsOnly, Boolean activeOnly, Boolean returnFullResponse, Long recurringStartedSince, Long recurringStartedBefore, Long recurringExpirationSince, Long recurringExpirationBefore, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/wallet/search"
+    def searchOfferTransactions ( String deviceId, Long accountId, String keyword, Long retailerId, String retailerIds, Long retailerLocationId, String retailerLocationIds, String excludeRetailerLocationIds, Long offerId, String offerIds, Long offerLocationId, String offerLocationIds, String offerType, String offerTypes, String specialOfferType, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Long redeemableStartDate, Long redeemableEndDate, Boolean filterByParentOffer, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Boolean redeemed, String statuses, Boolean reservationsOnly, Boolean activeOnly, Boolean returnFullResponse, Long recurringStartedSince, Long recurringStartedBefore, Long recurringExpirationSince, Long recurringExpirationBefore, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/wallet/search"
 
         // params
         def queryParams = [:]
@@ -216,10 +199,6 @@ class WalletApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -354,8 +333,8 @@ class WalletApi {
 
     }
 
-    def updateOfferTransaction ( BigDecimal version, Long transactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, String currencyType, Boolean usePoints, String appKey, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, String exceptionMembershipOfferIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/wallet/update"
+    def updateOfferTransaction ( Long transactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, String currencyType, Boolean usePoints, String appKey, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, String exceptionMembershipOfferIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/wallet/update"
 
         // params
         def queryParams = [:]
@@ -363,10 +342,6 @@ class WalletApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (transactionId == null) {
             throw new RuntimeException("missing required params transactionId")

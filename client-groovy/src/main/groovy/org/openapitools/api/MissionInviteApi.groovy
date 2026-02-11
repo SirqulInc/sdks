@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.MissionResponse
 import org.openapitools.model.SirqulResponse
 
 class MissionInviteApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createMissionInvite ( BigDecimal version, String deviceId, Long accountId, Long missionId, String joinCode, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/invite/create"
+    def createMissionInvite ( String deviceId, Long accountId, Long missionId, String joinCode, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/invite/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class MissionInviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -49,8 +44,8 @@ class MissionInviteApi {
 
     }
 
-    def deleteMissionInvite ( BigDecimal version, String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/invite/delete"
+    def deleteMissionInvite ( String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/invite/delete"
 
         // params
         def queryParams = [:]
@@ -58,10 +53,6 @@ class MissionInviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -88,8 +79,8 @@ class MissionInviteApi {
 
     }
 
-    def getMissionInvite ( BigDecimal version, String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, String includeScores, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/invite/get"
+    def getMissionInvite ( String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, String includeScores, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/invite/get"
 
         // params
         def queryParams = [:]
@@ -97,10 +88,6 @@ class MissionInviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -130,8 +117,8 @@ class MissionInviteApi {
 
     }
 
-    def searchMissionInvites ( BigDecimal version, String deviceId, Long accountId, String appKey, String appVersion, Long missionId, String status, Long lastUpdated, Integer start, Integer limit, String keyword, String missionTypes, Boolean filterByBillable, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/invite/search"
+    def searchMissionInvites ( String deviceId, Long accountId, String appKey, String appVersion, Long missionId, String status, Long lastUpdated, Integer start, Integer limit, String keyword, String missionTypes, Boolean filterByBillable, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/invite/search"
 
         // params
         def queryParams = [:]
@@ -139,10 +126,6 @@ class MissionInviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -193,8 +176,8 @@ class MissionInviteApi {
 
     }
 
-    def updateMissionInvite ( BigDecimal version, String deviceId, Long accountId, String appKey, Long missionId, Long missionInviteId, Long packId, Long gameLevelId, String status, String permissionableType, Long permissionableId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/invite/update"
+    def updateMissionInvite ( String deviceId, Long accountId, String appKey, Long missionId, Long missionInviteId, Long packId, Long gameLevelId, String status, String permissionableType, Long permissionableId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/invite/update"
 
         // params
         def queryParams = [:]
@@ -202,10 +185,6 @@ class MissionInviteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)

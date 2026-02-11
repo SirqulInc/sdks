@@ -2,16 +2,15 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AppResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class AppDataApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getAppData ( BigDecimal version, Integer start, Integer limit, String deviceId, Long accountId, String gameType, Boolean includeGameData, String q, String keyword, String sortField, Boolean descending, Integer i, Integer l, Boolean gameObjectCount, String filter, Long dateCreated, Long ownerId, String missionIds, String gameIds, String packIds, String gameLevelIds, String appVersion, Boolean includeHigherVersionPacks, Boolean includeHigherVersionLevels, String responseGroups, String purchaseType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/app/get"
+    def getAppData ( Integer start, Integer limit, String deviceId, Long accountId, String gameType, Boolean includeGameData, String q, String keyword, String sortField, Boolean descending, Integer i, Integer l, Boolean gameObjectCount, String filter, Long dateCreated, Long ownerId, String missionIds, String gameIds, String packIds, String gameLevelIds, String appVersion, Boolean includeHigherVersionPacks, Boolean includeHigherVersionLevels, String responseGroups, String purchaseType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/app/get"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class AppDataApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (start == null) {
             throw new RuntimeException("missing required params start")
@@ -117,8 +112,8 @@ class AppDataApi {
 
     }
 
-    def postAppData ( BigDecimal version, String gameType, Integer start, Integer limit, String data, String deviceId, Long accountId, Boolean includeGameData, String q, String keyword, String sortField, Boolean descending, Integer i, Integer l, Boolean gameObjectCount, String filter, Long dateCreated, Long ownerId, String missionIds, String gameIds, String packIds, String gameLevelIds, String appVersion, Boolean includeHigherVersionPacks, Boolean includeHigherVersionLevels, String responseGroups, String purchaseType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/app/post"
+    def postAppData ( String gameType, Integer start, Integer limit, String data, String deviceId, Long accountId, Boolean includeGameData, String q, String keyword, String sortField, Boolean descending, Integer i, Integer l, Boolean gameObjectCount, String filter, Long dateCreated, Long ownerId, String missionIds, String gameIds, String packIds, String gameLevelIds, String appVersion, Boolean includeHigherVersionPacks, Boolean includeHigherVersionLevels, String responseGroups, String purchaseType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/app/post"
 
         // params
         def queryParams = [:]
@@ -126,10 +121,6 @@ class AppDataApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (gameType == null) {
             throw new RuntimeException("missing required params gameType")
@@ -235,8 +226,8 @@ class AppDataApi {
 
     }
 
-    def regenAppData ( BigDecimal version, Long accountId, String appKey, String buildVersion, String apiVersion, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/app/regen"
+    def regenAppData ( Long accountId, String appKey, String buildVersion, String apiVersion, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/app/regen"
 
         // params
         def queryParams = [:]
@@ -244,10 +235,6 @@ class AppDataApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)

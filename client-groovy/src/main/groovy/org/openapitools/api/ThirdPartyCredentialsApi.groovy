@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ProfileResponse
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.ThirdPartyCredentialResponse
@@ -9,12 +8,12 @@ import org.openapitools.model.ThirdPartyNetworkResponse
 import org.openapitools.model.ThirdPartyNetworkShortResponse
 
 class ThirdPartyCredentialsApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createCredential ( BigDecimal version, String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, String thirdPartyName, String emailAddress, Boolean signinOnlyMode, String responseFilters, Double latitude, Double longitude, String metaData, String thirdPartyRefreshToken, String audienceIdsToAdd, String audienceIdsToRemove, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/credential/create"
+    def createCredential ( String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, String thirdPartyName, String emailAddress, Boolean signinOnlyMode, String responseFilters, Double latitude, Double longitude, String metaData, String thirdPartyRefreshToken, String audienceIdsToAdd, String audienceIdsToRemove, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/credential/create"
 
         // params
         def queryParams = [:]
@@ -22,10 +21,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (thirdPartyId == null) {
             throw new RuntimeException("missing required params thirdPartyId")
@@ -104,8 +99,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def createNetwork ( BigDecimal version, Long accountId, String name, Boolean enableIntrospection, String description, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/network/create"
+    def createNetwork ( Long accountId, String name, Boolean enableIntrospection, String description, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/network/create"
 
         // params
         def queryParams = [:]
@@ -113,10 +108,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -190,8 +181,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def deleteCredential ( BigDecimal version, Long accountId, String networkUID, String thirdPartyId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/credential/delete"
+    def deleteCredential ( Long accountId, String networkUID, String thirdPartyId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/credential/delete"
 
         // params
         def queryParams = [:]
@@ -199,10 +190,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -242,8 +229,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def deleteNetwork ( BigDecimal version, Long accountId, String networkUID, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/network/delete"
+    def deleteNetwork ( Long accountId, String networkUID, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/network/delete"
 
         // params
         def queryParams = [:]
@@ -251,10 +238,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -280,8 +263,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def getCredential ( BigDecimal version, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, Long thirdPartyCredentialId, String thirdPartyToken, String thirdPartySecret, Boolean createNewAccount, String responseFilters, Double latitude, Double longitude, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/credential/get"
+    def getCredential ( String networkUID, String appKey, Long accountId, String deviceId, String sessionId, Long thirdPartyCredentialId, String thirdPartyToken, String thirdPartySecret, Boolean createNewAccount, String responseFilters, Double latitude, Double longitude, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/credential/get"
 
         // params
         def queryParams = [:]
@@ -289,10 +272,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (networkUID == null) {
             throw new RuntimeException("missing required params networkUID")
@@ -357,8 +336,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def getNetwork ( BigDecimal version, Long accountId, String networkUID, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/network/get"
+    def getNetwork ( Long accountId, String networkUID, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/network/get"
 
         // params
         def queryParams = [:]
@@ -366,10 +345,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -395,8 +370,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def searchCredentials ( BigDecimal version, Long accountId, String keyword, String networkUID, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/credential/search"
+    def searchCredentials ( Long accountId, String keyword, String networkUID, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/credential/search"
 
         // params
         def queryParams = [:]
@@ -404,10 +379,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -441,8 +412,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def searchNetworks ( BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Boolean filterBillable, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/network/search"
+    def searchNetworks ( Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Boolean filterBillable, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/network/search"
 
         // params
         def queryParams = [:]
@@ -450,10 +421,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -513,8 +480,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def sendMFAChallenge ( BigDecimal version, String networkUID, String appKey, String thirdPartyToken, Long thirdPartyCredentialId, String deviceId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/credential/mfa/send"
+    def sendMFAChallenge ( String networkUID, String appKey, String thirdPartyToken, Long thirdPartyCredentialId, String deviceId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/credential/mfa/send"
 
         // params
         def queryParams = [:]
@@ -522,10 +489,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (networkUID == null) {
             throw new RuntimeException("missing required params networkUID")
@@ -560,8 +523,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def updateCredential ( BigDecimal version, String networkUID, String thirdPartyId, String appKey, String deviceId, String thirdPartyName, String thirdPartyToken, String responseFilters, String metaData, String thirdPartyRefreshToken, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/credential/update"
+    def updateCredential ( String networkUID, String thirdPartyId, String appKey, String deviceId, String thirdPartyName, String thirdPartyToken, String responseFilters, String metaData, String thirdPartyRefreshToken, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/credential/update"
 
         // params
         def queryParams = [:]
@@ -569,10 +532,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (networkUID == null) {
             throw new RuntimeException("missing required params networkUID")
@@ -623,8 +582,8 @@ class ThirdPartyCredentialsApi {
 
     }
 
-    def updateNetwork ( BigDecimal version, Long accountId, String networkUID, String name, String description, Boolean enableIntrospection, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/thirdparty/network/update"
+    def updateNetwork ( Long accountId, String networkUID, String name, String description, Boolean enableIntrospection, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/thirdparty/network/update"
 
         // params
         def queryParams = [:]
@@ -632,10 +591,6 @@ class ThirdPartyCredentialsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

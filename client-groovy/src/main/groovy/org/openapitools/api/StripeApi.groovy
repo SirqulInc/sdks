@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class StripeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createStripeCheckoutSession ( BigDecimal version, String appKey, String stripeParameters, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/stripe/checkout/session/create"
+    def createStripeCheckoutSession ( String appKey, String stripeParameters, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/stripe/checkout/session/create"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class StripeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")

@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.CoordsResponse
 import org.openapitools.model.GeoPointResponse
 import org.openapitools.model.LocationSearchResponse
@@ -9,12 +8,12 @@ import org.openapitools.model.SirqulResponse
 import org.openapitools.model.TrilatCacheRequest
 
 class LocationApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def cacheTrilaterationData ( BigDecimal version, String udid, Long sourceTime, Integer minimumSampleSize, String data, File dataFile, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/trilaterate/cache"
+    def cacheTrilaterationData ( String udid, Long sourceTime, Integer minimumSampleSize, String data, File dataFile, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/trilaterate/cache"
 
         // params
         def queryParams = [:]
@@ -22,10 +21,6 @@ class LocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (udid == null) {
             throw new RuntimeException("missing required params udid")
@@ -56,8 +51,8 @@ class LocationApi {
 
     }
 
-    def cacheTrilaterationDataGzip ( BigDecimal version, TrilatCacheRequest body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/trilaterate/cache/submit"
+    def cacheTrilaterationDataGzip ( TrilatCacheRequest body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/trilaterate/cache/submit"
 
         // params
         def queryParams = [:]
@@ -65,10 +60,6 @@ class LocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -82,8 +73,8 @@ class LocationApi {
 
     }
 
-    def getLocationByIp ( BigDecimal version, String ip, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/ip"
+    def getLocationByIp ( String ip, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/ip"
 
         // params
         def queryParams = [:]
@@ -91,10 +82,6 @@ class LocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (ip != null) {
             queryParams.put("ip", ip)
@@ -109,8 +96,8 @@ class LocationApi {
 
     }
 
-    def getLocationByTrilateration ( BigDecimal version, Long accountId, Double latitude, Double longitude, String data, String responseFilters, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/location/trilaterate"
+    def getLocationByTrilateration ( Long accountId, Double latitude, Double longitude, String data, String responseFilters, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/location/trilaterate"
 
         // params
         def queryParams = [:]
@@ -118,10 +105,6 @@ class LocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -148,8 +131,8 @@ class LocationApi {
 
     }
 
-    def getLocations ( BigDecimal version, String deviceId, Long accountId, Double currentlatitude, Double currentlongitude, Double currentLatitude, Double currentLongitude, String query, String zipcode, String zipCode, Double selectedMaplatitude, Double selectedMaplongitude, Double selectedMapLatitude, Double selectedMapLongitude, Double searchRange, Boolean useGeocode, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/search"
+    def getLocations ( String deviceId, Long accountId, Double currentlatitude, Double currentlongitude, Double currentLatitude, Double currentLongitude, String query, String zipcode, String zipCode, Double selectedMaplatitude, Double selectedMaplongitude, Double selectedMapLatitude, Double selectedMapLongitude, Double searchRange, Boolean useGeocode, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/search"
 
         // params
         def queryParams = [:]
@@ -157,10 +140,6 @@ class LocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)

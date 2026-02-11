@@ -10,7 +10,7 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 3.16
 - Package version: 3.16
-- Build date: 2026-02-09T19:51:38.913517638Z[Etc/UTC]
+- Build date: 2026-02-11T18:58:45.372530228Z[Etc/UTC]
 - Generator version: 7.20.0-SNAPSHOT
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 For more information, please visit [https://corp.sirqul.com/contact-us/](https://corp.sirqul.com/contact-us/)
@@ -39,7 +39,6 @@ Then, run:
 
 ```groovy
 def apiInstance = new AccountApi()
-def version = new BigDecimal("3.16") // BigDecimal | 
 def deviceId = "deviceId_example" // String | The device id (deviceId or accountId required)
 def accountId = 56L // Long | The account id of the user (deviceId or accountId required)
 def q = "q_example" // String | Deprecated - legacy query parameter
@@ -75,7 +74,7 @@ def flagCountMinimum = 56L // Long | Return any results that have a minimum of t
 def verifiedUserOnly = true // Boolean | Returns only verified users
 def contentAdminOnly = true // Boolean | Returns only content admin users
 
-apiInstance.accountLocationSearch(version, deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly)
+apiInstance.accountLocationSearch(deviceId, accountId, q, keyword, postalCode, latitude, longitude, appKey, range, locationLastUpdated, gender, minAge, maxAge, companionshipIndex, i, start, l, limit, searchMode, sortField, descending, roles, tags, experience, categoryIds, audienceIds, audienceOperator, updateCurrentLocation, updatePreferredSettings, showExactLocations, showConnectionToSearcher, flagCountMinimum, verifiedUserOnly, contentAdminOnly)
     {
     // on success
     def result = (UserLocationSearchResponse)it

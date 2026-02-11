@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PathingResponse
 
 class PathingApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def computePath ( BigDecimal version, String data, String units, Boolean reducePath, Boolean directions, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/pathing/compute"
+    def computePath ( String data, String units, Boolean reducePath, Boolean directions, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/pathing/compute"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class PathingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (data == null) {
             throw new RuntimeException("missing required params data")

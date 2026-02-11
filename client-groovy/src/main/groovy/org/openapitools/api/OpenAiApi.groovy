@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.WrappedProxyItemResponse
 
 class OpenAiApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def imageGeneration ( BigDecimal version, Long accountId, String postBody, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/openai/v1/images/generations"
+    def imageGeneration ( Long accountId, String postBody, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/openai/v1/images/generations"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class OpenAiApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

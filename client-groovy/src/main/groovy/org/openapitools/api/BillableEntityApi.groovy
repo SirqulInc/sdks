@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.BillableEntityResponse
 import org.openapitools.model.SirqulResponse
 
 class BillableEntityApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createBillableEntity ( BigDecimal version, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billable/create"
+    def createBillableEntity ( String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billable/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class BillableEntityApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -70,8 +65,8 @@ class BillableEntityApi {
 
     }
 
-    def deleteBillableEntity ( BigDecimal version, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billable/delete"
+    def deleteBillableEntity ( String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billable/delete"
 
         // params
         def queryParams = [:]
@@ -79,10 +74,6 @@ class BillableEntityApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -100,8 +91,8 @@ class BillableEntityApi {
 
     }
 
-    def getBillableEntity ( BigDecimal version, String deviceId, Long accountId, Boolean includeCounts, Boolean includePayments, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billable/get"
+    def getBillableEntity ( String deviceId, Long accountId, Boolean includeCounts, Boolean includePayments, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billable/get"
 
         // params
         def queryParams = [:]
@@ -109,10 +100,6 @@ class BillableEntityApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -136,8 +123,8 @@ class BillableEntityApi {
 
     }
 
-    def updateBillableEntity ( BigDecimal version, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/billable/update"
+    def updateBillableEntity ( String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/billable/update"
 
         // params
         def queryParams = [:]
@@ -145,10 +132,6 @@ class BillableEntityApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)

@@ -5,16 +5,15 @@ import org.openapitools.model.AchievementProgressResponse
 import org.openapitools.model.AchievementResponse
 import org.openapitools.model.AchievementShortResponse
 import org.openapitools.model.AchievementTierResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class AchievementApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def apiVersionAchievementTierSearchPost ( BigDecimal version, String deviceId, Long accountId, String appKey, String keyword, Long achievementType, String rankType, String sortField, Boolean descending, Boolean descendingGoal, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/tier/search"
+    def achievementTierSearchPost ( String deviceId, Long accountId, String appKey, String keyword, Long achievementType, String rankType, String sortField, Boolean descending, Boolean descendingGoal, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/tier/search"
 
         // params
         def queryParams = [:]
@@ -22,10 +21,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -70,8 +65,8 @@ class AchievementApi {
 
     }
 
-    def createAchievement ( BigDecimal version, String appKey, String title, String deviceId, Long accountId, String analyticsTag, String description, String rankType, Integer rankIncrement, Integer minIncrement, Integer maxIncrement, Boolean validate, Boolean active, String triggerDefinition, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/create"
+    def createAchievement ( String appKey, String title, String deviceId, Long accountId, String analyticsTag, String description, String rankType, Integer rankIncrement, Integer minIncrement, Integer maxIncrement, Boolean validate, Boolean active, String triggerDefinition, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/create"
 
         // params
         def queryParams = [:]
@@ -79,10 +74,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -141,8 +132,8 @@ class AchievementApi {
 
     }
 
-    def createAchievementTier ( BigDecimal version, Long achievementId, Boolean scoreAllInstances, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Integer gameObjectId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/tier/create"
+    def createAchievementTier ( Long achievementId, Boolean scoreAllInstances, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Integer gameObjectId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/tier/create"
 
         // params
         def queryParams = [:]
@@ -150,10 +141,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (achievementId == null) {
             throw new RuntimeException("missing required params achievementId")
@@ -215,8 +202,8 @@ class AchievementApi {
 
     }
 
-    def deleteAchievement ( BigDecimal version, Long achievementId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/delete"
+    def deleteAchievement ( Long achievementId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/delete"
 
         // params
         def queryParams = [:]
@@ -224,10 +211,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (achievementId == null) {
             throw new RuntimeException("missing required params achievementId")
@@ -249,8 +232,8 @@ class AchievementApi {
 
     }
 
-    def deleteAchievementTier ( BigDecimal version, Long achievementTierId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/tier/delete"
+    def deleteAchievementTier ( Long achievementTierId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/tier/delete"
 
         // params
         def queryParams = [:]
@@ -258,10 +241,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (achievementTierId == null) {
             throw new RuntimeException("missing required params achievementTierId")
@@ -283,8 +262,8 @@ class AchievementApi {
 
     }
 
-    def getAchievement ( BigDecimal version, Long achievementId, String deviceId, Long accountId, String achievementType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/get"
+    def getAchievement ( Long achievementId, String deviceId, Long accountId, String achievementType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/get"
 
         // params
         def queryParams = [:]
@@ -292,10 +271,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (achievementId == null) {
             throw new RuntimeException("missing required params achievementId")
@@ -323,8 +298,8 @@ class AchievementApi {
 
     }
 
-    def getAchievementTier ( BigDecimal version, Long accountId, Long achievementTierId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/tier/get"
+    def getAchievementTier ( Long accountId, Long achievementTierId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/tier/get"
 
         // params
         def queryParams = [:]
@@ -332,10 +307,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -361,8 +332,8 @@ class AchievementApi {
 
     }
 
-    def getUserAchievements ( BigDecimal version, Boolean returnNulls, String appKey, Boolean includeUndiscovered, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String rankType, String achievementType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/progress/get"
+    def getUserAchievements ( Boolean returnNulls, String appKey, Boolean includeUndiscovered, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String rankType, String achievementType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/progress/get"
 
         // params
         def queryParams = [:]
@@ -370,10 +341,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (returnNulls == null) {
             throw new RuntimeException("missing required params returnNulls")
@@ -430,8 +397,8 @@ class AchievementApi {
 
     }
 
-    def listAchievementTags ( BigDecimal version, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/tag/list"
+    def listAchievementTags ( String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/tag/list"
 
         // params
         def queryParams = [:]
@@ -439,10 +406,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (appKey != null) {
             queryParams.put("appKey", appKey)
@@ -457,8 +420,8 @@ class AchievementApi {
 
     }
 
-    def listAchievements ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String appKey, String keyword, String achievementType, String rankType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/list"
+    def listAchievements ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String appKey, String keyword, String achievementType, String rankType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/list"
 
         // params
         def queryParams = [:]
@@ -466,10 +429,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -534,8 +493,8 @@ class AchievementApi {
 
     }
 
-    def searchAchievements ( BigDecimal version, String appKey, String sortField, Boolean descending, Boolean includeTiers, Boolean includeInactiveTiers, Integer start, Integer limit, String deviceId, Long accountId, String keyword, String achievementType, String rankType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/search"
+    def searchAchievements ( String appKey, String sortField, Boolean descending, Boolean includeTiers, Boolean includeInactiveTiers, Integer start, Integer limit, String deviceId, Long accountId, String keyword, String achievementType, String rankType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/search"
 
         // params
         def queryParams = [:]
@@ -543,10 +502,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -622,8 +577,8 @@ class AchievementApi {
 
     }
 
-    def updateAchievement ( BigDecimal version, String deviceId, Long accountId, Long achievementId, String analyticsTag, String title, String description, String rankType, Integer rankIncrement, Integer minIncrement, Boolean nullMinIncrement, Integer maxIncrement, Boolean nullMaxIncrement, Boolean validate, Boolean active, String triggerDefinition, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/update"
+    def updateAchievement ( String deviceId, Long accountId, Long achievementId, String analyticsTag, String title, String description, String rankType, Integer rankIncrement, Integer minIncrement, Boolean nullMinIncrement, Integer maxIncrement, Boolean nullMaxIncrement, Boolean validate, Boolean active, String triggerDefinition, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/update"
 
         // params
         def queryParams = [:]
@@ -631,10 +586,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -691,8 +642,8 @@ class AchievementApi {
 
     }
 
-    def updateAchievementTier ( BigDecimal version, Long achievementTierId, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Boolean scoreAllInstances, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/tier/update"
+    def updateAchievementTier ( Long achievementTierId, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Boolean scoreAllInstances, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/tier/update"
 
         // params
         def queryParams = [:]
@@ -700,10 +651,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (achievementTierId == null) {
             throw new RuntimeException("missing required params achievementTierId")
@@ -761,8 +708,8 @@ class AchievementApi {
 
     }
 
-    def updateUserAchievement ( BigDecimal version, Long accountId, Long achievementId, String tag, Long customId, Long increment, Long startDate, Long endDate, Boolean returnProgress, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/achievement/progress/update"
+    def updateUserAchievement ( Long accountId, Long achievementId, String tag, Long customId, Long increment, Long startDate, Long endDate, Boolean returnProgress, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/achievement/progress/update"
 
         // params
         def queryParams = [:]
@@ -770,10 +717,6 @@ class AchievementApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

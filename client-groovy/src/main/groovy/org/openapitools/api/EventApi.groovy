@@ -1,19 +1,18 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.EventAttendanceResponse
 import org.openapitools.model.OfferResponse
 import org.openapitools.model.OfferShortResponse
 import org.openapitools.model.SirqulResponse
 
 class EventApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def attendEvent ( BigDecimal version, String deviceId, Long accountId, String appKey, Long listingId, Long retailerLocationId, Long offerLocationId, Long transactionId, Integer status, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/event/attend"
+    def attendEvent ( String deviceId, Long accountId, String appKey, Long listingId, Long retailerLocationId, Long offerLocationId, Long transactionId, Integer status, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/event/attend"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class EventApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -66,8 +61,8 @@ class EventApi {
 
     }
 
-    def createEvent ( BigDecimal version, Long accountId, String title, String retailerLocationIds, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/event/create"
+    def createEvent ( Long accountId, String title, String retailerLocationIds, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/event/create"
 
         // params
         def queryParams = [:]
@@ -75,10 +70,6 @@ class EventApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -134,8 +125,8 @@ class EventApi {
 
     }
 
-    def deleteEvent ( BigDecimal version, Long accountId, Long eventId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/event/delete"
+    def deleteEvent ( Long accountId, Long eventId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/event/delete"
 
         // params
         def queryParams = [:]
@@ -143,10 +134,6 @@ class EventApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -172,8 +159,8 @@ class EventApi {
 
     }
 
-    def getEvent ( BigDecimal version, Long accountId, Long eventId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/event/get"
+    def getEvent ( Long accountId, Long eventId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/event/get"
 
         // params
         def queryParams = [:]
@@ -181,10 +168,6 @@ class EventApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -210,8 +193,8 @@ class EventApi {
 
     }
 
-    def searchEventTransactions ( BigDecimal version, String deviceId, Long accountId, String appKey, String keyword, Long retailerId, Long retailerLocationId, Long excludeRetailerLocationId, Long listingId, Long offerId, Long offerLocationId, String customerAccountIds, String affiliatedCategoryIds, Long startDate, Long endDate, String statuses, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/event/attendance/search"
+    def searchEventTransactions ( String deviceId, Long accountId, String appKey, String keyword, Long retailerId, Long retailerLocationId, Long excludeRetailerLocationId, Long listingId, Long offerId, Long offerLocationId, String customerAccountIds, String affiliatedCategoryIds, Long startDate, Long endDate, String statuses, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/event/attendance/search"
 
         // params
         def queryParams = [:]
@@ -219,10 +202,6 @@ class EventApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -291,8 +270,8 @@ class EventApi {
 
     }
 
-    def searchEvents ( BigDecimal version, Long accountId, String keyword, Boolean activeOnly, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String sortField, Boolean descending, Long startDate, Long endDate, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/event/search"
+    def searchEvents ( Long accountId, String keyword, Boolean activeOnly, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String sortField, Boolean descending, Long startDate, Long endDate, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/event/search"
 
         // params
         def queryParams = [:]
@@ -300,10 +279,6 @@ class EventApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -358,8 +333,8 @@ class EventApi {
 
     }
 
-    def updateEvent ( BigDecimal version, Long accountId, Long eventId, String retailerLocationIds, String title, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/event/update"
+    def updateEvent ( Long accountId, Long eventId, String retailerLocationIds, String title, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/event/update"
 
         // params
         def queryParams = [:]
@@ -367,10 +342,6 @@ class EventApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

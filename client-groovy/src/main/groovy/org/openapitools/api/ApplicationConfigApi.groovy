@@ -2,16 +2,15 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.ApplicationConfigResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class ApplicationConfigApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createApplicationConfig ( BigDecimal version, Long accountId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/appconfig/create"
+    def createApplicationConfig ( Long accountId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/appconfig/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class ApplicationConfigApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -71,8 +66,8 @@ class ApplicationConfigApi {
 
     }
 
-    def deleteApplicationConfig ( BigDecimal version, Long accountId, Long configId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/appconfig/delete"
+    def deleteApplicationConfig ( Long accountId, Long configId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/appconfig/delete"
 
         // params
         def queryParams = [:]
@@ -80,10 +75,6 @@ class ApplicationConfigApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -109,8 +100,8 @@ class ApplicationConfigApi {
 
     }
 
-    def getApplicationConfig ( BigDecimal version, Long accountId, Long configId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/appconfig/get"
+    def getApplicationConfig ( Long accountId, Long configId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/appconfig/get"
 
         // params
         def queryParams = [:]
@@ -118,10 +109,6 @@ class ApplicationConfigApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -147,8 +134,8 @@ class ApplicationConfigApi {
 
     }
 
-    def getApplicationConfigByConfigVersion ( BigDecimal version, String appKey, String configVersion, Long retailerId, Long retailerLocationId, String udid, Boolean allowOlderVersions, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/appconfig/getbyversion"
+    def getApplicationConfigByConfigVersion ( String appKey, String configVersion, Long retailerId, Long retailerLocationId, String udid, Boolean allowOlderVersions, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/appconfig/getbyversion"
 
         // params
         def queryParams = [:]
@@ -156,10 +143,6 @@ class ApplicationConfigApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -197,8 +180,8 @@ class ApplicationConfigApi {
 
     }
 
-    def searchApplicationConfig ( BigDecimal version, Long accountId, String appKey, Long retailerId, Long retailerLocationId, String udid, String configVersion, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/appconfig/search"
+    def searchApplicationConfig ( Long accountId, String appKey, Long retailerId, Long retailerLocationId, String udid, String configVersion, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/appconfig/search"
 
         // params
         def queryParams = [:]
@@ -206,10 +189,6 @@ class ApplicationConfigApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -255,8 +234,8 @@ class ApplicationConfigApi {
 
     }
 
-    def updateApplicationConfig ( BigDecimal version, Long accountId, Long configId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/appconfig/update"
+    def updateApplicationConfig ( Long accountId, Long configId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/appconfig/update"
 
         // params
         def queryParams = [:]
@@ -264,10 +243,6 @@ class ApplicationConfigApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

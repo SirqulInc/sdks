@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.CategoryResponse
 import org.openapitools.model.CategoryTreeResponse
 import org.openapitools.model.SirqulResponse
 
 class CategoryApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def categoryDistanceSearch ( BigDecimal version, Long accountId, String keyword, String appKey, String categoryIds, String parentCategoryIds, Boolean rootOnly, String sortField, String responseGroup, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnExternal, Boolean exactMatch, String type, String externalType, Integer minOfferCount, Double latitude, Double longitude, Double range, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/category/distancesearch"
+    def categoryDistanceSearch ( Long accountId, String keyword, String appKey, String categoryIds, String parentCategoryIds, Boolean rootOnly, String sortField, String responseGroup, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnExternal, Boolean exactMatch, String type, String externalType, Integer minOfferCount, Double latitude, Double longitude, Double range, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/category/distancesearch"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class CategoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -95,8 +90,8 @@ class CategoryApi {
 
     }
 
-    def createCategory ( BigDecimal version, Long accountId, String name, String appKey, Long parentCategoryId, String description, String type, Long assetId, String externalId, String externalType, String externalCategorySlug, String sqootSlug, Boolean active, String metaData, String searchTags, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/category/create"
+    def createCategory ( Long accountId, String name, String appKey, Long parentCategoryId, String description, String type, Long assetId, String externalId, String externalType, String externalCategorySlug, String sqootSlug, Boolean active, String metaData, String searchTags, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/category/create"
 
         // params
         def queryParams = [:]
@@ -104,10 +99,6 @@ class CategoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -169,8 +160,8 @@ class CategoryApi {
 
     }
 
-    def deleteCategory ( BigDecimal version, Long accountId, Long categoryId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/category/delete"
+    def deleteCategory ( Long accountId, Long categoryId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/category/delete"
 
         // params
         def queryParams = [:]
@@ -178,10 +169,6 @@ class CategoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -207,8 +194,8 @@ class CategoryApi {
 
     }
 
-    def duplicateCategory ( BigDecimal version, Long accountId, Long categoryId, String appKey, Long parentCategoryId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/category/duplicate"
+    def duplicateCategory ( Long accountId, Long categoryId, String appKey, Long parentCategoryId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/category/duplicate"
 
         // params
         def queryParams = [:]
@@ -216,10 +203,6 @@ class CategoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -251,8 +234,8 @@ class CategoryApi {
 
     }
 
-    def getCategory ( BigDecimal version, Long categoryId, Boolean returnExternal, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/category/get"
+    def getCategory ( Long categoryId, Boolean returnExternal, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/category/get"
 
         // params
         def queryParams = [:]
@@ -260,10 +243,6 @@ class CategoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (categoryId == null) {
             throw new RuntimeException("missing required params categoryId")
@@ -285,8 +264,8 @@ class CategoryApi {
 
     }
 
-    def searchCategories ( BigDecimal version, Long accountId, String keyword, String appKey, String categoryId, String categoryIds, String parentCategoryIds, Boolean rootOnly, String sortField, String responseGroup, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnExternal, Boolean exactMatch, String type, String externalType, Boolean excludeExternalType, Integer minOfferCount, Integer searchDepth, String searchMode, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/category/search"
+    def searchCategories ( Long accountId, String keyword, String appKey, String categoryId, String categoryIds, String parentCategoryIds, Boolean rootOnly, String sortField, String responseGroup, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnExternal, Boolean exactMatch, String type, String externalType, Boolean excludeExternalType, Integer minOfferCount, Integer searchDepth, String searchMode, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/category/search"
 
         // params
         def queryParams = [:]
@@ -294,10 +273,6 @@ class CategoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -372,8 +347,8 @@ class CategoryApi {
 
     }
 
-    def updateCategory ( BigDecimal version, Long accountId, Long categoryId, Long parentCategoryId, String name, String description, String type, Long assetId, String externalId, String externalType, String externalCategorySlug, String sqootSlug, Boolean active, String metaData, String searchTags, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/category/update"
+    def updateCategory ( Long accountId, Long categoryId, Long parentCategoryId, String name, String description, String type, Long assetId, String externalId, String externalType, String externalCategorySlug, String sqootSlug, Boolean active, String metaData, String searchTags, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/category/update"
 
         // params
         def queryParams = [:]
@@ -381,10 +356,6 @@ class CategoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ScheduledNotificationFullResponse
 import org.openapitools.model.SirqulResponse
 
 class ScheduledNotificationApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createScheduledNotification ( BigDecimal version, Long accountId, String name, String type, String message, Long contentId, String contentName, String contentType, Long parentId, String parentType, String appKey, String groupingId, String connectionGroupIds, String connectionAccountIds, Long audienceId, String audienceIds, String albumIds, Long reportId, String reportParams, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String cronType, String metaData, String conditionalInput, String templateType, String visibility, Boolean active, Boolean sendNow, String eventType, String deepLinkURI, Boolean sendToAll, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/schedule/create"
+    def createScheduledNotification ( Long accountId, String name, String type, String message, Long contentId, String contentName, String contentType, Long parentId, String parentType, String appKey, String groupingId, String connectionGroupIds, String connectionAccountIds, Long audienceId, String audienceIds, String albumIds, Long reportId, String reportParams, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String cronType, String metaData, String conditionalInput, String templateType, String visibility, Boolean active, Boolean sendNow, String eventType, String deepLinkURI, Boolean sendToAll, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/schedule/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class ScheduledNotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -152,8 +147,8 @@ class ScheduledNotificationApi {
 
     }
 
-    def deleteScheduledNotification ( BigDecimal version, Long accountId, Long scheduledNotificationId, Boolean deleteByGroupingId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/schedule/delete"
+    def deleteScheduledNotification ( Long accountId, Long scheduledNotificationId, Boolean deleteByGroupingId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/schedule/delete"
 
         // params
         def queryParams = [:]
@@ -161,10 +156,6 @@ class ScheduledNotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -193,8 +184,8 @@ class ScheduledNotificationApi {
 
     }
 
-    def getScheduledNotification ( BigDecimal version, Long accountId, Long scheduledNotificationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/schedule/get"
+    def getScheduledNotification ( Long accountId, Long scheduledNotificationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/schedule/get"
 
         // params
         def queryParams = [:]
@@ -202,10 +193,6 @@ class ScheduledNotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -231,8 +218,8 @@ class ScheduledNotificationApi {
 
     }
 
-    def scheduleNotificationListings ( BigDecimal version, Long accountId, String appKey, String reportName, String message, Integer offset, Long recipientReportId, String reportParams, String type, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/schedule/generate"
+    def scheduleNotificationListings ( Long accountId, String appKey, String reportName, String message, Integer offset, Long recipientReportId, String reportParams, String type, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/schedule/generate"
 
         // params
         def queryParams = [:]
@@ -240,10 +227,6 @@ class ScheduledNotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -303,8 +286,8 @@ class ScheduledNotificationApi {
 
     }
 
-    def searchScheduledNotifications ( BigDecimal version, Long accountId, String groupingId, Long audienceId, String filter, String types, String contentIds, String contentTypes, String parentIds, String parentTypes, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean groupByGroupingId, Boolean returnAudienceAccountCount, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/schedule/search"
+    def searchScheduledNotifications ( Long accountId, String groupingId, Long audienceId, String filter, String types, String contentIds, String contentTypes, String parentIds, String parentTypes, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean groupByGroupingId, Boolean returnAudienceAccountCount, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/schedule/search"
 
         // params
         def queryParams = [:]
@@ -312,10 +295,6 @@ class ScheduledNotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -391,8 +370,8 @@ class ScheduledNotificationApi {
 
     }
 
-    def updateScheduledNotification ( BigDecimal version, Long scheduledNotificationId, Long accountId, String name, String type, String message, String payload, Long contentId, String contentName, String contentType, Long parentId, String parentType, String appKey, String groupingId, String connectionGroupIds, String connectionAccountIds, Long audienceId, String audienceIds, String albumIds, Long reportId, String reportParams, String endpointURL, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String cronType, String metaData, String conditionalInput, String templateType, String visibility, Boolean active, String errorMessage, String status, Boolean updateByGroupingId, Boolean sendNow, String eventType, String deepLinkURI, Boolean sendToAll, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/notification/schedule/update"
+    def updateScheduledNotification ( Long scheduledNotificationId, Long accountId, String name, String type, String message, String payload, Long contentId, String contentName, String contentType, Long parentId, String parentType, String appKey, String groupingId, String connectionGroupIds, String connectionAccountIds, Long audienceId, String audienceIds, String albumIds, Long reportId, String reportParams, String endpointURL, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String cronType, String metaData, String conditionalInput, String templateType, String visibility, Boolean active, String errorMessage, String status, Boolean updateByGroupingId, Boolean sendNow, String eventType, String deepLinkURI, Boolean sendToAll, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/notification/schedule/update"
 
         // params
         def queryParams = [:]
@@ -400,10 +379,6 @@ class ScheduledNotificationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (scheduledNotificationId == null) {
             throw new RuntimeException("missing required params scheduledNotificationId")

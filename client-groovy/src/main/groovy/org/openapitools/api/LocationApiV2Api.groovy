@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.Location
 import org.openapitools.model.SirqulResponse
 
 class LocationApiV2Api {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createLocationV2 ( BigDecimal version, Location body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location"
+    def createLocationV2 ( Location body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class LocationApiV2Api {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -36,8 +31,8 @@ class LocationApiV2Api {
 
     }
 
-    def updateLocationV2 ( BigDecimal version, Long id, Location body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/${id}"
+    def updateLocationV2 ( Long id, Location body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/${id}"
 
         // params
         def queryParams = [:]
@@ -45,10 +40,6 @@ class LocationApiV2Api {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (id == null) {
             throw new RuntimeException("missing required params id")

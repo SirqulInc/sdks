@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class ParticipantsApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def processAllParticipants ( BigDecimal version, Long accountId, String appKey, Boolean useShortNameAsID, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/participant/process/all"
+    def processAllParticipants ( Long accountId, String appKey, Boolean useShortNameAsID, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/participant/process/all"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class ParticipantsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -46,8 +41,8 @@ class ParticipantsApi {
 
     }
 
-    def processParticipants ( BigDecimal version, Long accountId, String league, String appKey, Boolean useShortNameAsID, File _file, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/participant/process"
+    def processParticipants ( Long accountId, String league, String appKey, Boolean useShortNameAsID, File _file, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/participant/process"
 
         // params
         def queryParams = [:]
@@ -55,10 +50,6 @@ class ParticipantsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

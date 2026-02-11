@@ -2,18 +2,17 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.ApplicationUsageResponse
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.SubscriptionPlanResponse
 import org.openapitools.model.SubscriptionResponse
 
 class SubscriptionApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createSubscription ( BigDecimal version, Long accountId, Long planId, String promoCode, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/subscription/create"
+    def createSubscription ( Long accountId, Long planId, String promoCode, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/subscription/create"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class SubscriptionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -49,8 +44,8 @@ class SubscriptionApi {
 
     }
 
-    def deleteSubscription ( BigDecimal version, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/subscription/delete"
+    def deleteSubscription ( Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/subscription/delete"
 
         // params
         def queryParams = [:]
@@ -58,10 +53,6 @@ class SubscriptionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -80,8 +71,8 @@ class SubscriptionApi {
 
     }
 
-    def getSubscription ( BigDecimal version, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/subscription/get"
+    def getSubscription ( Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/subscription/get"
 
         // params
         def queryParams = [:]
@@ -89,10 +80,6 @@ class SubscriptionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -111,8 +98,8 @@ class SubscriptionApi {
 
     }
 
-    def getSubscriptionPlan ( BigDecimal version, Long planId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/subscription/plan/get"
+    def getSubscriptionPlan ( Long planId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/subscription/plan/get"
 
         // params
         def queryParams = [:]
@@ -120,10 +107,6 @@ class SubscriptionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (planId == null) {
             throw new RuntimeException("missing required params planId")
@@ -142,8 +125,8 @@ class SubscriptionApi {
 
     }
 
-    def getSubscriptionPlans ( BigDecimal version, Boolean visible, String role, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/subscription/plan/list"
+    def getSubscriptionPlans ( Boolean visible, String role, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/subscription/plan/list"
 
         // params
         def queryParams = [:]
@@ -151,10 +134,6 @@ class SubscriptionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (visible != null) {
             queryParams.put("visible", visible)
@@ -172,8 +151,8 @@ class SubscriptionApi {
 
     }
 
-    def getSubscriptionUsage ( BigDecimal version, Long accountId, Long applicationId, Long start, Long end, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/subscription/usage/get"
+    def getSubscriptionUsage ( Long accountId, Long applicationId, Long start, Long end, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/subscription/usage/get"
 
         // params
         def queryParams = [:]
@@ -181,10 +160,6 @@ class SubscriptionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -212,8 +187,8 @@ class SubscriptionApi {
 
     }
 
-    def updateSubscription ( BigDecimal version, Long accountId, Long planId, String promoCode, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/subscription/update"
+    def updateSubscription ( Long accountId, Long planId, String promoCode, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/subscription/update"
 
         // params
         def queryParams = [:]
@@ -221,10 +196,6 @@ class SubscriptionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

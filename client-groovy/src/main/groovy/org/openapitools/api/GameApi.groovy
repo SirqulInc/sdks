@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.GameResponse
 import org.openapitools.model.SirqulResponse
 
 class GameApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createGame ( BigDecimal version, Long accountId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/create"
+    def createGame ( Long accountId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class GameApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -55,8 +50,8 @@ class GameApi {
 
     }
 
-    def deleteGame ( BigDecimal version, Long accountId, Long gameId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/delete"
+    def deleteGame ( Long accountId, Long gameId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/delete"
 
         // params
         def queryParams = [:]
@@ -64,10 +59,6 @@ class GameApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -93,8 +84,8 @@ class GameApi {
 
     }
 
-    def getGame ( BigDecimal version, Long accountId, Long gameId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/get"
+    def getGame ( Long accountId, Long gameId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/get"
 
         // params
         def queryParams = [:]
@@ -102,10 +93,6 @@ class GameApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -134,8 +121,8 @@ class GameApi {
 
     }
 
-    def searchGames ( BigDecimal version, Long accountId, String appKey, Integer start, Integer limit, String keyword, String appVersion, Boolean includeGameData, Boolean includeInactive, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/search"
+    def searchGames ( Long accountId, String appKey, Integer start, Integer limit, String keyword, String appVersion, Boolean includeGameData, Boolean includeInactive, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/search"
 
         // params
         def queryParams = [:]
@@ -143,10 +130,6 @@ class GameApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -198,8 +181,8 @@ class GameApi {
 
     }
 
-    def updateGame ( BigDecimal version, Long accountId, Long gameId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/update"
+    def updateGame ( Long accountId, Long gameId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/update"
 
         // params
         def queryParams = [:]
@@ -207,10 +190,6 @@ class GameApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)

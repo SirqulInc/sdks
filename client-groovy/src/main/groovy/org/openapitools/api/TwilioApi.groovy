@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.TwiMLResponse
 
 class TwilioApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def smsBuyOffer ( BigDecimal version, String appKey, String body, String from, String currencyType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/sms/buyoffer/${appKey}"
+    def smsBuyOffer ( String appKey, String body, String from, String currencyType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/sms/buyoffer/${appKey}"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class TwilioApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")

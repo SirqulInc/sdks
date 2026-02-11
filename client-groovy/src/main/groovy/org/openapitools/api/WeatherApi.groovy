@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.WeatherResponse
 
 class WeatherApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def searchWeather ( BigDecimal version, Long regionId, Double latitude, Double longitude, Long timezoneOffset, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/weather/search"
+    def searchWeather ( Long regionId, Double latitude, Double longitude, Long timezoneOffset, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/weather/search"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class WeatherApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (regionId != null) {
             queryParams.put("regionId", regionId)

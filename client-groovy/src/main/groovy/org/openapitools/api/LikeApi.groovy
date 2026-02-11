@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.LikableResponse
 import org.openapitools.model.SearchResponse
 
 class LikeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def registerLike ( BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, String permissionableType, Long permissionableId, Boolean like, String app, String gameType, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/like"
+    def registerLike ( String likableType, Long likableId, String deviceId, Long accountId, String permissionableType, Long permissionableId, Boolean like, String app, String gameType, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/like"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class LikeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (likableType == null) {
             throw new RuntimeException("missing required params likableType")
@@ -78,8 +73,8 @@ class LikeApi {
 
     }
 
-    def removeLike ( BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/like/delete"
+    def removeLike ( String likableType, Long likableId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/like/delete"
 
         // params
         def queryParams = [:]
@@ -87,10 +82,6 @@ class LikeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (likableType == null) {
             throw new RuntimeException("missing required params likableType")
@@ -128,8 +119,8 @@ class LikeApi {
 
     }
 
-    def searchLikes ( BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, String connectionAccountIds, String sortField, Boolean descending, Long updatedSince, Long updatedBefore, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/like/search"
+    def searchLikes ( String likableType, Long likableId, String deviceId, Long accountId, String connectionAccountIds, String sortField, Boolean descending, Long updatedSince, Long updatedBefore, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/like/search"
 
         // params
         def queryParams = [:]
@@ -137,10 +128,6 @@ class LikeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (likableType == null) {
             throw new RuntimeException("missing required params likableType")

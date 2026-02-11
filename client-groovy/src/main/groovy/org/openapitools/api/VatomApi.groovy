@@ -1,15 +1,14 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 
 class VatomApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createFollowing ( BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/rels/following/create"
+    def createFollowing ( Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/rels/following/create"
 
         // params
         def queryParams = [:]
@@ -17,10 +16,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -49,8 +44,8 @@ class VatomApi {
 
     }
 
-    def createSpace ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/spaces/create"
+    def createSpace ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/spaces/create"
 
         // params
         def queryParams = [:]
@@ -58,10 +53,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -97,8 +88,8 @@ class VatomApi {
 
     }
 
-    def createVatomEvent ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/events/create"
+    def createVatomEvent ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/events/create"
 
         // params
         def queryParams = [:]
@@ -106,10 +97,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -145,8 +132,8 @@ class VatomApi {
 
     }
 
-    def deleteFollowing ( BigDecimal version, Long accountId, String vatomRelsKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/rels/following/delete"
+    def deleteFollowing ( Long accountId, String vatomRelsKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/rels/following/delete"
 
         // params
         def queryParams = [:]
@@ -154,10 +141,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -186,8 +169,8 @@ class VatomApi {
 
     }
 
-    def deletePointsBalance ( BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign/points/delete"
+    def deletePointsBalance ( Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign/points/delete"
 
         // params
         def queryParams = [:]
@@ -195,10 +178,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -234,8 +213,8 @@ class VatomApi {
 
     }
 
-    def deleteSpace ( BigDecimal version, Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/spaces/delete"
+    def deleteSpace ( Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/spaces/delete"
 
         // params
         def queryParams = [:]
@@ -243,10 +222,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -282,8 +257,8 @@ class VatomApi {
 
     }
 
-    def deleteVatomEvent ( BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/events/delete"
+    def deleteVatomEvent ( Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/events/delete"
 
         // params
         def queryParams = [:]
@@ -291,10 +266,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -330,8 +301,8 @@ class VatomApi {
 
     }
 
-    def deleteVatomNFT ( BigDecimal version, Long accountId, String vatomId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/vatoms/delete"
+    def deleteVatomNFT ( Long accountId, String vatomId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/vatoms/delete"
 
         // params
         def queryParams = [:]
@@ -339,10 +310,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -371,8 +338,8 @@ class VatomApi {
 
     }
 
-    def executeActionOnNFT ( BigDecimal version, Long accountId, String vatomId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/vatoms/execute-action"
+    def executeActionOnNFT ( Long accountId, String vatomId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/vatoms/execute-action"
 
         // params
         def queryParams = [:]
@@ -380,10 +347,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -419,8 +382,8 @@ class VatomApi {
 
     }
 
-    def geomapSearch ( BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/vatoms/geo-map/search"
+    def geomapSearch ( Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/vatoms/geo-map/search"
 
         // params
         def queryParams = [:]
@@ -428,10 +391,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -460,8 +419,8 @@ class VatomApi {
 
     }
 
-    def getBusinessBehaviors ( BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/behaviors"
+    def getBusinessBehaviors ( Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/behaviors"
 
         // params
         def queryParams = [:]
@@ -469,10 +428,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -501,8 +456,8 @@ class VatomApi {
 
     }
 
-    def getBusinessCoinsBalance ( BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/coins/get"
+    def getBusinessCoinsBalance ( Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/coins/get"
 
         // params
         def queryParams = [:]
@@ -510,10 +465,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -542,8 +493,8 @@ class VatomApi {
 
     }
 
-    def getBusinessIds ( BigDecimal version, Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/businesses"
+    def getBusinessIds ( Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/businesses"
 
         // params
         def queryParams = [:]
@@ -551,10 +502,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -576,8 +523,8 @@ class VatomApi {
 
     }
 
-    def getBusinessInfo ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/get"
+    def getBusinessInfo ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/get"
 
         // params
         def queryParams = [:]
@@ -585,10 +532,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -620,8 +563,8 @@ class VatomApi {
 
     }
 
-    def getBusinessUsers ( BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/users"
+    def getBusinessUsers ( Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/users"
 
         // params
         def queryParams = [:]
@@ -629,10 +572,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -661,8 +600,8 @@ class VatomApi {
 
     }
 
-    def getCampaignGroupEntities ( BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign-groups/entities"
+    def getCampaignGroupEntities ( Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign-groups/entities"
 
         // params
         def queryParams = [:]
@@ -670,10 +609,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -709,8 +644,8 @@ class VatomApi {
 
     }
 
-    def getCampaignGroupRules ( BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign-groups/rules"
+    def getCampaignGroupRules ( Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign-groups/rules"
 
         // params
         def queryParams = [:]
@@ -718,10 +653,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -757,8 +688,8 @@ class VatomApi {
 
     }
 
-    def getCampaignGroupStats ( BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign-groups/stats"
+    def getCampaignGroupStats ( Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign-groups/stats"
 
         // params
         def queryParams = [:]
@@ -766,10 +697,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -805,8 +732,8 @@ class VatomApi {
 
     }
 
-    def getCampaignInfo ( BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign-groups/get"
+    def getCampaignInfo ( Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign-groups/get"
 
         // params
         def queryParams = [:]
@@ -814,10 +741,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -853,8 +776,8 @@ class VatomApi {
 
     }
 
-    def getEventGuestList ( BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/events/guests/get"
+    def getEventGuestList ( Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/events/guests/get"
 
         // params
         def queryParams = [:]
@@ -862,10 +785,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -901,8 +820,8 @@ class VatomApi {
 
     }
 
-    def getInventory ( BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/inventory"
+    def getInventory ( Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/inventory"
 
         // params
         def queryParams = [:]
@@ -910,10 +829,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -942,8 +857,8 @@ class VatomApi {
 
     }
 
-    def getMyFollowing ( BigDecimal version, Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/rels/following"
+    def getMyFollowing ( Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/rels/following"
 
         // params
         def queryParams = [:]
@@ -951,10 +866,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -976,8 +887,8 @@ class VatomApi {
 
     }
 
-    def getPointsBalance ( BigDecimal version, Long accountId, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/u/campaign/points/get"
+    def getPointsBalance ( Long accountId, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/u/campaign/points/get"
 
         // params
         def queryParams = [:]
@@ -985,10 +896,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1024,8 +931,8 @@ class VatomApi {
 
     }
 
-    def getPointsBalanceAsBusiness ( BigDecimal version, Long accountId, String appKey, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign/u/points/get"
+    def getPointsBalanceAsBusiness ( Long accountId, String appKey, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign/u/points/get"
 
         // params
         def queryParams = [:]
@@ -1033,10 +940,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1079,8 +982,8 @@ class VatomApi {
 
     }
 
-    def getSpace ( BigDecimal version, Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/spaces/get"
+    def getSpace ( Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/spaces/get"
 
         // params
         def queryParams = [:]
@@ -1088,10 +991,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1127,8 +1026,8 @@ class VatomApi {
 
     }
 
-    def getUserCoinsAsBusiness ( BigDecimal version, Long accountId, String vatomUserId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/users/coins/get"
+    def getUserCoinsAsBusiness ( Long accountId, String vatomUserId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/users/coins/get"
 
         // params
         def queryParams = [:]
@@ -1136,10 +1035,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1175,8 +1070,8 @@ class VatomApi {
 
     }
 
-    def getUserCoinsBalance ( BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/u/coins/get"
+    def getUserCoinsBalance ( Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/u/coins/get"
 
         // params
         def queryParams = [:]
@@ -1184,10 +1079,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1219,8 +1110,8 @@ class VatomApi {
 
     }
 
-    def getUserFollowers ( BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/users/rels/followers"
+    def getUserFollowers ( Long accountId, String vatomUserId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/users/rels/followers"
 
         // params
         def queryParams = [:]
@@ -1228,10 +1119,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1260,8 +1147,8 @@ class VatomApi {
 
     }
 
-    def getUserFollowing ( BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/users/rels/following"
+    def getUserFollowing ( Long accountId, String vatomUserId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/users/rels/following"
 
         // params
         def queryParams = [:]
@@ -1269,10 +1156,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1301,8 +1184,8 @@ class VatomApi {
 
     }
 
-    def getUserInfo ( BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/user/get"
+    def getUserInfo ( Long accountId, String vatomUserId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/user/get"
 
         // params
         def queryParams = [:]
@@ -1310,10 +1193,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1342,8 +1221,8 @@ class VatomApi {
 
     }
 
-    def getUserProfile ( BigDecimal version, Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/get"
+    def getUserProfile ( Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/get"
 
         // params
         def queryParams = [:]
@@ -1351,10 +1230,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1376,8 +1251,8 @@ class VatomApi {
 
     }
 
-    def getVatomEvent ( BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/events/get"
+    def getVatomEvent ( Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/events/get"
 
         // params
         def queryParams = [:]
@@ -1385,10 +1260,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1424,8 +1295,8 @@ class VatomApi {
 
     }
 
-    def getVatomNFT ( BigDecimal version, Long accountId, String vatomId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/vatoms/get"
+    def getVatomNFT ( Long accountId, String vatomId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/vatoms/get"
 
         // params
         def queryParams = [:]
@@ -1433,10 +1304,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1465,8 +1332,8 @@ class VatomApi {
 
     }
 
-    def listCommunities ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/communities/search"
+    def listCommunities ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/communities/search"
 
         // params
         def queryParams = [:]
@@ -1474,10 +1341,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1509,8 +1372,8 @@ class VatomApi {
 
     }
 
-    def listEvents ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/events/search"
+    def listEvents ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/events/search"
 
         // params
         def queryParams = [:]
@@ -1518,10 +1381,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1553,8 +1412,8 @@ class VatomApi {
 
     }
 
-    def listSpaces ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/spaces/search"
+    def listSpaces ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/spaces/search"
 
         // params
         def queryParams = [:]
@@ -1562,10 +1421,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1597,8 +1452,8 @@ class VatomApi {
 
     }
 
-    def listUserCoinTransactions ( BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/u/coins/txns/search"
+    def listUserCoinTransactions ( Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/u/coins/txns/search"
 
         // params
         def queryParams = [:]
@@ -1606,10 +1461,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1641,8 +1492,8 @@ class VatomApi {
 
     }
 
-    def listUserCoinTransactionsAsBusiness ( BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/users/coins/txns/search"
+    def listUserCoinTransactionsAsBusiness ( Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/users/coins/txns/search"
 
         // params
         def queryParams = [:]
@@ -1650,10 +1501,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1692,8 +1539,8 @@ class VatomApi {
 
     }
 
-    def performActionOnNFT ( BigDecimal version, Long accountId, String vatomId, String vatomAction, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/vatoms/actions"
+    def performActionOnNFT ( Long accountId, String vatomId, String vatomAction, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/vatoms/actions"
 
         // params
         def queryParams = [:]
@@ -1701,10 +1548,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1747,8 +1590,8 @@ class VatomApi {
 
     }
 
-    def redeemNFT ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/redemptions"
+    def redeemNFT ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/redemptions"
 
         // params
         def queryParams = [:]
@@ -1756,10 +1599,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1795,8 +1634,8 @@ class VatomApi {
 
     }
 
-    def redeemUserCoinsAsBusiness ( BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/users/coins/redeem"
+    def redeemUserCoinsAsBusiness ( Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/users/coins/redeem"
 
         // params
         def queryParams = [:]
@@ -1804,10 +1643,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1850,8 +1685,8 @@ class VatomApi {
 
     }
 
-    def searchBusinesses ( BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/search"
+    def searchBusinesses ( Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/search"
 
         // params
         def queryParams = [:]
@@ -1859,10 +1694,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1887,8 +1718,8 @@ class VatomApi {
 
     }
 
-    def searchCampaignGroups ( BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign-groups/search"
+    def searchCampaignGroups ( Long accountId, String appKey, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign-groups/search"
 
         // params
         def queryParams = [:]
@@ -1896,10 +1727,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1928,8 +1755,8 @@ class VatomApi {
 
     }
 
-    def searchIdentities ( BigDecimal version, Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/identities/search"
+    def searchIdentities ( Long accountId, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/identities/search"
 
         // params
         def queryParams = [:]
@@ -1937,10 +1764,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1962,8 +1785,8 @@ class VatomApi {
 
     }
 
-    def searchInventory ( BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/user-inventory/search"
+    def searchInventory ( Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/user-inventory/search"
 
         // params
         def queryParams = [:]
@@ -1971,10 +1794,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1999,8 +1818,8 @@ class VatomApi {
 
     }
 
-    def sendNFT ( BigDecimal version, Long accountId, String appKey, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaigns/send"
+    def sendNFT ( Long accountId, String appKey, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaigns/send"
 
         // params
         def queryParams = [:]
@@ -2008,10 +1827,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2054,8 +1869,8 @@ class VatomApi {
 
     }
 
-    def setPointsBalanceAsBusiness ( BigDecimal version, Long accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/campaign/u/points/update"
+    def setPointsBalanceAsBusiness ( Long accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/campaign/u/points/update"
 
         // params
         def queryParams = [:]
@@ -2063,10 +1878,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2116,8 +1927,8 @@ class VatomApi {
 
     }
 
-    def transferUserCoins ( BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/u/coins/transfer"
+    def transferUserCoins ( Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/u/coins/transfer"
 
         // params
         def queryParams = [:]
@@ -2125,10 +1936,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2164,8 +1971,8 @@ class VatomApi {
 
     }
 
-    def updateBusinessCoins ( BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/coins/update"
+    def updateBusinessCoins ( Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/coins/update"
 
         // params
         def queryParams = [:]
@@ -2173,10 +1980,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2212,8 +2015,8 @@ class VatomApi {
 
     }
 
-    def updateEventGuestList ( BigDecimal version, Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/events/guests/update"
+    def updateEventGuestList ( Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/events/guests/update"
 
         // params
         def queryParams = [:]
@@ -2221,10 +2024,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2267,8 +2066,8 @@ class VatomApi {
 
     }
 
-    def updateSpace ( BigDecimal version, Long accountId, String appKey, String vatomSpaceId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/spaces/update"
+    def updateSpace ( Long accountId, String appKey, String vatomSpaceId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/spaces/update"
 
         // params
         def queryParams = [:]
@@ -2276,10 +2075,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2322,8 +2117,8 @@ class VatomApi {
 
     }
 
-    def updateUserCoinsAsBusiness ( BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/users/coins/update"
+    def updateUserCoinsAsBusiness ( Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/users/coins/update"
 
         // params
         def queryParams = [:]
@@ -2331,10 +2126,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2377,8 +2168,8 @@ class VatomApi {
 
     }
 
-    def updateUserProfile ( BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/me/update"
+    def updateUserProfile ( Long accountId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/me/update"
 
         // params
         def queryParams = [:]
@@ -2386,10 +2177,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -2418,8 +2205,8 @@ class VatomApi {
 
     }
 
-    def updateVatomEvent ( BigDecimal version, Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/vatom/b/events/update"
+    def updateVatomEvent ( Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/vatom/b/events/update"
 
         // params
         def queryParams = [:]
@@ -2427,10 +2214,6 @@ class VatomApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

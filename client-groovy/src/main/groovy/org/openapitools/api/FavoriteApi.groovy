@@ -2,18 +2,17 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AccountResponse
-import java.math.BigDecimal
 import org.openapitools.model.SearchResponse
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.WrappedResponse
 
 class FavoriteApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addFavorite ( BigDecimal version, Long favoritableId, String favoritableType, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/favorite/create"
+    def addFavorite ( Long favoritableId, String favoritableType, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/favorite/create"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class FavoriteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (favoritableId == null) {
             throw new RuntimeException("missing required params favoritableId")
@@ -62,8 +57,8 @@ class FavoriteApi {
 
     }
 
-    def deleteFavorite ( BigDecimal version, String deviceId, Long accountId, Long favoriteId, Long favoritableId, String favoritableType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/favorite/delete"
+    def deleteFavorite ( String deviceId, Long accountId, Long favoriteId, Long favoritableId, String favoritableType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/favorite/delete"
 
         // params
         def queryParams = [:]
@@ -71,10 +66,6 @@ class FavoriteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -101,8 +92,8 @@ class FavoriteApi {
 
     }
 
-    def getFavorite ( BigDecimal version, Long favoriteId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/favorite/get"
+    def getFavorite ( Long favoriteId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/favorite/get"
 
         // params
         def queryParams = [:]
@@ -110,10 +101,6 @@ class FavoriteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (favoriteId == null) {
             throw new RuntimeException("missing required params favoriteId")
@@ -144,8 +131,8 @@ class FavoriteApi {
 
     }
 
-    def searchFavorites ( BigDecimal version, String favoritableType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnFullResponse, String deviceId, Long accountId, Long connectionAccountId, String secondaryType, String keyword, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/favorite/search"
+    def searchFavorites ( String favoritableType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnFullResponse, String deviceId, Long accountId, Long connectionAccountId, String secondaryType, String keyword, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/favorite/search"
 
         // params
         def queryParams = [:]
@@ -153,10 +140,6 @@ class FavoriteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (favoritableType == null) {
             throw new RuntimeException("missing required params favoritableType")
@@ -238,8 +221,8 @@ class FavoriteApi {
 
     }
 
-    def whoHasFavorited ( BigDecimal version, Long favoritableId, String favoritableType, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/favorite/whois"
+    def whoHasFavorited ( Long favoritableId, String favoritableType, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/favorite/whois"
 
         // params
         def queryParams = [:]
@@ -247,10 +230,6 @@ class FavoriteApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (favoritableId == null) {
             throw new RuntimeException("missing required params favoritableId")

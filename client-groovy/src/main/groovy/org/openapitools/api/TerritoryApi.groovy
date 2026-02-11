@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.TerritoryResponse
 
 class TerritoryApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createTerritory ( BigDecimal version, Long accountId, String name, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/territory/create"
+    def createTerritory ( Long accountId, String name, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/territory/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class TerritoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -51,8 +46,8 @@ class TerritoryApi {
 
     }
 
-    def deleteTerritory ( BigDecimal version, Long accountId, Long territoryId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/territory/delete"
+    def deleteTerritory ( Long accountId, Long territoryId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/territory/delete"
 
         // params
         def queryParams = [:]
@@ -60,10 +55,6 @@ class TerritoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -89,8 +80,8 @@ class TerritoryApi {
 
     }
 
-    def getTerritory ( BigDecimal version, Long territoryId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/territory/get"
+    def getTerritory ( Long territoryId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/territory/get"
 
         // params
         def queryParams = [:]
@@ -98,10 +89,6 @@ class TerritoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (territoryId == null) {
             throw new RuntimeException("missing required params territoryId")
@@ -120,8 +107,8 @@ class TerritoryApi {
 
     }
 
-    def searchTerritories ( BigDecimal version, String sortField, Boolean descending, String keyword, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/territory/search"
+    def searchTerritories ( String sortField, Boolean descending, String keyword, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/territory/search"
 
         // params
         def queryParams = [:]
@@ -129,10 +116,6 @@ class TerritoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -167,8 +150,8 @@ class TerritoryApi {
 
     }
 
-    def updateTerritory ( BigDecimal version, Long accountId, Long territoryId, String name, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/territory/update"
+    def updateTerritory ( Long accountId, Long territoryId, String name, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/territory/update"
 
         // params
         def queryParams = [:]
@@ -176,10 +159,6 @@ class TerritoryApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

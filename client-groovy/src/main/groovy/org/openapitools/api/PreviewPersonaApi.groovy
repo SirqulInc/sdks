@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.PreviewPersonaResponse
 import org.openapitools.model.SirqulResponse
 
 class PreviewPersonaApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createPersona ( BigDecimal version, Long accountId, String title, String previewAccounts, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/persona/create"
+    def createPersona ( Long accountId, String title, String previewAccounts, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/persona/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class PreviewPersonaApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -69,8 +64,8 @@ class PreviewPersonaApi {
 
     }
 
-    def deletePersona ( BigDecimal version, Long accountId, Long personaId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/persona/delete"
+    def deletePersona ( Long accountId, Long personaId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/persona/delete"
 
         // params
         def queryParams = [:]
@@ -78,10 +73,6 @@ class PreviewPersonaApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -107,8 +98,8 @@ class PreviewPersonaApi {
 
     }
 
-    def getPersonaList ( BigDecimal version, Long accountId, Long personaId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/persona/get"
+    def getPersonaList ( Long accountId, Long personaId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/persona/get"
 
         // params
         def queryParams = [:]
@@ -116,10 +107,6 @@ class PreviewPersonaApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -145,8 +132,8 @@ class PreviewPersonaApi {
 
     }
 
-    def searchPersona ( BigDecimal version, Long accountId, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/persona/search"
+    def searchPersona ( Long accountId, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/persona/search"
 
         // params
         def queryParams = [:]
@@ -154,10 +141,6 @@ class PreviewPersonaApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -190,8 +173,8 @@ class PreviewPersonaApi {
 
     }
 
-    def updatePersona ( BigDecimal version, Long accountId, Long personaId, String title, String previewAccounts, Boolean active, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/persona/update"
+    def updatePersona ( Long accountId, Long personaId, String title, String previewAccounts, Boolean active, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/persona/update"
 
         // params
         def queryParams = [:]
@@ -199,10 +182,6 @@ class PreviewPersonaApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

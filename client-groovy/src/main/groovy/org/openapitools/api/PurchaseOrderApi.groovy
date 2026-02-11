@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.OrderResponse
 import org.openapitools.model.SirqulResponse
 
 class PurchaseOrderApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createOrder ( BigDecimal version, String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/order/create"
+    def createOrder ( String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/order/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class PurchaseOrderApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -78,8 +73,8 @@ class PurchaseOrderApi {
 
     }
 
-    def deleteOrder ( BigDecimal version, Long orderId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/order/delete"
+    def deleteOrder ( Long orderId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/order/delete"
 
         // params
         def queryParams = [:]
@@ -87,10 +82,6 @@ class PurchaseOrderApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (orderId == null) {
             throw new RuntimeException("missing required params orderId")
@@ -115,8 +106,8 @@ class PurchaseOrderApi {
 
     }
 
-    def getOrder ( BigDecimal version, String deviceId, Long accountId, Long orderId, String externalOrderId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/order/get"
+    def getOrder ( String deviceId, Long accountId, Long orderId, String externalOrderId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/order/get"
 
         // params
         def queryParams = [:]
@@ -124,10 +115,6 @@ class PurchaseOrderApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -151,8 +138,8 @@ class PurchaseOrderApi {
 
     }
 
-    def previewOrder ( BigDecimal version, String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/order/preview"
+    def previewOrder ( String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/order/preview"
 
         // params
         def queryParams = [:]
@@ -160,10 +147,6 @@ class PurchaseOrderApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -219,8 +202,8 @@ class PurchaseOrderApi {
 
     }
 
-    def searchOrders ( BigDecimal version, String appKey, String deviceId, Long accountId, Integer start, Integer limit, Boolean descending, Boolean activeOnly, Boolean ignoreCustomerFilter, String orderItemTypes, String orderItemIds, String orderCustomTypes, String orderCustomIds, String sortField, String offerTypes, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String offerIds, String offerLocationIds, String retailerIds, String retailerLocationIds, String statuses, String keyword, Long redeemableStartDate, Long redeemableEndDate, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/order/search"
+    def searchOrders ( String appKey, String deviceId, Long accountId, Integer start, Integer limit, Boolean descending, Boolean activeOnly, Boolean ignoreCustomerFilter, String orderItemTypes, String orderItemIds, String orderCustomTypes, String orderCustomIds, String sortField, String offerTypes, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String offerIds, String offerLocationIds, String retailerIds, String retailerLocationIds, String statuses, String keyword, Long redeemableStartDate, Long redeemableEndDate, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/order/search"
 
         // params
         def queryParams = [:]
@@ -228,10 +211,6 @@ class PurchaseOrderApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -340,8 +319,8 @@ class PurchaseOrderApi {
 
     }
 
-    def updateOrder ( BigDecimal version, Long orderId, String appKey, String cart, String deviceId, Long accountId, Long paymentTransactionId, String description, String currencyType, Long paymentMethodId, String externalPaymentId, Long externalDate, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/order/update"
+    def updateOrder ( Long orderId, String appKey, String cart, String deviceId, Long accountId, Long paymentTransactionId, String description, String currencyType, Long paymentMethodId, String externalPaymentId, Long externalDate, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/order/update"
 
         // params
         def queryParams = [:]
@@ -349,10 +328,6 @@ class PurchaseOrderApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (orderId == null) {
             throw new RuntimeException("missing required params orderId")

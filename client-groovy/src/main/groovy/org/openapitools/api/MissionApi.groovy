@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.MissionFormatResponse
 import org.openapitools.model.MissionResponse
 import org.openapitools.model.SirqulResponse
 
 class MissionApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createMission ( BigDecimal version, Long accountId, String title, String description, String subType, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, String missionTask, String formatType, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String metaData, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/create"
+    def createMission ( Long accountId, String title, String description, String subType, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, String missionTask, String formatType, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String metaData, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/create"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -121,8 +116,8 @@ class MissionApi {
 
     }
 
-    def deleteMission ( BigDecimal version, Long accountId, Long missionId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/delete"
+    def deleteMission ( Long accountId, Long missionId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/delete"
 
         // params
         def queryParams = [:]
@@ -130,10 +125,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -159,8 +150,8 @@ class MissionApi {
 
     }
 
-    def findMissions ( BigDecimal version, String appKey, String suffix, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean allocatesTickets, Boolean randomize, Boolean targetedAdsOnly, String missionIds, String audienceOperator, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/find"
+    def findMissions ( String appKey, String suffix, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean allocatesTickets, Boolean randomize, Boolean targetedAdsOnly, String missionIds, String audienceOperator, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/find"
 
         // params
         def queryParams = [:]
@@ -168,10 +159,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -244,8 +231,8 @@ class MissionApi {
 
     }
 
-    def getMission ( BigDecimal version, Long accountId, Long missionId, Boolean returnCreative, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/get"
+    def getMission ( Long accountId, Long missionId, Boolean returnCreative, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/get"
 
         // params
         def queryParams = [:]
@@ -253,10 +240,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -285,8 +268,8 @@ class MissionApi {
 
     }
 
-    def importMission ( BigDecimal version, Long accountId, Double latitude, Double longitude, String appKey, String keyword, Integer start, Integer limit, String adSize, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/import"
+    def importMission ( Long accountId, Double latitude, Double longitude, String appKey, String keyword, Integer start, Integer limit, String adSize, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/import"
 
         // params
         def queryParams = [:]
@@ -294,10 +277,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -349,8 +328,8 @@ class MissionApi {
 
     }
 
-    def searchMissionFormats ( BigDecimal version, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/format/search"
+    def searchMissionFormats ( Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/format/search"
 
         // params
         def queryParams = [:]
@@ -358,10 +337,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (start == null) {
             throw new RuntimeException("missing required params start")
@@ -394,8 +369,8 @@ class MissionApi {
 
     }
 
-    def searchMissions ( BigDecimal version, Long accountId, String keyword, String subType, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/search"
+    def searchMissions ( Long accountId, String keyword, String subType, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/search"
 
         // params
         def queryParams = [:]
@@ -403,10 +378,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -455,8 +426,8 @@ class MissionApi {
 
     }
 
-    def searchMissionsByBillableEntity ( BigDecimal version, Long accountId, String keyword, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/searchByBillableEntity"
+    def searchMissionsByBillableEntity ( Long accountId, String keyword, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/searchByBillableEntity"
 
         // params
         def queryParams = [:]
@@ -464,10 +435,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -513,8 +480,8 @@ class MissionApi {
 
     }
 
-    def updateMission ( BigDecimal version, Long accountId, Long missionId, String title, String description, String subType, String metaData, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/mission/update"
+    def updateMission ( Long accountId, Long missionId, String title, String description, String subType, String metaData, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/mission/update"
 
         // params
         def queryParams = [:]
@@ -522,10 +489,6 @@ class MissionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")

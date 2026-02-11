@@ -2,18 +2,17 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.AccountLoginResponse
-import java.math.BigDecimal
 import org.openapitools.model.RetailerFullResponse
 import org.openapitools.model.RetailerResponse
 import org.openapitools.model.SirqulResponse
 
 class RetailerApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createRetailer ( BigDecimal version, String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String facebookUrl, String twitterUrl, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String categoryIdsToAdd, String categoryIdsToRemove, String filterIds, Double latitude, Double longitude, String metaData, String searchTags, String retailerType, String visibility, Boolean createDefaultLocation, String responseFormat, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/create"
+    def createRetailer ( String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String facebookUrl, String twitterUrl, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String categoryIdsToAdd, String categoryIdsToRemove, String filterIds, Double latitude, Double longitude, String metaData, String searchTags, String retailerType, String visibility, Boolean createDefaultLocation, String responseFormat, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/create"
 
         // params
         def queryParams = [:]
@@ -21,10 +20,6 @@ class RetailerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (name == null) {
             throw new RuntimeException("missing required params name")
@@ -139,8 +134,8 @@ class RetailerApi {
 
     }
 
-    def deleteRetailer ( BigDecimal version, String deviceId, Long accountId, Long retailerId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/delete"
+    def deleteRetailer ( String deviceId, Long accountId, Long retailerId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/delete"
 
         // params
         def queryParams = [:]
@@ -148,10 +143,6 @@ class RetailerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -172,8 +163,8 @@ class RetailerApi {
 
     }
 
-    def getRetailer ( BigDecimal version, Long retailerId, String deviceId, Long accountId, Boolean includeCounts, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/get"
+    def getRetailer ( Long retailerId, String deviceId, Long accountId, Boolean includeCounts, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/get"
 
         // params
         def queryParams = [:]
@@ -181,10 +172,6 @@ class RetailerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (retailerId == null) {
             throw new RuntimeException("missing required params retailerId")
@@ -212,8 +199,8 @@ class RetailerApi {
 
     }
 
-    def getRetailers ( BigDecimal version, String visibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, String categoryIds, String filterIds, Integer i, Integer l, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/search"
+    def getRetailers ( String visibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, String categoryIds, String filterIds, Integer i, Integer l, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/search"
 
         // params
         def queryParams = [:]
@@ -221,10 +208,6 @@ class RetailerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (visibility == null) {
             throw new RuntimeException("missing required params visibility")
@@ -302,8 +285,8 @@ class RetailerApi {
 
     }
 
-    def retailerLoginCheck ( BigDecimal version, String username, String password, String deviceId, Double latitude, Double longitude, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/login"
+    def retailerLoginCheck ( String username, String password, String deviceId, Double latitude, Double longitude, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/login"
 
         // params
         def queryParams = [:]
@@ -311,10 +294,6 @@ class RetailerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (username == null) {
             throw new RuntimeException("missing required params username")
@@ -352,8 +331,8 @@ class RetailerApi {
 
     }
 
-    def updateRetailer ( BigDecimal version, Long retailerId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String facebookUrl, String twitterUrl, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String metaData, String searchTags, String retailerType, String visibility, Boolean active, String responseFormat, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/update"
+    def updateRetailer ( Long retailerId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String facebookUrl, String twitterUrl, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String metaData, String searchTags, String retailerType, String visibility, Boolean active, String responseFormat, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/update"
 
         // params
         def queryParams = [:]
@@ -361,10 +340,6 @@ class RetailerApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (retailerId == null) {
             throw new RuntimeException("missing required params retailerId")

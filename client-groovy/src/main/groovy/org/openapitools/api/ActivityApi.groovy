@@ -2,16 +2,15 @@ package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
 import org.openapitools.model.ActivityResponse
-import java.math.BigDecimal
 import org.openapitools.model.EntityReference
 
 class ActivityApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createEntityReference ( BigDecimal version, EntityReference body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/entity/reference"
+    def createEntityReference ( EntityReference body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/entity/reference"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class ActivityApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (body == null) {
             throw new RuntimeException("missing required params body")

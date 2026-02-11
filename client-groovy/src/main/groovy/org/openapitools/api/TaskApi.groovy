@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.TaskResponse
 
 class TaskApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createTask ( BigDecimal version, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/task/create"
+    def createTask ( Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/task/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class TaskApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -78,8 +73,8 @@ class TaskApi {
 
     }
 
-    def deleteTask ( BigDecimal version, Long accountId, Long taskId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/task/delete"
+    def deleteTask ( Long accountId, Long taskId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/task/delete"
 
         // params
         def queryParams = [:]
@@ -87,10 +82,6 @@ class TaskApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -116,8 +107,8 @@ class TaskApi {
 
     }
 
-    def getTask ( BigDecimal version, Long accountId, Long taskId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/task/get"
+    def getTask ( Long accountId, Long taskId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/task/get"
 
         // params
         def queryParams = [:]
@@ -125,10 +116,6 @@ class TaskApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -154,8 +141,8 @@ class TaskApi {
 
     }
 
-    def searchTasks ( BigDecimal version, Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/task/search"
+    def searchTasks ( Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/task/search"
 
         // params
         def queryParams = [:]
@@ -163,10 +150,6 @@ class TaskApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -218,8 +201,8 @@ class TaskApi {
 
     }
 
-    def updateTask ( BigDecimal version, Long taskId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/task/update"
+    def updateTask ( Long taskId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/task/update"
 
         // params
         def queryParams = [:]
@@ -227,10 +210,6 @@ class TaskApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (taskId == null) {
             throw new RuntimeException("missing required params taskId")

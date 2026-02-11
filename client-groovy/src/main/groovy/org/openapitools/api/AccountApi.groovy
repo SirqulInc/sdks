@@ -11,12 +11,12 @@ import org.openapitools.model.UserLocationSearchResponse
 import org.openapitools.model.UserSettingsResponse
 
 class AccountApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def accountLocationSearch ( BigDecimal version, String deviceId, Long accountId, String q, String keyword, String postalCode, Double latitude, Double longitude, String appKey, Double range, Long locationLastUpdated, String gender, Integer minAge, Integer maxAge, Integer companionshipIndex, Integer i, Integer start, Integer l, Integer limit, String searchMode, String sortField, Boolean descending, String roles, String tags, String experience, String categoryIds, String audienceIds, String audienceOperator, Boolean updateCurrentLocation, Boolean updatePreferredSettings, Boolean showExactLocations, Boolean showConnectionToSearcher, Long flagCountMinimum, Boolean verifiedUserOnly, Boolean contentAdminOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/search"
+    def accountLocationSearch ( String deviceId, Long accountId, String q, String keyword, String postalCode, Double latitude, Double longitude, String appKey, Double range, Long locationLastUpdated, String gender, Integer minAge, Integer maxAge, Integer companionshipIndex, Integer i, Integer start, Integer l, Integer limit, String searchMode, String sortField, Boolean descending, String roles, String tags, String experience, String categoryIds, String audienceIds, String audienceOperator, Boolean updateCurrentLocation, Boolean updatePreferredSettings, Boolean showExactLocations, Boolean showConnectionToSearcher, Long flagCountMinimum, Boolean verifiedUserOnly, Boolean contentAdminOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/search"
 
         // params
         def queryParams = [:]
@@ -24,10 +24,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -141,8 +137,8 @@ class AccountApi {
 
     }
 
-    def blockAccount ( BigDecimal version, Long accountIdBeingBlocked, String deviceId, Long accountId, Boolean blockFlagValue, Boolean removeFromGroupsIfBlocked, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/block"
+    def blockAccount ( Long accountIdBeingBlocked, String deviceId, Long accountId, Boolean blockFlagValue, Boolean removeFromGroupsIfBlocked, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/block"
 
         // params
         def queryParams = [:]
@@ -150,10 +146,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountIdBeingBlocked == null) {
             throw new RuntimeException("missing required params accountIdBeingBlocked")
@@ -190,8 +182,8 @@ class AccountApi {
 
     }
 
-    def createAccount ( BigDecimal version, String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String deviceId, String deviceIdType, String emailAddress, Long assetId, String streetAddress, String zipcode, String gender, Long birthday, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String role, String platforms, String tags, String aboutUs, String gameExperience, String categoryIds, String hometown, String height, Integer heightIndex, String ethnicity, String bodyType, String maritalStatus, String children, String religion, String education, Integer educationIndex, String smoke, String drink, String companionship, Integer companionshipIndex, Integer preferredMinAge, Integer preferredMaxAge, Integer preferredMinHeight, Integer preferredMaxHeight, String preferredGender, String preferredEducation, Integer preferredEducationIndex, String preferredBodyType, String preferredEthnicity, String preferredLocation, Double preferredLocationRange, Double latitude, Double longitude, Boolean acceptedTerms, String inviteToken, Long referralAccountId, Boolean sendValidation, String gameType, String appKey, String appVersion, String responseType, String audienceIdsToAdd, String appBlob, Boolean appEnablePush, Boolean appEnableSMS, Boolean appEnableEmail, String locationVisibility, Double homeLatitude, Double homeLongitude, String appNickname, Long personalAudienceId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/create"
+    def createAccount ( String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String deviceId, String deviceIdType, String emailAddress, Long assetId, String streetAddress, String zipcode, String gender, Long birthday, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String role, String platforms, String tags, String aboutUs, String gameExperience, String categoryIds, String hometown, String height, Integer heightIndex, String ethnicity, String bodyType, String maritalStatus, String children, String religion, String education, Integer educationIndex, String smoke, String drink, String companionship, Integer companionshipIndex, Integer preferredMinAge, Integer preferredMaxAge, Integer preferredMinHeight, Integer preferredMaxHeight, String preferredGender, String preferredEducation, Integer preferredEducationIndex, String preferredBodyType, String preferredEthnicity, String preferredLocation, Double preferredLocationRange, Double latitude, Double longitude, Boolean acceptedTerms, String inviteToken, Long referralAccountId, Boolean sendValidation, String gameType, String appKey, String appVersion, String responseType, String audienceIdsToAdd, String appBlob, Boolean appEnablePush, Boolean appEnableSMS, Boolean appEnableEmail, String locationVisibility, Double homeLatitude, Double homeLongitude, String appNickname, Long personalAudienceId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/create"
 
         // params
         def queryParams = [:]
@@ -199,10 +191,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (username == null) {
             throw new RuntimeException("missing required params username")
@@ -438,8 +426,8 @@ class AccountApi {
 
     }
 
-    def editAccount ( BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String role, Long assetId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String gender, Integer age, Long birthday, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, Boolean makeProfileInfoPublic, Boolean makeGameInfoPublic, Boolean makeFriendsInfoPublic, String hometown, String height, Integer heightIndex, String ethnicity, String bodyType, String maritalStatus, String children, String religion, String education, Integer educationIndex, String smoke, String drink, String companionship, Integer companionshipIndex, Integer preferredMinAge, Integer preferredMaxAge, Integer preferredMinHeight, Integer preferredMaxHeight, String preferredGender, String preferredEducation, Integer preferredEducationIndex, String preferredBodyType, String preferredEthnicity, String preferredLocation, Double preferredLocationRange, String platforms, String tags, String aboutUs, String matchToken, String gameExperience, String categories, String categoryIds, String responseFilters, Boolean showAsZipcode, Boolean showExactLocation, Boolean showOthersExactLocation, Boolean acceptedTerms, String locationVisibility, String appBlob, Boolean appEnablePush, Boolean appEnableSMS, Boolean appEnableEmail, String gameType, String appKey, Double latitude, Double longitude, Boolean returnProfile, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId, String appNickname, Long personalAudienceId, String nonGuestUsername, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/profile/update"
+    def editAccount ( String deviceId, Long accountId, Long connectionAccountId, String role, Long assetId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String gender, Integer age, Long birthday, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, Boolean makeProfileInfoPublic, Boolean makeGameInfoPublic, Boolean makeFriendsInfoPublic, String hometown, String height, Integer heightIndex, String ethnicity, String bodyType, String maritalStatus, String children, String religion, String education, Integer educationIndex, String smoke, String drink, String companionship, Integer companionshipIndex, Integer preferredMinAge, Integer preferredMaxAge, Integer preferredMinHeight, Integer preferredMaxHeight, String preferredGender, String preferredEducation, Integer preferredEducationIndex, String preferredBodyType, String preferredEthnicity, String preferredLocation, Double preferredLocationRange, String platforms, String tags, String aboutUs, String matchToken, String gameExperience, String categories, String categoryIds, String responseFilters, Boolean showAsZipcode, Boolean showExactLocation, Boolean showOthersExactLocation, Boolean acceptedTerms, String locationVisibility, String appBlob, Boolean appEnablePush, Boolean appEnableSMS, Boolean appEnableEmail, String gameType, String appKey, Double latitude, Double longitude, Boolean returnProfile, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId, String appNickname, Long personalAudienceId, String nonGuestUsername, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/profile/update"
 
         // params
         def queryParams = [:]
@@ -447,10 +435,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -708,8 +692,8 @@ class AccountApi {
 
     }
 
-    def editUsername ( BigDecimal version, String deviceId, Long accountId, String emailAddress, String username, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/username/update"
+    def editUsername ( String deviceId, Long accountId, String emailAddress, String username, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/username/update"
 
         // params
         def queryParams = [:]
@@ -717,10 +701,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -744,8 +724,8 @@ class AccountApi {
 
     }
 
-    def getAccount ( BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String responseFilters, String gameType, String appKey, String purchaseType, Boolean updateViewedDate, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/profile/get"
+    def getAccount ( Boolean returnNulls, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String responseFilters, String gameType, String appKey, String purchaseType, Boolean updateViewedDate, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/profile/get"
 
         // params
         def queryParams = [:]
@@ -753,10 +733,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (returnNulls != null) {
             queryParams.put("returnNulls", returnNulls)
@@ -804,8 +780,8 @@ class AccountApi {
 
     }
 
-    def getProfileAssets ( BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, Long ownerId, String mediaTypes, String mimeTypes, String sortField, Boolean descending, Double latitude, Double longitude, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/profile/assets"
+    def getProfileAssets ( Boolean returnNulls, String deviceId, Long accountId, Long ownerId, String mediaTypes, String mimeTypes, String sortField, Boolean descending, Double latitude, Double longitude, Integer i, Integer start, Integer l, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/profile/assets"
 
         // params
         def queryParams = [:]
@@ -813,10 +789,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (returnNulls != null) {
             queryParams.put("returnNulls", returnNulls)
@@ -870,8 +842,8 @@ class AccountApi {
 
     }
 
-    def getReferralList ( BigDecimal version, Long accountId, String appKey, String retrieveType, BigDecimal levelLimit, BigDecimal ancestorLevelLimit, BigDecimal childrenLevelLimit, BigDecimal ancestorListStart, BigDecimal ancestorListLimit, BigDecimal childrenListStart, BigDecimal childrenListLimit, Boolean childrenChildren, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/referral/list"
+    def getReferralList ( Long accountId, String appKey, String retrieveType, BigDecimal levelLimit, BigDecimal ancestorLevelLimit, BigDecimal childrenLevelLimit, BigDecimal ancestorListStart, BigDecimal ancestorListLimit, BigDecimal childrenListStart, BigDecimal childrenListLimit, Boolean childrenChildren, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/referral/list"
 
         // params
         def queryParams = [:]
@@ -879,10 +851,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -927,8 +895,8 @@ class AccountApi {
 
     }
 
-    def getSettings ( BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/settings/get"
+    def getSettings ( String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/settings/get"
 
         // params
         def queryParams = [:]
@@ -936,10 +904,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -963,8 +927,8 @@ class AccountApi {
 
     }
 
-    def loginDelegate ( BigDecimal version, String accessToken, String appKey, String deviceId, String accessTokenSecret, Long delegatedAccountId, String delegatedUsername, String networkUID, Integer ageRestriction, String responseFilters, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/login/delegate"
+    def loginDelegate ( String accessToken, String appKey, String deviceId, String accessTokenSecret, Long delegatedAccountId, String delegatedUsername, String networkUID, Integer ageRestriction, String responseFilters, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/login/delegate"
 
         // params
         def queryParams = [:]
@@ -972,10 +936,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accessToken == null) {
             throw new RuntimeException("missing required params accessToken")
@@ -1028,8 +988,8 @@ class AccountApi {
 
     }
 
-    def loginGeneral ( BigDecimal version, String accessToken, String networkUID, String appKey, String deviceId, String deviceIdType, String accessTokenSecret, Integer ageRestriction, String responseFilters, Double latitude, Double longitude, Boolean emailMatch, Long chosenAccountId, Long thirdPartyCredentialId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/login"
+    def loginGeneral ( String accessToken, String networkUID, String appKey, String deviceId, String deviceIdType, String accessTokenSecret, Integer ageRestriction, String responseFilters, Double latitude, Double longitude, Boolean emailMatch, Long chosenAccountId, Long thirdPartyCredentialId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/login"
 
         // params
         def queryParams = [:]
@@ -1037,10 +997,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accessToken == null) {
             throw new RuntimeException("missing required params accessToken")
@@ -1103,8 +1059,8 @@ class AccountApi {
 
     }
 
-    def loginUsername ( BigDecimal version, String username, String password, String deviceId, Double latitude, Double longitude, String app, String gameType, String appKey, Boolean returnProfile, String responseFilters, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/get"
+    def loginUsername ( String username, String password, String deviceId, Double latitude, Double longitude, String app, String gameType, String appKey, Boolean returnProfile, String responseFilters, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/get"
 
         // params
         def queryParams = [:]
@@ -1112,10 +1068,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (username == null) {
             throw new RuntimeException("missing required params username")
@@ -1165,8 +1117,8 @@ class AccountApi {
 
     }
 
-    def logout ( BigDecimal version, String deviceId, String deviceIdType, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/logout"
+    def logout ( String deviceId, String deviceIdType, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/logout"
 
         // params
         def queryParams = [:]
@@ -1174,10 +1126,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -1204,8 +1152,8 @@ class AccountApi {
 
     }
 
-    def mergeAccount ( BigDecimal version, Long mergeAccountId, String appKey, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/merge"
+    def mergeAccount ( Long mergeAccountId, String appKey, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/merge"
 
         // params
         def queryParams = [:]
@@ -1213,10 +1161,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (mergeAccountId == null) {
             throw new RuntimeException("missing required params mergeAccountId")
@@ -1248,8 +1192,8 @@ class AccountApi {
 
     }
 
-    def passwordChange ( BigDecimal version, Long accountId, String oldPassword, String newPassword, String confirmPassword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/passwordchange"
+    def passwordChange ( Long accountId, String oldPassword, String newPassword, String confirmPassword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/passwordchange"
 
         // params
         def queryParams = [:]
@@ -1257,10 +1201,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1300,8 +1240,8 @@ class AccountApi {
 
     }
 
-    def passwordReset ( BigDecimal version, String token, String password, String confirm, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/passwordreset"
+    def passwordReset ( String token, String password, String confirm, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/passwordreset"
 
         // params
         def queryParams = [:]
@@ -1309,10 +1249,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (token == null) {
             throw new RuntimeException("missing required params token")
@@ -1345,8 +1281,8 @@ class AccountApi {
 
     }
 
-    def requestPasswordReset ( BigDecimal version, String email, String from, String domain, String subUrl, String referer, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/requestpasswordreset"
+    def requestPasswordReset ( String email, String from, String domain, String subUrl, String referer, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/requestpasswordreset"
 
         // params
         def queryParams = [:]
@@ -1354,10 +1290,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (email == null) {
             throw new RuntimeException("missing required params email")
@@ -1388,8 +1320,8 @@ class AccountApi {
 
     }
 
-    def requestValidateAccount ( BigDecimal version, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/requestValidateAccount"
+    def requestValidateAccount ( Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/requestValidateAccount"
 
         // params
         def queryParams = [:]
@@ -1397,10 +1329,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1419,8 +1347,8 @@ class AccountApi {
 
     }
 
-    def searchAccounts ( BigDecimal version, Long accountId, String appKey, String keyword, Double latitude, Double longitude, Double radius, String gender, String gameExperience, Integer age, String categoryIds, Boolean returnNulls, String responseFilters, String purchaseType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/profile/search"
+    def searchAccounts ( Long accountId, String appKey, String keyword, Double latitude, Double longitude, Double radius, String gender, String gameExperience, Integer age, String categoryIds, Boolean returnNulls, String responseFilters, String purchaseType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/profile/search"
 
         // params
         def queryParams = [:]
@@ -1428,10 +1356,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1505,8 +1429,8 @@ class AccountApi {
 
     }
 
-    def secureLogin ( BigDecimal version, String username, String password, String gameType, String deviceId, String charsetName, Double latitude, Double longitude, Boolean returnProfile, String responseFilters, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/login/validate"
+    def secureLogin ( String username, String password, String gameType, String deviceId, String charsetName, Double latitude, Double longitude, Boolean returnProfile, String responseFilters, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/login/validate"
 
         // params
         def queryParams = [:]
@@ -1514,10 +1438,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (username == null) {
             throw new RuntimeException("missing required params username")
@@ -1568,8 +1488,8 @@ class AccountApi {
 
     }
 
-    def secureSignup ( BigDecimal version, String deviceId, String username, String password, String name, String inviteToken, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String deviceIdType, String emailAddress, Long assetId, String address, String zipcode, String gender, Long birthday, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String role, String platforms, String tags, String aboutUs, String gameExperience, String categoryIds, String hometown, String height, Integer heightIndex, String ethnicity, String bodyType, String maritalStatus, String children, String religion, String education, Integer educationIndex, String smoke, String drink, String companionship, Integer companionshipIndex, Integer preferredMinAge, Integer preferredMaxAge, Integer preferredMinHeight, Integer preferredMaxHeight, String preferredGender, String preferredEducation, Integer preferredEducationIndex, String preferredBodyType, String preferredEthnicity, String preferredLocation, Double preferredLocationRange, Double latitude, Double longitude, Boolean acceptedTerms, String charsetName, String gameType, String appKey, String appVersion, String responseType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/create/validate"
+    def secureSignup ( String deviceId, String username, String password, String name, String inviteToken, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String deviceIdType, String emailAddress, Long assetId, String address, String zipcode, String gender, Long birthday, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String role, String platforms, String tags, String aboutUs, String gameExperience, String categoryIds, String hometown, String height, Integer heightIndex, String ethnicity, String bodyType, String maritalStatus, String children, String religion, String education, Integer educationIndex, String smoke, String drink, String companionship, Integer companionshipIndex, Integer preferredMinAge, Integer preferredMaxAge, Integer preferredMinHeight, Integer preferredMaxHeight, String preferredGender, String preferredEducation, Integer preferredEducationIndex, String preferredBodyType, String preferredEthnicity, String preferredLocation, Double preferredLocationRange, Double latitude, Double longitude, Boolean acceptedTerms, String charsetName, String gameType, String appKey, String appVersion, String responseType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/create/validate"
 
         // params
         def queryParams = [:]
@@ -1577,10 +1497,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (deviceId == null) {
             throw new RuntimeException("missing required params deviceId")
@@ -1787,8 +1703,8 @@ class AccountApi {
 
     }
 
-    def setMatchToken ( BigDecimal version, String deviceId, Long accountId, String matchToken, String gameType, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/profile/matchToken"
+    def setMatchToken ( String deviceId, Long accountId, String matchToken, String gameType, String appKey, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/profile/matchToken"
 
         // params
         def queryParams = [:]
@@ -1796,10 +1712,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -1832,8 +1744,8 @@ class AccountApi {
 
     }
 
-    def updateActveStatus ( BigDecimal version, Long accountId, Long connectionAccountId, Boolean active, String deviceId, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/active/update"
+    def updateActveStatus ( Long accountId, Long connectionAccountId, Boolean active, String deviceId, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/active/update"
 
         // params
         def queryParams = [:]
@@ -1841,10 +1753,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -1883,8 +1791,8 @@ class AccountApi {
 
     }
 
-    def updateLocation ( BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, Long clientTime, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/location/update"
+    def updateLocation ( String deviceId, Long accountId, Double latitude, Double longitude, Long clientTime, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/location/update"
 
         // params
         def queryParams = [:]
@@ -1892,10 +1800,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -1922,8 +1826,8 @@ class AccountApi {
 
     }
 
-    def updateSettings ( BigDecimal version, String deviceId, Long accountId, String blockedNotifications, String suggestionMethod, Integer suggestionCount, Integer suggestionTimeFrame, Boolean showOthersExactLocation, Boolean showAsZipcode, Boolean showExactLocation, String favoriteVisibility, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/settings/update"
+    def updateSettings ( String deviceId, Long accountId, String blockedNotifications, String suggestionMethod, Integer suggestionCount, Integer suggestionTimeFrame, Boolean showOthersExactLocation, Boolean showAsZipcode, Boolean showExactLocation, String favoriteVisibility, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/settings/update"
 
         // params
         def queryParams = [:]
@@ -1931,10 +1835,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -1982,8 +1882,8 @@ class AccountApi {
 
     }
 
-    def validateAccountSignup ( BigDecimal version, String token, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/validateAccountSignup"
+    def validateAccountSignup ( String token, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/validateAccountSignup"
 
         // params
         def queryParams = [:]
@@ -1991,10 +1891,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (token == null) {
             throw new RuntimeException("missing required params token")
@@ -2013,8 +1909,8 @@ class AccountApi {
 
     }
 
-    def validatePasswordReset ( BigDecimal version, String token, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/account/validatepasswordreset"
+    def validatePasswordReset ( String token, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/account/validatepasswordreset"
 
         // params
         def queryParams = [:]
@@ -2022,10 +1918,6 @@ class AccountApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (token == null) {
             throw new RuntimeException("missing required params token")

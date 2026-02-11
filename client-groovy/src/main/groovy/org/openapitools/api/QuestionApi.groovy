@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.QuestionResponse
 import org.openapitools.model.SirqulResponse
 
 class QuestionApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createQuestion ( BigDecimal version, Long accountId, String question, String answers, Boolean active, Boolean allocateTickets, Long ticketCount, String tags, String videoURL, Long assetId, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/question/create"
+    def createQuestion ( Long accountId, String question, String answers, Boolean active, Boolean allocateTickets, Long ticketCount, String tags, String videoURL, Long assetId, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/question/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class QuestionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -91,8 +86,8 @@ class QuestionApi {
 
     }
 
-    def deleteQuestion ( BigDecimal version, Long questionId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/question/delete"
+    def deleteQuestion ( Long questionId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/question/delete"
 
         // params
         def queryParams = [:]
@@ -100,10 +95,6 @@ class QuestionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (questionId == null) {
             throw new RuntimeException("missing required params questionId")
@@ -129,8 +120,8 @@ class QuestionApi {
 
     }
 
-    def getQuestion ( BigDecimal version, Long questionId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/question/get"
+    def getQuestion ( Long questionId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/question/get"
 
         // params
         def queryParams = [:]
@@ -138,10 +129,6 @@ class QuestionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (questionId == null) {
             throw new RuntimeException("missing required params questionId")
@@ -167,8 +154,8 @@ class QuestionApi {
 
     }
 
-    def searchQuestions ( BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/question/search"
+    def searchQuestions ( Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/question/search"
 
         // params
         def queryParams = [:]
@@ -176,10 +163,6 @@ class QuestionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -236,8 +219,8 @@ class QuestionApi {
 
     }
 
-    def updateQuestion ( BigDecimal version, Long questionId, Long accountId, Long ticketCount, String question, String answers, String tags, String videoURL, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/game/question/update"
+    def updateQuestion ( Long questionId, Long accountId, Long ticketCount, String question, String answers, String tags, String videoURL, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/game/question/update"
 
         // params
         def queryParams = [:]
@@ -245,10 +228,6 @@ class QuestionApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (questionId == null) {
             throw new RuntimeException("missing required params questionId")

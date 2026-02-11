@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.UserPermissionsResponse
 
 class UserPermissionsApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addUsersToPermissionable ( BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean pending, Boolean admin, Boolean includeFriendGroup, Double latitude, Double longitude, String audienceIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/permissions/add"
+    def addUsersToPermissionable ( String permissionableType, Long permissionableId, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean pending, Boolean admin, Boolean includeFriendGroup, Double latitude, Double longitude, String audienceIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/permissions/add"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class UserPermissionsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (permissionableType == null) {
             throw new RuntimeException("missing required params permissionableType")
@@ -93,8 +88,8 @@ class UserPermissionsApi {
 
     }
 
-    def approvePermissionable ( BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, String approvalStatus, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/permissionable/approve"
+    def approvePermissionable ( String permissionableType, Long permissionableId, String deviceId, Long accountId, String approvalStatus, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/permissionable/approve"
 
         // params
         def queryParams = [:]
@@ -102,10 +97,6 @@ class UserPermissionsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (permissionableType == null) {
             throw new RuntimeException("missing required params permissionableType")
@@ -140,8 +131,8 @@ class UserPermissionsApi {
 
     }
 
-    def leaveFromPermissionable ( BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/permissions/leave"
+    def leaveFromPermissionable ( String permissionableType, Long permissionableId, String deviceId, Long accountId, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/permissions/leave"
 
         // params
         def queryParams = [:]
@@ -149,10 +140,6 @@ class UserPermissionsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (permissionableType == null) {
             throw new RuntimeException("missing required params permissionableType")
@@ -190,8 +177,8 @@ class UserPermissionsApi {
 
     }
 
-    def removeUsersFromPermissionable ( BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean removeFriendGroup, Double latitude, Double longitude, String audienceIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/consumer/permissions/remove"
+    def removeUsersFromPermissionable ( String permissionableType, Long permissionableId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean removeFriendGroup, Double latitude, Double longitude, String audienceIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/consumer/permissions/remove"
 
         // params
         def queryParams = [:]
@@ -199,10 +186,6 @@ class UserPermissionsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (permissionableType == null) {
             throw new RuntimeException("missing required params permissionableType")
@@ -255,8 +238,8 @@ class UserPermissionsApi {
 
     }
 
-    def searchPermissionables ( BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, String keyword, String sortField, Boolean descending, Boolean pending, Boolean admin, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/permissions/search"
+    def searchPermissionables ( String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, String keyword, String sortField, Boolean descending, Boolean pending, Boolean admin, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/permissions/search"
 
         // params
         def queryParams = [:]
@@ -264,10 +247,6 @@ class UserPermissionsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -318,8 +297,8 @@ class UserPermissionsApi {
 
     }
 
-    def searchPermissionablesFollowingDistance ( BigDecimal version, Double latitude, Double longitude, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, Double searchRange, String keyword, Boolean pending, Boolean admin, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/permissions/distancesearch"
+    def searchPermissionablesFollowingDistance ( Double latitude, Double longitude, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, Double searchRange, String keyword, Boolean pending, Boolean admin, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/permissions/distancesearch"
 
         // params
         def queryParams = [:]
@@ -327,10 +306,6 @@ class UserPermissionsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (latitude == null) {
             throw new RuntimeException("missing required params latitude")

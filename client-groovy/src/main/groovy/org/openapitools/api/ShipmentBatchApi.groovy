@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ShipmentBatch
 import org.openapitools.model.ShipmentImportStatus
 
 class ShipmentBatchApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createShipmentBatch ( BigDecimal version, ShipmentBatch body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/batch"
+    def createShipmentBatch ( ShipmentBatch body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/batch"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class ShipmentBatchApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -36,8 +31,8 @@ class ShipmentBatchApi {
 
     }
 
-    def deleteShipmentBatch ( BigDecimal version, Long batchId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/batch/${batchId}"
+    def deleteShipmentBatch ( Long batchId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/batch/${batchId}"
 
         // params
         def queryParams = [:]
@@ -45,10 +40,6 @@ class ShipmentBatchApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (batchId == null) {
             throw new RuntimeException("missing required params batchId")
@@ -64,8 +55,8 @@ class ShipmentBatchApi {
 
     }
 
-    def getShipmentBatch ( BigDecimal version, Long batchId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/batch/${batchId}"
+    def getShipmentBatch ( Long batchId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/batch/${batchId}"
 
         // params
         def queryParams = [:]
@@ -73,10 +64,6 @@ class ShipmentBatchApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (batchId == null) {
             throw new RuntimeException("missing required params batchId")
@@ -92,8 +79,8 @@ class ShipmentBatchApi {
 
     }
 
-    def getShipmentBatchStatus ( BigDecimal version, Long batchId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean valid, Boolean started, Boolean completed, Boolean hasShipment, Boolean hasRoute, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/batch/${batchId}/status"
+    def getShipmentBatchStatus ( Long batchId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean valid, Boolean started, Boolean completed, Boolean hasShipment, Boolean hasRoute, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/batch/${batchId}/status"
 
         // params
         def queryParams = [:]
@@ -101,10 +88,6 @@ class ShipmentBatchApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (batchId == null) {
             throw new RuntimeException("missing required params batchId")
@@ -173,8 +156,8 @@ class ShipmentBatchApi {
 
     }
 
-    def searchShipmentBatch ( BigDecimal version, Long hubId, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/shipment/batch"
+    def searchShipmentBatch ( Long hubId, String sortField, Boolean descending, Integer start, Integer limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/shipment/batch"
 
         // params
         def queryParams = [:]
@@ -182,10 +165,6 @@ class ShipmentBatchApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (hubId == null) {
             throw new RuntimeException("missing required params hubId")

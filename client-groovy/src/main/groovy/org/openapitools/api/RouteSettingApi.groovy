@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.RouteSettings
 
 class RouteSettingApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createRouteSettings ( BigDecimal version, RouteSettings body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/setting"
+    def createRouteSettings ( RouteSettings body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/setting"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class RouteSettingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 
@@ -35,8 +30,8 @@ class RouteSettingApi {
 
     }
 
-    def deleteRouteSettings ( BigDecimal version, Long routeSettingsId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/setting/${routeSettingsId}"
+    def deleteRouteSettings ( Long routeSettingsId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/setting/${routeSettingsId}"
 
         // params
         def queryParams = [:]
@@ -44,10 +39,6 @@ class RouteSettingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeSettingsId == null) {
             throw new RuntimeException("missing required params routeSettingsId")
@@ -63,8 +54,8 @@ class RouteSettingApi {
 
     }
 
-    def getRouteSettings ( BigDecimal version, Long routeSettingsId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/setting/${routeSettingsId}"
+    def getRouteSettings ( Long routeSettingsId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/setting/${routeSettingsId}"
 
         // params
         def queryParams = [:]
@@ -72,10 +63,6 @@ class RouteSettingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeSettingsId == null) {
             throw new RuntimeException("missing required params routeSettingsId")
@@ -91,8 +78,8 @@ class RouteSettingApi {
 
     }
 
-    def searchRouteSettings ( BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long hubId, Long programId, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/setting"
+    def searchRouteSettings ( String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long hubId, Long programId, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/setting"
 
         // params
         def queryParams = [:]
@@ -100,10 +87,6 @@ class RouteSettingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (sortField == null) {
             throw new RuntimeException("missing required params sortField")
@@ -159,8 +142,8 @@ class RouteSettingApi {
 
     }
 
-    def updateRouteSettings ( BigDecimal version, Long routeSettingsId, RouteSettings body, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/route/setting/${routeSettingsId}"
+    def updateRouteSettings ( Long routeSettingsId, RouteSettings body, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/route/setting/${routeSettingsId}"
 
         // params
         def queryParams = [:]
@@ -168,10 +151,6 @@ class RouteSettingApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (routeSettingsId == null) {
             throw new RuntimeException("missing required params routeSettingsId")

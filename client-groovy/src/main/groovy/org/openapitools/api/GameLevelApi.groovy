@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.GameLevelListResponse
 import org.openapitools.model.GameLevelResponse
 import org.openapitools.model.QuestionResponse
@@ -9,12 +8,12 @@ import org.openapitools.model.SirqulResponse
 import org.openapitools.model.WordzWordResponse
 
 class GameLevelApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createGameLevel ( BigDecimal version, Long accountId, String name, String gameData, String gameDataSuffix, String appKey, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/create"
+    def createGameLevel ( Long accountId, String name, String gameData, String gameDataSuffix, String appKey, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/create"
 
         // params
         def queryParams = [:]
@@ -22,10 +21,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -131,8 +126,8 @@ class GameLevelApi {
 
     }
 
-    def deleteGameLevel ( BigDecimal version, Long accountId, Long levelId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/delete"
+    def deleteGameLevel ( Long accountId, Long levelId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/delete"
 
         // params
         def queryParams = [:]
@@ -140,10 +135,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -169,8 +160,8 @@ class GameLevelApi {
 
     }
 
-    def getGameLevel ( BigDecimal version, Long accountId, Long levelId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/get"
+    def getGameLevel ( Long accountId, Long levelId, Boolean includeGameData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/get"
 
         // params
         def queryParams = [:]
@@ -178,10 +169,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -210,8 +197,8 @@ class GameLevelApi {
 
     }
 
-    def getGameLevelsByApplication ( BigDecimal version, Long accountId, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, String appVersion, Boolean includeGameData, String filters, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/search"
+    def getGameLevelsByApplication ( Long accountId, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, String appVersion, Boolean includeGameData, String filters, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/search"
 
         // params
         def queryParams = [:]
@@ -219,10 +206,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -272,8 +255,8 @@ class GameLevelApi {
 
     }
 
-    def getGameLevelsByBillableEntity ( BigDecimal version, Long accountId, String appKey, String keyword, String sortField, Boolean descending, Boolean activeOnly, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/searchByBillableEntity"
+    def getGameLevelsByBillableEntity ( Long accountId, String appKey, String keyword, String sortField, Boolean descending, Boolean activeOnly, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/searchByBillableEntity"
 
         // params
         def queryParams = [:]
@@ -281,10 +264,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -324,8 +303,8 @@ class GameLevelApi {
 
     }
 
-    def getQuestionsInLevel ( BigDecimal version, Long levelId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/questions/get"
+    def getQuestionsInLevel ( Long levelId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/questions/get"
 
         // params
         def queryParams = [:]
@@ -333,10 +312,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (levelId == null) {
             throw new RuntimeException("missing required params levelId")
@@ -362,8 +337,8 @@ class GameLevelApi {
 
     }
 
-    def getWordsInLevel ( BigDecimal version, Long levelId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/words/get"
+    def getWordsInLevel ( Long levelId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/words/get"
 
         // params
         def queryParams = [:]
@@ -371,10 +346,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (levelId == null) {
             throw new RuntimeException("missing required params levelId")
@@ -400,8 +371,8 @@ class GameLevelApi {
 
     }
 
-    def updateGameLevel ( BigDecimal version, Long accountId, Long levelId, String appKey, String name, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String gameData, String gameDataSuffix, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/update"
+    def updateGameLevel ( Long accountId, Long levelId, String appKey, String name, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String gameData, String gameDataSuffix, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/update"
 
         // params
         def queryParams = [:]
@@ -409,10 +380,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -513,8 +480,8 @@ class GameLevelApi {
 
     }
 
-    def updateQuestionsInLevel ( BigDecimal version, Long levelId, Long accountId, String questionIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/questions/update"
+    def updateQuestionsInLevel ( Long levelId, Long accountId, String questionIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/questions/update"
 
         // params
         def queryParams = [:]
@@ -522,10 +489,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (levelId == null) {
             throw new RuntimeException("missing required params levelId")
@@ -558,8 +521,8 @@ class GameLevelApi {
 
     }
 
-    def updateWordsInLevel ( BigDecimal version, Long levelId, Long accountId, String wordIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/level/words/update"
+    def updateWordsInLevel ( Long levelId, Long accountId, String wordIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/level/words/update"
 
         // params
         def queryParams = [:]
@@ -567,10 +530,6 @@ class GameLevelApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (levelId == null) {
             throw new RuntimeException("missing required params levelId")

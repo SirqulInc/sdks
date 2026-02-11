@@ -1,16 +1,15 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.SirqulResponse
 
 class RetailerV2Api {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getRetaokiler ( BigDecimal version, Long retailerId, Boolean activeOnly, String keyword, String sortField, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer"
+    def getRetaokiler ( Long retailerId, Boolean activeOnly, String keyword, String sortField, Long start, Long limit, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer"
 
         // params
         def queryParams = [:]
@@ -18,10 +17,6 @@ class RetailerV2Api {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (retailerId == null) {
             throw new RuntimeException("missing required params retailerId")

@@ -1,17 +1,16 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.RetailerLocationResponse
 import org.openapitools.model.SirqulResponse
 
 class RetailerLocationApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def createRetailerLocationConsumer ( BigDecimal version, String appKey, String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String detailsHeader, String detailsBody, String hours, String tags, Long logoAssetId, Long picture1AssetId, Long picture2AssetId, String categoryIds, String filterIds, String metaData, Boolean publicLocation, Boolean active, String locationType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/create"
+    def createRetailerLocationConsumer ( String appKey, String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String detailsHeader, String detailsBody, String hours, String tags, Long logoAssetId, Long picture1AssetId, Long picture2AssetId, String categoryIds, String filterIds, String metaData, Boolean publicLocation, Boolean active, String locationType, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/create"
 
         // params
         def queryParams = [:]
@@ -19,10 +18,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -129,8 +124,8 @@ class RetailerLocationApi {
 
     }
 
-    def createRetailerLocations ( BigDecimal version, Long retailerId, String name, String streetAddress, String city, String state, String postalCode, String deviceId, Long accountId, String streetAddress2, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String responseIncludes, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/location/create"
+    def createRetailerLocations ( Long retailerId, String name, String streetAddress, String city, String state, String postalCode, String deviceId, Long accountId, String streetAddress2, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String responseIncludes, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/location/create"
 
         // params
         def queryParams = [:]
@@ -138,10 +133,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (retailerId == null) {
             throw new RuntimeException("missing required params retailerId")
@@ -294,8 +285,8 @@ class RetailerLocationApi {
 
     }
 
-    def deleteRetailerLocation ( BigDecimal version, String deviceId, Long accountId, Long retailerLocationId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/location/delete"
+    def deleteRetailerLocation ( String deviceId, Long accountId, Long retailerLocationId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/location/delete"
 
         // params
         def queryParams = [:]
@@ -303,10 +294,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -327,8 +314,8 @@ class RetailerLocationApi {
 
     }
 
-    def getRetailerLocation ( BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, String retailerLocationToken, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/location/get"
+    def getRetailerLocation ( Long retailerLocationId, String deviceId, Long accountId, String retailerLocationToken, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/location/get"
 
         // params
         def queryParams = [:]
@@ -336,10 +323,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (retailerLocationId == null) {
             throw new RuntimeException("missing required params retailerLocationId")
@@ -367,8 +350,8 @@ class RetailerLocationApi {
 
     }
 
-    def getRetailerLocationConsumer ( BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/location/get"
+    def getRetailerLocationConsumer ( Long retailerLocationId, String deviceId, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/location/get"
 
         // params
         def queryParams = [:]
@@ -376,10 +359,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (retailerLocationId == null) {
             throw new RuntimeException("missing required params retailerLocationId")
@@ -404,8 +383,8 @@ class RetailerLocationApi {
 
     }
 
-    def indexedRetailerLocationDistanceSearch ( BigDecimal version, Double latitude, Double longitude, Double searchRange, Integer start, Integer limit, Long accountId, String address, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, String distanceUnit, Boolean returnFavorited, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/location/idistancesearch"
+    def indexedRetailerLocationDistanceSearch ( Double latitude, Double longitude, Double searchRange, Integer start, Integer limit, Long accountId, String address, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, String distanceUnit, Boolean returnFavorited, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/location/idistancesearch"
 
         // params
         def queryParams = [:]
@@ -413,10 +392,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (latitude == null) {
             throw new RuntimeException("missing required params latitude")
@@ -550,8 +525,8 @@ class RetailerLocationApi {
 
     }
 
-    def indexedRetailerLocationSearch ( BigDecimal version, Long accountId, Integer start, Integer limit, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/location/isearch"
+    def indexedRetailerLocationSearch ( Long accountId, Integer start, Integer limit, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/location/isearch"
 
         // params
         def queryParams = [:]
@@ -559,10 +534,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (accountId != null) {
             queryParams.put("accountId", accountId)
@@ -658,8 +629,8 @@ class RetailerLocationApi {
 
     }
 
-    def searchRetailerLocations ( BigDecimal version, String deviceId, Long accountId, String q, String keyword, String retailerIds, String retailerLocationIds, String locationType, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean showPublicLocations, Boolean activeOnly, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/location/search"
+    def searchRetailerLocations ( String deviceId, Long accountId, String q, String keyword, String retailerIds, String retailerLocationIds, String locationType, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean showPublicLocations, Boolean activeOnly, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/location/search"
 
         // params
         def queryParams = [:]
@@ -667,10 +638,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -757,8 +724,8 @@ class RetailerLocationApi {
 
     }
 
-    def updateRetailerLocations ( BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, String metaData, String paymentProvider, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String tags, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/retailer/location/update"
+    def updateRetailerLocations ( Long retailerLocationId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, String metaData, String paymentProvider, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String tags, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/retailer/location/update"
 
         // params
         def queryParams = [:]
@@ -766,10 +733,6 @@ class RetailerLocationApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (retailerLocationId == null) {
             throw new RuntimeException("missing required params retailerLocationId")

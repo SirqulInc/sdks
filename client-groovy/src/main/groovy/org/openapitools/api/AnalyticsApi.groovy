@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.ChartData
 import org.openapitools.model.SirqulResponse
 import org.openapitools.model.UserActivityResponse
 
 class AnalyticsApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def activities ( BigDecimal version, Integer start, Integer limit, Long accountId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/analytics/useractivity"
+    def activities ( Integer start, Integer limit, Long accountId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/analytics/useractivity"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class AnalyticsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (start == null) {
             throw new RuntimeException("missing required params start")
@@ -56,8 +51,8 @@ class AnalyticsApi {
 
     }
 
-    def aggregatedFilteredUsage ( BigDecimal version, String deviceId, Long accountId, Long applicationId, String appKey, Long startDate, Long endDate, String deviceType, String device, String deviceOS, String gender, String ageGroup, String country, String state, String city, String zip, String model, String tag, Long userAccountId, String userAccountDisplay, String userAccountUsername, String groupByRoot, String groupBy, String distinctCount, String sortField, Boolean descending, Boolean hideUnknown, String responseFormat, Integer l, Integer limit, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/analytics/aggregatedFilteredUsage"
+    def aggregatedFilteredUsage ( String deviceId, Long accountId, Long applicationId, String appKey, Long startDate, Long endDate, String deviceType, String device, String deviceOS, String gender, String ageGroup, String country, String state, String city, String zip, String model, String tag, Long userAccountId, String userAccountDisplay, String userAccountUsername, String groupByRoot, String groupBy, String distinctCount, String sortField, Boolean descending, Boolean hideUnknown, String responseFormat, Integer l, Integer limit, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/analytics/aggregatedFilteredUsage"
 
         // params
         def queryParams = [:]
@@ -65,10 +60,6 @@ class AnalyticsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -173,8 +164,8 @@ class AnalyticsApi {
 
     }
 
-    def filteredUsage ( BigDecimal version, String deviceId, Long accountId, Long applicationId, String appKey, Long startDate, Long endDate, String deviceType, String device, String deviceOS, String gender, String ageGroup, String country, String state, String city, String zip, String model, String tag, Long userAccountId, String userAccountDisplay, String userAccountUsername, Long customId, String customType, Double customValue, Double customValue2, Long customLong, Long customLong2, String customMessage, String customMessage2, String groupBy, String distinctCount, String sumColumn, String sortField, Boolean descending, Boolean hideUnknown, String responseFormat, Integer l, Integer limit, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/analytics/filteredUsage"
+    def filteredUsage ( String deviceId, Long accountId, Long applicationId, String appKey, Long startDate, Long endDate, String deviceType, String device, String deviceOS, String gender, String ageGroup, String country, String state, String city, String zip, String model, String tag, Long userAccountId, String userAccountDisplay, String userAccountUsername, Long customId, String customType, Double customValue, Double customValue2, Long customLong, Long customLong2, String customMessage, String customMessage2, String groupBy, String distinctCount, String sumColumn, String sortField, Boolean descending, Boolean hideUnknown, String responseFormat, Integer l, Integer limit, Double latitude, Double longitude, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/analytics/filteredUsage"
 
         // params
         def queryParams = [:]
@@ -182,10 +173,6 @@ class AnalyticsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -314,8 +301,8 @@ class AnalyticsApi {
 
     }
 
-    def usage ( BigDecimal version, String tag, String deviceId, Long accountId, Long applicationId, String appKey, String appVersion, String device, String deviceType, String deviceOS, String model, Double latitude, Double longitude, Long customId, String customType, Long achievementIncrement, String city, String state, String country, String zip, String locationDescription, Long clientTime, String errorMessage, String ip, String userAgent, Boolean backgroundEvent, String customMessage, String customMessage2, Double customValue, Double customValue2, Long customLong, Long customLong2, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/analytics/usage"
+    def usage ( String tag, String deviceId, Long accountId, Long applicationId, String appKey, String appVersion, String device, String deviceType, String deviceOS, String model, Double latitude, Double longitude, Long customId, String customType, Long achievementIncrement, String city, String state, String country, String zip, String locationDescription, Long clientTime, String errorMessage, String ip, String userAgent, Boolean backgroundEvent, String customMessage, String customMessage2, Double customValue, Double customValue2, Long customLong, Long customLong2, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/analytics/usage"
 
         // params
         def queryParams = [:]
@@ -323,10 +310,6 @@ class AnalyticsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (tag == null) {
             throw new RuntimeException("missing required params tag")
@@ -435,8 +418,8 @@ class AnalyticsApi {
 
     }
 
-    def usageBatch ( BigDecimal version, String appKey, String device, String data, String deviceId, Long accountId, String appVersion, String deviceType, String deviceOS, String model, Boolean updateRanking, Boolean returnSummaryResponse, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/analytics/usage/batch"
+    def usageBatch ( String appKey, String device, String data, String deviceId, Long accountId, String appVersion, String deviceType, String deviceOS, String model, Boolean updateRanking, Boolean returnSummaryResponse, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/analytics/usage/batch"
 
         // params
         def queryParams = [:]
@@ -444,10 +427,6 @@ class AnalyticsApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")

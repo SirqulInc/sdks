@@ -1,7 +1,6 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.CountResponse
 import org.openapitools.model.ProfileResponse
 import org.openapitools.model.SirqulResponse
@@ -9,12 +8,12 @@ import org.openapitools.model.TicketListResponse
 import org.openapitools.model.TicketOfferResponse
 
 class TicketApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def getTicketCount ( BigDecimal version, String deviceId, Long accountId, String gameType, String appKey, String ticketType, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ticket/count"
+    def getTicketCount ( String deviceId, Long accountId, String gameType, String appKey, String ticketType, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ticket/count"
 
         // params
         def queryParams = [:]
@@ -22,10 +21,6 @@ class TicketApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -52,8 +47,8 @@ class TicketApi {
 
     }
 
-    def getTicketList ( BigDecimal version, String deviceId, Long accountId, String ticketObjectType, String actionType, String ticketIds, String objectIds, String receiptTokens, String gameType, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ticket/getList"
+    def getTicketList ( String deviceId, Long accountId, String ticketObjectType, String actionType, String ticketIds, String objectIds, String receiptTokens, String gameType, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ticket/getList"
 
         // params
         def queryParams = [:]
@@ -61,10 +56,6 @@ class TicketApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
         if (deviceId != null) {
             queryParams.put("deviceId", deviceId)
@@ -103,8 +94,8 @@ class TicketApi {
 
     }
 
-    def giftPurchase ( BigDecimal version, Long receiverAccountId, Long ticketId, String deviceId, Long accountId, Long assetId, String customMessage, String gameType, String appKey, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/purchase/gift"
+    def giftPurchase ( Long receiverAccountId, Long ticketId, String deviceId, Long accountId, Long assetId, String customMessage, String gameType, String appKey, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/purchase/gift"
 
         // params
         def queryParams = [:]
@@ -112,10 +103,6 @@ class TicketApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (receiverAccountId == null) {
             throw new RuntimeException("missing required params receiverAccountId")
@@ -159,8 +146,8 @@ class TicketApi {
 
     }
 
-    def saveTicket ( BigDecimal version, String actionType, String ticketObjectType, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, String receiptData, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ticket/save"
+    def saveTicket ( String actionType, String ticketObjectType, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, String receiptData, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ticket/save"
 
         // params
         def queryParams = [:]
@@ -168,10 +155,6 @@ class TicketApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (actionType == null) {
             throw new RuntimeException("missing required params actionType")
@@ -245,8 +228,8 @@ class TicketApi {
 
     }
 
-    def saveTicketViaFileUpload ( BigDecimal version, String actionType, String ticketObjectType, File receiptData, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ticket/save/fileUpload"
+    def saveTicketViaFileUpload ( String actionType, String ticketObjectType, File receiptData, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ticket/save/fileUpload"
 
         // params
         def queryParams = [:]
@@ -254,10 +237,6 @@ class TicketApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (actionType == null) {
             throw new RuntimeException("missing required params actionType")
@@ -335,8 +314,8 @@ class TicketApi {
 
     }
 
-    def ticketOffers ( BigDecimal version, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ticket/ticketoffers"
+    def ticketOffers ( Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ticket/ticketoffers"
 
         // params
         def queryParams = [:]
@@ -344,10 +323,6 @@ class TicketApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
 
 
 

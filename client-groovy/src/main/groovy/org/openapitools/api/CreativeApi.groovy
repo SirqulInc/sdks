@@ -1,18 +1,17 @@
 package org.openapitools.api;
 
 import org.openapitools.api.ApiUtils
-import java.math.BigDecimal
 import org.openapitools.model.CreativeResponse
 import org.openapitools.model.MissionResponse
 import org.openapitools.model.SirqulResponse
 
 class CreativeApi {
-    String basePath = "http://localhost"
+    String basePath = "https://dev.sirqul.com/api/3.18"
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def addPreview ( BigDecimal version, Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/creative/addpreview"
+    def addPreview ( Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/creative/addpreview"
 
         // params
         def queryParams = [:]
@@ -20,10 +19,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -49,8 +44,8 @@ class CreativeApi {
 
     }
 
-    def adsFind ( BigDecimal version, String appKey, Boolean randomize, Boolean targetedAdsOnly, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeAudiences, Boolean allocatesTickets, String missionIds, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/ads/find"
+    def adsFind ( String appKey, Boolean randomize, Boolean targetedAdsOnly, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeAudiences, Boolean allocatesTickets, String missionIds, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/ads/find"
 
         // params
         def queryParams = [:]
@@ -58,10 +53,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (appKey == null) {
             throw new RuntimeException("missing required params appKey")
@@ -133,8 +124,8 @@ class CreativeApi {
 
     }
 
-    def createCreative ( BigDecimal version, Long accountId, String name, Boolean active, Boolean waitForAsset, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Long referenceId, String appVersion, Long missionId, Long offerId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/creative/create"
+    def createCreative ( Long accountId, String name, Boolean active, Boolean waitForAsset, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Long referenceId, String appVersion, Long missionId, Long offerId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/creative/create"
 
         // params
         def queryParams = [:]
@@ -142,10 +133,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -218,8 +205,8 @@ class CreativeApi {
 
     }
 
-    def deleteCreative ( BigDecimal version, Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/creative/delete"
+    def deleteCreative ( Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/creative/delete"
 
         // params
         def queryParams = [:]
@@ -227,10 +214,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -256,8 +239,8 @@ class CreativeApi {
 
     }
 
-    def getCreative ( BigDecimal version, Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/creative/get"
+    def getCreative ( Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/creative/get"
 
         // params
         def queryParams = [:]
@@ -265,10 +248,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -294,8 +273,8 @@ class CreativeApi {
 
     }
 
-    def getCreativesByApplication ( BigDecimal version, Long accountId, String appKey, Integer start, Integer limit, Long missionId, String keyword, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/creative/search"
+    def getCreativesByApplication ( Long accountId, String appKey, Integer start, Integer limit, Long missionId, String keyword, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/creative/search"
 
         // params
         def queryParams = [:]
@@ -303,10 +282,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -352,8 +327,8 @@ class CreativeApi {
 
     }
 
-    def removePreview ( BigDecimal version, Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/creative/removepreview"
+    def removePreview ( Long accountId, Long creativeId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/creative/removepreview"
 
         // params
         def queryParams = [:]
@@ -361,10 +336,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
@@ -390,8 +361,8 @@ class CreativeApi {
 
     }
 
-    def updateCreative ( BigDecimal version, Long accountId, Long creativeId, String name, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Boolean active, Long referenceId, String appVersion, Long missionId, Closure onSuccess, Closure onFailure)  {
-        String resourcePath = "/api/${version}/creative/update"
+    def updateCreative ( Long accountId, Long creativeId, String name, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Boolean active, Long referenceId, String appVersion, Long missionId, Closure onSuccess, Closure onFailure)  {
+        String resourcePath = "/creative/update"
 
         // params
         def queryParams = [:]
@@ -399,10 +370,6 @@ class CreativeApi {
         def bodyParams
         def contentType
 
-        // verify required params are set
-        if (version == null) {
-            throw new RuntimeException("missing required params version")
-        }
         // verify required params are set
         if (accountId == null) {
             throw new RuntimeException("missing required params accountId")
