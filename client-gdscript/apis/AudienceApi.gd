@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AudienceApi"
 
 
-# Operation createAudience → POST /api/{version}/audience/create
+# Operation createAudience → POST /audience/create
 # Create Audience
 #
 # Create a user defined audience.
 func create_audience(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -116,7 +114,7 @@ func create_audience(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -174,8 +172,6 @@ func create_audience(
 
 
 func create_audience_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -269,7 +265,6 @@ func create_audience_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_audience")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		description,
@@ -306,13 +301,11 @@ func create_audience_threaded(
 	return bzz_thread
 
 
-# Operation deleteAudience → POST /api/{version}/audience/delete
+# Operation deleteAudience → POST /audience/delete
 # Delete Audience
 #
 # Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
 func delete_audience(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -327,7 +320,7 @@ func delete_audience(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -358,8 +351,6 @@ func delete_audience(
 
 
 func delete_audience_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -372,7 +363,6 @@ func delete_audience_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_audience")
 	bzz_callable.bind(
-		version,
 		accountId,
 		audienceId,
 		on_success,
@@ -382,13 +372,11 @@ func delete_audience_threaded(
 	return bzz_thread
 
 
-# Operation getAgeGroups → GET /api/{version}/audience/ageGroups
+# Operation getAgeGroups → GET /audience/ageGroups
 # Get Age Groups
 #
 # Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
 func get_age_groups(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -397,7 +385,7 @@ func get_age_groups(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/ageGroups".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/ageGroups"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -426,15 +414,12 @@ func get_age_groups(
 
 
 func get_age_groups_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_age_groups")
 	bzz_callable.bind(
-		version,
 		on_success,
 		on_failure,
 	)
@@ -442,13 +427,11 @@ func get_age_groups_threaded(
 	return bzz_thread
 
 
-# Operation getAudience → GET /api/{version}/audience/get
+# Operation getAudience → GET /audience/get
 # Get Audience
 #
 # Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
 func get_audience(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -475,7 +458,7 @@ func get_audience(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -510,8 +493,6 @@ func get_audience(
 
 
 func get_audience_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -536,7 +517,6 @@ func get_audience_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_audience")
 	bzz_callable.bind(
-		version,
 		accountId,
 		audienceId,
 		appKey,
@@ -550,13 +530,11 @@ func get_audience_threaded(
 	return bzz_thread
 
 
-# Operation getAudienceList → GET /api/{version}/audience/search
+# Operation getAudienceList → GET /audience/search
 # Search Audiences
 #
 # Get the list audiences owned by the account
 func get_audience_list(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId = null,
@@ -622,7 +600,7 @@ func get_audience_list(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -670,8 +648,6 @@ func get_audience_list(
 
 
 func get_audience_list_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId = null,
@@ -735,7 +711,6 @@ func get_audience_list_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_audience_list")
 	bzz_callable.bind(
-		version,
 		accountId,
 		albumIds,
 		keyword,
@@ -762,13 +737,11 @@ func get_audience_list_threaded(
 	return bzz_thread
 
 
-# Operation getDevices → GET /api/{version}/audience/devices
+# Operation getDevices → GET /audience/devices
 # Get Devices
 #
 # Gets the list of available devices that can be selected by consumers and retailers.
 func get_devices(
-	# version: float   Eg: 3.16
-	version: float,
 	# includeInactive: bool   Eg: true
 	# If true return inactive record as well. default is false.
 	includeInactive: bool,
@@ -780,7 +753,7 @@ func get_devices(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/devices".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/devices"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -810,8 +783,6 @@ func get_devices(
 
 
 func get_devices_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# includeInactive: bool   Eg: true
 	# If true return inactive record as well. default is false.
 	includeInactive: bool,
@@ -821,7 +792,6 @@ func get_devices_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_devices")
 	bzz_callable.bind(
-		version,
 		includeInactive,
 		on_success,
 		on_failure,
@@ -830,13 +800,11 @@ func get_devices_threaded(
 	return bzz_thread
 
 
-# Operation getExperiences → GET /api/{version}/audience/experiences
+# Operation getExperiences → GET /audience/experiences
 # Get Experiences
 #
 # Gets the list of available experiences that can be selected by consumers and retailers.
 func get_experiences(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -845,7 +813,7 @@ func get_experiences(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/experiences".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/experiences"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -874,15 +842,12 @@ func get_experiences(
 
 
 func get_experiences_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_experiences")
 	bzz_callable.bind(
-		version,
 		on_success,
 		on_failure,
 	)
@@ -890,13 +855,11 @@ func get_experiences_threaded(
 	return bzz_thread
 
 
-# Operation getGroupedAudiences → GET /api/{version}/audience/grouped/get
+# Operation getGroupedAudiences → GET /audience/grouped/get
 # Get GroupedAudiences
 #
 # Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
 func get_grouped_audiences(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -911,7 +874,7 @@ func get_grouped_audiences(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/grouped/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/grouped/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -942,8 +905,6 @@ func get_grouped_audiences(
 
 
 func get_grouped_audiences_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -956,7 +917,6 @@ func get_grouped_audiences_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_grouped_audiences")
 	bzz_callable.bind(
-		version,
 		accountId,
 		audienceGroupingId,
 		on_success,
@@ -966,13 +926,11 @@ func get_grouped_audiences_threaded(
 	return bzz_thread
 
 
-# Operation listByAccount → POST /api/{version}/audience/suggestion/list
+# Operation listByAccount → POST /audience/suggestion/list
 # List Suggestions by Audience
 #
 # List either Missions or Offers that the user matches the assigned audience.
 func list_by_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to match offers for.
 	accountId: float,
@@ -990,7 +948,7 @@ func list_by_account(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/suggestion/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/suggestion/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1022,8 +980,6 @@ func list_by_account(
 
 
 func list_by_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to match offers for.
 	accountId: float,
@@ -1039,7 +995,6 @@ func list_by_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_by_account")
 	bzz_callable.bind(
-		version,
 		accountId,
 		limit,
 		suggestionType,
@@ -1050,13 +1005,11 @@ func list_by_account_threaded(
 	return bzz_thread
 
 
-# Operation listByAudience → GET /api/{version}/audience/suggestion/offersByAudience
+# Operation listByAudience → GET /audience/suggestion/offersByAudience
 # List Offers by Audience
 #
 # Get a list of offer locations based on audience information provided.
 func list_by_audience(
-	# version: float   Eg: 3.16
-	version: float,
 	# limit: int   Eg: 56
 	# this is the limit of the index
 	limit: int,
@@ -1083,7 +1036,7 @@ func list_by_audience(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/suggestion/offersByAudience".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/suggestion/offersByAudience"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1118,8 +1071,6 @@ func list_by_audience(
 
 
 func list_by_audience_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# limit: int   Eg: 56
 	# this is the limit of the index
 	limit: int,
@@ -1144,7 +1095,6 @@ func list_by_audience_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_by_audience")
 	bzz_callable.bind(
-		version,
 		limit,
 		gender,
 		age,
@@ -1158,13 +1108,11 @@ func list_by_audience_threaded(
 	return bzz_thread
 
 
-# Operation listLastestByAccount → GET /api/{version}/audience/suggestion/latest
+# Operation listLastestByAccount → GET /audience/suggestion/latest
 # List Sent Suggestions 
 #
 # Return list of recent trigger suggestions that have been sent to the user.
 func list_lastest_by_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to match offers for.
 	accountId: float,
@@ -1182,7 +1130,7 @@ func list_lastest_by_account(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/suggestion/latest".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/suggestion/latest"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1214,8 +1162,6 @@ func list_lastest_by_account(
 
 
 func list_lastest_by_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to match offers for.
 	accountId: float,
@@ -1231,7 +1177,6 @@ func list_lastest_by_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_lastest_by_account")
 	bzz_callable.bind(
-		version,
 		accountId,
 		timeframe,
 		suggestionType,
@@ -1242,13 +1187,11 @@ func list_lastest_by_account_threaded(
 	return bzz_thread
 
 
-# Operation sendByAccount → POST /api/{version}/audience/suggestion/send
+# Operation sendByAccount → POST /audience/suggestion/send
 # Send Suggestions
 #
 # Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
 func send_by_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to match offers for.
 	accountId: float,
@@ -1266,7 +1209,7 @@ func send_by_account(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/suggestion/send".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/suggestion/send"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1298,8 +1241,6 @@ func send_by_account(
 
 
 func send_by_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to match offers for.
 	accountId: float,
@@ -1315,7 +1256,6 @@ func send_by_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "send_by_account")
 	bzz_callable.bind(
-		version,
 		accountId,
 		latitude,
 		longitude,
@@ -1326,13 +1266,11 @@ func send_by_account_threaded(
 	return bzz_thread
 
 
-# Operation updateAudience → POST /api/{version}/audience/update
+# Operation updateAudience → POST /audience/update
 # Update Audience
 #
 # Update a user defined audience.
 func update_audience(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1434,7 +1372,7 @@ func update_audience(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/audience/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/audience/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1494,8 +1432,6 @@ func update_audience(
 
 
 func update_audience_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1595,7 +1531,6 @@ func update_audience_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_audience")
 	bzz_callable.bind(
-		version,
 		accountId,
 		audienceId,
 		name,

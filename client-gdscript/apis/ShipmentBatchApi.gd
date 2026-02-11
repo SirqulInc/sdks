@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ShipmentBatchApi"
 
 
-# Operation createShipmentBatch → POST /api/{version}/shipment/batch
+# Operation createShipmentBatch → POST /shipment/batch
 # Create Shipment Batch
 #
 # Create a new shipment batch
 func create_shipment_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: ShipmentBatch
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -31,7 +29,7 @@ func create_shipment_batch(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/shipment/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func create_shipment_batch(
 
 
 func create_shipment_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: ShipmentBatch
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -71,7 +67,6 @@ func create_shipment_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_shipment_batch")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -80,13 +75,11 @@ func create_shipment_batch_threaded(
 	return bzz_thread
 
 
-# Operation deleteShipmentBatch → DELETE /api/{version}/shipment/batch/{batchId}
+# Operation deleteShipmentBatch → DELETE /shipment/batch/{batchId}
 # Delete Shipment Batch
 #
 # Search for shipment batches
 func delete_shipment_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchId: float   Eg: 789
 	# the id of the shipment batch to delete
 	batchId: float,
@@ -98,7 +91,7 @@ func delete_shipment_batch(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/batch/{batchId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "batchId" + "}", _bzz_urlize_path_param(batchId))
+	var bzz_path := "/api/3.18/shipment/batch/{batchId}".replace("{" + "batchId" + "}", _bzz_urlize_path_param(batchId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -121,8 +114,6 @@ func delete_shipment_batch(
 
 
 func delete_shipment_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchId: float   Eg: 789
 	# the id of the shipment batch to delete
 	batchId: float,
@@ -132,7 +123,6 @@ func delete_shipment_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_shipment_batch")
 	bzz_callable.bind(
-		version,
 		batchId,
 		on_success,
 		on_failure,
@@ -141,13 +131,11 @@ func delete_shipment_batch_threaded(
 	return bzz_thread
 
 
-# Operation getShipmentBatch → GET /api/{version}/shipment/batch/{batchId}
+# Operation getShipmentBatch → GET /shipment/batch/{batchId}
 # Get Shipment Batch
 #
 # Get an existing shipment batch
 func get_shipment_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchId: float   Eg: 789
 	# the id of the shipment batch to get
 	batchId: float,
@@ -159,7 +147,7 @@ func get_shipment_batch(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/batch/{batchId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "batchId" + "}", _bzz_urlize_path_param(batchId))
+	var bzz_path := "/api/3.18/shipment/batch/{batchId}".replace("{" + "batchId" + "}", _bzz_urlize_path_param(batchId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -188,8 +176,6 @@ func get_shipment_batch(
 
 
 func get_shipment_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchId: float   Eg: 789
 	# the id of the shipment batch to get
 	batchId: float,
@@ -199,7 +185,6 @@ func get_shipment_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_shipment_batch")
 	bzz_callable.bind(
-		version,
 		batchId,
 		on_success,
 		on_failure,
@@ -208,13 +193,11 @@ func get_shipment_batch_threaded(
 	return bzz_thread
 
 
-# Operation getShipmentBatchStatus → GET /api/{version}/shipment/batch/{batchId}/status
+# Operation getShipmentBatchStatus → GET /shipment/batch/{batchId}/status
 # Get Shipment Batch Status
 #
 # Get the import status list of the import shipment batch
 func get_shipment_batch_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchId: float   Eg: 789
 	# The id of the requested shipment batch
 	batchId: float,
@@ -259,7 +242,7 @@ func get_shipment_batch_status(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/batch/{batchId}/status".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "batchId" + "}", _bzz_urlize_path_param(batchId))
+	var bzz_path := "/api/3.18/shipment/batch/{batchId}/status".replace("{" + "batchId" + "}", _bzz_urlize_path_param(batchId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -299,8 +282,6 @@ func get_shipment_batch_status(
 
 
 func get_shipment_batch_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchId: float   Eg: 789
 	# The id of the requested shipment batch
 	batchId: float,
@@ -343,7 +324,6 @@ func get_shipment_batch_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_shipment_batch_status")
 	bzz_callable.bind(
-		version,
 		batchId,
 		accountId,
 		sortField,
@@ -363,13 +343,11 @@ func get_shipment_batch_status_threaded(
 	return bzz_thread
 
 
-# Operation searchShipmentBatch → GET /api/{version}/shipment/batch
+# Operation searchShipmentBatch → GET /shipment/batch
 # Search Shipment Batch
 #
 # Search for shipment batches
 func search_shipment_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# hubId: float   Eg: 789
 	# The associated service hub
 	hubId: float,
@@ -393,7 +371,7 @@ func search_shipment_batch(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/shipment/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -427,8 +405,6 @@ func search_shipment_batch(
 
 
 func search_shipment_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# hubId: float   Eg: 789
 	# The associated service hub
 	hubId: float,
@@ -450,7 +426,6 @@ func search_shipment_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_shipment_batch")
 	bzz_callable.bind(
-		version,
 		hubId,
 		sortField,
 		descending,

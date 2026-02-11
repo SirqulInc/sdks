@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "WorkflowApi"
 
 
-# Operation runWorkflow → POST /api/{version}/workflow/run
+# Operation runWorkflow → POST /workflow/run
 # Run Workflow
 #
 # Runs a published executable workflow
 func run_workflow(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -44,7 +42,7 @@ func run_workflow(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/workflow/run".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/workflow/run"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -78,8 +76,6 @@ func run_workflow(
 
 
 func run_workflow_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -101,7 +97,6 @@ func run_workflow_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "run_workflow")
 	bzz_callable.bind(
-		version,
 		accountId,
 		workflowId,
 		skuId,

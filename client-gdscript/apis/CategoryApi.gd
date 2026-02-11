@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "CategoryApi"
 
 
-# Operation categoryDistanceSearch → GET /api/{version}/category/distancesearch
+# Operation categoryDistanceSearch → GET /category/distancesearch
 # Search Categories by Distance
 #
 # Search for categories by distance.
 func category_distance_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -89,7 +87,7 @@ func category_distance_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/category/distancesearch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/category/distancesearch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -138,8 +136,6 @@ func category_distance_search(
 
 
 func category_distance_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -206,7 +202,6 @@ func category_distance_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "category_distance_search")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		appKey,
@@ -234,13 +229,11 @@ func category_distance_search_threaded(
 	return bzz_thread
 
 
-# Operation createCategory → POST /api/{version}/category/create
+# Operation createCategory → POST /category/create
 # Create Category
 #
 # Create a new category.
 func create_category(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the target application)
 	accountId: float,
@@ -291,7 +284,7 @@ func create_category(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/category/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/category/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -334,8 +327,6 @@ func create_category(
 
 
 func create_category_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the target application)
 	accountId: float,
@@ -384,7 +375,6 @@ func create_category_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_category")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		appKey,
@@ -406,13 +396,11 @@ func create_category_threaded(
 	return bzz_thread
 
 
-# Operation deleteCategory → POST /api/{version}/category/delete
+# Operation deleteCategory → POST /category/delete
 # Delete Category
 #
 # Delete a category.
 func delete_category(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the ID of the account
 	accountId: float,
@@ -427,7 +415,7 @@ func delete_category(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/category/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/category/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -458,8 +446,6 @@ func delete_category(
 
 
 func delete_category_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the ID of the account
 	accountId: float,
@@ -472,7 +458,6 @@ func delete_category_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_category")
 	bzz_callable.bind(
-		version,
 		accountId,
 		categoryId,
 		on_success,
@@ -482,13 +467,11 @@ func delete_category_threaded(
 	return bzz_thread
 
 
-# Operation duplicateCategory → POST /api/{version}/category/duplicate
+# Operation duplicateCategory → POST /category/duplicate
 # Duplicate Category
 #
 # Duplicate a category, including all its children.
 func duplicate_category(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the target application)
 	accountId: float,
@@ -509,7 +492,7 @@ func duplicate_category(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/category/duplicate".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/category/duplicate"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -542,8 +525,6 @@ func duplicate_category(
 
 
 func duplicate_category_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the target application)
 	accountId: float,
@@ -562,7 +543,6 @@ func duplicate_category_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "duplicate_category")
 	bzz_callable.bind(
-		version,
 		accountId,
 		categoryId,
 		appKey,
@@ -574,13 +554,11 @@ func duplicate_category_threaded(
 	return bzz_thread
 
 
-# Operation getCategory → GET /api/{version}/category/get
+# Operation getCategory → GET /category/get
 # Get Category
 #
 # Get the details of a specific category. Recursively include all child categories and their children.
 func get_category(
-	# version: float   Eg: 3.16
-	version: float,
 	# categoryId: float   Eg: 789
 	# the ID of the category
 	categoryId: float,
@@ -595,7 +573,7 @@ func get_category(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/category/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/category/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -626,8 +604,6 @@ func get_category(
 
 
 func get_category_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# categoryId: float   Eg: 789
 	# the ID of the category
 	categoryId: float,
@@ -640,7 +616,6 @@ func get_category_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_category")
 	bzz_callable.bind(
-		version,
 		categoryId,
 		returnExternal,
 		on_success,
@@ -650,13 +625,11 @@ func get_category_threaded(
 	return bzz_thread
 
 
-# Operation searchCategories → GET /api/{version}/category/search
+# Operation searchCategories → GET /category/search
 # Search Categories
 #
 # Search for categories.
 func search_categories(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -728,7 +701,7 @@ func search_categories(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/category/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/category/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -778,8 +751,6 @@ func search_categories(
 
 
 func search_categories_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -849,7 +820,6 @@ func search_categories_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_categories")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		appKey,
@@ -878,13 +848,11 @@ func search_categories_threaded(
 	return bzz_thread
 
 
-# Operation updateCategory → POST /api/{version}/category/update
+# Operation updateCategory → POST /category/update
 # Update Category
 #
 # Update a category.
 func update_category(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -935,7 +903,7 @@ func update_category(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/category/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/category/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -978,8 +946,6 @@ func update_category(
 
 
 func update_category_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -1028,7 +994,6 @@ func update_category_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_category")
 	bzz_callable.bind(
-		version,
 		accountId,
 		categoryId,
 		parentCategoryId,

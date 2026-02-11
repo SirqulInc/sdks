@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "LocationApiV2Api"
 
 
-# Operation createLocationV2 → POST /api/{version}/location
+# Operation createLocationV2 → POST /location
 # Create new location
 #
 # Create a new location from a real object location.
 func create_location_v2(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Location
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -31,7 +29,7 @@ func create_location_v2(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func create_location_v2(
 
 
 func create_location_v2_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Location
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -71,7 +67,6 @@ func create_location_v2_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_location_v2")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -80,13 +75,11 @@ func create_location_v2_threaded(
 	return bzz_thread
 
 
-# Operation updateLocationV2 → POST /api/{version}/location/{id}
+# Operation updateLocationV2 → POST /location/{id}
 # Update an existing location
 #
 # Update an existing location
 func update_location_v2(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the location to update
 	id: float,
@@ -100,7 +93,7 @@ func update_location_v2(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/location/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -130,8 +123,6 @@ func update_location_v2(
 
 
 func update_location_v2_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the location to update
 	id: float,
@@ -143,7 +134,6 @@ func update_location_v2_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_location_v2")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,

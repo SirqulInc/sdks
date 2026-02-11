@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "WeatherApi"
 
 
-# Operation searchWeather → GET /api/{version}/weather/search
+# Operation searchWeather → GET /weather/search
 # Search Weather
 #
 # Search the weather forcast for the next 5 days
 func search_weather(
-	# version: float   Eg: 3.16
-	version: float,
 	# regionId: float   Eg: 789
 	# Region Id
 	regionId = null,
@@ -41,7 +39,7 @@ func search_weather(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/weather/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/weather/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -74,8 +72,6 @@ func search_weather(
 
 
 func search_weather_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# regionId: float   Eg: 789
 	# Region Id
 	regionId = null,
@@ -94,7 +90,6 @@ func search_weather_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_weather")
 	bzz_callable.bind(
-		version,
 		regionId,
 		latitude,
 		longitude,

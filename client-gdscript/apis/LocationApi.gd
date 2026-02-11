@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "LocationApi"
 
 
-# Operation cacheTrilaterationData → POST /api/{version}/location/trilaterate/cache
+# Operation cacheTrilaterationData → POST /location/trilaterate/cache
 # Create Trilateration Data with File
 #
 # Creates trilateration samples for a source device (i.e. a router).
 func cache_trilateration_data(
-	# version: float   Eg: 3.16
-	version: float,
 	# udid: String = ""   Eg: udid_example
 	# The unique identifier of the source device
 	udid: String,
@@ -44,7 +42,7 @@ func cache_trilateration_data(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/trilaterate/cache".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location/trilaterate/cache"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -78,8 +76,6 @@ func cache_trilateration_data(
 
 
 func cache_trilateration_data_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# udid: String = ""   Eg: udid_example
 	# The unique identifier of the source device
 	udid: String,
@@ -101,7 +97,6 @@ func cache_trilateration_data_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "cache_trilateration_data")
 	bzz_callable.bind(
-		version,
 		udid,
 		sourceTime,
 		minimumSampleSize,
@@ -114,13 +109,11 @@ func cache_trilateration_data_threaded(
 	return bzz_thread
 
 
-# Operation cacheTrilaterationDataGzip → POST /api/{version}/location/trilaterate/cache/submit
+# Operation cacheTrilaterationDataGzip → POST /location/trilaterate/cache/submit
 # Create Trilateration Data with Rest
 #
 # Creates trilateration samples for a source device (i.e. a router).
 func cache_trilateration_data_gzip(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: TrilatCacheRequest
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -131,7 +124,7 @@ func cache_trilateration_data_gzip(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/trilaterate/cache/submit".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location/trilaterate/cache/submit"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -161,8 +154,6 @@ func cache_trilateration_data_gzip(
 
 
 func cache_trilateration_data_gzip_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: TrilatCacheRequest
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -171,7 +162,6 @@ func cache_trilateration_data_gzip_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "cache_trilateration_data_gzip")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -180,13 +170,11 @@ func cache_trilateration_data_gzip_threaded(
 	return bzz_thread
 
 
-# Operation getLocationByIp → GET /api/{version}/location/ip
+# Operation getLocationByIp → GET /location/ip
 # Get Location by IP
 #
 # Get location information based on an IP address.
 func get_location_by_ip(
-	# version: float   Eg: 3.16
-	version: float,
 	# some_ip: String = ""   Eg: some_ip_example
 	# the ip address of the client device
 	some_ip = "",
@@ -198,7 +186,7 @@ func get_location_by_ip(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/ip".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location/ip"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -228,8 +216,6 @@ func get_location_by_ip(
 
 
 func get_location_by_ip_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# some_ip: String = ""   Eg: some_ip_example
 	# the ip address of the client device
 	some_ip = "",
@@ -239,7 +225,6 @@ func get_location_by_ip_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_location_by_ip")
 	bzz_callable.bind(
-		version,
 		some_ip,
 		on_success,
 		on_failure,
@@ -248,13 +233,11 @@ func get_location_by_ip_threaded(
 	return bzz_thread
 
 
-# Operation getLocationByTrilateration → GET /api/{version}/account/location/trilaterate
+# Operation getLocationByTrilateration → GET /account/location/trilaterate
 # Get Location by Trilateration
 #
 # Send in device data and calculate a position based on signal strengths.
 func get_location_by_trilateration(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account making the request, if provided the last know location will be updated
 	accountId = null,
@@ -278,7 +261,7 @@ func get_location_by_trilateration(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/location/trilaterate".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/location/trilaterate"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -312,8 +295,6 @@ func get_location_by_trilateration(
 
 
 func get_location_by_trilateration_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account making the request, if provided the last know location will be updated
 	accountId = null,
@@ -335,7 +316,6 @@ func get_location_by_trilateration_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_location_by_trilateration")
 	bzz_callable.bind(
-		version,
 		accountId,
 		latitude,
 		longitude,
@@ -348,13 +328,11 @@ func get_location_by_trilateration_threaded(
 	return bzz_thread
 
 
-# Operation getLocations → GET /api/{version}/location/search
+# Operation getLocations → GET /location/search
 # Search Regions or Postal Codes
 #
 # Searches geographic locations by proximity via address or keyword.
 func get_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id
 	deviceId = "",
@@ -420,7 +398,7 @@ func get_locations(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -468,8 +446,6 @@ func get_locations(
 
 
 func get_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id
 	deviceId = "",
@@ -533,7 +509,6 @@ func get_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_locations")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		currentlatitude,

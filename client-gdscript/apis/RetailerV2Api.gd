@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RetailerV2Api"
 
 
-# Operation getRetaokiler → GET /api/{version}/retailer
+# Operation getRetaokiler → GET /retailer
 # Get Retailer
 #
 # Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 func get_retaokiler(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# the id of the retailer
 	retailerId: float,
@@ -47,7 +45,7 @@ func get_retaokiler(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -82,8 +80,6 @@ func get_retaokiler(
 
 
 func get_retaokiler_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# the id of the retailer
 	retailerId: float,
@@ -108,7 +104,6 @@ func get_retaokiler_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_retaokiler")
 	bzz_callable.bind(
-		version,
 		retailerId,
 		activeOnly,
 		keyword,

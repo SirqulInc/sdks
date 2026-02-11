@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TwilioApi"
 
 
-# Operation smsBuyOffer → POST /api/{version}/sms/buyoffer/{appKey}
+# Operation smsBuyOffer → POST /sms/buyoffer/{appKey}
 # Buy Offer by SMS
 #
 # Recieve an SMS payload from Twillio to purchase an offer.
 func sms_buy_offer(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -41,7 +39,7 @@ func sms_buy_offer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/sms/buyoffer/{appKey}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "appKey" + "}", _bzz_urlize_path_param(appKey))
+	var bzz_path := "/api/3.18/sms/buyoffer/{appKey}".replace("{" + "appKey" + "}", _bzz_urlize_path_param(appKey))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -73,8 +71,6 @@ func sms_buy_offer(
 
 
 func sms_buy_offer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -93,7 +89,6 @@ func sms_buy_offer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "sms_buy_offer")
 	bzz_callable.bind(
-		version,
 		appKey,
 		body,
 		from,

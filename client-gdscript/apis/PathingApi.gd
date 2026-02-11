@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "PathingApi"
 
 
-# Operation computePath → GET /api/{version}/pathing/compute
+# Operation computePath → GET /pathing/compute
 # Calculate Path
 #
 # Calculates the shortest path from point to point on a grid
 func compute_path(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# the data to with start, end point and exclusion points
 	data: String,
@@ -41,7 +39,7 @@ func compute_path(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/pathing/compute".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/pathing/compute"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -74,8 +72,6 @@ func compute_path(
 
 
 func compute_path_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# the data to with start, end point and exclusion points
 	data: String,
@@ -94,7 +90,6 @@ func compute_path_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "compute_path")
 	bzz_callable.bind(
-		version,
 		data,
 		units,
 		reducePath,

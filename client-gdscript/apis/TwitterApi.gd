@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TwitterApi"
 
 
-# Operation authorizeTwitter → POST /api/{version}/twitter/authorize
+# Operation authorizeTwitter → POST /twitter/authorize
 # Authorize Twitter
 #
 # Makes an authorization call to twitter for a user to login and allow any app permissions.
 func authorize_twitter(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -32,7 +30,7 @@ func authorize_twitter(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/twitter/authorize".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/twitter/authorize"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -62,8 +60,6 @@ func authorize_twitter(
 
 
 func authorize_twitter_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -73,7 +69,6 @@ func authorize_twitter_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "authorize_twitter")
 	bzz_callable.bind(
-		version,
 		appKey,
 		on_success,
 		on_failure,
@@ -82,13 +77,11 @@ func authorize_twitter_threaded(
 	return bzz_thread
 
 
-# Operation loginTwitter → POST /api/{version}/twitter/login
+# Operation loginTwitter → POST /twitter/login
 # Login Twitter
 #
 # Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 func login_twitter(
-	# version: float   Eg: 3.16
-	version: float,
 	# accessToken: String = ""   Eg: accessToken_example
 	# The access token
 	accessToken: String,
@@ -118,7 +111,7 @@ func login_twitter(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/twitter/login".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/twitter/login"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -154,8 +147,6 @@ func login_twitter(
 
 
 func login_twitter_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accessToken: String = ""   Eg: accessToken_example
 	# The access token
 	accessToken: String,
@@ -183,7 +174,6 @@ func login_twitter_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "login_twitter")
 	bzz_callable.bind(
-		version,
 		accessToken,
 		accessTokenSecret,
 		appKey,

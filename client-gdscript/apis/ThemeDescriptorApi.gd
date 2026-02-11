@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ThemeDescriptorApi"
 
 
-# Operation addOrUpdateThemeDescriptor → POST /api/{version}/consumer/theme
+# Operation addOrUpdateThemeDescriptor → POST /consumer/theme
 # Create/Update Theme
 #
 # Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 func add_or_update_theme_descriptor(
-	# version: float   Eg: 3.16
-	version: float,
 	# publicRead: bool   Eg: true
 	# determines whether the theme's participants have read permissions
 	publicRead: bool,
@@ -109,7 +107,7 @@ func add_or_update_theme_descriptor(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/theme".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/theme"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -165,8 +163,6 @@ func add_or_update_theme_descriptor(
 
 
 func add_or_update_theme_descriptor_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# publicRead: bool   Eg: true
 	# determines whether the theme's participants have read permissions
 	publicRead: bool,
@@ -253,7 +249,6 @@ func add_or_update_theme_descriptor_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_or_update_theme_descriptor")
 	bzz_callable.bind(
-		version,
 		publicRead,
 		publicWrite,
 		publicDelete,
@@ -288,13 +283,11 @@ func add_or_update_theme_descriptor_threaded(
 	return bzz_thread
 
 
-# Operation getThemeDescriptor → GET /api/{version}/consumer/theme/get
+# Operation getThemeDescriptor → GET /consumer/theme/get
 # Get Theme
 #
 # Gets a theme.
 func get_theme_descriptor(
-	# version: float   Eg: 3.16
-	version: float,
 	# themeDescriptorId: float   Eg: 789
 	# the theme id
 	themeDescriptorId: float,
@@ -321,7 +314,7 @@ func get_theme_descriptor(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/theme/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/theme/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -356,8 +349,6 @@ func get_theme_descriptor(
 
 
 func get_theme_descriptor_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# themeDescriptorId: float   Eg: 789
 	# the theme id
 	themeDescriptorId: float,
@@ -382,7 +373,6 @@ func get_theme_descriptor_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_theme_descriptor")
 	bzz_callable.bind(
-		version,
 		themeDescriptorId,
 		deviceId,
 		accountId,
@@ -396,13 +386,11 @@ func get_theme_descriptor_threaded(
 	return bzz_thread
 
 
-# Operation getThemeDescriptors → GET /api/{version}/consumer/theme/search
+# Operation getThemeDescriptors → GET /consumer/theme/search
 # Search Themes
 #
 # Searches for themes.
 func get_theme_descriptors(
-	# version: float   Eg: 3.16
-	version: float,
 	# filter: String = ""   Eg: filter_example
 	# a comma separated list of Ownership
 	filter: String,
@@ -465,7 +453,7 @@ func get_theme_descriptors(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/theme/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/theme/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -512,8 +500,6 @@ func get_theme_descriptors(
 
 
 func get_theme_descriptors_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# filter: String = ""   Eg: filter_example
 	# a comma separated list of Ownership
 	filter: String,
@@ -574,7 +560,6 @@ func get_theme_descriptors_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_theme_descriptors")
 	bzz_callable.bind(
-		version,
 		filter,
 		sortField,
 		descending,
@@ -600,13 +585,11 @@ func get_theme_descriptors_threaded(
 	return bzz_thread
 
 
-# Operation removeThemeDescriptor → POST /api/{version}/consumer/theme/remove
+# Operation removeThemeDescriptor → POST /consumer/theme/remove
 # Delete Theme
 #
 # Removes a theme.
 func remove_theme_descriptor(
-	# version: float   Eg: 3.16
-	version: float,
 	# themeDescriptorId: float   Eg: 789
 	# the theme id to remove
 	themeDescriptorId: float,
@@ -633,7 +616,7 @@ func remove_theme_descriptor(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/theme/remove".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/theme/remove"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -668,8 +651,6 @@ func remove_theme_descriptor(
 
 
 func remove_theme_descriptor_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# themeDescriptorId: float   Eg: 789
 	# the theme id to remove
 	themeDescriptorId: float,
@@ -694,7 +675,6 @@ func remove_theme_descriptor_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_theme_descriptor")
 	bzz_callable.bind(
-		version,
 		themeDescriptorId,
 		deviceId,
 		accountId,

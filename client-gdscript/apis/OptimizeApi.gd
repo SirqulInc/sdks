@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "OptimizeApi"
 
 
-# Operation getOptimizationResult → GET /api/{version}/optimize/result/{batchID}
+# Operation getOptimizationResult → GET /optimize/result/{batchID}
 # Get Optimization Result
 #
 # Get the results of the import batch.
 func get_optimization_result(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchID: String = ""   Eg: batchID_example
 	# The batchID for getting the import status of.
 	batchID: String,
@@ -38,7 +36,7 @@ func get_optimization_result(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/optimize/result/{batchID}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "batchID" + "}", _bzz_urlize_path_param(batchID))
+	var bzz_path := "/api/3.18/optimize/result/{batchID}".replace("{" + "batchID" + "}", _bzz_urlize_path_param(batchID))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -68,8 +66,6 @@ func get_optimization_result(
 
 
 func get_optimization_result_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# batchID: String = ""   Eg: batchID_example
 	# The batchID for getting the import status of.
 	batchID: String,
@@ -85,7 +81,6 @@ func get_optimization_result_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_optimization_result")
 	bzz_callable.bind(
-		version,
 		batchID,
 		start,
 		limit,
@@ -96,13 +91,11 @@ func get_optimization_result_threaded(
 	return bzz_thread
 
 
-# Operation requestOptimization → POST /api/{version}/optimize/request
+# Operation requestOptimization → POST /optimize/request
 # Request Optimization
 #
 # Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 func request_optimization(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Orders
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -113,7 +106,7 @@ func request_optimization(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/optimize/request".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/optimize/request"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -143,8 +136,6 @@ func request_optimization(
 
 
 func request_optimization_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Orders
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -153,7 +144,6 @@ func request_optimization_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "request_optimization")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "StripeApi"
 
 
-# Operation createStripeCheckoutSession → POST /api/{version}/stripe/checkout/session/create
+# Operation createStripeCheckoutSession → POST /stripe/checkout/session/create
 # Create Stripe Checkout Session
 #
 # Create a Stripe checkout session
 func create_stripe_checkout_session(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# Sirqul Application Key
 	appKey: String,
@@ -35,7 +33,7 @@ func create_stripe_checkout_session(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/stripe/checkout/session/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/stripe/checkout/session/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -66,8 +64,6 @@ func create_stripe_checkout_session(
 
 
 func create_stripe_checkout_session_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# Sirqul Application Key
 	appKey: String,
@@ -80,7 +76,6 @@ func create_stripe_checkout_session_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_stripe_checkout_session")
 	bzz_callable.bind(
-		version,
 		appKey,
 		stripeParameters,
 		on_success,

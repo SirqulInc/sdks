@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "MediaApi"
 
 
-# Operation createMedia → POST /api/{version}/media/create
+# Operation createMedia → POST /media/create
 # Create Media
 #
 # Create a media offering.
 func create_media(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -200,7 +198,7 @@ func create_media(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/media/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/media/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -286,8 +284,6 @@ func create_media(
 
 
 func create_media_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -465,7 +461,6 @@ func create_media_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_media")
 	bzz_callable.bind(
-		version,
 		accountId,
 		title,
 		barcodeType,
@@ -530,13 +525,11 @@ func create_media_threaded(
 	return bzz_thread
 
 
-# Operation deleteMedia → POST /api/{version}/media/delete
+# Operation deleteMedia → POST /media/delete
 # Delete Media
 #
 # Delete a media offering that the user has permissions to.
 func delete_media(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -551,7 +544,7 @@ func delete_media(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/media/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/media/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -582,8 +575,6 @@ func delete_media(
 
 
 func delete_media_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -596,7 +587,6 @@ func delete_media_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_media")
 	bzz_callable.bind(
-		version,
 		accountId,
 		mediaId,
 		on_success,
@@ -606,13 +596,11 @@ func delete_media_threaded(
 	return bzz_thread
 
 
-# Operation getMedia → GET /api/{version}/media/get
+# Operation getMedia → GET /media/get
 # Media Get
 #
 # Get a media offering.
 func get_media(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -627,7 +615,7 @@ func get_media(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/media/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/media/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -658,8 +646,6 @@ func get_media(
 
 
 func get_media_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -672,7 +658,6 @@ func get_media_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_media")
 	bzz_callable.bind(
-		version,
 		accountId,
 		mediaId,
 		on_success,
@@ -682,13 +667,11 @@ func get_media_threaded(
 	return bzz_thread
 
 
-# Operation searchMedia → GET /api/{version}/media/search
+# Operation searchMedia → GET /media/search
 # Search Media
 #
 # Searches on events that the account has access to.
 func search_media(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -722,7 +705,7 @@ func search_media(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/media/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/media/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -760,8 +743,6 @@ func search_media(
 
 
 func search_media_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -793,7 +774,6 @@ func search_media_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_media")
 	bzz_callable.bind(
-		version,
 		accountId,
 		activeOnly,
 		sortField,
@@ -810,13 +790,11 @@ func search_media_threaded(
 	return bzz_thread
 
 
-# Operation updateMedia → POST /api/{version}/media/update
+# Operation updateMedia → POST /media/update
 # Update Media
 #
 # Update a media offering.
 func update_media(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
 	accountId: float,
@@ -996,7 +974,7 @@ func update_media(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/media/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/media/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1084,8 +1062,6 @@ func update_media(
 
 
 func update_media_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
 	accountId: float,
@@ -1263,7 +1239,6 @@ func update_media_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_media")
 	bzz_callable.bind(
-		version,
 		accountId,
 		mediaId,
 		retailerLocationIds,

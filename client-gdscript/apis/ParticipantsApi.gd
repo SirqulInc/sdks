@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ParticipantsApi"
 
 
-# Operation processAllParticipants → POST /api/{version}/participant/process/all
+# Operation processAllParticipants → POST /participant/process/all
 # Process All Participant Feeds
 #
 # Processes all supported participant feeds.
 func process_all_participants(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -38,7 +36,7 @@ func process_all_participants(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/participant/process/all".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/participant/process/all"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -70,8 +68,6 @@ func process_all_participants(
 
 
 func process_all_participants_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -87,7 +83,6 @@ func process_all_participants_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "process_all_participants")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		useShortNameAsID,
@@ -98,13 +93,11 @@ func process_all_participants_threaded(
 	return bzz_thread
 
 
-# Operation processParticipants → POST /api/{version}/participant/process
+# Operation processParticipants → POST /participant/process
 # Process Participants Feed
 #
 # Processes a participant feed or uploaded file for a specific league.
 func process_participants(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -128,7 +121,7 @@ func process_participants(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/participant/process".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/participant/process"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -162,8 +155,6 @@ func process_participants(
 
 
 func process_participants_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -185,7 +176,6 @@ func process_participants_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "process_participants")
 	bzz_callable.bind(
-		version,
 		accountId,
 		league,
 		appKey,

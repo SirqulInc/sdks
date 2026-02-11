@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "VatomApi"
 
 
-# Operation createFollowing → POST /api/{version}/vatom/me/rels/following/create
+# Operation createFollowing → POST /vatom/me/rels/following/create
 # Create following
 #
 # Create following.
 func create_following(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -38,7 +36,7 @@ func create_following(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/rels/following/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/rels/following/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -64,8 +62,6 @@ func create_following(
 
 
 func create_following_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -81,7 +77,6 @@ func create_following_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_following")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomParameters,
 		returnRawResponse,
@@ -92,13 +87,11 @@ func create_following_threaded(
 	return bzz_thread
 
 
-# Operation createSpace → POST /api/{version}/vatom/b/spaces/create
+# Operation createSpace → POST /vatom/b/spaces/create
 # Create Vatom Space
 #
 # Create a Vatom space.
 func create_space(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -119,7 +112,7 @@ func create_space(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/spaces/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/spaces/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -146,8 +139,6 @@ func create_space(
 
 
 func create_space_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -166,7 +157,6 @@ func create_space_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_space")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -178,13 +168,11 @@ func create_space_threaded(
 	return bzz_thread
 
 
-# Operation createVatomEvent → POST /api/{version}/vatom/b/events/create
+# Operation createVatomEvent → POST /vatom/b/events/create
 # Create Vatom Event
 #
 # Create a Vatom event.
 func create_vatom_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -205,7 +193,7 @@ func create_vatom_event(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/events/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/events/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -232,8 +220,6 @@ func create_vatom_event(
 
 
 func create_vatom_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -252,7 +238,6 @@ func create_vatom_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_vatom_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -264,13 +249,11 @@ func create_vatom_event_threaded(
 	return bzz_thread
 
 
-# Operation deleteFollowing → POST /api/{version}/vatom/me/rels/following/delete
+# Operation deleteFollowing → POST /vatom/me/rels/following/delete
 # Delete following
 #
 # Delete following.
 func delete_following(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -288,7 +271,7 @@ func delete_following(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/rels/following/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/rels/following/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -314,8 +297,6 @@ func delete_following(
 
 
 func delete_following_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -331,7 +312,6 @@ func delete_following_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_following")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomRelsKey,
 		returnRawResponse,
@@ -342,13 +322,11 @@ func delete_following_threaded(
 	return bzz_thread
 
 
-# Operation deletePointsBalance → POST /api/{version}/vatom/b/campaign/points/delete
+# Operation deletePointsBalance → POST /vatom/b/campaign/points/delete
 # Reset All Points Balance
 #
 # Reset All Points Balance.
 func delete_points_balance(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -369,7 +347,7 @@ func delete_points_balance(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign/points/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign/points/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -396,8 +374,6 @@ func delete_points_balance(
 
 
 func delete_points_balance_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -416,7 +392,6 @@ func delete_points_balance_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_points_balance")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomCampaignId,
@@ -428,13 +403,11 @@ func delete_points_balance_threaded(
 	return bzz_thread
 
 
-# Operation deleteSpace → POST /api/{version}/vatom/b/spaces/delete
+# Operation deleteSpace → POST /vatom/b/spaces/delete
 # Delete Vatom Space
 #
 # Delete a Vatom space.
 func delete_space(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -455,7 +428,7 @@ func delete_space(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/spaces/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/spaces/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -482,8 +455,6 @@ func delete_space(
 
 
 func delete_space_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -502,7 +473,6 @@ func delete_space_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_space")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomSpaceId,
@@ -514,13 +484,11 @@ func delete_space_threaded(
 	return bzz_thread
 
 
-# Operation deleteVatomEvent → POST /api/{version}/vatom/b/events/delete
+# Operation deleteVatomEvent → POST /vatom/b/events/delete
 # Delete Vatom Event
 #
 # Delete a Vatom event.
 func delete_vatom_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -541,7 +509,7 @@ func delete_vatom_event(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/events/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/events/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -568,8 +536,6 @@ func delete_vatom_event(
 
 
 func delete_vatom_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -588,7 +554,6 @@ func delete_vatom_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_vatom_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomEventId,
@@ -600,13 +565,11 @@ func delete_vatom_event_threaded(
 	return bzz_thread
 
 
-# Operation deleteVatomNFT → POST /api/{version}/vatom/vatoms/delete
+# Operation deleteVatomNFT → POST /vatom/vatoms/delete
 # Delete Vatom NFT
 #
 # Delete Vatom NFT
 func delete_vatom_nft(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -624,7 +587,7 @@ func delete_vatom_nft(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/vatoms/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/vatoms/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -650,8 +613,6 @@ func delete_vatom_nft(
 
 
 func delete_vatom_nft_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -667,7 +628,6 @@ func delete_vatom_nft_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_vatom_nft")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomId,
 		returnRawResponse,
@@ -678,13 +638,11 @@ func delete_vatom_nft_threaded(
 	return bzz_thread
 
 
-# Operation executeActionOnNFT → POST /api/{version}/vatom/vatoms/execute-action
+# Operation executeActionOnNFT → POST /vatom/vatoms/execute-action
 # Execute Action on NFT
 #
 # Execute Action on NFT.
 func execute_action_on_nft(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -705,7 +663,7 @@ func execute_action_on_nft(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/vatoms/execute-action".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/vatoms/execute-action"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -732,8 +690,6 @@ func execute_action_on_nft(
 
 
 func execute_action_on_nft_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -752,7 +708,6 @@ func execute_action_on_nft_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "execute_action_on_nft")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomId,
 		vatomParameters,
@@ -764,13 +719,11 @@ func execute_action_on_nft_threaded(
 	return bzz_thread
 
 
-# Operation geomapSearch → GET /api/{version}/vatom/vatoms/geo-map/search
+# Operation geomapSearch → GET /vatom/vatoms/geo-map/search
 # Search Vatom Geo Map
 #
 # Search Vatom Geo Map
 func geomap_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -788,7 +741,7 @@ func geomap_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/vatoms/geo-map/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/vatoms/geo-map/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -814,8 +767,6 @@ func geomap_search(
 
 
 func geomap_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -831,7 +782,6 @@ func geomap_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "geomap_search")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomParameters,
 		returnRawResponse,
@@ -842,13 +792,11 @@ func geomap_search_threaded(
 	return bzz_thread
 
 
-# Operation getBusinessBehaviors → GET /api/{version}/vatom/b/behaviors
+# Operation getBusinessBehaviors → GET /vatom/b/behaviors
 # Get Vatom Business Behaviors
 #
 # Gets the behaviors of a business.
 func get_business_behaviors(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -866,7 +814,7 @@ func get_business_behaviors(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/behaviors".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/behaviors"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -892,8 +840,6 @@ func get_business_behaviors(
 
 
 func get_business_behaviors_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -909,7 +855,6 @@ func get_business_behaviors_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_business_behaviors")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		returnRawResponse,
@@ -920,13 +865,11 @@ func get_business_behaviors_threaded(
 	return bzz_thread
 
 
-# Operation getBusinessCoinsBalance → GET /api/{version}/vatom/b/coins/get
+# Operation getBusinessCoinsBalance → GET /vatom/b/coins/get
 # Get the coins for a Business
 #
 # Get the coins for a Businesss.
 func get_business_coins_balance(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -944,7 +887,7 @@ func get_business_coins_balance(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/coins/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/coins/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -970,8 +913,6 @@ func get_business_coins_balance(
 
 
 func get_business_coins_balance_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -987,7 +928,6 @@ func get_business_coins_balance_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_business_coins_balance")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		returnRawResponse,
@@ -998,13 +938,11 @@ func get_business_coins_balance_threaded(
 	return bzz_thread
 
 
-# Operation getBusinessIds → GET /api/{version}/vatom/me/businesses
+# Operation getBusinessIds → GET /vatom/me/businesses
 # Get the user business ids
 #
 # Get the business ids the logged in user has access to.
 func get_business_ids(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1019,7 +957,7 @@ func get_business_ids(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/businesses".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/businesses"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1044,8 +982,6 @@ func get_business_ids(
 
 
 func get_business_ids_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1058,7 +994,6 @@ func get_business_ids_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_business_ids")
 	bzz_callable.bind(
-		version,
 		accountId,
 		returnRawResponse,
 		on_success,
@@ -1068,13 +1003,11 @@ func get_business_ids_threaded(
 	return bzz_thread
 
 
-# Operation getBusinessInfo → GET /api/{version}/vatom/b/get
+# Operation getBusinessInfo → GET /vatom/b/get
 # Get Vatom Business Info
 #
 # Gets the business info tied to this account.
 func get_business_info(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1095,7 +1028,7 @@ func get_business_info(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1122,8 +1055,6 @@ func get_business_info(
 
 
 func get_business_info_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1142,7 +1073,6 @@ func get_business_info_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_business_info")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -1154,13 +1084,11 @@ func get_business_info_threaded(
 	return bzz_thread
 
 
-# Operation getBusinessUsers → GET /api/{version}/vatom/b/users
+# Operation getBusinessUsers → GET /vatom/b/users
 # Get Vatom Business Users
 #
 # Gets the users of a business.
 func get_business_users(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1178,7 +1106,7 @@ func get_business_users(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/users".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/users"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1204,8 +1132,6 @@ func get_business_users(
 
 
 func get_business_users_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1221,7 +1147,6 @@ func get_business_users_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_business_users")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		returnRawResponse,
@@ -1232,13 +1157,11 @@ func get_business_users_threaded(
 	return bzz_thread
 
 
-# Operation getCampaignGroupEntities → GET /api/{version}/vatom/b/campaign-groups/entities
+# Operation getCampaignGroupEntities → GET /vatom/b/campaign-groups/entities
 # Get Campaign Group Entities
 #
 # Get campaign group entities.
 func get_campaign_group_entities(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1259,7 +1182,7 @@ func get_campaign_group_entities(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign-groups/entities".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign-groups/entities"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1286,8 +1209,6 @@ func get_campaign_group_entities(
 
 
 func get_campaign_group_entities_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1306,7 +1227,6 @@ func get_campaign_group_entities_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_campaign_group_entities")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomCampaignId,
@@ -1318,13 +1238,11 @@ func get_campaign_group_entities_threaded(
 	return bzz_thread
 
 
-# Operation getCampaignGroupRules → GET /api/{version}/vatom/b/campaign-groups/rules
+# Operation getCampaignGroupRules → GET /vatom/b/campaign-groups/rules
 # Get Campaign Group Rules
 #
 # Get campaign group rules.
 func get_campaign_group_rules(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1345,7 +1263,7 @@ func get_campaign_group_rules(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign-groups/rules".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign-groups/rules"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1372,8 +1290,6 @@ func get_campaign_group_rules(
 
 
 func get_campaign_group_rules_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1392,7 +1308,6 @@ func get_campaign_group_rules_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_campaign_group_rules")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomCampaignId,
@@ -1404,13 +1319,11 @@ func get_campaign_group_rules_threaded(
 	return bzz_thread
 
 
-# Operation getCampaignGroupStats → GET /api/{version}/vatom/b/campaign-groups/stats
+# Operation getCampaignGroupStats → GET /vatom/b/campaign-groups/stats
 # Get Campaign Group Stats
 #
 # Get campaign group stats.
 func get_campaign_group_stats(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1431,7 +1344,7 @@ func get_campaign_group_stats(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign-groups/stats".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign-groups/stats"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1458,8 +1371,6 @@ func get_campaign_group_stats(
 
 
 func get_campaign_group_stats_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1478,7 +1389,6 @@ func get_campaign_group_stats_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_campaign_group_stats")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomCampaignId,
@@ -1490,13 +1400,11 @@ func get_campaign_group_stats_threaded(
 	return bzz_thread
 
 
-# Operation getCampaignInfo → GET /api/{version}/vatom/b/campaign-groups/get
+# Operation getCampaignInfo → GET /vatom/b/campaign-groups/get
 # Get Campaign Info
 #
 # Gets the info on a campaign.
 func get_campaign_info(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1517,7 +1425,7 @@ func get_campaign_info(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign-groups/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign-groups/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1544,8 +1452,6 @@ func get_campaign_info(
 
 
 func get_campaign_info_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1564,7 +1470,6 @@ func get_campaign_info_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_campaign_info")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomCampaignId,
@@ -1576,13 +1481,11 @@ func get_campaign_info_threaded(
 	return bzz_thread
 
 
-# Operation getEventGuestList → GET /api/{version}/vatom/b/events/guests/get
+# Operation getEventGuestList → GET /vatom/b/events/guests/get
 # Get Vatom Event Guest List
 #
 # Gets the guest list of an event.
 func get_event_guest_list(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1603,7 +1506,7 @@ func get_event_guest_list(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/events/guests/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/events/guests/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1630,8 +1533,6 @@ func get_event_guest_list(
 
 
 func get_event_guest_list_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1650,7 +1551,6 @@ func get_event_guest_list_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_event_guest_list")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomEventId,
@@ -1662,13 +1562,11 @@ func get_event_guest_list_threaded(
 	return bzz_thread
 
 
-# Operation getInventory → GET /api/{version}/vatom/me/inventory
+# Operation getInventory → GET /vatom/me/inventory
 # Get Vatom User's Inventory
 #
 # Gets the logged in user's Vatom Inventory.
 func get_inventory(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1686,7 +1584,7 @@ func get_inventory(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/inventory".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/inventory"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1712,8 +1610,6 @@ func get_inventory(
 
 
 func get_inventory_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1729,7 +1625,6 @@ func get_inventory_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_inventory")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomParameters,
 		returnRawResponse,
@@ -1740,13 +1635,11 @@ func get_inventory_threaded(
 	return bzz_thread
 
 
-# Operation getMyFollowing → GET /api/{version}/vatom/me/rels/following
+# Operation getMyFollowing → GET /vatom/me/rels/following
 # Get following
 #
 # Get following.
 func get_my_following(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1761,7 +1654,7 @@ func get_my_following(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/rels/following".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/rels/following"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1786,8 +1679,6 @@ func get_my_following(
 
 
 func get_my_following_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1800,7 +1691,6 @@ func get_my_following_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_my_following")
 	bzz_callable.bind(
-		version,
 		accountId,
 		returnRawResponse,
 		on_success,
@@ -1810,13 +1700,11 @@ func get_my_following_threaded(
 	return bzz_thread
 
 
-# Operation getPointsBalance → GET /api/{version}/vatom/u/campaign/points/get
+# Operation getPointsBalance → GET /vatom/u/campaign/points/get
 # Get Points Balance
 #
 # Gets the points balance of a Vatom user.
 func get_points_balance(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1837,7 +1725,7 @@ func get_points_balance(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/u/campaign/points/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/u/campaign/points/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1864,8 +1752,6 @@ func get_points_balance(
 
 
 func get_points_balance_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1884,7 +1770,6 @@ func get_points_balance_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_points_balance")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		vatomCampaignId,
@@ -1896,13 +1781,11 @@ func get_points_balance_threaded(
 	return bzz_thread
 
 
-# Operation getPointsBalanceAsBusiness → GET /api/{version}/vatom/b/campaign/u/points/get
+# Operation getPointsBalanceAsBusiness → GET /vatom/b/campaign/u/points/get
 # Get Points Balance as Business
 #
 # Gets the points balance of a Vatom user.
 func get_points_balance_as_business(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1926,7 +1809,7 @@ func get_points_balance_as_business(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign/u/points/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign/u/points/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1954,8 +1837,6 @@ func get_points_balance_as_business(
 
 
 func get_points_balance_as_business_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1977,7 +1858,6 @@ func get_points_balance_as_business_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_points_balance_as_business")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomUserId,
@@ -1990,13 +1870,11 @@ func get_points_balance_as_business_threaded(
 	return bzz_thread
 
 
-# Operation getSpace → GET /api/{version}/vatom/b/spaces/get
+# Operation getSpace → GET /vatom/b/spaces/get
 # Get Vatom Space
 #
 # Gets the details of a space.
 func get_space(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2017,7 +1895,7 @@ func get_space(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/spaces/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/spaces/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2044,8 +1922,6 @@ func get_space(
 
 
 func get_space_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2064,7 +1940,6 @@ func get_space_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_space")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomSpaceId,
@@ -2076,13 +1951,11 @@ func get_space_threaded(
 	return bzz_thread
 
 
-# Operation getUserCoinsAsBusiness → GET /api/{version}/vatom/b/users/coins/get
+# Operation getUserCoinsAsBusiness → GET /vatom/b/users/coins/get
 # Get the coins for a user (as a Business)
 #
 # Get the coins for a user (as a Business).
 func get_user_coins_as_business(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2103,7 +1976,7 @@ func get_user_coins_as_business(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/users/coins/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/users/coins/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2130,8 +2003,6 @@ func get_user_coins_as_business(
 
 
 func get_user_coins_as_business_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2150,7 +2021,6 @@ func get_user_coins_as_business_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_coins_as_business")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		appKey,
@@ -2162,13 +2032,11 @@ func get_user_coins_as_business_threaded(
 	return bzz_thread
 
 
-# Operation getUserCoinsBalance → GET /api/{version}/vatom/u/coins/get
+# Operation getUserCoinsBalance → GET /vatom/u/coins/get
 # Gets the coins balance for a Vatom User
 #
 # Gets the coins balance for a Vatom User.
 func get_user_coins_balance(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2189,7 +2057,7 @@ func get_user_coins_balance(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/u/coins/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/u/coins/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2216,8 +2084,6 @@ func get_user_coins_balance(
 
 
 func get_user_coins_balance_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2236,7 +2102,6 @@ func get_user_coins_balance_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_coins_balance")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		vatomParameters,
@@ -2248,13 +2113,11 @@ func get_user_coins_balance_threaded(
 	return bzz_thread
 
 
-# Operation getUserFollowers → GET /api/{version}/vatom/users/rels/followers
+# Operation getUserFollowers → GET /vatom/users/rels/followers
 # Get user followers
 #
 # Get user followers.
 func get_user_followers(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2272,7 +2135,7 @@ func get_user_followers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/users/rels/followers".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/users/rels/followers"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2298,8 +2161,6 @@ func get_user_followers(
 
 
 func get_user_followers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2315,7 +2176,6 @@ func get_user_followers_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_followers")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		returnRawResponse,
@@ -2326,13 +2186,11 @@ func get_user_followers_threaded(
 	return bzz_thread
 
 
-# Operation getUserFollowing → GET /api/{version}/vatom/users/rels/following
+# Operation getUserFollowing → GET /vatom/users/rels/following
 # Get user following
 #
 # Get user following.
 func get_user_following(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2350,7 +2208,7 @@ func get_user_following(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/users/rels/following".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/users/rels/following"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2376,8 +2234,6 @@ func get_user_following(
 
 
 func get_user_following_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2393,7 +2249,6 @@ func get_user_following_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_following")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		returnRawResponse,
@@ -2404,13 +2259,11 @@ func get_user_following_threaded(
 	return bzz_thread
 
 
-# Operation getUserInfo → GET /api/{version}/vatom/user/get
+# Operation getUserInfo → GET /vatom/user/get
 # Get User Info
 #
 # Get a User's Info.
 func get_user_info(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2428,7 +2281,7 @@ func get_user_info(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/user/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/user/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2454,8 +2307,6 @@ func get_user_info(
 
 
 func get_user_info_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2471,7 +2322,6 @@ func get_user_info_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_info")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		returnRawResponse,
@@ -2482,13 +2332,11 @@ func get_user_info_threaded(
 	return bzz_thread
 
 
-# Operation getUserProfile → GET /api/{version}/vatom/me/get
+# Operation getUserProfile → GET /vatom/me/get
 # Get Vatom User Profile
 #
 # Gets the logged in user's profile in Vatom.
 func get_user_profile(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2503,7 +2351,7 @@ func get_user_profile(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2528,8 +2376,6 @@ func get_user_profile(
 
 
 func get_user_profile_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2542,7 +2388,6 @@ func get_user_profile_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_profile")
 	bzz_callable.bind(
-		version,
 		accountId,
 		returnRawResponse,
 		on_success,
@@ -2552,13 +2397,11 @@ func get_user_profile_threaded(
 	return bzz_thread
 
 
-# Operation getVatomEvent → GET /api/{version}/vatom/b/events/get
+# Operation getVatomEvent → GET /vatom/b/events/get
 # Get Vatom Event
 #
 # Gets the details of a event.
 func get_vatom_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2579,7 +2422,7 @@ func get_vatom_event(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/events/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/events/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2606,8 +2449,6 @@ func get_vatom_event(
 
 
 func get_vatom_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2626,7 +2467,6 @@ func get_vatom_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_vatom_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomEventId,
@@ -2638,13 +2478,11 @@ func get_vatom_event_threaded(
 	return bzz_thread
 
 
-# Operation getVatomNFT → GET /api/{version}/vatom/vatoms/get
+# Operation getVatomNFT → GET /vatom/vatoms/get
 # Get Vatom NFT Details
 #
 # Get Vatom NFT Details
 func get_vatom_nft(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2662,7 +2500,7 @@ func get_vatom_nft(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/vatoms/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/vatoms/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2688,8 +2526,6 @@ func get_vatom_nft(
 
 
 func get_vatom_nft_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2705,7 +2541,6 @@ func get_vatom_nft_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_vatom_nft")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomId,
 		returnRawResponse,
@@ -2716,13 +2551,11 @@ func get_vatom_nft_threaded(
 	return bzz_thread
 
 
-# Operation listCommunities → GET /api/{version}/vatom/b/communities/search
+# Operation listCommunities → GET /vatom/b/communities/search
 # List Vatom Communities
 #
 # Gets the communities tied to a business.
 func list_communities(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2743,7 +2576,7 @@ func list_communities(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/communities/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/communities/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2770,8 +2603,6 @@ func list_communities(
 
 
 func list_communities_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2790,7 +2621,6 @@ func list_communities_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_communities")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -2802,13 +2632,11 @@ func list_communities_threaded(
 	return bzz_thread
 
 
-# Operation listEvents → GET /api/{version}/vatom/b/events/search
+# Operation listEvents → GET /vatom/b/events/search
 # List Vatom Events
 #
 # Gets the events tied to a business.
 func list_events(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2829,7 +2657,7 @@ func list_events(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/events/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/events/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2856,8 +2684,6 @@ func list_events(
 
 
 func list_events_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2876,7 +2702,6 @@ func list_events_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_events")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -2888,13 +2713,11 @@ func list_events_threaded(
 	return bzz_thread
 
 
-# Operation listSpaces → GET /api/{version}/vatom/b/spaces/search
+# Operation listSpaces → GET /vatom/b/spaces/search
 # List Vatom Spaces
 #
 # Gets the spaces tied to a business.
 func list_spaces(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2915,7 +2738,7 @@ func list_spaces(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/spaces/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/spaces/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2942,8 +2765,6 @@ func list_spaces(
 
 
 func list_spaces_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2962,7 +2783,6 @@ func list_spaces_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_spaces")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -2974,13 +2794,11 @@ func list_spaces_threaded(
 	return bzz_thread
 
 
-# Operation listUserCoinTransactions → GET /api/{version}/vatom/u/coins/txns/search
+# Operation listUserCoinTransactions → GET /vatom/u/coins/txns/search
 # List Coin Transactions for a Vatom User
 #
 # Gets the logged in user's Vatom coin transactions.
 func list_user_coin_transactions(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3001,7 +2819,7 @@ func list_user_coin_transactions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/u/coins/txns/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/u/coins/txns/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3028,8 +2846,6 @@ func list_user_coin_transactions(
 
 
 func list_user_coin_transactions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3048,7 +2864,6 @@ func list_user_coin_transactions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_user_coin_transactions")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		vatomParameters,
@@ -3060,13 +2875,11 @@ func list_user_coin_transactions_threaded(
 	return bzz_thread
 
 
-# Operation listUserCoinTransactionsAsBusiness → GET /api/{version}/vatom/b/users/coins/txns/search
+# Operation listUserCoinTransactionsAsBusiness → GET /vatom/b/users/coins/txns/search
 # List coin transactions for a user (as a Business)
 #
 # List coin transactions for a user (as a Business).
 func list_user_coin_transactions_as_business(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3090,7 +2903,7 @@ func list_user_coin_transactions_as_business(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/users/coins/txns/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/users/coins/txns/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3118,8 +2931,6 @@ func list_user_coin_transactions_as_business(
 
 
 func list_user_coin_transactions_as_business_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3141,7 +2952,6 @@ func list_user_coin_transactions_as_business_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_user_coin_transactions_as_business")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		appKey,
@@ -3154,13 +2964,11 @@ func list_user_coin_transactions_as_business_threaded(
 	return bzz_thread
 
 
-# Operation performActionOnNFT → POST /api/{version}/vatom/me/vatoms/actions
+# Operation performActionOnNFT → POST /vatom/me/vatoms/actions
 # Perform Action on NFT
 #
 # Perform Action on NFT.
 func perform_action_on_nft(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3184,7 +2992,7 @@ func perform_action_on_nft(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/vatoms/actions".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/vatoms/actions"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3212,8 +3020,6 @@ func perform_action_on_nft(
 
 
 func perform_action_on_nft_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3235,7 +3041,6 @@ func perform_action_on_nft_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "perform_action_on_nft")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomId,
 		vatomAction,
@@ -3248,13 +3053,11 @@ func perform_action_on_nft_threaded(
 	return bzz_thread
 
 
-# Operation redeemNFT → POST /api/{version}/vatom/b/redemptions
+# Operation redeemNFT → POST /vatom/b/redemptions
 # Redeem NFT
 #
 # Redeem an NFT.
 func redeem_nft(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3275,7 +3078,7 @@ func redeem_nft(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/redemptions".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/redemptions"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3302,8 +3105,6 @@ func redeem_nft(
 
 
 func redeem_nft_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3322,7 +3123,6 @@ func redeem_nft_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "redeem_nft")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -3334,13 +3134,11 @@ func redeem_nft_threaded(
 	return bzz_thread
 
 
-# Operation redeemUserCoinsAsBusiness → POST /api/{version}/vatom/b/users/coins/redeem
+# Operation redeemUserCoinsAsBusiness → POST /vatom/b/users/coins/redeem
 # Redeem the coins for a user (as a Business)
 #
 # Redeem the coins for a user (as a Business).
 func redeem_user_coins_as_business(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3364,7 +3162,7 @@ func redeem_user_coins_as_business(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/users/coins/redeem".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/users/coins/redeem"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3392,8 +3190,6 @@ func redeem_user_coins_as_business(
 
 
 func redeem_user_coins_as_business_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3415,7 +3211,6 @@ func redeem_user_coins_as_business_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "redeem_user_coins_as_business")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		appKey,
@@ -3428,13 +3223,11 @@ func redeem_user_coins_as_business_threaded(
 	return bzz_thread
 
 
-# Operation searchBusinesses → GET /api/{version}/vatom/b/search
+# Operation searchBusinesses → GET /vatom/b/search
 # Search for Vatom Businesses
 #
 # Searches for Vatom businesses.
 func search_businesses(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3452,7 +3245,7 @@ func search_businesses(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3478,8 +3271,6 @@ func search_businesses(
 
 
 func search_businesses_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3495,7 +3286,6 @@ func search_businesses_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_businesses")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomParameters,
 		returnRawResponse,
@@ -3506,13 +3296,11 @@ func search_businesses_threaded(
 	return bzz_thread
 
 
-# Operation searchCampaignGroups → GET /api/{version}/vatom/b/campaign-groups/search
+# Operation searchCampaignGroups → GET /vatom/b/campaign-groups/search
 # Search Campaign Groups
 #
 # Search campaign groups.
 func search_campaign_groups(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3530,7 +3318,7 @@ func search_campaign_groups(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign-groups/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign-groups/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3556,8 +3344,6 @@ func search_campaign_groups(
 
 
 func search_campaign_groups_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3573,7 +3359,6 @@ func search_campaign_groups_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_campaign_groups")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		returnRawResponse,
@@ -3584,13 +3369,11 @@ func search_campaign_groups_threaded(
 	return bzz_thread
 
 
-# Operation searchIdentities → GET /api/{version}/vatom/me/identities/search
+# Operation searchIdentities → GET /vatom/me/identities/search
 # Search User Identities
 #
 # Search User Identities.
 func search_identities(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3605,7 +3388,7 @@ func search_identities(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/identities/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/identities/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3630,8 +3413,6 @@ func search_identities(
 
 
 func search_identities_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3644,7 +3425,6 @@ func search_identities_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_identities")
 	bzz_callable.bind(
-		version,
 		accountId,
 		returnRawResponse,
 		on_success,
@@ -3654,13 +3434,11 @@ func search_identities_threaded(
 	return bzz_thread
 
 
-# Operation searchInventory → GET /api/{version}/vatom/user-inventory/search
+# Operation searchInventory → GET /vatom/user-inventory/search
 # Search Vatom User's Inventory
 #
 # Searches the logged in user's Vatom Inventory.
 func search_inventory(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3678,7 +3456,7 @@ func search_inventory(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/user-inventory/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/user-inventory/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3704,8 +3482,6 @@ func search_inventory(
 
 
 func search_inventory_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3721,7 +3497,6 @@ func search_inventory_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_inventory")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomParameters,
 		returnRawResponse,
@@ -3732,13 +3507,11 @@ func search_inventory_threaded(
 	return bzz_thread
 
 
-# Operation sendNFT → POST /api/{version}/vatom/b/campaigns/send
+# Operation sendNFT → POST /vatom/b/campaigns/send
 # Send NFT
 #
 # Send an NFT.
 func send_nft(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3762,7 +3535,7 @@ func send_nft(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaigns/send".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaigns/send"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3790,8 +3563,6 @@ func send_nft(
 
 
 func send_nft_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3813,7 +3584,6 @@ func send_nft_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "send_nft")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomCampaignId,
@@ -3826,13 +3596,11 @@ func send_nft_threaded(
 	return bzz_thread
 
 
-# Operation setPointsBalanceAsBusiness → POST /api/{version}/vatom/b/campaign/u/points/update
+# Operation setPointsBalanceAsBusiness → POST /vatom/b/campaign/u/points/update
 # Set Points Balance as Business
 #
 # Sets the points balance of a Vatom user.
 func set_points_balance_as_business(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3859,7 +3627,7 @@ func set_points_balance_as_business(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/campaign/u/points/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/campaign/u/points/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3888,8 +3656,6 @@ func set_points_balance_as_business(
 
 
 func set_points_balance_as_business_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3914,7 +3680,6 @@ func set_points_balance_as_business_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "set_points_balance_as_business")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomUserId,
@@ -3928,13 +3693,11 @@ func set_points_balance_as_business_threaded(
 	return bzz_thread
 
 
-# Operation transferUserCoins → POST /api/{version}/vatom/u/coins/transfer
+# Operation transferUserCoins → POST /vatom/u/coins/transfer
 # Transfer coins from Vatom Users
 #
 # Transfer coins from Vatom Users.
 func transfer_user_coins(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -3955,7 +3718,7 @@ func transfer_user_coins(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/u/coins/transfer".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/u/coins/transfer"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3982,8 +3745,6 @@ func transfer_user_coins(
 
 
 func transfer_user_coins_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4002,7 +3763,6 @@ func transfer_user_coins_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "transfer_user_coins")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		vatomParameters,
@@ -4014,13 +3774,11 @@ func transfer_user_coins_threaded(
 	return bzz_thread
 
 
-# Operation updateBusinessCoins → POST /api/{version}/vatom/b/coins/update
+# Operation updateBusinessCoins → POST /vatom/b/coins/update
 # Fund coins for a Business
 #
 # Fund/update coins for a Businesss.
 func update_business_coins(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4041,7 +3799,7 @@ func update_business_coins(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/coins/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/coins/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4068,8 +3826,6 @@ func update_business_coins(
 
 
 func update_business_coins_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4088,7 +3844,6 @@ func update_business_coins_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_business_coins")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomParameters,
@@ -4100,13 +3855,11 @@ func update_business_coins_threaded(
 	return bzz_thread
 
 
-# Operation updateEventGuestList → POST /api/{version}/vatom/b/events/guests/update
+# Operation updateEventGuestList → POST /vatom/b/events/guests/update
 # Update Vatom Event Guest List
 #
 # Update the guest list of an event.
 func update_event_guest_list(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4130,7 +3883,7 @@ func update_event_guest_list(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/events/guests/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/events/guests/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4158,8 +3911,6 @@ func update_event_guest_list(
 
 
 func update_event_guest_list_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4181,7 +3932,6 @@ func update_event_guest_list_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_event_guest_list")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomEventId,
@@ -4194,13 +3944,11 @@ func update_event_guest_list_threaded(
 	return bzz_thread
 
 
-# Operation updateSpace → POST /api/{version}/vatom/b/spaces/update
+# Operation updateSpace → POST /vatom/b/spaces/update
 # Update Vatom Space
 #
 # Update a Vatom space.
 func update_space(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4224,7 +3972,7 @@ func update_space(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/spaces/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/spaces/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4252,8 +4000,6 @@ func update_space(
 
 
 func update_space_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4275,7 +4021,6 @@ func update_space_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_space")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomSpaceId,
@@ -4288,13 +4033,11 @@ func update_space_threaded(
 	return bzz_thread
 
 
-# Operation updateUserCoinsAsBusiness → POST /api/{version}/vatom/b/users/coins/update
+# Operation updateUserCoinsAsBusiness → POST /vatom/b/users/coins/update
 # Update the coins for a user (as a Business)
 #
 # Update the coins for a user (as a Business).
 func update_user_coins_as_business(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4318,7 +4061,7 @@ func update_user_coins_as_business(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/users/coins/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/users/coins/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4346,8 +4089,6 @@ func update_user_coins_as_business(
 
 
 func update_user_coins_as_business_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4369,7 +4110,6 @@ func update_user_coins_as_business_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_user_coins_as_business")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomUserId,
 		appKey,
@@ -4382,13 +4122,11 @@ func update_user_coins_as_business_threaded(
 	return bzz_thread
 
 
-# Operation updateUserProfile → POST /api/{version}/vatom/me/update
+# Operation updateUserProfile → POST /vatom/me/update
 # Update Vatom User Profile
 #
 # Gets the logged in user's profile in Vatom.
 func update_user_profile(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4406,7 +4144,7 @@ func update_user_profile(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/me/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/me/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4432,8 +4170,6 @@ func update_user_profile(
 
 
 func update_user_profile_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4449,7 +4185,6 @@ func update_user_profile_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_user_profile")
 	bzz_callable.bind(
-		version,
 		accountId,
 		vatomParameters,
 		returnRawResponse,
@@ -4460,13 +4195,11 @@ func update_user_profile_threaded(
 	return bzz_thread
 
 
-# Operation updateVatomEvent → POST /api/{version}/vatom/b/events/update
+# Operation updateVatomEvent → POST /vatom/b/events/update
 # Update Vatom Event
 #
 # Update a Vatom event.
 func update_vatom_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4490,7 +4223,7 @@ func update_vatom_event(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vatom/b/events/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vatom/b/events/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4518,8 +4251,6 @@ func update_vatom_event(
 
 
 func update_vatom_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -4541,7 +4272,6 @@ func update_vatom_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_vatom_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		vatomEventId,

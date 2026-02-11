@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RouteApi"
 
 
-# Operation approveRoute → POST /api/{version}/route/{routeId}/approve
+# Operation approveRoute → POST /route/{routeId}/approve
 # Approve Route
 #
 # Approve a route
 func approve_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to approve
 	routeId: float,
@@ -32,7 +30,7 @@ func approve_route(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/approve".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/approve".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func approve_route(
 
 
 func approve_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to approve
 	routeId: float,
@@ -72,7 +68,6 @@ func approve_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "approve_route")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -81,13 +76,11 @@ func approve_route_threaded(
 	return bzz_thread
 
 
-# Operation copyRoute → POST /api/{version}/route/{routeId}/copy
+# Operation copyRoute → POST /route/{routeId}/copy
 # Copy Route
 #
 # Make an copy of the given route with optional overriding properties
 func copy_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to duplicate
 	routeId: float,
@@ -101,7 +94,7 @@ func copy_route(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/copy".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/copy".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -131,8 +124,6 @@ func copy_route(
 
 
 func copy_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to duplicate
 	routeId: float,
@@ -144,7 +135,6 @@ func copy_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "copy_route")
 	bzz_callable.bind(
-		version,
 		routeId,
 		body,
 		on_success,
@@ -154,13 +144,11 @@ func copy_route_threaded(
 	return bzz_thread
 
 
-# Operation createRoute → POST /api/{version}/route
+# Operation createRoute → POST /route
 # Create Route
 #
 # Create new route
 func create_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Route
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -171,7 +159,7 @@ func create_route(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/route"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -201,8 +189,6 @@ func create_route(
 
 
 func create_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Route
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -211,7 +197,6 @@ func create_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_route")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -220,13 +205,11 @@ func create_route_threaded(
 	return bzz_thread
 
 
-# Operation createRouteDirections → PUT /api/{version}/route/{routeId}/directions
+# Operation createRouteDirections → PUT /route/{routeId}/directions
 # Update Route Directions
 #
 # Regenerate the directions of a route
 func create_route_directions(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to update directions for
 	routeId: float,
@@ -238,7 +221,7 @@ func create_route_directions(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/directions".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/directions".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -267,8 +250,6 @@ func create_route_directions(
 
 
 func create_route_directions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to update directions for
 	routeId: float,
@@ -278,7 +259,6 @@ func create_route_directions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_route_directions")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -287,13 +267,11 @@ func create_route_directions_threaded(
 	return bzz_thread
 
 
-# Operation createRoutePolyline → PUT /api/{version}/route/{routeId}/polyline
+# Operation createRoutePolyline → PUT /route/{routeId}/polyline
 # Create Route Polyline
 #
 # Update the polyline of the requested route
 func create_route_polyline(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to create a polyline for
 	routeId: float,
@@ -305,7 +283,7 @@ func create_route_polyline(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/polyline".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/polyline".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -334,8 +312,6 @@ func create_route_polyline(
 
 
 func create_route_polyline_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to create a polyline for
 	routeId: float,
@@ -345,7 +321,6 @@ func create_route_polyline_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_route_polyline")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -354,13 +329,11 @@ func create_route_polyline_threaded(
 	return bzz_thread
 
 
-# Operation deleteRoute → DELETE /api/{version}/route/{routeId}
+# Operation deleteRoute → DELETE /route/{routeId}
 # Delete Route
 #
 # Delete an existing route
 func delete_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -372,7 +345,7 @@ func delete_route(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -395,8 +368,6 @@ func delete_route(
 
 
 func delete_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -406,7 +377,6 @@ func delete_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_route")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -415,13 +385,11 @@ func delete_route_threaded(
 	return bzz_thread
 
 
-# Operation disapproveRoute → POST /api/{version}/route/{routeId}/disapprove
+# Operation disapproveRoute → POST /route/{routeId}/disapprove
 # Disapprove Route
 #
 # Disapprove a route
 func disapprove_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to reject
 	routeId: float,
@@ -433,7 +401,7 @@ func disapprove_route(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/disapprove".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/disapprove".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -462,8 +430,6 @@ func disapprove_route(
 
 
 func disapprove_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to reject
 	routeId: float,
@@ -473,7 +439,6 @@ func disapprove_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "disapprove_route")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -482,13 +447,11 @@ func disapprove_route_threaded(
 	return bzz_thread
 
 
-# Operation getRoute → GET /api/{version}/route/{routeId}
+# Operation getRoute → GET /route/{routeId}
 # Get Route
 #
 # Get an existing route
 func get_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get
 	routeId: float,
@@ -503,7 +466,7 @@ func get_route(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -533,8 +496,6 @@ func get_route(
 
 
 func get_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get
 	routeId: float,
@@ -547,7 +508,6 @@ func get_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_route")
 	bzz_callable.bind(
-		version,
 		routeId,
 		showInheritedProperties,
 		on_success,
@@ -557,13 +517,11 @@ func get_route_threaded(
 	return bzz_thread
 
 
-# Operation getRouteDirections → GET /api/{version}/route/{routeId}/directions
+# Operation getRouteDirections → GET /route/{routeId}/directions
 # Get Route Directions
 #
 # Get the directions of a route
 func get_route_directions(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get directions for
 	routeId: float,
@@ -575,7 +533,7 @@ func get_route_directions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/directions".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/directions".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -604,8 +562,6 @@ func get_route_directions(
 
 
 func get_route_directions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get directions for
 	routeId: float,
@@ -615,7 +571,6 @@ func get_route_directions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_route_directions")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -624,13 +579,11 @@ func get_route_directions_threaded(
 	return bzz_thread
 
 
-# Operation getRouteShipments → GET /api/{version}/route/{routeId}/shipments
+# Operation getRouteShipments → GET /route/{routeId}/shipments
 # Get Route Shipments
 #
 # Get the shipments on the requested route
 func get_route_shipments(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get shipments for
 	routeId: float,
@@ -642,7 +595,7 @@ func get_route_shipments(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/shipments".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/shipments".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -671,8 +624,6 @@ func get_route_shipments(
 
 
 func get_route_shipments_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get shipments for
 	routeId: float,
@@ -682,7 +633,6 @@ func get_route_shipments_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_route_shipments")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -691,13 +641,11 @@ func get_route_shipments_threaded(
 	return bzz_thread
 
 
-# Operation getRouteStop → GET /api/{version}/route/{routeId}/stop/{stopId}
+# Operation getRouteStop → GET /route/{routeId}/stop/{stopId}
 # Get Route Stop
 #
 # Get the specific stop on a route
 func get_route_stop(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get stops for
 	routeId: float,
@@ -712,7 +660,7 @@ func get_route_stop(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/stop/{stopId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
+	var bzz_path := "/api/3.18/route/{routeId}/stop/{stopId}".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -741,8 +689,6 @@ func get_route_stop(
 
 
 func get_route_stop_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to get stops for
 	routeId: float,
@@ -755,7 +701,6 @@ func get_route_stop_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_route_stop")
 	bzz_callable.bind(
-		version,
 		routeId,
 		stopId,
 		on_success,
@@ -765,13 +710,11 @@ func get_route_stop_threaded(
 	return bzz_thread
 
 
-# Operation getRouteStops → GET /api/{version}/route/{routeId}/stops
+# Operation getRouteStops → GET /route/{routeId}/stops
 # Get Route Stops
 #
 # The stops of the route requested
 func get_route_stops(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -786,7 +729,7 @@ func get_route_stops(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/stops".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/stops".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -816,8 +759,6 @@ func get_route_stops(
 
 
 func get_route_stops_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -830,7 +771,6 @@ func get_route_stops_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_route_stops")
 	bzz_callable.bind(
-		version,
 		routeId,
 		confirmedOnly,
 		on_success,
@@ -840,13 +780,11 @@ func get_route_stops_threaded(
 	return bzz_thread
 
 
-# Operation getShipmentsAtStop → GET /api/{version}/route/{routeId}/stop/{stopId}/shipments
+# Operation getShipmentsAtStop → GET /route/{routeId}/stop/{stopId}/shipments
 # Get Shipments At Stop
 #
 # Get the list of shipments on the requested route at a stop
 func get_shipments_at_stop(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -861,7 +799,7 @@ func get_shipments_at_stop(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/stop/{stopId}/shipments".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
+	var bzz_path := "/api/3.18/route/{routeId}/stop/{stopId}/shipments".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -890,8 +828,6 @@ func get_shipments_at_stop(
 
 
 func get_shipments_at_stop_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -904,7 +840,6 @@ func get_shipments_at_stop_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_shipments_at_stop")
 	bzz_callable.bind(
-		version,
 		routeId,
 		stopId,
 		on_success,
@@ -914,13 +849,11 @@ func get_shipments_at_stop_threaded(
 	return bzz_thread
 
 
-# Operation optimizeRoute → POST /api/{version}/route/{routeId}/optimize
+# Operation optimizeRoute → POST /route/{routeId}/optimize
 # Optimize Route
 #
 # Optimize a route. The optimization method based on how the server is configured.
 func optimize_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to optimize
 	routeId: float,
@@ -932,7 +865,7 @@ func optimize_route(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/optimize".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/optimize".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -955,8 +888,6 @@ func optimize_route(
 
 
 func optimize_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to optimize
 	routeId: float,
@@ -966,7 +897,6 @@ func optimize_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "optimize_route")
 	bzz_callable.bind(
-		version,
 		routeId,
 		on_success,
 		on_failure,
@@ -975,13 +905,11 @@ func optimize_route_threaded(
 	return bzz_thread
 
 
-# Operation removeStop → DELETE /api/{version}/route/{routeId}/stop/{stopId}
+# Operation removeStop → DELETE /route/{routeId}/stop/{stopId}
 # Delete Stop
 #
 # Delete a stop on a route
 func remove_stop(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -996,7 +924,7 @@ func remove_stop(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/stop/{stopId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
+	var bzz_path := "/api/3.18/route/{routeId}/stop/{stopId}".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1019,8 +947,6 @@ func remove_stop(
 
 
 func remove_stop_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -1033,7 +959,6 @@ func remove_stop_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_stop")
 	bzz_callable.bind(
-		version,
 		routeId,
 		stopId,
 		on_success,
@@ -1043,13 +968,11 @@ func remove_stop_threaded(
 	return bzz_thread
 
 
-# Operation reorderRouteStopsPatch → PATCH /api/{version}/route/{routeId}/stops/reorder
+# Operation reorderRouteStopsPatch → PATCH /route/{routeId}/stops/reorder
 # Reorder Route Stops
 #
 # Reordering the stops on the route with and update route distance, time, direction, and polyline
 func reorder_route_stops_patch(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -1063,7 +986,7 @@ func reorder_route_stops_patch(
 	var bzz_method := self._bzz_convert_http_method("PATCH")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/stops/reorder".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/stops/reorder".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1093,8 +1016,6 @@ func reorder_route_stops_patch(
 
 
 func reorder_route_stops_patch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -1106,7 +1027,6 @@ func reorder_route_stops_patch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "reorder_route_stops_patch")
 	bzz_callable.bind(
-		version,
 		routeId,
 		body,
 		on_success,
@@ -1116,13 +1036,11 @@ func reorder_route_stops_patch_threaded(
 	return bzz_thread
 
 
-# Operation reorderRouteStopsPost → POST /api/{version}/route/{routeId}/stops/reorder
+# Operation reorderRouteStopsPost → POST /route/{routeId}/stops/reorder
 # Reorder Route Stops
 #
 # Reordering the stops on the route with and update route distance, time, direction, and polyline
 func reorder_route_stops_post(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -1136,7 +1054,7 @@ func reorder_route_stops_post(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/stops/reorder".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}/stops/reorder".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1166,8 +1084,6 @@ func reorder_route_stops_post(
 
 
 func reorder_route_stops_post_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -1179,7 +1095,6 @@ func reorder_route_stops_post_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "reorder_route_stops_post")
 	bzz_callable.bind(
-		version,
 		routeId,
 		body,
 		on_success,
@@ -1189,13 +1104,11 @@ func reorder_route_stops_post_threaded(
 	return bzz_thread
 
 
-# Operation searchRoutes → GET /api/{version}/route
+# Operation searchRoutes → GET /route
 # Search Routes
 #
 # Search for routes.
 func search_routes(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -1267,7 +1180,7 @@ func search_routes(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/route"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1317,8 +1230,6 @@ func search_routes(
 
 
 func search_routes_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -1388,7 +1299,6 @@ func search_routes_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_routes")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,
@@ -1417,13 +1327,11 @@ func search_routes_threaded(
 	return bzz_thread
 
 
-# Operation setDriver → POST /api/{version}/route/{id}/driver/{driverId}
+# Operation setDriver → POST /route/{id}/driver/{driverId}
 # Set Driver
 #
 # Update the driver of the route.
 func set_driver(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the route
 	id: float,
@@ -1438,7 +1346,7 @@ func set_driver(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{id}/driver/{driverId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id)).replace("{" + "driverId" + "}", _bzz_urlize_path_param(driverId))
+	var bzz_path := "/api/3.18/route/{id}/driver/{driverId}".replace("{" + "id" + "}", _bzz_urlize_path_param(id)).replace("{" + "driverId" + "}", _bzz_urlize_path_param(driverId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1461,8 +1369,6 @@ func set_driver(
 
 
 func set_driver_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the route
 	id: float,
@@ -1475,7 +1381,6 @@ func set_driver_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "set_driver")
 	bzz_callable.bind(
-		version,
 		id,
 		driverId,
 		on_success,
@@ -1485,13 +1390,11 @@ func set_driver_threaded(
 	return bzz_thread
 
 
-# Operation updateRoute → PUT /api/{version}/route/{routeId}
+# Operation updateRoute → PUT /route/{routeId}
 # Update Route
 #
 # Update an existing route
 func update_route(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -1505,7 +1408,7 @@ func update_route(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
+	var bzz_path := "/api/3.18/route/{routeId}".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1535,8 +1438,6 @@ func update_route(
 
 
 func update_route_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route
 	routeId: float,
@@ -1548,7 +1449,6 @@ func update_route_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_route")
 	bzz_callable.bind(
-		version,
 		routeId,
 		body,
 		on_success,
@@ -1558,13 +1458,11 @@ func update_route_threaded(
 	return bzz_thread
 
 
-# Operation updateRouteStop → PUT /api/{version}/route/{routeId}/stop/{stopId}
+# Operation updateRouteStop → PUT /route/{routeId}/stop/{stopId}
 # Update Route Stop
 #
 # Update a stop on a specified route
 func update_route_stop(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to update stops for
 	routeId: float,
@@ -1581,7 +1479,7 @@ func update_route_stop(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/{routeId}/stop/{stopId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
+	var bzz_path := "/api/3.18/route/{routeId}/stop/{stopId}".replace("{" + "routeId" + "}", _bzz_urlize_path_param(routeId)).replace("{" + "stopId" + "}", _bzz_urlize_path_param(stopId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1605,8 +1503,6 @@ func update_route_stop(
 
 
 func update_route_stop_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeId: float   Eg: 789
 	# the id of the route to update stops for
 	routeId: float,
@@ -1621,7 +1517,6 @@ func update_route_stop_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_route_stop")
 	bzz_callable.bind(
-		version,
 		routeId,
 		stopId,
 		body,

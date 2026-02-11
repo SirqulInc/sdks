@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "NoteApi"
 
 
-# Operation batchOperation → POST /api/{version}/note/batch
+# Operation batchOperation → POST /note/batch
 # Batch Note Operation
 #
 # Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
 func batch_operation(
-	# version: float   Eg: 3.16
-	version: float,
 	# notableId: float   Eg: 789
 	# The id of the notable object the batch operation will affect
 	notableId: float,
@@ -44,7 +42,7 @@ func batch_operation(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/note/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/note/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -78,8 +76,6 @@ func batch_operation(
 
 
 func batch_operation_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# notableId: float   Eg: 789
 	# The id of the notable object the batch operation will affect
 	notableId: float,
@@ -101,7 +97,6 @@ func batch_operation_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "batch_operation")
 	bzz_callable.bind(
-		version,
 		notableId,
 		notableType,
 		deviceId,
@@ -114,13 +109,11 @@ func batch_operation_threaded(
 	return bzz_thread
 
 
-# Operation createNote → POST /api/{version}/note/create
+# Operation createNote → POST /note/create
 # Create Note
 #
 # This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
 func create_note(
-	# version: float   Eg: 3.16
-	version: float,
 	# comment: String = ""   Eg: comment_example
 	# The message the user wishes to leave a comment on
 	comment: String,
@@ -255,7 +248,7 @@ func create_note(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/note/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/note/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -326,8 +319,6 @@ func create_note(
 
 
 func create_note_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# comment: String = ""   Eg: comment_example
 	# The message the user wishes to leave a comment on
 	comment: String,
@@ -460,7 +451,6 @@ func create_note_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_note")
 	bzz_callable.bind(
-		version,
 		comment,
 		deviceId,
 		accountId,
@@ -510,13 +500,11 @@ func create_note_threaded(
 	return bzz_thread
 
 
-# Operation deleteNote → POST /api/{version}/note/delete
+# Operation deleteNote → POST /note/delete
 # Delete Note
 #
 # Sets a comment (note) as deleted.
 func delete_note(
-	# version: float   Eg: 3.16
-	version: float,
 	# noteId: float   Eg: 789
 	# The ID of the note to delete
 	noteId: float,
@@ -543,7 +531,7 @@ func delete_note(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/note/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/note/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -578,8 +566,6 @@ func delete_note(
 
 
 func delete_note_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# noteId: float   Eg: 789
 	# The ID of the note to delete
 	noteId: float,
@@ -604,7 +590,6 @@ func delete_note_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_note")
 	bzz_callable.bind(
-		version,
 		noteId,
 		deviceId,
 		accountId,
@@ -618,13 +603,11 @@ func delete_note_threaded(
 	return bzz_thread
 
 
-# Operation getNote → POST /api/{version}/note/get
+# Operation getNote → POST /note/get
 # Get Note
 #
 # Get for a note based on its Id.
 func get_note(
-	# version: float   Eg: 3.16
-	version: float,
 	# noteId: float   Eg: 789
 	# the id of the note to get
 	noteId: float,
@@ -645,7 +628,7 @@ func get_note(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/note/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/note/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -678,8 +661,6 @@ func get_note(
 
 
 func get_note_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# noteId: float   Eg: 789
 	# the id of the note to get
 	noteId: float,
@@ -698,7 +679,6 @@ func get_note_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_note")
 	bzz_callable.bind(
-		version,
 		noteId,
 		deviceId,
 		accountId,
@@ -710,13 +690,11 @@ func get_note_threaded(
 	return bzz_thread
 
 
-# Operation searchNotes → POST /api/{version}/note/search
+# Operation searchNotes → POST /note/search
 # Search Notes
 #
 # Search for notes on a notable object.
 func search_notes(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -776,7 +754,7 @@ func search_notes(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/note/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/note/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -822,8 +800,6 @@ func search_notes(
 
 
 func search_notes_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -881,7 +857,6 @@ func search_notes_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_notes")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		notableType,
@@ -906,13 +881,11 @@ func search_notes_threaded(
 	return bzz_thread
 
 
-# Operation updateNote → POST /api/{version}/note/update
+# Operation updateNote → POST /note/update
 # Update Note
 #
 # Update an existing comment (note). Only the creator of the note have permission to update.
 func update_note(
-	# version: float   Eg: 3.16
-	version: float,
 	# noteId: float   Eg: 789
 	# The id of the note, used when editing a comment
 	noteId: float,
@@ -1044,7 +1017,7 @@ func update_note(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/note/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/note/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1114,8 +1087,6 @@ func update_note(
 
 
 func update_note_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# noteId: float   Eg: 789
 	# The id of the note, used when editing a comment
 	noteId: float,
@@ -1245,7 +1216,6 @@ func update_note_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_note")
 	bzz_callable.bind(
-		version,
 		noteId,
 		deviceId,
 		accountId,

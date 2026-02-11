@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "VehicleApi"
 
 
-# Operation createVehicle → POST /api/{version}/vehicle
+# Operation createVehicle → POST /vehicle
 # Create Vehicle
 #
 # Create new vehicle
 func create_vehicle(
-	# version: float   Eg: 3.16
-	version: float,
 	# vehicle: String = ""   Eg: vehicle_example
 	# A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
 	vehicle: String,
@@ -34,7 +32,7 @@ func create_vehicle(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vehicle".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vehicle"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -65,8 +63,6 @@ func create_vehicle(
 
 
 func create_vehicle_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# vehicle: String = ""   Eg: vehicle_example
 	# A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
 	vehicle: String,
@@ -78,7 +74,6 @@ func create_vehicle_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_vehicle")
 	bzz_callable.bind(
-		version,
 		vehicle,
 		body,
 		on_success,
@@ -88,13 +83,11 @@ func create_vehicle_threaded(
 	return bzz_thread
 
 
-# Operation deleteVehicle → DELETE /api/{version}/vehicle/{id}
+# Operation deleteVehicle → DELETE /vehicle/{id}
 # Delete Vehicle
 #
 # Delete an existing vehicle
 func delete_vehicle(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id of the vehicle to delete
 	id: float,
@@ -106,7 +99,7 @@ func delete_vehicle(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vehicle/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/vehicle/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -129,8 +122,6 @@ func delete_vehicle(
 
 
 func delete_vehicle_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id of the vehicle to delete
 	id: float,
@@ -140,7 +131,6 @@ func delete_vehicle_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_vehicle")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -149,13 +139,11 @@ func delete_vehicle_threaded(
 	return bzz_thread
 
 
-# Operation getVehicle → GET /api/{version}/vehicle/{id}
+# Operation getVehicle → GET /vehicle/{id}
 # Get Vehicle
 #
 # Get an existing vehicle
 func get_vehicle(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id of the vehicle requested
 	id: float,
@@ -167,7 +155,7 @@ func get_vehicle(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vehicle/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/vehicle/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -196,8 +184,6 @@ func get_vehicle(
 
 
 func get_vehicle_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id of the vehicle requested
 	id: float,
@@ -207,7 +193,6 @@ func get_vehicle_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_vehicle")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -216,13 +201,11 @@ func get_vehicle_threaded(
 	return bzz_thread
 
 
-# Operation searchVehicle → GET /api/{version}/vehicle
+# Operation searchVehicle → GET /vehicle
 # Search Vehicle
 #
 # Search for vehicles
 func search_vehicle(
-	# version: float   Eg: 3.16
-	version: float,
 	# hubId: float   Eg: 789
 	# Filter by service hub
 	hubId: float,
@@ -252,7 +235,7 @@ func search_vehicle(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vehicle".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/vehicle"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -288,8 +271,6 @@ func search_vehicle(
 
 
 func search_vehicle_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# hubId: float   Eg: 789
 	# Filter by service hub
 	hubId: float,
@@ -317,7 +298,6 @@ func search_vehicle_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_vehicle")
 	bzz_callable.bind(
-		version,
 		hubId,
 		sortField,
 		descending,
@@ -332,13 +312,11 @@ func search_vehicle_threaded(
 	return bzz_thread
 
 
-# Operation updateVehicle → PUT /api/{version}/vehicle/{id}
+# Operation updateVehicle → PUT /vehicle/{id}
 # Update Vehicle
 #
 # Update an existing vehicle
 func update_vehicle(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id of the vehicle to update
 	id: float,
@@ -355,7 +333,7 @@ func update_vehicle(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/vehicle/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/vehicle/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -386,8 +364,6 @@ func update_vehicle(
 
 
 func update_vehicle_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id of the vehicle to update
 	id: float,
@@ -402,7 +378,6 @@ func update_vehicle_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_vehicle")
 	bzz_callable.bind(
-		version,
 		id,
 		vehicle,
 		body,

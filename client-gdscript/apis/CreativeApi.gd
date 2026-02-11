@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "CreativeApi"
 
 
-# Operation addPreview → POST /api/{version}/creative/addpreview
+# Operation addPreview → POST /creative/addpreview
 # Add Preview
 #
 # Enable this ad for preview for this account.
 func add_preview(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -35,7 +33,7 @@ func add_preview(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/creative/addpreview".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/creative/addpreview"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -66,8 +64,6 @@ func add_preview(
 
 
 func add_preview_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -80,7 +76,6 @@ func add_preview_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_preview")
 	bzz_callable.bind(
-		version,
 		accountId,
 		creativeId,
 		on_success,
@@ -90,13 +85,11 @@ func add_preview_threaded(
 	return bzz_thread
 
 
-# Operation adsFind → GET /api/{version}/ads/find
+# Operation adsFind → GET /ads/find
 # Find Missions
 #
 # Get a set of ad filtered by the parameters provided.
 func ads_find(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 	appKey: String,
@@ -153,7 +146,7 @@ func ads_find(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ads/find".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ads/find"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -198,8 +191,6 @@ func ads_find(
 
 
 func ads_find_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 	appKey: String,
@@ -254,7 +245,6 @@ func ads_find_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "ads_find")
 	bzz_callable.bind(
-		version,
 		appKey,
 		some_randomize,
 		targetedAdsOnly,
@@ -278,13 +268,11 @@ func ads_find_threaded(
 	return bzz_thread
 
 
-# Operation createCreative → POST /api/{version}/creative/create
+# Operation createCreative → POST /creative/create
 # Create Creative
 #
 # Create a creative
 func create_creative(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -338,7 +326,7 @@ func create_creative(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/creative/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/creative/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -382,8 +370,6 @@ func create_creative(
 
 
 func create_creative_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -435,7 +421,6 @@ func create_creative_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_creative")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		active,
@@ -458,13 +443,11 @@ func create_creative_threaded(
 	return bzz_thread
 
 
-# Operation deleteCreative → POST /api/{version}/creative/delete
+# Operation deleteCreative → POST /creative/delete
 # Delete Creative
 #
 # Delete a creative
 func delete_creative(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -479,7 +462,7 @@ func delete_creative(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/creative/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/creative/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -510,8 +493,6 @@ func delete_creative(
 
 
 func delete_creative_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -524,7 +505,6 @@ func delete_creative_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_creative")
 	bzz_callable.bind(
-		version,
 		accountId,
 		creativeId,
 		on_success,
@@ -534,13 +514,11 @@ func delete_creative_threaded(
 	return bzz_thread
 
 
-# Operation getCreative → GET /api/{version}/creative/get
+# Operation getCreative → GET /creative/get
 # Get Creative
 #
 # Get a creative
 func get_creative(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -555,7 +533,7 @@ func get_creative(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/creative/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/creative/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -586,8 +564,6 @@ func get_creative(
 
 
 func get_creative_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -600,7 +576,6 @@ func get_creative_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_creative")
 	bzz_callable.bind(
-		version,
 		accountId,
 		creativeId,
 		on_success,
@@ -610,13 +585,11 @@ func get_creative_threaded(
 	return bzz_thread
 
 
-# Operation getCreativesByApplication → GET /api/{version}/creative/search
+# Operation getCreativesByApplication → GET /creative/search
 # Search Creatives
 #
 # Get a list of levels for an application, just those the account has permissions to view.
 func get_creatives_by_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -643,7 +616,7 @@ func get_creatives_by_application(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/creative/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/creative/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -678,8 +651,6 @@ func get_creatives_by_application(
 
 
 func get_creatives_by_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -704,7 +675,6 @@ func get_creatives_by_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_creatives_by_application")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		start,
@@ -718,13 +688,11 @@ func get_creatives_by_application_threaded(
 	return bzz_thread
 
 
-# Operation removePreview → POST /api/{version}/creative/removepreview
+# Operation removePreview → POST /creative/removepreview
 # Remove Preview
 #
 # Remove this ad for preview for this account.
 func remove_preview(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the ID of the logged in user
 	accountId: float,
@@ -739,7 +707,7 @@ func remove_preview(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/creative/removepreview".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/creative/removepreview"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -770,8 +738,6 @@ func remove_preview(
 
 
 func remove_preview_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the ID of the logged in user
 	accountId: float,
@@ -784,7 +750,6 @@ func remove_preview_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_preview")
 	bzz_callable.bind(
-		version,
 		accountId,
 		creativeId,
 		on_success,
@@ -794,13 +759,11 @@ func remove_preview_threaded(
 	return bzz_thread
 
 
-# Operation updateCreative → POST /api/{version}/creative/update
+# Operation updateCreative → POST /creative/update
 # Update Creative
 #
 # Update a creative
 func update_creative(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -851,7 +814,7 @@ func update_creative(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/creative/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/creative/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -894,8 +857,6 @@ func update_creative(
 
 
 func update_creative_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -944,7 +905,6 @@ func update_creative_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_creative")
 	bzz_callable.bind(
-		version,
 		accountId,
 		creativeId,
 		name,

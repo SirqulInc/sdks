@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ProgramApi"
 
 
-# Operation createProgram → POST /api/{version}/program
+# Operation createProgram → POST /program
 # Create Program
 #
 # Create a new program
 func create_program(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Program
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -31,7 +29,7 @@ func create_program(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/program".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/program"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func create_program(
 
 
 func create_program_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Program
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -71,7 +67,6 @@ func create_program_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_program")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -80,13 +75,11 @@ func create_program_threaded(
 	return bzz_thread
 
 
-# Operation deleteProgram → DELETE /api/{version}/program/{id}
+# Operation deleteProgram → DELETE /program/{id}
 # Delete Program
 #
 # Delete an existing program
 func delete_program(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -98,7 +91,7 @@ func delete_program(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/program/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/program/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -121,8 +114,6 @@ func delete_program(
 
 
 func delete_program_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -132,7 +123,6 @@ func delete_program_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_program")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -141,13 +131,11 @@ func delete_program_threaded(
 	return bzz_thread
 
 
-# Operation getProgram → GET /api/{version}/program/{id}
+# Operation getProgram → GET /program/{id}
 # Get Program
 #
 # Get an existing program
 func get_program(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -159,7 +147,7 @@ func get_program(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/program/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/program/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -188,8 +176,6 @@ func get_program(
 
 
 func get_program_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -199,7 +185,6 @@ func get_program_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_program")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -208,13 +193,11 @@ func get_program_threaded(
 	return bzz_thread
 
 
-# Operation postProgram → POST /api/{version}/program/{id}
+# Operation postProgram → POST /program/{id}
 # Update Program
 #
 # Update an existing program
 func post_program(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -228,7 +211,7 @@ func post_program(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/program/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/program/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -258,8 +241,6 @@ func post_program(
 
 
 func post_program_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -271,7 +252,6 @@ func post_program_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "post_program")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -281,13 +261,11 @@ func post_program_threaded(
 	return bzz_thread
 
 
-# Operation putProgram → PUT /api/{version}/program/{id}
+# Operation putProgram → PUT /program/{id}
 # Update Program
 #
 # Update an existing program
 func put_program(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -301,7 +279,7 @@ func put_program(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/program/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/program/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -331,8 +309,6 @@ func put_program(
 
 
 func put_program_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the program
 	id: float,
@@ -344,7 +320,6 @@ func put_program_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "put_program")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -354,13 +329,11 @@ func put_program_threaded(
 	return bzz_thread
 
 
-# Operation searchPrograms → GET /api/{version}/program
+# Operation searchPrograms → GET /program
 # Search Programs
 #
 # Search for programs
 func search_programs(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -387,7 +360,7 @@ func search_programs(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/program".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/program"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -422,8 +395,6 @@ func search_programs(
 
 
 func search_programs_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -448,7 +419,6 @@ func search_programs_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_programs")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,

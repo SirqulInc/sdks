@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AccountApi"
 
 
-# Operation accountLocationSearch → GET /api/{version}/account/search
+# Operation accountLocationSearch → GET /account/search
 # Search Accounts by Location
 #
 # Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
 func account_location_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -131,7 +129,7 @@ func account_location_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -194,8 +192,6 @@ func account_location_search(
 
 
 func account_location_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -304,7 +300,6 @@ func account_location_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "account_location_search")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		q,
@@ -346,13 +341,11 @@ func account_location_search_threaded(
 	return bzz_thread
 
 
-# Operation blockAccount → POST /api/{version}/account/block
+# Operation blockAccount → POST /account/block
 # Block Account
 #
 # Moves or removes an account into the user's blocked group.
 func block_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountIdBeingBlocked: float   Eg: 789
 	# The id of the account to be blocked/unblocked
 	accountIdBeingBlocked: float,
@@ -382,7 +375,7 @@ func block_account(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/block".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/block"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -418,8 +411,6 @@ func block_account(
 
 
 func block_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountIdBeingBlocked: float   Eg: 789
 	# The id of the account to be blocked/unblocked
 	accountIdBeingBlocked: float,
@@ -447,7 +438,6 @@ func block_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "block_account")
 	bzz_callable.bind(
-		version,
 		accountIdBeingBlocked,
 		deviceId,
 		accountId,
@@ -462,13 +452,11 @@ func block_account_threaded(
 	return bzz_thread
 
 
-# Operation createAccount → POST /api/{version}/account/create
+# Operation createAccount → POST /account/create
 # Create Account
 #
 # Create a new account by role.
 func create_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# The access token to authenticate with (ex: username)
 	username: String,
@@ -693,7 +681,7 @@ func create_account(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -794,8 +782,6 @@ func create_account(
 
 
 func create_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# The access token to authenticate with (ex: username)
 	username: String,
@@ -1018,7 +1004,6 @@ func create_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_account")
 	bzz_callable.bind(
-		version,
 		username,
 		password,
 		name,
@@ -1098,13 +1083,11 @@ func create_account_threaded(
 	return bzz_thread
 
 
-# Operation editAccount → POST /api/{version}/account/profile/update
+# Operation editAccount → POST /account/profile/update
 # Update Account
 #
 # Edit the user's profile information
 func edit_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -1359,7 +1342,7 @@ func edit_account(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/profile/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/profile/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1470,8 +1453,6 @@ func edit_account(
 
 
 func edit_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -1724,7 +1705,6 @@ func edit_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "edit_account")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		connectionAccountId,
@@ -1814,13 +1794,11 @@ func edit_account_threaded(
 	return bzz_thread
 
 
-# Operation editUsername → POST /api/{version}/account/username/update
+# Operation editUsername → POST /account/username/update
 # Update Username and Email
 #
 # Update account's own username and/or emailAddress
 func edit_username(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id
 	deviceId = "",
@@ -1841,7 +1819,7 @@ func edit_username(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/username/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/username/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1874,8 +1852,6 @@ func edit_username(
 
 
 func edit_username_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id
 	deviceId = "",
@@ -1894,7 +1870,6 @@ func edit_username_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "edit_username")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		emailAddress,
@@ -1906,13 +1881,11 @@ func edit_username_threaded(
 	return bzz_thread
 
 
-# Operation getAccount → GET /api/{version}/account/profile/get
+# Operation getAccount → GET /account/profile/get
 # Get Account
 #
 # Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
 func get_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool = false   Eg: true
 	# Return Nulls
 	returnNulls = false,
@@ -1957,7 +1930,7 @@ func get_account(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/profile/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/profile/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1998,8 +1971,6 @@ func get_account(
 
 
 func get_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool = false   Eg: true
 	# Return Nulls
 	returnNulls = false,
@@ -2042,7 +2013,6 @@ func get_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_account")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		deviceId,
 		accountId,
@@ -2062,13 +2032,11 @@ func get_account_threaded(
 	return bzz_thread
 
 
-# Operation getProfileAssets → GET /api/{version}/account/profile/assets
+# Operation getProfileAssets → GET /account/profile/assets
 # Get Profile Assets
 #
 # Get a list of assets a person has ever uploaded. Filters the list based on parameters.
 func get_profile_assets(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool = false   Eg: true
 	# Determines whether to return null fields in the response
 	returnNulls = false,
@@ -2119,7 +2087,7 @@ func get_profile_assets(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/profile/assets".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/profile/assets"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2162,8 +2130,6 @@ func get_profile_assets(
 
 
 func get_profile_assets_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool = false   Eg: true
 	# Determines whether to return null fields in the response
 	returnNulls = false,
@@ -2212,7 +2178,6 @@ func get_profile_assets_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_profile_assets")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		deviceId,
 		accountId,
@@ -2234,13 +2199,11 @@ func get_profile_assets_threaded(
 	return bzz_thread
 
 
-# Operation getReferralList → GET /api/{version}/account/referral/list
+# Operation getReferralList → GET /account/referral/list
 # Search Accounts
 #
 # Gets a user's account profile and their referral List.
 func get_referral_list(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (deviceId or accountId required)
 	accountId = null,
@@ -2282,7 +2245,7 @@ func get_referral_list(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/referral/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/referral/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2316,8 +2279,6 @@ func get_referral_list(
 
 
 func get_referral_list_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (deviceId or accountId required)
 	accountId = null,
@@ -2357,7 +2318,6 @@ func get_referral_list_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_referral_list")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		retrieveType,
@@ -2376,13 +2336,11 @@ func get_referral_list_threaded(
 	return bzz_thread
 
 
-# Operation getSettings → GET /api/{version}/account/settings/get
+# Operation getSettings → GET /account/settings/get
 # Get Account Settings
 #
 # Get the account settings for a user
 func get_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -2403,7 +2361,7 @@ func get_settings(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/settings/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/settings/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2436,8 +2394,6 @@ func get_settings(
 
 
 func get_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -2456,7 +2412,6 @@ func get_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_settings")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		latitude,
@@ -2468,13 +2423,11 @@ func get_settings_threaded(
 	return bzz_thread
 
 
-# Operation loginDelegate → POST /api/{version}/account/login/delegate
+# Operation loginDelegate → POST /account/login/delegate
 # Login as Account
 #
 # A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
 func login_delegate(
-	# version: float   Eg: 3.16
-	version: float,
 	# accessToken: String = ""   Eg: accessToken_example
 	accessToken: String,
 	# appKey: String = ""   Eg: appKey_example
@@ -2508,7 +2461,7 @@ func login_delegate(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/login/delegate".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/login/delegate"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2548,8 +2501,6 @@ func login_delegate(
 
 
 func login_delegate_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accessToken: String = ""   Eg: accessToken_example
 	accessToken: String,
 	# appKey: String = ""   Eg: appKey_example
@@ -2581,7 +2532,6 @@ func login_delegate_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "login_delegate")
 	bzz_callable.bind(
-		version,
 		accessToken,
 		appKey,
 		deviceId,
@@ -2600,13 +2550,11 @@ func login_delegate_threaded(
 	return bzz_thread
 
 
-# Operation loginGeneral → POST /api/{version}/account/login
+# Operation loginGeneral → POST /account/login
 # Login Account
 #
 # General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
 func login_general(
-	# version: float   Eg: 3.16
-	version: float,
 	# accessToken: String = ""   Eg: accessToken_example
 	# The access token to authenticate with (ex: username or fb token)
 	accessToken: String,
@@ -2654,7 +2602,7 @@ func login_general(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/login".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/login"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2696,8 +2644,6 @@ func login_general(
 
 
 func login_general_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accessToken: String = ""   Eg: accessToken_example
 	# The access token to authenticate with (ex: username or fb token)
 	accessToken: String,
@@ -2743,7 +2689,6 @@ func login_general_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "login_general")
 	bzz_callable.bind(
-		version,
 		accessToken,
 		networkUID,
 		appKey,
@@ -2764,13 +2709,11 @@ func login_general_threaded(
 	return bzz_thread
 
 
-# Operation loginUsername → POST /api/{version}/account/get
+# Operation loginUsername → POST /account/get
 # Login Account (Username)
 #
 # Login to system with an account
 func login_username(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# the user's email address they used to sign-up
 	username: String,
@@ -2809,7 +2752,7 @@ func login_username(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2848,8 +2791,6 @@ func login_username(
 
 
 func login_username_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# the user's email address they used to sign-up
 	username: String,
@@ -2886,7 +2827,6 @@ func login_username_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "login_username")
 	bzz_callable.bind(
-		version,
 		username,
 		password,
 		deviceId,
@@ -2904,13 +2844,11 @@ func login_username_threaded(
 	return bzz_thread
 
 
-# Operation logout → POST /api/{version}/account/logout
+# Operation logout → POST /account/logout
 # Logout Account
 #
 # Cleans up the users data for logging out.
 func logout(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -2934,7 +2872,7 @@ func logout(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/logout".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/logout"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2968,8 +2906,6 @@ func logout(
 
 
 func logout_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -2991,7 +2927,6 @@ func logout_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "logout")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		deviceIdType,
 		accountId,
@@ -3004,13 +2939,11 @@ func logout_threaded(
 	return bzz_thread
 
 
-# Operation mergeAccount → POST /api/{version}/account/merge
+# Operation mergeAccount → POST /account/merge
 # Merge Account
 #
 # Merges the analytics, achievements, leaderboards of two accounts.
 func merge_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# mergeAccountId: float   Eg: 789
 	# The id of the account to being merged
 	mergeAccountId: float,
@@ -3031,7 +2964,7 @@ func merge_account(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/merge".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/merge"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3064,8 +2997,6 @@ func merge_account(
 
 
 func merge_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# mergeAccountId: float   Eg: 789
 	# The id of the account to being merged
 	mergeAccountId: float,
@@ -3084,7 +3015,6 @@ func merge_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "merge_account")
 	bzz_callable.bind(
-		version,
 		mergeAccountId,
 		appKey,
 		deviceId,
@@ -3096,13 +3026,11 @@ func merge_account_threaded(
 	return bzz_thread
 
 
-# Operation passwordChange → POST /api/{version}/account/passwordchange
+# Operation passwordChange → POST /account/passwordchange
 # Update Password
 #
 # Update the account password.
 func password_change(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to update
 	accountId: float,
@@ -3123,7 +3051,7 @@ func password_change(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/passwordchange".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/passwordchange"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3156,8 +3084,6 @@ func password_change(
 
 
 func password_change_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account to update
 	accountId: float,
@@ -3176,7 +3102,6 @@ func password_change_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "password_change")
 	bzz_callable.bind(
-		version,
 		accountId,
 		oldPassword,
 		newPassword,
@@ -3188,13 +3113,11 @@ func password_change_threaded(
 	return bzz_thread
 
 
-# Operation passwordReset → POST /api/{version}/account/passwordreset
+# Operation passwordReset → POST /account/passwordreset
 # Reset Password
 #
 # Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
 func password_reset(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# The token associated with the account to update, good for 24 hours
 	token: String,
@@ -3212,7 +3135,7 @@ func password_reset(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/passwordreset".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/passwordreset"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3244,8 +3167,6 @@ func password_reset(
 
 
 func password_reset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# The token associated with the account to update, good for 24 hours
 	token: String,
@@ -3261,7 +3182,6 @@ func password_reset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "password_reset")
 	bzz_callable.bind(
-		version,
 		token,
 		password,
 		confirm,
@@ -3272,13 +3192,11 @@ func password_reset_threaded(
 	return bzz_thread
 
 
-# Operation requestPasswordReset → POST /api/{version}/account/requestpasswordreset
+# Operation requestPasswordReset → POST /account/requestpasswordreset
 # Request Password Reset
 #
 # Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
 func request_password_reset(
-	# version: float   Eg: 3.16
-	version: float,
 	# email: String = ""   Eg: email_example
 	# The email/username of the account
 	email: String,
@@ -3302,7 +3220,7 @@ func request_password_reset(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/requestpasswordreset".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/requestpasswordreset"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3336,8 +3254,6 @@ func request_password_reset(
 
 
 func request_password_reset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# email: String = ""   Eg: email_example
 	# The email/username of the account
 	email: String,
@@ -3359,7 +3275,6 @@ func request_password_reset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "request_password_reset")
 	bzz_callable.bind(
-		version,
 		email,
 		from,
 		domain,
@@ -3372,13 +3287,11 @@ func request_password_reset_threaded(
 	return bzz_thread
 
 
-# Operation requestValidateAccount → POST /api/{version}/account/requestValidateAccount
+# Operation requestValidateAccount → POST /account/requestValidateAccount
 # Send Validation Request
 #
 # Send an email to validate a user's account.
 func request_validate_account(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -3390,7 +3303,7 @@ func request_validate_account(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/requestValidateAccount".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/requestValidateAccount"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3420,8 +3333,6 @@ func request_validate_account(
 
 
 func request_validate_account_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -3431,7 +3342,6 @@ func request_validate_account_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "request_validate_account")
 	bzz_callable.bind(
-		version,
 		accountId,
 		on_success,
 		on_failure,
@@ -3440,13 +3350,11 @@ func request_validate_account_threaded(
 	return bzz_thread
 
 
-# Operation searchAccounts → GET /api/{version}/account/profile/search
+# Operation searchAccounts → GET /account/profile/search
 # Search Accounts
 #
 # Search for account profiles.
 func search_accounts(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the account requesting
 	accountId: float,
@@ -3509,7 +3417,7 @@ func search_accounts(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/profile/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/profile/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3556,8 +3464,6 @@ func search_accounts(
 
 
 func search_accounts_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the account requesting
 	accountId: float,
@@ -3618,7 +3524,6 @@ func search_accounts_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_accounts")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		keyword,
@@ -3644,13 +3549,11 @@ func search_accounts_threaded(
 	return bzz_thread
 
 
-# Operation secureLogin → POST /api/{version}/account/login/validate
+# Operation secureLogin → POST /account/login/validate
 # Login Account (Encrypted Username)
 #
 # ogin with encrypted user-name and password.
 func secure_login(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# The user's encrypted email address they used to sign-up
 	username: String,
@@ -3686,7 +3589,7 @@ func secure_login(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/login/validate".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/login/validate"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3724,8 +3627,6 @@ func secure_login(
 
 
 func secure_login_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# The user's encrypted email address they used to sign-up
 	username: String,
@@ -3759,7 +3660,6 @@ func secure_login_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "secure_login")
 	bzz_callable.bind(
-		version,
 		username,
 		password,
 		gameType,
@@ -3776,13 +3676,11 @@ func secure_login_threaded(
 	return bzz_thread
 
 
-# Operation secureSignup → POST /api/{version}/account/create/validate
+# Operation secureSignup → POST /account/create/validate
 # Create Account (Encrypted Username)
 #
 # Create a new account by role (with encrypted user-name and password)
 func secure_signup(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id
 	deviceId: String,
@@ -3974,7 +3872,7 @@ func secure_signup(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/create/validate".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/create/validate"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4064,8 +3962,6 @@ func secure_signup(
 
 
 func secure_signup_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id
 	deviceId: String,
@@ -4255,7 +4151,6 @@ func secure_signup_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "secure_signup")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		username,
 		password,
@@ -4324,13 +4219,11 @@ func secure_signup_threaded(
 	return bzz_thread
 
 
-# Operation setMatchToken → POST /api/{version}/consumer/profile/matchToken
+# Operation setMatchToken → POST /consumer/profile/matchToken
 # Save Match Token
 #
 # Save user's match token to be used for profile match making
 func set_match_token(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -4360,7 +4253,7 @@ func set_match_token(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/profile/matchToken".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/profile/matchToken"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4396,8 +4289,6 @@ func set_match_token(
 
 
 func set_match_token_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -4425,7 +4316,6 @@ func set_match_token_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "set_match_token")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		matchToken,
@@ -4440,13 +4330,11 @@ func set_match_token_threaded(
 	return bzz_thread
 
 
-# Operation updateActveStatus → POST /api/{version}/account/active/update
+# Operation updateActveStatus → POST /account/active/update
 # Update Account Active Status
 #
 # Activate or deactivate an account (requires appropriate permissions).
 func update_actve_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user (deviceId or accountId required)
 	accountId: float,
@@ -4470,7 +4358,7 @@ func update_actve_status(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/active/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/active/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4504,8 +4392,6 @@ func update_actve_status(
 
 
 func update_actve_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user (deviceId or accountId required)
 	accountId: float,
@@ -4527,7 +4413,6 @@ func update_actve_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_actve_status")
 	bzz_callable.bind(
-		version,
 		accountId,
 		connectionAccountId,
 		active,
@@ -4540,13 +4425,11 @@ func update_actve_status_threaded(
 	return bzz_thread
 
 
-# Operation updateLocation → POST /api/{version}/account/location/update
+# Operation updateLocation → POST /account/location/update
 # Update Location
 #
 # Update the account location
 func update_location(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -4570,7 +4453,7 @@ func update_location(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/location/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/location/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4604,8 +4487,6 @@ func update_location(
 
 
 func update_location_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -4627,7 +4508,6 @@ func update_location_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_location")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		latitude,
@@ -4640,13 +4520,11 @@ func update_location_threaded(
 	return bzz_thread
 
 
-# Operation updateSettings → POST /api/{version}/account/settings/update
+# Operation updateSettings → POST /account/settings/update
 # Update Account Settings
 #
 # Update the account settings for a user
 func update_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -4691,7 +4569,7 @@ func update_settings(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/settings/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/settings/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4732,8 +4610,6 @@ func update_settings(
 
 
 func update_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -4776,7 +4652,6 @@ func update_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_settings")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		blockedNotifications,
@@ -4796,13 +4671,11 @@ func update_settings_threaded(
 	return bzz_thread
 
 
-# Operation validateAccountSignup → POST /api/{version}/account/validateAccountSignup
+# Operation validateAccountSignup → POST /account/validateAccountSignup
 # Save Validation Status
 #
 # Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
 func validate_account_signup(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# The token associated with the account to update, good for 24 hours
 	token: String,
@@ -4814,7 +4687,7 @@ func validate_account_signup(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/validateAccountSignup".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/validateAccountSignup"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4844,8 +4717,6 @@ func validate_account_signup(
 
 
 func validate_account_signup_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# The token associated with the account to update, good for 24 hours
 	token: String,
@@ -4855,7 +4726,6 @@ func validate_account_signup_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "validate_account_signup")
 	bzz_callable.bind(
-		version,
 		token,
 		on_success,
 		on_failure,
@@ -4864,13 +4734,11 @@ func validate_account_signup_threaded(
 	return bzz_thread
 
 
-# Operation validatePasswordReset → POST /api/{version}/account/validatepasswordreset
+# Operation validatePasswordReset → POST /account/validatepasswordreset
 # Validate Password Reset Token
 #
 # Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
 func validate_password_reset(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# The token associated with the account to update, good for 24 hours
 	token: String,
@@ -4882,7 +4750,7 @@ func validate_password_reset(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/account/validatepasswordreset".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/account/validatepasswordreset"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -4912,8 +4780,6 @@ func validate_password_reset(
 
 
 func validate_password_reset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# The token associated with the account to update, good for 24 hours
 	token: String,
@@ -4923,7 +4789,6 @@ func validate_password_reset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "validate_password_reset")
 	bzz_callable.bind(
-		version,
 		token,
 		on_success,
 		on_failure,

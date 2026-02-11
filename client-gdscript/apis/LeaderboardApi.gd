@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "LeaderboardApi"
 
 
-# Operation createLeaderboard → POST /api/{version}/leaderboard/create
+# Operation createLeaderboard → POST /leaderboard/create
 # Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 #
 # Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 func create_leaderboard(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user creating the leaderboard.
 	accountId = null,
@@ -68,7 +66,7 @@ func create_leaderboard(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/leaderboard/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/leaderboard/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -110,8 +108,6 @@ func create_leaderboard(
 
 
 func create_leaderboard_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user creating the leaderboard.
 	accountId = null,
@@ -157,7 +153,6 @@ func create_leaderboard_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_leaderboard")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		rankType,
@@ -178,13 +173,11 @@ func create_leaderboard_threaded(
 	return bzz_thread
 
 
-# Operation deleteLeaderboard → POST /api/{version}/leaderboard/delete
+# Operation deleteLeaderboard → POST /leaderboard/delete
 # Delete the Leader Board
 #
 # Removes a leader board id.
 func delete_leaderboard(
-	# version: float   Eg: 3.16
-	version: float,
 	# leaderboardId: float   Eg: 789
 	# The leaderboard id to delete.
 	leaderboardId: float,
@@ -199,7 +192,7 @@ func delete_leaderboard(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/leaderboard/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/leaderboard/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -230,8 +223,6 @@ func delete_leaderboard(
 
 
 func delete_leaderboard_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# leaderboardId: float   Eg: 789
 	# The leaderboard id to delete.
 	leaderboardId: float,
@@ -244,7 +235,6 @@ func delete_leaderboard_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_leaderboard")
 	bzz_callable.bind(
-		version,
 		leaderboardId,
 		accountId,
 		on_success,
@@ -254,13 +244,11 @@ func delete_leaderboard_threaded(
 	return bzz_thread
 
 
-# Operation getLeaderboard → GET /api/{version}/leaderboard/get
+# Operation getLeaderboard → GET /leaderboard/get
 # Read a leaderboard by id and retrieve the matching ranking list
 #
 # Read a leaderboard by id and retrieve the matching ranking list
 func get_leaderboard(
-	# version: float   Eg: 3.16
-	version: float,
 	# leaderboardId: float   Eg: 789
 	# The leaderboard id.
 	leaderboardId: float,
@@ -278,7 +266,7 @@ func get_leaderboard(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/leaderboard/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/leaderboard/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -310,8 +298,6 @@ func get_leaderboard(
 
 
 func get_leaderboard_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# leaderboardId: float   Eg: 789
 	# The leaderboard id.
 	leaderboardId: float,
@@ -327,7 +313,6 @@ func get_leaderboard_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_leaderboard")
 	bzz_callable.bind(
-		version,
 		leaderboardId,
 		accountId,
 		includeFullRankingList,
@@ -338,13 +323,11 @@ func get_leaderboard_threaded(
 	return bzz_thread
 
 
-# Operation searchLeaderboards → GET /api/{version}/leaderboard/search
+# Operation searchLeaderboards → GET /leaderboard/search
 # Search leaderboard and retrieve the matching ranking list
 #
 # Search leaderboard and retrieve the matching ranking list
 func search_leaderboards(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user requesting the search.
 	accountId = null,
@@ -389,7 +372,7 @@ func search_leaderboards(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/leaderboard/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/leaderboard/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -430,8 +413,6 @@ func search_leaderboards(
 
 
 func search_leaderboards_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user requesting the search.
 	accountId = null,
@@ -474,7 +455,6 @@ func search_leaderboards_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_leaderboards")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		globalOnly,
@@ -494,13 +474,11 @@ func search_leaderboards_threaded(
 	return bzz_thread
 
 
-# Operation updateLeaderboard → POST /api/{version}/leaderboard/update
+# Operation updateLeaderboard → POST /leaderboard/update
 # Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 #
 # Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 func update_leaderboard(
-	# version: float   Eg: 3.16
-	version: float,
 	# leaderboardId: float   Eg: 789
 	# The leaderboard id to update.
 	leaderboardId: float,
@@ -554,7 +532,7 @@ func update_leaderboard(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/leaderboard/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/leaderboard/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -598,8 +576,6 @@ func update_leaderboard(
 
 
 func update_leaderboard_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# leaderboardId: float   Eg: 789
 	# The leaderboard id to update.
 	leaderboardId: float,
@@ -651,7 +627,6 @@ func update_leaderboard_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_leaderboard")
 	bzz_callable.bind(
-		version,
 		leaderboardId,
 		accountId,
 		appKey,

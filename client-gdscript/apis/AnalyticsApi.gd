@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AnalyticsApi"
 
 
-# Operation activities → GET /api/{version}/analytics/useractivity
+# Operation activities → GET /analytics/useractivity
 # Get User Activity
 #
 # Get an activity feed by user.
 func activities(
-	# version: float   Eg: 3.16
-	version: float,
 	# start: int   Eg: 56
 	# The start of the pagination
 	start: int,
@@ -38,7 +36,7 @@ func activities(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/analytics/useractivity".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/analytics/useractivity"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -70,8 +68,6 @@ func activities(
 
 
 func activities_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# start: int   Eg: 56
 	# The start of the pagination
 	start: int,
@@ -87,7 +83,6 @@ func activities_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "activities")
 	bzz_callable.bind(
-		version,
 		start,
 		limit,
 		accountId,
@@ -98,13 +93,11 @@ func activities_threaded(
 	return bzz_thread
 
 
-# Operation aggregatedFilteredUsage → GET /api/{version}/analytics/aggregatedFilteredUsage
+# Operation aggregatedFilteredUsage → GET /analytics/aggregatedFilteredUsage
 # Get Aggregated Filtered Usage
 #
 # Query analytics to get data used for nested graphs and charts
 func aggregated_filtered_usage(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -206,7 +199,7 @@ func aggregated_filtered_usage(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/analytics/aggregatedFilteredUsage".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/analytics/aggregatedFilteredUsage"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -266,8 +259,6 @@ func aggregated_filtered_usage(
 
 
 func aggregated_filtered_usage_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -367,7 +358,6 @@ func aggregated_filtered_usage_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "aggregated_filtered_usage")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		applicationId,
@@ -406,13 +396,11 @@ func aggregated_filtered_usage_threaded(
 	return bzz_thread
 
 
-# Operation filteredUsage → GET /api/{version}/analytics/filteredUsage
+# Operation filteredUsage → GET /analytics/filteredUsage
 # Get Filtered Usage
 #
 # Query analytics to get data used for graphs and charts
 func filtered_usage(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -538,7 +526,7 @@ func filtered_usage(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/analytics/filteredUsage".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/analytics/filteredUsage"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -606,8 +594,6 @@ func filtered_usage(
 
 
 func filtered_usage_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -731,7 +717,6 @@ func filtered_usage_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "filtered_usage")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		applicationId,
@@ -778,13 +763,11 @@ func filtered_usage_threaded(
 	return bzz_thread
 
 
-# Operation usage → POST /api/{version}/analytics/usage
+# Operation usage → POST /analytics/usage
 # Create Usage Record
 #
 # Record an analytic record for a known state within the application.
 func usage(
-	# version: float   Eg: 3.16
-	version: float,
 	# tag: String = ""   Eg: tag_example
 	# The tag to apply: the name of the action or thing being logged.
 	tag: String,
@@ -886,7 +869,7 @@ func usage(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/analytics/usage".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/analytics/usage"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -946,8 +929,6 @@ func usage(
 
 
 func usage_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# tag: String = ""   Eg: tag_example
 	# The tag to apply: the name of the action or thing being logged.
 	tag: String,
@@ -1047,7 +1028,6 @@ func usage_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "usage")
 	bzz_callable.bind(
-		version,
 		tag,
 		deviceId,
 		accountId,
@@ -1086,13 +1066,11 @@ func usage_threaded(
 	return bzz_thread
 
 
-# Operation usageBatch → POST /api/{version}/analytics/usage/batch
+# Operation usageBatch → POST /analytics/usage/batch
 # Create Multiple Usage Records
 #
 # Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 func usage_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key unique to each application.
 	appKey: String,
@@ -1134,7 +1112,7 @@ func usage_batch(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/analytics/usage/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/analytics/usage/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1174,8 +1152,6 @@ func usage_batch(
 
 
 func usage_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key unique to each application.
 	appKey: String,
@@ -1215,7 +1191,6 @@ func usage_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "usage_batch")
 	bzz_callable.bind(
-		version,
 		appKey,
 		device,
 		data,

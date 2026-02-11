@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "PurchaseOrderApi"
 
 
-# Operation createOrder → POST /api/{version}/order/create
+# Operation createOrder → POST /order/create
 # Create Order
 #
 # Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
 func create_order(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application requesting the purchase
 	appKey: String,
@@ -65,7 +63,7 @@ func create_order(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/order/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/order/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -106,8 +104,6 @@ func create_order(
 
 
 func create_order_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application requesting the purchase
 	appKey: String,
@@ -150,7 +146,6 @@ func create_order_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_order")
 	bzz_callable.bind(
-		version,
 		appKey,
 		cart,
 		deviceId,
@@ -170,13 +165,11 @@ func create_order_threaded(
 	return bzz_thread
 
 
-# Operation deleteOrder → POST /api/{version}/order/delete
+# Operation deleteOrder → POST /order/delete
 # Delete Order
 #
 # Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 func delete_order(
-	# version: float   Eg: 3.16
-	version: float,
 	# orderId: float   Eg: 789
 	# Order Id
 	orderId: float,
@@ -194,7 +187,7 @@ func delete_order(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/order/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/order/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -226,8 +219,6 @@ func delete_order(
 
 
 func delete_order_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# orderId: float   Eg: 789
 	# Order Id
 	orderId: float,
@@ -243,7 +234,6 @@ func delete_order_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_order")
 	bzz_callable.bind(
-		version,
 		orderId,
 		deviceId,
 		accountId,
@@ -254,13 +244,11 @@ func delete_order_threaded(
 	return bzz_thread
 
 
-# Operation getOrder → GET /api/{version}/order/get
+# Operation getOrder → GET /order/get
 # Get Order
 #
 # Get an order record
 func get_order(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -281,7 +269,7 @@ func get_order(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/order/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/order/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -314,8 +302,6 @@ func get_order(
 
 
 func get_order_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -334,7 +320,6 @@ func get_order_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_order")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		orderId,
@@ -346,13 +331,11 @@ func get_order_threaded(
 	return bzz_thread
 
 
-# Operation previewOrder → POST /api/{version}/order/preview
+# Operation previewOrder → POST /order/preview
 # Preview Order
 #
 # Previews a purchase to see the total cost before making it.
 func preview_order(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application requesting the purchase
 	appKey: String,
@@ -397,7 +380,7 @@ func preview_order(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/order/preview".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/order/preview"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -438,8 +421,6 @@ func preview_order(
 
 
 func preview_order_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application requesting the purchase
 	appKey: String,
@@ -482,7 +463,6 @@ func preview_order_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "preview_order")
 	bzz_callable.bind(
-		version,
 		appKey,
 		cart,
 		deviceId,
@@ -502,13 +482,11 @@ func preview_order_threaded(
 	return bzz_thread
 
 
-# Operation searchOrders → GET /api/{version}/order/search
+# Operation searchOrders → GET /order/search
 # Search Orders
 #
 # Search on active orders by customer
 func search_orders(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application requesting the purchase
 	appKey: String,
@@ -610,7 +588,7 @@ func search_orders(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/order/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/order/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -670,8 +648,6 @@ func search_orders(
 
 
 func search_orders_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application requesting the purchase
 	appKey: String,
@@ -771,7 +747,6 @@ func search_orders_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_orders")
 	bzz_callable.bind(
-		version,
 		appKey,
 		deviceId,
 		accountId,
@@ -810,13 +785,11 @@ func search_orders_threaded(
 	return bzz_thread
 
 
-# Operation updateOrder → POST /api/{version}/order/update
+# Operation updateOrder → POST /order/update
 # Update Order
 #
 # Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
 func update_order(
-	# version: float   Eg: 3.16
-	version: float,
 	# orderId: float   Eg: 789
 	# The order to add the purchase to, leave null for new order.
 	orderId: float,
@@ -858,7 +831,7 @@ func update_order(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/order/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/order/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -898,8 +871,6 @@ func update_order(
 
 
 func update_order_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# orderId: float   Eg: 789
 	# The order to add the purchase to, leave null for new order.
 	orderId: float,
@@ -939,7 +910,6 @@ func update_order_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_order")
 	bzz_callable.bind(
-		version,
 		orderId,
 		appKey,
 		cart,

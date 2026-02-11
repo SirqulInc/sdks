@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ScoreApi"
 
 
-# Operation createScore → POST /api/{version}/score/create
+# Operation createScore → POST /score/create
 # Create Score
 #
 # Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
 func create_score(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -58,7 +56,7 @@ func create_score(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/score/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/score/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -97,8 +95,6 @@ func create_score(
 
 
 func create_score_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -134,7 +130,6 @@ func create_score_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_score")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		points,
@@ -152,13 +147,11 @@ func create_score_threaded(
 	return bzz_thread
 
 
-# Operation getScore → GET /api/{version}/score/get
+# Operation getScore → GET /score/get
 # Get Score
 #
 # Get the high score for an item.  Pass in the full path IDs for the score.
 func get_score(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -194,7 +187,7 @@ func get_score(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/score/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/score/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -232,8 +225,6 @@ func get_score(
 
 
 func get_score_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -267,7 +258,6 @@ func get_score_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_score")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		missionId,
@@ -284,13 +274,11 @@ func get_score_threaded(
 	return bzz_thread
 
 
-# Operation searchScores → GET /api/{version}/score/search
+# Operation searchScores → GET /score/search
 # Search Score
 #
 # Search the scores for an item.  Pass in the full path IDs for the scores.
 func search_scores(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -320,7 +308,7 @@ func search_scores(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/score/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/score/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -356,8 +344,6 @@ func search_scores(
 
 
 func search_scores_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -385,7 +371,6 @@ func search_scores_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_scores")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		missionId,

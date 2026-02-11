@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "PackApi"
 
 
-# Operation createPack → POST /api/{version}/pack/create
+# Operation createPack → POST /pack/create
 # Create Pack
 #
 # Create a pack.
 func create_pack(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -99,7 +97,7 @@ func create_pack(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/pack/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/pack/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -152,8 +150,6 @@ func create_pack(
 
 
 func create_pack_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -230,7 +226,6 @@ func create_pack_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_pack")
 	bzz_callable.bind(
-		version,
 		accountId,
 		title,
 		packOrder,
@@ -262,13 +257,11 @@ func create_pack_threaded(
 	return bzz_thread
 
 
-# Operation deletePack → POST /api/{version}/pack/delete
+# Operation deletePack → POST /pack/delete
 # Delete Pack
 #
 # Delete a pack.
 func delete_pack(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -283,7 +276,7 @@ func delete_pack(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/pack/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/pack/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -314,8 +307,6 @@ func delete_pack(
 
 
 func delete_pack_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -328,7 +319,6 @@ func delete_pack_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_pack")
 	bzz_callable.bind(
-		version,
 		accountId,
 		packId,
 		on_success,
@@ -338,13 +328,11 @@ func delete_pack_threaded(
 	return bzz_thread
 
 
-# Operation getPack → GET /api/{version}/pack/get
+# Operation getPack → GET /pack/get
 # Get Pack
 #
 # Get a pack.
 func get_pack(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -362,7 +350,7 @@ func get_pack(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/pack/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/pack/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -394,8 +382,6 @@ func get_pack(
 
 
 func get_pack_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -411,7 +397,6 @@ func get_pack_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_pack")
 	bzz_callable.bind(
-		version,
 		accountId,
 		packId,
 		includeGameData,
@@ -422,13 +407,11 @@ func get_pack_threaded(
 	return bzz_thread
 
 
-# Operation searchPacks → GET /api/{version}/pack/search
+# Operation searchPacks → GET /pack/search
 # Search Packs
 #
 # Search on packs.
 func search_packs(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -467,7 +450,7 @@ func search_packs(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/pack/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/pack/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -506,8 +489,6 @@ func search_packs(
 
 
 func search_packs_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -544,7 +525,6 @@ func search_packs_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_packs")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -562,13 +542,11 @@ func search_packs_threaded(
 	return bzz_thread
 
 
-# Operation updatePack → POST /api/{version}/pack/update
+# Operation updatePack → POST /pack/update
 # Update Pack
 #
 # Update a pack.
 func update_pack(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -650,7 +628,7 @@ func update_pack(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/pack/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/pack/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -704,8 +682,6 @@ func update_pack(
 
 
 func update_pack_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -785,7 +761,6 @@ func update_pack_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_pack")
 	bzz_callable.bind(
-		version,
 		accountId,
 		packId,
 		allocateTickets,

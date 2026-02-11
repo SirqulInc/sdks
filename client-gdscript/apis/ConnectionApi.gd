@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ConnectionApi"
 
 
-# Operation addConnectionToGroup → POST /api/{version}/consumer/connection/group/addConnection
+# Operation addConnectionToGroup → POST /consumer/connection/group/addConnection
 # Add Connection
 #
 # Adds a connection to a group.
 func add_connection_to_group(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -56,7 +54,7 @@ func add_connection_to_group(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/group/addConnection".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/group/addConnection"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -94,8 +92,6 @@ func add_connection_to_group(
 
 
 func add_connection_to_group_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -129,7 +125,6 @@ func add_connection_to_group_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_connection_to_group")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		groupId,
 		deviceId,
@@ -146,13 +141,11 @@ func add_connection_to_group_threaded(
 	return bzz_thread
 
 
-# Operation addConnectionsToGroup → POST /api/{version}/connection/group/addConnections
+# Operation addConnectionsToGroup → POST /connection/group/addConnections
 # Add Connections
 #
 # Adds a list of connections to a group.
 func add_connections_to_group(
-	# version: float   Eg: 3.16
-	version: float,
 	# connectionGroupId: float   Eg: 789
 	# the connection group ID
 	connectionGroupId: float,
@@ -182,7 +175,7 @@ func add_connections_to_group(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/connection/group/addConnections".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/connection/group/addConnections"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -218,8 +211,6 @@ func add_connections_to_group(
 
 
 func add_connections_to_group_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# connectionGroupId: float   Eg: 789
 	# the connection group ID
 	connectionGroupId: float,
@@ -247,7 +238,6 @@ func add_connections_to_group_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_connections_to_group")
 	bzz_callable.bind(
-		version,
 		connectionGroupId,
 		deviceId,
 		accountId,
@@ -262,13 +252,11 @@ func add_connections_to_group_threaded(
 	return bzz_thread
 
 
-# Operation addSubGroups → POST /api/{version}/consumer/connection/group/addSubGroup
+# Operation addSubGroups → POST /consumer/connection/group/addSubGroup
 # Add Connection Groups
 #
 # Add sub groups to a group.
 func add_sub_groups(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -298,7 +286,7 @@ func add_sub_groups(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/group/addSubGroup".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/group/addSubGroup"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -334,8 +322,6 @@ func add_sub_groups(
 
 
 func add_sub_groups_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -363,7 +349,6 @@ func add_sub_groups_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_sub_groups")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		groupId,
 		subGroupIds,
@@ -378,13 +363,11 @@ func add_sub_groups_threaded(
 	return bzz_thread
 
 
-# Operation createOrUpdateConnection → POST /api/{version}/consumer/connection/add
+# Operation createOrUpdateConnection → POST /consumer/connection/add
 # Create or Update Connection
 #
 # Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 func create_or_update_connection(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required)
 	deviceId = "",
@@ -435,7 +418,7 @@ func create_or_update_connection(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/add".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/add"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -478,8 +461,6 @@ func create_or_update_connection(
 
 
 func create_or_update_connection_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required)
 	deviceId = "",
@@ -528,7 +509,6 @@ func create_or_update_connection_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_or_update_connection")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		connectionId,
@@ -550,13 +530,11 @@ func create_or_update_connection_threaded(
 	return bzz_thread
 
 
-# Operation createOrUpdateGroup → POST /api/{version}/consumer/connection/group
+# Operation createOrUpdateGroup → POST /consumer/connection/group
 # Create or Update Connection Group
 #
 # Creates a new private group.
 func create_or_update_group(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -607,7 +585,7 @@ func create_or_update_group(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/group".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/group"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -650,8 +628,6 @@ func create_or_update_group(
 
 
 func create_or_update_group_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -700,7 +676,6 @@ func create_or_update_group_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_or_update_group")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		deviceId,
 		accountId,
@@ -722,13 +697,11 @@ func create_or_update_group_threaded(
 	return bzz_thread
 
 
-# Operation followAccept → POST /api/{version}/consumer/follow/accept
+# Operation followAccept → POST /consumer/follow/accept
 # Accept Follow Request
 #
 # Accept someone's follow request.
 func follow_accept(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -746,7 +719,7 @@ func follow_accept(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/follow/accept".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/follow/accept"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -778,8 +751,6 @@ func follow_accept(
 
 
 func follow_accept_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -795,7 +766,6 @@ func follow_accept_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "follow_accept")
 	bzz_callable.bind(
-		version,
 		accountId,
 		connectionAccountId,
 		appKey,
@@ -806,13 +776,11 @@ func follow_accept_threaded(
 	return bzz_thread
 
 
-# Operation followReject → POST /api/{version}/consumer/follow/reject
+# Operation followReject → POST /consumer/follow/reject
 # Reject Follow Request
 #
 # Reject someone's follow request or remove them as a follower.
 func follow_reject(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -830,7 +798,7 @@ func follow_reject(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/follow/reject".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/follow/reject"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -862,8 +830,6 @@ func follow_reject(
 
 
 func follow_reject_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -879,7 +845,6 @@ func follow_reject_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "follow_reject")
 	bzz_callable.bind(
-		version,
 		accountId,
 		connectionAccountId,
 		appKey,
@@ -890,13 +855,11 @@ func follow_reject_threaded(
 	return bzz_thread
 
 
-# Operation followRemove → POST /api/{version}/consumer/follow/remove
+# Operation followRemove → POST /consumer/follow/remove
 # Remove Follower / Unfollow
 #
 # Unfollow someone you are following or remove them as a follower.
 func follow_remove(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -914,7 +877,7 @@ func follow_remove(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/follow/remove".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/follow/remove"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -946,8 +909,6 @@ func follow_remove(
 
 
 func follow_remove_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -963,7 +924,6 @@ func follow_remove_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "follow_remove")
 	bzz_callable.bind(
-		version,
 		accountId,
 		connectionAccountId,
 		appKey,
@@ -974,13 +934,11 @@ func follow_remove_threaded(
 	return bzz_thread
 
 
-# Operation followRequest → POST /api/{version}/consumer/follow/request
+# Operation followRequest → POST /consumer/follow/request
 # Send Follow Request
 #
 # Send a request to follow someone.
 func follow_request(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -1001,7 +959,7 @@ func follow_request(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/follow/request".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/follow/request"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1034,8 +992,6 @@ func follow_request(
 
 
 func follow_request_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -1054,7 +1010,6 @@ func follow_request_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "follow_request")
 	bzz_callable.bind(
-		version,
 		accountId,
 		connectionAccountId,
 		appKey,
@@ -1066,13 +1021,11 @@ func follow_request_threaded(
 	return bzz_thread
 
 
-# Operation friendAccept → POST /api/{version}/consumer/friend/accept
+# Operation friendAccept → POST /consumer/friend/accept
 # Accept Friend
 #
 # Accept a friend request and optionally sends a notification.
 func friend_accept(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the friend's account id
 	friendAccountId: float,
@@ -1102,7 +1055,7 @@ func friend_accept(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/friend/accept".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/friend/accept"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1138,8 +1091,6 @@ func friend_accept(
 
 
 func friend_accept_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the friend's account id
 	friendAccountId: float,
@@ -1167,7 +1118,6 @@ func friend_accept_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "friend_accept")
 	bzz_callable.bind(
-		version,
 		friendAccountId,
 		notifyFriend,
 		deviceId,
@@ -1182,13 +1132,11 @@ func friend_accept_threaded(
 	return bzz_thread
 
 
-# Operation friendReject → POST /api/{version}/consumer/friend/reject
+# Operation friendReject → POST /consumer/friend/reject
 # Decline Friend
 #
 # Request a friend request and optionally sends a notification.
 func friend_reject(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the friend's account id
 	friendAccountId: float,
@@ -1218,7 +1166,7 @@ func friend_reject(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/friend/reject".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/friend/reject"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1254,8 +1202,6 @@ func friend_reject(
 
 
 func friend_reject_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the friend's account id
 	friendAccountId: float,
@@ -1283,7 +1229,6 @@ func friend_reject_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "friend_reject")
 	bzz_callable.bind(
-		version,
 		friendAccountId,
 		deviceId,
 		accountId,
@@ -1298,13 +1243,11 @@ func friend_reject_threaded(
 	return bzz_thread
 
 
-# Operation friendRemove → POST /api/{version}/consumer/friend/remove
+# Operation friendRemove → POST /consumer/friend/remove
 # Delete Friend
 #
 # Removes a friend from the user's friends list.
 func friend_remove(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the account ID of the friend to remove
 	friendAccountId: float,
@@ -1328,7 +1271,7 @@ func friend_remove(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/friend/remove".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/friend/remove"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1362,8 +1305,6 @@ func friend_remove(
 
 
 func friend_remove_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the account ID of the friend to remove
 	friendAccountId: float,
@@ -1385,7 +1326,6 @@ func friend_remove_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "friend_remove")
 	bzz_callable.bind(
-		version,
 		friendAccountId,
 		deviceId,
 		accountId,
@@ -1398,13 +1338,11 @@ func friend_remove_threaded(
 	return bzz_thread
 
 
-# Operation friendRequest → POST /api/{version}/consumer/friend/request
+# Operation friendRequest → POST /consumer/friend/request
 # Request Friend
 #
 # Sends a friend request notification to another user.
 func friend_request(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the friend's account id
 	friendAccountId: float,
@@ -1431,7 +1369,7 @@ func friend_request(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/friend/request".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/friend/request"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1466,8 +1404,6 @@ func friend_request(
 
 
 func friend_request_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# friendAccountId: float   Eg: 789
 	# the friend's account id
 	friendAccountId: float,
@@ -1492,7 +1428,6 @@ func friend_request_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "friend_request")
 	bzz_callable.bind(
-		version,
 		friendAccountId,
 		deviceId,
 		accountId,
@@ -1506,13 +1441,11 @@ func friend_request_threaded(
 	return bzz_thread
 
 
-# Operation getConnectionSentFriendRequests → GET /api/{version}/consumer/connection/getRequested
+# Operation getConnectionSentFriendRequests → GET /consumer/connection/getRequested
 # Get Sent Friend Requests
 #
 # Gets the connection sent friend requests.
 func get_connection_sent_friend_requests(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the ID of the device
 	deviceId = "",
@@ -1527,7 +1460,7 @@ func get_connection_sent_friend_requests(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/getRequested".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/getRequested"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1558,8 +1491,6 @@ func get_connection_sent_friend_requests(
 
 
 func get_connection_sent_friend_requests_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the ID of the device
 	deviceId = "",
@@ -1572,7 +1503,6 @@ func get_connection_sent_friend_requests_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_connection_sent_friend_requests")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		on_success,
@@ -1582,13 +1512,11 @@ func get_connection_sent_friend_requests_threaded(
 	return bzz_thread
 
 
-# Operation getConnections → GET /api/{version}/consumer/connection/get
+# Operation getConnections → GET /consumer/connection/get
 # Search Connections
 #
 # Gets the connections.
 func get_connections(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -1642,7 +1570,7 @@ func get_connections(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1686,8 +1614,6 @@ func get_connections(
 
 
 func get_connections_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -1739,7 +1665,6 @@ func get_connections_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_connections")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		filter,
 		sortField,
@@ -1762,11 +1687,9 @@ func get_connections_threaded(
 	return bzz_thread
 
 
-# Operation getGroupDetails → GET /api/{version}/consumer/connection/group/details/get
+# Operation getGroupDetails → GET /consumer/connection/group/details/get
 # Get Connection Group
 func get_group_details(
-	# version: float   Eg: 3.16
-	version: float,
 	# combineConnections: bool   Eg: true
 	# whether to combine connections or not
 	combineConnections: bool,
@@ -1793,7 +1716,7 @@ func get_group_details(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/group/details/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/group/details/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1828,8 +1751,6 @@ func get_group_details(
 
 
 func get_group_details_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# combineConnections: bool   Eg: true
 	# whether to combine connections or not
 	combineConnections: bool,
@@ -1854,7 +1775,6 @@ func get_group_details_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_group_details")
 	bzz_callable.bind(
-		version,
 		combineConnections,
 		deviceId,
 		accountId,
@@ -1868,13 +1788,11 @@ func get_group_details_threaded(
 	return bzz_thread
 
 
-# Operation groupSearch → GET /api/{version}/connection/group/search
+# Operation groupSearch → GET /connection/group/search
 # Search Connection Groups
 #
 # Gets a user's private groups and default groups.
 func group_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort by
 	sortField: String,
@@ -1913,7 +1831,7 @@ func group_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/connection/group/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/connection/group/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1952,8 +1870,6 @@ func group_search(
 
 
 func group_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort by
 	sortField: String,
@@ -1990,7 +1906,6 @@ func group_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "group_search")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		activeOnly,
@@ -2008,13 +1923,11 @@ func group_search_threaded(
 	return bzz_thread
 
 
-# Operation removeConnectionFromGroup → POST /api/{version}/consumer/connection/group/removeConnection
+# Operation removeConnectionFromGroup → POST /consumer/connection/group/removeConnection
 # Delete Connection
 #
 # Removes the connection from group.
 func remove_connection_from_group(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -2050,7 +1963,7 @@ func remove_connection_from_group(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/group/removeConnection".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/group/removeConnection"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2088,8 +2001,6 @@ func remove_connection_from_group(
 
 
 func remove_connection_from_group_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -2123,7 +2034,6 @@ func remove_connection_from_group_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_connection_from_group")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		groupId,
 		deviceId,
@@ -2140,13 +2050,11 @@ func remove_connection_from_group_threaded(
 	return bzz_thread
 
 
-# Operation removeConnectionsFromGroup → POST /api/{version}/connection/group/removeConnections
+# Operation removeConnectionsFromGroup → POST /connection/group/removeConnections
 # Remove Connections
 #
 # Remove a list of connections from a group.
 func remove_connections_from_group(
-	# version: float   Eg: 3.16
-	version: float,
 	# connectionGroupId: float   Eg: 789
 	# connection group id
 	connectionGroupId: float,
@@ -2176,7 +2084,7 @@ func remove_connections_from_group(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/connection/group/removeConnections".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/connection/group/removeConnections"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2212,8 +2120,6 @@ func remove_connections_from_group(
 
 
 func remove_connections_from_group_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# connectionGroupId: float   Eg: 789
 	# connection group id
 	connectionGroupId: float,
@@ -2241,7 +2147,6 @@ func remove_connections_from_group_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_connections_from_group")
 	bzz_callable.bind(
-		version,
 		connectionGroupId,
 		deviceId,
 		accountId,
@@ -2256,13 +2161,11 @@ func remove_connections_from_group_threaded(
 	return bzz_thread
 
 
-# Operation removeGroup → POST /api/{version}/consumer/connection/group/remove
+# Operation removeGroup → POST /consumer/connection/group/remove
 # Delete Connection Group
 #
 # Remove a user's group.
 func remove_group(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -2289,7 +2192,7 @@ func remove_group(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/group/remove".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/group/remove"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2324,8 +2227,6 @@ func remove_group(
 
 
 func remove_group_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -2350,7 +2251,6 @@ func remove_group_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_group")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		groupId,
 		deviceId,
@@ -2364,13 +2264,11 @@ func remove_group_threaded(
 	return bzz_thread
 
 
-# Operation removeSubGroups → POST /api/{version}/consumer/connection/group/removeSubGroup
+# Operation removeSubGroups → POST /consumer/connection/group/removeSubGroup
 # Remove Connection Groups
 #
 # Remove sub groups from a group
 func remove_sub_groups(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -2400,7 +2298,7 @@ func remove_sub_groups(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/connection/group/removeSubGroup".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/connection/group/removeSubGroup"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2436,8 +2334,6 @@ func remove_sub_groups(
 
 
 func remove_sub_groups_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# whether to return nulls or not
 	returnNulls: bool,
@@ -2465,7 +2361,6 @@ func remove_sub_groups_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_sub_groups")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		groupId,
 		subGroupIds,
@@ -2480,13 +2375,11 @@ func remove_sub_groups_threaded(
 	return bzz_thread
 
 
-# Operation searchConnections → GET /api/{version}/connection/search
+# Operation searchConnections → GET /connection/search
 # Search Possible Connections
 #
 # Search for accounts that the user may not have a connection with.
 func search_connections(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# return all json attributes if true. defualt is true.
 	returnNulls: bool,
@@ -2540,7 +2433,7 @@ func search_connections(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/connection/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/connection/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2584,8 +2477,6 @@ func search_connections(
 
 
 func search_connections_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# return all json attributes if true. defualt is true.
 	returnNulls: bool,
@@ -2637,7 +2528,6 @@ func search_connections_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_connections")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		start,
 		limit,

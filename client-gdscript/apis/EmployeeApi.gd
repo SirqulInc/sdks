@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "EmployeeApi"
 
 
-# Operation assignEmployee → POST /api/{version}/employee/assign
+# Operation assignEmployee → POST /employee/assign
 # Assign Employee
 #
 # Assign An existing account to be an employee
 func assign_employee(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -41,7 +39,7 @@ func assign_employee(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/assign".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/assign"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -74,8 +72,6 @@ func assign_employee(
 
 
 func assign_employee_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -94,7 +90,6 @@ func assign_employee_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assign_employee")
 	bzz_callable.bind(
-		version,
 		accountId,
 		managerAccountId,
 		employeeAccountId,
@@ -106,13 +101,11 @@ func assign_employee_threaded(
 	return bzz_thread
 
 
-# Operation assignToLocationEmployee → POST /api/{version}/employee/assignToLocation
+# Operation assignToLocationEmployee → POST /employee/assignToLocation
 # Assign Employee to Location
 #
 # Assign or unassign the account to a retailer location.
 func assign_to_location_employee(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -133,7 +126,7 @@ func assign_to_location_employee(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/assignToLocation".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/assignToLocation"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -166,8 +159,6 @@ func assign_to_location_employee(
 
 
 func assign_to_location_employee_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -186,7 +177,6 @@ func assign_to_location_employee_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assign_to_location_employee")
 	bzz_callable.bind(
-		version,
 		accountId,
 		retailerLocationId,
 		employeeAccountId,
@@ -198,13 +188,11 @@ func assign_to_location_employee_threaded(
 	return bzz_thread
 
 
-# Operation createEmployee → POST /api/{version}/employee/create
+# Operation createEmployee → POST /employee/create
 # Create Employee
 #
 # Create a new account record with the provided information.
 func create_employee(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -303,7 +291,7 @@ func create_employee(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -362,8 +350,6 @@ func create_employee(
 
 
 func create_employee_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -460,7 +446,6 @@ func create_employee_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_employee")
 	bzz_callable.bind(
-		version,
 		accountId,
 		managerAccountId,
 		username,
@@ -498,13 +483,11 @@ func create_employee_threaded(
 	return bzz_thread
 
 
-# Operation deleteEmployee → POST /api/{version}/employee/delete
+# Operation deleteEmployee → POST /employee/delete
 # Delete Employee
 #
 # Set the deleted date field which marks the record as deleted.
 func delete_employee(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -519,7 +502,7 @@ func delete_employee(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -550,8 +533,6 @@ func delete_employee(
 
 
 func delete_employee_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -564,7 +545,6 @@ func delete_employee_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_employee")
 	bzz_callable.bind(
-		version,
 		accountId,
 		employeeAccountId,
 		on_success,
@@ -574,13 +554,11 @@ func delete_employee_threaded(
 	return bzz_thread
 
 
-# Operation getEmployee → POST /api/{version}/employee/get
+# Operation getEmployee → POST /employee/get
 # Get Employee
 #
 # Get the account record for the account id provided.
 func get_employee(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of logged in user
 	accountId: float,
@@ -598,7 +576,7 @@ func get_employee(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -630,8 +608,6 @@ func get_employee(
 
 
 func get_employee_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of logged in user
 	accountId: float,
@@ -647,7 +623,6 @@ func get_employee_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_employee")
 	bzz_callable.bind(
-		version,
 		accountId,
 		employeeAccountId,
 		settingsAppKey,
@@ -658,13 +633,11 @@ func get_employee_threaded(
 	return bzz_thread
 
 
-# Operation searchEmployees → POST /api/{version}/employee/search
+# Operation searchEmployees → POST /employee/search
 # Search Employees
 #
 # Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 func search_employees(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -724,7 +697,7 @@ func search_employees(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -770,8 +743,6 @@ func search_employees(
 
 
 func search_employees_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -829,7 +800,6 @@ func search_employees_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_employees")
 	bzz_callable.bind(
-		version,
 		accountId,
 		role,
 		retailerId,
@@ -854,13 +824,11 @@ func search_employees_threaded(
 	return bzz_thread
 
 
-# Operation unassignEmployee → POST /api/{version}/employee/unassign
+# Operation unassignEmployee → POST /employee/unassign
 # Unassign Employee
 #
 # Unassign An existing account to be an employee
 func unassign_employee(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -875,7 +843,7 @@ func unassign_employee(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/unassign".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/unassign"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -906,8 +874,6 @@ func unassign_employee(
 
 
 func unassign_employee_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -920,7 +886,6 @@ func unassign_employee_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "unassign_employee")
 	bzz_callable.bind(
-		version,
 		accountId,
 		employeeAccountId,
 		on_success,
@@ -930,13 +895,11 @@ func unassign_employee_threaded(
 	return bzz_thread
 
 
-# Operation updateEmployee → POST /api/{version}/employee/update
+# Operation updateEmployee → POST /employee/update
 # Update Employee
 #
 # Update the account record with the provided information.
 func update_employee(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -1035,7 +998,7 @@ func update_employee(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/employee/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/employee/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1094,8 +1057,6 @@ func update_employee(
 
 
 func update_employee_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -1192,7 +1153,6 @@ func update_employee_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_employee")
 	bzz_callable.bind(
-		version,
 		accountId,
 		employeeAccountId,
 		managerAccountId,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "CarrierApi"
 
 
-# Operation searchCarriers → GET /api/{version}/carrier/search
+# Operation searchCarriers → GET /carrier/search
 # Search Carriers
 #
 # Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 func search_carriers(
-	# version: float   Eg: 3.16
-	version: float,
 	# keyword: String = ""   Eg: keyword_example
 	# The keyword to search on
 	keyword = "",
@@ -44,7 +42,7 @@ func search_carriers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/carrier/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/carrier/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -78,8 +76,6 @@ func search_carriers(
 
 
 func search_carriers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# keyword: String = ""   Eg: keyword_example
 	# The keyword to search on
 	keyword = "",
@@ -101,7 +97,6 @@ func search_carriers_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_carriers")
 	bzz_callable.bind(
-		version,
 		keyword,
 		descending,
 		start,

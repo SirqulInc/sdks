@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "EventApi"
 
 
-# Operation attendEvent → POST /api/{version}/event/attend
+# Operation attendEvent → POST /event/attend
 # Attend Event
 #
 #  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
 func attend_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -59,7 +57,7 @@ func attend_event(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/event/attend".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/event/attend"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -98,8 +96,6 @@ func attend_event(
 
 
 func attend_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -136,7 +132,6 @@ func attend_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "attend_event")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,
@@ -154,13 +149,11 @@ func attend_event_threaded(
 	return bzz_thread
 
 
-# Operation createEvent → POST /api/{version}/event/create
+# Operation createEvent → POST /event/create
 # Create Event
 #
 # Create a private event to share with associates.
 func create_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -205,7 +198,7 @@ func create_event(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/event/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/event/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -246,8 +239,6 @@ func create_event(
 
 
 func create_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -290,7 +281,6 @@ func create_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		title,
 		retailerLocationIds,
@@ -310,13 +300,11 @@ func create_event_threaded(
 	return bzz_thread
 
 
-# Operation deleteEvent → POST /api/{version}/event/delete
+# Operation deleteEvent → POST /event/delete
 # Delete Event
 #
 # Delete an event that the user has permissions to.
 func delete_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -331,7 +319,7 @@ func delete_event(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/event/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/event/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -362,8 +350,6 @@ func delete_event(
 
 
 func delete_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -376,7 +362,6 @@ func delete_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		eventId,
 		on_success,
@@ -386,13 +371,11 @@ func delete_event_threaded(
 	return bzz_thread
 
 
-# Operation getEvent → GET /api/{version}/event/get
+# Operation getEvent → GET /event/get
 # Get Event
 #
 # Get an event.
 func get_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -407,7 +390,7 @@ func get_event(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/event/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/event/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -438,8 +421,6 @@ func get_event(
 
 
 func get_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -452,7 +433,6 @@ func get_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		eventId,
 		on_success,
@@ -462,13 +442,11 @@ func get_event_threaded(
 	return bzz_thread
 
 
-# Operation searchEventTransactions → GET /api/{version}/event/attendance/search
+# Operation searchEventTransactions → GET /event/attendance/search
 # Search Event Attendance
 #
 # Searches on event type transactions. This can be used to see who is attending an event.
 func search_event_transactions(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -534,7 +512,7 @@ func search_event_transactions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/event/attendance/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/event/attendance/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -582,8 +560,6 @@ func search_event_transactions(
 
 
 func search_event_transactions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -647,7 +623,6 @@ func search_event_transactions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_event_transactions")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,
@@ -674,13 +649,11 @@ func search_event_transactions_threaded(
 	return bzz_thread
 
 
-# Operation searchEvents → GET /api/{version}/event/search
+# Operation searchEvents → GET /event/search
 # Search Events
 #
 # Searches on events that the account has access to.
 func search_events(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -728,7 +701,7 @@ func search_events(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/event/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/event/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -770,8 +743,6 @@ func search_events(
 
 
 func search_events_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -817,7 +788,6 @@ func search_events_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_events")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		activeOnly,
@@ -838,13 +808,11 @@ func search_events_threaded(
 	return bzz_thread
 
 
-# Operation updateEvent → POST /api/{version}/event/update
+# Operation updateEvent → POST /event/update
 # Update Event
 #
 # Update a private event to share with associates.
 func update_event(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -889,7 +857,7 @@ func update_event(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/event/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/event/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -930,8 +898,6 @@ func update_event(
 
 
 func update_event_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -974,7 +940,6 @@ func update_event_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_event")
 	bzz_callable.bind(
-		version,
 		accountId,
 		eventId,
 		retailerLocationIds,

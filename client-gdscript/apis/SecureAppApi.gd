@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "SecureAppApi"
 
 
-# Operation createSecureApplication → POST /api/{version}/secure/application/create
+# Operation createSecureApplication → POST /secure/application/create
 # Create Secure Application
 #
 # Create a secure application record.
 func create_secure_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -54,7 +52,7 @@ func create_secure_application(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/secure/application/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/secure/application/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -93,8 +91,6 @@ func create_secure_application(
 
 
 func create_secure_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -126,7 +122,6 @@ func create_secure_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_secure_application")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		keyCert,
@@ -144,13 +139,11 @@ func create_secure_application_threaded(
 	return bzz_thread
 
 
-# Operation deleteSecureApplication → POST /api/{version}/secure/application/delete
+# Operation deleteSecureApplication → POST /secure/application/delete
 # Delete Secure Application
 #
 # Delete a secure application record.
 func delete_secure_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -165,7 +158,7 @@ func delete_secure_application(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/secure/application/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/secure/application/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -196,8 +189,6 @@ func delete_secure_application(
 
 
 func delete_secure_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -210,7 +201,6 @@ func delete_secure_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_secure_application")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		on_success,
@@ -220,13 +210,11 @@ func delete_secure_application_threaded(
 	return bzz_thread
 
 
-# Operation loginSecure → POST /api/{version}/secure/login
+# Operation loginSecure → POST /secure/login
 # Login Clear
 #
 # Login via Clear.me. Creates a new account if logging in for the first time.
 func login_secure(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application making the request, defines what type and position is required to make a secure login the request.
 	appKey: String,
@@ -262,7 +250,7 @@ func login_secure(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/secure/login".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/secure/login"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -300,8 +288,6 @@ func login_secure(
 
 
 func login_secure_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application making the request, defines what type and position is required to make a secure login the request.
 	appKey: String,
@@ -335,7 +321,6 @@ func login_secure_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "login_secure")
 	bzz_callable.bind(
-		version,
 		appKey,
 		biometricFile,
 		deviceId,
@@ -352,13 +337,11 @@ func login_secure_threaded(
 	return bzz_thread
 
 
-# Operation purchaseSecure → POST /api/{version}/secure/purchase
+# Operation purchaseSecure → POST /secure/purchase
 # Purchase Clear
 #
 # Purchase via Clear.me. Creates a new account if purchasing for the first time.
 func purchase_secure(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: PaymentRequest
 	# The payment request object
 	body: PaymentRequest,
@@ -370,7 +353,7 @@ func purchase_secure(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/secure/purchase".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/secure/purchase"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -413,8 +396,6 @@ func purchase_secure(
 
 
 func purchase_secure_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: PaymentRequest
 	# The payment request object
 	body: PaymentRequest,
@@ -424,7 +405,6 @@ func purchase_secure_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "purchase_secure")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -433,13 +413,11 @@ func purchase_secure_threaded(
 	return bzz_thread
 
 
-# Operation resetSecure → POST /api/{version}/secure/application/reset
+# Operation resetSecure → POST /secure/application/reset
 # Rest Secure Application
 #
 # Reset a secure application client.
 func reset_secure(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -454,7 +432,7 @@ func reset_secure(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/secure/application/reset".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/secure/application/reset"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -485,8 +463,6 @@ func reset_secure(
 
 
 func reset_secure_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -499,7 +475,6 @@ func reset_secure_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "reset_secure")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		on_success,
@@ -509,13 +484,11 @@ func reset_secure_threaded(
 	return bzz_thread
 
 
-# Operation updateSecureApplication → POST /api/{version}/secure/application/update
+# Operation updateSecureApplication → POST /secure/application/update
 # Update Secure Application
 #
 # Update a secure application record.
 func update_secure_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -549,7 +522,7 @@ func update_secure_application(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/secure/application/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/secure/application/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -588,8 +561,6 @@ func update_secure_application(
 
 
 func update_secure_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The unique id of the user making the request
 	accountId: float,
@@ -621,7 +592,6 @@ func update_secure_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_secure_application")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		active,

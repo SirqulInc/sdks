@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RetailerLocationApi"
 
 
-# Operation createRetailerLocationConsumer → POST /api/{version}/location/create
+# Operation createRetailerLocationConsumer → POST /location/create
 # Create Retailer Location (Consumer)
 #
 # Creates a location record for an application that can support crowd sourced locations.
 func create_retailer_location_consumer(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -116,7 +114,7 @@ func create_retailer_location_consumer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -174,8 +172,6 @@ func create_retailer_location_consumer(
 
 
 func create_retailer_location_consumer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -269,7 +265,6 @@ func create_retailer_location_consumer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_retailer_location_consumer")
 	bzz_callable.bind(
-		version,
 		appKey,
 		name,
 		deviceId,
@@ -306,13 +301,11 @@ func create_retailer_location_consumer_threaded(
 	return bzz_thread
 
 
-# Operation createRetailerLocations → POST /api/{version}/retailer/location/create
+# Operation createRetailerLocations → POST /retailer/location/create
 # Create Retailer Location
 #
 # Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 func create_retailer_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# The ID of the retailer
 	retailerId: float,
@@ -437,7 +430,7 @@ func create_retailer_locations(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/location/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/location/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -505,8 +498,6 @@ func create_retailer_locations(
 
 
 func create_retailer_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# The ID of the retailer
 	retailerId: float,
@@ -629,7 +620,6 @@ func create_retailer_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_retailer_locations")
 	bzz_callable.bind(
-		version,
 		retailerId,
 		name,
 		streetAddress,
@@ -676,13 +666,11 @@ func create_retailer_locations_threaded(
 	return bzz_thread
 
 
-# Operation deleteRetailerLocation → POST /api/{version}/retailer/location/delete
+# Operation deleteRetailerLocation → POST /retailer/location/delete
 # Delete Retailer Location
 #
 # Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
 func delete_retailer_location(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id
 	deviceId = "",
@@ -700,7 +688,7 @@ func delete_retailer_location(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/location/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/location/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -732,8 +720,6 @@ func delete_retailer_location(
 
 
 func delete_retailer_location_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id
 	deviceId = "",
@@ -749,7 +735,6 @@ func delete_retailer_location_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_retailer_location")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		retailerLocationId,
@@ -760,13 +745,11 @@ func delete_retailer_location_threaded(
 	return bzz_thread
 
 
-# Operation getRetailerLocation → GET /api/{version}/retailer/location/get
+# Operation getRetailerLocation → GET /retailer/location/get
 # Get Retailer Location
 #
 # Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
 func get_retailer_location(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerLocationId: float   Eg: 789
 	# The ID of the retailer location
 	retailerLocationId: float,
@@ -787,7 +770,7 @@ func get_retailer_location(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/location/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/location/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -820,8 +803,6 @@ func get_retailer_location(
 
 
 func get_retailer_location_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerLocationId: float   Eg: 789
 	# The ID of the retailer location
 	retailerLocationId: float,
@@ -840,7 +821,6 @@ func get_retailer_location_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_retailer_location")
 	bzz_callable.bind(
-		version,
 		retailerLocationId,
 		deviceId,
 		accountId,
@@ -852,13 +832,11 @@ func get_retailer_location_threaded(
 	return bzz_thread
 
 
-# Operation getRetailerLocationConsumer → GET /api/{version}/location/get
+# Operation getRetailerLocationConsumer → GET /location/get
 # Get Retailer Location (Consumer)
 #
 # Gets the details of a retailer location as a consumer.
 func get_retailer_location_consumer(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerLocationId: float   Eg: 789
 	# The retailer location id
 	retailerLocationId: float,
@@ -876,7 +854,7 @@ func get_retailer_location_consumer(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -908,8 +886,6 @@ func get_retailer_location_consumer(
 
 
 func get_retailer_location_consumer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerLocationId: float   Eg: 789
 	# The retailer location id
 	retailerLocationId: float,
@@ -925,7 +901,6 @@ func get_retailer_location_consumer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_retailer_location_consumer")
 	bzz_callable.bind(
-		version,
 		retailerLocationId,
 		deviceId,
 		accountId,
@@ -936,13 +911,11 @@ func get_retailer_location_consumer_threaded(
 	return bzz_thread
 
 
-# Operation indexedRetailerLocationDistanceSearch → GET /api/{version}/retailer/location/idistancesearch
+# Operation indexedRetailerLocationDistanceSearch → GET /retailer/location/idistancesearch
 # Distance Search Retailer Locations (Indexed)
 #
 # Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
 func indexed_retailer_location_distance_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude to center the search on
 	latitude: int,
@@ -1053,7 +1026,7 @@ func indexed_retailer_location_distance_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/location/idistancesearch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/location/idistancesearch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1116,8 +1089,6 @@ func indexed_retailer_location_distance_search(
 
 
 func indexed_retailer_location_distance_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude to center the search on
 	latitude: int,
@@ -1226,7 +1197,6 @@ func indexed_retailer_location_distance_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "indexed_retailer_location_distance_search")
 	bzz_callable.bind(
-		version,
 		latitude,
 		longitude,
 		searchRange,
@@ -1268,13 +1238,11 @@ func indexed_retailer_location_distance_search_threaded(
 	return bzz_thread
 
 
-# Operation indexedRetailerLocationSearch → GET /api/{version}/retailer/location/isearch
+# Operation indexedRetailerLocationSearch → GET /retailer/location/isearch
 # Keyword Search Retailer Locations (Indexed)
 #
 # Retailer location (faster) indexed search. This searches all retailer locations.
 func indexed_retailer_location_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -1367,7 +1335,7 @@ func indexed_retailer_location_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/location/isearch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/location/isearch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1424,8 +1392,6 @@ func indexed_retailer_location_search(
 
 
 func indexed_retailer_location_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -1516,7 +1482,6 @@ func indexed_retailer_location_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "indexed_retailer_location_search")
 	bzz_callable.bind(
-		version,
 		accountId,
 		start,
 		limit,
@@ -1552,13 +1517,11 @@ func indexed_retailer_location_search_threaded(
 	return bzz_thread
 
 
-# Operation searchRetailerLocations → GET /api/{version}/retailer/location/search
+# Operation searchRetailerLocations → GET /retailer/location/search
 # Search Retailer Locations (Owned)
 #
 # Searches on retailer locations that the account has access to.
 func search_retailer_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -1642,7 +1605,7 @@ func search_retailer_locations(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/location/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/location/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1696,8 +1659,6 @@ func search_retailer_locations(
 
 
 func search_retailer_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -1779,7 +1740,6 @@ func search_retailer_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_retailer_locations")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		q,
@@ -1812,13 +1772,11 @@ func search_retailer_locations_threaded(
 	return bzz_thread
 
 
-# Operation updateRetailerLocations → POST /api/{version}/retailer/location/update
+# Operation updateRetailerLocations → POST /retailer/location/update
 # Update Retailer Location
 #
 # Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 func update_retailer_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerLocationId: float   Eg: 789
 	# The ID of the retailer location
 	retailerLocationId: float,
@@ -1949,7 +1907,7 @@ func update_retailer_locations(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/location/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/location/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2019,8 +1977,6 @@ func update_retailer_locations(
 
 
 func update_retailer_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerLocationId: float   Eg: 789
 	# The ID of the retailer location
 	retailerLocationId: float,
@@ -2149,7 +2105,6 @@ func update_retailer_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_retailer_locations")
 	bzz_callable.bind(
-		version,
 		retailerLocationId,
 		deviceId,
 		accountId,

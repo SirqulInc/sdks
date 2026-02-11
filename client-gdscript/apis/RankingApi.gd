@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RankingApi"
 
 
-# Operation getHistoricalRankings → GET /api/{version}/ranking/historical/search
+# Operation getHistoricalRankings → GET /ranking/historical/search
 # Search Historical Rankings
 #
 # Get historical leaderboard rankings by time-frame.
 func get_historical_rankings(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key for filtering results by application
 	appKey: String,
@@ -59,7 +57,7 @@ func get_historical_rankings(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ranking/historical/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ranking/historical/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -98,8 +96,6 @@ func get_historical_rankings(
 
 
 func get_historical_rankings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key for filtering results by application
 	appKey: String,
@@ -136,7 +132,6 @@ func get_historical_rankings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_historical_rankings")
 	bzz_callable.bind(
-		version,
 		appKey,
 		rankType,
 		startDate,
@@ -154,13 +149,11 @@ func get_historical_rankings_threaded(
 	return bzz_thread
 
 
-# Operation getRankings → GET /api/{version}/ranking/search
+# Operation getRankings → GET /ranking/search
 # Search Rankings
 #
 # Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
 func get_rankings(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -223,7 +216,7 @@ func get_rankings(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ranking/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ranking/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -270,8 +263,6 @@ func get_rankings(
 
 
 func get_rankings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -332,7 +323,6 @@ func get_rankings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_rankings")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		gameType,
@@ -358,13 +348,11 @@ func get_rankings_threaded(
 	return bzz_thread
 
 
-# Operation getUserRank → POST /api/{version}/ranking/personal/ranks
+# Operation getUserRank → POST /ranking/personal/ranks
 # Get Personal Rankings
 #
 # Returns the user's ranks for one or more rank types and modes.
 func get_user_rank(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -406,7 +394,7 @@ func get_user_rank(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ranking/personal/ranks".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ranking/personal/ranks"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -445,8 +433,6 @@ func get_user_rank(
 
 
 func get_user_rank_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -486,7 +472,6 @@ func get_user_rank_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_rank")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,
@@ -505,13 +490,11 @@ func get_user_rank_threaded(
 	return bzz_thread
 
 
-# Operation overrideUserRank → POST /api/{version}/ranking/override
+# Operation overrideUserRank → POST /ranking/override
 # Override User Rank
 #
 # Allows an admin of an application to override a user's scores for a leaderboard.
 func override_user_rank(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the logged in user's account id (must have permissions to manage data for the application)
 	accountId: float,
@@ -586,7 +569,7 @@ func override_user_rank(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ranking/override".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ranking/override"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -637,8 +620,6 @@ func override_user_rank(
 
 
 func override_user_rank_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the logged in user's account id (must have permissions to manage data for the application)
 	accountId: float,
@@ -711,7 +692,6 @@ func override_user_rank_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "override_user_rank")
 	bzz_callable.bind(
-		version,
 		accountId,
 		ownerAccountId,
 		appKey,
@@ -741,13 +721,11 @@ func override_user_rank_threaded(
 	return bzz_thread
 
 
-# Operation updateRankings → POST /api/{version}/ranking/update
+# Operation updateRankings → POST /ranking/update
 # Update Ranking
 #
 # Update the rank value 
 func update_rankings(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -786,7 +764,7 @@ func update_rankings(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ranking/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ranking/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -825,8 +803,6 @@ func update_rankings(
 
 
 func update_rankings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -863,7 +839,6 @@ func update_rankings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_rankings")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		rankType,

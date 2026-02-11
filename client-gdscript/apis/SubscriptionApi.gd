@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "SubscriptionApi"
 
 
-# Operation createSubscription → POST /api/{version}/subscription/create
+# Operation createSubscription → POST /subscription/create
 # Create Subscription
 #
 # Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 func create_subscription(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the create, must be the responsible manager
 	accountId: float,
@@ -38,7 +36,7 @@ func create_subscription(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/subscription/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/subscription/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -70,8 +68,6 @@ func create_subscription(
 
 
 func create_subscription_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the create, must be the responsible manager
 	accountId: float,
@@ -87,7 +83,6 @@ func create_subscription_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_subscription")
 	bzz_callable.bind(
-		version,
 		accountId,
 		planId,
 		promoCode,
@@ -98,13 +93,11 @@ func create_subscription_threaded(
 	return bzz_thread
 
 
-# Operation deleteSubscription → POST /api/{version}/subscription/delete
+# Operation deleteSubscription → POST /subscription/delete
 # Delete Subscription
 #
 # Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 func delete_subscription(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the delete, must be the responsible manager
 	accountId: float,
@@ -116,7 +109,7 @@ func delete_subscription(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/subscription/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/subscription/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -146,8 +139,6 @@ func delete_subscription(
 
 
 func delete_subscription_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the delete, must be the responsible manager
 	accountId: float,
@@ -157,7 +148,6 @@ func delete_subscription_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_subscription")
 	bzz_callable.bind(
-		version,
 		accountId,
 		on_success,
 		on_failure,
@@ -166,13 +156,11 @@ func delete_subscription_threaded(
 	return bzz_thread
 
 
-# Operation getSubscription → GET /api/{version}/subscription/get
+# Operation getSubscription → GET /subscription/get
 # Get Subscription
 #
 # Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 func get_subscription(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the lookup
 	accountId: float,
@@ -184,7 +172,7 @@ func get_subscription(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/subscription/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/subscription/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -214,8 +202,6 @@ func get_subscription(
 
 
 func get_subscription_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the lookup
 	accountId: float,
@@ -225,7 +211,6 @@ func get_subscription_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_subscription")
 	bzz_callable.bind(
-		version,
 		accountId,
 		on_success,
 		on_failure,
@@ -234,13 +219,11 @@ func get_subscription_threaded(
 	return bzz_thread
 
 
-# Operation getSubscriptionPlan → GET /api/{version}/subscription/plan/get
+# Operation getSubscriptionPlan → GET /subscription/plan/get
 # Get Subscription Plan
 #
 # Get the matched subscription plan
 func get_subscription_plan(
-	# version: float   Eg: 3.16
-	version: float,
 	# planId: float   Eg: 789
 	# The ID of the plan to get
 	planId: float,
@@ -252,7 +235,7 @@ func get_subscription_plan(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/subscription/plan/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/subscription/plan/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -282,8 +265,6 @@ func get_subscription_plan(
 
 
 func get_subscription_plan_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# planId: float   Eg: 789
 	# The ID of the plan to get
 	planId: float,
@@ -293,7 +274,6 @@ func get_subscription_plan_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_subscription_plan")
 	bzz_callable.bind(
-		version,
 		planId,
 		on_success,
 		on_failure,
@@ -302,13 +282,11 @@ func get_subscription_plan_threaded(
 	return bzz_thread
 
 
-# Operation getSubscriptionPlans → GET /api/{version}/subscription/plan/list
+# Operation getSubscriptionPlans → GET /subscription/plan/list
 # List Subscription Plans
 #
 # Get the matched subscription plan
 func get_subscription_plans(
-	# version: float   Eg: 3.16
-	version: float,
 	# visible: bool   Eg: true
 	# Include visible only (true), hidden only (false), or all (null)
 	visible = null,
@@ -323,7 +301,7 @@ func get_subscription_plans(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/subscription/plan/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/subscription/plan/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -354,8 +332,6 @@ func get_subscription_plans(
 
 
 func get_subscription_plans_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# visible: bool   Eg: true
 	# Include visible only (true), hidden only (false), or all (null)
 	visible = null,
@@ -368,7 +344,6 @@ func get_subscription_plans_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_subscription_plans")
 	bzz_callable.bind(
-		version,
 		visible,
 		role,
 		on_success,
@@ -378,13 +353,11 @@ func get_subscription_plans_threaded(
 	return bzz_thread
 
 
-# Operation getSubscriptionUsage → GET /api/{version}/subscription/usage/get
+# Operation getSubscriptionUsage → GET /subscription/usage/get
 # Get Subscription Usage
 #
 # Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 func get_subscription_usage(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the lookup
 	accountId: float,
@@ -405,7 +378,7 @@ func get_subscription_usage(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/subscription/usage/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/subscription/usage/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -438,8 +411,6 @@ func get_subscription_usage(
 
 
 func get_subscription_usage_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the lookup
 	accountId: float,
@@ -458,7 +429,6 @@ func get_subscription_usage_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_subscription_usage")
 	bzz_callable.bind(
-		version,
 		accountId,
 		applicationId,
 		start,
@@ -470,13 +440,11 @@ func get_subscription_usage_threaded(
 	return bzz_thread
 
 
-# Operation updateSubscription → POST /api/{version}/subscription/update
+# Operation updateSubscription → POST /subscription/update
 # Update Subscription
 #
 # Updates the subscription for the billable entity for an account
 func update_subscription(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the update, must be the responsible manager
 	accountId: float,
@@ -497,7 +465,7 @@ func update_subscription(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/subscription/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/subscription/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -530,8 +498,6 @@ func update_subscription(
 
 
 func update_subscription_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the update, must be the responsible manager
 	accountId: float,
@@ -550,7 +516,6 @@ func update_subscription_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_subscription")
 	bzz_callable.bind(
-		version,
 		accountId,
 		planId,
 		promoCode,

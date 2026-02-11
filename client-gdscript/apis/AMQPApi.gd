@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AMQPApi"
 
 
-# Operation consumerCreate → POST /api/{version}/queue/consumer/create
+# Operation consumerCreate → POST /queue/consumer/create
 # Create Consumer
 #
 # Create a connection to an existing amqp queue and register as a consumer.
 func consumer_create(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 	appKey: String,
@@ -71,7 +69,7 @@ func consumer_create(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/consumer/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/consumer/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -114,8 +112,6 @@ func consumer_create(
 
 
 func consumer_create_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 	appKey: String,
@@ -164,7 +160,6 @@ func consumer_create_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "consumer_create")
 	bzz_callable.bind(
-		version,
 		appKey,
 		name,
 		hostname,
@@ -186,13 +181,11 @@ func consumer_create_threaded(
 	return bzz_thread
 
 
-# Operation consumerUpdate → POST /api/{version}/queue/consumer/update
+# Operation consumerUpdate → POST /queue/consumer/update
 # Update Consumer
 #
 # Update an existing amqp queue's data mapping.
 func consumer_update(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 	appKey: String,
@@ -219,7 +212,7 @@ func consumer_update(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/consumer/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/consumer/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -254,8 +247,6 @@ func consumer_update(
 
 
 func consumer_update_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 	appKey: String,
@@ -280,7 +271,6 @@ func consumer_update_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "consumer_update")
 	bzz_callable.bind(
-		version,
 		appKey,
 		queueId,
 		dataMapping,
@@ -294,13 +284,11 @@ func consumer_update_threaded(
 	return bzz_thread
 
 
-# Operation queueCreate → POST /api/{version}/queue/create
+# Operation queueCreate → POST /queue/create
 # Create Queue
 #
 # Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
 func queue_create(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key unique to each application.
 	appKey: String,
@@ -345,7 +333,7 @@ func queue_create(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -386,8 +374,6 @@ func queue_create(
 
 
 func queue_create_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key unique to each application.
 	appKey: String,
@@ -430,7 +416,6 @@ func queue_create_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "queue_create")
 	bzz_callable.bind(
-		version,
 		appKey,
 		name,
 		deviceId,
@@ -450,13 +435,11 @@ func queue_create_threaded(
 	return bzz_thread
 
 
-# Operation queueDelete → POST /api/{version}/queue/delete
+# Operation queueDelete → POST /queue/delete
 # Delete Queue
 #
 # Delete the stored queue record and close any active connections to the AMQP servers.
 func queue_delete(
-	# version: float   Eg: 3.16
-	version: float,
 	# queueId: float   Eg: 789
 	# The id of the queue to find
 	queueId: float,
@@ -474,7 +457,7 @@ func queue_delete(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -506,8 +489,6 @@ func queue_delete(
 
 
 func queue_delete_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# queueId: float   Eg: 789
 	# The id of the queue to find
 	queueId: float,
@@ -523,7 +504,6 @@ func queue_delete_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "queue_delete")
 	bzz_callable.bind(
-		version,
 		queueId,
 		deviceId,
 		accountId,
@@ -534,13 +514,11 @@ func queue_delete_threaded(
 	return bzz_thread
 
 
-# Operation queueGet → GET /api/{version}/queue/get
+# Operation queueGet → GET /queue/get
 # Get Queue
 #
 # Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 func queue_get(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The client device ID
 	deviceId = "",
@@ -570,7 +548,7 @@ func queue_get(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -606,8 +584,6 @@ func queue_get(
 
 
 func queue_get_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The client device ID
 	deviceId = "",
@@ -635,7 +611,6 @@ func queue_get_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "queue_get")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		queueId,
@@ -650,13 +625,11 @@ func queue_get_threaded(
 	return bzz_thread
 
 
-# Operation queuePublish → POST /api/{version}/queue/publish
+# Operation queuePublish → POST /queue/publish
 # Publish Queue
 #
 # Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 func queue_publish(
-	# version: float   Eg: 3.16
-	version: float,
 	# message: String = ""   Eg: message_example
 	# The payload to send to the queue
 	message: String,
@@ -683,7 +656,7 @@ func queue_publish(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/publish".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/publish"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -718,8 +691,6 @@ func queue_publish(
 
 
 func queue_publish_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# message: String = ""   Eg: message_example
 	# The payload to send to the queue
 	message: String,
@@ -744,7 +715,6 @@ func queue_publish_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "queue_publish")
 	bzz_callable.bind(
-		version,
 		message,
 		queueId,
 		appKey,
@@ -758,13 +728,11 @@ func queue_publish_threaded(
 	return bzz_thread
 
 
-# Operation queueSearch → GET /api/{version}/queue/search
+# Operation queueSearch → GET /queue/search
 # Search Queue
 #
 # Get the queues setup for the BillableEntity's applications.
 func queue_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# queueId: float   Eg: 789
 	# The id of the queue to find
 	queueId = null,
@@ -791,7 +759,7 @@ func queue_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -826,8 +794,6 @@ func queue_search(
 
 
 func queue_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# queueId: float   Eg: 789
 	# The id of the queue to find
 	queueId = null,
@@ -852,7 +818,6 @@ func queue_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "queue_search")
 	bzz_callable.bind(
-		version,
 		queueId,
 		deviceId,
 		accountId,
@@ -866,13 +831,11 @@ func queue_search_threaded(
 	return bzz_thread
 
 
-# Operation queueUpdate → POST /api/{version}/queue/update
+# Operation queueUpdate → POST /queue/update
 # Update Queue
 #
 # Update the basic AMQP queue.
 func queue_update(
-	# version: float   Eg: 3.16
-	version: float,
 	# queueId: float   Eg: 789
 	# The id of the queue to update
 	queueId: float,
@@ -917,7 +880,7 @@ func queue_update(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/queue/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/queue/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -958,8 +921,6 @@ func queue_update(
 
 
 func queue_update_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# queueId: float   Eg: 789
 	# The id of the queue to update
 	queueId: float,
@@ -1002,7 +963,6 @@ func queue_update_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "queue_update")
 	bzz_callable.bind(
-		version,
 		queueId,
 		deviceId,
 		accountId,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "UserPermissionsApi"
 
 
-# Operation addUsersToPermissionable → POST /api/{version}/consumer/permissions/add
+# Operation addUsersToPermissionable → POST /consumer/permissions/add
 # Add User
 #
 # Adds a user to a permissionable object.
 func add_users_to_permissionable(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# the permissionable type of the object
 	permissionableType: String,
@@ -80,7 +78,7 @@ func add_users_to_permissionable(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/permissions/add".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/permissions/add"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -126,8 +124,6 @@ func add_users_to_permissionable(
 
 
 func add_users_to_permissionable_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# the permissionable type of the object
 	permissionableType: String,
@@ -185,7 +181,6 @@ func add_users_to_permissionable_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_users_to_permissionable")
 	bzz_callable.bind(
-		version,
 		permissionableType,
 		permissionableId,
 		deviceId,
@@ -210,13 +205,11 @@ func add_users_to_permissionable_threaded(
 	return bzz_thread
 
 
-# Operation approvePermissionable → POST /api/{version}/permissionable/approve
+# Operation approvePermissionable → POST /permissionable/approve
 # Approve Permissionable
 #
 # Sets the approval status of a permissionable object.
 func approve_permissionable(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# The permissionable type of the object
 	permissionableType: String,
@@ -240,7 +233,7 @@ func approve_permissionable(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/permissionable/approve".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/permissionable/approve"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -274,8 +267,6 @@ func approve_permissionable(
 
 
 func approve_permissionable_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# The permissionable type of the object
 	permissionableType: String,
@@ -297,7 +288,6 @@ func approve_permissionable_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "approve_permissionable")
 	bzz_callable.bind(
-		version,
 		permissionableType,
 		permissionableId,
 		deviceId,
@@ -310,13 +300,11 @@ func approve_permissionable_threaded(
 	return bzz_thread
 
 
-# Operation leaveFromPermissionable → POST /api/{version}/consumer/permissions/leave
+# Operation leaveFromPermissionable → POST /consumer/permissions/leave
 # Leave
 #
 # Used when the user wants to leave from someone else's permissionable object
 func leave_from_permissionable(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# the permissionable type PermissionableType
 	permissionableType: String,
@@ -343,7 +331,7 @@ func leave_from_permissionable(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/permissions/leave".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/permissions/leave"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -378,8 +366,6 @@ func leave_from_permissionable(
 
 
 func leave_from_permissionable_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# the permissionable type PermissionableType
 	permissionableType: String,
@@ -404,7 +390,6 @@ func leave_from_permissionable_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "leave_from_permissionable")
 	bzz_callable.bind(
-		version,
 		permissionableType,
 		permissionableId,
 		deviceId,
@@ -418,13 +403,11 @@ func leave_from_permissionable_threaded(
 	return bzz_thread
 
 
-# Operation removeUsersFromPermissionable → POST /api/{version}/consumer/permissions/remove
+# Operation removeUsersFromPermissionable → POST /consumer/permissions/remove
 # Remove User
 #
 # Used to remove someone (assuming they have permission) from a permissionable object
 func remove_users_from_permissionable(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# the permissionable type of the object
 	permissionableType: String,
@@ -466,7 +449,7 @@ func remove_users_from_permissionable(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/permissions/remove".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/permissions/remove"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -506,8 +489,6 @@ func remove_users_from_permissionable(
 
 
 func remove_users_from_permissionable_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# permissionableType: String = ""   Eg: permissionableType_example
 	# the permissionable type of the object
 	permissionableType: String,
@@ -547,7 +528,6 @@ func remove_users_from_permissionable_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_users_from_permissionable")
 	bzz_callable.bind(
-		version,
 		permissionableType,
 		permissionableId,
 		deviceId,
@@ -566,13 +546,11 @@ func remove_users_from_permissionable_threaded(
 	return bzz_thread
 
 
-# Operation searchPermissionables → GET /api/{version}/permissions/search
+# Operation searchPermissionables → GET /permissions/search
 # Search Permissionables
 #
 # Search on UserPermissions
 func search_permissionables(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# A unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -620,7 +598,7 @@ func search_permissionables(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/permissions/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/permissions/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -662,8 +640,6 @@ func search_permissionables(
 
 
 func search_permissionables_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# A unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -709,7 +685,6 @@ func search_permissionables_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_permissionables")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		connectionAccountId,
@@ -730,13 +705,11 @@ func search_permissionables_threaded(
 	return bzz_thread
 
 
-# Operation searchPermissionablesFollowingDistance → GET /api/{version}/permissions/distancesearch
+# Operation searchPermissionablesFollowingDistance → GET /permissions/distancesearch
 # Search Permissionables by Distnace
 #
 # Search on UserPermissions by distance
 func search_permissionables_following_distance(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude of the current account
 	latitude: int,
@@ -787,7 +760,7 @@ func search_permissionables_following_distance(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/permissions/distancesearch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/permissions/distancesearch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -830,8 +803,6 @@ func search_permissionables_following_distance(
 
 
 func search_permissionables_following_distance_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude of the current account
 	latitude: int,
@@ -880,7 +851,6 @@ func search_permissionables_following_distance_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_permissionables_following_distance")
 	bzz_callable.bind(
-		version,
 		latitude,
 		longitude,
 		deviceId,

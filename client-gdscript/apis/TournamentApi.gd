@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TournamentApi"
 
 
-# Operation createTournament → POST /api/{version}/tournament/create
+# Operation createTournament → POST /tournament/create
 # Create Tournament
 #
 # Create a tournament.
 func create_tournament(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -134,7 +132,7 @@ func create_tournament(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -198,8 +196,6 @@ func create_tournament(
 
 
 func create_tournament_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -311,7 +307,6 @@ func create_tournament_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_tournament")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		title,
@@ -354,13 +349,11 @@ func create_tournament_threaded(
 	return bzz_thread
 
 
-# Operation deleteTournament → POST /api/{version}/tournament/delete
+# Operation deleteTournament → POST /tournament/delete
 # Delete Tournament
 #
 # Delete a tournament.
 func delete_tournament(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -375,7 +368,7 @@ func delete_tournament(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -406,8 +399,6 @@ func delete_tournament(
 
 
 func delete_tournament_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -420,7 +411,6 @@ func delete_tournament_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_tournament")
 	bzz_callable.bind(
-		version,
 		accountId,
 		missionId,
 		on_success,
@@ -430,13 +420,11 @@ func delete_tournament_threaded(
 	return bzz_thread
 
 
-# Operation getTournament → GET /api/{version}/tournament/get
+# Operation getTournament → GET /tournament/get
 # Get Tournament
 #
 # Get a tournament.
 func get_tournament(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the logged in user
 	accountId: float,
@@ -460,7 +448,7 @@ func get_tournament(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -494,8 +482,6 @@ func get_tournament(
 
 
 func get_tournament_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the logged in user
 	accountId: float,
@@ -517,7 +503,6 @@ func get_tournament_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_tournament")
 	bzz_callable.bind(
-		version,
 		accountId,
 		missionId,
 		joinCode,
@@ -530,13 +515,11 @@ func get_tournament_threaded(
 	return bzz_thread
 
 
-# Operation searchObjects → GET /api/{version}/tournament/object/search
+# Operation searchObjects → GET /tournament/object/search
 # Search Tournament Objects
 #
 # Search on game objects of tournaments
 func search_objects(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID
 	accountId: float,
@@ -563,7 +546,7 @@ func search_objects(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/object/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/object/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -598,8 +581,6 @@ func search_objects(
 
 
 func search_objects_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID
 	accountId: float,
@@ -624,7 +605,6 @@ func search_objects_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_objects")
 	bzz_callable.bind(
-		version,
 		accountId,
 		gameLevelId,
 		sortField,
@@ -638,13 +618,11 @@ func search_objects_threaded(
 	return bzz_thread
 
 
-# Operation searchRounds → GET /api/{version}/tournament/round/search
+# Operation searchRounds → GET /tournament/round/search
 # Search Tournament Rounds
 #
 # Search for the user's tournament games.
 func search_rounds(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID
 	accountId: float,
@@ -677,7 +655,7 @@ func search_rounds(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/round/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/round/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -714,8 +692,6 @@ func search_rounds(
 
 
 func search_rounds_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID
 	accountId: float,
@@ -746,7 +722,6 @@ func search_rounds_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_rounds")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		status,
@@ -762,13 +737,11 @@ func search_rounds_threaded(
 	return bzz_thread
 
 
-# Operation searchTournaments → GET /api/{version}/tournament/search
+# Operation searchTournaments → GET /tournament/search
 # Search Tournaments
 #
 # Search for tournaments
 func search_tournaments(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -813,7 +786,7 @@ func search_tournaments(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -854,8 +827,6 @@ func search_tournaments(
 
 
 func search_tournaments_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -898,7 +869,6 @@ func search_tournaments_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_tournaments")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		keyword,
@@ -918,13 +888,11 @@ func search_tournaments_threaded(
 	return bzz_thread
 
 
-# Operation submitTournamentScore → POST /api/{version}/tournament/score
+# Operation submitTournamentScore → POST /tournament/score
 # Submit Tournament Score
 #
 # Submit an array of scores for a tournament match. 
 func submit_tournament_score(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user account ID.
 	accountId: float,
@@ -954,7 +922,7 @@ func submit_tournament_score(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/score".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/score"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -990,8 +958,6 @@ func submit_tournament_score(
 
 
 func submit_tournament_score_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user account ID.
 	accountId: float,
@@ -1019,7 +985,6 @@ func submit_tournament_score_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "submit_tournament_score")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		missionId,
@@ -1034,13 +999,11 @@ func submit_tournament_score_threaded(
 	return bzz_thread
 
 
-# Operation submitTournamentVote → POST /api/{version}/tournament/vote
+# Operation submitTournamentVote → POST /tournament/vote
 # Submit a vote for a multi-stage album tournament.
 #
 # Submit a vote for a multi-stage album tournament.
 func submit_tournament_vote(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1067,7 +1030,7 @@ func submit_tournament_vote(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/vote".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/vote"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1102,8 +1065,6 @@ func submit_tournament_vote(
 
 
 func submit_tournament_vote_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1128,7 +1089,6 @@ func submit_tournament_vote_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "submit_tournament_vote")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		missionId,
@@ -1142,13 +1102,11 @@ func submit_tournament_vote_threaded(
 	return bzz_thread
 
 
-# Operation substituteTournamentPlayer → POST /api/{version}/tournament/substitute
+# Operation substituteTournamentPlayer → POST /tournament/substitute
 # Substitute Tournament Player
 #
 # Service to replace the user's opponent in the current level - pack - mission with an AI account.
 func substitute_tournament_player(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -1169,7 +1127,7 @@ func substitute_tournament_player(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/substitute".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/substitute"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1202,8 +1160,6 @@ func substitute_tournament_player(
 
 
 func substitute_tournament_player_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -1222,7 +1178,6 @@ func substitute_tournament_player_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "substitute_tournament_player")
 	bzz_callable.bind(
-		version,
 		accountId,
 		missionId,
 		packId,
@@ -1234,13 +1189,11 @@ func substitute_tournament_player_threaded(
 	return bzz_thread
 
 
-# Operation updateTournament → POST /api/{version}/tournament/update
+# Operation updateTournament → POST /tournament/update
 # Update Tournament
 #
 # Update a tournament.
 func update_tournament(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1351,7 +1304,7 @@ func update_tournament(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tournament/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tournament/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1414,8 +1367,6 @@ func update_tournament(
 
 
 func update_tournament_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1524,7 +1475,6 @@ func update_tournament_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_tournament")
 	bzz_callable.bind(
-		version,
 		accountId,
 		missionId,
 		title,

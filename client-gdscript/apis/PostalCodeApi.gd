@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "PostalCodeApi"
 
 
-# Operation createPostalCode → POST /api/{version}/postalCode/create
+# Operation createPostalCode → POST /postalCode/create
 # Create Postal Code
 #
 # Create a Postal Code
 func create_postal_code(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -50,7 +48,7 @@ func create_postal_code(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/postalCode/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/postalCode/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -86,8 +84,6 @@ func create_postal_code(
 
 
 func create_postal_code_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -115,7 +111,6 @@ func create_postal_code_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_postal_code")
 	bzz_callable.bind(
-		version,
 		accountId,
 		code,
 		latitude,
@@ -130,13 +125,11 @@ func create_postal_code_threaded(
 	return bzz_thread
 
 
-# Operation deletePostalCode → POST /api/{version}/postalCode/delete
+# Operation deletePostalCode → POST /postalCode/delete
 # Delete Postal Code
 #
 # Delete a Postal Code
 func delete_postal_code(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -151,7 +144,7 @@ func delete_postal_code(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/postalCode/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/postalCode/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -182,8 +175,6 @@ func delete_postal_code(
 
 
 func delete_postal_code_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -196,7 +187,6 @@ func delete_postal_code_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_postal_code")
 	bzz_callable.bind(
-		version,
 		accountId,
 		postalCodeId,
 		on_success,
@@ -206,13 +196,11 @@ func delete_postal_code_threaded(
 	return bzz_thread
 
 
-# Operation getPostalCode → GET /api/{version}/postalCode/get
+# Operation getPostalCode → GET /postalCode/get
 # Get Postal Code
 #
 # Get a Postal Code
 func get_postal_code(
-	# version: float   Eg: 3.16
-	version: float,
 	# postalCodeId: float   Eg: 789
 	# the id of the postal code to get
 	postalCodeId: float,
@@ -224,7 +212,7 @@ func get_postal_code(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/postalCode/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/postalCode/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -254,8 +242,6 @@ func get_postal_code(
 
 
 func get_postal_code_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# postalCodeId: float   Eg: 789
 	# the id of the postal code to get
 	postalCodeId: float,
@@ -265,7 +251,6 @@ func get_postal_code_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_postal_code")
 	bzz_callable.bind(
-		version,
 		postalCodeId,
 		on_success,
 		on_failure,
@@ -274,13 +259,11 @@ func get_postal_code_threaded(
 	return bzz_thread
 
 
-# Operation getPostalCodes → GET /api/{version}/postalCode/search
+# Operation getPostalCodes → GET /postalCode/search
 # Search Postal Codes
 #
 # Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 func get_postal_codes(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort the results on
 	sortField: String,
@@ -313,7 +296,7 @@ func get_postal_codes(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/postalCode/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/postalCode/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -350,8 +333,6 @@ func get_postal_codes(
 
 
 func get_postal_codes_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort the results on
 	sortField: String,
@@ -382,7 +363,6 @@ func get_postal_codes_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_postal_codes")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		latitude,
@@ -398,13 +378,11 @@ func get_postal_codes_threaded(
 	return bzz_thread
 
 
-# Operation updatePostalCode → POST /api/{version}/postalCode/update
+# Operation updatePostalCode → POST /postalCode/update
 # Update Postal Code
 #
 # Update a Postal Code
 func update_postal_code(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -437,7 +415,7 @@ func update_postal_code(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/postalCode/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/postalCode/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -474,8 +452,6 @@ func update_postal_code(
 
 
 func update_postal_code_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -506,7 +482,6 @@ func update_postal_code_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_postal_code")
 	bzz_callable.bind(
-		version,
 		accountId,
 		postalCodeId,
 		code,

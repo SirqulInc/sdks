@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ScheduledNotificationApi"
 
 
-# Operation createScheduledNotification → POST /api/{version}/notification/schedule/create
+# Operation createScheduledNotification → POST /notification/schedule/create
 # Create Scheduled Notification
 #
 # This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
 func create_scheduled_notification(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -130,7 +128,7 @@ func create_scheduled_notification(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/schedule/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/schedule/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -193,8 +191,6 @@ func create_scheduled_notification(
 
 
 func create_scheduled_notification_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -302,7 +298,6 @@ func create_scheduled_notification_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_scheduled_notification")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		type,
@@ -344,13 +339,11 @@ func create_scheduled_notification_threaded(
 	return bzz_thread
 
 
-# Operation deleteScheduledNotification → POST /api/{version}/notification/schedule/delete
+# Operation deleteScheduledNotification → POST /notification/schedule/delete
 # Delete Scheduled Notification
 #
 # This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
 func delete_scheduled_notification(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -368,7 +361,7 @@ func delete_scheduled_notification(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/schedule/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/schedule/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -400,8 +393,6 @@ func delete_scheduled_notification(
 
 
 func delete_scheduled_notification_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -417,7 +408,6 @@ func delete_scheduled_notification_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_scheduled_notification")
 	bzz_callable.bind(
-		version,
 		accountId,
 		scheduledNotificationId,
 		deleteByGroupingId,
@@ -428,13 +418,11 @@ func delete_scheduled_notification_threaded(
 	return bzz_thread
 
 
-# Operation getScheduledNotification → GET /api/{version}/notification/schedule/get
+# Operation getScheduledNotification → GET /notification/schedule/get
 # Get Scheduled Notification
 #
 # Get a ScheduledNotification
 func get_scheduled_notification(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account logged in
 	accountId: float,
@@ -449,7 +437,7 @@ func get_scheduled_notification(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/schedule/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/schedule/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -480,8 +468,6 @@ func get_scheduled_notification(
 
 
 func get_scheduled_notification_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account logged in
 	accountId: float,
@@ -494,7 +480,6 @@ func get_scheduled_notification_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_scheduled_notification")
 	bzz_callable.bind(
-		version,
 		accountId,
 		scheduledNotificationId,
 		on_success,
@@ -504,13 +489,11 @@ func get_scheduled_notification_threaded(
 	return bzz_thread
 
 
-# Operation scheduleNotificationListings → POST /api/{version}/notification/schedule/generate
+# Operation scheduleNotificationListings → POST /notification/schedule/generate
 # Generate Schedule Notifications
 #
 # Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
 func schedule_notification_listings(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -543,7 +526,7 @@ func schedule_notification_listings(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/schedule/generate".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/schedule/generate"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -580,8 +563,6 @@ func schedule_notification_listings(
 
 
 func schedule_notification_listings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -612,7 +593,6 @@ func schedule_notification_listings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "schedule_notification_listings")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		reportName,
@@ -628,13 +608,11 @@ func schedule_notification_listings_threaded(
 	return bzz_thread
 
 
-# Operation searchScheduledNotifications → GET /api/{version}/notification/schedule/search
+# Operation searchScheduledNotifications → GET /notification/schedule/search
 # Search Scheduled Notifications
 #
 # This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
 func search_scheduled_notifications(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -702,7 +680,7 @@ func search_scheduled_notifications(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/schedule/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/schedule/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -751,8 +729,6 @@ func search_scheduled_notifications(
 
 
 func search_scheduled_notifications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -818,7 +794,6 @@ func search_scheduled_notifications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_scheduled_notifications")
 	bzz_callable.bind(
-		version,
 		accountId,
 		groupingId,
 		audienceId,
@@ -846,13 +821,11 @@ func search_scheduled_notifications_threaded(
 	return bzz_thread
 
 
-# Operation updateScheduledNotification → POST /api/{version}/notification/schedule/update
+# Operation updateScheduledNotification → POST /notification/schedule/update
 # Update Scheduled Notification
 #
 # This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
 func update_scheduled_notification(
-	# version: float   Eg: 3.16
-	version: float,
 	# scheduledNotificationId: float   Eg: 789
 	# The id of scheduled notification to update
 	scheduledNotificationId: float,
@@ -975,7 +948,7 @@ func update_scheduled_notification(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/schedule/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/schedule/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1042,8 +1015,6 @@ func update_scheduled_notification(
 
 
 func update_scheduled_notification_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# scheduledNotificationId: float   Eg: 789
 	# The id of scheduled notification to update
 	scheduledNotificationId: float,
@@ -1164,7 +1135,6 @@ func update_scheduled_notification_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_scheduled_notification")
 	bzz_callable.bind(
-		version,
 		scheduledNotificationId,
 		accountId,
 		name,

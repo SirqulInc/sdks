@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "FavoriteApi"
 
 
-# Operation addFavorite → POST /api/{version}/favorite/create
+# Operation addFavorite → POST /favorite/create
 # Create Favorite
 #
 # Adds an offer, offer location, retailer location, or category to your favorites.
 func add_favorite(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoritableId: float   Eg: 789
 	# The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
 	favoritableId: float,
@@ -47,7 +45,7 @@ func add_favorite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/favorite/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/favorite/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -82,8 +80,6 @@ func add_favorite(
 
 
 func add_favorite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoritableId: float   Eg: 789
 	# The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
 	favoritableId: float,
@@ -108,7 +104,6 @@ func add_favorite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_favorite")
 	bzz_callable.bind(
-		version,
 		favoritableId,
 		favoritableType,
 		deviceId,
@@ -122,13 +117,11 @@ func add_favorite_threaded(
 	return bzz_thread
 
 
-# Operation deleteFavorite → POST /api/{version}/favorite/delete
+# Operation deleteFavorite → POST /favorite/delete
 # Delete Favorite
 #
 # Removes a favorited item from the user's favorites list.
 func delete_favorite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -152,7 +145,7 @@ func delete_favorite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/favorite/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/favorite/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -186,8 +179,6 @@ func delete_favorite(
 
 
 func delete_favorite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -209,7 +200,6 @@ func delete_favorite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_favorite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		favoriteId,
@@ -222,13 +212,11 @@ func delete_favorite_threaded(
 	return bzz_thread
 
 
-# Operation getFavorite → GET /api/{version}/favorite/get
+# Operation getFavorite → GET /favorite/get
 # Get Favorite
 #
 # Retrieves a single favorited item.
 func get_favorite(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoriteId: float   Eg: 789
 	# The ID of the favorite reference record
 	favoriteId: float,
@@ -252,7 +240,7 @@ func get_favorite(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/favorite/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/favorite/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -286,8 +274,6 @@ func get_favorite(
 
 
 func get_favorite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoriteId: float   Eg: 789
 	# The ID of the favorite reference record
 	favoriteId: float,
@@ -309,7 +295,6 @@ func get_favorite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_favorite")
 	bzz_callable.bind(
-		version,
 		favoriteId,
 		deviceId,
 		accountId,
@@ -322,13 +307,11 @@ func get_favorite_threaded(
 	return bzz_thread
 
 
-# Operation searchFavorites → GET /api/{version}/favorite/search
+# Operation searchFavorites → GET /favorite/search
 # Search Favorites
 #
 # Searches on the user's favorites.
 func search_favorites(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoritableType: String = ""   Eg: favoritableType_example
 	# The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
 	favoritableType: String,
@@ -378,7 +361,7 @@ func search_favorites(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/favorite/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/favorite/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -421,8 +404,6 @@ func search_favorites(
 
 
 func search_favorites_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoritableType: String = ""   Eg: favoritableType_example
 	# The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
 	favoritableType: String,
@@ -470,7 +451,6 @@ func search_favorites_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_favorites")
 	bzz_callable.bind(
-		version,
 		favoritableType,
 		sortField,
 		descending,
@@ -492,13 +472,11 @@ func search_favorites_threaded(
 	return bzz_thread
 
 
-# Operation whoHasFavorited → GET /api/{version}/favorite/whois
+# Operation whoHasFavorited → GET /favorite/whois
 # Who has Favorited
 #
 # Searches for everyone that has favorited an item
 func who_has_favorited(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoritableId: float   Eg: 789
 	# The ID of the favoritableType to search on
 	favoritableId: float,
@@ -534,7 +512,7 @@ func who_has_favorited(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/favorite/whois".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/favorite/whois"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -572,8 +550,6 @@ func who_has_favorited(
 
 
 func who_has_favorited_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# favoritableId: float   Eg: 789
 	# The ID of the favoritableType to search on
 	favoritableId: float,
@@ -607,7 +583,6 @@ func who_has_favorited_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "who_has_favorited")
 	bzz_callable.bind(
-		version,
 		favoritableId,
 		favoritableType,
 		start,

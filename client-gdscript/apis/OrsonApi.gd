@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "OrsonApi"
 
 
-# Operation addMovie → POST /api/{version}/orson/ai/addMovie
+# Operation addMovie → POST /orson/ai/addMovie
 # Add Movie
 #
 # Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
 func add_movie(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -50,7 +48,7 @@ func add_movie(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/addMovie".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/addMovie"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -86,8 +84,6 @@ func add_movie(
 
 
 func add_movie_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -115,7 +111,6 @@ func add_movie_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_movie")
 	bzz_callable.bind(
-		version,
 		accountId,
 		movieName,
 		thirdPartyAccountId,
@@ -130,13 +125,11 @@ func add_movie_threaded(
 	return bzz_thread
 
 
-# Operation aiDocs → GET /api/{version}/orson/ai/docs
+# Operation aiDocs → GET /orson/ai/docs
 # Search Docs
 #
 # Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
 func ai_docs(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -160,7 +153,7 @@ func ai_docs(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/docs".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/docs"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -194,8 +187,6 @@ func ai_docs(
 
 
 func ai_docs_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -217,7 +208,6 @@ func ai_docs_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "ai_docs")
 	bzz_callable.bind(
-		version,
 		accountId,
 		doc,
 		returnTopics,
@@ -230,13 +220,11 @@ func ai_docs_threaded(
 	return bzz_thread
 
 
-# Operation aiFindImages → GET /api/{version}/orson/ai/img
+# Operation aiFindImages → GET /orson/ai/img
 # Find images
 #
 # Returns a list of URIs of images that match the text.
 func ai_find_images(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -260,7 +248,7 @@ func ai_find_images(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/img".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/img"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -294,8 +282,6 @@ func ai_find_images(
 
 
 func ai_find_images_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -317,7 +303,6 @@ func ai_find_images_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "ai_find_images")
 	bzz_callable.bind(
-		version,
 		accountId,
 		text,
 		parseFlag,
@@ -330,13 +315,11 @@ func ai_find_images_threaded(
 	return bzz_thread
 
 
-# Operation aiTags → GET /api/{version}/orson/ai/tags
+# Operation aiTags → GET /orson/ai/tags
 # Search Tags
 #
 # Search the tags column of user provided tags using this endpoint.
 func ai_tags(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -360,7 +343,7 @@ func ai_tags(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/tags".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/tags"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -394,8 +377,6 @@ func ai_tags(
 
 
 func ai_tags_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -417,7 +398,6 @@ func ai_tags_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "ai_tags")
 	bzz_callable.bind(
-		version,
 		accountId,
 		tags,
 		conditional,
@@ -430,13 +410,11 @@ func ai_tags_threaded(
 	return bzz_thread
 
 
-# Operation aiText → GET /api/{version}/orson/ai/text
+# Operation aiText → GET /orson/ai/text
 # Search Text
 #
 # Search the movie text column of movie text using this endpoint.
 func ai_text(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -460,7 +438,7 @@ func ai_text(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/text".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/text"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -494,8 +472,6 @@ func ai_text(
 
 
 func ai_text_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -517,7 +493,6 @@ func ai_text_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "ai_text")
 	bzz_callable.bind(
-		version,
 		accountId,
 		terms,
 		conditional,
@@ -530,13 +505,11 @@ func ai_text_threaded(
 	return bzz_thread
 
 
-# Operation batch → POST /api/{version}/orson/ai/batch
+# Operation batch → POST /orson/ai/batch
 # Batch Analysis
 #
 # Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
 func batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -566,7 +539,7 @@ func batch(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -602,8 +575,6 @@ func batch(
 
 
 func batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -631,7 +602,6 @@ func batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "batch")
 	bzz_callable.bind(
-		version,
 		accountId,
 		thirdPartyAccountId,
 		limit,
@@ -646,13 +616,11 @@ func batch_threaded(
 	return bzz_thread
 
 
-# Operation createInstantEpisode → POST /api/{version}/orson/stories/episodes/instant
+# Operation createInstantEpisode → POST /orson/stories/episodes/instant
 # Creates an instant episode
 #
 # Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
 func create_instant_episode(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -667,7 +635,7 @@ func create_instant_episode(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/stories/episodes/instant".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/stories/episodes/instant"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -698,8 +666,6 @@ func create_instant_episode(
 
 
 func create_instant_episode_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -712,7 +678,6 @@ func create_instant_episode_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_instant_episode")
 	bzz_callable.bind(
-		version,
 		accountId,
 		data,
 		on_success,
@@ -722,13 +687,11 @@ func create_instant_episode_threaded(
 	return bzz_thread
 
 
-# Operation createVoiceCanvas → POST /api/{version}/orson/ai/voiceCanvas
+# Operation createVoiceCanvas → POST /orson/ai/voiceCanvas
 # Create VoiceCanvas images
 #
 # Create VoiceCanvas images for provided text, file upload, or file URL
 func create_voice_canvas(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -764,7 +727,7 @@ func create_voice_canvas(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/voiceCanvas".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/voiceCanvas"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -802,8 +765,6 @@ func create_voice_canvas(
 
 
 func create_voice_canvas_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -837,7 +798,6 @@ func create_voice_canvas_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_voice_canvas")
 	bzz_callable.bind(
-		version,
 		accountId,
 		dimensions,
 		thirdPartyAccountId,
@@ -854,13 +814,11 @@ func create_voice_canvas_threaded(
 	return bzz_thread
 
 
-# Operation emotion → POST /api/{version}/orson/ai/emotion
+# Operation emotion → POST /orson/ai/emotion
 # Detect emotions
 #
 # Detects emotions in an audio or video recording.
 func emotion(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -884,7 +842,7 @@ func emotion(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/emotion".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/emotion"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -918,8 +876,6 @@ func emotion(
 
 
 func emotion_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -941,7 +897,6 @@ func emotion_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "emotion")
 	bzz_callable.bind(
-		version,
 		accountId,
 		thirdPartyAccountId,
 		file,
@@ -954,13 +909,11 @@ func emotion_threaded(
 	return bzz_thread
 
 
-# Operation getAddMovieResult → GET /api/{version}/orson/ai/addMovie/{requestId}
+# Operation getAddMovieResult → GET /orson/ai/addMovie/{requestId}
 # Get Add Movie Result
 #
 # Get the result of an in progress Add Movie request from an earlier POST.
 func get_add_movie_result(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -975,7 +928,7 @@ func get_add_movie_result(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/addMovie/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/addMovie/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1005,8 +958,6 @@ func get_add_movie_result(
 
 
 func get_add_movie_result_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1019,7 +970,6 @@ func get_add_movie_result_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_add_movie_result")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1029,13 +979,11 @@ func get_add_movie_result_threaded(
 	return bzz_thread
 
 
-# Operation getBatch → GET /api/{version}/orson/ai/batch/{requestId}
+# Operation getBatch → GET /orson/ai/batch/{requestId}
 # Get Batch Analysis Results
 #
 # Gets the completed Video Batch results, if done, or an error or status update if not.
 func get_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1050,7 +998,7 @@ func get_batch(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/batch/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/batch/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1080,8 +1028,6 @@ func get_batch(
 
 
 func get_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1094,7 +1040,6 @@ func get_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_batch")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1104,13 +1049,11 @@ func get_batch_threaded(
 	return bzz_thread
 
 
-# Operation getEmotion → GET /api/{version}/orson/ai/emotion/{requestId}
+# Operation getEmotion → GET /orson/ai/emotion/{requestId}
 # Get Emotion Results
 #
 # Checks the Emotion analysis and returns in progress, results, or error.
 func get_emotion(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1125,7 +1068,7 @@ func get_emotion(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/emotion/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/emotion/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1155,8 +1098,6 @@ func get_emotion(
 
 
 func get_emotion_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1169,7 +1110,6 @@ func get_emotion_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_emotion")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1179,13 +1119,11 @@ func get_emotion_threaded(
 	return bzz_thread
 
 
-# Operation getEpisodeStatus → GET /api/{version}/orson/stories/episodes/{episodeId}/status
+# Operation getEpisodeStatus → GET /orson/stories/episodes/{episodeId}/status
 # Check episode status
 #
 # Gets a summary of the episode's status, including any renders.
 func get_episode_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# episodeId: float   Eg: 789
 	# Episode ID
 	episodeId: float,
@@ -1200,7 +1138,7 @@ func get_episode_status(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/stories/episodes/{episodeId}/status".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "episodeId" + "}", _bzz_urlize_path_param(episodeId))
+	var bzz_path := "/api/3.18/orson/stories/episodes/{episodeId}/status".replace("{" + "episodeId" + "}", _bzz_urlize_path_param(episodeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1230,8 +1168,6 @@ func get_episode_status(
 
 
 func get_episode_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# episodeId: float   Eg: 789
 	# Episode ID
 	episodeId: float,
@@ -1244,7 +1180,6 @@ func get_episode_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_episode_status")
 	bzz_callable.bind(
-		version,
 		episodeId,
 		accountId,
 		on_success,
@@ -1254,13 +1189,11 @@ func get_episode_status_threaded(
 	return bzz_thread
 
 
-# Operation getRenderStatus → GET /api/{version}/orson/stories/renders/{renderId}/status
+# Operation getRenderStatus → GET /orson/stories/renders/{renderId}/status
 # Check episode status
 #
 # Gets a summary of the episode's status, including any renders.
 func get_render_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# renderId: String = ""   Eg: renderId_example
 	# Render ID
 	renderId: String,
@@ -1275,7 +1208,7 @@ func get_render_status(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/stories/renders/{renderId}/status".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "renderId" + "}", _bzz_urlize_path_param(renderId))
+	var bzz_path := "/api/3.18/orson/stories/renders/{renderId}/status".replace("{" + "renderId" + "}", _bzz_urlize_path_param(renderId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1305,8 +1238,6 @@ func get_render_status(
 
 
 func get_render_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# renderId: String = ""   Eg: renderId_example
 	# Render ID
 	renderId: String,
@@ -1319,7 +1250,6 @@ func get_render_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_render_status")
 	bzz_callable.bind(
-		version,
 		renderId,
 		accountId,
 		on_success,
@@ -1329,13 +1259,11 @@ func get_render_status_threaded(
 	return bzz_thread
 
 
-# Operation getSTT → GET /api/{version}/orson/ai/stt/{requestId}
+# Operation getSTT → GET /orson/ai/stt/{requestId}
 # Get Speach to Text Result
 #
 # The results of the video transcription and optional translation.
 func get_stt(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1350,7 +1278,7 @@ func get_stt(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/stt/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/stt/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1380,8 +1308,6 @@ func get_stt(
 
 
 func get_stt_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1394,7 +1320,6 @@ func get_stt_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_stt")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1404,13 +1329,11 @@ func get_stt_threaded(
 	return bzz_thread
 
 
-# Operation getTTS → GET /api/{version}/orson/ai/tts/{requestId}
+# Operation getTTS → GET /orson/ai/tts/{requestId}
 # Get Text to Speach Result
 #
 # Check the status of an in progress Text-to-Speech call or download the result.
 func get_tts(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1425,7 +1348,7 @@ func get_tts(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/tts/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/tts/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1455,8 +1378,6 @@ func get_tts(
 
 
 func get_tts_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1469,7 +1390,6 @@ func get_tts_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_tts")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1479,13 +1399,11 @@ func get_tts_threaded(
 	return bzz_thread
 
 
-# Operation getTechTune → GET /api/{version}/orson/ai/techTune/{requestId}
+# Operation getTechTune → GET /orson/ai/techTune/{requestId}
 # Get TechTune Results
 #
 # Get a result or continue waiting for a pending request for TechTune analysis.
 func get_tech_tune(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1500,7 +1418,7 @@ func get_tech_tune(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/techTune/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/techTune/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1530,8 +1448,6 @@ func get_tech_tune(
 
 
 func get_tech_tune_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1544,7 +1460,6 @@ func get_tech_tune_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_tech_tune")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1554,13 +1469,11 @@ func get_tech_tune_threaded(
 	return bzz_thread
 
 
-# Operation getTopics → GET /api/{version}/orson/ai/topics/{requestId}
+# Operation getTopics → GET /orson/ai/topics/{requestId}
 # Get Topics
 #
 # Get the result of an in progress Topics Analysis from an earlier POST.
 func get_topics(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1575,7 +1488,7 @@ func get_topics(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/topics/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/topics/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1605,8 +1518,6 @@ func get_topics(
 
 
 func get_topics_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1619,7 +1530,6 @@ func get_topics_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_topics")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1629,13 +1539,11 @@ func get_topics_threaded(
 	return bzz_thread
 
 
-# Operation getVoiceCanvas → GET /api/{version}/orson/ai/voiceCanvas/{requestId}
+# Operation getVoiceCanvas → GET /orson/ai/voiceCanvas/{requestId}
 # Get VoiceCanvas images
 #
 # Get a result or continue waiting for a pending request for VoiceCanvas Images.
 func get_voice_canvas(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1650,7 +1558,7 @@ func get_voice_canvas(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/voiceCanvas/{requestId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
+	var bzz_path := "/api/3.18/orson/ai/voiceCanvas/{requestId}".replace("{" + "requestId" + "}", _bzz_urlize_path_param(requestId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1680,8 +1588,6 @@ func get_voice_canvas(
 
 
 func get_voice_canvas_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# requestId: String = ""   Eg: requestId_example
 	# Orson Request Id
 	requestId: String,
@@ -1694,7 +1600,6 @@ func get_voice_canvas_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_voice_canvas")
 	bzz_callable.bind(
-		version,
 		requestId,
 		accountId,
 		on_success,
@@ -1704,13 +1609,11 @@ func get_voice_canvas_threaded(
 	return bzz_thread
 
 
-# Operation startVideoRender → POST /api/{version}/orson/stories/renders
+# Operation startVideoRender → POST /orson/stories/renders
 # Starts a StoryStitch video render
 #
 # Starts a StoryStitch video render to produce your final video, returning the status details.
 func start_video_render(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1725,7 +1628,7 @@ func start_video_render(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/stories/renders".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/stories/renders"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1756,8 +1659,6 @@ func start_video_render(
 
 
 func start_video_render_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1770,7 +1671,6 @@ func start_video_render_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "start_video_render")
 	bzz_callable.bind(
-		version,
 		accountId,
 		data,
 		on_success,
@@ -1780,13 +1680,11 @@ func start_video_render_threaded(
 	return bzz_thread
 
 
-# Operation stt → POST /api/{version}/orson/ai/stt
+# Operation stt → POST /orson/ai/stt
 # Speach to Text
 #
 # Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
 func stt(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1816,7 +1714,7 @@ func stt(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/stt".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/stt"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1852,8 +1750,6 @@ func stt(
 
 
 func stt_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1881,7 +1777,6 @@ func stt_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "stt")
 	bzz_callable.bind(
-		version,
 		accountId,
 		thirdPartyAccountId,
 		sourceLanguage,
@@ -1896,13 +1791,11 @@ func stt_threaded(
 	return bzz_thread
 
 
-# Operation summarizeTopics → POST /api/{version}/orson/ai/topics
+# Operation summarizeTopics → POST /orson/ai/topics
 # Summarize Topics
 #
 # Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
 func summarize_topics(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -1935,7 +1828,7 @@ func summarize_topics(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/topics".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/topics"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1972,8 +1865,6 @@ func summarize_topics(
 
 
 func summarize_topics_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2004,7 +1895,6 @@ func summarize_topics_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "summarize_topics")
 	bzz_callable.bind(
-		version,
 		accountId,
 		thirdPartyAccountId,
 		doc,
@@ -2020,13 +1910,11 @@ func summarize_topics_threaded(
 	return bzz_thread
 
 
-# Operation techTune → POST /api/{version}/orson/ai/techTune
+# Operation techTune → POST /orson/ai/techTune
 # Detect Technical Issues
 #
 # Analyses a movie file to detect technical issues, such as too few people in frame.
 func tech_tune(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2053,7 +1941,7 @@ func tech_tune(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/techTune".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/techTune"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2088,8 +1976,6 @@ func tech_tune(
 
 
 func tech_tune_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2114,7 +2000,6 @@ func tech_tune_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "tech_tune")
 	bzz_callable.bind(
-		version,
 		accountId,
 		numFacesExpected,
 		thirdPartyAccountId,
@@ -2128,13 +2013,11 @@ func tech_tune_threaded(
 	return bzz_thread
 
 
-# Operation tts → POST /api/{version}/orson/ai/tts
+# Operation tts → POST /orson/ai/tts
 # Text to Speach
 #
 # Creates an audio file for the given text, with the option of language and voice selection.
 func tts(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2161,7 +2044,7 @@ func tts(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/orson/ai/tts".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/orson/ai/tts"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2196,8 +2079,6 @@ func tts(
 
 
 func tts_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -2222,7 +2103,6 @@ func tts_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "tts")
 	bzz_callable.bind(
-		version,
 		accountId,
 		text,
 		thirdPartyAccountId,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TaskApi"
 
 
-# Operation createTask → POST /api/{version}/task/create
+# Operation createTask → POST /task/create
 # Create Task
 #
 # Create a Task
 func create_task(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -65,7 +63,7 @@ func create_task(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/task/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/task/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -106,8 +104,6 @@ func create_task(
 
 
 func create_task_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -150,7 +146,6 @@ func create_task_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_task")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		appKey,
@@ -170,13 +165,11 @@ func create_task_threaded(
 	return bzz_thread
 
 
-# Operation deleteTask → POST /api/{version}/task/delete
+# Operation deleteTask → POST /task/delete
 # Delete Task
 #
 # Delete a Task
 func delete_task(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -191,7 +184,7 @@ func delete_task(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/task/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/task/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -222,8 +215,6 @@ func delete_task(
 
 
 func delete_task_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -236,7 +227,6 @@ func delete_task_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_task")
 	bzz_callable.bind(
-		version,
 		accountId,
 		taskId,
 		on_success,
@@ -246,13 +236,11 @@ func delete_task_threaded(
 	return bzz_thread
 
 
-# Operation getTask → GET /api/{version}/task/get
+# Operation getTask → GET /task/get
 # Get Task
 #
 # Get a Task
 func get_task(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -267,7 +255,7 @@ func get_task(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/task/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/task/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -298,8 +286,6 @@ func get_task(
 
 
 func get_task_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -312,7 +298,6 @@ func get_task_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_task")
 	bzz_callable.bind(
-		version,
 		accountId,
 		taskId,
 		on_success,
@@ -322,13 +307,11 @@ func get_task_threaded(
 	return bzz_thread
 
 
-# Operation searchTasks → GET /api/{version}/task/search
+# Operation searchTasks → GET /task/search
 # Search Tasks
 #
 # Search on Tasks
 func search_tasks(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -373,7 +356,7 @@ func search_tasks(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/task/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/task/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -414,8 +397,6 @@ func search_tasks(
 
 
 func search_tasks_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -458,7 +439,6 @@ func search_tasks_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_tasks")
 	bzz_callable.bind(
-		version,
 		accountId,
 		groupingId,
 		filter,
@@ -478,13 +458,11 @@ func search_tasks_threaded(
 	return bzz_thread
 
 
-# Operation updateTask → POST /api/{version}/task/update
+# Operation updateTask → POST /task/update
 # Update Task
 #
 # Update a Task
 func update_task(
-	# version: float   Eg: 3.16
-	version: float,
 	# taskId: float   Eg: 789
 	# Task Id
 	taskId: float,
@@ -532,7 +510,7 @@ func update_task(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/task/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/task/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -574,8 +552,6 @@ func update_task(
 
 
 func update_task_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# taskId: float   Eg: 789
 	# Task Id
 	taskId: float,
@@ -621,7 +597,6 @@ func update_task_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_task")
 	bzz_callable.bind(
-		version,
 		taskId,
 		accountId,
 		name,

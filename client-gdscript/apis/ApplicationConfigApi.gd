@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ApplicationConfigApi"
 
 
-# Operation createApplicationConfig → POST /api/{version}/appconfig/create
+# Operation createApplicationConfig → POST /appconfig/create
 # Create AppConfig
 #
 # Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
 func create_application_config(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -50,7 +48,7 @@ func create_application_config(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/appconfig/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/appconfig/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -86,8 +84,6 @@ func create_application_config(
 
 
 func create_application_config_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -115,7 +111,6 @@ func create_application_config_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_application_config")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		configVersion,
@@ -130,13 +125,11 @@ func create_application_config_threaded(
 	return bzz_thread
 
 
-# Operation deleteApplicationConfig → POST /api/{version}/appconfig/delete
+# Operation deleteApplicationConfig → POST /appconfig/delete
 # Delete AppConfig
 #
 # Mark the application configuration for deletion.
 func delete_application_config(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -151,7 +144,7 @@ func delete_application_config(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/appconfig/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/appconfig/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -182,8 +175,6 @@ func delete_application_config(
 
 
 func delete_application_config_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -196,7 +187,6 @@ func delete_application_config_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_application_config")
 	bzz_callable.bind(
-		version,
 		accountId,
 		configId,
 		on_success,
@@ -206,13 +196,11 @@ func delete_application_config_threaded(
 	return bzz_thread
 
 
-# Operation getApplicationConfig → GET /api/{version}/appconfig/get
+# Operation getApplicationConfig → GET /appconfig/get
 # Get AppConfig
 #
 # Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
 func get_application_config(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -227,7 +215,7 @@ func get_application_config(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/appconfig/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/appconfig/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -258,8 +246,6 @@ func get_application_config(
 
 
 func get_application_config_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -272,7 +258,6 @@ func get_application_config_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_application_config")
 	bzz_callable.bind(
-		version,
 		accountId,
 		configId,
 		on_success,
@@ -282,13 +267,11 @@ func get_application_config_threaded(
 	return bzz_thread
 
 
-# Operation getApplicationConfigByConfigVersion → GET /api/{version}/appconfig/getbyversion
+# Operation getApplicationConfigByConfigVersion → GET /appconfig/getbyversion
 # Get AppConfig by Version
 #
 # Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
 func get_application_config_by_config_version(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -315,7 +298,7 @@ func get_application_config_by_config_version(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/appconfig/getbyversion".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/appconfig/getbyversion"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -350,8 +333,6 @@ func get_application_config_by_config_version(
 
 
 func get_application_config_by_config_version_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -376,7 +357,6 @@ func get_application_config_by_config_version_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_application_config_by_config_version")
 	bzz_callable.bind(
-		version,
 		appKey,
 		configVersion,
 		retailerId,
@@ -390,13 +370,11 @@ func get_application_config_by_config_version_threaded(
 	return bzz_thread
 
 
-# Operation searchApplicationConfig → GET /api/{version}/appconfig/search
+# Operation searchApplicationConfig → GET /appconfig/search
 # Search AppConfigs
 #
 # Gets all versions of application configurations in a particular app by the given appKey.
 func search_application_config(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -435,7 +413,7 @@ func search_application_config(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/appconfig/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/appconfig/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -474,8 +452,6 @@ func search_application_config(
 
 
 func search_application_config_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -512,7 +488,6 @@ func search_application_config_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_application_config")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		retailerId,
@@ -530,13 +505,11 @@ func search_application_config_threaded(
 	return bzz_thread
 
 
-# Operation updateApplicationConfig → POST /api/{version}/appconfig/update
+# Operation updateApplicationConfig → POST /appconfig/update
 # Update AppConfig
 #
 # pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
 func update_application_config(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -569,7 +542,7 @@ func update_application_config(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/appconfig/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/appconfig/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -606,8 +579,6 @@ func update_application_config(
 
 
 func update_application_config_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user
 	accountId: float,
@@ -638,7 +609,6 @@ func update_application_config_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_application_config")
 	bzz_callable.bind(
-		version,
 		accountId,
 		configId,
 		appKey,

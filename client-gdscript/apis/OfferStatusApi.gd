@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "OfferStatusApi"
 
 
-# Operation createOfferTransactionStatus → POST /api/{version}/offer/status/create
+# Operation createOfferTransactionStatus → POST /offer/status/create
 # Create Offer Status
 #
 # Create an offer status record
 func create_offer_transaction_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# name: String = ""   Eg: name_example
 	# The name of the status
 	name: String,
@@ -59,7 +57,7 @@ func create_offer_transaction_status(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/status/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/status/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -98,8 +96,6 @@ func create_offer_transaction_status(
 
 
 func create_offer_transaction_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# name: String = ""   Eg: name_example
 	# The name of the status
 	name: String,
@@ -136,7 +132,6 @@ func create_offer_transaction_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_offer_transaction_status")
 	bzz_callable.bind(
-		version,
 		name,
 		code,
 		deviceId,
@@ -154,13 +149,11 @@ func create_offer_transaction_status_threaded(
 	return bzz_thread
 
 
-# Operation deleteOfferTransactionStatus → POST /api/{version}/offer/status/delete
+# Operation deleteOfferTransactionStatus → POST /offer/status/delete
 # Delete Offer Status
 #
 # Mark an offer status record as deleted
 func delete_offer_transaction_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# statusId: float   Eg: 789
 	# The id of the record to delete
 	statusId: float,
@@ -184,7 +177,7 @@ func delete_offer_transaction_status(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/status/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/status/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -218,8 +211,6 @@ func delete_offer_transaction_status(
 
 
 func delete_offer_transaction_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# statusId: float   Eg: 789
 	# The id of the record to delete
 	statusId: float,
@@ -241,7 +232,6 @@ func delete_offer_transaction_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_offer_transaction_status")
 	bzz_callable.bind(
-		version,
 		statusId,
 		deviceId,
 		accountId,
@@ -254,13 +244,11 @@ func delete_offer_transaction_status_threaded(
 	return bzz_thread
 
 
-# Operation getOfferTransactionStatus → GET /api/{version}/offer/status/get
+# Operation getOfferTransactionStatus → GET /offer/status/get
 # Get Offer Status
 #
 # Get an offer status record
 func get_offer_transaction_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# statusId: float   Eg: 789
 	# The id of the record to get 
 	statusId: float,
@@ -284,7 +272,7 @@ func get_offer_transaction_status(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/status/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/status/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -318,8 +306,6 @@ func get_offer_transaction_status(
 
 
 func get_offer_transaction_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# statusId: float   Eg: 789
 	# The id of the record to get 
 	statusId: float,
@@ -341,7 +327,6 @@ func get_offer_transaction_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offer_transaction_status")
 	bzz_callable.bind(
-		version,
 		statusId,
 		deviceId,
 		accountId,
@@ -354,13 +339,11 @@ func get_offer_transaction_status_threaded(
 	return bzz_thread
 
 
-# Operation searchOfferTransactionStatuses → GET /api/{version}/offer/status/search
+# Operation searchOfferTransactionStatuses → GET /offer/status/search
 # Search Offer Status
 #
 # Search for the available offer statuses
 func search_offer_transaction_statuses(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -405,7 +388,7 @@ func search_offer_transaction_statuses(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/status/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/status/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -446,8 +429,6 @@ func search_offer_transaction_statuses(
 
 
 func search_offer_transaction_statuses_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -490,7 +471,6 @@ func search_offer_transaction_statuses_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_offer_transaction_statuses")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		latitude,
@@ -510,13 +490,11 @@ func search_offer_transaction_statuses_threaded(
 	return bzz_thread
 
 
-# Operation updateOfferTransactionStatus → POST /api/{version}/offer/status/update
+# Operation updateOfferTransactionStatus → POST /offer/status/update
 # Update Offer Status
 #
 # Update an offer status record
 func update_offer_transaction_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -558,7 +536,7 @@ func update_offer_transaction_status(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/status/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/status/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -598,8 +576,6 @@ func update_offer_transaction_status(
 
 
 func update_offer_transaction_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -639,7 +615,6 @@ func update_offer_transaction_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_offer_transaction_status")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		latitude,

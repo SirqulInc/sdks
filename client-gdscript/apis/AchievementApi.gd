@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AchievementApi"
 
 
-# Operation apiVersionAchievementTierSearchPost → POST /api/{version}/achievement/tier/search
+# Operation achievementTierSearchPost → POST /achievement/tier/search
 # Searches an Achievement Tier
 #
 # Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-func api_version_achievement_tier_search_post(
-	# version: float   Eg: 3.16
-	version: float,
+func achievement_tier_search_post(
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -62,7 +60,7 @@ func api_version_achievement_tier_search_post(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/tier/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/tier/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -101,9 +99,7 @@ func api_version_achievement_tier_search_post(
 	)
 
 
-func api_version_achievement_tier_search_post_threaded(
-	# version: float   Eg: 3.16
-	version: float,
+func achievement_tier_search_post_threaded(
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -141,9 +137,8 @@ func api_version_achievement_tier_search_post_threaded(
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
 	var bzz_thread := Thread.new()
-	var bzz_callable := Callable(self, "api_version_achievement_tier_search_post")
+	var bzz_callable := Callable(self, "achievement_tier_search_post")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,
@@ -162,13 +157,11 @@ func api_version_achievement_tier_search_post_threaded(
 	return bzz_thread
 
 
-# Operation createAchievement → POST /api/{version}/achievement/create
+# Operation createAchievement → POST /achievement/create
 # Create Achievement
 #
 # Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 func create_achievement(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key the achievement is for
 	appKey: String,
@@ -216,7 +209,7 @@ func create_achievement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -258,8 +251,6 @@ func create_achievement(
 
 
 func create_achievement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key the achievement is for
 	appKey: String,
@@ -305,7 +296,6 @@ func create_achievement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_achievement")
 	bzz_callable.bind(
-		version,
 		appKey,
 		title,
 		deviceId,
@@ -326,13 +316,11 @@ func create_achievement_threaded(
 	return bzz_thread
 
 
-# Operation createAchievementTier → POST /api/{version}/achievement/tier/create
+# Operation createAchievementTier → POST /achievement/tier/create
 # Create Achievement Tier
 #
 # Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 func create_achievement_tier(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementId: float   Eg: 789
 	# the achievement id for adding a new tier
 	achievementId: float,
@@ -383,7 +371,7 @@ func create_achievement_tier(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/tier/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/tier/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -426,8 +414,6 @@ func create_achievement_tier(
 
 
 func create_achievement_tier_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementId: float   Eg: 789
 	# the achievement id for adding a new tier
 	achievementId: float,
@@ -476,7 +462,6 @@ func create_achievement_tier_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_achievement_tier")
 	bzz_callable.bind(
-		version,
 		achievementId,
 		scoreAllInstances,
 		deviceId,
@@ -498,13 +483,11 @@ func create_achievement_tier_threaded(
 	return bzz_thread
 
 
-# Operation deleteAchievement → POST /api/{version}/achievement/delete
+# Operation deleteAchievement → POST /achievement/delete
 # Delete Achievement
 #
 # Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
 func delete_achievement(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementId: float   Eg: 789
 	# The ID of the achievement
 	achievementId: float,
@@ -519,7 +502,7 @@ func delete_achievement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -550,8 +533,6 @@ func delete_achievement(
 
 
 func delete_achievement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementId: float   Eg: 789
 	# The ID of the achievement
 	achievementId: float,
@@ -564,7 +545,6 @@ func delete_achievement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_achievement")
 	bzz_callable.bind(
-		version,
 		achievementId,
 		accountId,
 		on_success,
@@ -574,13 +554,11 @@ func delete_achievement_threaded(
 	return bzz_thread
 
 
-# Operation deleteAchievementTier → POST /api/{version}/achievement/tier/delete
+# Operation deleteAchievementTier → POST /achievement/tier/delete
 # Delete Achievement Tier
 #
 # Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
 func delete_achievement_tier(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementTierId: float   Eg: 789
 	# the achievement id for deletion
 	achievementTierId: float,
@@ -595,7 +573,7 @@ func delete_achievement_tier(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/tier/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/tier/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -626,8 +604,6 @@ func delete_achievement_tier(
 
 
 func delete_achievement_tier_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementTierId: float   Eg: 789
 	# the achievement id for deletion
 	achievementTierId: float,
@@ -640,7 +616,6 @@ func delete_achievement_tier_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_achievement_tier")
 	bzz_callable.bind(
-		version,
 		achievementTierId,
 		accountId,
 		on_success,
@@ -650,13 +625,11 @@ func delete_achievement_tier_threaded(
 	return bzz_thread
 
 
-# Operation getAchievement → GET /api/{version}/achievement/get
+# Operation getAchievement → GET /achievement/get
 # Get Achievement
 #
 # Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 func get_achievement(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementId: float   Eg: 789
 	# The ID of the achievement
 	achievementId: float,
@@ -677,7 +650,7 @@ func get_achievement(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -710,8 +683,6 @@ func get_achievement(
 
 
 func get_achievement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementId: float   Eg: 789
 	# The ID of the achievement
 	achievementId: float,
@@ -730,7 +701,6 @@ func get_achievement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_achievement")
 	bzz_callable.bind(
-		version,
 		achievementId,
 		deviceId,
 		accountId,
@@ -742,13 +712,11 @@ func get_achievement_threaded(
 	return bzz_thread
 
 
-# Operation getAchievementTier → POST /api/{version}/achievement/tier/get
+# Operation getAchievementTier → POST /achievement/tier/get
 # Gets an achievement tier
 #
 # Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
 func get_achievement_tier(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user (deviceId or accountId required)
 	accountId: float,
@@ -763,7 +731,7 @@ func get_achievement_tier(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/tier/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/tier/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -794,8 +762,6 @@ func get_achievement_tier(
 
 
 func get_achievement_tier_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user (deviceId or accountId required)
 	accountId: float,
@@ -808,7 +774,6 @@ func get_achievement_tier_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_achievement_tier")
 	bzz_callable.bind(
-		version,
 		accountId,
 		achievementTierId,
 		on_success,
@@ -818,13 +783,11 @@ func get_achievement_tier_threaded(
 	return bzz_thread
 
 
-# Operation getUserAchievements → GET /api/{version}/achievement/progress/get
+# Operation getUserAchievements → GET /achievement/progress/get
 # Get Achievement Progress
 #
 # Gets a list of user achievements.
 func get_user_achievements(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool = true   Eg: true
 	# determines whether to return null fields in the response
 	returnNulls: bool,
@@ -866,7 +829,7 @@ func get_user_achievements(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/progress/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/progress/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -906,8 +869,6 @@ func get_user_achievements(
 
 
 func get_user_achievements_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool = true   Eg: true
 	# determines whether to return null fields in the response
 	returnNulls: bool,
@@ -947,7 +908,6 @@ func get_user_achievements_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_user_achievements")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		appKey,
 		includeUndiscovered,
@@ -966,13 +926,11 @@ func get_user_achievements_threaded(
 	return bzz_thread
 
 
-# Operation listAchievementTags → GET /api/{version}/achievement/tag/list
+# Operation listAchievementTags → GET /achievement/tag/list
 # List Achievement Tags
 #
 # List achievement tags by application
 func list_achievement_tags(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# filter results by application key
 	appKey = "",
@@ -984,7 +942,7 @@ func list_achievement_tags(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/tag/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/tag/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1014,8 +972,6 @@ func list_achievement_tags(
 
 
 func list_achievement_tags_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# filter results by application key
 	appKey = "",
@@ -1025,7 +981,6 @@ func list_achievement_tags_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_achievement_tags")
 	bzz_callable.bind(
-		version,
 		appKey,
 		on_success,
 		on_failure,
@@ -1034,13 +989,11 @@ func list_achievement_tags_threaded(
 	return bzz_thread
 
 
-# Operation listAchievements → GET /api/{version}/achievement/list
+# Operation listAchievements → GET /achievement/list
 # List Achievements
 #
 # List achievements by billable.
 func list_achievements(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort by. See AchievementApiMap
 	sortField: String,
@@ -1082,7 +1035,7 @@ func list_achievements(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1122,8 +1075,6 @@ func list_achievements(
 
 
 func list_achievements_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort by. See AchievementApiMap
 	sortField: String,
@@ -1163,7 +1114,6 @@ func list_achievements_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_achievements")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,
@@ -1182,13 +1132,11 @@ func list_achievements_threaded(
 	return bzz_thread
 
 
-# Operation searchAchievements → GET /api/{version}/achievement/search
+# Operation searchAchievements → GET /achievement/search
 # Search Achievements
 #
 # Searches achievements by application for consumers.
 func search_achievements(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -1233,7 +1181,7 @@ func search_achievements(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1274,8 +1222,6 @@ func search_achievements(
 
 
 func search_achievements_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# the application key
 	appKey: String,
@@ -1318,7 +1264,6 @@ func search_achievements_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_achievements")
 	bzz_callable.bind(
-		version,
 		appKey,
 		sortField,
 		descending,
@@ -1338,13 +1283,11 @@ func search_achievements_threaded(
 	return bzz_thread
 
 
-# Operation updateAchievement → POST /api/{version}/achievement/update
+# Operation updateAchievement → POST /achievement/update
 # Update Achievement
 #
 # Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 func update_achievement(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -1398,7 +1341,7 @@ func update_achievement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1442,8 +1385,6 @@ func update_achievement(
 
 
 func update_achievement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -1495,7 +1436,6 @@ func update_achievement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_achievement")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		achievementId,
@@ -1518,13 +1458,11 @@ func update_achievement_threaded(
 	return bzz_thread
 
 
-# Operation updateAchievementTier → POST /api/{version}/achievement/tier/update
+# Operation updateAchievementTier → POST /achievement/tier/update
 # Update Achievement Tier
 #
 # Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 func update_achievement_tier(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementTierId: float   Eg: 789
 	# the achievement tier id for updating
 	achievementTierId: float,
@@ -1575,7 +1513,7 @@ func update_achievement_tier(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/tier/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/tier/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1618,8 +1556,6 @@ func update_achievement_tier(
 
 
 func update_achievement_tier_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# achievementTierId: float   Eg: 789
 	# the achievement tier id for updating
 	achievementTierId: float,
@@ -1668,7 +1604,6 @@ func update_achievement_tier_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_achievement_tier")
 	bzz_callable.bind(
-		version,
 		achievementTierId,
 		deviceId,
 		accountId,
@@ -1690,13 +1625,11 @@ func update_achievement_tier_threaded(
 	return bzz_thread
 
 
-# Operation updateUserAchievement → POST /api/{version}/achievement/progress/update
+# Operation updateUserAchievement → POST /achievement/progress/update
 # Update Achievement Progress
 #
 # Update user achievement progress.
 func update_user_achievement(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -1729,7 +1662,7 @@ func update_user_achievement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/achievement/progress/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/achievement/progress/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1766,8 +1699,6 @@ func update_user_achievement(
 
 
 func update_user_achievement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -1798,7 +1729,6 @@ func update_user_achievement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_user_achievement")
 	bzz_callable.bind(
-		version,
 		accountId,
 		achievementId,
 		tag,

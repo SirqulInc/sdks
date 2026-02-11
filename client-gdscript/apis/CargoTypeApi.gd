@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "CargoTypeApi"
 
 
-# Operation createCargoType → POST /api/{version}/cargo/type
+# Operation createCargoType → POST /cargo/type
 # Create Cargo Type
 #
 # Create new cargo type
 func create_cargo_type(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: CargoType
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -31,7 +29,7 @@ func create_cargo_type(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/type".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/cargo/type"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func create_cargo_type(
 
 
 func create_cargo_type_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: CargoType
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -71,7 +67,6 @@ func create_cargo_type_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_cargo_type")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -80,13 +75,11 @@ func create_cargo_type_threaded(
 	return bzz_thread
 
 
-# Operation deleteCargoType → DELETE /api/{version}/cargo/type/{cargoTypeId}
+# Operation deleteCargoType → DELETE /cargo/type/{cargoTypeId}
 # Delete Cargo Type
 #
 # Delete a type of cargo
 func delete_cargo_type(
-	# version: float   Eg: 3.16
-	version: float,
 	# cargoTypeId: float   Eg: 789
 	# the ID of the cargo type
 	cargoTypeId: float,
@@ -98,7 +91,7 @@ func delete_cargo_type(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/type/{cargoTypeId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "cargoTypeId" + "}", _bzz_urlize_path_param(cargoTypeId))
+	var bzz_path := "/api/3.18/cargo/type/{cargoTypeId}".replace("{" + "cargoTypeId" + "}", _bzz_urlize_path_param(cargoTypeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -121,8 +114,6 @@ func delete_cargo_type(
 
 
 func delete_cargo_type_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# cargoTypeId: float   Eg: 789
 	# the ID of the cargo type
 	cargoTypeId: float,
@@ -132,7 +123,6 @@ func delete_cargo_type_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_cargo_type")
 	bzz_callable.bind(
-		version,
 		cargoTypeId,
 		on_success,
 		on_failure,
@@ -141,13 +131,11 @@ func delete_cargo_type_threaded(
 	return bzz_thread
 
 
-# Operation getCargoType → GET /api/{version}/cargo/type/{cargoTypeId}
+# Operation getCargoType → GET /cargo/type/{cargoTypeId}
 # Get Cargo Type
 #
 # Get an existing cargo type
 func get_cargo_type(
-	# version: float   Eg: 3.16
-	version: float,
 	# cargoTypeId: float   Eg: 789
 	# the cargo type ID
 	cargoTypeId: float,
@@ -159,7 +147,7 @@ func get_cargo_type(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/type/{cargoTypeId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "cargoTypeId" + "}", _bzz_urlize_path_param(cargoTypeId))
+	var bzz_path := "/api/3.18/cargo/type/{cargoTypeId}".replace("{" + "cargoTypeId" + "}", _bzz_urlize_path_param(cargoTypeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -188,8 +176,6 @@ func get_cargo_type(
 
 
 func get_cargo_type_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# cargoTypeId: float   Eg: 789
 	# the cargo type ID
 	cargoTypeId: float,
@@ -199,7 +185,6 @@ func get_cargo_type_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_cargo_type")
 	bzz_callable.bind(
-		version,
 		cargoTypeId,
 		on_success,
 		on_failure,
@@ -208,13 +193,11 @@ func get_cargo_type_threaded(
 	return bzz_thread
 
 
-# Operation searchCargoTypes → GET /api/{version}/cargo/type
+# Operation searchCargoTypes → GET /cargo/type
 # Search Cargo Type
 #
 # Search for types of cargo
 func search_cargo_types(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the sort field to use for the cargo type
 	sortField: String,
@@ -244,7 +227,7 @@ func search_cargo_types(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/type".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/cargo/type"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -280,8 +263,6 @@ func search_cargo_types(
 
 
 func search_cargo_types_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the sort field to use for the cargo type
 	sortField: String,
@@ -309,7 +290,6 @@ func search_cargo_types_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_cargo_types")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,
@@ -324,13 +304,11 @@ func search_cargo_types_threaded(
 	return bzz_thread
 
 
-# Operation updateCargoType → PUT /api/{version}/cargo/type/{cargoTypeId}
+# Operation updateCargoType → PUT /cargo/type/{cargoTypeId}
 # Update Cargo Type
 #
 # Update an existing cargo type
 func update_cargo_type(
-	# version: float   Eg: 3.16
-	version: float,
 	# cargoTypeId: float   Eg: 789
 	# the ID of the cargo type
 	cargoTypeId: float,
@@ -344,7 +322,7 @@ func update_cargo_type(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/type/{cargoTypeId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "cargoTypeId" + "}", _bzz_urlize_path_param(cargoTypeId))
+	var bzz_path := "/api/3.18/cargo/type/{cargoTypeId}".replace("{" + "cargoTypeId" + "}", _bzz_urlize_path_param(cargoTypeId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -374,8 +352,6 @@ func update_cargo_type(
 
 
 func update_cargo_type_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# cargoTypeId: float   Eg: 789
 	# the ID of the cargo type
 	cargoTypeId: float,
@@ -387,7 +363,6 @@ func update_cargo_type_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_cargo_type")
 	bzz_callable.bind(
-		version,
 		cargoTypeId,
 		body,
 		on_success,

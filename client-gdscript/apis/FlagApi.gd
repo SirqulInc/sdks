@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "FlagApi"
 
 
-# Operation createFlag → POST /api/{version}/flag/create
+# Operation createFlag → POST /flag/create
 # Create Flag
 #
 # Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 func create_flag(
-	# version: float   Eg: 3.16
-	version: float,
 	# flagableType: String = ""   Eg: flagableType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 	flagableType: String,
@@ -50,7 +48,7 @@ func create_flag(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/flag/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/flag/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -86,8 +84,6 @@ func create_flag(
 
 
 func create_flag_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# flagableType: String = ""   Eg: flagableType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 	flagableType: String,
@@ -115,7 +111,6 @@ func create_flag_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_flag")
 	bzz_callable.bind(
-		version,
 		flagableType,
 		flagableId,
 		deviceId,
@@ -130,13 +125,11 @@ func create_flag_threaded(
 	return bzz_thread
 
 
-# Operation deleteFlag → POST /api/{version}/flag/delete
+# Operation deleteFlag → POST /flag/delete
 # Delete Flag
 #
 # Deletes a flag.
 func delete_flag(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -163,7 +156,7 @@ func delete_flag(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/flag/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/flag/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -198,8 +191,6 @@ func delete_flag(
 
 
 func delete_flag_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -224,7 +215,6 @@ func delete_flag_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_flag")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		itemBeingFlaggedType,
@@ -238,13 +228,11 @@ func delete_flag_threaded(
 	return bzz_thread
 
 
-# Operation getFlag → GET /api/{version}/flag/get
+# Operation getFlag → GET /flag/get
 # Get Flag
 #
 # Gets the details on whether the user has flagged a particular flagable object.
 func get_flag(
-	# version: float   Eg: 3.16
-	version: float,
 	# flagableType: String = ""   Eg: flagableType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 	flagableType: String,
@@ -271,7 +259,7 @@ func get_flag(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/flag/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/flag/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -306,8 +294,6 @@ func get_flag(
 
 
 func get_flag_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# flagableType: String = ""   Eg: flagableType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
 	flagableType: String,
@@ -332,7 +318,6 @@ func get_flag_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_flag")
 	bzz_callable.bind(
-		version,
 		flagableType,
 		flagableId,
 		deviceId,
@@ -346,13 +331,11 @@ func get_flag_threaded(
 	return bzz_thread
 
 
-# Operation getFlagThreshold → GET /api/{version}/flag/threshold/get
+# Operation getFlagThreshold → GET /flag/threshold/get
 # Get Flag Threshold
 #
 # Get the flag threshold value on an object type for a particular application.
 func get_flag_threshold(
-	# version: float   Eg: 3.16
-	version: float,
 	# itemBeingFlaggedType: String = ""   Eg: itemBeingFlaggedType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 	itemBeingFlaggedType: String,
@@ -367,7 +350,7 @@ func get_flag_threshold(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/flag/threshold/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/flag/threshold/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -398,8 +381,6 @@ func get_flag_threshold(
 
 
 func get_flag_threshold_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# itemBeingFlaggedType: String = ""   Eg: itemBeingFlaggedType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 	itemBeingFlaggedType: String,
@@ -412,7 +393,6 @@ func get_flag_threshold_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_flag_threshold")
 	bzz_callable.bind(
-		version,
 		itemBeingFlaggedType,
 		appKey,
 		on_success,
@@ -422,13 +402,11 @@ func get_flag_threshold_threaded(
 	return bzz_thread
 
 
-# Operation updateFlagThreshold → POST /api/{version}/flag/threshold/update
+# Operation updateFlagThreshold → POST /flag/threshold/update
 # Update Flag Threshold
 #
 # Update the flag threshold on an object type for a particular application.
 func update_flag_threshold(
-	# version: float   Eg: 3.16
-	version: float,
 	# itemBeingFlaggedType: String = ""   Eg: itemBeingFlaggedType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 	itemBeingFlaggedType: String,
@@ -452,7 +430,7 @@ func update_flag_threshold(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/flag/threshold/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/flag/threshold/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -486,8 +464,6 @@ func update_flag_threshold(
 
 
 func update_flag_threshold_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# itemBeingFlaggedType: String = ""   Eg: itemBeingFlaggedType_example
 	# The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
 	itemBeingFlaggedType: String,
@@ -509,7 +485,6 @@ func update_flag_threshold_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_flag_threshold")
 	bzz_callable.bind(
-		version,
 		itemBeingFlaggedType,
 		threshold,
 		appKey,

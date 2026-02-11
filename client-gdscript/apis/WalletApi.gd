@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "WalletApi"
 
 
-# Operation createOfferTransaction → POST /api/{version}/wallet/create
+# Operation createOfferTransaction → POST /wallet/create
 # Create Wallet Offers
 #
 # Adds offers to the wallet
 func create_offer_transaction(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -62,7 +60,7 @@ func create_offer_transaction(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/wallet/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/wallet/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -102,8 +100,6 @@ func create_offer_transaction(
 
 
 func create_offer_transaction_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -143,7 +139,6 @@ func create_offer_transaction_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_offer_transaction")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		offerId,
@@ -162,13 +157,11 @@ func create_offer_transaction_threaded(
 	return bzz_thread
 
 
-# Operation deleteOfferTransaction → POST /api/{version}/wallet/delete
+# Operation deleteOfferTransaction → POST /wallet/delete
 # Delete Wallet Offer
 #
 # Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 func delete_offer_transaction(
-	# version: float   Eg: 3.16
-	version: float,
 	# transactionId: float   Eg: 789
 	# The offer transaction id to remove
 	transactionId: float,
@@ -186,7 +179,7 @@ func delete_offer_transaction(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/wallet/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/wallet/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -218,8 +211,6 @@ func delete_offer_transaction(
 
 
 func delete_offer_transaction_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# transactionId: float   Eg: 789
 	# The offer transaction id to remove
 	transactionId: float,
@@ -235,7 +226,6 @@ func delete_offer_transaction_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_offer_transaction")
 	bzz_callable.bind(
-		version,
 		transactionId,
 		deviceId,
 		accountId,
@@ -246,11 +236,9 @@ func delete_offer_transaction_threaded(
 	return bzz_thread
 
 
-# Operation getOfferTransaction → GET /api/{version}/wallet/get
+# Operation getOfferTransaction → GET /wallet/get
 # Get Wallet Offer
 func get_offer_transaction(
-	# version: float   Eg: 3.16
-	version: float,
 	# transactionId: float   Eg: 789
 	# The offer transaction id to get details of
 	transactionId: float,
@@ -280,7 +268,7 @@ func get_offer_transaction(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/wallet/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/wallet/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -316,8 +304,6 @@ func get_offer_transaction(
 
 
 func get_offer_transaction_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# transactionId: float   Eg: 789
 	# The offer transaction id to get details of
 	transactionId: float,
@@ -345,7 +331,6 @@ func get_offer_transaction_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offer_transaction")
 	bzz_callable.bind(
-		version,
 		transactionId,
 		deviceId,
 		accountId,
@@ -360,13 +345,11 @@ func get_offer_transaction_threaded(
 	return bzz_thread
 
 
-# Operation previewOfferTransaction → POST /api/{version}/wallet/preview
+# Operation previewOfferTransaction → POST /wallet/preview
 # Preview Wallet Offers
 #
 # Preview the final cost of a transaction without charging the user
 func preview_offer_transaction(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -405,7 +388,7 @@ func preview_offer_transaction(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/wallet/preview".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/wallet/preview"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -444,8 +427,6 @@ func preview_offer_transaction(
 
 
 func preview_offer_transaction_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -482,7 +463,6 @@ func preview_offer_transaction_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "preview_offer_transaction")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		offerId,
@@ -500,13 +480,11 @@ func preview_offer_transaction_threaded(
 	return bzz_thread
 
 
-# Operation searchOfferTransactions → GET /api/{version}/wallet/search
+# Operation searchOfferTransactions → GET /wallet/search
 # Search Wallet Offers
 #
 # Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
 func search_offer_transactions(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -638,7 +616,7 @@ func search_offer_transactions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/wallet/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/wallet/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -708,8 +686,6 @@ func search_offer_transactions(
 
 
 func search_offer_transactions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -839,7 +815,6 @@ func search_offer_transactions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_offer_transactions")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		keyword,
@@ -888,13 +863,11 @@ func search_offer_transactions_threaded(
 	return bzz_thread
 
 
-# Operation updateOfferTransaction → POST /api/{version}/wallet/update
+# Operation updateOfferTransaction → POST /wallet/update
 # Update Wallet Offer
 #
 # Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
 func update_offer_transaction(
-	# version: float   Eg: 3.16
-	version: float,
 	# transactionId: float   Eg: 789
 	# The offer transaction id to remove
 	transactionId: float,
@@ -942,7 +915,7 @@ func update_offer_transaction(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/wallet/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/wallet/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -984,8 +957,6 @@ func update_offer_transaction(
 
 
 func update_offer_transaction_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# transactionId: float   Eg: 789
 	# The offer transaction id to remove
 	transactionId: float,
@@ -1031,7 +1002,6 @@ func update_offer_transaction_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_offer_transaction")
 	bzz_callable.bind(
-		version,
 		transactionId,
 		status,
 		deviceId,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ContestApi"
 
 
-# Operation addOrUpdateAlbumContest → POST /api/{version}/consumer/album/contest
+# Operation addOrUpdateAlbumContest → POST /consumer/album/contest
 # Create or Update Contest
 #
 # Creates or updates a contest.
 func add_or_update_album_contest(
-	# version: float   Eg: 3.16
-	version: float,
 	# publicRead: bool   Eg: true
 	# determines whether the contest's participants has read permissions
 	publicRead: bool,
@@ -104,7 +102,7 @@ func add_or_update_album_contest(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/album/contest".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/album/contest"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -158,8 +156,6 @@ func add_or_update_album_contest(
 
 
 func add_or_update_album_contest_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# publicRead: bool   Eg: true
 	# determines whether the contest's participants has read permissions
 	publicRead: bool,
@@ -241,7 +237,6 @@ func add_or_update_album_contest_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_or_update_album_contest")
 	bzz_callable.bind(
-		version,
 		publicRead,
 		publicWrite,
 		publicDelete,
@@ -274,13 +269,11 @@ func add_or_update_album_contest_threaded(
 	return bzz_thread
 
 
-# Operation approveAlbumContest → POST /api/{version}/consumer/album/contest/approve
+# Operation approveAlbumContest → POST /consumer/album/contest/approve
 # Approve Contest
 #
 # Sets the approval status of a contest.
 func approve_album_contest(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# The ID of the album contest
 	albumContestId: float,
@@ -301,7 +294,7 @@ func approve_album_contest(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/album/contest/approve".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/album/contest/approve"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -334,8 +327,6 @@ func approve_album_contest(
 
 
 func approve_album_contest_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# The ID of the album contest
 	albumContestId: float,
@@ -354,7 +345,6 @@ func approve_album_contest_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "approve_album_contest")
 	bzz_callable.bind(
-		version,
 		albumContestId,
 		approvalStatus,
 		deviceId,
@@ -366,13 +356,11 @@ func approve_album_contest_threaded(
 	return bzz_thread
 
 
-# Operation deleteContest → POST /api/{version}/consumer/album/contest/remove
+# Operation deleteContest → POST /consumer/album/contest/remove
 # Delete Contest
 #
 # Deletes a contest.
 func delete_contest(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# the album contest ID
 	albumContestId: float,
@@ -396,7 +384,7 @@ func delete_contest(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/album/contest/remove".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/album/contest/remove"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -430,8 +418,6 @@ func delete_contest(
 
 
 func delete_contest_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# the album contest ID
 	albumContestId: float,
@@ -453,7 +439,6 @@ func delete_contest_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_contest")
 	bzz_callable.bind(
-		version,
 		albumContestId,
 		deviceId,
 		accountId,
@@ -466,13 +451,11 @@ func delete_contest_threaded(
 	return bzz_thread
 
 
-# Operation getAlbumContest → GET /api/{version}/consumer/album/contest/get
+# Operation getAlbumContest → GET /consumer/album/contest/get
 # Get Contest
 #
 # Gets the contest object including the likes and notes
 func get_album_contest(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# the album contest ID
 	albumContestId: float,
@@ -496,7 +479,7 @@ func get_album_contest(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/album/contest/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/album/contest/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -530,8 +513,6 @@ func get_album_contest(
 
 
 func get_album_contest_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# the album contest ID
 	albumContestId: float,
@@ -553,7 +534,6 @@ func get_album_contest_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_album_contest")
 	bzz_callable.bind(
-		version,
 		albumContestId,
 		deviceId,
 		accountId,
@@ -566,13 +546,11 @@ func get_album_contest_threaded(
 	return bzz_thread
 
 
-# Operation getAlbumContests → GET /api/{version}/consumer/album/contest/search
+# Operation getAlbumContests → GET /consumer/album/contest/search
 # Search Contests
 #
 # Searches on contests.
 func get_album_contests(
-	# version: float   Eg: 3.16
-	version: float,
 	# filter: String = ""   Eg: filter_example
 	# a comma separated list of Ownership
 	filter: String,
@@ -638,7 +616,7 @@ func get_album_contests(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/album/contest/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/album/contest/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -686,8 +664,6 @@ func get_album_contests(
 
 
 func get_album_contests_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# filter: String = ""   Eg: filter_example
 	# a comma separated list of Ownership
 	filter: String,
@@ -751,7 +727,6 @@ func get_album_contests_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_album_contests")
 	bzz_callable.bind(
-		version,
 		filter,
 		sortField,
 		descending,
@@ -778,13 +753,11 @@ func get_album_contests_threaded(
 	return bzz_thread
 
 
-# Operation voteOnAlbumContest → POST /api/{version}/consumer/album/contest/vote
+# Operation voteOnAlbumContest → POST /consumer/album/contest/vote
 # Vote on Contest
 #
 # Vote on a collection in a contest.
 func vote_on_album_contest(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# the album contest ID
 	albumContestId: float,
@@ -814,7 +787,7 @@ func vote_on_album_contest(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/consumer/album/contest/vote".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/consumer/album/contest/vote"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -850,8 +823,6 @@ func vote_on_album_contest(
 
 
 func vote_on_album_contest_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumContestId: float   Eg: 789
 	# the album contest ID
 	albumContestId: float,
@@ -879,7 +850,6 @@ func vote_on_album_contest_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "vote_on_album_contest")
 	bzz_callable.bind(
-		version,
 		albumContestId,
 		albumId,
 		deviceId,

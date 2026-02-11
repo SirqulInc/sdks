@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "MissionApi"
 
 
-# Operation createMission → POST /api/{version}/mission/create
+# Operation createMission → POST /mission/create
 # Create Mission
 #
 # Create a user defined mission.
 func create_mission(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -107,7 +105,7 @@ func create_mission(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -162,8 +160,6 @@ func create_mission(
 
 
 func create_mission_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -248,7 +244,6 @@ func create_mission_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_mission")
 	bzz_callable.bind(
-		version,
 		accountId,
 		title,
 		description,
@@ -282,13 +277,11 @@ func create_mission_threaded(
 	return bzz_thread
 
 
-# Operation deleteMission → POST /api/{version}/mission/delete
+# Operation deleteMission → POST /mission/delete
 # Delete Mission
 #
 # Delete a mission.
 func delete_mission(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -303,7 +296,7 @@ func delete_mission(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -334,8 +327,6 @@ func delete_mission(
 
 
 func delete_mission_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -348,7 +339,6 @@ func delete_mission_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_mission")
 	bzz_callable.bind(
-		version,
 		accountId,
 		missionId,
 		on_success,
@@ -358,13 +348,11 @@ func delete_mission_threaded(
 	return bzz_thread
 
 
-# Operation findMissions → GET /api/{version}/mission/find
+# Operation findMissions → GET /mission/find
 # Find Missions
 #
 # Get a set of ad filtered by the parameters provided.
 func find_missions(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 	appKey: String,
@@ -430,7 +418,7 @@ func find_missions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/find".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/find"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -478,8 +466,6 @@ func find_missions(
 
 
 func find_missions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
 	appKey: String,
@@ -543,7 +529,6 @@ func find_missions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "find_missions")
 	bzz_callable.bind(
-		version,
 		appKey,
 		suffix,
 		type,
@@ -570,13 +555,11 @@ func find_missions_threaded(
 	return bzz_thread
 
 
-# Operation getMission → GET /api/{version}/mission/get
+# Operation getMission → GET /mission/get
 # Get Mission
 #
 # Get a mission.
 func get_mission(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -594,7 +577,7 @@ func get_mission(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -626,8 +609,6 @@ func get_mission(
 
 
 func get_mission_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -643,7 +624,6 @@ func get_mission_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_mission")
 	bzz_callable.bind(
-		version,
 		accountId,
 		missionId,
 		returnCreative,
@@ -654,13 +634,11 @@ func get_mission_threaded(
 	return bzz_thread
 
 
-# Operation importMission → POST /api/{version}/mission/import
+# Operation importMission → POST /mission/import
 # Import Mission
 #
 # Create a mission using a source item such as an offer location.
 func import_mission(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -693,7 +671,7 @@ func import_mission(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/import".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/import"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -730,8 +708,6 @@ func import_mission(
 
 
 func import_mission_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -762,7 +738,6 @@ func import_mission_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "import_mission")
 	bzz_callable.bind(
-		version,
 		accountId,
 		latitude,
 		longitude,
@@ -778,13 +753,11 @@ func import_mission_threaded(
 	return bzz_thread
 
 
-# Operation searchMissionFormats → GET /api/{version}/mission/format/search
+# Operation searchMissionFormats → GET /mission/format/search
 # Search Mission Formats
 #
 # Searches on pre-defined mission formats
 func search_mission_formats(
-	# version: float   Eg: 3.16
-	version: float,
 	# start: int   Eg: 56
 	# The starting index in the result set to return. Default is 0.
 	start: int,
@@ -802,7 +775,7 @@ func search_mission_formats(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/format/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/format/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -834,8 +807,6 @@ func search_mission_formats(
 
 
 func search_mission_formats_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# start: int   Eg: 56
 	# The starting index in the result set to return. Default is 0.
 	start: int,
@@ -851,7 +822,6 @@ func search_mission_formats_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_mission_formats")
 	bzz_callable.bind(
-		version,
 		start,
 		limit,
 		activeOnly,
@@ -862,13 +832,11 @@ func search_mission_formats_threaded(
 	return bzz_thread
 
 
-# Operation searchMissions → GET /api/{version}/mission/search
+# Operation searchMissions → GET /mission/search
 # Search Missions
 #
 # Get the list missions available to the account.  
 func search_missions(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -910,7 +878,7 @@ func search_missions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -950,8 +918,6 @@ func search_missions(
 
 
 func search_missions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -991,7 +957,6 @@ func search_missions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_missions")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		subType,
@@ -1010,13 +975,11 @@ func search_missions_threaded(
 	return bzz_thread
 
 
-# Operation searchMissionsByBillableEntity → GET /api/{version}/mission/searchByBillableEntity
+# Operation searchMissionsByBillableEntity → GET /mission/searchByBillableEntity
 # Search Missions by Billable Entity
 #
 # Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 func search_missions_by_billable_entity(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1055,7 +1018,7 @@ func search_missions_by_billable_entity(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/searchByBillableEntity".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/searchByBillableEntity"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1094,8 +1057,6 @@ func search_missions_by_billable_entity(
 
 
 func search_missions_by_billable_entity_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1132,7 +1093,6 @@ func search_missions_by_billable_entity_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_missions_by_billable_entity")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		start,
@@ -1150,13 +1110,11 @@ func search_missions_by_billable_entity_threaded(
 	return bzz_thread
 
 
-# Operation updateMission → POST /api/{version}/mission/update
+# Operation updateMission → POST /mission/update
 # Update Mission
 #
 # Update a mission.
 func update_mission(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1238,7 +1196,7 @@ func update_mission(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1292,8 +1250,6 @@ func update_mission(
 
 
 func update_mission_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1373,7 +1329,6 @@ func update_mission_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_mission")
 	bzz_callable.bind(
-		version,
 		accountId,
 		missionId,
 		title,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ReservationApi"
 
 
-# Operation createReservation → POST /api/{version}/reservation/create
+# Operation createReservation → POST /reservation/create
 # Create Reservation
 #
 # Creates a reservation on an offer object
 func create_reservation(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -53,7 +51,7 @@ func create_reservation(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/reservation/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/reservation/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -84,8 +82,6 @@ func create_reservation(
 
 
 func create_reservation_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -116,7 +112,6 @@ func create_reservation_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_reservation")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		startDate,
@@ -132,13 +127,11 @@ func create_reservation_threaded(
 	return bzz_thread
 
 
-# Operation deleteReservation → POST /api/{version}/reservation/delete
+# Operation deleteReservation → POST /reservation/delete
 # Delete Reservation
 #
 # Deleted a reservation on a reservation object
 func delete_reservation(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservationId: float   Eg: 789
 	# The reservation id
 	reservationId: float,
@@ -156,7 +149,7 @@ func delete_reservation(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/reservation/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/reservation/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -182,8 +175,6 @@ func delete_reservation(
 
 
 func delete_reservation_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservationId: float   Eg: 789
 	# The reservation id
 	reservationId: float,
@@ -199,7 +190,6 @@ func delete_reservation_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_reservation")
 	bzz_callable.bind(
-		version,
 		reservationId,
 		deviceId,
 		accountId,
@@ -210,11 +200,9 @@ func delete_reservation_threaded(
 	return bzz_thread
 
 
-# Operation reservableAvailability → POST /api/{version}/reservable/availability/update
+# Operation reservableAvailability → POST /reservable/availability/update
 # Update Availability
 func reservable_availability(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservableId: float   Eg: 789
 	# the id of the reservation
 	reservableId: float,
@@ -241,7 +229,7 @@ func reservable_availability(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/reservable/availability/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/reservable/availability/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -276,8 +264,6 @@ func reservable_availability(
 
 
 func reservable_availability_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservableId: float   Eg: 789
 	# the id of the reservation
 	reservableId: float,
@@ -302,7 +288,6 @@ func reservable_availability_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "reservable_availability")
 	bzz_callable.bind(
-		version,
 		reservableId,
 		reservableType,
 		deviceId,
@@ -316,11 +301,9 @@ func reservable_availability_threaded(
 	return bzz_thread
 
 
-# Operation searchAvailability → GET /api/{version}/reservable/availability/search
+# Operation searchAvailability → GET /reservable/availability/search
 # Search Availability
 func search_availability(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservableId: float   Eg: 789
 	# the id of the reservation
 	reservableId: float,
@@ -353,7 +336,7 @@ func search_availability(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/reservable/availability/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/reservable/availability/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -390,8 +373,6 @@ func search_availability(
 
 
 func search_availability_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservableId: float   Eg: 789
 	# the id of the reservation
 	reservableId: float,
@@ -422,7 +403,6 @@ func search_availability_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_availability")
 	bzz_callable.bind(
-		version,
 		reservableId,
 		reservableType,
 		deviceId,
@@ -438,11 +418,9 @@ func search_availability_threaded(
 	return bzz_thread
 
 
-# Operation searchReservations → GET /api/{version}/reservation/search
+# Operation searchReservations → GET /reservation/search
 # Search Reservations
 func search_reservations(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# Device Id
 	deviceId = "",
@@ -484,7 +462,7 @@ func search_reservations(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/reservation/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/reservation/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -524,8 +502,6 @@ func search_reservations(
 
 
 func search_reservations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# Device Id
 	deviceId = "",
@@ -565,7 +541,6 @@ func search_reservations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_reservations")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		appKey,
 		accountId,
@@ -584,11 +559,9 @@ func search_reservations_threaded(
 	return bzz_thread
 
 
-# Operation searchSchedule → GET /api/{version}/reservable/schedule/search
+# Operation searchSchedule → GET /reservable/schedule/search
 # Search Schedule
 func search_schedule(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservableId: float   Eg: 789
 	# the id of the reservation
 	reservableId: float,
@@ -618,7 +591,7 @@ func search_schedule(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/reservable/schedule/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/reservable/schedule/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -654,8 +627,6 @@ func search_schedule(
 
 
 func search_schedule_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# reservableId: float   Eg: 789
 	# the id of the reservation
 	reservableId: float,
@@ -683,7 +654,6 @@ func search_schedule_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_schedule")
 	bzz_callable.bind(
-		version,
 		reservableId,
 		reservableType,
 		startDate,

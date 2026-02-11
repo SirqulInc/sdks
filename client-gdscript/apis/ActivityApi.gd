@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ActivityApi"
 
 
-# Operation createEntityReference → POST /api/{version}/entity/reference
+# Operation createEntityReference → POST /entity/reference
 # Create an entity reference.
 #
 # Creates a reference for an entity for syncing data between servers.
 func create_entity_reference(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: EntityReference
 	# The entity reference object
 	body: EntityReference,
@@ -32,7 +30,7 @@ func create_entity_reference(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/entity/reference".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/entity/reference"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -75,8 +73,6 @@ func create_entity_reference(
 
 
 func create_entity_reference_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: EntityReference
 	# The entity reference object
 	body: EntityReference,
@@ -86,7 +82,6 @@ func create_entity_reference_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_entity_reference")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,

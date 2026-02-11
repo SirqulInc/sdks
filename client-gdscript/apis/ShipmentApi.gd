@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ShipmentApi"
 
 
-# Operation cancelShipment → POST /api/{version}/shipment/{id}/cancel
+# Operation cancelShipment → POST /shipment/{id}/cancel
 # Cancel Shipment
 #
 # Remove shipment from route
 func cancel_shipment(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to cancel
 	id: float,
@@ -32,7 +30,7 @@ func cancel_shipment(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/{id}/cancel".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/shipment/{id}/cancel".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -55,8 +53,6 @@ func cancel_shipment(
 
 
 func cancel_shipment_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to cancel
 	id: float,
@@ -66,7 +62,6 @@ func cancel_shipment_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "cancel_shipment")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -75,13 +70,11 @@ func cancel_shipment_threaded(
 	return bzz_thread
 
 
-# Operation createShipment → POST /api/{version}/shipment
+# Operation createShipment → POST /shipment
 # Create Shipment
 #
 # Create new shipment
 func create_shipment(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Shipment
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -92,7 +85,7 @@ func create_shipment(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/shipment"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -122,8 +115,6 @@ func create_shipment(
 
 
 func create_shipment_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Shipment
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -132,7 +123,6 @@ func create_shipment_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_shipment")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -141,13 +131,11 @@ func create_shipment_threaded(
 	return bzz_thread
 
 
-# Operation deleteShipment → DELETE /api/{version}/shipment/{id}
+# Operation deleteShipment → DELETE /shipment/{id}
 # Delete Shipment
 #
 # Delete an existing shipment
 func delete_shipment(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to delete
 	id: float,
@@ -159,7 +147,7 @@ func delete_shipment(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/shipment/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -182,8 +170,6 @@ func delete_shipment(
 
 
 func delete_shipment_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to delete
 	id: float,
@@ -193,7 +179,6 @@ func delete_shipment_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_shipment")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -202,13 +187,11 @@ func delete_shipment_threaded(
 	return bzz_thread
 
 
-# Operation getShipment → GET /api/{version}/shipment/{id}
+# Operation getShipment → GET /shipment/{id}
 # Get Shipment
 #
 # Get an existing shipment
 func get_shipment(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to get
 	id: float,
@@ -220,7 +203,7 @@ func get_shipment(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/shipment/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -249,8 +232,6 @@ func get_shipment(
 
 
 func get_shipment_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to get
 	id: float,
@@ -260,7 +241,6 @@ func get_shipment_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_shipment")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -269,13 +249,11 @@ func get_shipment_threaded(
 	return bzz_thread
 
 
-# Operation searchShipments → GET /api/{version}/shipment
+# Operation searchShipments → GET /shipment
 # Search Shipments
 #
 # Search for shipments
 func search_shipments(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -308,7 +286,7 @@ func search_shipments(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/shipment"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -345,8 +323,6 @@ func search_shipments(
 
 
 func search_shipments_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -377,7 +353,6 @@ func search_shipments_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_shipments")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,
@@ -393,13 +368,11 @@ func search_shipments_threaded(
 	return bzz_thread
 
 
-# Operation updateShipment → PUT /api/{version}/shipment/{id}
+# Operation updateShipment → PUT /shipment/{id}
 # Update Shipment
 #
 # Update an existing shipment
 func update_shipment(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to update
 	id: float,
@@ -413,7 +386,7 @@ func update_shipment(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/shipment/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -443,8 +416,6 @@ func update_shipment(
 
 
 func update_shipment_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to update
 	id: float,
@@ -456,7 +427,6 @@ func update_shipment_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_shipment")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -466,13 +436,11 @@ func update_shipment_threaded(
 	return bzz_thread
 
 
-# Operation updateShipmentStatus → POST /api/{version}/shipment/{id}/status
+# Operation updateShipmentStatus → POST /shipment/{id}/status
 # Uupdate Shipment Status
 #
 # Update status of an existing shipment
 func update_shipment_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to update status
 	id: float,
@@ -486,7 +454,7 @@ func update_shipment_status(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/shipment/{id}/status".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/shipment/{id}/status".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -510,8 +478,6 @@ func update_shipment_status(
 
 
 func update_shipment_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the shipment to update status
 	id: float,
@@ -523,7 +489,6 @@ func update_shipment_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_shipment_status")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,

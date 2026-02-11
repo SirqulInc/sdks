@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "DependentApi"
 
 
-# Operation create → PUT /api/{version}/cargo/dependent/{accountId}
+# Operation create → PUT /cargo/dependent/{accountId}
 # Create Dependent
 #
 # Create dependent of the account
 func create(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the parent account to create a dependent for
 	accountId: float,
@@ -34,7 +32,7 @@ func create(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/dependent/{accountId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "accountId" + "}", _bzz_urlize_path_param(accountId))
+	var bzz_path := "/api/3.18/cargo/dependent/{accountId}".replace("{" + "accountId" + "}", _bzz_urlize_path_param(accountId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -64,8 +62,6 @@ func create(
 
 
 func create_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the parent account to create a dependent for
 	accountId: float,
@@ -77,7 +73,6 @@ func create_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create")
 	bzz_callable.bind(
-		version,
 		accountId,
 		body,
 		on_success,
@@ -87,13 +82,11 @@ func create_threaded(
 	return bzz_thread
 
 
-# Operation getDependents → GET /api/{version}/cargo/dependent/{accountId}
+# Operation getDependents → GET /cargo/dependent/{accountId}
 # Get dependent list of an account
 #
 # Get the dependent list of an account
 func get_dependents(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the parent account to get a list of dependents
 	accountId: float,
@@ -105,7 +98,7 @@ func get_dependents(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/dependent/{accountId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "accountId" + "}", _bzz_urlize_path_param(accountId))
+	var bzz_path := "/api/3.18/cargo/dependent/{accountId}".replace("{" + "accountId" + "}", _bzz_urlize_path_param(accountId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -134,8 +127,6 @@ func get_dependents(
 
 
 func get_dependents_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the parent account to get a list of dependents
 	accountId: float,
@@ -145,7 +136,6 @@ func get_dependents_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_dependents")
 	bzz_callable.bind(
-		version,
 		accountId,
 		on_success,
 		on_failure,
@@ -154,13 +144,11 @@ func get_dependents_threaded(
 	return bzz_thread
 
 
-# Operation removeDependent → DELETE /api/{version}/cargo/dependent/{accountId}
+# Operation removeDependent → DELETE /cargo/dependent/{accountId}
 # Delete Dependent
 #
 # Delete the Dependent
 func remove_dependent(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the parent account tied to the dependent
 	accountId: float,
@@ -175,7 +163,7 @@ func remove_dependent(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/cargo/dependent/{accountId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "accountId" + "}", _bzz_urlize_path_param(accountId)).replace("{" + "dependentId" + "}", _bzz_urlize_path_param(dependentId))
+	var bzz_path := "/api/3.18/cargo/dependent/{accountId}".replace("{" + "accountId" + "}", _bzz_urlize_path_param(accountId)).replace("{" + "dependentId" + "}", _bzz_urlize_path_param(dependentId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -198,8 +186,6 @@ func remove_dependent(
 
 
 func remove_dependent_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the parent account tied to the dependent
 	accountId: float,
@@ -212,7 +198,6 @@ func remove_dependent_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_dependent")
 	bzz_callable.bind(
-		version,
 		accountId,
 		dependentId,
 		on_success,

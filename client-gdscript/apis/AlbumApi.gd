@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AlbumApi"
 
 
-# Operation addAlbumCollection → POST /api/{version}/album/create
+# Operation addAlbumCollection → POST /album/create
 # Create Album
 #
 # Create an Album.
 func add_album_collection(
-	# version: float   Eg: 3.16
-	version: float,
 	# title: String = ""   Eg: title_example
 	# the title of the album
 	title: String,
@@ -167,7 +165,7 @@ func add_album_collection(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -242,8 +240,6 @@ func add_album_collection(
 
 
 func add_album_collection_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# title: String = ""   Eg: title_example
 	# the title of the album
 	title: String,
@@ -388,7 +384,6 @@ func add_album_collection_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_album_collection")
 	bzz_callable.bind(
-		version,
 		title,
 		coverAssetNullable,
 		includeCoverInAssetList,
@@ -442,13 +437,11 @@ func add_album_collection_threaded(
 	return bzz_thread
 
 
-# Operation addAlbumUsers → POST /api/{version}/album/user/add
+# Operation addAlbumUsers → POST /album/user/add
 # Add Album Users
 #
 # Add users to an album as participants.
 func add_album_users(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID
 	albumId: float,
@@ -487,7 +480,7 @@ func add_album_users(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/user/add".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/user/add"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -526,8 +519,6 @@ func add_album_users(
 
 
 func add_album_users_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID
 	albumId: float,
@@ -564,7 +555,6 @@ func add_album_users_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_album_users")
 	bzz_callable.bind(
-		version,
 		albumId,
 		includeFriendGroup,
 		deviceId,
@@ -582,13 +572,11 @@ func add_album_users_threaded(
 	return bzz_thread
 
 
-# Operation approveAlbum → POST /api/{version}/album/approve
+# Operation approveAlbum → POST /album/approve
 # Approve Album
 #
 # Sets the approval status of an Album.
 func approve_album(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# The ID of the album
 	albumId: float,
@@ -612,7 +600,7 @@ func approve_album(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/approve".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/approve"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -646,8 +634,6 @@ func approve_album(
 
 
 func approve_album_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# The ID of the album
 	albumId: float,
@@ -669,7 +655,6 @@ func approve_album_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "approve_album")
 	bzz_callable.bind(
-		version,
 		albumId,
 		deviceId,
 		accountId,
@@ -682,13 +667,11 @@ func approve_album_threaded(
 	return bzz_thread
 
 
-# Operation getAlbumCollection → GET /api/{version}/album/get
+# Operation getAlbumCollection → GET /album/get
 #  Get Album
 #
 # Get an Album.
 func get_album_collection(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# This parameter is deprecated.
 	returnNulls: bool,
@@ -724,7 +707,7 @@ func get_album_collection(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -762,8 +745,6 @@ func get_album_collection(
 
 
 func get_album_collection_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# This parameter is deprecated.
 	returnNulls: bool,
@@ -797,7 +778,6 @@ func get_album_collection_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_album_collection")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		albumId,
 		deviceId,
@@ -814,13 +794,11 @@ func get_album_collection_threaded(
 	return bzz_thread
 
 
-# Operation leaveAlbum → POST /api/{version}/album/user/leave
+# Operation leaveAlbum → POST /album/user/leave
 # Leave Album
 #
 #  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
 func leave_album(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID
 	albumId: float,
@@ -838,7 +816,7 @@ func leave_album(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/user/leave".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/user/leave"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -870,8 +848,6 @@ func leave_album(
 
 
 func leave_album_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID
 	albumId: float,
@@ -887,7 +863,6 @@ func leave_album_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "leave_album")
 	bzz_callable.bind(
-		version,
 		albumId,
 		deviceId,
 		accountId,
@@ -898,13 +873,11 @@ func leave_album_threaded(
 	return bzz_thread
 
 
-# Operation removeAlbum → POST /api/{version}/album/delete
+# Operation removeAlbum → POST /album/delete
 # Delete Album
 #
 # Deletes an Album
 func remove_album(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID to delete
 	albumId: float,
@@ -922,7 +895,7 @@ func remove_album(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -954,8 +927,6 @@ func remove_album(
 
 
 func remove_album_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID to delete
 	albumId: float,
@@ -971,7 +942,6 @@ func remove_album_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_album")
 	bzz_callable.bind(
-		version,
 		albumId,
 		deviceId,
 		accountId,
@@ -982,13 +952,11 @@ func remove_album_threaded(
 	return bzz_thread
 
 
-# Operation removeAlbumUsers → POST /api/{version}/album/user/delete
+# Operation removeAlbumUsers → POST /album/user/delete
 # Remove Album Users
 #
 # Remove participants of an album.
 func remove_album_users(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID
 	albumId: float,
@@ -1015,7 +983,7 @@ func remove_album_users(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/user/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/user/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1050,8 +1018,6 @@ func remove_album_users(
 
 
 func remove_album_users_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the album ID
 	albumId: float,
@@ -1076,7 +1042,6 @@ func remove_album_users_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_album_users")
 	bzz_callable.bind(
-		version,
 		albumId,
 		removeFriendGroup,
 		deviceId,
@@ -1090,13 +1055,11 @@ func remove_album_users_threaded(
 	return bzz_thread
 
 
-# Operation searchAlbums → GET /api/{version}/album/search
+# Operation searchAlbums → GET /album/search
 # Search Albums
 #
 # Searches on Albums.
 func search_albums(
-	# version: float   Eg: 3.16
-	version: float,
 	# filter: String = ""   Eg: filter_example
 	# a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
 	filter: String,
@@ -1285,7 +1248,7 @@ func search_albums(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1374,8 +1337,6 @@ func search_albums(
 
 
 func search_albums_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# filter: String = ""   Eg: filter_example
 	# a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
 	filter: String,
@@ -1562,7 +1523,6 @@ func search_albums_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_albums")
 	bzz_callable.bind(
-		version,
 		filter,
 		albumTypeId,
 		subType,
@@ -1630,13 +1590,11 @@ func search_albums_threaded(
 	return bzz_thread
 
 
-# Operation updateAlbumCollection → POST /api/{version}/album/update
+# Operation updateAlbumCollection → POST /album/update
 # Update Album
 #
 # Update an Album.
 func update_album_collection(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the ID of the album to update
 	albumId: float,
@@ -1780,7 +1738,7 @@ func update_album_collection(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/album/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/album/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1854,8 +1812,6 @@ func update_album_collection(
 
 
 func update_album_collection_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# albumId: float   Eg: 789
 	# the ID of the album to update
 	albumId: float,
@@ -1997,7 +1953,6 @@ func update_album_collection_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_album_collection")
 	bzz_callable.bind(
-		version,
 		albumId,
 		deviceId,
 		accountId,

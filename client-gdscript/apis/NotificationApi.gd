@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "NotificationApi"
 
 
-# Operation createNotificationTemplate → POST /api/{version}/notification/template/create
+# Operation createNotificationTemplate → POST /notification/template/create
 # Create Notification Template
 #
 # Create a notification template. Developers will only be able to create notification templates for their own applications.
 func create_notification_template(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user.
 	accountId: float,
@@ -50,7 +48,7 @@ func create_notification_template(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/template/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/template/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -86,8 +84,6 @@ func create_notification_template(
 
 
 func create_notification_template_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user.
 	accountId: float,
@@ -115,7 +111,6 @@ func create_notification_template_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_notification_template")
 	bzz_callable.bind(
-		version,
 		accountId,
 		conduit,
 		title,
@@ -130,13 +125,11 @@ func create_notification_template_threaded(
 	return bzz_thread
 
 
-# Operation createOrUpdateBlockedNotifications → POST /api/{version}/notification/blocked/batch
+# Operation createOrUpdateBlockedNotifications → POST /notification/blocked/batch
 # Create or update blocked notification settings
 #
 # Create or update blocked notification settings
 func create_or_update_blocked_notifications(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -154,7 +147,7 @@ func create_or_update_blocked_notifications(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/blocked/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/blocked/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -186,8 +179,6 @@ func create_or_update_blocked_notifications(
 
 
 func create_or_update_blocked_notifications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -203,7 +194,6 @@ func create_or_update_blocked_notifications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_or_update_blocked_notifications")
 	bzz_callable.bind(
-		version,
 		appKey,
 		data,
 		accountId,
@@ -214,13 +204,11 @@ func create_or_update_blocked_notifications_threaded(
 	return bzz_thread
 
 
-# Operation deleteNotificationTemplate → POST /api/{version}/notification/template/delete
+# Operation deleteNotificationTemplate → POST /notification/template/delete
 # Delete Notification Template
 #
 # Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
 func delete_notification_template(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -235,7 +223,7 @@ func delete_notification_template(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/template/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/template/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -266,8 +254,6 @@ func delete_notification_template(
 
 
 func delete_notification_template_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -280,7 +266,6 @@ func delete_notification_template_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_notification_template")
 	bzz_callable.bind(
-		version,
 		accountId,
 		notificationTemplateId,
 		on_success,
@@ -290,13 +275,11 @@ func delete_notification_template_threaded(
 	return bzz_thread
 
 
-# Operation getNotificationTemplate → GET /api/{version}/notification/template/get
+# Operation getNotificationTemplate → GET /notification/template/get
 # Get Notification Template
 #
 # Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
 func get_notification_template(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -311,7 +294,7 @@ func get_notification_template(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/template/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/template/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -342,8 +325,6 @@ func get_notification_template(
 
 
 func get_notification_template_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -356,7 +337,6 @@ func get_notification_template_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_notification_template")
 	bzz_callable.bind(
-		version,
 		accountId,
 		notificationTemplateId,
 		on_success,
@@ -366,13 +346,11 @@ func get_notification_template_threaded(
 	return bzz_thread
 
 
-# Operation getNotifications → GET /api/{version}/notification/search
+# Operation getNotifications → GET /notification/search
 # Get Notifications
 #
 # Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
 func get_notifications(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -444,7 +422,7 @@ func get_notifications(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -494,8 +472,6 @@ func get_notifications(
 
 
 func get_notifications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -565,7 +541,6 @@ func get_notifications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_notifications")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		connectionAccountId,
@@ -594,13 +569,11 @@ func get_notifications_threaded(
 	return bzz_thread
 
 
-# Operation registerNotificationToken → POST /api/{version}/notification/token
+# Operation registerNotificationToken → POST /notification/token
 # Register Notification Token
 #
 # Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
 func register_notification_token(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# A token that is generated by the device to sign requests for the notification service providers
 	token: String,
@@ -639,7 +612,7 @@ func register_notification_token(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/token".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/token"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -678,8 +651,6 @@ func register_notification_token(
 
 
 func register_notification_token_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# A token that is generated by the device to sign requests for the notification service providers
 	token: String,
@@ -716,7 +687,6 @@ func register_notification_token_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "register_notification_token")
 	bzz_callable.bind(
-		version,
 		token,
 		pushType,
 		deviceId,
@@ -734,13 +704,11 @@ func register_notification_token_threaded(
 	return bzz_thread
 
 
-# Operation searchBlockedNotifications → GET /api/{version}/notification/blocked/search
+# Operation searchBlockedNotifications → GET /notification/blocked/search
 # Search on the user's blocked notification settings
 #
 # Search on the user's blocked notification settings
 func search_blocked_notifications(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -785,7 +753,7 @@ func search_blocked_notifications(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/blocked/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/blocked/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -826,8 +794,6 @@ func search_blocked_notifications(
 
 
 func search_blocked_notifications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -870,7 +836,6 @@ func search_blocked_notifications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_blocked_notifications")
 	bzz_callable.bind(
-		version,
 		appKey,
 		accountId,
 		searchTags,
@@ -890,13 +855,11 @@ func search_blocked_notifications_threaded(
 	return bzz_thread
 
 
-# Operation searchNotificationTemplate → GET /api/{version}/notification/template/search
+# Operation searchNotificationTemplate → GET /notification/template/search
 # Search Notification Templates
 #
 # Search for notification templates on owned applications.
 func search_notification_template(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user.
 	accountId: float,
@@ -938,7 +901,7 @@ func search_notification_template(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/template/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/template/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -978,8 +941,6 @@ func search_notification_template(
 
 
 func search_notification_template_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user.
 	accountId: float,
@@ -1019,7 +980,6 @@ func search_notification_template_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_notification_template")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -1038,13 +998,11 @@ func search_notification_template_threaded(
 	return bzz_thread
 
 
-# Operation searchRecipients → GET /api/{version}/notification/recipient/search
+# Operation searchRecipients → GET /notification/recipient/search
 # Search for Recipients
 #
 # Search for application users to send notifications.
 func search_recipients(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
 	sortField: String,
@@ -1092,7 +1050,7 @@ func search_recipients(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/recipient/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/recipient/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1134,8 +1092,6 @@ func search_recipients(
 
 
 func search_recipients_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
 	sortField: String,
@@ -1181,7 +1137,6 @@ func search_recipients_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_recipients")
 	bzz_callable.bind(
-		version,
 		sortField,
 		deviceId,
 		accountId,
@@ -1202,13 +1157,11 @@ func search_recipients_threaded(
 	return bzz_thread
 
 
-# Operation searchRecipientsCount → GET /api/{version}/notification/recipient/search/count
+# Operation searchRecipientsCount → GET /notification/recipient/search/count
 # Search for Recipients (Counts/Grouped)
 #
 # Search for application users to send notifications (count/grouped variant).
 func search_recipients_count(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -1253,7 +1206,7 @@ func search_recipients_count(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/recipient/search/count".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/recipient/search/count"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1294,8 +1247,6 @@ func search_recipients_count(
 
 
 func search_recipients_count_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -1338,7 +1289,6 @@ func search_recipients_count_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_recipients_count")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,
@@ -1358,13 +1308,11 @@ func search_recipients_count_threaded(
 	return bzz_thread
 
 
-# Operation sendBatchNotifications → POST /api/{version}/notification/batch
+# Operation sendBatchNotifications → POST /notification/batch
 # Send Batch Notifications
 #
 # Send notifications to all users of an application. Only someone with permissions to the application can do this.
 func send_batch_notifications(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the application owner/manager
 	accountId: float,
@@ -1400,7 +1348,7 @@ func send_batch_notifications(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1438,8 +1386,6 @@ func send_batch_notifications(
 
 
 func send_batch_notifications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the application owner/manager
 	accountId: float,
@@ -1473,7 +1419,6 @@ func send_batch_notifications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "send_batch_notifications")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		customMessage,
@@ -1490,13 +1435,11 @@ func send_batch_notifications_threaded(
 	return bzz_thread
 
 
-# Operation sendCustomNotifications → POST /api/{version}/notification/custom
+# Operation sendCustomNotifications → POST /notification/custom
 # Send Custom Notifications
 #
 # Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
 func send_custom_notifications(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -1558,7 +1501,7 @@ func send_custom_notifications(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/custom".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/custom"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1605,8 +1548,6 @@ func send_custom_notifications(
 
 
 func send_custom_notifications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -1666,7 +1607,6 @@ func send_custom_notifications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "send_custom_notifications")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		receiverAccountIds,
@@ -1692,13 +1632,11 @@ func send_custom_notifications_threaded(
 	return bzz_thread
 
 
-# Operation updateNotificationTemplate → POST /api/{version}/notification/template/update
+# Operation updateNotificationTemplate → POST /notification/template/update
 # Update Notification Template
 #
 # Update a notification template. Developers will only be able to update notification templates for their own applications.
 func update_notification_template(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user.
 	accountId: float,
@@ -1722,7 +1660,7 @@ func update_notification_template(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/notification/template/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/notification/template/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1756,8 +1694,6 @@ func update_notification_template(
 
 
 func update_notification_template_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account ID of the user.
 	accountId: float,
@@ -1779,7 +1715,6 @@ func update_notification_template_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_notification_template")
 	bzz_callable.bind(
-		version,
 		accountId,
 		notificationTemplateId,
 		title,

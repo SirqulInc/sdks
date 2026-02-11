@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TriggerApi"
 
 
-# Operation createTrigger → POST /api/{version}/trigger/create
+# Operation createTrigger → POST /trigger/create
 # Create Trigger
 #
 # Create a trigger
 func create_trigger(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user
 	accountId: float,
@@ -68,7 +66,7 @@ func create_trigger(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trigger/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trigger/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -110,8 +108,6 @@ func create_trigger(
 
 
 func create_trigger_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user
 	accountId: float,
@@ -157,7 +153,6 @@ func create_trigger_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_trigger")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		appKey,
@@ -178,13 +173,11 @@ func create_trigger_threaded(
 	return bzz_thread
 
 
-# Operation deleteTrigger → POST /api/{version}/trigger/delete
+# Operation deleteTrigger → POST /trigger/delete
 # Delete Trigger
 #
 # Mark a trigger as deleted.
 func delete_trigger(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -199,7 +192,7 @@ func delete_trigger(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trigger/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trigger/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -230,8 +223,6 @@ func delete_trigger(
 
 
 func delete_trigger_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -244,7 +235,6 @@ func delete_trigger_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_trigger")
 	bzz_callable.bind(
-		version,
 		accountId,
 		triggerId,
 		on_success,
@@ -254,13 +244,11 @@ func delete_trigger_threaded(
 	return bzz_thread
 
 
-# Operation getTrigger → GET /api/{version}/trigger/get
+# Operation getTrigger → GET /trigger/get
 # Get Trigger
 #
 # Get a trigger
 func get_trigger(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -275,7 +263,7 @@ func get_trigger(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trigger/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trigger/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -306,8 +294,6 @@ func get_trigger(
 
 
 func get_trigger_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -320,7 +306,6 @@ func get_trigger_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_trigger")
 	bzz_callable.bind(
-		version,
 		accountId,
 		triggerId,
 		on_success,
@@ -330,13 +315,11 @@ func get_trigger_threaded(
 	return bzz_thread
 
 
-# Operation searchTriggers → GET /api/{version}/trigger/search
+# Operation searchTriggers → GET /trigger/search
 # Search Triggers
 #
 # Search for triggers
 func search_triggers(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -381,7 +364,7 @@ func search_triggers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trigger/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trigger/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -422,8 +405,6 @@ func search_triggers(
 
 
 func search_triggers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -466,7 +447,6 @@ func search_triggers_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_triggers")
 	bzz_callable.bind(
-		version,
 		accountId,
 		groupingId,
 		filter,
@@ -486,13 +466,11 @@ func search_triggers_threaded(
 	return bzz_thread
 
 
-# Operation updateTrigger → POST /api/{version}/trigger/update
+# Operation updateTrigger → POST /trigger/update
 # Update Trigger
 #
 # Update a trigger
 func update_trigger(
-	# version: float   Eg: 3.16
-	version: float,
 	# triggerId: float   Eg: 789
 	# The trigger to update
 	triggerId: float,
@@ -543,7 +521,7 @@ func update_trigger(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trigger/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trigger/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -586,8 +564,6 @@ func update_trigger(
 
 
 func update_trigger_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# triggerId: float   Eg: 789
 	# The trigger to update
 	triggerId: float,
@@ -636,7 +612,6 @@ func update_trigger_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_trigger")
 	bzz_callable.bind(
-		version,
 		triggerId,
 		accountId,
 		name,

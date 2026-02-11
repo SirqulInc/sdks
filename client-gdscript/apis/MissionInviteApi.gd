@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "MissionInviteApi"
 
 
-# Operation createMissionInvite → POST /api/{version}/mission/invite/create
+# Operation createMissionInvite → POST /mission/invite/create
 # Create Mission Invite
 #
 # Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 func create_mission_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -44,7 +42,7 @@ func create_mission_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/invite/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/invite/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -78,8 +76,6 @@ func create_mission_invite(
 
 
 func create_mission_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -101,7 +97,6 @@ func create_mission_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_mission_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		missionId,
@@ -114,13 +109,11 @@ func create_mission_invite_threaded(
 	return bzz_thread
 
 
-# Operation deleteMissionInvite → POST /api/{version}/mission/invite/delete
+# Operation deleteMissionInvite → POST /mission/invite/delete
 # Delete Mission Invite
 #
 # Update the mission invite status to quit.
 func delete_mission_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -144,7 +137,7 @@ func delete_mission_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/invite/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/invite/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -178,8 +171,6 @@ func delete_mission_invite(
 
 
 func delete_mission_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -201,7 +192,6 @@ func delete_mission_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_mission_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		missionId,
@@ -214,13 +204,11 @@ func delete_mission_invite_threaded(
 	return bzz_thread
 
 
-# Operation getMissionInvite → GET /api/{version}/mission/invite/get
+# Operation getMissionInvite → GET /mission/invite/get
 # Get Mission Invite
 #
 # Get the mission invite. An account can only be invited to a mission one time.
 func get_mission_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -247,7 +235,7 @@ func get_mission_invite(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/invite/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/invite/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -282,8 +270,6 @@ func get_mission_invite(
 
 
 func get_mission_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -308,7 +294,6 @@ func get_mission_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_mission_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		missionId,
@@ -322,13 +307,11 @@ func get_mission_invite_threaded(
 	return bzz_thread
 
 
-# Operation searchMissionInvites → GET /api/{version}/mission/invite/search
+# Operation searchMissionInvites → GET /mission/invite/search
 # Search Mission Invites
 #
 # Get a list of mission invites that the account has.
 func search_mission_invites(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -375,7 +358,7 @@ func search_mission_invites(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/invite/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/invite/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -417,8 +400,6 @@ func search_mission_invites(
 
 
 func search_mission_invites_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -463,7 +444,6 @@ func search_mission_invites_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_mission_invites")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,
@@ -484,13 +464,11 @@ func search_mission_invites_threaded(
 	return bzz_thread
 
 
-# Operation updateMissionInvite → POST /api/{version}/mission/invite/update
+# Operation updateMissionInvite → POST /mission/invite/update
 # Update Mission Invite
 #
 # Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 func update_mission_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -532,7 +510,7 @@ func update_mission_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/mission/invite/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/mission/invite/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -572,8 +550,6 @@ func update_mission_invite(
 
 
 func update_mission_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required).
 	deviceId = "",
@@ -613,7 +589,6 @@ func update_mission_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_mission_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,

@@ -26,7 +26,7 @@ class_name ApiConfig
 
 # These are constant, immutable default values.  Best not edit them.
 # To set different values at runtime, use the @export'ed properties below.
-const BEE_DEFAULT_HOST := "localhost"
+const BEE_DEFAULT_HOST := "dev.sirqul.com"
 const BEE_DEFAULT_PORT_HTTP := 80
 const BEE_DEFAULT_PORT_HTTPS := 443
 const BEE_DEFAULT_POLLING_INTERVAL_MS := 333  # milliseconds

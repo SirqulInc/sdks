@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TrackingApi"
 
 
-# Operation batchSaveTracking → POST /api/{version}/tracking/batch/create
+# Operation batchSaveTracking → POST /tracking/batch/create
 # Create Batch Tracking
 #
 # Batch create tracking legs
 func batch_save_tracking(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
 	data: String,
@@ -49,7 +47,7 @@ func batch_save_tracking(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/batch/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/batch/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -85,8 +83,6 @@ func batch_save_tracking(
 
 
 func batch_save_tracking_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
 	data: String,
@@ -113,7 +109,6 @@ func batch_save_tracking_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "batch_save_tracking")
 	bzz_callable.bind(
-		version,
 		data,
 		deviceId,
 		accountId,
@@ -128,13 +123,11 @@ func batch_save_tracking_threaded(
 	return bzz_thread
 
 
-# Operation getPredictedLocations → GET /api/{version}/tracking/predicted/get
+# Operation getPredictedLocations → GET /tracking/predicted/get
 # Get Predicted Locations
 #
 # Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
 func get_predicted_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the customer
 	accountId: float,
@@ -170,7 +163,7 @@ func get_predicted_locations(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/predicted/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/predicted/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -208,8 +201,6 @@ func get_predicted_locations(
 
 
 func get_predicted_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the customer
 	accountId: float,
@@ -243,7 +234,6 @@ func get_predicted_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_predicted_locations")
 	bzz_callable.bind(
-		version,
 		accountId,
 		latitude,
 		longitude,
@@ -260,13 +250,11 @@ func get_predicted_locations_threaded(
 	return bzz_thread
 
 
-# Operation getPredictedPath → GET /api/{version}/tracking/path/get
+# Operation getPredictedPath → GET /tracking/path/get
 # Get Tracking Path
 #
 # Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
 func get_predicted_path(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the customer
 	accountId: float,
@@ -284,7 +272,7 @@ func get_predicted_path(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/path/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/path/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -316,8 +304,6 @@ func get_predicted_path(
 
 
 func get_predicted_path_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the customer
 	accountId: float,
@@ -333,7 +319,6 @@ func get_predicted_path_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_predicted_path")
 	bzz_callable.bind(
-		version,
 		accountId,
 		startStepId,
 		endStepId,
@@ -344,13 +329,11 @@ func get_predicted_path_threaded(
 	return bzz_thread
 
 
-# Operation getPreferredLocations → GET /api/{version}/tracking/preferred/search
+# Operation getPreferredLocations → GET /tracking/preferred/search
 # Search Preferred Locations
 #
 # Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
 func get_preferred_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the customer
 	accountId: float,
@@ -392,7 +375,7 @@ func get_preferred_locations(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/preferred/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/preferred/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -432,8 +415,6 @@ func get_preferred_locations(
 
 
 func get_preferred_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the customer
 	accountId: float,
@@ -473,7 +454,6 @@ func get_preferred_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_preferred_locations")
 	bzz_callable.bind(
-		version,
 		accountId,
 		latitude,
 		longitude,
@@ -492,13 +472,11 @@ func get_preferred_locations_threaded(
 	return bzz_thread
 
 
-# Operation getTrackingLegs → GET /api/{version}/tracking/search
+# Operation getTrackingLegs → GET /tracking/search
 # Search Tracking
 #
 # Retrieve tracking data to be able to show where a user has been.
 func get_tracking_legs(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required)
 	deviceId = "",
@@ -531,7 +509,7 @@ func get_tracking_legs(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -568,8 +546,6 @@ func get_tracking_legs(
 
 
 func get_tracking_legs_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the device id (deviceId or accountId required)
 	deviceId = "",
@@ -600,7 +576,6 @@ func get_tracking_legs_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_tracking_legs")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		ownerId,
@@ -616,13 +591,11 @@ func get_tracking_legs_threaded(
 	return bzz_thread
 
 
-# Operation saveTrackingLeg → POST /api/{version}/tracking/leg/create
+# Operation saveTrackingLeg → POST /tracking/leg/create
 # Create Tracking Leg
 #
 # Send tracking points to be able to generate pathing data
 func save_tracking_leg(
-	# version: float   Eg: 3.16
-	version: float,
 	# startLat: int   Eg: 1.2
 	# the latitude of the first point
 	startLat: int,
@@ -667,7 +640,7 @@ func save_tracking_leg(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/leg/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/leg/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -708,8 +681,6 @@ func save_tracking_leg(
 
 
 func save_tracking_leg_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# startLat: int   Eg: 1.2
 	# the latitude of the first point
 	startLat: int,
@@ -752,7 +723,6 @@ func save_tracking_leg_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "save_tracking_leg")
 	bzz_callable.bind(
-		version,
 		startLat,
 		startLng,
 		startDate,
@@ -772,13 +742,11 @@ func save_tracking_leg_threaded(
 	return bzz_thread
 
 
-# Operation saveTrackingStep → POST /api/{version}/tracking/step/create
+# Operation saveTrackingStep → POST /tracking/step/create
 # Create Tracking Step
 #
 # Send tracking points to be able to generate pathing data
 func save_tracking_step(
-	# version: float   Eg: 3.16
-	version: float,
 	# legId: float   Eg: 789
 	# the leg to add the step to
 	legId: float,
@@ -820,7 +788,7 @@ func save_tracking_step(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/step/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/step/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -860,8 +828,6 @@ func save_tracking_step(
 
 
 func save_tracking_step_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# legId: float   Eg: 789
 	# the leg to add the step to
 	legId: float,
@@ -901,7 +867,6 @@ func save_tracking_step_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "save_tracking_step")
 	bzz_callable.bind(
-		version,
 		legId,
 		startLat,
 		startLng,
@@ -920,13 +885,11 @@ func save_tracking_step_threaded(
 	return bzz_thread
 
 
-# Operation searchAccountsWithTrackingLegs → GET /api/{version}/tracking/list
+# Operation searchAccountsWithTrackingLegs → GET /tracking/list
 # List Tracking
 #
 # Search for all accounts that have tracking legs data by the given constraints.
 func search_accounts_with_tracking_legs(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -976,7 +939,7 @@ func search_accounts_with_tracking_legs(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1019,8 +982,6 @@ func search_accounts_with_tracking_legs(
 
 
 func search_accounts_with_tracking_legs_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -1068,7 +1029,6 @@ func search_accounts_with_tracking_legs_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_accounts_with_tracking_legs")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		startDate,
@@ -1090,13 +1050,11 @@ func search_accounts_with_tracking_legs_threaded(
 	return bzz_thread
 
 
-# Operation searchTrackingLegs → GET /api/{version}/tracking/searchByBillable
+# Operation searchTrackingLegs → GET /tracking/searchByBillable
 # Search Tracking (Billable)
 #
 # Retrieve tracking data for billable/account scoped queries.
 func search_tracking_legs(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id to search tracking for
 	accountId: float,
@@ -1129,7 +1087,7 @@ func search_tracking_legs(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/tracking/searchByBillable".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/tracking/searchByBillable"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1166,8 +1124,6 @@ func search_tracking_legs(
 
 
 func search_tracking_legs_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id to search tracking for
 	accountId: float,
@@ -1198,7 +1154,6 @@ func search_tracking_legs_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_tracking_legs")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		trackingDeviceId,

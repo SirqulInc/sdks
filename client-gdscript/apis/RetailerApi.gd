@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RetailerApi"
 
 
-# Operation createRetailer → POST /api/{version}/retailer/create
+# Operation createRetailer → POST /retailer/create
 # Create Retailer
 #
 # Create a retailer record. A billable entity must be created first before a retailer record can be made.
 func create_retailer(
-	# version: float   Eg: 3.16
-	version: float,
 	# name: String = ""   Eg: name_example
 	# The name of the retailer
 	name: String,
@@ -127,7 +125,7 @@ func create_retailer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -189,8 +187,6 @@ func create_retailer(
 
 
 func create_retailer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# name: String = ""   Eg: name_example
 	# The name of the retailer
 	name: String,
@@ -295,7 +291,6 @@ func create_retailer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_retailer")
 	bzz_callable.bind(
-		version,
 		name,
 		deviceId,
 		accountId,
@@ -336,13 +331,11 @@ func create_retailer_threaded(
 	return bzz_thread
 
 
-# Operation deleteRetailer → POST /api/{version}/retailer/delete
+# Operation deleteRetailer → POST /retailer/delete
 # Delete Retailer
 #
 # Set the deleted timestamp to current time.
 func delete_retailer(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -360,7 +353,7 @@ func delete_retailer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -392,8 +385,6 @@ func delete_retailer(
 
 
 func delete_retailer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -409,7 +400,6 @@ func delete_retailer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_retailer")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		retailerId,
@@ -420,13 +410,11 @@ func delete_retailer_threaded(
 	return bzz_thread
 
 
-# Operation getRetailer → GET /api/{version}/retailer/get
+# Operation getRetailer → GET /retailer/get
 # Get Retailer
 #
 # Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 func get_retailer(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# the ID of the retailer
 	retailerId: float,
@@ -447,7 +435,7 @@ func get_retailer(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -480,8 +468,6 @@ func get_retailer(
 
 
 func get_retailer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# the ID of the retailer
 	retailerId: float,
@@ -500,7 +486,6 @@ func get_retailer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_retailer")
 	bzz_callable.bind(
-		version,
 		retailerId,
 		deviceId,
 		accountId,
@@ -512,13 +497,11 @@ func get_retailer_threaded(
 	return bzz_thread
 
 
-# Operation getRetailers → GET /api/{version}/retailer/search
+# Operation getRetailers → GET /retailer/search
 # Search Retailers
 #
 # earches on retailers that the account has access to.
 func get_retailers(
-	# version: float   Eg: 3.16
-	version: float,
 	# visibility: String = ""   Eg: visibility_example
 	visibility: String,
 	# sortField: String = ""   Eg: sortField_example
@@ -568,7 +551,7 @@ func get_retailers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -611,8 +594,6 @@ func get_retailers(
 
 
 func get_retailers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# visibility: String = ""   Eg: visibility_example
 	visibility: String,
 	# sortField: String = ""   Eg: sortField_example
@@ -660,7 +641,6 @@ func get_retailers_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_retailers")
 	bzz_callable.bind(
-		version,
 		visibility,
 		sortField,
 		descending,
@@ -682,13 +662,11 @@ func get_retailers_threaded(
 	return bzz_thread
 
 
-# Operation retailerLoginCheck → POST /api/{version}/retailer/login
+# Operation retailerLoginCheck → POST /retailer/login
 # Login Retailer
 #
 # Retailer login check.
 func retailer_login_check(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# the user's email address they used to sign-up
 	username: String,
@@ -715,7 +693,7 @@ func retailer_login_check(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/login".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/login"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -750,8 +728,6 @@ func retailer_login_check(
 
 
 func retailer_login_check_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# username: String = ""   Eg: username_example
 	# the user's email address they used to sign-up
 	username: String,
@@ -776,7 +752,6 @@ func retailer_login_check_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "retailer_login_check")
 	bzz_callable.bind(
-		version,
 		username,
 		password,
 		deviceId,
@@ -790,13 +765,11 @@ func retailer_login_check_threaded(
 	return bzz_thread
 
 
-# Operation updateRetailer → POST /api/{version}/retailer/update
+# Operation updateRetailer → POST /retailer/update
 # Update Retailer
 #
 # Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 func update_retailer(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# The ID of the retailer to update
 	retailerId: float,
@@ -900,7 +873,7 @@ func update_retailer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -961,8 +934,6 @@ func update_retailer(
 
 
 func update_retailer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# retailerId: float   Eg: 789
 	# The ID of the retailer to update
 	retailerId: float,
@@ -1064,7 +1035,6 @@ func update_retailer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_retailer")
 	bzz_callable.bind(
-		version,
 		retailerId,
 		deviceId,
 		accountId,

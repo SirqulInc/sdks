@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "LikeApi"
 
 
-# Operation registerLike → POST /api/{version}/like
+# Operation registerLike → POST /like
 # Create Like
 #
 # Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
 func register_like(
-	# version: float   Eg: 3.16
-	version: float,
 	# likableType: String = ""   Eg: likableType_example
 	# The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 	likableType: String,
@@ -65,7 +63,7 @@ func register_like(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/like".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/like"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -106,8 +104,6 @@ func register_like(
 
 
 func register_like_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# likableType: String = ""   Eg: likableType_example
 	# The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 	likableType: String,
@@ -150,7 +146,6 @@ func register_like_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "register_like")
 	bzz_callable.bind(
-		version,
 		likableType,
 		likableId,
 		deviceId,
@@ -170,13 +165,11 @@ func register_like_threaded(
 	return bzz_thread
 
 
-# Operation removeLike → POST /api/{version}/like/delete
+# Operation removeLike → POST /like/delete
 # Delete Like
 #
 # Removes a like. This will make the user \"neutral\".
 func remove_like(
-	# version: float   Eg: 3.16
-	version: float,
 	# likableType: String = ""   Eg: likableType_example
 	# The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 	likableType: String,
@@ -203,7 +196,7 @@ func remove_like(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/like/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/like/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -238,8 +231,6 @@ func remove_like(
 
 
 func remove_like_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# likableType: String = ""   Eg: likableType_example
 	# The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 	likableType: String,
@@ -264,7 +255,6 @@ func remove_like_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_like")
 	bzz_callable.bind(
-		version,
 		likableType,
 		likableId,
 		deviceId,
@@ -278,13 +268,11 @@ func remove_like_threaded(
 	return bzz_thread
 
 
-# Operation searchLikes → GET /api/{version}/like/search
+# Operation searchLikes → GET /like/search
 # Search Likes
 #
 # Search for likes on a likable object.
 func search_likes(
-	# version: float   Eg: 3.16
-	version: float,
 	# likableType: String = ""   Eg: likableType_example
 	# The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 	likableType: String,
@@ -326,7 +314,7 @@ func search_likes(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/like/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/like/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -366,8 +354,6 @@ func search_likes(
 
 
 func search_likes_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# likableType: String = ""   Eg: likableType_example
 	# The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
 	likableType: String,
@@ -407,7 +393,6 @@ func search_likes_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_likes")
 	bzz_callable.bind(
-		version,
 		likableType,
 		likableId,
 		deviceId,

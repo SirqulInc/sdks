@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RegionApi"
 
 
-# Operation createRegion → POST /api/{version}/region/create
+# Operation createRegion → POST /region/create
 # Create Region
 #
 # Create a region.
 func create_region(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the account sending the request
 	accountId: float,
@@ -90,7 +88,7 @@ func create_region(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/region/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/region/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -140,8 +138,6 @@ func create_region(
 
 
 func create_region_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the account sending the request
 	accountId: float,
@@ -209,7 +205,6 @@ func create_region_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_region")
 	bzz_callable.bind(
-		version,
 		accountId,
 		regionClass,
 		shortName,
@@ -238,13 +233,11 @@ func create_region_threaded(
 	return bzz_thread
 
 
-# Operation deleteRegion → POST /api/{version}/region/delete
+# Operation deleteRegion → POST /region/delete
 # Delete Region
 #
 # Delete a region.
 func delete_region(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account logged in
 	accountId: float,
@@ -259,7 +252,7 @@ func delete_region(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/region/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/region/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -290,8 +283,6 @@ func delete_region(
 
 
 func delete_region_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account logged in
 	accountId: float,
@@ -304,7 +295,6 @@ func delete_region_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_region")
 	bzz_callable.bind(
-		version,
 		accountId,
 		regionId,
 		on_success,
@@ -314,13 +304,11 @@ func delete_region_threaded(
 	return bzz_thread
 
 
-# Operation getRegion → GET /api/{version}/region/get
+# Operation getRegion → GET /region/get
 # Get Region
 #
 # Get a region.
 func get_region(
-	# version: float   Eg: 3.16
-	version: float,
 	# regionId: float   Eg: 789
 	# the id of the region to get
 	regionId: float,
@@ -335,7 +323,7 @@ func get_region(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/region/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/region/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -366,8 +354,6 @@ func get_region(
 
 
 func get_region_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# regionId: float   Eg: 789
 	# the id of the region to get
 	regionId: float,
@@ -380,7 +366,6 @@ func get_region_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_region")
 	bzz_callable.bind(
-		version,
 		regionId,
 		accountId,
 		on_success,
@@ -390,13 +375,11 @@ func get_region_threaded(
 	return bzz_thread
 
 
-# Operation searchRegions → GET /api/{version}/region/search
+# Operation searchRegions → GET /region/search
 # Search Regions
 #
 # Get the list of regions.
 func search_regions(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the owner account id of the region to be created
 	accountId = null,
@@ -469,7 +452,7 @@ func search_regions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/region/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/region/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -520,8 +503,6 @@ func search_regions(
 
 
 func search_regions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the owner account id of the region to be created
 	accountId = null,
@@ -592,7 +573,6 @@ func search_regions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_regions")
 	bzz_callable.bind(
-		version,
 		accountId,
 		query,
 		keyword,
@@ -622,13 +602,11 @@ func search_regions_threaded(
 	return bzz_thread
 
 
-# Operation updateRegion → POST /api/{version}/region/update
+# Operation updateRegion → POST /region/update
 # Update Region
 #
 # Update a region.
 func update_region(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the account sending the request
 	accountId: float,
@@ -704,7 +682,7 @@ func update_region(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/region/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/region/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -756,8 +734,6 @@ func update_region(
 
 
 func update_region_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The id of the account sending the request
 	accountId: float,
@@ -831,7 +807,6 @@ func update_region_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_region")
 	bzz_callable.bind(
-		version,
 		accountId,
 		regionId,
 		regionClass,

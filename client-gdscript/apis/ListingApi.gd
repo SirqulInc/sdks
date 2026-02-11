@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ListingApi"
 
 
-# Operation createListing → POST /api/{version}/listing/create
+# Operation createListing → POST /listing/create
 # Create Listing
 #
 # Creates a listing.
 func create_listing(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user's account ID
 	accountId: float,
@@ -71,7 +69,7 @@ func create_listing(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/listing/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/listing/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -114,8 +112,6 @@ func create_listing(
 
 
 func create_listing_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user's account ID
 	accountId: float,
@@ -164,7 +160,6 @@ func create_listing_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_listing")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		filterIds,
@@ -186,13 +181,11 @@ func create_listing_threaded(
 	return bzz_thread
 
 
-# Operation deleteListing → POST /api/{version}/listing/delete
+# Operation deleteListing → POST /listing/delete
 # Delete Listing
 #
 # Delete a listing.
 func delete_listing(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -207,7 +200,7 @@ func delete_listing(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/listing/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/listing/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -238,8 +231,6 @@ func delete_listing(
 
 
 func delete_listing_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -252,7 +243,6 @@ func delete_listing_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_listing")
 	bzz_callable.bind(
-		version,
 		accountId,
 		listingId,
 		on_success,
@@ -262,13 +252,11 @@ func delete_listing_threaded(
 	return bzz_thread
 
 
-# Operation getListing → GET /api/{version}/listing/get
+# Operation getListing → GET /listing/get
 # Get Listing
 #
 # Get a listing by id.
 func get_listing(
-	# version: float   Eg: 3.16
-	version: float,
 	# listingId: float   Eg: 789
 	# the id of the listing to get
 	listingId: float,
@@ -280,7 +268,7 @@ func get_listing(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/listing/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/listing/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -310,8 +298,6 @@ func get_listing(
 
 
 func get_listing_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# listingId: float   Eg: 789
 	# the id of the listing to get
 	listingId: float,
@@ -321,7 +307,6 @@ func get_listing_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_listing")
 	bzz_callable.bind(
-		version,
 		listingId,
 		on_success,
 		on_failure,
@@ -330,13 +315,11 @@ func get_listing_threaded(
 	return bzz_thread
 
 
-# Operation searchListing → GET /api/{version}/listing/search
+# Operation searchListing → GET /listing/search
 # Search Listings
 #
 # Search for event listings from the start time to end time
 func search_listing(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId = null,
@@ -389,7 +372,7 @@ func search_listing(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/listing/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/listing/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -433,8 +416,6 @@ func search_listing(
 
 
 func search_listing_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId = null,
@@ -485,7 +466,6 @@ func search_listing_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_listing")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		start,
@@ -508,13 +488,11 @@ func search_listing_threaded(
 	return bzz_thread
 
 
-# Operation summaryListing → GET /api/{version}/listing/summary
+# Operation summaryListing → GET /listing/summary
 # Summary Listing
 #
 # Search for a list of summary listings from the start time up to 8 days out.
 func summary_listing(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId = null,
@@ -538,7 +516,7 @@ func summary_listing(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/listing/summary".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/listing/summary"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -572,8 +550,6 @@ func summary_listing(
 
 
 func summary_listing_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId = null,
@@ -595,7 +571,6 @@ func summary_listing_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "summary_listing")
 	bzz_callable.bind(
-		version,
 		accountId,
 		startDate,
 		categoryIds,
@@ -608,13 +583,11 @@ func summary_listing_threaded(
 	return bzz_thread
 
 
-# Operation updateListing → POST /api/{version}/listing/update
+# Operation updateListing → POST /listing/update
 # Update Listing
 #
 # Updates a listing.
 func update_listing(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user's account ID
 	accountId: float,
@@ -668,7 +641,7 @@ func update_listing(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/listing/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/listing/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -712,8 +685,6 @@ func update_listing(
 
 
 func update_listing_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user's account ID
 	accountId: float,
@@ -765,7 +736,6 @@ func update_listing_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_listing")
 	bzz_callable.bind(
-		version,
 		accountId,
 		listingId,
 		filterIds,

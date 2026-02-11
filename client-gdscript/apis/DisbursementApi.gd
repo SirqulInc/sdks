@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "DisbursementApi"
 
 
-# Operation checkDisbursements → GET /api/{version}/disbursement/check
+# Operation checkDisbursements → GET /disbursement/check
 # Check Disbursements
 #
 # Checks the status of a captured disbrusement to see if it has been settled.
 func check_disbursements(
-	# version: float   Eg: 3.16
-	version: float,
 	# disbursementId: float   Eg: 789
 	# the ID of the disbursement being checked on
 	disbursementId: float,
@@ -32,7 +30,7 @@ func check_disbursements(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/disbursement/check".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/disbursement/check"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -62,8 +60,6 @@ func check_disbursements(
 
 
 func check_disbursements_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# disbursementId: float   Eg: 789
 	# the ID of the disbursement being checked on
 	disbursementId: float,
@@ -73,7 +69,6 @@ func check_disbursements_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "check_disbursements")
 	bzz_callable.bind(
-		version,
 		disbursementId,
 		on_success,
 		on_failure,
@@ -82,13 +77,11 @@ func check_disbursements_threaded(
 	return bzz_thread
 
 
-# Operation createDisbursement → POST /api/{version}/disbursement/create
+# Operation createDisbursement → POST /disbursement/create
 # Create Disbursement
 #
 # Creates a Disbursement for sending money to a retailer
 func create_disbursement(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the ID of the logging in user (must be an EXECUTIVE account)
 	accountId: float,
@@ -127,7 +120,7 @@ func create_disbursement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/disbursement/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/disbursement/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -166,8 +159,6 @@ func create_disbursement(
 
 
 func create_disbursement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the ID of the logging in user (must be an EXECUTIVE account)
 	accountId: float,
@@ -204,7 +195,6 @@ func create_disbursement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_disbursement")
 	bzz_callable.bind(
-		version,
 		accountId,
 		receiverAccountId,
 		originalSenderAccountId,
@@ -222,13 +212,11 @@ func create_disbursement_threaded(
 	return bzz_thread
 
 
-# Operation getDisbursement → GET /api/{version}/disbursement/get
+# Operation getDisbursement → GET /disbursement/get
 # Get Disbursement
 #
 # Get Disbursement details
 func get_disbursement(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -243,7 +231,7 @@ func get_disbursement(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/disbursement/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/disbursement/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -274,8 +262,6 @@ func get_disbursement(
 
 
 func get_disbursement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -288,7 +274,6 @@ func get_disbursement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_disbursement")
 	bzz_callable.bind(
-		version,
 		accountId,
 		disbursementId,
 		on_success,
@@ -298,13 +283,11 @@ func get_disbursement_threaded(
 	return bzz_thread
 
 
-# Operation searchDisbursements → GET /api/{version}/disbursement/search
+# Operation searchDisbursements → GET /disbursement/search
 # Search Disbursements
 #
 # Search Disbursements
 func search_disbursements(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -343,7 +326,7 @@ func search_disbursements(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/disbursement/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/disbursement/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -382,8 +365,6 @@ func search_disbursements(
 
 
 func search_disbursements_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -420,7 +401,6 @@ func search_disbursements_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_disbursements")
 	bzz_callable.bind(
-		version,
 		accountId,
 		receiverAccountId,
 		statuses,
@@ -438,13 +418,11 @@ func search_disbursements_threaded(
 	return bzz_thread
 
 
-# Operation updateDisbursement → POST /api/{version}/disbursement/update
+# Operation updateDisbursement → POST /disbursement/update
 # Update Disbursement
 #
 # Update Disbursement
 func update_disbursement(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -483,7 +461,7 @@ func update_disbursement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/disbursement/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/disbursement/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -522,8 +500,6 @@ func update_disbursement(
 
 
 func update_disbursement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -560,7 +536,6 @@ func update_disbursement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_disbursement")
 	bzz_callable.bind(
-		version,
 		accountId,
 		disbursementId,
 		amount,

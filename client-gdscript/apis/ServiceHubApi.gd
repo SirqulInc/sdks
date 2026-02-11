@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ServiceHubApi"
 
 
-# Operation createServiceHub → POST /api/{version}/hub
+# Operation createServiceHub → POST /hub
 # Create Service Hub
 #
 # Create new service hub
 func create_service_hub(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: ServiceHub
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -31,7 +29,7 @@ func create_service_hub(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/hub".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/hub"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func create_service_hub(
 
 
 func create_service_hub_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: ServiceHub
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -71,7 +67,6 @@ func create_service_hub_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_service_hub")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -80,13 +75,11 @@ func create_service_hub_threaded(
 	return bzz_thread
 
 
-# Operation deleteServiceHub → DELETE /api/{version}/hub/{id}
+# Operation deleteServiceHub → DELETE /hub/{id}
 # Delete Service Hub
 #
 # Delete an existing service hub
 func delete_service_hub(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub to delete
 	id: float,
@@ -98,7 +91,7 @@ func delete_service_hub(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/hub/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/hub/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -121,8 +114,6 @@ func delete_service_hub(
 
 
 func delete_service_hub_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub to delete
 	id: float,
@@ -132,7 +123,6 @@ func delete_service_hub_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_service_hub")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -141,13 +131,11 @@ func delete_service_hub_threaded(
 	return bzz_thread
 
 
-# Operation getServiceHub → GET /api/{version}/hub/{id}
+# Operation getServiceHub → GET /hub/{id}
 # Get Service Hub
 #
 # Get an existing service hub
 func get_service_hub(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub to get
 	id: float,
@@ -159,7 +147,7 @@ func get_service_hub(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/hub/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/hub/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -187,8 +175,6 @@ func get_service_hub(
 
 
 func get_service_hub_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub to get
 	id: float,
@@ -198,7 +184,6 @@ func get_service_hub_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_service_hub")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -207,13 +192,11 @@ func get_service_hub_threaded(
 	return bzz_thread
 
 
-# Operation postServiceHub → POST /api/{version}/hub/{id}
+# Operation postServiceHub → POST /hub/{id}
 # Update Service Hub
 #
 # Update an existing service hub
 func post_service_hub(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub
 	id: float,
@@ -227,7 +210,7 @@ func post_service_hub(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/hub/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/hub/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -257,8 +240,6 @@ func post_service_hub(
 
 
 func post_service_hub_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub
 	id: float,
@@ -270,7 +251,6 @@ func post_service_hub_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "post_service_hub")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -280,13 +260,11 @@ func post_service_hub_threaded(
 	return bzz_thread
 
 
-# Operation putServiceHub → PUT /api/{version}/hub/{id}
+# Operation putServiceHub → PUT /hub/{id}
 # Update Service Hub
 #
 # Update an existing service hub
 func put_service_hub(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub
 	id: float,
@@ -300,7 +278,7 @@ func put_service_hub(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/hub/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/hub/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -330,8 +308,6 @@ func put_service_hub(
 
 
 func put_service_hub_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the service hub
 	id: float,
@@ -343,7 +319,6 @@ func put_service_hub_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "put_service_hub")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -353,13 +328,11 @@ func put_service_hub_threaded(
 	return bzz_thread
 
 
-# Operation searchServiceHubs → GET /api/{version}/hub
+# Operation searchServiceHubs → GET /hub
 # Search Service Hubs
 #
 # Search for service hubs.
 func search_service_hubs(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -389,7 +362,7 @@ func search_service_hubs(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/hub".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/hub"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -425,8 +398,6 @@ func search_service_hubs(
 
 
 func search_service_hubs_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -454,7 +425,6 @@ func search_service_hubs_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_service_hubs")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,

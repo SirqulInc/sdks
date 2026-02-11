@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TicketApi"
 
 
-# Operation getTicketCount → GET /api/{version}/ticket/count
+# Operation getTicketCount → GET /ticket/count
 # Get Ticket Count
 #
 # Gets the ticket count.
 func get_ticket_count(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the id of the device that owns the tickets
 	deviceId = "",
@@ -44,7 +42,7 @@ func get_ticket_count(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ticket/count".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ticket/count"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -78,8 +76,6 @@ func get_ticket_count(
 
 
 func get_ticket_count_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the id of the device that owns the tickets
 	deviceId = "",
@@ -101,7 +97,6 @@ func get_ticket_count_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_ticket_count")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		gameType,
@@ -114,13 +109,11 @@ func get_ticket_count_threaded(
 	return bzz_thread
 
 
-# Operation getTicketList → GET /api/{version}/ticket/getList
+# Operation getTicketList → GET /ticket/getList
 # Get Ticket List
 #
 # Gets the list of tickets.
 func get_ticket_list(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the id of the device that owns the tickets
 	deviceId = "",
@@ -154,7 +147,7 @@ func get_ticket_list(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ticket/getList".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ticket/getList"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -192,8 +185,6 @@ func get_ticket_list(
 
 
 func get_ticket_list_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# the id of the device that owns the tickets
 	deviceId = "",
@@ -225,7 +216,6 @@ func get_ticket_list_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_ticket_list")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		ticketObjectType,
@@ -242,13 +232,11 @@ func get_ticket_list_threaded(
 	return bzz_thread
 
 
-# Operation giftPurchase → POST /api/{version}/purchase/gift
+# Operation giftPurchase → POST /purchase/gift
 # Gift Tickets
 #
 # Gift tickets to another user.
 func gift_purchase(
-	# version: float   Eg: 3.16
-	version: float,
 	# receiverAccountId: float   Eg: 789
 	# the id of the account receiving the tickets
 	receiverAccountId: float,
@@ -281,7 +269,7 @@ func gift_purchase(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/purchase/gift".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/purchase/gift"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -318,8 +306,6 @@ func gift_purchase(
 
 
 func gift_purchase_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# receiverAccountId: float   Eg: 789
 	# the id of the account receiving the tickets
 	receiverAccountId: float,
@@ -350,7 +336,6 @@ func gift_purchase_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "gift_purchase")
 	bzz_callable.bind(
-		version,
 		receiverAccountId,
 		ticketId,
 		deviceId,
@@ -366,13 +351,11 @@ func gift_purchase_threaded(
 	return bzz_thread
 
 
-# Operation saveTicket → POST /api/{version}/ticket/save
+# Operation saveTicket → POST /ticket/save
 # Save Ticket
 #
 # Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 func save_ticket(
-	# version: float   Eg: 3.16
-	version: float,
 	# actionType: String = ""   Eg: actionType_example
 	# the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
 	actionType: String,
@@ -435,7 +418,7 @@ func save_ticket(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ticket/save".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ticket/save"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -482,8 +465,6 @@ func save_ticket(
 
 
 func save_ticket_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# actionType: String = ""   Eg: actionType_example
 	# the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
 	actionType: String,
@@ -544,7 +525,6 @@ func save_ticket_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "save_ticket")
 	bzz_callable.bind(
-		version,
 		actionType,
 		ticketObjectType,
 		returnNulls,
@@ -570,13 +550,11 @@ func save_ticket_threaded(
 	return bzz_thread
 
 
-# Operation saveTicketViaFileUpload → POST /api/{version}/ticket/save/fileUpload
+# Operation saveTicketViaFileUpload → POST /ticket/save/fileUpload
 # Save Ticket with Reciept
 #
 # Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 func save_ticket_via_file_upload(
-	# version: float   Eg: 3.16
-	version: float,
 	# actionType: String = ""   Eg: actionType_example
 	# the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
 	actionType: String,
@@ -639,7 +617,7 @@ func save_ticket_via_file_upload(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ticket/save/fileUpload".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ticket/save/fileUpload"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -686,8 +664,6 @@ func save_ticket_via_file_upload(
 
 
 func save_ticket_via_file_upload_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# actionType: String = ""   Eg: actionType_example
 	# the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
 	actionType: String,
@@ -748,7 +724,6 @@ func save_ticket_via_file_upload_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "save_ticket_via_file_upload")
 	bzz_callable.bind(
-		version,
 		actionType,
 		ticketObjectType,
 		receiptData,
@@ -774,13 +749,11 @@ func save_ticket_via_file_upload_threaded(
 	return bzz_thread
 
 
-# Operation ticketOffers → GET /api/{version}/ticket/ticketoffers
+# Operation ticketOffers → GET /ticket/ticketoffers
 # Get Ticket Offers
 #
 # Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 func ticket_offers(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -789,7 +762,7 @@ func ticket_offers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/ticket/ticketoffers".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/ticket/ticketoffers"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -818,15 +791,12 @@ func ticket_offers(
 
 
 func ticket_offers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "ticket_offers")
 	bzz_callable.bind(
-		version,
 		on_success,
 		on_failure,
 	)

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "QuestionApi"
 
 
-# Operation createQuestion → POST /api/{version}/game/question/create
+# Operation createQuestion → POST /game/question/create
 # Create Question
 #
 # Create a question and related answers by the given params.
 func create_question(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -62,7 +60,7 @@ func create_question(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/question/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/question/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -102,8 +100,6 @@ func create_question(
 
 
 func create_question_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -143,7 +139,6 @@ func create_question_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_question")
 	bzz_callable.bind(
-		version,
 		accountId,
 		question,
 		answers,
@@ -162,13 +157,11 @@ func create_question_threaded(
 	return bzz_thread
 
 
-# Operation deleteQuestion → POST /api/{version}/game/question/delete
+# Operation deleteQuestion → POST /game/question/delete
 # Delete Question
 #
 # Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
 func delete_question(
-	# version: float   Eg: 3.16
-	version: float,
 	# questionId: float   Eg: 789
 	# the id of the question to delete
 	questionId: float,
@@ -183,7 +176,7 @@ func delete_question(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/question/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/question/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -214,8 +207,6 @@ func delete_question(
 
 
 func delete_question_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# questionId: float   Eg: 789
 	# the id of the question to delete
 	questionId: float,
@@ -228,7 +219,6 @@ func delete_question_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_question")
 	bzz_callable.bind(
-		version,
 		questionId,
 		accountId,
 		on_success,
@@ -238,13 +228,11 @@ func delete_question_threaded(
 	return bzz_thread
 
 
-# Operation getQuestion → GET /api/{version}/game/question/get
+# Operation getQuestion → GET /game/question/get
 # Get Question
 #
 # Get a question by the given id.
 func get_question(
-	# version: float   Eg: 3.16
-	version: float,
 	# questionId: float   Eg: 789
 	# the id of the question to get
 	questionId: float,
@@ -259,7 +247,7 @@ func get_question(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/question/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/question/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -290,8 +278,6 @@ func get_question(
 
 
 func get_question_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# questionId: float   Eg: 789
 	# the id of the question to get
 	questionId: float,
@@ -304,7 +290,6 @@ func get_question_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_question")
 	bzz_callable.bind(
-		version,
 		questionId,
 		accountId,
 		on_success,
@@ -314,13 +299,11 @@ func get_question_threaded(
 	return bzz_thread
 
 
-# Operation searchQuestions → GET /api/{version}/game/question/search
+# Operation searchQuestions → GET /game/question/search
 # Search Questions
 #
 # Search for questions by the given params.
 func search_questions(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -350,7 +333,7 @@ func search_questions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/question/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/question/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -386,8 +369,6 @@ func search_questions(
 
 
 func search_questions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -415,7 +396,6 @@ func search_questions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_questions")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -430,13 +410,11 @@ func search_questions_threaded(
 	return bzz_thread
 
 
-# Operation updateQuestion → POST /api/{version}/game/question/update
+# Operation updateQuestion → POST /game/question/update
 # Update Question
 #
 # Update a question and related answers.
 func update_question(
-	# version: float   Eg: 3.16
-	version: float,
 	# questionId: float   Eg: 789
 	# The id of the question to update.
 	questionId: float,
@@ -481,7 +459,7 @@ func update_question(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/question/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/question/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -522,8 +500,6 @@ func update_question(
 
 
 func update_question_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# questionId: float   Eg: 789
 	# The id of the question to update.
 	questionId: float,
@@ -566,7 +542,6 @@ func update_question_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_question")
 	bzz_callable.bind(
-		version,
 		questionId,
 		accountId,
 		ticketCount,

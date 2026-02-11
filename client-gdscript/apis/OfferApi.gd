@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "OfferApi"
 
 
-# Operation batchUpdateOfferLocations → POST /api/{version}/retailer/offer/location/batchUpdate
+# Operation batchUpdateOfferLocations → POST /retailer/offer/location/batchUpdate
 # Update Offer Locations
 #
 # Batch update offer locations.
 func batch_update_offer_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
 	data: String,
@@ -38,7 +36,7 @@ func batch_update_offer_locations(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/location/batchUpdate".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/location/batchUpdate"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -70,8 +68,6 @@ func batch_update_offer_locations(
 
 
 func batch_update_offer_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
 	data: String,
@@ -87,7 +83,6 @@ func batch_update_offer_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "batch_update_offer_locations")
 	bzz_callable.bind(
-		version,
 		data,
 		deviceId,
 		accountId,
@@ -98,13 +93,11 @@ func batch_update_offer_locations_threaded(
 	return bzz_thread
 
 
-# Operation createOffer → POST /api/{version}/retailer/offer/create
+# Operation createOffer → POST /retailer/offer/create
 # Create Offer
 #
 # Create an offer and assign it to the provided retailer locations.
 func create_offer(
-	# version: float   Eg: 3.16
-	version: float,
 	# includeOfferLocations: bool   Eg: true
 	# If true return all the offer locations associated with the offer
 	includeOfferLocations: bool,
@@ -366,7 +359,7 @@ func create_offer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -481,8 +474,6 @@ func create_offer(
 
 
 func create_offer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# includeOfferLocations: bool   Eg: true
 	# If true return all the offer locations associated with the offer
 	includeOfferLocations: bool,
@@ -742,7 +733,6 @@ func create_offer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_offer")
 	bzz_callable.bind(
-		version,
 		includeOfferLocations,
 		title,
 		barcodeType,
@@ -836,13 +826,11 @@ func create_offer_threaded(
 	return bzz_thread
 
 
-# Operation deleteOffer → POST /api/{version}/retailer/offer/delete
+# Operation deleteOffer → POST /retailer/offer/delete
 # Delete Offer
 #
 # Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
 func delete_offer(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# The ID of the offer to be deleted
 	offerId: float,
@@ -860,7 +848,7 @@ func delete_offer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -892,8 +880,6 @@ func delete_offer(
 
 
 func delete_offer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# The ID of the offer to be deleted
 	offerId: float,
@@ -909,7 +895,6 @@ func delete_offer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_offer")
 	bzz_callable.bind(
-		version,
 		offerId,
 		deviceId,
 		accountId,
@@ -920,13 +905,11 @@ func delete_offer_threaded(
 	return bzz_thread
 
 
-# Operation deleteOfferLocation → POST /api/{version}/retailer/offer/location/delete
+# Operation deleteOfferLocation → POST /retailer/offer/location/delete
 # Delete Offer Location
 #
 # Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
 func delete_offer_location(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerLocationId: float   Eg: 789
 	# The ID of the offer location to be deleted
 	offerLocationId: float,
@@ -944,7 +927,7 @@ func delete_offer_location(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/location/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/location/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -976,8 +959,6 @@ func delete_offer_location(
 
 
 func delete_offer_location_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerLocationId: float   Eg: 789
 	# The ID of the offer location to be deleted
 	offerLocationId: float,
@@ -993,7 +974,6 @@ func delete_offer_location_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_offer_location")
 	bzz_callable.bind(
-		version,
 		offerLocationId,
 		deviceId,
 		accountId,
@@ -1004,13 +984,11 @@ func delete_offer_location_threaded(
 	return bzz_thread
 
 
-# Operation getOffer → GET /api/{version}/retailer/offer/get
+# Operation getOffer → GET /retailer/offer/get
 # Get Offer
 #
 # Gets the details of an offer that the user has access to.
 func get_offer(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# The id of the offer
 	offerId: float,
@@ -1030,7 +1008,7 @@ func get_offer(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1063,8 +1041,6 @@ func get_offer(
 
 
 func get_offer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# The id of the offer
 	offerId: float,
@@ -1082,7 +1058,6 @@ func get_offer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offer")
 	bzz_callable.bind(
-		version,
 		offerId,
 		includeOfferLocations,
 		deviceId,
@@ -1094,13 +1069,11 @@ func get_offer_threaded(
 	return bzz_thread
 
 
-# Operation getOfferDetails → GET /api/{version}/offer/get
+# Operation getOfferDetails → GET /offer/get
 # Get Offer
 #
 # Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
 func get_offer_details(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id for returning account information (i.e. favorites)
 	deviceId = "",
@@ -1139,7 +1112,7 @@ func get_offer_details(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1178,8 +1151,6 @@ func get_offer_details(
 
 
 func get_offer_details_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id for returning account information (i.e. favorites)
 	deviceId = "",
@@ -1216,7 +1187,6 @@ func get_offer_details_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offer_details")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		offerId,
@@ -1234,13 +1204,11 @@ func get_offer_details_threaded(
 	return bzz_thread
 
 
-# Operation getOfferListCounts → GET /api/{version}/offer/lists/count
+# Operation getOfferListCounts → GET /offer/lists/count
 # Get Offers (Counts)
 #
 # Gets the offer list counts.
 func get_offer_list_counts(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude of where the search will center at
 	latitude: int,
@@ -1261,7 +1229,7 @@ func get_offer_list_counts(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/lists/count".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/lists/count"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1294,8 +1262,6 @@ func get_offer_list_counts(
 
 
 func get_offer_list_counts_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude of where the search will center at
 	latitude: int,
@@ -1314,7 +1280,6 @@ func get_offer_list_counts_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offer_list_counts")
 	bzz_callable.bind(
-		version,
 		latitude,
 		longitude,
 		searchRange,
@@ -1326,13 +1291,11 @@ func get_offer_list_counts_threaded(
 	return bzz_thread
 
 
-# Operation getOfferLocation → GET /api/{version}/offer/location/get
+# Operation getOfferLocation → GET /offer/location/get
 # Get Offer Location
 #
 # Gets the offer location by offer location id or udid (of a device)
 func get_offer_location(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerLocationId: float   Eg: 789
 	# the id of the offer location to get
 	offerLocationId = null,
@@ -1347,7 +1310,7 @@ func get_offer_location(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/location/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/location/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1378,8 +1341,6 @@ func get_offer_location(
 
 
 func get_offer_location_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerLocationId: float   Eg: 789
 	# the id of the offer location to get
 	offerLocationId = null,
@@ -1392,7 +1353,6 @@ func get_offer_location_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offer_location")
 	bzz_callable.bind(
-		version,
 		offerLocationId,
 		udid,
 		on_success,
@@ -1402,13 +1362,11 @@ func get_offer_location_threaded(
 	return bzz_thread
 
 
-# Operation getOfferLocationsForRetailers → GET /api/{version}/retailer/offer/location/search
+# Operation getOfferLocationsForRetailers → GET /retailer/offer/location/search
 # Search Offer Locations
 #
 # Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
 func get_offer_locations_for_retailers(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 	sortField: String,
@@ -1470,7 +1428,7 @@ func get_offer_locations_for_retailers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/location/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/location/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1519,8 +1477,6 @@ func get_offer_locations_for_retailers(
 
 
 func get_offer_locations_for_retailers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 	sortField: String,
@@ -1580,7 +1536,6 @@ func get_offer_locations_for_retailers_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offer_locations_for_retailers")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,
@@ -1608,13 +1563,11 @@ func get_offer_locations_for_retailers_threaded(
 	return bzz_thread
 
 
-# Operation getOffersForRetailers → GET /api/{version}/retailer/offer/search
+# Operation getOffersForRetailers → GET /retailer/offer/search
 # Search Offers
 #
 # Searches on offers that the account has access to.
 func get_offers_for_retailers(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerVisibility: String = ""   Eg: offerVisibility_example
 	offerVisibility: String,
 	# sortField: String = ""   Eg: sortField_example
@@ -1704,7 +1657,7 @@ func get_offers_for_retailers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1764,8 +1717,6 @@ func get_offers_for_retailers(
 
 
 func get_offers_for_retailers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerVisibility: String = ""   Eg: offerVisibility_example
 	offerVisibility: String,
 	# sortField: String = ""   Eg: sortField_example
@@ -1853,7 +1804,6 @@ func get_offers_for_retailers_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_offers_for_retailers")
 	bzz_callable.bind(
-		version,
 		offerVisibility,
 		sortField,
 		descending,
@@ -1892,13 +1842,11 @@ func get_offers_for_retailers_threaded(
 	return bzz_thread
 
 
-# Operation redeemOfferTransaction → POST /api/{version}/retailer/offer/transaction/update
+# Operation redeemOfferTransaction → POST /retailer/offer/transaction/update
 # Update Offer Transaction
 #
 # Redeems an offer.
 func redeem_offer_transaction(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerTransactionId: float   Eg: 789
 	# the OfferTransaction ID of the transaction being redeemed
 	offerTransactionId: float,
@@ -1922,7 +1870,7 @@ func redeem_offer_transaction(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/transaction/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/transaction/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1956,8 +1904,6 @@ func redeem_offer_transaction(
 
 
 func redeem_offer_transaction_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerTransactionId: float   Eg: 789
 	# the OfferTransaction ID of the transaction being redeemed
 	offerTransactionId: float,
@@ -1979,7 +1925,6 @@ func redeem_offer_transaction_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "redeem_offer_transaction")
 	bzz_callable.bind(
-		version,
 		offerTransactionId,
 		status,
 		deviceId,
@@ -1992,13 +1937,11 @@ func redeem_offer_transaction_threaded(
 	return bzz_thread
 
 
-# Operation searchOfferTransactionsForRetailers → GET /api/{version}/retailer/offer/transaction/search
+# Operation searchOfferTransactionsForRetailers → GET /retailer/offer/transaction/search
 # Search Offer Transactions
 #
 # Searches on offer transactions for offers that the account has access to.
 func search_offer_transactions_for_retailers(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 	sortField: String,
@@ -2076,7 +2019,7 @@ func search_offer_transactions_for_retailers(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/transaction/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/transaction/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2129,8 +2072,6 @@ func search_offer_transactions_for_retailers(
 
 
 func search_offer_transactions_for_retailers_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
 	sortField: String,
@@ -2206,7 +2147,6 @@ func search_offer_transactions_for_retailers_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_offer_transactions_for_retailers")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,
@@ -2238,13 +2178,11 @@ func search_offer_transactions_for_retailers_threaded(
 	return bzz_thread
 
 
-# Operation searchOffersForConsumer → GET /api/{version}/offer/lists
+# Operation searchOffersForConsumer → GET /offer/lists
 # Search Offers
 #
 # Searches for offers as a consumer.
 func search_offers_for_consumer(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude of where the search will center at
 	latitude: int,
@@ -2343,7 +2281,7 @@ func search_offers_for_consumer(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/lists".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/lists"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2403,8 +2341,6 @@ func search_offers_for_consumer(
 
 
 func search_offers_for_consumer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# latitude: int   Eg: 1.2
 	# The latitude of where the search will center at
 	latitude: int,
@@ -2501,7 +2437,6 @@ func search_offers_for_consumer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_offers_for_consumer")
 	bzz_callable.bind(
-		version,
 		latitude,
 		longitude,
 		recommendationType,
@@ -2540,13 +2475,11 @@ func search_offers_for_consumer_threaded(
 	return bzz_thread
 
 
-# Operation topOfferTransactions → GET /api/{version}/offer/top
+# Operation topOfferTransactions → GET /offer/top
 # Get Offers (Top)
 #
 # Gets the top active offers.
 func top_offer_transactions(
-	# version: float   Eg: 3.16
-	version: float,
 	# start: int = 0   Eg: 56
 	# The index into the record set to start with. Default is 0.
 	start = 0,
@@ -2561,7 +2494,7 @@ func top_offer_transactions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/offer/top".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/offer/top"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2592,8 +2525,6 @@ func top_offer_transactions(
 
 
 func top_offer_transactions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# start: int = 0   Eg: 56
 	# The index into the record set to start with. Default is 0.
 	start = 0,
@@ -2606,7 +2537,6 @@ func top_offer_transactions_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "top_offer_transactions")
 	bzz_callable.bind(
-		version,
 		start,
 		limit,
 		on_success,
@@ -2616,13 +2546,11 @@ func top_offer_transactions_threaded(
 	return bzz_thread
 
 
-# Operation updateOffer → POST /api/{version}/retailer/offer/update
+# Operation updateOffer → POST /retailer/offer/update
 # Update Offer
 #
 # Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
 func update_offer(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# The offer to update
 	offerId: float,
@@ -2883,7 +2811,7 @@ func update_offer(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2999,8 +2927,6 @@ func update_offer(
 
 
 func update_offer_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# The offer to update
 	offerId: float,
@@ -3259,7 +3185,6 @@ func update_offer_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_offer")
 	bzz_callable.bind(
-		version,
 		offerId,
 		includeOfferLocations,
 		deviceId,
@@ -3354,13 +3279,11 @@ func update_offer_threaded(
 	return bzz_thread
 
 
-# Operation updateOfferStatus → POST /api/{version}/retailer/offer/status
+# Operation updateOfferStatus → POST /retailer/offer/status
 # Activate Offer
 #
 # Sets the activated date on offers. This will make offers visible for consumers.
 func update_offer_status(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerIds: String = ""   Eg: offerIds_example
 	# Comma separated list of offer ids
 	offerIds: String,
@@ -3381,7 +3304,7 @@ func update_offer_status(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/retailer/offer/status".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/retailer/offer/status"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -3414,8 +3337,6 @@ func update_offer_status(
 
 
 func update_offer_status_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerIds: String = ""   Eg: offerIds_example
 	# Comma separated list of offer ids
 	offerIds: String,
@@ -3434,7 +3355,6 @@ func update_offer_status_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_offer_status")
 	bzz_callable.bind(
-		version,
 		offerIds,
 		active,
 		deviceId,

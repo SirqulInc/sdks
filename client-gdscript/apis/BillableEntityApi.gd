@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "BillableEntityApi"
 
 
-# Operation createBillableEntity → POST /api/{version}/billable/create
+# Operation createBillableEntity → POST /billable/create
 # Create Billable
 #
 # reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 func create_billable_entity(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -65,7 +63,7 @@ func create_billable_entity(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billable/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billable/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -106,8 +104,6 @@ func create_billable_entity(
 
 
 func create_billable_entity_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -150,7 +146,6 @@ func create_billable_entity_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_billable_entity")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		name,
@@ -170,13 +165,11 @@ func create_billable_entity_threaded(
 	return bzz_thread
 
 
-# Operation deleteBillableEntity → POST /api/{version}/billable/delete
+# Operation deleteBillableEntity → POST /billable/delete
 # Delete Billable
 #
 # Mark the billable as deleted
 func delete_billable_entity(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -191,7 +184,7 @@ func delete_billable_entity(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billable/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billable/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -222,8 +215,6 @@ func delete_billable_entity(
 
 
 func delete_billable_entity_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -236,7 +227,6 @@ func delete_billable_entity_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_billable_entity")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		on_success,
@@ -246,13 +236,11 @@ func delete_billable_entity_threaded(
 	return bzz_thread
 
 
-# Operation getBillableEntity → GET /api/{version}/billable/get
+# Operation getBillableEntity → GET /billable/get
 # Get Billable
 #
 # Used to determine the associated BillableEntity of an account
 func get_billable_entity(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -273,7 +261,7 @@ func get_billable_entity(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billable/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billable/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -306,8 +294,6 @@ func get_billable_entity(
 
 
 func get_billable_entity_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -326,7 +312,6 @@ func get_billable_entity_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_billable_entity")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		includeCounts,
@@ -338,13 +323,11 @@ func get_billable_entity_threaded(
 	return bzz_thread
 
 
-# Operation updateBillableEntity → POST /api/{version}/billable/update
+# Operation updateBillableEntity → POST /billable/update
 # Update Billable
 #
 # Updates the billable record for an account
 func update_billable_entity(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -389,7 +372,7 @@ func update_billable_entity(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billable/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billable/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -430,8 +413,6 @@ func update_billable_entity(
 
 
 func update_billable_entity_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique device identifier that made the request (either deviceId or accountId must be used)
 	deviceId = "",
@@ -474,7 +455,6 @@ func update_billable_entity_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_billable_entity")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		name,

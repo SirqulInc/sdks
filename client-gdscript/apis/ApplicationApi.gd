@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ApplicationApi"
 
 
-# Operation createApplication → POST /api/{version}/application/create
+# Operation createApplication → POST /application/create
 # Create Application
 #
 # Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 func create_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# appName: String = ""   Eg: appName_example
 	# The name of the application
 	appName: String,
@@ -266,7 +264,7 @@ func create_application(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -374,8 +372,6 @@ func create_application(
 
 
 func create_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appName: String = ""   Eg: appName_example
 	# The name of the application
 	appName: String,
@@ -619,7 +615,6 @@ func create_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_application")
 	bzz_callable.bind(
-		version,
 		appName,
 		deviceId,
 		accountId,
@@ -706,13 +701,11 @@ func create_application_threaded(
 	return bzz_thread
 
 
-# Operation createApplicationPlacement → POST /api/{version}/application/placement/create
+# Operation createApplicationPlacement → POST /application/placement/create
 # Create Ad Placement
 #
 # Creates a new ad placement for an application.
 func create_application_placement(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The appKey of the application the ad placement is for
 	appKey: String,
@@ -754,7 +747,7 @@ func create_application_placement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/placement/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/placement/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -794,8 +787,6 @@ func create_application_placement(
 
 
 func create_application_placement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The appKey of the application the ad placement is for
 	appKey: String,
@@ -835,7 +826,6 @@ func create_application_placement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_application_placement")
 	bzz_callable.bind(
-		version,
 		appKey,
 		size,
 		deviceId,
@@ -854,13 +844,11 @@ func create_application_placement_threaded(
 	return bzz_thread
 
 
-# Operation deleteApplication → POST /api/{version}/application/delete
+# Operation deleteApplication → POST /application/delete
 # Delete Application
 #
 # Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 func delete_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the delete, must have rights to edit the application.
 	accountId = null,
@@ -875,7 +863,7 @@ func delete_application(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -906,8 +894,6 @@ func delete_application(
 
 
 func delete_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the delete, must have rights to edit the application.
 	accountId = null,
@@ -920,7 +906,6 @@ func delete_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_application")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		on_success,
@@ -930,13 +915,11 @@ func delete_application_threaded(
 	return bzz_thread
 
 
-# Operation deleteApplicationPlacement → POST /api/{version}/application/placement/delete
+# Operation deleteApplicationPlacement → POST /application/placement/delete
 # Delete Ad Placement
 #
 # Deletes an ad placement for an application.
 func delete_application_placement(
-	# version: float   Eg: 3.16
-	version: float,
 	# placementId: float   Eg: 789
 	# The id of the placement to delete, the user must have rights to the application the ad placement is for
 	placementId: float,
@@ -954,7 +937,7 @@ func delete_application_placement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/placement/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/placement/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -986,8 +969,6 @@ func delete_application_placement(
 
 
 func delete_application_placement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# placementId: float   Eg: 789
 	# The id of the placement to delete, the user must have rights to the application the ad placement is for
 	placementId: float,
@@ -1003,7 +984,6 @@ func delete_application_placement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_application_placement")
 	bzz_callable.bind(
-		version,
 		placementId,
 		deviceId,
 		accountId,
@@ -1014,13 +994,11 @@ func delete_application_placement_threaded(
 	return bzz_thread
 
 
-# Operation getApplication → GET /api/{version}/application/get
+# Operation getApplication → GET /application/get
 # Get Application
 #
 # Get a specific application by appKey
 func get_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The key of the application
 	appKey = "",
@@ -1035,7 +1013,7 @@ func get_application(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1066,8 +1044,6 @@ func get_application(
 
 
 func get_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The key of the application
 	appKey = "",
@@ -1080,7 +1056,6 @@ func get_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_application")
 	bzz_callable.bind(
-		version,
 		appKey,
 		applicationId,
 		on_success,
@@ -1090,13 +1065,11 @@ func get_application_threaded(
 	return bzz_thread
 
 
-# Operation getApplicationPlacement → GET /api/{version}/application/placement/get
+# Operation getApplicationPlacement → GET /application/placement/get
 # Get Ad Placement
 #
 # Get details of an ad placement
 func get_application_placement(
-	# version: float   Eg: 3.16
-	version: float,
 	# placementId: float   Eg: 789
 	# The id of the placement
 	placementId: float,
@@ -1114,7 +1087,7 @@ func get_application_placement(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/placement/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/placement/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1146,8 +1119,6 @@ func get_application_placement(
 
 
 func get_application_placement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# placementId: float   Eg: 789
 	# The id of the placement
 	placementId: float,
@@ -1163,7 +1134,6 @@ func get_application_placement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_application_placement")
 	bzz_callable.bind(
-		version,
 		placementId,
 		deviceId,
 		accountId,
@@ -1174,13 +1144,11 @@ func get_application_placement_threaded(
 	return bzz_thread
 
 
-# Operation getApplicationVersions → GET /api/{version}/application/versions
+# Operation getApplicationVersions → GET /application/versions
 # Get API versions
 #
 # Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 func get_application_versions(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ):
@@ -1189,7 +1157,7 @@ func get_application_versions(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/versions".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/versions"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1218,15 +1186,12 @@ func get_application_versions(
 
 
 func get_application_versions_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
 	on_failure: Callable = Callable(),  # func(error: ApiError)
 ) -> Thread:
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_application_versions")
 	bzz_callable.bind(
-		version,
 		on_success,
 		on_failure,
 	)
@@ -1234,13 +1199,11 @@ func get_application_versions_threaded(
 	return bzz_thread
 
 
-# Operation getUniqueUsersByApp → GET /api/{version}/application/users
+# Operation getUniqueUsersByApp → GET /application/users
 # Search Application Users
 #
 # Get a list of users per application
 func get_unique_users_by_app(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -1273,7 +1236,7 @@ func get_unique_users_by_app(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/users".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/users"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1310,8 +1273,6 @@ func get_unique_users_by_app(
 
 
 func get_unique_users_by_app_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key
 	appKey: String,
@@ -1342,7 +1303,6 @@ func get_unique_users_by_app_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_unique_users_by_app")
 	bzz_callable.bind(
-		version,
 		appKey,
 		q,
 		keyword,
@@ -1358,13 +1318,11 @@ func get_unique_users_by_app_threaded(
 	return bzz_thread
 
 
-# Operation listApplications → GET /api/{version}/application/list
+# Operation listApplications → GET /application/list
 # List Applications
 #
 # List active applications matching the criteria (as a consumer)
 func list_applications(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the application owner/manager
 	accountId = null,
@@ -1433,7 +1391,7 @@ func list_applications(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1482,8 +1440,6 @@ func list_applications(
 
 
 func list_applications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the application owner/manager
 	accountId = null,
@@ -1550,7 +1506,6 @@ func list_applications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_applications")
 	bzz_callable.bind(
-		version,
 		accountId,
 		q,
 		keyword,
@@ -1578,13 +1533,11 @@ func list_applications_threaded(
 	return bzz_thread
 
 
-# Operation searchApplicationPlacement → GET /api/{version}/application/placement/search
+# Operation searchApplicationPlacement → GET /application/placement/search
 # Search for Ad Placements
 #
 # Searches placements for an application.
 func search_application_placement(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The key of the application
 	appKey: String,
@@ -1608,7 +1561,7 @@ func search_application_placement(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/placement/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/placement/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1642,8 +1595,6 @@ func search_application_placement(
 
 
 func search_application_placement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The key of the application
 	appKey: String,
@@ -1665,7 +1616,6 @@ func search_application_placement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_application_placement")
 	bzz_callable.bind(
-		version,
 		appKey,
 		deviceId,
 		accountId,
@@ -1678,13 +1628,11 @@ func search_application_placement_threaded(
 	return bzz_thread
 
 
-# Operation searchApplicationSettings → GET /api/{version}/application/settings/search
+# Operation searchApplicationSettings → GET /application/settings/search
 # Search for Application Settings
 #
 # Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 func search_application_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -1717,7 +1665,7 @@ func search_application_settings(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/settings/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/settings/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1754,8 +1702,6 @@ func search_application_settings(
 
 
 func search_application_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -1786,7 +1732,6 @@ func search_application_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_application_settings")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		connectionAccountId,
@@ -1802,13 +1747,11 @@ func search_application_settings_threaded(
 	return bzz_thread
 
 
-# Operation searchApplications → GET /api/{version}/application/search
+# Operation searchApplications → GET /application/search
 # Search Applications
 #
 # Search for applications matching the criteria that the logged in user has access to
 func search_applications(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -1865,7 +1808,7 @@ func search_applications(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1910,8 +1853,6 @@ func search_applications(
 
 
 func search_applications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The unique id of the device making the request (deviceId or accountId required)
 	deviceId = "",
@@ -1966,7 +1907,6 @@ func search_applications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_applications")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		latitude,
@@ -1990,13 +1930,11 @@ func search_applications_threaded(
 	return bzz_thread
 
 
-# Operation updateApplication → POST /api/{version}/application/update
+# Operation updateApplication → POST /application/update
 # Update Application
 #
 # Update an application record
 func update_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key for updating an existing application
 	appKey: String,
@@ -2245,7 +2183,7 @@ func update_application(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2354,8 +2292,6 @@ func update_application(
 
 
 func update_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key for updating an existing application
 	appKey: String,
@@ -2602,7 +2538,6 @@ func update_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_application")
 	bzz_callable.bind(
-		version,
 		appKey,
 		appName,
 		deviceId,
@@ -2690,13 +2625,11 @@ func update_application_threaded(
 	return bzz_thread
 
 
-# Operation updateApplicationActive → POST /api/{version}/application/active
+# Operation updateApplicationActive → POST /application/active
 # Change Appliation Status
 #
 # Set the application's active flag to true/false. This effectively activates or deactivates the application.
 func update_application_active(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the delete, must have rights to edit the application.
 	accountId: float,
@@ -2714,7 +2647,7 @@ func update_application_active(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/active".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/active"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2746,8 +2679,6 @@ func update_application_active(
 
 
 func update_application_active_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the delete, must have rights to edit the application.
 	accountId: float,
@@ -2763,7 +2694,6 @@ func update_application_active_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_application_active")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		active,
@@ -2774,13 +2704,11 @@ func update_application_active_threaded(
 	return bzz_thread
 
 
-# Operation updateApplicationPlacement → POST /api/{version}/application/placement/update
+# Operation updateApplicationPlacement → POST /application/placement/update
 # Update Ad Placement
 #
 # Updates an ad placement for an application.
 func update_application_placement(
-	# version: float   Eg: 3.16
-	version: float,
 	# placementId: float   Eg: 789
 	# The id of the placement to update, the user must have rights to the application the ad placement is for
 	placementId: float,
@@ -2822,7 +2750,7 @@ func update_application_placement(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/placement/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/placement/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2862,8 +2790,6 @@ func update_application_placement(
 
 
 func update_application_placement_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# placementId: float   Eg: 789
 	# The id of the placement to update, the user must have rights to the application the ad placement is for
 	placementId: float,
@@ -2903,7 +2829,6 @@ func update_application_placement_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_application_placement")
 	bzz_callable.bind(
-		version,
 		placementId,
 		deviceId,
 		accountId,
@@ -2922,13 +2847,11 @@ func update_application_placement_threaded(
 	return bzz_thread
 
 
-# Operation uploadApplicationCertificate → POST /api/{version}/application/certificate/create
+# Operation uploadApplicationCertificate → POST /application/certificate/create
 # Create Application Certificate
 #
 # Uploads a certificate for an application that the user has access to.
 func upload_application_certificate(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The key of the application
 	appKey: String,
@@ -2949,7 +2872,7 @@ func upload_application_certificate(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/application/certificate/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/application/certificate/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -2982,8 +2905,6 @@ func upload_application_certificate(
 
 
 func upload_application_certificate_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The key of the application
 	appKey: String,
@@ -3002,7 +2923,6 @@ func upload_application_certificate_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "upload_application_certificate")
 	bzz_callable.bind(
-		version,
 		appKey,
 		deviceId,
 		accountId,

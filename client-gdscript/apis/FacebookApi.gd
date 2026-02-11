@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "FacebookApi"
 
 
-# Operation getToken → GET /api/{version}/facebook/getfbtoken
+# Operation getToken → GET /facebook/getfbtoken
 # Get Facebook Token
 #
 # Gets a user's Facebook token.
 func get_token(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -41,7 +39,7 @@ func get_token(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/facebook/getfbtoken".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/facebook/getfbtoken"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -74,8 +72,6 @@ func get_token(
 
 
 func get_token_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique id given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -94,7 +90,6 @@ func get_token_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_token")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		latitude,
@@ -106,13 +101,11 @@ func get_token_threaded(
 	return bzz_thread
 
 
-# Operation graphInterface → POST /api/{version}/facebook/graph
+# Operation graphInterface → POST /facebook/graph
 # Post to Facebook
 #
 # Make Facebook posts on behalf of the user.
 func graph_interface(
-	# version: float   Eg: 3.16
-	version: float,
 	# event: String = ""   Eg: event_example
 	# the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
 	event: String,
@@ -151,7 +144,7 @@ func graph_interface(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/facebook/graph".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/facebook/graph"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -190,8 +183,6 @@ func graph_interface(
 
 
 func graph_interface_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# event: String = ""   Eg: event_example
 	# the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
 	event: String,
@@ -228,7 +219,6 @@ func graph_interface_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "graph_interface")
 	bzz_callable.bind(
-		version,
 		event,
 		deviceId,
 		accountId,

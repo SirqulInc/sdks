@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "OpenAIApi"
 
 
-# Operation imageGeneration → POST /api/{version}/openai/v1/images/generations
+# Operation imageGeneration → POST /openai/v1/images/generations
 # Generate images with OpenAI
 #
 # Generate images with OpenAI.
 func image_generation(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -38,7 +36,7 @@ func image_generation(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/openai/v1/images/generations".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/openai/v1/images/generations"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -70,8 +68,6 @@ func image_generation(
 
 
 func image_generation_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Sirqul Account Id
 	accountId: float,
@@ -87,7 +83,6 @@ func image_generation_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "image_generation")
 	bzz_callable.bind(
-		version,
 		accountId,
 		postBody,
 		returnRawResponse,

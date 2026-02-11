@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "WordApi"
 
 
-# Operation createWord → POST /api/{version}/game/word/create
+# Operation createWord → POST /game/word/create
 # Create Word
 #
 # Create a word by the given params.
 func create_word(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -56,7 +54,7 @@ func create_word(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/word/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/word/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -94,8 +92,6 @@ func create_word(
 
 
 func create_word_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -129,7 +125,6 @@ func create_word_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_word")
 	bzz_callable.bind(
-		version,
 		accountId,
 		word,
 		definition,
@@ -146,13 +141,11 @@ func create_word_threaded(
 	return bzz_thread
 
 
-# Operation deleteWord → DELETE /api/{version}/game/word/delete
+# Operation deleteWord → DELETE /game/word/delete
 # Delete Word
 #
 # Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
 func delete_word(
-	# version: float   Eg: 3.16
-	version: float,
 	# wordId: float   Eg: 789
 	# The id of the word to delete.
 	wordId: float,
@@ -167,7 +160,7 @@ func delete_word(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/word/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/word/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -198,8 +191,6 @@ func delete_word(
 
 
 func delete_word_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# wordId: float   Eg: 789
 	# The id of the word to delete.
 	wordId: float,
@@ -212,7 +203,6 @@ func delete_word_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_word")
 	bzz_callable.bind(
-		version,
 		wordId,
 		accountId,
 		on_success,
@@ -222,13 +212,11 @@ func delete_word_threaded(
 	return bzz_thread
 
 
-# Operation getWord → GET /api/{version}/game/word/get
+# Operation getWord → GET /game/word/get
 # Get Word
 #
 # Get a word by the given id.
 func get_word(
-	# version: float   Eg: 3.16
-	version: float,
 	# wordId: float   Eg: 789
 	# The id of the word to get.
 	wordId: float,
@@ -243,7 +231,7 @@ func get_word(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/word/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/word/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -274,8 +262,6 @@ func get_word(
 
 
 func get_word_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# wordId: float   Eg: 789
 	# The id of the word to get.
 	wordId: float,
@@ -288,7 +274,6 @@ func get_word_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_word")
 	bzz_callable.bind(
-		version,
 		wordId,
 		accountId,
 		on_success,
@@ -298,13 +283,11 @@ func get_word_threaded(
 	return bzz_thread
 
 
-# Operation getWords → GET /api/{version}/game/word/search
+# Operation getWords → GET /game/word/search
 # Search Words
 #
 # Search for words by the given params.
 func get_words(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -334,7 +317,7 @@ func get_words(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/word/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/word/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -370,8 +353,6 @@ func get_words(
 
 
 func get_words_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -399,7 +380,6 @@ func get_words_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_words")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -414,13 +394,11 @@ func get_words_threaded(
 	return bzz_thread
 
 
-# Operation updateWord → POST /api/{version}/game/word/update
+# Operation updateWord → POST /game/word/update
 # Update Word
 #
 # Update a word by the given params.
 func update_word(
-	# version: float   Eg: 3.16
-	version: float,
 	# wordId: float   Eg: 789
 	# The id of the word to update.
 	wordId: float,
@@ -459,7 +437,7 @@ func update_word(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/word/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/word/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -498,8 +476,6 @@ func update_word(
 
 
 func update_word_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# wordId: float   Eg: 789
 	# The id of the word to update.
 	wordId: float,
@@ -536,7 +512,6 @@ func update_word_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_word")
 	bzz_callable.bind(
-		version,
 		wordId,
 		accountId,
 		ticketCount,

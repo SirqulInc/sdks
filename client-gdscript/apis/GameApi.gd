@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "GameApi"
 
 
-# Operation createGame → POST /api/{version}/game/create
+# Operation createGame → POST /game/create
 # Create a Game
 #
 # Create a Game.
 func create_game(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId = null,
@@ -50,7 +48,7 @@ func create_game(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -86,8 +84,6 @@ func create_game(
 
 
 func create_game_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId = null,
@@ -115,7 +111,6 @@ func create_game_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_game")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		title,
@@ -130,13 +125,11 @@ func create_game_threaded(
 	return bzz_thread
 
 
-# Operation deleteGame → POST /api/{version}/game/delete
+# Operation deleteGame → POST /game/delete
 # Delete a Game
 #
 # Delete a game.
 func delete_game(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -151,7 +144,7 @@ func delete_game(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -182,8 +175,6 @@ func delete_game(
 
 
 func delete_game_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -196,7 +187,6 @@ func delete_game_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_game")
 	bzz_callable.bind(
-		version,
 		accountId,
 		gameId,
 		on_success,
@@ -206,13 +196,11 @@ func delete_game_threaded(
 	return bzz_thread
 
 
-# Operation getGame → GET /api/{version}/game/get
+# Operation getGame → GET /game/get
 # Get a Game by id
 #
 # Get a Game by id.
 func get_game(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -230,7 +218,7 @@ func get_game(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -262,8 +250,6 @@ func get_game(
 
 
 func get_game_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -279,7 +265,6 @@ func get_game_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_game")
 	bzz_callable.bind(
-		version,
 		accountId,
 		gameId,
 		includeGameData,
@@ -290,13 +275,11 @@ func get_game_threaded(
 	return bzz_thread
 
 
-# Operation searchGames → GET /api/{version}/game/search
+# Operation searchGames → GET /game/search
 # Search a Game
 #
 # Get a list of games for an application, just those the account has permissions to view.
 func search_games(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -329,7 +312,7 @@ func search_games(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -366,8 +349,6 @@ func search_games(
 
 
 func search_games_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -398,7 +379,6 @@ func search_games_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_games")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		start,
@@ -414,13 +394,11 @@ func search_games_threaded(
 	return bzz_thread
 
 
-# Operation updateGame → POST /api/{version}/game/update
+# Operation updateGame → POST /game/update
 # Update a Game
 #
 # Update a Game
 func update_game(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId = null,
@@ -453,7 +431,7 @@ func update_game(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/game/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/game/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -490,8 +468,6 @@ func update_game(
 
 
 func update_game_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId = null,
@@ -522,7 +498,6 @@ func update_game_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_game")
 	bzz_callable.bind(
-		version,
 		accountId,
 		gameId,
 		appKey,

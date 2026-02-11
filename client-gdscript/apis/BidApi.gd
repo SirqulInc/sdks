@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "BidApi"
 
 
-# Operation createBid → POST /api/{version}/bid/create
+# Operation createBid → POST /bid/create
 # Create Bid
 #
 # Creates a bid on a biddable object
 func create_bid(
-	# version: float   Eg: 3.16
-	version: float,
 	# biddableType: String = ""   Eg: biddableType_example
 	# A biddable object type. Possible values include: CREATIVE (ads).
 	biddableType: String,
@@ -53,7 +51,7 @@ func create_bid(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/bid/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/bid/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -90,8 +88,6 @@ func create_bid(
 
 
 func create_bid_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# biddableType: String = ""   Eg: biddableType_example
 	# A biddable object type. Possible values include: CREATIVE (ads).
 	biddableType: String,
@@ -122,7 +118,6 @@ func create_bid_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_bid")
 	bzz_callable.bind(
-		version,
 		biddableType,
 		biddableId,
 		amountPerView,
@@ -138,13 +133,11 @@ func create_bid_threaded(
 	return bzz_thread
 
 
-# Operation deleteBid → POST /api/{version}/bid/delete
+# Operation deleteBid → POST /bid/delete
 # Delete Bid
 #
 # Deleted a bid on a biddable object
 func delete_bid(
-	# version: float   Eg: 3.16
-	version: float,
 	# bidId: float   Eg: 789
 	# The bid id
 	bidId: float,
@@ -162,7 +155,7 @@ func delete_bid(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/bid/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/bid/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -194,8 +187,6 @@ func delete_bid(
 
 
 func delete_bid_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# bidId: float   Eg: 789
 	# The bid id
 	bidId: float,
@@ -211,7 +202,6 @@ func delete_bid_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_bid")
 	bzz_callable.bind(
-		version,
 		bidId,
 		deviceId,
 		accountId,
@@ -222,13 +212,11 @@ func delete_bid_threaded(
 	return bzz_thread
 
 
-# Operation getBid → GET /api/{version}/bid/get
+# Operation getBid → GET /bid/get
 # Get Bid
 #
 # Get the bid details of a biddable object
 func get_bid(
-	# version: float   Eg: 3.16
-	version: float,
 	# bidId: float   Eg: 789
 	# The bid id
 	bidId: float,
@@ -246,7 +234,7 @@ func get_bid(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/bid/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/bid/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -278,8 +266,6 @@ func get_bid(
 
 
 func get_bid_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# bidId: float   Eg: 789
 	# The bid id
 	bidId: float,
@@ -295,7 +281,6 @@ func get_bid_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_bid")
 	bzz_callable.bind(
-		version,
 		bidId,
 		deviceId,
 		accountId,
@@ -306,13 +291,11 @@ func get_bid_threaded(
 	return bzz_thread
 
 
-# Operation updateBid → POST /api/{version}/bid/update
+# Operation updateBid → POST /bid/update
 # Update Bid
 #
 # Updates a bid on a biddable object
 func update_bid(
-	# version: float   Eg: 3.16
-	version: float,
 	# bidId: float   Eg: 789
 	# The bid id
 	bidId: float,
@@ -342,7 +325,7 @@ func update_bid(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/bid/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/bid/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -378,8 +361,6 @@ func update_bid(
 
 
 func update_bid_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# bidId: float   Eg: 789
 	# The bid id
 	bidId: float,
@@ -407,7 +388,6 @@ func update_bid_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_bid")
 	bzz_callable.bind(
-		version,
 		bidId,
 		deviceId,
 		accountId,

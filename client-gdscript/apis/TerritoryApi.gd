@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TerritoryApi"
 
 
-# Operation createTerritory → POST /api/{version}/territory/create
+# Operation createTerritory → POST /territory/create
 # Create Territory
 #
 # Creates a territory.
 func create_territory(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -38,7 +36,7 @@ func create_territory(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/territory/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/territory/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -70,8 +68,6 @@ func create_territory(
 
 
 func create_territory_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -87,7 +83,6 @@ func create_territory_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_territory")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		active,
@@ -98,13 +93,11 @@ func create_territory_threaded(
 	return bzz_thread
 
 
-# Operation deleteTerritory → POST /api/{version}/territory/delete
+# Operation deleteTerritory → POST /territory/delete
 # Delete Territory
 #
 # Deletes a territory.
 func delete_territory(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -119,7 +112,7 @@ func delete_territory(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/territory/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/territory/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -150,8 +143,6 @@ func delete_territory(
 
 
 func delete_territory_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -164,7 +155,6 @@ func delete_territory_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_territory")
 	bzz_callable.bind(
-		version,
 		accountId,
 		territoryId,
 		on_success,
@@ -174,13 +164,11 @@ func delete_territory_threaded(
 	return bzz_thread
 
 
-# Operation getTerritory → GET /api/{version}/territory/get
+# Operation getTerritory → GET /territory/get
 # Get Territory
 #
 # Get a territory.
 func get_territory(
-	# version: float   Eg: 3.16
-	version: float,
 	# territoryId: float   Eg: 789
 	# the id of the territory to get
 	territoryId: float,
@@ -192,7 +180,7 @@ func get_territory(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/territory/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/territory/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -222,8 +210,6 @@ func get_territory(
 
 
 func get_territory_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# territoryId: float   Eg: 789
 	# the id of the territory to get
 	territoryId: float,
@@ -233,7 +219,6 @@ func get_territory_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_territory")
 	bzz_callable.bind(
-		version,
 		territoryId,
 		on_success,
 		on_failure,
@@ -242,13 +227,11 @@ func get_territory_threaded(
 	return bzz_thread
 
 
-# Operation searchTerritories → GET /api/{version}/territory/search
+# Operation searchTerritories → GET /territory/search
 # Search Territories
 #
 # Searches on territories.
 func search_territories(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
 	sortField: String,
@@ -272,7 +255,7 @@ func search_territories(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/territory/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/territory/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -306,8 +289,6 @@ func search_territories(
 
 
 func search_territories_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
 	sortField: String,
@@ -329,7 +310,6 @@ func search_territories_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_territories")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		keyword,
@@ -342,13 +322,11 @@ func search_territories_threaded(
 	return bzz_thread
 
 
-# Operation updateTerritory → POST /api/{version}/territory/update
+# Operation updateTerritory → POST /territory/update
 # Update Territory
 #
 # Updates a territory.
 func update_territory(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -369,7 +347,7 @@ func update_territory(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/territory/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/territory/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -402,8 +380,6 @@ func update_territory(
 
 
 func update_territory_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -422,7 +398,6 @@ func update_territory_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_territory")
 	bzz_callable.bind(
-		version,
 		accountId,
 		territoryId,
 		name,

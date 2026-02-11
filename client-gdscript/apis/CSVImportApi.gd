@@ -14,11 +14,9 @@ func _bzz_get_api_name() -> String:
 	return "CSVImportApi"
 
 
-# Operation getStatusCSV → GET /api/{version}/csvimport/batch/status/details
+# Operation getStatusCSV → GET /csvimport/batch/status/details
 # Detail Status
 func get_status_csv(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -42,7 +40,7 @@ func get_status_csv(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/csvimport/batch/status/details".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/csvimport/batch/status/details"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -76,8 +74,6 @@ func get_status_csv(
 
 
 func get_status_csv_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -99,7 +95,6 @@ func get_status_csv_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_status_csv")
 	bzz_callable.bind(
-		version,
 		accountId,
 		batchId,
 		responseGroup,
@@ -112,13 +107,11 @@ func get_status_csv_threaded(
 	return bzz_thread
 
 
-# Operation listStatusCSV → GET /api/{version}/csvimport/batch/list
+# Operation listStatusCSV → GET /csvimport/batch/list
 # Search Status
 #
 # Retrieves batches for a user.
 func list_status_csv(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -136,7 +129,7 @@ func list_status_csv(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/csvimport/batch/list".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/csvimport/batch/list"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -168,8 +161,6 @@ func list_status_csv(
 
 
 func list_status_csv_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -185,7 +176,6 @@ func list_status_csv_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "list_status_csv")
 	bzz_callable.bind(
-		version,
 		accountId,
 		start,
 		limit,
@@ -196,13 +186,11 @@ func list_status_csv_threaded(
 	return bzz_thread
 
 
-# Operation statusCSV → GET /api/{version}/csvimport/batch/status
+# Operation statusCSV → GET /csvimport/batch/status
 # Batch Status
 #
 # Checks status of batch upload.
 func status_csv(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -217,7 +205,7 @@ func status_csv(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/csvimport/batch/status".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/csvimport/batch/status"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -248,8 +236,6 @@ func status_csv(
 
 
 func status_csv_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -262,7 +248,6 @@ func status_csv_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "status_csv")
 	bzz_callable.bind(
-		version,
 		accountId,
 		batchId,
 		on_success,
@@ -272,13 +257,11 @@ func status_csv_threaded(
 	return bzz_thread
 
 
-# Operation uploadCSV → POST /api/{version}/csvimport/upload
+# Operation uploadCSV → POST /csvimport/upload
 # Upload CSV
 #
 # Uploads a CSV import file.
 func upload_csv(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -302,7 +285,7 @@ func upload_csv(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/csvimport/upload".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/csvimport/upload"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -336,8 +319,6 @@ func upload_csv(
 
 
 func upload_csv_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -359,7 +340,6 @@ func upload_csv_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "upload_csv")
 	bzz_callable.bind(
-		version,
 		accountId,
 		uploadType,
 		importFile,

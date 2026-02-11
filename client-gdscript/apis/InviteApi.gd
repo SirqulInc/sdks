@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "InviteApi"
 
 
-# Operation acceptInvite → POST /api/{version}/invite/accept
+# Operation acceptInvite → POST /invite/accept
 # Accept Invite
 #
 # Allows a user to accept an invite. The user could also become the inviter's friend.
 func accept_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# the invite token
 	token: String,
@@ -71,7 +69,7 @@ func accept_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/accept".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/accept"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -114,8 +112,6 @@ func accept_invite(
 
 
 func accept_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# token: String = ""   Eg: token_example
 	# the invite token
 	token: String,
@@ -164,7 +160,6 @@ func accept_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "accept_invite")
 	bzz_callable.bind(
-		version,
 		token,
 		accountId,
 		albumId,
@@ -186,13 +181,11 @@ func accept_invite_threaded(
 	return bzz_thread
 
 
-# Operation albumContestInvite → POST /api/{version}/invite/albumContest
+# Operation albumContestInvite → POST /invite/albumContest
 # Invite to Contest
 #
 # Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 func album_contest_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -222,7 +215,7 @@ func album_contest_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/albumContest".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/albumContest"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -258,8 +251,6 @@ func album_contest_invite(
 
 
 func album_contest_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -287,7 +278,6 @@ func album_contest_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "album_contest_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appId,
@@ -302,13 +292,11 @@ func album_contest_invite_threaded(
 	return bzz_thread
 
 
-# Operation albumInvite → POST /api/{version}/invite/album
+# Operation albumInvite → POST /invite/album
 # Invite to Collection
 #
 # Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 func album_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -338,7 +326,7 @@ func album_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/album".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/album"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -374,8 +362,6 @@ func album_invite(
 
 
 func album_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -403,7 +389,6 @@ func album_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "album_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appId,
@@ -418,13 +403,11 @@ func album_invite_threaded(
 	return bzz_thread
 
 
-# Operation eventInvite → POST /api/{version}/invite/event
+# Operation eventInvite → POST /invite/event
 # Invite to Event
 #
 # Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
 func event_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -448,7 +431,7 @@ func event_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/event".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/event"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -482,8 +465,6 @@ func event_invite(
 
 
 func event_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -505,7 +486,6 @@ func event_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "event_invite")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		listingId,
@@ -518,13 +498,11 @@ func event_invite_threaded(
 	return bzz_thread
 
 
-# Operation gameInvite → POST /api/{version}/invite/gameLevel
+# Operation gameInvite → POST /invite/gameLevel
 # Invite to Game Level
 #
 # Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 func game_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -554,7 +532,7 @@ func game_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/gameLevel".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/gameLevel"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -590,8 +568,6 @@ func game_invite(
 
 
 func game_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -619,7 +595,6 @@ func game_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "game_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appId,
@@ -634,13 +609,11 @@ func game_invite_threaded(
 	return bzz_thread
 
 
-# Operation getInvite → GET /api/{version}/invite/get
+# Operation getInvite → GET /invite/get
 # Get Invite
 #
 # This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
 func get_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Account ID of the user if they are logged in
 	accountId = null,
@@ -676,7 +649,7 @@ func get_invite(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -714,8 +687,6 @@ func get_invite(
 
 
 func get_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Account ID of the user if they are logged in
 	accountId = null,
@@ -749,7 +720,6 @@ func get_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_invite")
 	bzz_callable.bind(
-		version,
 		accountId,
 		token,
 		albumId,
@@ -766,13 +736,11 @@ func get_invite_threaded(
 	return bzz_thread
 
 
-# Operation missionInvite → POST /api/{version}/invite/mission
+# Operation missionInvite → POST /invite/mission
 # Invite to Mission
 #
 # Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 func mission_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -802,7 +770,7 @@ func mission_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/mission".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/mission"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -838,8 +806,6 @@ func mission_invite(
 
 
 func mission_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -867,7 +833,6 @@ func mission_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "mission_invite")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appId,
@@ -882,13 +847,11 @@ func mission_invite_threaded(
 	return bzz_thread
 
 
-# Operation offerInvite → POST /api/{version}/invite/offer
+# Operation offerInvite → POST /invite/offer
 # Invite to Offer
 #
 # Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
 func offer_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -906,7 +869,7 @@ func offer_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/offer".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/offer"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -938,8 +901,6 @@ func offer_invite(
 
 
 func offer_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -955,7 +916,6 @@ func offer_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "offer_invite")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		offerId,
@@ -966,13 +926,11 @@ func offer_invite_threaded(
 	return bzz_thread
 
 
-# Operation offerLocationInvite → POST /api/{version}/invite/offerLocation
+# Operation offerLocationInvite → POST /invite/offerLocation
 # Invite to Offer Location
 #
 # Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
 func offer_location_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -990,7 +948,7 @@ func offer_location_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/offerLocation".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/offerLocation"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1022,8 +980,6 @@ func offer_location_invite(
 
 
 func offer_location_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -1039,7 +995,6 @@ func offer_location_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "offer_location_invite")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		offerLocationId,
@@ -1050,13 +1005,11 @@ func offer_location_invite_threaded(
 	return bzz_thread
 
 
-# Operation retailerLocationInvite → POST /api/{version}/invite/retailerLocation
+# Operation retailerLocationInvite → POST /invite/retailerLocation
 # Invite to Retailer Location
 #
 # Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
 func retailer_location_invite(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -1077,7 +1030,7 @@ func retailer_location_invite(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/invite/retailerLocation".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/invite/retailerLocation"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1110,8 +1063,6 @@ func retailer_location_invite(
 
 
 func retailer_location_invite_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user making the share
 	accountId: float,
@@ -1130,7 +1081,6 @@ func retailer_location_invite_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "retailer_location_invite")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		retailerLocationId,

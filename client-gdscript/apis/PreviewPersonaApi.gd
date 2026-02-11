@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "PreviewPersonaApi"
 
 
-# Operation createPersona → POST /api/{version}/persona/create
+# Operation createPersona → POST /persona/create
 # Create Persona
 #
 # Creates a new persona. If the given params are null those attributes will be override by null.
 func create_persona(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -56,7 +54,7 @@ func create_persona(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/persona/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/persona/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -94,8 +92,6 @@ func create_persona(
 
 
 func create_persona_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -129,7 +125,6 @@ func create_persona_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_persona")
 	bzz_callable.bind(
-		version,
 		accountId,
 		title,
 		previewAccounts,
@@ -146,13 +141,11 @@ func create_persona_threaded(
 	return bzz_thread
 
 
-# Operation deletePersona → POST /api/{version}/persona/delete
+# Operation deletePersona → POST /persona/delete
 # Delete Persona
 #
 # Mark the persona for deletion.
 func delete_persona(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -167,7 +160,7 @@ func delete_persona(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/persona/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/persona/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -198,8 +191,6 @@ func delete_persona(
 
 
 func delete_persona_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account id of the user
 	accountId: float,
@@ -212,7 +203,6 @@ func delete_persona_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_persona")
 	bzz_callable.bind(
-		version,
 		accountId,
 		personaId,
 		on_success,
@@ -222,13 +212,11 @@ func delete_persona_threaded(
 	return bzz_thread
 
 
-# Operation getPersonaList → GET /api/{version}/persona/get
+# Operation getPersonaList → GET /persona/get
 # Get Persona
 #
 # Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
 func get_persona_list(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -243,7 +231,7 @@ func get_persona_list(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/persona/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/persona/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -274,8 +262,6 @@ func get_persona_list(
 
 
 func get_persona_list_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -288,7 +274,6 @@ func get_persona_list_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_persona_list")
 	bzz_callable.bind(
-		version,
 		accountId,
 		personaId,
 		on_success,
@@ -298,13 +283,11 @@ func get_persona_list_threaded(
 	return bzz_thread
 
 
-# Operation searchPersona → GET /api/{version}/persona/search
+# Operation searchPersona → GET /persona/search
 # Search Personas
 #
 # Search for persona that the account owns by the given account ID.
 func search_persona(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -322,7 +305,7 @@ func search_persona(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/persona/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/persona/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -354,8 +337,6 @@ func search_persona(
 
 
 func search_persona_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -371,7 +352,6 @@ func search_persona_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_persona")
 	bzz_callable.bind(
-		version,
 		accountId,
 		start,
 		limit,
@@ -382,13 +362,11 @@ func search_persona_threaded(
 	return bzz_thread
 
 
-# Operation updatePersona → POST /api/{version}/persona/update
+# Operation updatePersona → POST /persona/update
 # Update Persona
 #
 # Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
 func update_persona(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -430,7 +408,7 @@ func update_persona(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/persona/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/persona/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -470,8 +448,6 @@ func update_persona(
 
 
 func update_persona_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account ID of the user
 	accountId: float,
@@ -511,7 +487,6 @@ func update_persona_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_persona")
 	bzz_callable.bind(
-		version,
 		accountId,
 		personaId,
 		title,

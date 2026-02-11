@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "BillingInfoApi"
 
 
-# Operation addPaymentMethod → POST /api/{version}/billing/update
+# Operation addPaymentMethod → POST /billing/update
 # Update Payment Method
 #
 # Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
 func add_payment_method(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -98,7 +96,7 @@ func add_payment_method(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billing/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billing/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -150,8 +148,6 @@ func add_payment_method(
 
 
 func add_payment_method_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -227,7 +223,6 @@ func add_payment_method_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_payment_method")
 	bzz_callable.bind(
-		version,
 		accountId,
 		paymentMethodId,
 		accountName,
@@ -258,13 +253,11 @@ func add_payment_method_threaded(
 	return bzz_thread
 
 
-# Operation createPaymentMethod → POST /api/{version}/billing/create
+# Operation createPaymentMethod → POST /billing/create
 # Create Payment Method
 #
 # Add a new method of payment.
 func create_payment_method(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -348,7 +341,7 @@ func create_payment_method(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billing/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billing/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -402,8 +395,6 @@ func create_payment_method(
 
 
 func create_payment_method_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -485,7 +476,6 @@ func create_payment_method_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_payment_method")
 	bzz_callable.bind(
-		version,
 		accountId,
 		accountName,
 		firstName,
@@ -518,13 +508,11 @@ func create_payment_method_threaded(
 	return bzz_thread
 
 
-# Operation createSmartContract → POST /api/{version}/billing/crypto/transfer
+# Operation createSmartContract → POST /billing/crypto/transfer
 # Create Smart Contract
 #
 # Adds a smart contract.
 func create_smart_contract(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -545,7 +533,7 @@ func create_smart_contract(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billing/crypto/transfer".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billing/crypto/transfer"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -578,8 +566,6 @@ func create_smart_contract(
 
 
 func create_smart_contract_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -598,7 +584,6 @@ func create_smart_contract_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_smart_contract")
 	bzz_callable.bind(
-		version,
 		accountId,
 		tokenName,
 		tokenSymbol,
@@ -610,13 +595,11 @@ func create_smart_contract_threaded(
 	return bzz_thread
 
 
-# Operation getCryptoBalance → GET /api/{version}/billing/crypto/get
+# Operation getCryptoBalance → GET /billing/crypto/get
 # Get Crypto Balances
 #
 # Get the cypto balance details for a user
 func get_crypto_balance(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -634,7 +617,7 @@ func get_crypto_balance(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billing/crypto/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billing/crypto/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -666,8 +649,6 @@ func get_crypto_balance(
 
 
 func get_crypto_balance_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -683,7 +664,6 @@ func get_crypto_balance_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_crypto_balance")
 	bzz_callable.bind(
-		version,
 		accountId,
 		ownerAccountId,
 		paymentMethodId,
@@ -694,13 +674,11 @@ func get_crypto_balance_threaded(
 	return bzz_thread
 
 
-# Operation getPaymentMethod → GET /api/{version}/billing/get
+# Operation getPaymentMethod → GET /billing/get
 # Get Payment Method
 #
 # Get the details of the user's payment method or their current default method of payment
 func get_payment_method(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -718,7 +696,7 @@ func get_payment_method(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billing/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billing/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -750,8 +728,6 @@ func get_payment_method(
 
 
 func get_payment_method_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account used to perform the the request
 	accountId: float,
@@ -767,7 +743,6 @@ func get_payment_method_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_payment_method")
 	bzz_callable.bind(
-		version,
 		accountId,
 		paymentMethodId,
 		getCurrentBalance,
@@ -778,13 +753,11 @@ func get_payment_method_threaded(
 	return bzz_thread
 
 
-# Operation searchPaymentMethod → GET /api/{version}/billing/search
+# Operation searchPaymentMethod → GET /billing/search
 # Search Payment Methods
 #
 # Search the payment methods of an account
 func search_payment_method(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Account Id to search on
 	accountId: float,
@@ -817,7 +790,7 @@ func search_payment_method(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/billing/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/billing/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -854,8 +827,6 @@ func search_payment_method(
 
 
 func search_payment_method_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# Account Id to search on
 	accountId: float,
@@ -886,7 +857,6 @@ func search_payment_method_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_payment_method")
 	bzz_callable.bind(
-		version,
 		accountId,
 		provider,
 		type,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ThirdPartyCredentialsApi"
 
 
-# Operation createCredential → POST /api/{version}/thirdparty/credential/create
+# Operation createCredential → POST /thirdparty/credential/create
 # Create Credential
 #
 # This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
 func create_credential(
-	# version: float   Eg: 3.16
-	version: float,
 	# thirdPartyId: String = ""   Eg: thirdPartyId_example
 	# the third party user account id
 	thirdPartyId: String,
@@ -80,7 +78,7 @@ func create_credential(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/credential/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/credential/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -126,8 +124,6 @@ func create_credential(
 
 
 func create_credential_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# thirdPartyId: String = ""   Eg: thirdPartyId_example
 	# the third party user account id
 	thirdPartyId: String,
@@ -185,7 +181,6 @@ func create_credential_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_credential")
 	bzz_callable.bind(
-		version,
 		thirdPartyId,
 		thirdPartyToken,
 		networkUID,
@@ -210,13 +205,11 @@ func create_credential_threaded(
 	return bzz_thread
 
 
-# Operation createNetwork → POST /api/{version}/thirdparty/network/create
+# Operation createNetwork → POST /thirdparty/network/create
 # Create Network
 #
 # Creates a custom third party network.
 func create_network(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -275,7 +268,7 @@ func create_network(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/network/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/network/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -321,8 +314,6 @@ func create_network(
 
 
 func create_network_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -379,7 +370,6 @@ func create_network_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_network")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		enableIntrospection,
@@ -404,13 +394,11 @@ func create_network_threaded(
 	return bzz_thread
 
 
-# Operation deleteCredential → POST /api/{version}/thirdparty/credential/delete
+# Operation deleteCredential → POST /thirdparty/credential/delete
 # Delete Credential
 #
 # Delete a third party network on a Sirqul account.
 func delete_credential(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -431,7 +419,7 @@ func delete_credential(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/credential/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/credential/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -464,8 +452,6 @@ func delete_credential(
 
 
 func delete_credential_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -484,7 +470,6 @@ func delete_credential_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_credential")
 	bzz_callable.bind(
-		version,
 		accountId,
 		networkUID,
 		thirdPartyId,
@@ -496,13 +481,11 @@ func delete_credential_threaded(
 	return bzz_thread
 
 
-# Operation deleteNetwork → POST /api/{version}/thirdparty/network/delete
+# Operation deleteNetwork → POST /thirdparty/network/delete
 # Delete Network
 #
 # Marks a custom third party network as deleted. Only the network owners and managers have access to this.
 func delete_network(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -517,7 +500,7 @@ func delete_network(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/network/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/network/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -548,8 +531,6 @@ func delete_network(
 
 
 func delete_network_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -562,7 +543,6 @@ func delete_network_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_network")
 	bzz_callable.bind(
-		version,
 		accountId,
 		networkUID,
 		on_success,
@@ -572,13 +552,11 @@ func delete_network_threaded(
 	return bzz_thread
 
 
-# Operation getCredential → POST /api/{version}/thirdparty/credential/get
+# Operation getCredential → POST /thirdparty/credential/get
 # Get Credential
 #
 # Gets the account information given a third party token.
 func get_credential(
-	# version: float   Eg: 3.16
-	version: float,
 	# networkUID: String = ""   Eg: networkUID_example
 	# the access provider to authenticate against
 	networkUID: String,
@@ -632,7 +610,7 @@ func get_credential(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/credential/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/credential/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -676,8 +654,6 @@ func get_credential(
 
 
 func get_credential_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# networkUID: String = ""   Eg: networkUID_example
 	# the access provider to authenticate against
 	networkUID: String,
@@ -729,7 +705,6 @@ func get_credential_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_credential")
 	bzz_callable.bind(
-		version,
 		networkUID,
 		appKey,
 		accountId,
@@ -752,13 +727,11 @@ func get_credential_threaded(
 	return bzz_thread
 
 
-# Operation getNetwork → GET /api/{version}/thirdparty/network/get
+# Operation getNetwork → GET /thirdparty/network/get
 # Get Network
 #
 # Get the details of a third party network. Only the network owners and managers have access to this.
 func get_network(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -773,7 +746,7 @@ func get_network(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/network/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/network/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -804,8 +777,6 @@ func get_network(
 
 
 func get_network_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -818,7 +789,6 @@ func get_network_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_network")
 	bzz_callable.bind(
-		version,
 		accountId,
 		networkUID,
 		on_success,
@@ -828,13 +798,11 @@ func get_network_threaded(
 	return bzz_thread
 
 
-# Operation searchCredentials → GET /api/{version}/thirdparty/credential/search
+# Operation searchCredentials → GET /thirdparty/credential/search
 # Search Credentials
 #
 # Search on a user's linked third party networks.
 func search_credentials(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -861,7 +829,7 @@ func search_credentials(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/credential/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/credential/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -896,8 +864,6 @@ func search_credentials(
 
 
 func search_credentials_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -922,7 +888,6 @@ func search_credentials_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_credentials")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		networkUID,
@@ -936,13 +901,11 @@ func search_credentials_threaded(
 	return bzz_thread
 
 
-# Operation searchNetworks → GET /api/{version}/thirdparty/network/search
+# Operation searchNetworks → GET /thirdparty/network/search
 # Search Networks
 #
 # Search on supported third party networks and custom networks from external users.
 func search_networks(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -975,7 +938,7 @@ func search_networks(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/network/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/network/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1012,8 +975,6 @@ func search_networks(
 
 
 func search_networks_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -1044,7 +1005,6 @@ func search_networks_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_networks")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -1060,13 +1020,11 @@ func search_networks_threaded(
 	return bzz_thread
 
 
-# Operation sendMFAChallenge → POST /api/{version}/thirdparty/credential/mfa/send
+# Operation sendMFAChallenge → POST /thirdparty/credential/mfa/send
 # Send MFA Challenge
 #
 # Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
 func send_mfa_challenge(
-	# version: float   Eg: 3.16
-	version: float,
 	# networkUID: String = ""   Eg: networkUID_example
 	# the third party network provider that has MFA enabled
 	networkUID: String,
@@ -1090,7 +1048,7 @@ func send_mfa_challenge(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/credential/mfa/send".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/credential/mfa/send"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1124,8 +1082,6 @@ func send_mfa_challenge(
 
 
 func send_mfa_challenge_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# networkUID: String = ""   Eg: networkUID_example
 	# the third party network provider that has MFA enabled
 	networkUID: String,
@@ -1147,7 +1103,6 @@ func send_mfa_challenge_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "send_mfa_challenge")
 	bzz_callable.bind(
-		version,
 		networkUID,
 		appKey,
 		thirdPartyToken,
@@ -1160,13 +1115,11 @@ func send_mfa_challenge_threaded(
 	return bzz_thread
 
 
-# Operation updateCredential → POST /api/{version}/thirdparty/credential/update
+# Operation updateCredential → POST /thirdparty/credential/update
 # Update Credential
 #
 # Updates a third-party login for an account.
 func update_credential(
-	# version: float   Eg: 3.16
-	version: float,
 	# networkUID: String = ""   Eg: networkUID_example
 	# the access provider to authenticate against
 	networkUID: String,
@@ -1202,7 +1155,7 @@ func update_credential(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/credential/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/credential/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1240,8 +1193,6 @@ func update_credential(
 
 
 func update_credential_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# networkUID: String = ""   Eg: networkUID_example
 	# the access provider to authenticate against
 	networkUID: String,
@@ -1275,7 +1226,6 @@ func update_credential_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_credential")
 	bzz_callable.bind(
-		version,
 		networkUID,
 		thirdPartyId,
 		appKey,
@@ -1292,13 +1242,11 @@ func update_credential_threaded(
 	return bzz_thread
 
 
-# Operation updateNetwork → POST /api/{version}/thirdparty/network/update
+# Operation updateNetwork → POST /thirdparty/network/update
 # Update Network
 #
 # Updates a custom third party network. Only the network owners and managers have access to this.
 func update_network(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -1360,7 +1308,7 @@ func update_network(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/thirdparty/network/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/thirdparty/network/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1407,8 +1355,6 @@ func update_network(
 
 
 func update_network_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id making the request
 	accountId: float,
@@ -1468,7 +1414,6 @@ func update_network_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_network")
 	bzz_callable.bind(
-		version,
 		accountId,
 		networkUID,
 		name,

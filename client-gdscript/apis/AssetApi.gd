@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AssetApi"
 
 
-# Operation assetDownload → GET /api/{version}/asset/download/{filename}
+# Operation assetDownload → GET /asset/download/{filename}
 # Download Asset
 #
 # Downloads an asset from the server for assets that have been uploaded to the server.
 func asset_download(
-	# version: float   Eg: 3.16
-	version: float,
 	# filename: String = ""   Eg: filename_example
 	# the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
 	filename: String,
@@ -42,7 +40,7 @@ func asset_download(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/download/{filename}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "filename" + "}", _bzz_urlize_path_param(filename))
+	var bzz_path := "/api/3.18/asset/download/{filename}".replace("{" + "filename" + "}", _bzz_urlize_path_param(filename))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -71,8 +69,6 @@ func asset_download(
 
 
 func asset_download_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# filename: String = ""   Eg: filename_example
 	# the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
 	filename: String,
@@ -82,7 +78,6 @@ func asset_download_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "asset_download")
 	bzz_callable.bind(
-		version,
 		filename,
 		on_success,
 		on_failure,
@@ -91,13 +86,11 @@ func asset_download_threaded(
 	return bzz_thread
 
 
-# Operation assetMorph → POST /api/{version}/asset/morph
+# Operation assetMorph → POST /asset/morph
 # Convert Offer to Creative
 #
 # Converts an offer image + text into a creative image.
 func asset_morph(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# offer id used for inserting offer text/flavor
 	offerId: float,
@@ -127,7 +120,7 @@ func asset_morph(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/morph".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/asset/morph"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -163,8 +156,6 @@ func asset_morph(
 
 
 func asset_morph_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# offerId: float   Eg: 789
 	# offer id used for inserting offer text/flavor
 	offerId: float,
@@ -192,7 +183,6 @@ func asset_morph_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "asset_morph")
 	bzz_callable.bind(
-		version,
 		offerId,
 		adSize,
 		creativeId,
@@ -207,13 +197,11 @@ func asset_morph_threaded(
 	return bzz_thread
 
 
-# Operation createAsset → POST /api/{version}/asset/create
+# Operation createAsset → POST /asset/create
 # Create Asset
 #
 # Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 func create_asset(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# to return nulls
 	returnNulls = null,
@@ -324,7 +312,7 @@ func create_asset(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/asset/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -387,8 +375,6 @@ func create_asset(
 
 
 func create_asset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# returnNulls: bool   Eg: true
 	# to return nulls
 	returnNulls = null,
@@ -497,7 +483,6 @@ func create_asset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_asset")
 	bzz_callable.bind(
-		version,
 		returnNulls,
 		deviceId,
 		accountId,
@@ -539,13 +524,11 @@ func create_asset_threaded(
 	return bzz_thread
 
 
-# Operation deleteAsset → POST /api/{version}/asset/delete
+# Operation deleteAsset → POST /asset/delete
 # Delete Asset
 #
 # Delete an asset.
 func delete_asset(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: String = ""   Eg: assetId_example
 	# the id of the asset to delete
 	assetId: String,
@@ -569,7 +552,7 @@ func delete_asset(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/asset/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -603,8 +586,6 @@ func delete_asset(
 
 
 func delete_asset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: String = ""   Eg: assetId_example
 	# the id of the asset to delete
 	assetId: String,
@@ -626,7 +607,6 @@ func delete_asset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_asset")
 	bzz_callable.bind(
-		version,
 		assetId,
 		deviceId,
 		accountId,
@@ -639,13 +619,11 @@ func delete_asset_threaded(
 	return bzz_thread
 
 
-# Operation getAsset → GET /api/{version}/asset/get
+# Operation getAsset → GET /asset/get
 # Get Asset
 #
 # Gets the full asset response including attached likes and notes.
 func get_asset(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: float   Eg: 789
 	# the asset ID
 	assetId: float,
@@ -666,7 +644,7 @@ func get_asset(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/asset/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -699,8 +677,6 @@ func get_asset(
 
 
 func get_asset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: float   Eg: 789
 	# the asset ID
 	assetId: float,
@@ -719,7 +695,6 @@ func get_asset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_asset")
 	bzz_callable.bind(
-		version,
 		assetId,
 		deviceId,
 		accountId,
@@ -731,13 +706,11 @@ func get_asset_threaded(
 	return bzz_thread
 
 
-# Operation removeAsset → POST /api/{version}/asset/remove
+# Operation removeAsset → POST /asset/remove
 # Remove Asset from Collection
 #
 # Remove assets from collections
 func remove_asset(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: String = ""   Eg: assetId_example
 	# the id of the asset to remove
 	assetId: String,
@@ -770,7 +743,7 @@ func remove_asset(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/remove".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/asset/remove"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -807,8 +780,6 @@ func remove_asset(
 
 
 func remove_asset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: String = ""   Eg: assetId_example
 	# the id of the asset to remove
 	assetId: String,
@@ -839,7 +810,6 @@ func remove_asset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "remove_asset")
 	bzz_callable.bind(
-		version,
 		assetId,
 		deviceId,
 		accountId,
@@ -855,13 +825,11 @@ func remove_asset_threaded(
 	return bzz_thread
 
 
-# Operation searchAssets → GET /api/{version}/asset/search
+# Operation searchAssets → GET /asset/search
 # Search Assets
 #
 # Searches for assets
 func search_assets(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -942,7 +910,7 @@ func search_assets(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/asset/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -995,8 +963,6 @@ func search_assets(
 
 
 func search_assets_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# a unique ID given by the device (deviceId or accountId required)
 	deviceId = "",
@@ -1075,7 +1041,6 @@ func search_assets_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_assets")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		albumIds,
@@ -1107,13 +1072,11 @@ func search_assets_threaded(
 	return bzz_thread
 
 
-# Operation updateAsset → POST /api/{version}/asset/update
+# Operation updateAsset → POST /asset/update
 # Update Asset
 #
 # Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 func update_asset(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: float   Eg: 789
 	# the ID of the asset to update
 	assetId: float,
@@ -1215,7 +1178,7 @@ func update_asset(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/asset/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/asset/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1275,8 +1238,6 @@ func update_asset(
 
 
 func update_asset_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# assetId: float   Eg: 789
 	# the ID of the asset to update
 	assetId: float,
@@ -1376,7 +1337,6 @@ func update_asset_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_asset")
 	bzz_callable.bind(
-		version,
 		assetId,
 		deviceId,
 		accountId,

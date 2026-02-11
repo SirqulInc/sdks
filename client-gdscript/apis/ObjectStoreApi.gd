@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ObjectStoreApi"
 
 
-# Operation addField → POST /api/{version}/object/field/add
+# Operation addField → POST /object/field/add
 # Create Field
 #
 # Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
 func add_field(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -44,7 +42,7 @@ func add_field(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/field/add".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/object/field/add"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -78,8 +76,6 @@ func add_field(
 
 
 func add_field_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -101,7 +97,6 @@ func add_field_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "add_field")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		objectName,
@@ -114,13 +109,11 @@ func add_field_threaded(
 	return bzz_thread
 
 
-# Operation createData → POST /api/{version}/object/data/{objectName}
+# Operation createData → POST /object/data/{objectName}
 # Create Data
 #
 # Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
 func create_data(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# the name of the object to create data for
 	objectName: String,
@@ -137,7 +130,7 @@ func create_data(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/data/{objectName}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName))
+	var bzz_path := "/api/3.18/object/data/{objectName}".replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -168,8 +161,6 @@ func create_data(
 
 
 func create_data_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# the name of the object to create data for
 	objectName: String,
@@ -184,7 +175,6 @@ func create_data_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_data")
 	bzz_callable.bind(
-		version,
 		objectName,
 		accountId,
 		body,
@@ -195,13 +185,11 @@ func create_data_threaded(
 	return bzz_thread
 
 
-# Operation createObject → POST /api/{version}/object/create
+# Operation createObject → POST /object/create
 # Create Object
 #
 # Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
 func create_object(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -219,7 +207,7 @@ func create_object(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/object/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -251,8 +239,6 @@ func create_object(
 
 
 func create_object_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -268,7 +254,6 @@ func create_object_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_object")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		objectName,
@@ -279,13 +264,11 @@ func create_object_threaded(
 	return bzz_thread
 
 
-# Operation deleteData → DELETE /api/{version}/object/data/{objectName}/{objectId}
+# Operation deleteData → DELETE /object/data/{objectName}/{objectId}
 # Delete Data
 #
 # Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
 func delete_data(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -303,7 +286,7 @@ func delete_data(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/data/{objectName}/{objectId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName)).replace("{" + "objectId" + "}", _bzz_urlize_path_param(objectId))
+	var bzz_path := "/api/3.18/object/data/{objectName}/{objectId}".replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName)).replace("{" + "objectId" + "}", _bzz_urlize_path_param(objectId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -333,8 +316,6 @@ func delete_data(
 
 
 func delete_data_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -350,7 +331,6 @@ func delete_data_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_data")
 	bzz_callable.bind(
-		version,
 		objectName,
 		objectId,
 		accountId,
@@ -361,13 +341,11 @@ func delete_data_threaded(
 	return bzz_thread
 
 
-# Operation deleteField → POST /api/{version}/object/field/delete
+# Operation deleteField → POST /object/field/delete
 # Delete Field
 #
 # Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
 func delete_field(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -388,7 +366,7 @@ func delete_field(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/field/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/object/field/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -421,8 +399,6 @@ func delete_field(
 
 
 func delete_field_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -441,7 +417,6 @@ func delete_field_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_field")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		objectName,
@@ -453,13 +428,11 @@ func delete_field_threaded(
 	return bzz_thread
 
 
-# Operation deleteObject → POST /api/{version}/object/delete
+# Operation deleteObject → POST /object/delete
 # Delete Object
 #
 # Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
 func delete_object(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -477,7 +450,7 @@ func delete_object(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/object/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -509,8 +482,6 @@ func delete_object(
 
 
 func delete_object_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -526,7 +497,6 @@ func delete_object_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_object")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		objectName,
@@ -537,13 +507,11 @@ func delete_object_threaded(
 	return bzz_thread
 
 
-# Operation getData → GET /api/{version}/object/data/{objectName}/{objectId}
+# Operation getData → GET /object/data/{objectName}/{objectId}
 # Get Data
 #
 # Get a specific record from a specified object.
 func get_data(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -563,7 +531,7 @@ func get_data(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/data/{objectName}/{objectId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName)).replace("{" + "objectId" + "}", _bzz_urlize_path_param(objectId))
+	var bzz_path := "/api/3.18/object/data/{objectName}/{objectId}".replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName)).replace("{" + "objectId" + "}", _bzz_urlize_path_param(objectId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -594,8 +562,6 @@ func get_data(
 
 
 func get_data_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -613,7 +579,6 @@ func get_data_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_data")
 	bzz_callable.bind(
-		version,
 		objectName,
 		objectId,
 		accountId,
@@ -625,13 +590,11 @@ func get_data_threaded(
 	return bzz_thread
 
 
-# Operation getObject → GET /api/{version}/object/get
+# Operation getObject → GET /object/get
 # Get Object
 #
 # Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
 func get_object(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -649,7 +612,7 @@ func get_object(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/object/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -681,8 +644,6 @@ func get_object(
 
 
 func get_object_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -698,7 +659,6 @@ func get_object_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_object")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		objectName,
@@ -709,13 +669,11 @@ func get_object_threaded(
 	return bzz_thread
 
 
-# Operation searchData → GET /api/{version}/object/data/{objectName}
+# Operation searchData → GET /object/data/{objectName}
 # Search Data
 #
 # Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
 func search_data(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -747,7 +705,7 @@ func search_data(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/data/{objectName}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName))
+	var bzz_path := "/api/3.18/object/data/{objectName}".replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -783,8 +741,6 @@ func search_data(
 
 
 func search_data_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -814,7 +770,6 @@ func search_data_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_data")
 	bzz_callable.bind(
-		version,
 		objectName,
 		count,
 		start,
@@ -830,13 +785,11 @@ func search_data_threaded(
 	return bzz_thread
 
 
-# Operation searchObject → GET /api/{version}/object/search
+# Operation searchObject → GET /object/search
 # Search Objects
 #
 # Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
 func search_object(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -860,7 +813,7 @@ func search_object(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/object/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -894,8 +847,6 @@ func search_object(
 
 
 func search_object_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the logged in user
 	accountId: float,
@@ -917,7 +868,6 @@ func search_object_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_object")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		start,
@@ -930,13 +880,11 @@ func search_object_threaded(
 	return bzz_thread
 
 
-# Operation updateData → PUT /api/{version}/object/data/{objectName}/{objectId}
+# Operation updateData → PUT /object/data/{objectName}/{objectId}
 # Update Data
 #
 # Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
 func update_data(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -956,7 +904,7 @@ func update_data(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/object/data/{objectName}/{objectId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName)).replace("{" + "objectId" + "}", _bzz_urlize_path_param(objectId))
+	var bzz_path := "/api/3.18/object/data/{objectName}/{objectId}".replace("{" + "objectName" + "}", _bzz_urlize_path_param(objectName)).replace("{" + "objectId" + "}", _bzz_urlize_path_param(objectId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -987,8 +935,6 @@ func update_data(
 
 
 func update_data_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# objectName: String = ""   Eg: objectName_example
 	# The name of the object to search upon
 	objectName: String,
@@ -1006,7 +952,6 @@ func update_data_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_data")
 	bzz_callable.bind(
-		version,
 		objectName,
 		objectId,
 		accountId,

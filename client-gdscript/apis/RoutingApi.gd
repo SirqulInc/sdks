@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RoutingApi"
 
 
-# Operation computeRouting → POST /api/{version}/routing/compute
+# Operation computeRouting → POST /routing/compute
 # Compute Route
 #
 # This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
 func compute_routing(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
 	data: String,
@@ -32,7 +30,7 @@ func compute_routing(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/routing/compute".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/routing/compute"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -62,8 +60,6 @@ func compute_routing(
 
 
 func compute_routing_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# data: String = ""   Eg: data_example
 	# Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
 	data: String,
@@ -73,7 +69,6 @@ func compute_routing_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "compute_routing")
 	bzz_callable.bind(
-		version,
 		data,
 		on_success,
 		on_failure,

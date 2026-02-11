@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "GameLevelApi"
 
 
-# Operation createGameLevel → POST /api/{version}/level/create
+# Operation createGameLevel → POST /level/create
 # Create Game Level
 #
 # Create a game level. Currently does NOT support game objects.
 func create_game_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -107,7 +105,7 @@ func create_game_level(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -162,8 +160,6 @@ func create_game_level(
 
 
 func create_game_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -248,7 +244,6 @@ func create_game_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_game_level")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		gameData,
@@ -282,13 +277,11 @@ func create_game_level_threaded(
 	return bzz_thread
 
 
-# Operation deleteGameLevel → POST /api/{version}/level/delete
+# Operation deleteGameLevel → POST /level/delete
 # Delete Game Level
 #
 # Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 func delete_game_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -303,7 +296,7 @@ func delete_game_level(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -334,8 +327,6 @@ func delete_game_level(
 
 
 func delete_game_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -348,7 +339,6 @@ func delete_game_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_game_level")
 	bzz_callable.bind(
-		version,
 		accountId,
 		levelId,
 		on_success,
@@ -358,13 +348,11 @@ func delete_game_level_threaded(
 	return bzz_thread
 
 
-# Operation getGameLevel → GET /api/{version}/level/get
+# Operation getGameLevel → GET /level/get
 # Get Game Level
 #
 # Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 func get_game_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -382,7 +370,7 @@ func get_game_level(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -414,8 +402,6 @@ func get_game_level(
 
 
 func get_game_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -431,7 +417,6 @@ func get_game_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_game_level")
 	bzz_callable.bind(
-		version,
 		accountId,
 		levelId,
 		includeGameData,
@@ -442,13 +427,11 @@ func get_game_level_threaded(
 	return bzz_thread
 
 
-# Operation getGameLevelsByApplication → GET /api/{version}/level/search
+# Operation getGameLevelsByApplication → GET /level/search
 # Search Game Levels
 #
 # Get a list of levels for an application, just those the account has permissions to view.
 func get_game_levels_by_application(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -486,7 +469,7 @@ func get_game_levels_by_application(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -525,8 +508,6 @@ func get_game_levels_by_application(
 
 
 func get_game_levels_by_application_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -562,7 +543,6 @@ func get_game_levels_by_application_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_game_levels_by_application")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		keyword,
@@ -580,13 +560,11 @@ func get_game_levels_by_application_threaded(
 	return bzz_thread
 
 
-# Operation getGameLevelsByBillableEntity → GET /api/{version}/level/searchByBillableEntity
+# Operation getGameLevelsByBillableEntity → GET /level/searchByBillableEntity
 # Search Game Level by Billable Entity
 #
 # Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 func get_game_levels_by_billable_entity(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -619,7 +597,7 @@ func get_game_levels_by_billable_entity(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/searchByBillableEntity".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/searchByBillableEntity"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -656,8 +634,6 @@ func get_game_levels_by_billable_entity(
 
 
 func get_game_levels_by_billable_entity_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -688,7 +664,6 @@ func get_game_levels_by_billable_entity_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_game_levels_by_billable_entity")
 	bzz_callable.bind(
-		version,
 		accountId,
 		appKey,
 		keyword,
@@ -704,13 +679,11 @@ func get_game_levels_by_billable_entity_threaded(
 	return bzz_thread
 
 
-# Operation getQuestionsInLevel → GET /api/{version}/level/questions/get
+# Operation getQuestionsInLevel → GET /level/questions/get
 # Get Level Questions
 #
 # Get questions within a level.
 func get_questions_in_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to get questions from
 	levelId: float,
@@ -725,7 +698,7 @@ func get_questions_in_level(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/questions/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/questions/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -756,8 +729,6 @@ func get_questions_in_level(
 
 
 func get_questions_in_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to get questions from
 	levelId: float,
@@ -770,7 +741,6 @@ func get_questions_in_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_questions_in_level")
 	bzz_callable.bind(
-		version,
 		levelId,
 		accountId,
 		on_success,
@@ -780,13 +750,11 @@ func get_questions_in_level_threaded(
 	return bzz_thread
 
 
-# Operation getWordsInLevel → GET /api/{version}/level/words/get
+# Operation getWordsInLevel → GET /level/words/get
 # Get Level Words
 #
 # Get words within a level.
 func get_words_in_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to get words for
 	levelId: float,
@@ -801,7 +769,7 @@ func get_words_in_level(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/words/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/words/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -832,8 +800,6 @@ func get_words_in_level(
 
 
 func get_words_in_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to get words for
 	levelId: float,
@@ -846,7 +812,6 @@ func get_words_in_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_words_in_level")
 	bzz_callable.bind(
-		version,
 		levelId,
 		accountId,
 		on_success,
@@ -856,13 +821,11 @@ func get_words_in_level_threaded(
 	return bzz_thread
 
 
-# Operation updateGameLevel → POST /api/{version}/level/update
+# Operation updateGameLevel → POST /level/update
 # Update Game Level
 #
 # Update a game level. Currently does NOT support game objects.
 func update_game_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -951,7 +914,7 @@ func update_game_level(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1007,8 +970,6 @@ func update_game_level(
 
 
 func update_game_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The logged in user.
 	accountId: float,
@@ -1095,7 +1056,6 @@ func update_game_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_game_level")
 	bzz_callable.bind(
-		version,
 		accountId,
 		levelId,
 		appKey,
@@ -1130,13 +1090,11 @@ func update_game_level_threaded(
 	return bzz_thread
 
 
-# Operation updateQuestionsInLevel → POST /api/{version}/level/questions/update
+# Operation updateQuestionsInLevel → POST /level/questions/update
 # Update Level Questions
 #
 # Updates a level with question game objects.
 func update_questions_in_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to update questions on
 	levelId: float,
@@ -1154,7 +1112,7 @@ func update_questions_in_level(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/questions/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/questions/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1186,8 +1144,6 @@ func update_questions_in_level(
 
 
 func update_questions_in_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to update questions on
 	levelId: float,
@@ -1203,7 +1159,6 @@ func update_questions_in_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_questions_in_level")
 	bzz_callable.bind(
-		version,
 		levelId,
 		accountId,
 		questionIds,
@@ -1214,13 +1169,11 @@ func update_questions_in_level_threaded(
 	return bzz_thread
 
 
-# Operation updateWordsInLevel → POST /api/{version}/level/words/update
+# Operation updateWordsInLevel → POST /level/words/update
 # Update Level Words
 #
 # Updates a level with word game objects.
 func update_words_in_level(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to update words for
 	levelId: float,
@@ -1238,7 +1191,7 @@ func update_words_in_level(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/level/words/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/level/words/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1270,8 +1223,6 @@ func update_words_in_level(
 
 
 func update_words_in_level_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# levelId: float   Eg: 789
 	# the id of the level to update words for
 	levelId: float,
@@ -1287,7 +1238,6 @@ func update_words_in_level_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_words_in_level")
 	bzz_callable.bind(
-		version,
 		levelId,
 		accountId,
 		wordIds,

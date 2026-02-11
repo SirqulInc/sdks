@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "FilterApi"
 
 
-# Operation createFilter → POST /api/{version}/filter/create
+# Operation createFilter → POST /filter/create
 # Create Filter
 #
 # Create a filter
 func create_filter(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the target application)
 	accountId: float,
@@ -56,7 +54,7 @@ func create_filter(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/filter/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/filter/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -94,8 +92,6 @@ func create_filter(
 
 
 func create_filter_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the target application)
 	accountId: float,
@@ -129,7 +125,6 @@ func create_filter_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_filter")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		appKey,
@@ -146,13 +141,11 @@ func create_filter_threaded(
 	return bzz_thread
 
 
-# Operation deleteFilter → POST /api/{version}/filter/delete
+# Operation deleteFilter → POST /filter/delete
 # Delete Filter
 #
 # Delete a filter.
 func delete_filter(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the filter's assigned application)
 	accountId: float,
@@ -167,7 +160,7 @@ func delete_filter(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/filter/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/filter/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -198,8 +191,6 @@ func delete_filter(
 
 
 func delete_filter_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user (must have permissions to the filter's assigned application)
 	accountId: float,
@@ -212,7 +203,6 @@ func delete_filter_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_filter")
 	bzz_callable.bind(
-		version,
 		accountId,
 		filterId,
 		on_success,
@@ -222,13 +212,11 @@ func delete_filter_threaded(
 	return bzz_thread
 
 
-# Operation getFilter → GET /api/{version}/filter/get
+# Operation getFilter → GET /filter/get
 # Get Filter
 #
 # Get the details of a specific filter. Recursively include all child filters and their children.
 func get_filter(
-	# version: float   Eg: 3.16
-	version: float,
 	# filterId: float   Eg: 789
 	# the id of the filter to get
 	filterId: float,
@@ -240,7 +228,7 @@ func get_filter(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/filter/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/filter/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -270,8 +258,6 @@ func get_filter(
 
 
 func get_filter_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# filterId: float   Eg: 789
 	# the id of the filter to get
 	filterId: float,
@@ -281,7 +267,6 @@ func get_filter_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_filter")
 	bzz_callable.bind(
-		version,
 		filterId,
 		on_success,
 		on_failure,
@@ -290,13 +275,11 @@ func get_filter_threaded(
 	return bzz_thread
 
 
-# Operation searchFilters → GET /api/{version}/filter/search
+# Operation searchFilters → GET /filter/search
 # Search Filters
 #
 # Search for filters.
 func search_filters(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -335,7 +318,7 @@ func search_filters(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/filter/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/filter/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -374,8 +357,6 @@ func search_filters(
 
 
 func search_filters_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId = null,
@@ -412,7 +393,6 @@ func search_filters_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_filters")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		appKey,
@@ -430,13 +410,11 @@ func search_filters_threaded(
 	return bzz_thread
 
 
-# Operation updateFilter → POST /api/{version}/filter/update
+# Operation updateFilter → POST /filter/update
 # Update Filter
 #
 # Update a filter.
 func update_filter(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -472,7 +450,7 @@ func update_filter(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/filter/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/filter/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -510,8 +488,6 @@ func update_filter(
 
 
 func update_filter_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user
 	accountId: float,
@@ -545,7 +521,6 @@ func update_filter_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_filter")
 	bzz_callable.bind(
-		version,
 		accountId,
 		filterId,
 		parentFilterId,

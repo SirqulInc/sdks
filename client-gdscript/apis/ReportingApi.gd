@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "ReportingApi"
 
 
-# Operation createBatch → POST /api/{version}/report/batch/create
+# Operation createBatch → POST /report/batch/create
 # Create Offline Report
 #
 # Create an entry for the batch for offline report
 func create_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user for passing account related params
 	accountId: float,
@@ -60,7 +58,7 @@ func create_batch(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/report/batch/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/report/batch/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -100,8 +98,6 @@ func create_batch(
 
 
 func create_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id of the user for passing account related params
 	accountId: float,
@@ -139,7 +135,6 @@ func create_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_batch")
 	bzz_callable.bind(
-		version,
 		accountId,
 		status,
 		previewLimit,
@@ -158,13 +153,11 @@ func create_batch_threaded(
 	return bzz_thread
 
 
-# Operation createRegionLegSummaryBatch → POST /api/{version}/report/region/summary/batch
+# Operation createRegionLegSummaryBatch → POST /report/region/summary/batch
 # Create Offline Report
 #
 # Create an entry for the batch for offline report
 func create_region_leg_summary_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Array
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -175,7 +168,7 @@ func create_region_leg_summary_batch(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/report/region/summary/batch".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/report/region/summary/batch"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -205,8 +198,6 @@ func create_region_leg_summary_batch(
 
 
 func create_region_leg_summary_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Array
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -215,7 +206,6 @@ func create_region_leg_summary_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_region_leg_summary_batch")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -224,13 +214,11 @@ func create_region_leg_summary_batch_threaded(
 	return bzz_thread
 
 
-# Operation deleteBatch → POST /api/{version}/report/batch/delete
+# Operation deleteBatch → POST /report/batch/delete
 # Delete Offline Report
 #
 # Deletes a batch report.
 func delete_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -245,7 +233,7 @@ func delete_batch(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/report/batch/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/report/batch/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -276,8 +264,6 @@ func delete_batch(
 
 
 func delete_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account
 	accountId: float,
@@ -290,7 +276,6 @@ func delete_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_batch")
 	bzz_callable.bind(
-		version,
 		accountId,
 		batchId,
 		on_success,
@@ -300,13 +285,11 @@ func delete_batch_threaded(
 	return bzz_thread
 
 
-# Operation getReportBatch → GET /api/{version}/report/batch/get
+# Operation getReportBatch → GET /report/batch/get
 # Get Offline Report
 #
 # Checks status of batch report.
 func get_report_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -324,7 +307,7 @@ func get_report_batch(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/report/batch/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/report/batch/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -356,8 +339,6 @@ func get_report_batch(
 
 
 func get_report_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the logged in user
 	accountId: float,
@@ -373,7 +354,6 @@ func get_report_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_report_batch")
 	bzz_callable.bind(
-		version,
 		accountId,
 		batchId,
 		allResults,
@@ -384,13 +364,11 @@ func get_report_batch_threaded(
 	return bzz_thread
 
 
-# Operation runReport → POST /api/{version}/report/run
+# Operation runReport → POST /report/run
 # Run Report
 #
 #  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 func run_report(
-	# version: float   Eg: 3.16
-	version: float,
 	# desc: bool   Eg: true
 	# If true then descending order, false is ascending
 	desc: bool,
@@ -423,7 +401,7 @@ func run_report(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/report/run".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/report/run"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -460,8 +438,6 @@ func run_report(
 
 
 func run_report_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# desc: bool   Eg: true
 	# If true then descending order, false is ascending
 	desc: bool,
@@ -492,7 +468,6 @@ func run_report_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "run_report")
 	bzz_callable.bind(
-		version,
 		desc,
 		accountId,
 		query,
@@ -508,13 +483,11 @@ func run_report_threaded(
 	return bzz_thread
 
 
-# Operation searchBatch → GET /api/{version}/report/batch/search
+# Operation searchBatch → GET /report/batch/search
 # Search Offline Reports
 #
 # Retrieves batches for a user..
 func search_batch(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account logged in
 	accountId: float,
@@ -550,7 +523,7 @@ func search_batch(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/report/batch/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/report/batch/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -588,8 +561,6 @@ func search_batch(
 
 
 func search_batch_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the id of the account logged in
 	accountId: float,
@@ -623,7 +594,6 @@ func search_batch_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_batch")
 	bzz_callable.bind(
-		version,
 		accountId,
 		start,
 		limit,

@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "PurchaseItemApi"
 
 
-# Operation createPurchaseItem → POST /api/{version}/purchase/create
+# Operation createPurchaseItem → POST /purchase/create
 # Create Purchase
 #
 # Creates a purchase item for in app purchases
 func create_purchase_item(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key that the purchase can be used in
 	appKey: String,
@@ -89,7 +87,7 @@ func create_purchase_item(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/purchase/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/purchase/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -138,8 +136,6 @@ func create_purchase_item(
 
 
 func create_purchase_item_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# appKey: String = ""   Eg: appKey_example
 	# The application key that the purchase can be used in
 	appKey: String,
@@ -206,7 +202,6 @@ func create_purchase_item_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_purchase_item")
 	bzz_callable.bind(
-		version,
 		appKey,
 		name,
 		purchaseType,
@@ -234,13 +229,11 @@ func create_purchase_item_threaded(
 	return bzz_thread
 
 
-# Operation deletePurchaseItem → POST /api/{version}/purchase/delete
+# Operation deletePurchaseItem → POST /purchase/delete
 # Delete Purchase
 #
 # Marks the purchase item as deleted
 func delete_purchase_item(
-	# version: float   Eg: 3.16
-	version: float,
 	# purchaseItemId: float   Eg: 789
 	# The purchase item id
 	purchaseItemId: float,
@@ -258,7 +251,7 @@ func delete_purchase_item(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/purchase/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/purchase/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -290,8 +283,6 @@ func delete_purchase_item(
 
 
 func delete_purchase_item_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# purchaseItemId: float   Eg: 789
 	# The purchase item id
 	purchaseItemId: float,
@@ -307,7 +298,6 @@ func delete_purchase_item_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_purchase_item")
 	bzz_callable.bind(
-		version,
 		purchaseItemId,
 		deviceId,
 		accountId,
@@ -318,13 +308,11 @@ func delete_purchase_item_threaded(
 	return bzz_thread
 
 
-# Operation getPurchaseItem → GET /api/{version}/purchase/get
+# Operation getPurchaseItem → GET /purchase/get
 # Get Purchase
 #
 # Get detailed information about a purchase item
 func get_purchase_item(
-	# version: float   Eg: 3.16
-	version: float,
 	# purchaseItemId: float   Eg: 789
 	# The purchase item id
 	purchaseItemId: float,
@@ -342,7 +330,7 @@ func get_purchase_item(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/purchase/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/purchase/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -374,8 +362,6 @@ func get_purchase_item(
 
 
 func get_purchase_item_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# purchaseItemId: float   Eg: 789
 	# The purchase item id
 	purchaseItemId: float,
@@ -391,7 +377,6 @@ func get_purchase_item_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_purchase_item")
 	bzz_callable.bind(
-		version,
 		purchaseItemId,
 		deviceId,
 		accountId,
@@ -402,13 +387,11 @@ func get_purchase_item_threaded(
 	return bzz_thread
 
 
-# Operation searchPurchaseItems → GET /api/{version}/purchase/search
+# Operation searchPurchaseItems → GET /purchase/search
 # Search Purchases
 #
 # Search for purchasable items from the system
 func search_purchase_items(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -453,7 +436,7 @@ func search_purchase_items(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/purchase/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/purchase/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -494,8 +477,6 @@ func search_purchase_items(
 
 
 func search_purchase_items_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -538,7 +519,6 @@ func search_purchase_items_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_purchase_items")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		appKey,
@@ -558,13 +538,11 @@ func search_purchase_items_threaded(
 	return bzz_thread
 
 
-# Operation updatePurchaseItem → POST /api/{version}/purchase/update
+# Operation updatePurchaseItem → POST /purchase/update
 # Update Purchase
 #
 # Updates a purchase item for in app purchases
 func update_purchase_item(
-	# version: float   Eg: 3.16
-	version: float,
 	# purchaseItemId: float   Eg: 789
 	# The purchase item id
 	purchaseItemId: float,
@@ -636,7 +614,7 @@ func update_purchase_item(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/purchase/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/purchase/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -686,8 +664,6 @@ func update_purchase_item(
 
 
 func update_purchase_item_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# purchaseItemId: float   Eg: 789
 	# The purchase item id
 	purchaseItemId: float,
@@ -757,7 +733,6 @@ func update_purchase_item_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_purchase_item")
 	bzz_callable.bind(
-		version,
 		purchaseItemId,
 		deviceId,
 		accountId,

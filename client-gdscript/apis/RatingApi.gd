@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RatingApi"
 
 
-# Operation createRating → POST /api/{version}/rating/create
+# Operation createRating → POST /rating/create
 # Create Rating
 #
 # This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
 func create_rating(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratableType: String = ""   Eg: ratableType_example
 	# The ratable object type {RETAILER_LOCATION}
 	ratableType: String,
@@ -61,7 +59,7 @@ func create_rating(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/rating/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/rating/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -101,8 +99,6 @@ func create_rating(
 
 
 func create_rating_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratableType: String = ""   Eg: ratableType_example
 	# The ratable object type {RETAILER_LOCATION}
 	ratableType: String,
@@ -141,7 +137,6 @@ func create_rating_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_rating")
 	bzz_callable.bind(
-		version,
 		ratableType,
 		ratableId,
 		ratingValue,
@@ -160,13 +155,11 @@ func create_rating_threaded(
 	return bzz_thread
 
 
-# Operation deleteRating → POST /api/{version}/rating/delete
+# Operation deleteRating → POST /rating/delete
 # Delete Rating
 #
 # Sets a rating as deleted.
 func delete_rating(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratingId: float   Eg: 789
 	# The ID of the rating to delete
 	ratingId: float,
@@ -184,7 +177,7 @@ func delete_rating(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/rating/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/rating/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -216,8 +209,6 @@ func delete_rating(
 
 
 func delete_rating_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratingId: float   Eg: 789
 	# The ID of the rating to delete
 	ratingId: float,
@@ -233,7 +224,6 @@ func delete_rating_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_rating")
 	bzz_callable.bind(
-		version,
 		ratingId,
 		deviceId,
 		accountId,
@@ -244,13 +234,11 @@ func delete_rating_threaded(
 	return bzz_thread
 
 
-# Operation searchLocationRatingIndexes → GET /api/{version}/location/rating/index/search
+# Operation searchLocationRatingIndexes → GET /location/rating/index/search
 # Search Location Rating Indexes
 #
 # Search for retailer locations by averages near you.
 func search_location_rating_indexes(
-	# version: float   Eg: 3.16
-	version: float,
 	# categoryIds: String = ""   Eg: categoryIds_example
 	# Comma separated list of category ids to filter the results by
 	categoryIds = "",
@@ -309,7 +297,7 @@ func search_location_rating_indexes(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/location/rating/index/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/location/rating/index/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -355,8 +343,6 @@ func search_location_rating_indexes(
 
 
 func search_location_rating_indexes_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# categoryIds: String = ""   Eg: categoryIds_example
 	# Comma separated list of category ids to filter the results by
 	categoryIds = "",
@@ -413,7 +399,6 @@ func search_location_rating_indexes_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_location_rating_indexes")
 	bzz_callable.bind(
-		version,
 		categoryIds,
 		keyword,
 		locationType,
@@ -438,13 +423,11 @@ func search_location_rating_indexes_threaded(
 	return bzz_thread
 
 
-# Operation searchRatingIndexes → GET /api/{version}/rating/index/search
+# Operation searchRatingIndexes → GET /rating/index/search
 # Search Rating Indexes
 #
 # Search for ratable items by averages.
 func search_rating_indexes(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratableType: String = ""   Eg: ratableType_example
 	# Filter results by a ratable type {RETAILER_LOCATION}
 	ratableType: String,
@@ -489,7 +472,7 @@ func search_rating_indexes(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/rating/index/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/rating/index/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -531,8 +514,6 @@ func search_rating_indexes(
 
 
 func search_rating_indexes_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratableType: String = ""   Eg: ratableType_example
 	# Filter results by a ratable type {RETAILER_LOCATION}
 	ratableType: String,
@@ -575,7 +556,6 @@ func search_rating_indexes_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_rating_indexes")
 	bzz_callable.bind(
-		version,
 		ratableType,
 		ratableIds,
 		categoryIds,
@@ -596,13 +576,11 @@ func search_rating_indexes_threaded(
 	return bzz_thread
 
 
-# Operation searchRatings → GET /api/{version}/rating/search
+# Operation searchRatings → GET /rating/search
 # Search Ratings
 #
 # Search for ratings on a ratable object.
 func search_ratings(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -644,7 +622,7 @@ func search_ratings(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/rating/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/rating/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -684,8 +662,6 @@ func search_ratings(
 
 
 func search_ratings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# deviceId: String = ""   Eg: deviceId_example
 	# The device id (deviceId or accountId required)
 	deviceId = "",
@@ -725,7 +701,6 @@ func search_ratings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_ratings")
 	bzz_callable.bind(
-		version,
 		deviceId,
 		accountId,
 		filterAccountId,
@@ -744,13 +719,11 @@ func search_ratings_threaded(
 	return bzz_thread
 
 
-# Operation updateRating → POST /api/{version}/rating/update
+# Operation updateRating → POST /rating/update
 # Update Rating
 #
 # Update an existing rating. Only the creator of the rating have permission to update.
 func update_rating(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratingId: float   Eg: 789
 	# The id of the rating (Note: this is not the ratable object id)
 	ratingId: float,
@@ -788,7 +761,7 @@ func update_rating(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/rating/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/rating/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -827,8 +800,6 @@ func update_rating(
 
 
 func update_rating_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# ratingId: float   Eg: 789
 	# The id of the rating (Note: this is not the ratable object id)
 	ratingId: float,
@@ -864,7 +835,6 @@ func update_rating_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_rating")
 	bzz_callable.bind(
-		version,
 		ratingId,
 		deviceId,
 		accountId,

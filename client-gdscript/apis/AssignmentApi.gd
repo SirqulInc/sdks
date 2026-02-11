@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "AssignmentApi"
 
 
-# Operation assigmentAssigneeAccountSearch → GET /api/{version}/assignment/assignee/search
+# Operation assigmentAssigneeAccountSearch → GET /assignment/assignee/search
 # Search Assignment Assignees
 #
 # Search for avaiable users for creating or updating assignment.
 func assigment_assignee_account_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id sending the request
 	accountId: float,
@@ -35,7 +33,7 @@ func assigment_assignee_account_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/assignee/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/assignee/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -66,8 +64,6 @@ func assigment_assignee_account_search(
 
 
 func assigment_assignee_account_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The account id sending the request
 	accountId: float,
@@ -80,7 +76,6 @@ func assigment_assignee_account_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assigment_assignee_account_search")
 	bzz_callable.bind(
-		version,
 		accountId,
 		keyword,
 		on_success,
@@ -90,13 +85,11 @@ func assigment_assignee_account_search_threaded(
 	return bzz_thread
 
 
-# Operation assignmentCreate → POST /api/{version}/assignment/create
+# Operation assignmentCreate → POST /assignment/create
 # Create Assignment
 #
 # Create an assignment.
 func assignment_create(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -126,7 +119,7 @@ func assignment_create(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -162,8 +155,6 @@ func assignment_create(
 
 
 func assignment_create_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -191,7 +182,6 @@ func assignment_create_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_create")
 	bzz_callable.bind(
-		version,
 		accountId,
 		name,
 		assigneeAccountId,
@@ -206,13 +196,11 @@ func assignment_create_threaded(
 	return bzz_thread
 
 
-# Operation assignmentDelete → POST /api/{version}/assignment/delete
+# Operation assignmentDelete → POST /assignment/delete
 # Delete Assignment
 #
 # Delete an assignment.
 func assignment_delete(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -227,7 +215,7 @@ func assignment_delete(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -258,8 +246,6 @@ func assignment_delete(
 
 
 func assignment_delete_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -272,7 +258,6 @@ func assignment_delete_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_delete")
 	bzz_callable.bind(
-		version,
 		accountId,
 		assignmentId,
 		on_success,
@@ -282,13 +267,11 @@ func assignment_delete_threaded(
 	return bzz_thread
 
 
-# Operation assignmentGet → GET /api/{version}/assignment/get
+# Operation assignmentGet → GET /assignment/get
 # Get Assignment
 #
 # Get the details of an assignment.
 func assignment_get(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -303,7 +286,7 @@ func assignment_get(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -334,8 +317,6 @@ func assignment_get(
 
 
 func assignment_get_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -348,7 +329,6 @@ func assignment_get_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_get")
 	bzz_callable.bind(
-		version,
 		accountId,
 		assignmentId,
 		on_success,
@@ -358,13 +338,11 @@ func assignment_get_threaded(
 	return bzz_thread
 
 
-# Operation assignmentSearch → GET /api/{version}/assignment/search
+# Operation assignmentSearch → GET /assignment/search
 # Search Assignments
 #
 # Search for assignments by the given parameters.
 func assignment_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account sending the request
 	accountId: float,
@@ -406,7 +384,7 @@ func assignment_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -446,8 +424,6 @@ func assignment_search(
 
 
 func assignment_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the account sending the request
 	accountId: float,
@@ -487,7 +463,6 @@ func assignment_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_search")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -506,13 +481,11 @@ func assignment_search_threaded(
 	return bzz_thread
 
 
-# Operation assignmentStatusCreate → POST /api/{version}/assignment/status/create
+# Operation assignmentStatusCreate → POST /assignment/status/create
 # Create Assignment Status
 #
 # Create an assignment status.
 func assignment_status_create(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -554,7 +527,7 @@ func assignment_status_create(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/status/create".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/status/create"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -594,8 +567,6 @@ func assignment_status_create(
 
 
 func assignment_status_create_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -635,7 +606,6 @@ func assignment_status_create_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_status_create")
 	bzz_callable.bind(
-		version,
 		accountId,
 		assignmentId,
 		scheduledNotificationId,
@@ -654,13 +624,11 @@ func assignment_status_create_threaded(
 	return bzz_thread
 
 
-# Operation assignmentStatusDelete → POST /api/{version}/assignment/status/delete
+# Operation assignmentStatusDelete → POST /assignment/status/delete
 # Deletes Assignment Status
 #
 # Deletes an assignment status.
 func assignment_status_delete(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -675,7 +643,7 @@ func assignment_status_delete(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/status/delete".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/status/delete"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -706,8 +674,6 @@ func assignment_status_delete(
 
 
 func assignment_status_delete_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -720,7 +686,6 @@ func assignment_status_delete_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_status_delete")
 	bzz_callable.bind(
-		version,
 		accountId,
 		assignmentStatusId,
 		on_success,
@@ -730,13 +695,11 @@ func assignment_status_delete_threaded(
 	return bzz_thread
 
 
-# Operation assignmentStatusGet → GET /api/{version}/assignment/status/get
+# Operation assignmentStatusGet → GET /assignment/status/get
 # Get Assignment Status
 #
 # Get an assignment status.
 func assignment_status_get(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -751,7 +714,7 @@ func assignment_status_get(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/status/get".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/status/get"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -782,8 +745,6 @@ func assignment_status_get(
 
 
 func assignment_status_get_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -796,7 +757,6 @@ func assignment_status_get_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_status_get")
 	bzz_callable.bind(
-		version,
 		accountId,
 		assignmentStatusId,
 		on_success,
@@ -806,13 +766,11 @@ func assignment_status_get_threaded(
 	return bzz_thread
 
 
-# Operation assignmentStatusSearch → GET /api/{version}/assignment/status/search
+# Operation assignmentStatusSearch → GET /assignment/status/search
 # Search Assignment Statuses
 #
 # Search on assignment statuses.
 func assignment_status_search(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -857,7 +815,7 @@ func assignment_status_search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/status/search".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/status/search"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -898,8 +856,6 @@ func assignment_status_search(
 
 
 func assignment_status_search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -942,7 +898,6 @@ func assignment_status_search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_status_search")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -962,13 +917,11 @@ func assignment_status_search_threaded(
 	return bzz_thread
 
 
-# Operation assignmentStatusUpdate → POST /api/{version}/assignment/status/update
+# Operation assignmentStatusUpdate → POST /assignment/status/update
 # Update Assignment Status
 #
 # Updates an assignment status.
 func assignment_status_update(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -1010,7 +963,7 @@ func assignment_status_update(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/status/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/status/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1050,8 +1003,6 @@ func assignment_status_update(
 
 
 func assignment_status_update_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -1091,7 +1042,6 @@ func assignment_status_update_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_status_update")
 	bzz_callable.bind(
-		version,
 		accountId,
 		assignmentStatusId,
 		scheduledNotificationId,
@@ -1110,13 +1060,11 @@ func assignment_status_update_threaded(
 	return bzz_thread
 
 
-# Operation assignmentUpdate → POST /api/{version}/assignment/update
+# Operation assignmentUpdate → POST /assignment/update
 # Update Assignment
 #
 # Updates an assignment.
 func assignment_update(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -1149,7 +1097,7 @@ func assignment_update(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/assignment/update".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/assignment/update"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1186,8 +1134,6 @@ func assignment_update(
 
 
 func assignment_update_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# the user account id
 	accountId: float,
@@ -1218,7 +1164,6 @@ func assignment_update_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "assignment_update")
 	bzz_callable.bind(
-		version,
 		accountId,
 		assignmentId,
 		name,

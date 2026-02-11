@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "TripApi"
 
 
-# Operation createTrip → POST /api/{version}/trip
+# Operation createTrip → POST /trip
 # Create Trip
 #
 # Create a new trip
 func create_trip(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Trip
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -31,7 +29,7 @@ func create_trip(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trip"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func create_trip(
 
 
 func create_trip_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: Trip
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -71,7 +67,6 @@ func create_trip_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_trip")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -80,13 +75,11 @@ func create_trip_threaded(
 	return bzz_thread
 
 
-# Operation delete → DELETE /api/{version}/trip/{id}
+# Operation delete → DELETE /trip/{id}
 # Delete Trip
 #
 # Delete an existing trip
 func delete(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to delete
 	id: float,
@@ -98,7 +91,7 @@ func delete(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -121,8 +114,6 @@ func delete(
 
 
 func delete_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to delete
 	id: float,
@@ -132,7 +123,6 @@ func delete_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -141,13 +131,11 @@ func delete_threaded(
 	return bzz_thread
 
 
-# Operation driveTrip → POST /api/{version}/trip/{id}/drive
+# Operation driveTrip → POST /trip/{id}/drive
 # Set Trip Preference Driver
 #
 # Update trip preference to drive, also create a route and assign the trip to the route
 func drive_trip(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -162,7 +150,7 @@ func drive_trip(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/drive".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/drive".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -192,8 +180,6 @@ func drive_trip(
 
 
 func drive_trip_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -206,7 +192,6 @@ func drive_trip_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "drive_trip")
 	bzz_callable.bind(
-		version,
 		id,
 		recurrence,
 		on_success,
@@ -216,13 +201,11 @@ func drive_trip_threaded(
 	return bzz_thread
 
 
-# Operation flexibleTrip → POST /api/{version}/trip/{id}/flexible
+# Operation flexibleTrip → POST /trip/{id}/flexible
 # Set Trip Preference Flexible
 #
 # Update trip preference to flexible.
 func flexible_trip(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -237,7 +220,7 @@ func flexible_trip(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/flexible".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/flexible".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -267,8 +250,6 @@ func flexible_trip(
 
 
 func flexible_trip_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -281,7 +262,6 @@ func flexible_trip_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "flexible_trip")
 	bzz_callable.bind(
-		version,
 		id,
 		recurrence,
 		on_success,
@@ -291,13 +271,11 @@ func flexible_trip_threaded(
 	return bzz_thread
 
 
-# Operation getTrip → GET /api/{version}/trip/{id}
+# Operation getTrip → GET /trip/{id}
 # Get Trip
 #
 # Get an existing trip
 func get_trip(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to get
 	id: float,
@@ -309,7 +287,7 @@ func get_trip(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -338,8 +316,6 @@ func get_trip(
 
 
 func get_trip_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to get
 	id: float,
@@ -349,7 +325,6 @@ func get_trip_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_trip")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -358,13 +333,11 @@ func get_trip_threaded(
 	return bzz_thread
 
 
-# Operation getTripMatches → GET /api/{version}/trip/{id}/match
+# Operation getTripMatches → GET /trip/{id}/match
 # Get Trip Matches
 #
 # Get matching trips of specific trip
 func get_trip_matches(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id The id of the trip to search for matches for
 	id: float,
@@ -397,7 +370,7 @@ func get_trip_matches(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/match".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/match".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -433,8 +406,6 @@ func get_trip_matches(
 
 
 func get_trip_matches_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# The id The id of the trip to search for matches for
 	id: float,
@@ -465,7 +436,6 @@ func get_trip_matches_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_trip_matches")
 	bzz_callable.bind(
-		version,
 		id,
 		sortField,
 		descending,
@@ -481,13 +451,11 @@ func get_trip_matches_threaded(
 	return bzz_thread
 
 
-# Operation processTripMatches → POST /api/{version}/trip/match/process
+# Operation processTripMatches → POST /trip/match/process
 # Process Trip Matches
 #
 # Process trip matching, assign trips with no route to matched trips with route.
 func process_trip_matches(
-	# version: float   Eg: 3.16
-	version: float,
 	# startDate: float   Eg: 789
 	# The lower bound date to process matchings
 	startDate = null,
@@ -505,7 +473,7 @@ func process_trip_matches(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/match/process".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trip/match/process"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -537,8 +505,6 @@ func process_trip_matches(
 
 
 func process_trip_matches_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# startDate: float   Eg: 789
 	# The lower bound date to process matchings
 	startDate = null,
@@ -554,7 +520,6 @@ func process_trip_matches_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "process_trip_matches")
 	bzz_callable.bind(
-		version,
 		startDate,
 		endDate,
 		tripId,
@@ -565,13 +530,11 @@ func process_trip_matches_threaded(
 	return bzz_thread
 
 
-# Operation ride → POST /api/{version}/trip/{id}/ride
+# Operation ride → POST /trip/{id}/ride
 # Set Trip Preference Rider
 #
 # Update trip preference to ride.
 func ride(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -586,7 +549,7 @@ func ride(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/ride".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/ride".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -616,8 +579,6 @@ func ride(
 
 
 func ride_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -630,7 +591,6 @@ func ride_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "ride")
 	bzz_callable.bind(
-		version,
 		id,
 		recurrence,
 		on_success,
@@ -640,13 +600,11 @@ func ride_threaded(
 	return bzz_thread
 
 
-# Operation search → GET /api/{version}/trip
+# Operation search → GET /trip
 # Search Trips
 #
 # Search for trips
 func search(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The owner of the trips
 	accountId: float,
@@ -682,7 +640,7 @@ func search(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trip"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -720,8 +678,6 @@ func search(
 
 
 func search_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The owner of the trips
 	accountId: float,
@@ -755,7 +711,6 @@ func search_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -772,13 +727,11 @@ func search_threaded(
 	return bzz_thread
 
 
-# Operation searchTrips → GET /api/{version}/trip/match
+# Operation searchTrips → GET /trip/match
 # Search Trips
 #
 # Search for trips with matching information.
 func search_trips(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The owner of the trips
 	accountId: float,
@@ -817,7 +770,7 @@ func search_trips(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/match".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trip/match"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -856,8 +809,6 @@ func search_trips(
 
 
 func search_trips_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# accountId: float   Eg: 789
 	# The owner of the trips
 	accountId: float,
@@ -894,7 +845,6 @@ func search_trips_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_trips")
 	bzz_callable.bind(
-		version,
 		accountId,
 		sortField,
 		descending,
@@ -912,11 +862,9 @@ func search_trips_threaded(
 	return bzz_thread
 
 
-# Operation updateLocations → POST /api/{version}/trip/{id}/locations
+# Operation updateLocations → POST /trip/{id}/locations
 # Update Trip Locations
 func update_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to update locations for
 	id: float,
@@ -930,7 +878,7 @@ func update_locations(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/locations".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/locations".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -960,8 +908,6 @@ func update_locations(
 
 
 func update_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to update locations for
 	id: float,
@@ -973,7 +919,6 @@ func update_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_locations")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -983,11 +928,9 @@ func update_locations_threaded(
 	return bzz_thread
 
 
-# Operation updateRecurrenceLocations → POST /api/{version}/trip/{id}/locations/recurrence
+# Operation updateRecurrenceLocations → POST /trip/{id}/locations/recurrence
 # Update Recurrence Locations
 func update_recurrence_locations(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -1001,7 +944,7 @@ func update_recurrence_locations(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/locations/recurrence".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/locations/recurrence".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1031,8 +974,6 @@ func update_recurrence_locations(
 
 
 func update_recurrence_locations_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -1044,7 +985,6 @@ func update_recurrence_locations_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_recurrence_locations")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -1054,11 +994,9 @@ func update_recurrence_locations_threaded(
 	return bzz_thread
 
 
-# Operation updateRecurrenceShipments → POST /api/{version}/trip/{id}/shipments/recurrence
+# Operation updateRecurrenceShipments → POST /trip/{id}/shipments/recurrence
 # Update Recurrence Shipments
 func update_recurrence_shipments(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -1072,7 +1010,7 @@ func update_recurrence_shipments(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/shipments/recurrence".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/shipments/recurrence".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1102,8 +1040,6 @@ func update_recurrence_shipments(
 
 
 func update_recurrence_shipments_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -1115,7 +1051,6 @@ func update_recurrence_shipments_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_recurrence_shipments")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -1125,11 +1060,9 @@ func update_recurrence_shipments_threaded(
 	return bzz_thread
 
 
-# Operation updateShipments → POST /api/{version}/trip/{id}/shipments
+# Operation updateShipments → POST /trip/{id}/shipments
 # Update Trip Shipments
 func update_shipments(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip shipments to update
 	id: float,
@@ -1143,7 +1076,7 @@ func update_shipments(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}/shipments".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}/shipments".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1173,8 +1106,6 @@ func update_shipments(
 
 
 func update_shipments_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip shipments to update
 	id: float,
@@ -1186,7 +1117,6 @@ func update_shipments_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_shipments")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -1196,13 +1126,11 @@ func update_shipments_threaded(
 	return bzz_thread
 
 
-# Operation updateTrip → PUT /api/{version}/trip/{id}
+# Operation updateTrip → PUT /trip/{id}
 # Update Trip
 #
 # Update an existing trip. Does not support recurring trip update.
 func update_trip(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to update
 	id: float,
@@ -1216,7 +1144,7 @@ func update_trip(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/trip/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1246,8 +1174,6 @@ func update_trip(
 
 
 func update_trip_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip to update
 	id: float,
@@ -1259,7 +1185,6 @@ func update_trip_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_trip")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,
@@ -1269,13 +1194,11 @@ func update_trip_threaded(
 	return bzz_thread
 
 
-# Operation updateTripNotifications → POST /api/{version}/trip/notifications
+# Operation updateTripNotifications → POST /trip/notifications
 # Trip Notifications
 #
 # Update the trip notifications
 func update_trip_notifications(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -1290,7 +1213,7 @@ func update_trip_notifications(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/trip/notifications".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/trip/notifications"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -1321,8 +1244,6 @@ func update_trip_notifications(
 
 
 func update_trip_notifications_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the trip
 	id: float,
@@ -1335,7 +1256,6 @@ func update_trip_notifications_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_trip_notifications")
 	bzz_callable.bind(
-		version,
 		id,
 		notifications,
 		on_success,

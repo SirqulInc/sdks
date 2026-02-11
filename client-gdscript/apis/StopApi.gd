@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "StopApi"
 
 
-# Operation getStop → GET /api/{version}/stop/{id}
+# Operation getStop → GET /stop/{id}
 # Get Stop
 #
 # Get an existing stop
 func get_stop(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the stop to get
 	id: float,
@@ -32,7 +30,7 @@ func get_stop(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/stop/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/stop/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func get_stop(
 
 
 func get_stop_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the stop to get
 	id: float,
@@ -72,7 +68,6 @@ func get_stop_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_stop")
 	bzz_callable.bind(
-		version,
 		id,
 		on_success,
 		on_failure,
@@ -81,13 +76,11 @@ func get_stop_threaded(
 	return bzz_thread
 
 
-# Operation updateStop → PUT /api/{version}/stop/{id}
+# Operation updateStop → PUT /stop/{id}
 # Update Stop
 #
 # Update an existing stop
 func update_stop(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the stop to update
 	id: float,
@@ -101,7 +94,7 @@ func update_stop(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/stop/{id}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "id" + "}", _bzz_urlize_path_param(id))
+	var bzz_path := "/api/3.18/stop/{id}".replace("{" + "id" + "}", _bzz_urlize_path_param(id))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -131,8 +124,6 @@ func update_stop(
 
 
 func update_stop_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# id: float   Eg: 789
 	# the id of the stop to update
 	id: float,
@@ -144,7 +135,6 @@ func update_stop_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_stop")
 	bzz_callable.bind(
-		version,
 		id,
 		body,
 		on_success,

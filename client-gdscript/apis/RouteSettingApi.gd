@@ -14,13 +14,11 @@ func _bzz_get_api_name() -> String:
 	return "RouteSettingApi"
 
 
-# Operation createRouteSettings → POST /api/{version}/route/setting
+# Operation createRouteSettings → POST /route/setting
 # Create Route Setting
 #
 # Create a new route setting
 func create_route_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: RouteSettings
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -31,7 +29,7 @@ func create_route_settings(
 	var bzz_method := self._bzz_convert_http_method("POST")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/setting".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/route/setting"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -61,8 +59,6 @@ func create_route_settings(
 
 
 func create_route_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# body: RouteSettings
 	body = null,
 	on_success: Callable = Callable(),  # func(response: ApiResponse)
@@ -71,7 +67,6 @@ func create_route_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "create_route_settings")
 	bzz_callable.bind(
-		version,
 		body,
 		on_success,
 		on_failure,
@@ -80,13 +75,11 @@ func create_route_settings_threaded(
 	return bzz_thread
 
 
-# Operation deleteRouteSettings → DELETE /api/{version}/route/setting/{routeSettingsId}
+# Operation deleteRouteSettings → DELETE /route/setting/{routeSettingsId}
 # Delete Route Setting
 #
 # Delete an existing route setting
 func delete_route_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeSettingsId: float   Eg: 789
 	# the id of the route setting to delete
 	routeSettingsId: float,
@@ -98,7 +91,7 @@ func delete_route_settings(
 	var bzz_method := self._bzz_convert_http_method("DELETE")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/setting/{routeSettingsId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeSettingsId" + "}", _bzz_urlize_path_param(routeSettingsId))
+	var bzz_path := "/api/3.18/route/setting/{routeSettingsId}".replace("{" + "routeSettingsId" + "}", _bzz_urlize_path_param(routeSettingsId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -126,8 +119,6 @@ func delete_route_settings(
 
 
 func delete_route_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeSettingsId: float   Eg: 789
 	# the id of the route setting to delete
 	routeSettingsId: float,
@@ -137,7 +128,6 @@ func delete_route_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "delete_route_settings")
 	bzz_callable.bind(
-		version,
 		routeSettingsId,
 		on_success,
 		on_failure,
@@ -146,13 +136,11 @@ func delete_route_settings_threaded(
 	return bzz_thread
 
 
-# Operation getRouteSettings → GET /api/{version}/route/setting/{routeSettingsId}
+# Operation getRouteSettings → GET /route/setting/{routeSettingsId}
 # Get Route Setting
 #
 # Get an existing route settings
 func get_route_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeSettingsId: float   Eg: 789
 	# the id of the route settings to get
 	routeSettingsId: float,
@@ -164,7 +152,7 @@ func get_route_settings(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/setting/{routeSettingsId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeSettingsId" + "}", _bzz_urlize_path_param(routeSettingsId))
+	var bzz_path := "/api/3.18/route/setting/{routeSettingsId}".replace("{" + "routeSettingsId" + "}", _bzz_urlize_path_param(routeSettingsId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -193,8 +181,6 @@ func get_route_settings(
 
 
 func get_route_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeSettingsId: float   Eg: 789
 	# the id of the route settings to get
 	routeSettingsId: float,
@@ -204,7 +190,6 @@ func get_route_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "get_route_settings")
 	bzz_callable.bind(
-		version,
 		routeSettingsId,
 		on_success,
 		on_failure,
@@ -213,13 +198,11 @@ func get_route_settings_threaded(
 	return bzz_thread
 
 
-# Operation searchRouteSettings → GET /api/{version}/route/setting
+# Operation searchRouteSettings → GET /route/setting
 # Search Route Settings
 #
 # Search for route settings
 func search_route_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -252,7 +235,7 @@ func search_route_settings(
 	var bzz_method := self._bzz_convert_http_method("GET")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/setting".replace("{" + "version" + "}", _bzz_urlize_path_param(version))
+	var bzz_path := "/api/3.18/route/setting"
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -289,8 +272,6 @@ func search_route_settings(
 
 
 func search_route_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# sortField: String = ""   Eg: sortField_example
 	# The field to sort by
 	sortField: String,
@@ -321,7 +302,6 @@ func search_route_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "search_route_settings")
 	bzz_callable.bind(
-		version,
 		sortField,
 		descending,
 		start,
@@ -337,13 +317,11 @@ func search_route_settings_threaded(
 	return bzz_thread
 
 
-# Operation updateRouteSettings → PUT /api/{version}/route/setting/{routeSettingsId}
+# Operation updateRouteSettings → PUT /route/setting/{routeSettingsId}
 # Update Route Setting
 #
 # Update an existing route setting
 func update_route_settings(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeSettingsId: float   Eg: 789
 	# the id of the route settings to update
 	routeSettingsId: float,
@@ -357,7 +335,7 @@ func update_route_settings(
 	var bzz_method := self._bzz_convert_http_method("PUT")
 
 	# Compute the URL path to the API resource
-	var bzz_path := "/api/{version}/route/setting/{routeSettingsId}".replace("{" + "version" + "}", _bzz_urlize_path_param(version)).replace("{" + "routeSettingsId" + "}", _bzz_urlize_path_param(routeSettingsId))
+	var bzz_path := "/api/3.18/route/setting/{routeSettingsId}".replace("{" + "routeSettingsId" + "}", _bzz_urlize_path_param(routeSettingsId))
 
 	# Collect the headers
 	var bzz_headers := Dictionary()
@@ -387,8 +365,6 @@ func update_route_settings(
 
 
 func update_route_settings_threaded(
-	# version: float   Eg: 3.16
-	version: float,
 	# routeSettingsId: float   Eg: 789
 	# the id of the route settings to update
 	routeSettingsId: float,
@@ -400,7 +376,6 @@ func update_route_settings_threaded(
 	var bzz_thread := Thread.new()
 	var bzz_callable := Callable(self, "update_route_settings")
 	bzz_callable.bind(
-		version,
 		routeSettingsId,
 		body,
 		on_success,
