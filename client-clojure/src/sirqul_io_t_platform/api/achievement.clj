@@ -350,14 +350,13 @@
   (:import (java.io File)))
 
 
-(defn-spec api-version-achievement-tier-search-post-with-http-info any?
+(defn-spec achievement-tier-search-post-with-http-info any?
   "Searches an Achievement Tier
   Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, ] (api-version-achievement-tier-search-post-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey keyword achievementType rankType sortField descending descendingGoal start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/achievement/tier/search" :post
-             {:path-params   {"version" version }
+  ([] (achievement-tier-search-post-with-http-info nil))
+  ([{:keys [deviceId accountId appKey keyword achievementType rankType sortField descending descendingGoal start limit]} (s/map-of keyword? any?)]
+   (call-api "/achievement/tier/search" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "keyword" keyword "achievementType" achievementType "rankType" rankType "sortField" sortField "descending" descending "descendingGoal" descendingGoal "start" start "limit" limit }
               :form-params   {}
@@ -365,12 +364,12 @@
               :accepts       ["*/*"]
               :auth-names    []})))
 
-(defn-spec api-version-achievement-tier-search-post achievement-tier-response-spec
+(defn-spec achievement-tier-search-post achievement-tier-response-spec
   "Searches an Achievement Tier
   Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, ] (api-version-achievement-tier-search-post version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (api-version-achievement-tier-search-post-with-http-info version optional-params))]
+  ([] (achievement-tier-search-post nil))
+  ([optional-params any?]
+   (let [res (:data (achievement-tier-search-post-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode achievement-tier-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec create-achievement-with-http-info any?
   "Create Achievement
   Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, appKey string?, title string?, ] (create-achievement-with-http-info version appKey title nil))
-  ([version float?, appKey string?, title string?, {:keys [deviceId accountId analyticsTag description rankType rankIncrement minIncrement maxIncrement validate active triggerDefinition]} (s/map-of keyword? any?)]
-   (check-required-params version appKey title)
-   (call-api "/api/{version}/achievement/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, title string?, ] (create-achievement-with-http-info appKey title nil))
+  ([appKey string?, title string?, {:keys [deviceId accountId analyticsTag description rankType rankIncrement minIncrement maxIncrement validate active triggerDefinition]} (s/map-of keyword? any?)]
+   (check-required-params appKey title)
+   (call-api "/achievement/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "analyticsTag" analyticsTag "title" title "description" description "rankType" rankType "rankIncrement" rankIncrement "minIncrement" minIncrement "maxIncrement" maxIncrement "validate" validate "active" active "triggerDefinition" triggerDefinition }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec create-achievement achievement-response-spec
   "Create Achievement
   Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, appKey string?, title string?, ] (create-achievement version appKey title nil))
-  ([version float?, appKey string?, title string?, optional-params any?]
-   (let [res (:data (create-achievement-with-http-info version appKey title optional-params))]
+  ([appKey string?, title string?, ] (create-achievement appKey title nil))
+  ([appKey string?, title string?, optional-params any?]
+   (let [res (:data (create-achievement-with-http-info appKey title optional-params))]
      (if (:decode-models *api-context*)
         (st/decode achievement-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,11 @@
 (defn-spec create-achievement-tier-with-http-info any?
   "Create Achievement Tier
   Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, achievementId int?, scoreAllInstances boolean?, ] (create-achievement-tier-with-http-info version achievementId scoreAllInstances nil))
-  ([version float?, achievementId int?, scoreAllInstances boolean?, {:keys [deviceId accountId ^File icon iconAssetId title description goalCount missionId gameId packId gameLevelId gameObjectId]} (s/map-of keyword? any?)]
-   (check-required-params version achievementId scoreAllInstances)
-   (call-api "/api/{version}/achievement/tier/create" :post
-             {:path-params   {"version" version }
+  ([achievementId int?, scoreAllInstances boolean?, ] (create-achievement-tier-with-http-info achievementId scoreAllInstances nil))
+  ([achievementId int?, scoreAllInstances boolean?, {:keys [deviceId accountId ^File icon iconAssetId title description goalCount missionId gameId packId gameLevelId gameObjectId]} (s/map-of keyword? any?)]
+   (check-required-params achievementId scoreAllInstances)
+   (call-api "/achievement/tier/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "achievementId" achievementId "icon" icon "iconAssetId" iconAssetId "title" title "description" description "goalCount" goalCount "missionId" missionId "gameId" gameId "packId" packId "gameLevelId" gameLevelId "gameObjectId" gameObjectId "scoreAllInstances" scoreAllInstances }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec create-achievement-tier achievement-tier-response-spec
   "Create Achievement Tier
   Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, achievementId int?, scoreAllInstances boolean?, ] (create-achievement-tier version achievementId scoreAllInstances nil))
-  ([version float?, achievementId int?, scoreAllInstances boolean?, optional-params any?]
-   (let [res (:data (create-achievement-tier-with-http-info version achievementId scoreAllInstances optional-params))]
+  ([achievementId int?, scoreAllInstances boolean?, ] (create-achievement-tier achievementId scoreAllInstances nil))
+  ([achievementId int?, scoreAllInstances boolean?, optional-params any?]
+   (let [res (:data (create-achievement-tier-with-http-info achievementId scoreAllInstances optional-params))]
      (if (:decode-models *api-context*)
         (st/decode achievement-tier-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,11 @@
 (defn-spec delete-achievement-with-http-info any?
   "Delete Achievement
   Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for."
-  ([version float?, achievementId int?, ] (delete-achievement-with-http-info version achievementId nil))
-  ([version float?, achievementId int?, {:keys [accountId]} (s/map-of keyword? any?)]
-   (check-required-params version achievementId)
-   (call-api "/api/{version}/achievement/delete" :post
-             {:path-params   {"version" version }
+  ([achievementId int?, ] (delete-achievement-with-http-info achievementId nil))
+  ([achievementId int?, {:keys [accountId]} (s/map-of keyword? any?)]
+   (check-required-params achievementId)
+   (call-api "/achievement/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "achievementId" achievementId }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec delete-achievement sirqul-response-spec
   "Delete Achievement
   Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for."
-  ([version float?, achievementId int?, ] (delete-achievement version achievementId nil))
-  ([version float?, achievementId int?, optional-params any?]
-   (let [res (:data (delete-achievement-with-http-info version achievementId optional-params))]
+  ([achievementId int?, ] (delete-achievement achievementId nil))
+  ([achievementId int?, optional-params any?]
+   (let [res (:data (delete-achievement-with-http-info achievementId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -457,11 +456,11 @@
 (defn-spec delete-achievement-tier-with-http-info any?
   "Delete Achievement Tier
   Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for."
-  ([version float?, achievementTierId int?, ] (delete-achievement-tier-with-http-info version achievementTierId nil))
-  ([version float?, achievementTierId int?, {:keys [accountId]} (s/map-of keyword? any?)]
-   (check-required-params version achievementTierId)
-   (call-api "/api/{version}/achievement/tier/delete" :post
-             {:path-params   {"version" version }
+  ([achievementTierId int?, ] (delete-achievement-tier-with-http-info achievementTierId nil))
+  ([achievementTierId int?, {:keys [accountId]} (s/map-of keyword? any?)]
+   (check-required-params achievementTierId)
+   (call-api "/achievement/tier/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "achievementTierId" achievementTierId }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec delete-achievement-tier sirqul-response-spec
   "Delete Achievement Tier
   Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for."
-  ([version float?, achievementTierId int?, ] (delete-achievement-tier version achievementTierId nil))
-  ([version float?, achievementTierId int?, optional-params any?]
-   (let [res (:data (delete-achievement-tier-with-http-info version achievementTierId optional-params))]
+  ([achievementTierId int?, ] (delete-achievement-tier achievementTierId nil))
+  ([achievementTierId int?, optional-params any?]
+   (let [res (:data (delete-achievement-tier-with-http-info achievementTierId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -483,11 +482,11 @@
 (defn-spec get-achievement-with-http-info any?
   "Get Achievement
   Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, achievementId int?, ] (get-achievement-with-http-info version achievementId nil))
-  ([version float?, achievementId int?, {:keys [deviceId accountId achievementType]} (s/map-of keyword? any?)]
-   (check-required-params version achievementId)
-   (call-api "/api/{version}/achievement/get" :get
-             {:path-params   {"version" version }
+  ([achievementId int?, ] (get-achievement-with-http-info achievementId nil))
+  ([achievementId int?, {:keys [deviceId accountId achievementType]} (s/map-of keyword? any?)]
+   (check-required-params achievementId)
+   (call-api "/achievement/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "achievementId" achievementId "achievementType" achievementType }
               :form-params   {}
@@ -498,9 +497,9 @@
 (defn-spec get-achievement achievement-tier-response-spec
   "Get Achievement
   Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, achievementId int?, ] (get-achievement version achievementId nil))
-  ([version float?, achievementId int?, optional-params any?]
-   (let [res (:data (get-achievement-with-http-info version achievementId optional-params))]
+  ([achievementId int?, ] (get-achievement achievementId nil))
+  ([achievementId int?, optional-params any?]
+   (let [res (:data (get-achievement-with-http-info achievementId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode achievement-tier-response-spec res st/string-transformer)
         res))))
@@ -509,10 +508,10 @@
 (defn-spec get-achievement-tier-with-http-info any?
   "Gets an achievement tier
   Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  [version float?, accountId int?, achievementTierId int?]
-  (check-required-params version accountId achievementTierId)
-  (call-api "/api/{version}/achievement/tier/get" :post
-            {:path-params   {"version" version }
+  [accountId int?, achievementTierId int?]
+  (check-required-params accountId achievementTierId)
+  (call-api "/achievement/tier/get" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "achievementTierId" achievementTierId }
              :form-params   {}
@@ -523,8 +522,8 @@
 (defn-spec get-achievement-tier achievement-tier-response-spec
   "Gets an achievement tier
   Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  [version float?, accountId int?, achievementTierId int?]
-  (let [res (:data (get-achievement-tier-with-http-info version accountId achievementTierId))]
+  [accountId int?, achievementTierId int?]
+  (let [res (:data (get-achievement-tier-with-http-info accountId achievementTierId))]
     (if (:decode-models *api-context*)
        (st/decode achievement-tier-response-spec res st/string-transformer)
        res)))
@@ -533,11 +532,11 @@
 (defn-spec get-user-achievements-with-http-info any?
   "Get Achievement Progress
   Gets a list of user achievements."
-  ([version float?, returnNulls boolean?, appKey string?, includeUndiscovered boolean?, ] (get-user-achievements-with-http-info version returnNulls appKey includeUndiscovered nil))
-  ([version float?, returnNulls boolean?, appKey string?, includeUndiscovered boolean?, {:keys [deviceId accountId connectionAccountEmail connectionAccountId rankType achievementType latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls appKey includeUndiscovered)
-   (call-api "/api/{version}/achievement/progress/get" :get
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, appKey string?, includeUndiscovered boolean?, ] (get-user-achievements-with-http-info returnNulls appKey includeUndiscovered nil))
+  ([returnNulls boolean?, appKey string?, includeUndiscovered boolean?, {:keys [deviceId accountId connectionAccountEmail connectionAccountId rankType achievementType latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls appKey includeUndiscovered)
+   (call-api "/achievement/progress/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "connectionAccountEmail" connectionAccountEmail "connectionAccountId" connectionAccountId "appKey" appKey "rankType" rankType "achievementType" achievementType "includeUndiscovered" includeUndiscovered "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -548,9 +547,9 @@
 (defn-spec get-user-achievements (s/coll-of achievement-progress-response-spec)
   "Get Achievement Progress
   Gets a list of user achievements."
-  ([version float?, returnNulls boolean?, appKey string?, includeUndiscovered boolean?, ] (get-user-achievements version returnNulls appKey includeUndiscovered nil))
-  ([version float?, returnNulls boolean?, appKey string?, includeUndiscovered boolean?, optional-params any?]
-   (let [res (:data (get-user-achievements-with-http-info version returnNulls appKey includeUndiscovered optional-params))]
+  ([returnNulls boolean?, appKey string?, includeUndiscovered boolean?, ] (get-user-achievements returnNulls appKey includeUndiscovered nil))
+  ([returnNulls boolean?, appKey string?, includeUndiscovered boolean?, optional-params any?]
+   (let [res (:data (get-user-achievements-with-http-info returnNulls appKey includeUndiscovered optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of achievement-progress-response-spec) res st/string-transformer)
         res))))
@@ -559,11 +558,10 @@
 (defn-spec list-achievement-tags-with-http-info any?
   "List Achievement Tags
   List achievement tags by application"
-  ([version float?, ] (list-achievement-tags-with-http-info version nil))
-  ([version float?, {:keys [appKey]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/achievement/tag/list" :get
-             {:path-params   {"version" version }
+  ([] (list-achievement-tags-with-http-info nil))
+  ([{:keys [appKey]} (s/map-of keyword? any?)]
+   (call-api "/achievement/tag/list" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey }
               :form-params   {}
@@ -574,9 +572,9 @@
 (defn-spec list-achievement-tags sirqul-response-spec
   "List Achievement Tags
   List achievement tags by application"
-  ([version float?, ] (list-achievement-tags version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (list-achievement-tags-with-http-info version optional-params))]
+  ([] (list-achievement-tags nil))
+  ([optional-params any?]
+   (let [res (:data (list-achievement-tags-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -585,11 +583,11 @@
 (defn-spec list-achievements-with-http-info any?
   "List Achievements
   List achievements by billable."
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (list-achievements-with-http-info version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [deviceId accountId appKey keyword achievementType rankType]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly)
-   (call-api "/api/{version}/achievement/list" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (list-achievements-with-http-info sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [deviceId accountId appKey keyword achievementType rankType]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly)
+   (call-api "/achievement/list" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "keyword" keyword "achievementType" achievementType "rankType" rankType "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -600,9 +598,9 @@
 (defn-spec list-achievements (s/coll-of achievement-short-response-spec)
   "List Achievements
   List achievements by billable."
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (list-achievements version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (list-achievements-with-http-info version sortField descending start limit activeOnly optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (list-achievements sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (list-achievements-with-http-info sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of achievement-short-response-spec) res st/string-transformer)
         res))))
@@ -611,11 +609,11 @@
 (defn-spec search-achievements-with-http-info any?
   "Search Achievements
   Searches achievements by application for consumers."
-  ([version float?, appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, ] (search-achievements-with-http-info version appKey sortField descending includeTiers includeInactiveTiers start limit nil))
-  ([version float?, appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, {:keys [deviceId accountId keyword achievementType rankType]} (s/map-of keyword? any?)]
-   (check-required-params version appKey sortField descending includeTiers includeInactiveTiers start limit)
-   (call-api "/api/{version}/achievement/search" :get
-             {:path-params   {"version" version }
+  ([appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, ] (search-achievements-with-http-info appKey sortField descending includeTiers includeInactiveTiers start limit nil))
+  ([appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, {:keys [deviceId accountId keyword achievementType rankType]} (s/map-of keyword? any?)]
+   (check-required-params appKey sortField descending includeTiers includeInactiveTiers start limit)
+   (call-api "/achievement/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "keyword" keyword "achievementType" achievementType "rankType" rankType "sortField" sortField "descending" descending "includeTiers" includeTiers "includeInactiveTiers" includeInactiveTiers "start" start "limit" limit }
               :form-params   {}
@@ -626,9 +624,9 @@
 (defn-spec search-achievements (s/coll-of achievement-short-response-spec)
   "Search Achievements
   Searches achievements by application for consumers."
-  ([version float?, appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, ] (search-achievements version appKey sortField descending includeTiers includeInactiveTiers start limit nil))
-  ([version float?, appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-achievements-with-http-info version appKey sortField descending includeTiers includeInactiveTiers start limit optional-params))]
+  ([appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, ] (search-achievements appKey sortField descending includeTiers includeInactiveTiers start limit nil))
+  ([appKey string?, sortField string?, descending boolean?, includeTiers boolean?, includeInactiveTiers boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-achievements-with-http-info appKey sortField descending includeTiers includeInactiveTiers start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of achievement-short-response-spec) res st/string-transformer)
         res))))
@@ -637,11 +635,10 @@
 (defn-spec update-achievement-with-http-info any?
   "Update Achievement
   Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, ] (update-achievement-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId achievementId analyticsTag title description rankType rankIncrement minIncrement nullMinIncrement maxIncrement nullMaxIncrement validate active triggerDefinition]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/achievement/update" :post
-             {:path-params   {"version" version }
+  ([] (update-achievement-with-http-info nil))
+  ([{:keys [deviceId accountId achievementId analyticsTag title description rankType rankIncrement minIncrement nullMinIncrement maxIncrement nullMaxIncrement validate active triggerDefinition]} (s/map-of keyword? any?)]
+   (call-api "/achievement/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "achievementId" achievementId "analyticsTag" analyticsTag "title" title "description" description "rankType" rankType "rankIncrement" rankIncrement "minIncrement" minIncrement "nullMinIncrement" nullMinIncrement "maxIncrement" maxIncrement "nullMaxIncrement" nullMaxIncrement "validate" validate "active" active "triggerDefinition" triggerDefinition }
               :form-params   {}
@@ -652,9 +649,9 @@
 (defn-spec update-achievement achievement-response-spec
   "Update Achievement
   Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, ] (update-achievement version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (update-achievement-with-http-info version optional-params))]
+  ([] (update-achievement nil))
+  ([optional-params any?]
+   (let [res (:data (update-achievement-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode achievement-response-spec res st/string-transformer)
         res))))
@@ -663,11 +660,11 @@
 (defn-spec update-achievement-tier-with-http-info any?
   "Update Achievement Tier
   Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, achievementTierId int?, ] (update-achievement-tier-with-http-info version achievementTierId nil))
-  ([version float?, achievementTierId int?, {:keys [deviceId accountId ^File icon iconAssetId title description goalCount missionId gameId packId gameLevelId gameObjectId scoreAllInstances]} (s/map-of keyword? any?)]
-   (check-required-params version achievementTierId)
-   (call-api "/api/{version}/achievement/tier/update" :post
-             {:path-params   {"version" version }
+  ([achievementTierId int?, ] (update-achievement-tier-with-http-info achievementTierId nil))
+  ([achievementTierId int?, {:keys [deviceId accountId ^File icon iconAssetId title description goalCount missionId gameId packId gameLevelId gameObjectId scoreAllInstances]} (s/map-of keyword? any?)]
+   (check-required-params achievementTierId)
+   (call-api "/achievement/tier/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "achievementTierId" achievementTierId "icon" icon "iconAssetId" iconAssetId "title" title "description" description "goalCount" goalCount "missionId" missionId "gameId" gameId "packId" packId "gameLevelId" gameLevelId "gameObjectId" gameObjectId "scoreAllInstances" scoreAllInstances }
               :form-params   {}
@@ -678,9 +675,9 @@
 (defn-spec update-achievement-tier achievement-tier-response-spec
   "Update Achievement Tier
   Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for."
-  ([version float?, achievementTierId int?, ] (update-achievement-tier version achievementTierId nil))
-  ([version float?, achievementTierId int?, optional-params any?]
-   (let [res (:data (update-achievement-tier-with-http-info version achievementTierId optional-params))]
+  ([achievementTierId int?, ] (update-achievement-tier achievementTierId nil))
+  ([achievementTierId int?, optional-params any?]
+   (let [res (:data (update-achievement-tier-with-http-info achievementTierId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode achievement-tier-response-spec res st/string-transformer)
         res))))
@@ -689,11 +686,11 @@
 (defn-spec update-user-achievement-with-http-info any?
   "Update Achievement Progress
   Update user achievement progress."
-  ([version float?, accountId int?, ] (update-user-achievement-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [achievementId tag customId increment startDate endDate returnProgress]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/achievement/progress/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (update-user-achievement-with-http-info accountId nil))
+  ([accountId int?, {:keys [achievementId tag customId increment startDate endDate returnProgress]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/achievement/progress/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "achievementId" achievementId "tag" tag "customId" customId "increment" increment "startDate" startDate "endDate" endDate "returnProgress" returnProgress }
               :form-params   {}
@@ -704,9 +701,9 @@
 (defn-spec update-user-achievement sirqul-response-spec
   "Update Achievement Progress
   Update user achievement progress."
-  ([version float?, accountId int?, ] (update-user-achievement version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (update-user-achievement-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (update-user-achievement accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (update-user-achievement-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

@@ -353,11 +353,11 @@
 (defn-spec batch-operation-with-http-info any?
   "Batch Note Operation
   Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE)."
-  ([version float?, notableId int?, notableType string?, ] (batch-operation-with-http-info version notableId notableType nil))
-  ([version float?, notableId int?, notableType string?, {:keys [deviceId accountId batchOperation]} (s/map-of keyword? any?)]
-   (check-required-params version notableId notableType)
-   (call-api "/api/{version}/note/batch" :post
-             {:path-params   {"version" version }
+  ([notableId int?, notableType string?, ] (batch-operation-with-http-info notableId notableType nil))
+  ([notableId int?, notableType string?, {:keys [deviceId accountId batchOperation]} (s/map-of keyword? any?)]
+   (check-required-params notableId notableType)
+   (call-api "/note/batch" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "notableId" notableId "notableType" notableType "batchOperation" batchOperation }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec batch-operation sirqul-response-spec
   "Batch Note Operation
   Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE)."
-  ([version float?, notableId int?, notableType string?, ] (batch-operation version notableId notableType nil))
-  ([version float?, notableId int?, notableType string?, optional-params any?]
-   (let [res (:data (batch-operation-with-http-info version notableId notableType optional-params))]
+  ([notableId int?, notableType string?, ] (batch-operation notableId notableType nil))
+  ([notableId int?, notableType string?, optional-params any?]
+   (let [res (:data (batch-operation-with-http-info notableId notableType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec create-note-with-http-info any?
   "Create Note
   This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object."
-  ([version float?, comment string?, ] (create-note-with-http-info version comment nil))
-  ([version float?, comment string?, {:keys [deviceId accountId notableType notableId noteType assetIds tags permissionableType permissionableId appKey locationDescription latitude longitude metaData receiverAccountIds returnFullResponse initializeAsset assetReturnNulls assetAlbumId assetCollectionId assetAddToDefaultAlbum assetAddToMediaLibrary assetVersionCode assetVersionName assetMetaData assetCaption ^File assetMedia assetMediaUrl assetMediaString assetMediaStringFileName assetMediaStringContentType ^File assetAttachedMedia assetAttachedMediaUrl assetAttachedMediaString assetAttachedMediaStringFileName assetAttachedMediaStringContentType assetLocationDescription assetApp assetSearchTags assetLatitude assetLongitude]} (s/map-of keyword? any?)]
-   (check-required-params version comment)
-   (call-api "/api/{version}/note/create" :post
-             {:path-params   {"version" version }
+  ([comment string?, ] (create-note-with-http-info comment nil))
+  ([comment string?, {:keys [deviceId accountId notableType notableId noteType assetIds tags permissionableType permissionableId appKey locationDescription latitude longitude metaData receiverAccountIds returnFullResponse initializeAsset assetReturnNulls assetAlbumId assetCollectionId assetAddToDefaultAlbum assetAddToMediaLibrary assetVersionCode assetVersionName assetMetaData assetCaption ^File assetMedia assetMediaUrl assetMediaString assetMediaStringFileName assetMediaStringContentType ^File assetAttachedMedia assetAttachedMediaUrl assetAttachedMediaString assetAttachedMediaStringFileName assetAttachedMediaStringContentType assetLocationDescription assetApp assetSearchTags assetLatitude assetLongitude]} (s/map-of keyword? any?)]
+   (check-required-params comment)
+   (call-api "/note/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "notableType" notableType "notableId" notableId "comment" comment "noteType" noteType "assetIds" assetIds "tags" tags "permissionableType" permissionableType "permissionableId" permissionableId "appKey" appKey "locationDescription" locationDescription "latitude" latitude "longitude" longitude "metaData" metaData "receiverAccountIds" receiverAccountIds "returnFullResponse" returnFullResponse "initializeAsset" initializeAsset "assetReturnNulls" assetReturnNulls "assetAlbumId" assetAlbumId "assetCollectionId" assetCollectionId "assetAddToDefaultAlbum" assetAddToDefaultAlbum "assetAddToMediaLibrary" assetAddToMediaLibrary "assetVersionCode" assetVersionCode "assetVersionName" assetVersionName "assetMetaData" assetMetaData "assetCaption" assetCaption "assetMedia" assetMedia "assetMediaUrl" assetMediaUrl "assetMediaString" assetMediaString "assetMediaStringFileName" assetMediaStringFileName "assetMediaStringContentType" assetMediaStringContentType "assetAttachedMedia" assetAttachedMedia "assetAttachedMediaUrl" assetAttachedMediaUrl "assetAttachedMediaString" assetAttachedMediaString "assetAttachedMediaStringFileName" assetAttachedMediaStringFileName "assetAttachedMediaStringContentType" assetAttachedMediaStringContentType "assetLocationDescription" assetLocationDescription "assetApp" assetApp "assetSearchTags" assetSearchTags "assetLatitude" assetLatitude "assetLongitude" assetLongitude }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec create-note note-response-spec
   "Create Note
   This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object."
-  ([version float?, comment string?, ] (create-note version comment nil))
-  ([version float?, comment string?, optional-params any?]
-   (let [res (:data (create-note-with-http-info version comment optional-params))]
+  ([comment string?, ] (create-note comment nil))
+  ([comment string?, optional-params any?]
+   (let [res (:data (create-note-with-http-info comment optional-params))]
      (if (:decode-models *api-context*)
         (st/decode note-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec delete-note-with-http-info any?
   "Delete Note
   Sets a comment (note) as deleted."
-  ([version float?, noteId int?, ] (delete-note-with-http-info version noteId nil))
-  ([version float?, noteId int?, {:keys [deviceId accountId latitude longitude appKey]} (s/map-of keyword? any?)]
-   (check-required-params version noteId)
-   (call-api "/api/{version}/note/delete" :post
-             {:path-params   {"version" version }
+  ([noteId int?, ] (delete-note-with-http-info noteId nil))
+  ([noteId int?, {:keys [deviceId accountId latitude longitude appKey]} (s/map-of keyword? any?)]
+   (check-required-params noteId)
+   (call-api "/note/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "noteId" noteId "latitude" latitude "longitude" longitude "appKey" appKey }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec delete-note sirqul-response-spec
   "Delete Note
   Sets a comment (note) as deleted."
-  ([version float?, noteId int?, ] (delete-note version noteId nil))
-  ([version float?, noteId int?, optional-params any?]
-   (let [res (:data (delete-note-with-http-info version noteId optional-params))]
+  ([noteId int?, ] (delete-note noteId nil))
+  ([noteId int?, optional-params any?]
+   (let [res (:data (delete-note-with-http-info noteId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec get-note-with-http-info any?
   "Get Note
   Get for a note based on its Id."
-  ([version float?, noteId int?, ] (get-note-with-http-info version noteId nil))
-  ([version float?, noteId int?, {:keys [deviceId accountId returnFullResponse]} (s/map-of keyword? any?)]
-   (check-required-params version noteId)
-   (call-api "/api/{version}/note/get" :post
-             {:path-params   {"version" version }
+  ([noteId int?, ] (get-note-with-http-info noteId nil))
+  ([noteId int?, {:keys [deviceId accountId returnFullResponse]} (s/map-of keyword? any?)]
+   (check-required-params noteId)
+   (call-api "/note/get" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "returnFullResponse" returnFullResponse "noteId" noteId }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec get-note sirqul-response-spec
   "Get Note
   Get for a note based on its Id."
-  ([version float?, noteId int?, ] (get-note version noteId nil))
-  ([version float?, noteId int?, optional-params any?]
-   (let [res (:data (get-note-with-http-info version noteId optional-params))]
+  ([noteId int?, ] (get-note noteId nil))
+  ([noteId int?, optional-params any?]
+   (let [res (:data (get-note-with-http-info noteId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,10 @@
 (defn-spec search-notes-with-http-info any?
   "Search Notes
   Search for notes on a notable object."
-  ([version float?, ] (search-notes-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId notableType notableId noteTypes appKey keyword flagCountMinimum flagsExceedThreshold includeInactive sortField descending returnFullResponse updatedSince updatedBefore start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/note/search" :post
-             {:path-params   {"version" version }
+  ([] (search-notes-with-http-info nil))
+  ([{:keys [deviceId accountId notableType notableId noteTypes appKey keyword flagCountMinimum flagsExceedThreshold includeInactive sortField descending returnFullResponse updatedSince updatedBefore start limit]} (s/map-of keyword? any?)]
+   (call-api "/note/search" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "notableType" notableType "notableId" notableId "noteTypes" noteTypes "appKey" appKey "keyword" keyword "flagCountMinimum" flagCountMinimum "flagsExceedThreshold" flagsExceedThreshold "includeInactive" includeInactive "sortField" sortField "descending" descending "returnFullResponse" returnFullResponse "updatedSince" updatedSince "updatedBefore" updatedBefore "start" start "limit" limit }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec search-notes (s/coll-of note-response-spec)
   "Search Notes
   Search for notes on a notable object."
-  ([version float?, ] (search-notes version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-notes-with-http-info version optional-params))]
+  ([] (search-notes nil))
+  ([optional-params any?]
+   (let [res (:data (search-notes-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of note-response-spec) res st/string-transformer)
         res))))
@@ -483,11 +482,11 @@
 (defn-spec update-note-with-http-info any?
   "Update Note
   Update an existing comment (note). Only the creator of the note have permission to update."
-  ([version float?, noteId int?, ] (update-note-with-http-info version noteId nil))
-  ([version float?, noteId int?, {:keys [deviceId accountId comment noteType assetIds tags permissionableType permissionableId appKey locationDescription latitude longitude metaData returnFullResponse active updateAsset assetReturnNulls assetAlbumId assetCollectionId assetAddToDefaultAlbum assetAddToMediaLibrary assetVersionCode assetVersionName assetMetaData assetCaption ^File assetMedia assetMediaUrl assetMediaString assetMediaStringFileName assetMediaStringContentType ^File assetAttachedMedia assetAttachedMediaUrl assetAttachedMediaString assetAttachedMediaStringFileName assetAttachedMediaStringContentType assetLocationDescription assetApp assetSearchTags assetLatitude assetLongitude]} (s/map-of keyword? any?)]
-   (check-required-params version noteId)
-   (call-api "/api/{version}/note/update" :post
-             {:path-params   {"version" version }
+  ([noteId int?, ] (update-note-with-http-info noteId nil))
+  ([noteId int?, {:keys [deviceId accountId comment noteType assetIds tags permissionableType permissionableId appKey locationDescription latitude longitude metaData returnFullResponse active updateAsset assetReturnNulls assetAlbumId assetCollectionId assetAddToDefaultAlbum assetAddToMediaLibrary assetVersionCode assetVersionName assetMetaData assetCaption ^File assetMedia assetMediaUrl assetMediaString assetMediaStringFileName assetMediaStringContentType ^File assetAttachedMedia assetAttachedMediaUrl assetAttachedMediaString assetAttachedMediaStringFileName assetAttachedMediaStringContentType assetLocationDescription assetApp assetSearchTags assetLatitude assetLongitude]} (s/map-of keyword? any?)]
+   (check-required-params noteId)
+   (call-api "/note/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "noteId" noteId "comment" comment "noteType" noteType "assetIds" assetIds "tags" tags "permissionableType" permissionableType "permissionableId" permissionableId "appKey" appKey "locationDescription" locationDescription "latitude" latitude "longitude" longitude "metaData" metaData "returnFullResponse" returnFullResponse "active" active "updateAsset" updateAsset "assetReturnNulls" assetReturnNulls "assetAlbumId" assetAlbumId "assetCollectionId" assetCollectionId "assetAddToDefaultAlbum" assetAddToDefaultAlbum "assetAddToMediaLibrary" assetAddToMediaLibrary "assetVersionCode" assetVersionCode "assetVersionName" assetVersionName "assetMetaData" assetMetaData "assetCaption" assetCaption "assetMedia" assetMedia "assetMediaUrl" assetMediaUrl "assetMediaString" assetMediaString "assetMediaStringFileName" assetMediaStringFileName "assetMediaStringContentType" assetMediaStringContentType "assetAttachedMedia" assetAttachedMedia "assetAttachedMediaUrl" assetAttachedMediaUrl "assetAttachedMediaString" assetAttachedMediaString "assetAttachedMediaStringFileName" assetAttachedMediaStringFileName "assetAttachedMediaStringContentType" assetAttachedMediaStringContentType "assetLocationDescription" assetLocationDescription "assetApp" assetApp "assetSearchTags" assetSearchTags "assetLatitude" assetLatitude "assetLongitude" assetLongitude }
               :form-params   {}
@@ -498,9 +497,9 @@
 (defn-spec update-note note-response-spec
   "Update Note
   Update an existing comment (note). Only the creator of the note have permission to update."
-  ([version float?, noteId int?, ] (update-note version noteId nil))
-  ([version float?, noteId int?, optional-params any?]
-   (let [res (:data (update-note-with-http-info version noteId optional-params))]
+  ([noteId int?, ] (update-note noteId nil))
+  ([noteId int?, optional-params any?]
+   (let [res (:data (update-note-with-http-info noteId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode note-response-spec res st/string-transformer)
         res))))

@@ -353,11 +353,11 @@
 (defn-spec create-offer-transaction-status-with-http-info any?
   "Create Offer Status
   Create an offer status record"
-  ([version float?, name string?, code int?, ] (create-offer-transaction-status-with-http-info version name code nil))
-  ([version float?, name string?, code int?, {:keys [deviceId accountId latitude longitude description role active applicationIds]} (s/map-of keyword? any?)]
-   (check-required-params version name code)
-   (call-api "/api/{version}/offer/status/create" :post
-             {:path-params   {"version" version }
+  ([name string?, code int?, ] (create-offer-transaction-status-with-http-info name code nil))
+  ([name string?, code int?, {:keys [deviceId accountId latitude longitude description role active applicationIds]} (s/map-of keyword? any?)]
+   (check-required-params name code)
+   (call-api "/offer/status/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "name" name "description" description "code" code "role" role "active" active "applicationIds" applicationIds }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-offer-transaction-status offer-transaction-status-response-spec
   "Create Offer Status
   Create an offer status record"
-  ([version float?, name string?, code int?, ] (create-offer-transaction-status version name code nil))
-  ([version float?, name string?, code int?, optional-params any?]
-   (let [res (:data (create-offer-transaction-status-with-http-info version name code optional-params))]
+  ([name string?, code int?, ] (create-offer-transaction-status name code nil))
+  ([name string?, code int?, optional-params any?]
+   (let [res (:data (create-offer-transaction-status-with-http-info name code optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-transaction-status-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec delete-offer-transaction-status-with-http-info any?
   "Delete Offer Status
   Mark an offer status record as deleted"
-  ([version float?, statusId int?, ] (delete-offer-transaction-status-with-http-info version statusId nil))
-  ([version float?, statusId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version statusId)
-   (call-api "/api/{version}/offer/status/delete" :post
-             {:path-params   {"version" version }
+  ([statusId int?, ] (delete-offer-transaction-status-with-http-info statusId nil))
+  ([statusId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params statusId)
+   (call-api "/offer/status/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "statusId" statusId }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec delete-offer-transaction-status sirqul-response-spec
   "Delete Offer Status
   Mark an offer status record as deleted"
-  ([version float?, statusId int?, ] (delete-offer-transaction-status version statusId nil))
-  ([version float?, statusId int?, optional-params any?]
-   (let [res (:data (delete-offer-transaction-status-with-http-info version statusId optional-params))]
+  ([statusId int?, ] (delete-offer-transaction-status statusId nil))
+  ([statusId int?, optional-params any?]
+   (let [res (:data (delete-offer-transaction-status-with-http-info statusId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec get-offer-transaction-status-with-http-info any?
   "Get Offer Status
   Get an offer status record"
-  ([version float?, statusId int?, ] (get-offer-transaction-status-with-http-info version statusId nil))
-  ([version float?, statusId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version statusId)
-   (call-api "/api/{version}/offer/status/get" :get
-             {:path-params   {"version" version }
+  ([statusId int?, ] (get-offer-transaction-status-with-http-info statusId nil))
+  ([statusId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params statusId)
+   (call-api "/offer/status/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "statusId" statusId }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec get-offer-transaction-status offer-transaction-status-response-spec
   "Get Offer Status
   Get an offer status record"
-  ([version float?, statusId int?, ] (get-offer-transaction-status version statusId nil))
-  ([version float?, statusId int?, optional-params any?]
-   (let [res (:data (get-offer-transaction-status-with-http-info version statusId optional-params))]
+  ([statusId int?, ] (get-offer-transaction-status statusId nil))
+  ([statusId int?, optional-params any?]
+   (let [res (:data (get-offer-transaction-status-with-http-info statusId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-transaction-status-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,10 @@
 (defn-spec search-offer-transaction-statuses-with-http-info any?
   "Search Offer Status
   Search for the available offer statuses"
-  ([version float?, ] (search-offer-transaction-statuses-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId latitude longitude keyword role appKey sortField descending start limit includeInactive]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/offer/status/search" :get
-             {:path-params   {"version" version }
+  ([] (search-offer-transaction-statuses-with-http-info nil))
+  ([{:keys [deviceId accountId latitude longitude keyword role appKey sortField descending start limit includeInactive]} (s/map-of keyword? any?)]
+   (call-api "/offer/status/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "keyword" keyword "role" role "appKey" appKey "sortField" sortField "descending" descending "start" start "limit" limit "includeInactive" includeInactive }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec search-offer-transaction-statuses (s/coll-of offer-transaction-status-response-spec)
   "Search Offer Status
   Search for the available offer statuses"
-  ([version float?, ] (search-offer-transaction-statuses version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-offer-transaction-statuses-with-http-info version optional-params))]
+  ([] (search-offer-transaction-statuses nil))
+  ([optional-params any?]
+   (let [res (:data (search-offer-transaction-statuses-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of offer-transaction-status-response-spec) res st/string-transformer)
         res))))
@@ -457,11 +456,10 @@
 (defn-spec update-offer-transaction-status-with-http-info any?
   "Update Offer Status
   Update an offer status record"
-  ([version float?, ] (update-offer-transaction-status-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId latitude longitude statusId name description code role active applicationIds]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/offer/status/update" :post
-             {:path-params   {"version" version }
+  ([] (update-offer-transaction-status-with-http-info nil))
+  ([{:keys [deviceId accountId latitude longitude statusId name description code role active applicationIds]} (s/map-of keyword? any?)]
+   (call-api "/offer/status/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "statusId" statusId "name" name "description" description "code" code "role" role "active" active "applicationIds" applicationIds }
               :form-params   {}
@@ -472,9 +470,9 @@
 (defn-spec update-offer-transaction-status offer-transaction-status-response-spec
   "Update Offer Status
   Update an offer status record"
-  ([version float?, ] (update-offer-transaction-status version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (update-offer-transaction-status-with-http-info version optional-params))]
+  ([] (update-offer-transaction-status nil))
+  ([optional-params any?]
+   (let [res (:data (update-offer-transaction-status-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-transaction-status-response-spec res st/string-transformer)
         res))))

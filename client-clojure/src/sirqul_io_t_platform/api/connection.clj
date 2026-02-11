@@ -353,11 +353,11 @@
 (defn-spec add-connection-to-group-with-http-info any?
   "Add Connection
   Adds a connection to a group."
-  ([version float?, returnNulls boolean?, groupId int?, ] (add-connection-to-group-with-http-info version returnNulls groupId nil))
-  ([version float?, returnNulls boolean?, groupId int?, {:keys [deviceId accountId connectionId connectionAccountId pendingId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls groupId)
-   (call-api "/api/{version}/consumer/connection/group/addConnection" :post
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, groupId int?, ] (add-connection-to-group-with-http-info returnNulls groupId nil))
+  ([returnNulls boolean?, groupId int?, {:keys [deviceId accountId connectionId connectionAccountId pendingId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls groupId)
+   (call-api "/consumer/connection/group/addConnection" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "connectionId" connectionId "connectionAccountId" connectionAccountId "pendingId" pendingId "groupId" groupId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-connection-to-group sirqul-response-spec
   "Add Connection
   Adds a connection to a group."
-  ([version float?, returnNulls boolean?, groupId int?, ] (add-connection-to-group version returnNulls groupId nil))
-  ([version float?, returnNulls boolean?, groupId int?, optional-params any?]
-   (let [res (:data (add-connection-to-group-with-http-info version returnNulls groupId optional-params))]
+  ([returnNulls boolean?, groupId int?, ] (add-connection-to-group returnNulls groupId nil))
+  ([returnNulls boolean?, groupId int?, optional-params any?]
+   (let [res (:data (add-connection-to-group-with-http-info returnNulls groupId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec add-connections-to-group-with-http-info any?
   "Add Connections
   Adds a list of connections to a group."
-  ([version float?, connectionGroupId int?, ] (add-connections-to-group-with-http-info version connectionGroupId nil))
-  ([version float?, connectionGroupId int?, {:keys [deviceId accountId connectionIds connectionAccountIds latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version connectionGroupId)
-   (call-api "/api/{version}/connection/group/addConnections" :post
-             {:path-params   {"version" version }
+  ([connectionGroupId int?, ] (add-connections-to-group-with-http-info connectionGroupId nil))
+  ([connectionGroupId int?, {:keys [deviceId accountId connectionIds connectionAccountIds latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params connectionGroupId)
+   (call-api "/connection/group/addConnections" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionIds" connectionIds "connectionAccountIds" connectionAccountIds "connectionGroupId" connectionGroupId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec add-connections-to-group sirqul-response-spec
   "Add Connections
   Adds a list of connections to a group."
-  ([version float?, connectionGroupId int?, ] (add-connections-to-group version connectionGroupId nil))
-  ([version float?, connectionGroupId int?, optional-params any?]
-   (let [res (:data (add-connections-to-group-with-http-info version connectionGroupId optional-params))]
+  ([connectionGroupId int?, ] (add-connections-to-group connectionGroupId nil))
+  ([connectionGroupId int?, optional-params any?]
+   (let [res (:data (add-connections-to-group-with-http-info connectionGroupId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec add-sub-groups-with-http-info any?
   "Add Connection Groups
   Add sub groups to a group."
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, ] (add-sub-groups-with-http-info version returnNulls groupId subGroupIds nil))
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls groupId subGroupIds)
-   (call-api "/api/{version}/consumer/connection/group/addSubGroup" :post
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, ] (add-sub-groups-with-http-info returnNulls groupId subGroupIds nil))
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls groupId subGroupIds)
+   (call-api "/consumer/connection/group/addSubGroup" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "groupId" groupId "subGroupIds" subGroupIds "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec add-sub-groups connection-group-response-spec
   "Add Connection Groups
   Add sub groups to a group."
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, ] (add-sub-groups version returnNulls groupId subGroupIds nil))
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, optional-params any?]
-   (let [res (:data (add-sub-groups-with-http-info version returnNulls groupId subGroupIds optional-params))]
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, ] (add-sub-groups returnNulls groupId subGroupIds nil))
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, optional-params any?]
+   (let [res (:data (add-sub-groups-with-http-info returnNulls groupId subGroupIds optional-params))]
      (if (:decode-models *api-context*)
         (st/decode connection-group-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,10 @@
 (defn-spec create-or-update-connection-with-http-info any?
   "Create or Update Connection
   Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group."
-  ([version float?, ] (create-or-update-connection-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId connectionId connectionAccountId pendingId groupId gameType appKey isTrusted ignoreFriendRequest isContact isBlocked isFollowing connectionResponse]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/consumer/connection/add" :post
-             {:path-params   {"version" version }
+  ([] (create-or-update-connection-with-http-info nil))
+  ([{:keys [deviceId accountId connectionId connectionAccountId pendingId groupId gameType appKey isTrusted ignoreFriendRequest isContact isBlocked isFollowing connectionResponse]} (s/map-of keyword? any?)]
+   (call-api "/consumer/connection/add" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionId" connectionId "connectionAccountId" connectionAccountId "pendingId" pendingId "groupId" groupId "gameType" gameType "appKey" appKey "isTrusted" isTrusted "ignoreFriendRequest" ignoreFriendRequest "isContact" isContact "isBlocked" isBlocked "isFollowing" isFollowing "connectionResponse" connectionResponse }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec create-or-update-connection connection-response-spec
   "Create or Update Connection
   Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group."
-  ([version float?, ] (create-or-update-connection version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-or-update-connection-with-http-info version optional-params))]
+  ([] (create-or-update-connection nil))
+  ([optional-params any?]
+   (let [res (:data (create-or-update-connection-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode connection-response-spec res st/string-transformer)
         res))))
@@ -457,11 +456,11 @@
 (defn-spec create-or-update-group-with-http-info any?
   "Create or Update Connection Group
   Creates a new private group."
-  ([version float?, returnNulls boolean?, ] (create-or-update-group-with-http-info version returnNulls nil))
-  ([version float?, returnNulls boolean?, {:keys [deviceId accountId name groupId assetId connections description canViewProfileInfo canViewGameInfo canViewFriendInfo active latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls)
-   (call-api "/api/{version}/consumer/connection/group" :post
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, ] (create-or-update-group-with-http-info returnNulls nil))
+  ([returnNulls boolean?, {:keys [deviceId accountId name groupId assetId connections description canViewProfileInfo canViewGameInfo canViewFriendInfo active latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls)
+   (call-api "/consumer/connection/group" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "name" name "groupId" groupId "assetId" assetId "connections" connections "description" description "canViewProfileInfo" canViewProfileInfo "canViewGameInfo" canViewGameInfo "canViewFriendInfo" canViewFriendInfo "active" active "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec create-or-update-group sirqul-response-spec
   "Create or Update Connection Group
   Creates a new private group."
-  ([version float?, returnNulls boolean?, ] (create-or-update-group version returnNulls nil))
-  ([version float?, returnNulls boolean?, optional-params any?]
-   (let [res (:data (create-or-update-group-with-http-info version returnNulls optional-params))]
+  ([returnNulls boolean?, ] (create-or-update-group returnNulls nil))
+  ([returnNulls boolean?, optional-params any?]
+   (let [res (:data (create-or-update-group-with-http-info returnNulls optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -483,10 +482,10 @@
 (defn-spec follow-accept-with-http-info any?
   "Accept Follow Request
   Accept someone's follow request."
-  [version float?, accountId int?, connectionAccountId int?, appKey string?]
-  (check-required-params version accountId connectionAccountId appKey)
-  (call-api "/api/{version}/consumer/follow/accept" :post
-            {:path-params   {"version" version }
+  [accountId int?, connectionAccountId int?, appKey string?]
+  (check-required-params accountId connectionAccountId appKey)
+  (call-api "/consumer/follow/accept" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "connectionAccountId" connectionAccountId "appKey" appKey }
              :form-params   {}
@@ -497,8 +496,8 @@
 (defn-spec follow-accept sirqul-response-spec
   "Accept Follow Request
   Accept someone's follow request."
-  [version float?, accountId int?, connectionAccountId int?, appKey string?]
-  (let [res (:data (follow-accept-with-http-info version accountId connectionAccountId appKey))]
+  [accountId int?, connectionAccountId int?, appKey string?]
+  (let [res (:data (follow-accept-with-http-info accountId connectionAccountId appKey))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -507,10 +506,10 @@
 (defn-spec follow-reject-with-http-info any?
   "Reject Follow Request
   Reject someone's follow request or remove them as a follower."
-  [version float?, accountId int?, connectionAccountId int?, appKey string?]
-  (check-required-params version accountId connectionAccountId appKey)
-  (call-api "/api/{version}/consumer/follow/reject" :post
-            {:path-params   {"version" version }
+  [accountId int?, connectionAccountId int?, appKey string?]
+  (check-required-params accountId connectionAccountId appKey)
+  (call-api "/consumer/follow/reject" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "connectionAccountId" connectionAccountId "appKey" appKey }
              :form-params   {}
@@ -521,8 +520,8 @@
 (defn-spec follow-reject sirqul-response-spec
   "Reject Follow Request
   Reject someone's follow request or remove them as a follower."
-  [version float?, accountId int?, connectionAccountId int?, appKey string?]
-  (let [res (:data (follow-reject-with-http-info version accountId connectionAccountId appKey))]
+  [accountId int?, connectionAccountId int?, appKey string?]
+  (let [res (:data (follow-reject-with-http-info accountId connectionAccountId appKey))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -531,10 +530,10 @@
 (defn-spec follow-remove-with-http-info any?
   "Remove Follower / Unfollow
   Unfollow someone you are following or remove them as a follower."
-  [version float?, accountId int?, connectionAccountId int?, appKey string?]
-  (check-required-params version accountId connectionAccountId appKey)
-  (call-api "/api/{version}/consumer/follow/remove" :post
-            {:path-params   {"version" version }
+  [accountId int?, connectionAccountId int?, appKey string?]
+  (check-required-params accountId connectionAccountId appKey)
+  (call-api "/consumer/follow/remove" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "connectionAccountId" connectionAccountId "appKey" appKey }
              :form-params   {}
@@ -545,8 +544,8 @@
 (defn-spec follow-remove sirqul-response-spec
   "Remove Follower / Unfollow
   Unfollow someone you are following or remove them as a follower."
-  [version float?, accountId int?, connectionAccountId int?, appKey string?]
-  (let [res (:data (follow-remove-with-http-info version accountId connectionAccountId appKey))]
+  [accountId int?, connectionAccountId int?, appKey string?]
+  (let [res (:data (follow-remove-with-http-info accountId connectionAccountId appKey))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -555,11 +554,11 @@
 (defn-spec follow-request-with-http-info any?
   "Send Follow Request
   Send a request to follow someone."
-  ([version float?, accountId int?, connectionAccountId int?, appKey string?, ] (follow-request-with-http-info version accountId connectionAccountId appKey nil))
-  ([version float?, accountId int?, connectionAccountId int?, appKey string?, {:keys [approvalNeeded]} (s/map-of keyword? any?)]
-   (check-required-params version accountId connectionAccountId appKey)
-   (call-api "/api/{version}/consumer/follow/request" :post
-             {:path-params   {"version" version }
+  ([accountId int?, connectionAccountId int?, appKey string?, ] (follow-request-with-http-info accountId connectionAccountId appKey nil))
+  ([accountId int?, connectionAccountId int?, appKey string?, {:keys [approvalNeeded]} (s/map-of keyword? any?)]
+   (check-required-params accountId connectionAccountId appKey)
+   (call-api "/consumer/follow/request" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "connectionAccountId" connectionAccountId "appKey" appKey "approvalNeeded" approvalNeeded }
               :form-params   {}
@@ -570,9 +569,9 @@
 (defn-spec follow-request sirqul-response-spec
   "Send Follow Request
   Send a request to follow someone."
-  ([version float?, accountId int?, connectionAccountId int?, appKey string?, ] (follow-request version accountId connectionAccountId appKey nil))
-  ([version float?, accountId int?, connectionAccountId int?, appKey string?, optional-params any?]
-   (let [res (:data (follow-request-with-http-info version accountId connectionAccountId appKey optional-params))]
+  ([accountId int?, connectionAccountId int?, appKey string?, ] (follow-request accountId connectionAccountId appKey nil))
+  ([accountId int?, connectionAccountId int?, appKey string?, optional-params any?]
+   (let [res (:data (follow-request-with-http-info accountId connectionAccountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -581,11 +580,11 @@
 (defn-spec friend-accept-with-http-info any?
   "Accept Friend
   Accept a friend request and optionally sends a notification."
-  ([version float?, friendAccountId int?, notifyFriend boolean?, ] (friend-accept-with-http-info version friendAccountId notifyFriend nil))
-  ([version float?, friendAccountId int?, notifyFriend boolean?, {:keys [deviceId accountId gameType appKey notificationMessage]} (s/map-of keyword? any?)]
-   (check-required-params version friendAccountId notifyFriend)
-   (call-api "/api/{version}/consumer/friend/accept" :post
-             {:path-params   {"version" version }
+  ([friendAccountId int?, notifyFriend boolean?, ] (friend-accept-with-http-info friendAccountId notifyFriend nil))
+  ([friendAccountId int?, notifyFriend boolean?, {:keys [deviceId accountId gameType appKey notificationMessage]} (s/map-of keyword? any?)]
+   (check-required-params friendAccountId notifyFriend)
+   (call-api "/consumer/friend/accept" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "friendAccountId" friendAccountId "gameType" gameType "appKey" appKey "notifyFriend" notifyFriend "notificationMessage" notificationMessage }
               :form-params   {}
@@ -596,9 +595,9 @@
 (defn-spec friend-accept sirqul-response-spec
   "Accept Friend
   Accept a friend request and optionally sends a notification."
-  ([version float?, friendAccountId int?, notifyFriend boolean?, ] (friend-accept version friendAccountId notifyFriend nil))
-  ([version float?, friendAccountId int?, notifyFriend boolean?, optional-params any?]
-   (let [res (:data (friend-accept-with-http-info version friendAccountId notifyFriend optional-params))]
+  ([friendAccountId int?, notifyFriend boolean?, ] (friend-accept friendAccountId notifyFriend nil))
+  ([friendAccountId int?, notifyFriend boolean?, optional-params any?]
+   (let [res (:data (friend-accept-with-http-info friendAccountId notifyFriend optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -607,11 +606,11 @@
 (defn-spec friend-reject-with-http-info any?
   "Decline Friend
   Request a friend request and optionally sends a notification."
-  ([version float?, friendAccountId int?, ] (friend-reject-with-http-info version friendAccountId nil))
-  ([version float?, friendAccountId int?, {:keys [deviceId accountId gameType appKey notifyFriend notificationMessage]} (s/map-of keyword? any?)]
-   (check-required-params version friendAccountId)
-   (call-api "/api/{version}/consumer/friend/reject" :post
-             {:path-params   {"version" version }
+  ([friendAccountId int?, ] (friend-reject-with-http-info friendAccountId nil))
+  ([friendAccountId int?, {:keys [deviceId accountId gameType appKey notifyFriend notificationMessage]} (s/map-of keyword? any?)]
+   (check-required-params friendAccountId)
+   (call-api "/consumer/friend/reject" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "friendAccountId" friendAccountId "gameType" gameType "appKey" appKey "notifyFriend" notifyFriend "notificationMessage" notificationMessage }
               :form-params   {}
@@ -622,9 +621,9 @@
 (defn-spec friend-reject sirqul-response-spec
   "Decline Friend
   Request a friend request and optionally sends a notification."
-  ([version float?, friendAccountId int?, ] (friend-reject version friendAccountId nil))
-  ([version float?, friendAccountId int?, optional-params any?]
-   (let [res (:data (friend-reject-with-http-info version friendAccountId optional-params))]
+  ([friendAccountId int?, ] (friend-reject friendAccountId nil))
+  ([friendAccountId int?, optional-params any?]
+   (let [res (:data (friend-reject-with-http-info friendAccountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -633,11 +632,11 @@
 (defn-spec friend-remove-with-http-info any?
   "Delete Friend
   Removes a friend from the user's friends list."
-  ([version float?, friendAccountId int?, ] (friend-remove-with-http-info version friendAccountId nil))
-  ([version float?, friendAccountId int?, {:keys [deviceId accountId notifyFriend removeFromGroups]} (s/map-of keyword? any?)]
-   (check-required-params version friendAccountId)
-   (call-api "/api/{version}/consumer/friend/remove" :post
-             {:path-params   {"version" version }
+  ([friendAccountId int?, ] (friend-remove-with-http-info friendAccountId nil))
+  ([friendAccountId int?, {:keys [deviceId accountId notifyFriend removeFromGroups]} (s/map-of keyword? any?)]
+   (check-required-params friendAccountId)
+   (call-api "/consumer/friend/remove" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "friendAccountId" friendAccountId "notifyFriend" notifyFriend "removeFromGroups" removeFromGroups }
               :form-params   {}
@@ -648,9 +647,9 @@
 (defn-spec friend-remove sirqul-response-spec
   "Delete Friend
   Removes a friend from the user's friends list."
-  ([version float?, friendAccountId int?, ] (friend-remove version friendAccountId nil))
-  ([version float?, friendAccountId int?, optional-params any?]
-   (let [res (:data (friend-remove-with-http-info version friendAccountId optional-params))]
+  ([friendAccountId int?, ] (friend-remove friendAccountId nil))
+  ([friendAccountId int?, optional-params any?]
+   (let [res (:data (friend-remove-with-http-info friendAccountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -659,11 +658,11 @@
 (defn-spec friend-request-with-http-info any?
   "Request Friend
   Sends a friend request notification to another user."
-  ([version float?, friendAccountId int?, ] (friend-request-with-http-info version friendAccountId nil))
-  ([version float?, friendAccountId int?, {:keys [deviceId accountId gameType appKey notificationMessage]} (s/map-of keyword? any?)]
-   (check-required-params version friendAccountId)
-   (call-api "/api/{version}/consumer/friend/request" :post
-             {:path-params   {"version" version }
+  ([friendAccountId int?, ] (friend-request-with-http-info friendAccountId nil))
+  ([friendAccountId int?, {:keys [deviceId accountId gameType appKey notificationMessage]} (s/map-of keyword? any?)]
+   (check-required-params friendAccountId)
+   (call-api "/consumer/friend/request" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "friendAccountId" friendAccountId "gameType" gameType "appKey" appKey "notificationMessage" notificationMessage }
               :form-params   {}
@@ -674,9 +673,9 @@
 (defn-spec friend-request sirqul-response-spec
   "Request Friend
   Sends a friend request notification to another user."
-  ([version float?, friendAccountId int?, ] (friend-request version friendAccountId nil))
-  ([version float?, friendAccountId int?, optional-params any?]
-   (let [res (:data (friend-request-with-http-info version friendAccountId optional-params))]
+  ([friendAccountId int?, ] (friend-request friendAccountId nil))
+  ([friendAccountId int?, optional-params any?]
+   (let [res (:data (friend-request-with-http-info friendAccountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -685,11 +684,10 @@
 (defn-spec get-connection-sent-friend-requests-with-http-info any?
   "Get Sent Friend Requests
   Gets the connection sent friend requests."
-  ([version float?, ] (get-connection-sent-friend-requests-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/consumer/connection/getRequested" :get
-             {:path-params   {"version" version }
+  ([] (get-connection-sent-friend-requests-with-http-info nil))
+  ([{:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (call-api "/consumer/connection/getRequested" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId }
               :form-params   {}
@@ -700,9 +698,9 @@
 (defn-spec get-connection-sent-friend-requests connection-list-response-spec
   "Get Sent Friend Requests
   Gets the connection sent friend requests."
-  ([version float?, ] (get-connection-sent-friend-requests version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-connection-sent-friend-requests-with-http-info version optional-params))]
+  ([] (get-connection-sent-friend-requests nil))
+  ([optional-params any?]
+   (let [res (:data (get-connection-sent-friend-requests-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode connection-list-response-spec res st/string-transformer)
         res))))
@@ -711,11 +709,11 @@
 (defn-spec get-connections-with-http-info any?
   "Search Connections
   Gets the connections."
-  ([version float?, returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-connections-with-http-info version returnNulls filter sortField descending start limit nil))
-  ([version float?, returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, {:keys [deviceId accountId connectionAccountId q keyword _i _l latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls filter sortField descending start limit)
-   (call-api "/api/{version}/consumer/connection/get" :get
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-connections-with-http-info returnNulls filter sortField descending start limit nil))
+  ([returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, {:keys [deviceId accountId connectionAccountId q keyword _i _l latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls filter sortField descending start limit)
+   (call-api "/consumer/connection/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "filter" filter "q" q "keyword" keyword "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -726,9 +724,9 @@
 (defn-spec get-connections connection-list-response-spec
   "Search Connections
   Gets the connections."
-  ([version float?, returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-connections version returnNulls filter sortField descending start limit nil))
-  ([version float?, returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (get-connections-with-http-info version returnNulls filter sortField descending start limit optional-params))]
+  ([returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-connections returnNulls filter sortField descending start limit nil))
+  ([returnNulls boolean?, filter string?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (get-connections-with-http-info returnNulls filter sortField descending start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode connection-list-response-spec res st/string-transformer)
         res))))
@@ -736,11 +734,11 @@
 
 (defn-spec get-group-details-with-http-info any?
   "Get Connection Group"
-  ([version float?, combineConnections boolean?, ] (get-group-details-with-http-info version combineConnections nil))
-  ([version float?, combineConnections boolean?, {:keys [deviceId accountId groupId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version combineConnections)
-   (call-api "/api/{version}/consumer/connection/group/details/get" :get
-             {:path-params   {"version" version }
+  ([combineConnections boolean?, ] (get-group-details-with-http-info combineConnections nil))
+  ([combineConnections boolean?, {:keys [deviceId accountId groupId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params combineConnections)
+   (call-api "/consumer/connection/group/details/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "groupId" groupId "combineConnections" combineConnections "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -750,9 +748,9 @@
 
 (defn-spec get-group-details connection-group-response-spec
   "Get Connection Group"
-  ([version float?, combineConnections boolean?, ] (get-group-details version combineConnections nil))
-  ([version float?, combineConnections boolean?, optional-params any?]
-   (let [res (:data (get-group-details-with-http-info version combineConnections optional-params))]
+  ([combineConnections boolean?, ] (get-group-details combineConnections nil))
+  ([combineConnections boolean?, optional-params any?]
+   (let [res (:data (get-group-details-with-http-info combineConnections optional-params))]
      (if (:decode-models *api-context*)
         (st/decode connection-group-response-spec res st/string-transformer)
         res))))
@@ -761,11 +759,11 @@
 (defn-spec group-search-with-http-info any?
   "Search Connection Groups
   Gets a user's private groups and default groups."
-  ([version float?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (group-search-with-http-info version sortField descending activeOnly start limit nil))
-  ([version float?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [deviceId accountId latitude longitude keyword]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending activeOnly start limit)
-   (call-api "/api/{version}/connection/group/search" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (group-search-with-http-info sortField descending activeOnly start limit nil))
+  ([sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [deviceId accountId latitude longitude keyword]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending activeOnly start limit)
+   (call-api "/connection/group/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "keyword" keyword "sortField" sortField "descending" descending "activeOnly" activeOnly "start" start "limit" limit }
               :form-params   {}
@@ -776,9 +774,9 @@
 (defn-spec group-search (s/coll-of connection-info-response-spec)
   "Search Connection Groups
   Gets a user's private groups and default groups."
-  ([version float?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (group-search version sortField descending activeOnly start limit nil))
-  ([version float?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (group-search-with-http-info version sortField descending activeOnly start limit optional-params))]
+  ([sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (group-search sortField descending activeOnly start limit nil))
+  ([sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (group-search-with-http-info sortField descending activeOnly start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of connection-info-response-spec) res st/string-transformer)
         res))))
@@ -787,11 +785,11 @@
 (defn-spec remove-connection-from-group-with-http-info any?
   "Delete Connection
   Removes the connection from group."
-  ([version float?, returnNulls boolean?, groupId int?, ] (remove-connection-from-group-with-http-info version returnNulls groupId nil))
-  ([version float?, returnNulls boolean?, groupId int?, {:keys [deviceId accountId connectionId connectionAccountId pendingId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls groupId)
-   (call-api "/api/{version}/consumer/connection/group/removeConnection" :post
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, groupId int?, ] (remove-connection-from-group-with-http-info returnNulls groupId nil))
+  ([returnNulls boolean?, groupId int?, {:keys [deviceId accountId connectionId connectionAccountId pendingId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls groupId)
+   (call-api "/consumer/connection/group/removeConnection" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "connectionId" connectionId "connectionAccountId" connectionAccountId "pendingId" pendingId "groupId" groupId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -802,9 +800,9 @@
 (defn-spec remove-connection-from-group sirqul-response-spec
   "Delete Connection
   Removes the connection from group."
-  ([version float?, returnNulls boolean?, groupId int?, ] (remove-connection-from-group version returnNulls groupId nil))
-  ([version float?, returnNulls boolean?, groupId int?, optional-params any?]
-   (let [res (:data (remove-connection-from-group-with-http-info version returnNulls groupId optional-params))]
+  ([returnNulls boolean?, groupId int?, ] (remove-connection-from-group returnNulls groupId nil))
+  ([returnNulls boolean?, groupId int?, optional-params any?]
+   (let [res (:data (remove-connection-from-group-with-http-info returnNulls groupId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -813,11 +811,11 @@
 (defn-spec remove-connections-from-group-with-http-info any?
   "Remove Connections
   Remove a list of connections from a group."
-  ([version float?, connectionGroupId int?, ] (remove-connections-from-group-with-http-info version connectionGroupId nil))
-  ([version float?, connectionGroupId int?, {:keys [deviceId accountId connectionIds connectionAccountIds latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version connectionGroupId)
-   (call-api "/api/{version}/connection/group/removeConnections" :post
-             {:path-params   {"version" version }
+  ([connectionGroupId int?, ] (remove-connections-from-group-with-http-info connectionGroupId nil))
+  ([connectionGroupId int?, {:keys [deviceId accountId connectionIds connectionAccountIds latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params connectionGroupId)
+   (call-api "/connection/group/removeConnections" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionIds" connectionIds "connectionAccountIds" connectionAccountIds "connectionGroupId" connectionGroupId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -828,9 +826,9 @@
 (defn-spec remove-connections-from-group sirqul-response-spec
   "Remove Connections
   Remove a list of connections from a group."
-  ([version float?, connectionGroupId int?, ] (remove-connections-from-group version connectionGroupId nil))
-  ([version float?, connectionGroupId int?, optional-params any?]
-   (let [res (:data (remove-connections-from-group-with-http-info version connectionGroupId optional-params))]
+  ([connectionGroupId int?, ] (remove-connections-from-group connectionGroupId nil))
+  ([connectionGroupId int?, optional-params any?]
+   (let [res (:data (remove-connections-from-group-with-http-info connectionGroupId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -839,11 +837,11 @@
 (defn-spec remove-group-with-http-info any?
   "Delete Connection Group
   Remove a user's group."
-  ([version float?, returnNulls boolean?, groupId int?, ] (remove-group-with-http-info version returnNulls groupId nil))
-  ([version float?, returnNulls boolean?, groupId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls groupId)
-   (call-api "/api/{version}/consumer/connection/group/remove" :post
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, groupId int?, ] (remove-group-with-http-info returnNulls groupId nil))
+  ([returnNulls boolean?, groupId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls groupId)
+   (call-api "/consumer/connection/group/remove" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "groupId" groupId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -854,9 +852,9 @@
 (defn-spec remove-group sirqul-response-spec
   "Delete Connection Group
   Remove a user's group."
-  ([version float?, returnNulls boolean?, groupId int?, ] (remove-group version returnNulls groupId nil))
-  ([version float?, returnNulls boolean?, groupId int?, optional-params any?]
-   (let [res (:data (remove-group-with-http-info version returnNulls groupId optional-params))]
+  ([returnNulls boolean?, groupId int?, ] (remove-group returnNulls groupId nil))
+  ([returnNulls boolean?, groupId int?, optional-params any?]
+   (let [res (:data (remove-group-with-http-info returnNulls groupId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -865,11 +863,11 @@
 (defn-spec remove-sub-groups-with-http-info any?
   "Remove Connection Groups
   Remove sub groups from a group"
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, ] (remove-sub-groups-with-http-info version returnNulls groupId subGroupIds nil))
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls groupId subGroupIds)
-   (call-api "/api/{version}/consumer/connection/group/removeSubGroup" :post
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, ] (remove-sub-groups-with-http-info returnNulls groupId subGroupIds nil))
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls groupId subGroupIds)
+   (call-api "/consumer/connection/group/removeSubGroup" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "groupId" groupId "subGroupIds" subGroupIds "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -880,9 +878,9 @@
 (defn-spec remove-sub-groups sirqul-response-spec
   "Remove Connection Groups
   Remove sub groups from a group"
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, ] (remove-sub-groups version returnNulls groupId subGroupIds nil))
-  ([version float?, returnNulls boolean?, groupId int?, subGroupIds string?, optional-params any?]
-   (let [res (:data (remove-sub-groups-with-http-info version returnNulls groupId subGroupIds optional-params))]
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, ] (remove-sub-groups returnNulls groupId subGroupIds nil))
+  ([returnNulls boolean?, groupId int?, subGroupIds string?, optional-params any?]
+   (let [res (:data (remove-sub-groups-with-http-info returnNulls groupId subGroupIds optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -891,11 +889,11 @@
 (defn-spec search-connections-with-http-info any?
   "Search Possible Connections
   Search for accounts that the user may not have a connection with."
-  ([version float?, returnNulls boolean?, start int?, limit int?, ] (search-connections-with-http-info version returnNulls start limit nil))
-  ([version float?, returnNulls boolean?, start int?, limit int?, {:keys [deviceId accountId q keyword latitude longitude gameType appKey _i _l sortField hasLocation]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls start limit)
-   (call-api "/api/{version}/connection/search" :get
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, start int?, limit int?, ] (search-connections-with-http-info returnNulls start limit nil))
+  ([returnNulls boolean?, start int?, limit int?, {:keys [deviceId accountId q keyword latitude longitude gameType appKey _i _l sortField hasLocation]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls start limit)
+   (call-api "/connection/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "q" q "keyword" keyword "latitude" latitude "longitude" longitude "gameType" gameType "appKey" appKey "_i" _i "start" start "_l" _l "limit" limit "sortField" sortField "hasLocation" hasLocation }
               :form-params   {}
@@ -906,9 +904,9 @@
 (defn-spec search-connections connection-list-response-spec
   "Search Possible Connections
   Search for accounts that the user may not have a connection with."
-  ([version float?, returnNulls boolean?, start int?, limit int?, ] (search-connections version returnNulls start limit nil))
-  ([version float?, returnNulls boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-connections-with-http-info version returnNulls start limit optional-params))]
+  ([returnNulls boolean?, start int?, limit int?, ] (search-connections returnNulls start limit nil))
+  ([returnNulls boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-connections-with-http-info returnNulls start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode connection-list-response-spec res st/string-transformer)
         res))))

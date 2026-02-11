@@ -353,11 +353,11 @@
 (defn-spec add-payment-method-with-http-info any?
   "Update Payment Method
   Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method."
-  ([version float?, accountId int?, ] (add-payment-method-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [paymentMethodId accountName firstName lastName address city state postalCode country phone creditCardNumber expirationDate ccv accountNumber bankName routingNumber defaultPaymentMethod paymentMethodNickname taxId providerCustomerProfileId providerPaymentProfileId metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/billing/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (add-payment-method-with-http-info accountId nil))
+  ([accountId int?, {:keys [paymentMethodId accountName firstName lastName address city state postalCode country phone creditCardNumber expirationDate ccv accountNumber bankName routingNumber defaultPaymentMethod paymentMethodNickname taxId providerCustomerProfileId providerPaymentProfileId metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/billing/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "paymentMethodId" paymentMethodId "accountName" accountName "firstName" firstName "lastName" lastName "address" address "city" city "state" state "postalCode" postalCode "country" country "phone" phone "creditCardNumber" creditCardNumber "expirationDate" expirationDate "ccv" ccv "accountNumber" accountNumber "bankName" bankName "routingNumber" routingNumber "defaultPaymentMethod" defaultPaymentMethod "paymentMethodNickname" paymentMethodNickname "taxId" taxId "providerCustomerProfileId" providerCustomerProfileId "providerPaymentProfileId" providerPaymentProfileId "metaData" metaData }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-payment-method payment-types-response-spec
   "Update Payment Method
   Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method."
-  ([version float?, accountId int?, ] (add-payment-method version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (add-payment-method-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (add-payment-method accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (add-payment-method-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode payment-types-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec create-payment-method-with-http-info any?
   "Create Payment Method
   Add a new method of payment."
-  ([version float?, accountId int?, ] (create-payment-method-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [accountName firstName lastName address city state postalCode country phone creditCardNumber expirationDate ccv accountNumber bankName routingNumber paymentMethodNickname taxId defaultPaymentMethod authToken provider providerCustomerProfileId providerPaymentProfileId metaData appKey]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/billing/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (create-payment-method-with-http-info accountId nil))
+  ([accountId int?, {:keys [accountName firstName lastName address city state postalCode country phone creditCardNumber expirationDate ccv accountNumber bankName routingNumber paymentMethodNickname taxId defaultPaymentMethod authToken provider providerCustomerProfileId providerPaymentProfileId metaData appKey]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/billing/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "accountName" accountName "firstName" firstName "lastName" lastName "address" address "city" city "state" state "postalCode" postalCode "country" country "phone" phone "creditCardNumber" creditCardNumber "expirationDate" expirationDate "ccv" ccv "accountNumber" accountNumber "bankName" bankName "routingNumber" routingNumber "paymentMethodNickname" paymentMethodNickname "taxId" taxId "defaultPaymentMethod" defaultPaymentMethod "authToken" authToken "provider" provider "providerCustomerProfileId" providerCustomerProfileId "providerPaymentProfileId" providerPaymentProfileId "metaData" metaData "appKey" appKey }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec create-payment-method payment-types-response-spec
   "Create Payment Method
   Add a new method of payment."
-  ([version float?, accountId int?, ] (create-payment-method version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (create-payment-method-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (create-payment-method accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (create-payment-method-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode payment-types-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec create-smart-contract-with-http-info any?
   "Create Smart Contract
   Adds a smart contract."
-  ([version float?, accountId int?, tokenName string?, tokenSymbol string?, ] (create-smart-contract-with-http-info version accountId tokenName tokenSymbol nil))
-  ([version float?, accountId int?, tokenName string?, tokenSymbol string?, {:keys [paymentMethodId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId tokenName tokenSymbol)
-   (call-api "/api/{version}/billing/crypto/transfer" :post
-             {:path-params   {"version" version }
+  ([accountId int?, tokenName string?, tokenSymbol string?, ] (create-smart-contract-with-http-info accountId tokenName tokenSymbol nil))
+  ([accountId int?, tokenName string?, tokenSymbol string?, {:keys [paymentMethodId]} (s/map-of keyword? any?)]
+   (check-required-params accountId tokenName tokenSymbol)
+   (call-api "/billing/crypto/transfer" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "paymentMethodId" paymentMethodId "tokenName" tokenName "tokenSymbol" tokenSymbol }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec create-smart-contract payment-types-response-spec
   "Create Smart Contract
   Adds a smart contract."
-  ([version float?, accountId int?, tokenName string?, tokenSymbol string?, ] (create-smart-contract version accountId tokenName tokenSymbol nil))
-  ([version float?, accountId int?, tokenName string?, tokenSymbol string?, optional-params any?]
-   (let [res (:data (create-smart-contract-with-http-info version accountId tokenName tokenSymbol optional-params))]
+  ([accountId int?, tokenName string?, tokenSymbol string?, ] (create-smart-contract accountId tokenName tokenSymbol nil))
+  ([accountId int?, tokenName string?, tokenSymbol string?, optional-params any?]
+   (let [res (:data (create-smart-contract-with-http-info accountId tokenName tokenSymbol optional-params))]
      (if (:decode-models *api-context*)
         (st/decode payment-types-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec get-crypto-balance-with-http-info any?
   "Get Crypto Balances
   Get the cypto balance details for a user"
-  ([version float?, accountId int?, ] (get-crypto-balance-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [ownerAccountId paymentMethodId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/billing/crypto/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-crypto-balance-with-http-info accountId nil))
+  ([accountId int?, {:keys [ownerAccountId paymentMethodId]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/billing/crypto/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "ownerAccountId" ownerAccountId "paymentMethodId" paymentMethodId }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec get-crypto-balance payment-types-response-spec
   "Get Crypto Balances
   Get the cypto balance details for a user"
-  ([version float?, accountId int?, ] (get-crypto-balance version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-crypto-balance-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-crypto-balance accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-crypto-balance-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode payment-types-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,11 @@
 (defn-spec get-payment-method-with-http-info any?
   "Get Payment Method
   Get the details of the user's payment method or their current default method of payment"
-  ([version float?, accountId int?, ] (get-payment-method-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [paymentMethodId getCurrentBalance]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/billing/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-payment-method-with-http-info accountId nil))
+  ([accountId int?, {:keys [paymentMethodId getCurrentBalance]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/billing/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "paymentMethodId" paymentMethodId "getCurrentBalance" getCurrentBalance }
               :form-params   {}
@@ -472,9 +472,9 @@
 (defn-spec get-payment-method payment-types-response-spec
   "Get Payment Method
   Get the details of the user's payment method or their current default method of payment"
-  ([version float?, accountId int?, ] (get-payment-method version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-payment-method-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-payment-method accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-payment-method-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode payment-types-response-spec res st/string-transformer)
         res))))
@@ -483,11 +483,11 @@
 (defn-spec search-payment-method-with-http-info any?
   "Search Payment Methods
   Search the payment methods of an account"
-  ([version float?, accountId int?, ] (search-payment-method-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [provider type keyword sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/billing/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-payment-method-with-http-info accountId nil))
+  ([accountId int?, {:keys [provider type keyword sortField descending start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/billing/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "provider" provider "type" type "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -498,9 +498,9 @@
 (defn-spec search-payment-method payment-types-response-spec
   "Search Payment Methods
   Search the payment methods of an account"
-  ([version float?, accountId int?, ] (search-payment-method version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-payment-method-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-payment-method accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-payment-method-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode payment-types-response-spec res st/string-transformer)
         res))))

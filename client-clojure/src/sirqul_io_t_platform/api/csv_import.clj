@@ -352,10 +352,10 @@
 
 (defn-spec get-status-csv-with-http-info any?
   "Detail Status"
-  [version float?, accountId int?, batchId int?, responseGroup string?, start int?, limit int?]
-  (check-required-params version accountId batchId responseGroup start limit)
-  (call-api "/api/{version}/csvimport/batch/status/details" :get
-            {:path-params   {"version" version }
+  [accountId int?, batchId int?, responseGroup string?, start int?, limit int?]
+  (check-required-params accountId batchId responseGroup start limit)
+  (call-api "/csvimport/batch/status/details" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "batchId" batchId "responseGroup" responseGroup "start" start "limit" limit }
              :form-params   {}
@@ -365,8 +365,8 @@
 
 (defn-spec get-status-csv sirqul-response-spec
   "Detail Status"
-  [version float?, accountId int?, batchId int?, responseGroup string?, start int?, limit int?]
-  (let [res (:data (get-status-csv-with-http-info version accountId batchId responseGroup start limit))]
+  [accountId int?, batchId int?, responseGroup string?, start int?, limit int?]
+  (let [res (:data (get-status-csv-with-http-info accountId batchId responseGroup start limit))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -375,10 +375,10 @@
 (defn-spec list-status-csv-with-http-info any?
   "Search Status
   Retrieves batches for a user."
-  [version float?, accountId int?, start int?, limit int?]
-  (check-required-params version accountId start limit)
-  (call-api "/api/{version}/csvimport/batch/list" :get
-            {:path-params   {"version" version }
+  [accountId int?, start int?, limit int?]
+  (check-required-params accountId start limit)
+  (call-api "/csvimport/batch/list" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "start" start "limit" limit }
              :form-params   {}
@@ -389,8 +389,8 @@
 (defn-spec list-status-csv csv-import-response-spec
   "Search Status
   Retrieves batches for a user."
-  [version float?, accountId int?, start int?, limit int?]
-  (let [res (:data (list-status-csv-with-http-info version accountId start limit))]
+  [accountId int?, start int?, limit int?]
+  (let [res (:data (list-status-csv-with-http-info accountId start limit))]
     (if (:decode-models *api-context*)
        (st/decode csv-import-response-spec res st/string-transformer)
        res)))
@@ -399,10 +399,10 @@
 (defn-spec status-csv-with-http-info any?
   "Batch Status
   Checks status of batch upload."
-  [version float?, accountId int?, batchId int?]
-  (check-required-params version accountId batchId)
-  (call-api "/api/{version}/csvimport/batch/status" :get
-            {:path-params   {"version" version }
+  [accountId int?, batchId int?]
+  (check-required-params accountId batchId)
+  (call-api "/csvimport/batch/status" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "batchId" batchId }
              :form-params   {}
@@ -413,8 +413,8 @@
 (defn-spec status-csv csv-import-response-spec
   "Batch Status
   Checks status of batch upload."
-  [version float?, accountId int?, batchId int?]
-  (let [res (:data (status-csv-with-http-info version accountId batchId))]
+  [accountId int?, batchId int?]
+  (let [res (:data (status-csv-with-http-info accountId batchId))]
     (if (:decode-models *api-context*)
        (st/decode csv-import-response-spec res st/string-transformer)
        res)))
@@ -423,11 +423,11 @@
 (defn-spec upload-csv-with-http-info any?
   "Upload CSV
   Uploads a CSV import file."
-  ([version float?, accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, ] (upload-csv-with-http-info version accountId uploadType importFile fileFormat nil))
-  ([version float?, accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, {:keys [appKey]} (s/map-of keyword? any?)]
-   (check-required-params version accountId uploadType importFile fileFormat)
-   (call-api "/api/{version}/csvimport/upload" :post
-             {:path-params   {"version" version }
+  ([accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, ] (upload-csv-with-http-info accountId uploadType importFile fileFormat nil))
+  ([accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, {:keys [appKey]} (s/map-of keyword? any?)]
+   (check-required-params accountId uploadType importFile fileFormat)
+   (call-api "/csvimport/upload" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "uploadType" uploadType "importFile" importFile "appKey" appKey "fileFormat" fileFormat }
               :form-params   {}
@@ -438,9 +438,9 @@
 (defn-spec upload-csv csv-import-response-spec
   "Upload CSV
   Uploads a CSV import file."
-  ([version float?, accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, ] (upload-csv version accountId uploadType importFile fileFormat nil))
-  ([version float?, accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, optional-params any?]
-   (let [res (:data (upload-csv-with-http-info version accountId uploadType importFile fileFormat optional-params))]
+  ([accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, ] (upload-csv accountId uploadType importFile fileFormat nil))
+  ([accountId int?, uploadType string?, ^File importFile any?, fileFormat string?, optional-params any?]
+   (let [res (:data (upload-csv-with-http-info accountId uploadType importFile fileFormat optional-params))]
      (if (:decode-models *api-context*)
         (st/decode csv-import-response-spec res st/string-transformer)
         res))))

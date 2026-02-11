@@ -353,11 +353,10 @@
 (defn-spec search-carriers-with-http-info any?
   "Search Carriers
   Search on supported mobile telephone carriers that can be used to send SMS notifications via email."
-  ([version float?, ] (search-carriers-with-http-info version nil))
-  ([version float?, {:keys [keyword descending start limit activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/carrier/search" :get
-             {:path-params   {"version" version }
+  ([] (search-carriers-with-http-info nil))
+  ([{:keys [keyword descending start limit activeOnly]} (s/map-of keyword? any?)]
+   (call-api "/carrier/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"keyword" keyword "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec search-carriers (s/coll-of cell-carrier-response-spec)
   "Search Carriers
   Search on supported mobile telephone carriers that can be used to send SMS notifications via email."
-  ([version float?, ] (search-carriers version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-carriers-with-http-info version optional-params))]
+  ([] (search-carriers nil))
+  ([optional-params any?]
+   (let [res (:data (search-carriers-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of cell-carrier-response-spec) res st/string-transformer)
         res))))

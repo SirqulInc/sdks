@@ -353,11 +353,11 @@
 (defn-spec create-application-with-http-info any?
   "Create Application
   Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}."
-  ([version float?, appName string?, ] (create-application-with-http-info version appName nil))
-  ([version float?, appName string?, {:keys [deviceId accountId about bundleId appIconAssetId appLogoAssetId facebookAppId facebookAppSecret googleApiKey updateEULADate eulaVersion landingPageUrl showInActivities activityDescription inviteWelcomeText invitePageUrl urlScheme platforms downloadUrls categoryIds scoringType hintCost maxScore ticketsPerPoint hasGameData publicNotifications useMatchingAlgorithm globalTickets buildVersion apiVersion placementName placementDescription placementSize placementHeight placementWidth placementRefreshInterval createObjectStore publicContentApproval productionMode minimumSessionLength sessionGapLength localAdsEnabled sqootApiKey trilatProcessingType maxSampleSize minRSSI modules authorizedCount authorizedServers defaultTimezone smtpPass metaData placementMetaData ipsFloor enableAPNSBadge includeInReport defaultAppFilterId enableWelcomeEmail appleAppId appleTeamId appleAuthKeyId ^File appleAuthKey appleIssuerId appStoreKeyId ^File appStoreKey ^File googlePrivateKeyFile authorizeNetApiKey authorizeNetTransactionKey emailSender smtpUser smtpHost vatomBusinessId vatomRestClientId vatomRestSecretKey twilioAccountSID twilioAuthToken twilioSenderPhoneNumber openAISecretKey]} (s/map-of keyword? any?)]
-   (check-required-params version appName)
-   (call-api "/api/{version}/application/create" :post
-             {:path-params   {"version" version }
+  ([appName string?, ] (create-application-with-http-info appName nil))
+  ([appName string?, {:keys [deviceId accountId about bundleId appIconAssetId appLogoAssetId facebookAppId facebookAppSecret googleApiKey updateEULADate eulaVersion landingPageUrl showInActivities activityDescription inviteWelcomeText invitePageUrl urlScheme platforms downloadUrls categoryIds scoringType hintCost maxScore ticketsPerPoint hasGameData publicNotifications useMatchingAlgorithm globalTickets buildVersion apiVersion placementName placementDescription placementSize placementHeight placementWidth placementRefreshInterval createObjectStore publicContentApproval productionMode minimumSessionLength sessionGapLength localAdsEnabled sqootApiKey trilatProcessingType maxSampleSize minRSSI modules authorizedCount authorizedServers defaultTimezone smtpPass metaData placementMetaData ipsFloor enableAPNSBadge includeInReport defaultAppFilterId enableWelcomeEmail appleAppId appleTeamId appleAuthKeyId ^File appleAuthKey appleIssuerId appStoreKeyId ^File appStoreKey ^File googlePrivateKeyFile authorizeNetApiKey authorizeNetTransactionKey emailSender smtpUser smtpHost vatomBusinessId vatomRestClientId vatomRestSecretKey twilioAccountSID twilioAuthToken twilioSenderPhoneNumber openAISecretKey]} (s/map-of keyword? any?)]
+   (check-required-params appName)
+   (call-api "/application/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appName" appName "about" about "bundleId" bundleId "appIconAssetId" appIconAssetId "appLogoAssetId" appLogoAssetId "facebookAppId" facebookAppId "facebookAppSecret" facebookAppSecret "googleApiKey" googleApiKey "updateEULADate" updateEULADate "eulaVersion" eulaVersion "landingPageUrl" landingPageUrl "showInActivities" showInActivities "activityDescription" activityDescription "inviteWelcomeText" inviteWelcomeText "invitePageUrl" invitePageUrl "urlScheme" urlScheme "platforms" platforms "downloadUrls" downloadUrls "categoryIds" categoryIds "scoringType" scoringType "hintCost" hintCost "maxScore" maxScore "ticketsPerPoint" ticketsPerPoint "hasGameData" hasGameData "publicNotifications" publicNotifications "useMatchingAlgorithm" useMatchingAlgorithm "globalTickets" globalTickets "buildVersion" buildVersion "apiVersion" apiVersion "placementName" placementName "placementDescription" placementDescription "placementSize" placementSize "placementHeight" placementHeight "placementWidth" placementWidth "placementRefreshInterval" placementRefreshInterval "createObjectStore" createObjectStore "publicContentApproval" publicContentApproval "productionMode" productionMode "minimumSessionLength" minimumSessionLength "sessionGapLength" sessionGapLength "localAdsEnabled" localAdsEnabled "sqootApiKey" sqootApiKey "trilatProcessingType" trilatProcessingType "maxSampleSize" maxSampleSize "minRSSI" minRSSI "modules" modules "authorizedCount" authorizedCount "authorizedServers" authorizedServers "defaultTimezone" defaultTimezone "smtpPass" smtpPass "metaData" metaData "placementMetaData" placementMetaData "ipsFloor" ipsFloor "enableAPNSBadge" enableAPNSBadge "includeInReport" includeInReport "defaultAppFilterId" defaultAppFilterId "enableWelcomeEmail" enableWelcomeEmail "appleAppId" appleAppId "appleTeamId" appleTeamId "appleAuthKeyId" appleAuthKeyId "appleAuthKey" appleAuthKey "appleIssuerId" appleIssuerId "appStoreKeyId" appStoreKeyId "appStoreKey" appStoreKey "googlePrivateKeyFile" googlePrivateKeyFile "authorizeNetApiKey" authorizeNetApiKey "authorizeNetTransactionKey" authorizeNetTransactionKey "emailSender" emailSender "smtpUser" smtpUser "smtpHost" smtpHost "vatomBusinessId" vatomBusinessId "vatomRestClientId" vatomRestClientId "vatomRestSecretKey" vatomRestSecretKey "twilioAccountSID" twilioAccountSID "twilioAuthToken" twilioAuthToken "twilioSenderPhoneNumber" twilioSenderPhoneNumber "openAISecretKey" openAISecretKey }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-application application-response-spec
   "Create Application
   Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}."
-  ([version float?, appName string?, ] (create-application version appName nil))
-  ([version float?, appName string?, optional-params any?]
-   (let [res (:data (create-application-with-http-info version appName optional-params))]
+  ([appName string?, ] (create-application appName nil))
+  ([appName string?, optional-params any?]
+   (let [res (:data (create-application-with-http-info appName optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec create-application-placement-with-http-info any?
   "Create Ad Placement
   Creates a new ad placement for an application."
-  ([version float?, appKey string?, size string?, ] (create-application-placement-with-http-info version appKey size nil))
-  ([version float?, appKey string?, size string?, {:keys [deviceId accountId name description height width refreshInterval defaultImageId active]} (s/map-of keyword? any?)]
-   (check-required-params version appKey size)
-   (call-api "/api/{version}/application/placement/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, size string?, ] (create-application-placement-with-http-info appKey size nil))
+  ([appKey string?, size string?, {:keys [deviceId accountId name description height width refreshInterval defaultImageId active]} (s/map-of keyword? any?)]
+   (check-required-params appKey size)
+   (call-api "/application/placement/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "name" name "description" description "size" size "height" height "width" width "refreshInterval" refreshInterval "defaultImageId" defaultImageId "active" active }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec create-application-placement placement-response-spec
   "Create Ad Placement
   Creates a new ad placement for an application."
-  ([version float?, appKey string?, size string?, ] (create-application-placement version appKey size nil))
-  ([version float?, appKey string?, size string?, optional-params any?]
-   (let [res (:data (create-application-placement-with-http-info version appKey size optional-params))]
+  ([appKey string?, size string?, ] (create-application-placement appKey size nil))
+  ([appKey string?, size string?, optional-params any?]
+   (let [res (:data (create-application-placement-with-http-info appKey size optional-params))]
      (if (:decode-models *api-context*)
         (st/decode placement-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,10 @@
 (defn-spec delete-application-with-http-info any?
   "Delete Application
   Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp"
-  ([version float?, ] (delete-application-with-http-info version nil))
-  ([version float?, {:keys [accountId appKey]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/application/delete" :post
-             {:path-params   {"version" version }
+  ([] (delete-application-with-http-info nil))
+  ([{:keys [accountId appKey]} (s/map-of keyword? any?)]
+   (call-api "/application/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec delete-application sirqul-response-spec
   "Delete Application
   Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp"
-  ([version float?, ] (delete-application version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (delete-application-with-http-info version optional-params))]
+  ([] (delete-application nil))
+  ([optional-params any?]
+   (let [res (:data (delete-application-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,11 @@
 (defn-spec delete-application-placement-with-http-info any?
   "Delete Ad Placement
   Deletes an ad placement for an application."
-  ([version float?, placementId int?, ] (delete-application-placement-with-http-info version placementId nil))
-  ([version float?, placementId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version placementId)
-   (call-api "/api/{version}/application/placement/delete" :post
-             {:path-params   {"version" version }
+  ([placementId int?, ] (delete-application-placement-with-http-info placementId nil))
+  ([placementId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params placementId)
+   (call-api "/application/placement/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "placementId" placementId }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec delete-application-placement placement-response-spec
   "Delete Ad Placement
   Deletes an ad placement for an application."
-  ([version float?, placementId int?, ] (delete-application-placement version placementId nil))
-  ([version float?, placementId int?, optional-params any?]
-   (let [res (:data (delete-application-placement-with-http-info version placementId optional-params))]
+  ([placementId int?, ] (delete-application-placement placementId nil))
+  ([placementId int?, optional-params any?]
+   (let [res (:data (delete-application-placement-with-http-info placementId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode placement-response-spec res st/string-transformer)
         res))))
@@ -457,11 +456,10 @@
 (defn-spec get-application-with-http-info any?
   "Get Application
   Get a specific application by appKey"
-  ([version float?, ] (get-application-with-http-info version nil))
-  ([version float?, {:keys [appKey applicationId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/application/get" :get
-             {:path-params   {"version" version }
+  ([] (get-application-with-http-info nil))
+  ([{:keys [appKey applicationId]} (s/map-of keyword? any?)]
+   (call-api "/application/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey "applicationId" applicationId }
               :form-params   {}
@@ -472,9 +470,9 @@
 (defn-spec get-application application-response-spec
   "Get Application
   Get a specific application by appKey"
-  ([version float?, ] (get-application version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-application-with-http-info version optional-params))]
+  ([] (get-application nil))
+  ([optional-params any?]
+   (let [res (:data (get-application-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-response-spec res st/string-transformer)
         res))))
@@ -483,11 +481,11 @@
 (defn-spec get-application-placement-with-http-info any?
   "Get Ad Placement
   Get details of an ad placement"
-  ([version float?, placementId int?, ] (get-application-placement-with-http-info version placementId nil))
-  ([version float?, placementId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version placementId)
-   (call-api "/api/{version}/application/placement/get" :get
-             {:path-params   {"version" version }
+  ([placementId int?, ] (get-application-placement-with-http-info placementId nil))
+  ([placementId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params placementId)
+   (call-api "/application/placement/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "placementId" placementId }
               :form-params   {}
@@ -498,9 +496,9 @@
 (defn-spec get-application-placement placement-response-spec
   "Get Ad Placement
   Get details of an ad placement"
-  ([version float?, placementId int?, ] (get-application-placement version placementId nil))
-  ([version float?, placementId int?, optional-params any?]
-   (let [res (:data (get-application-placement-with-http-info version placementId optional-params))]
+  ([placementId int?, ] (get-application-placement placementId nil))
+  ([placementId int?, optional-params any?]
+   (let [res (:data (get-application-placement-with-http-info placementId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode placement-response-spec res st/string-transformer)
         res))))
@@ -509,10 +507,9 @@
 (defn-spec get-application-versions-with-http-info any?
   "Get API versions
   Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8"
-  [version float?]
-  (check-required-params version)
-  (call-api "/api/{version}/application/versions" :get
-            {:path-params   {"version" version }
+  []
+  (call-api "/application/versions" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -523,8 +520,8 @@
 (defn-spec get-application-versions sirqul-response-spec
   "Get API versions
   Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8"
-  [version float?]
-  (let [res (:data (get-application-versions-with-http-info version))]
+  []
+  (let [res (:data (get-application-versions-with-http-info))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -533,11 +530,11 @@
 (defn-spec get-unique-users-by-app-with-http-info any?
   "Search Application Users
   Get a list of users per application"
-  ([version float?, appKey string?, ] (get-unique-users-by-app-with-http-info version appKey nil))
-  ([version float?, appKey string?, {:keys [q keyword since _i start _l limit]} (s/map-of keyword? any?)]
-   (check-required-params version appKey)
-   (call-api "/api/{version}/application/users" :get
-             {:path-params   {"version" version }
+  ([appKey string?, ] (get-unique-users-by-app-with-http-info appKey nil))
+  ([appKey string?, {:keys [q keyword since _i start _l limit]} (s/map-of keyword? any?)]
+   (check-required-params appKey)
+   (call-api "/application/users" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey "q" q "keyword" keyword "since" since "_i" _i "start" start "_l" _l "limit" limit }
               :form-params   {}
@@ -548,9 +545,9 @@
 (defn-spec get-unique-users-by-app account-list-response-spec
   "Search Application Users
   Get a list of users per application"
-  ([version float?, appKey string?, ] (get-unique-users-by-app version appKey nil))
-  ([version float?, appKey string?, optional-params any?]
-   (let [res (:data (get-unique-users-by-app-with-http-info version appKey optional-params))]
+  ([appKey string?, ] (get-unique-users-by-app appKey nil))
+  ([appKey string?, optional-params any?]
+   (let [res (:data (get-unique-users-by-app-with-http-info appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode account-list-response-spec res st/string-transformer)
         res))))
@@ -559,11 +556,10 @@
 (defn-spec list-applications-with-http-info any?
   "List Applications
   List active applications matching the criteria (as a consumer)"
-  ([version float?, ] (list-applications-with-http-info version nil))
-  ([version float?, {:keys [accountId q keyword platforms deviceIds deviceVersions categoryIds sortField hasAds publicNotifications filterBillable filterContentAdmin descending _i start _l limit applicationIds hasObjectStore activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/application/list" :get
-             {:path-params   {"version" version }
+  ([] (list-applications-with-http-info nil))
+  ([{:keys [accountId q keyword platforms deviceIds deviceVersions categoryIds sortField hasAds publicNotifications filterBillable filterContentAdmin descending _i start _l limit applicationIds hasObjectStore activeOnly]} (s/map-of keyword? any?)]
+   (call-api "/application/list" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "q" q "keyword" keyword "platforms" platforms "deviceIds" deviceIds "deviceVersions" deviceVersions "categoryIds" categoryIds "sortField" sortField "hasAds" hasAds "publicNotifications" publicNotifications "filterBillable" filterBillable "filterContentAdmin" filterContentAdmin "descending" descending "_i" _i "start" start "_l" _l "limit" limit "applicationIds" applicationIds "hasObjectStore" hasObjectStore "activeOnly" activeOnly }
               :form-params   {}
@@ -574,9 +570,9 @@
 (defn-spec list-applications (s/coll-of application-short-response-spec)
   "List Applications
   List active applications matching the criteria (as a consumer)"
-  ([version float?, ] (list-applications version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (list-applications-with-http-info version optional-params))]
+  ([] (list-applications nil))
+  ([optional-params any?]
+   (let [res (:data (list-applications-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of application-short-response-spec) res st/string-transformer)
         res))))
@@ -585,11 +581,11 @@
 (defn-spec search-application-placement-with-http-info any?
   "Search for Ad Placements
   Searches placements for an application."
-  ([version float?, appKey string?, ] (search-application-placement-with-http-info version appKey nil))
-  ([version float?, appKey string?, {:keys [deviceId accountId start limit]} (s/map-of keyword? any?)]
-   (check-required-params version appKey)
-   (call-api "/api/{version}/application/placement/search" :get
-             {:path-params   {"version" version }
+  ([appKey string?, ] (search-application-placement-with-http-info appKey nil))
+  ([appKey string?, {:keys [deviceId accountId start limit]} (s/map-of keyword? any?)]
+   (check-required-params appKey)
+   (call-api "/application/placement/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "start" start "limit" limit }
               :form-params   {}
@@ -600,9 +596,9 @@
 (defn-spec search-application-placement (s/coll-of placement-response-spec)
   "Search for Ad Placements
   Searches placements for an application."
-  ([version float?, appKey string?, ] (search-application-placement version appKey nil))
-  ([version float?, appKey string?, optional-params any?]
-   (let [res (:data (search-application-placement-with-http-info version appKey optional-params))]
+  ([appKey string?, ] (search-application-placement appKey nil))
+  ([appKey string?, optional-params any?]
+   (let [res (:data (search-application-placement-with-http-info appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of placement-response-spec) res st/string-transformer)
         res))))
@@ -611,11 +607,10 @@
 (defn-spec search-application-settings-with-http-info any?
   "Search for Application Settings
   Returns a list of applications that the user has logged into before, and returns specific settings for that application and user"
-  ([version float?, ] (search-application-settings-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId connectionAccountId keyword sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/application/settings/search" :get
-             {:path-params   {"version" version }
+  ([] (search-application-settings-with-http-info nil))
+  ([{:keys [deviceId accountId connectionAccountId keyword sortField descending start limit]} (s/map-of keyword? any?)]
+   (call-api "/application/settings/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -626,9 +621,9 @@
 (defn-spec search-application-settings application-settings-response-spec
   "Search for Application Settings
   Returns a list of applications that the user has logged into before, and returns specific settings for that application and user"
-  ([version float?, ] (search-application-settings version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-application-settings-with-http-info version optional-params))]
+  ([] (search-application-settings nil))
+  ([optional-params any?]
+   (let [res (:data (search-application-settings-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-settings-response-spec res st/string-transformer)
         res))))
@@ -637,11 +632,10 @@
 (defn-spec search-applications-with-http-info any?
   "Search Applications
   Search for applications matching the criteria that the logged in user has access to"
-  ([version float?, ] (search-applications-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId latitude longitude q keyword qSearchFields sortField descending _i start _l limit hasAds publicNotifications activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/application/search" :get
-             {:path-params   {"version" version }
+  ([] (search-applications-with-http-info nil))
+  ([{:keys [deviceId accountId latitude longitude q keyword qSearchFields sortField descending _i start _l limit hasAds publicNotifications activeOnly]} (s/map-of keyword? any?)]
+   (call-api "/application/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "q" q "keyword" keyword "qSearchFields" qSearchFields "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "hasAds" hasAds "publicNotifications" publicNotifications "activeOnly" activeOnly }
               :form-params   {}
@@ -652,9 +646,9 @@
 (defn-spec search-applications (s/coll-of application-response-spec)
   "Search Applications
   Search for applications matching the criteria that the logged in user has access to"
-  ([version float?, ] (search-applications version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-applications-with-http-info version optional-params))]
+  ([] (search-applications nil))
+  ([optional-params any?]
+   (let [res (:data (search-applications-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of application-response-spec) res st/string-transformer)
         res))))
@@ -663,11 +657,11 @@
 (defn-spec update-application-with-http-info any?
   "Update Application
   Update an application record"
-  ([version float?, appKey string?, appName string?, ] (update-application-with-http-info version appKey appName nil))
-  ([version float?, appKey string?, appName string?, {:keys [deviceId accountId about bundleId appIconAssetId appLogoAssetId facebookAppId facebookAppSecret googleApiKey updateEULADate eulaVersion landingPageUrl showInActivities activityDescription inviteWelcomeText invitePageUrl urlScheme platforms downloadUrls categoryIds scoringType hintCost maxScore ticketsPerPoint hasGameData publicNotifications useMatchingAlgorithm globalTickets buildVersion apiVersion placementName placementDescription placementSize placementHeight placementWidth placementRefreshInterval createObjectStore publicContentApproval productionMode minimumSessionLength sessionGapLength localAdsEnabled sqootApiKey trilatProcessingType maxSampleSize minRSSI modules authorizedCount authorizedServers defaultTimezone smtpPass metaData placementMetaData ipsFloor enableAPNSBadge includeInReport defaultAppFilterId enableWelcomeEmail appleAppId appleTeamId appleAuthKeyId ^File appleAuthKey appleIssuerId appStoreKeyId ^File appStoreKey ^File googlePrivateKeyFile authorizeNetApiKey authorizeNetTransactionKey emailSender smtpUser smtpHost vatomBusinessId vatomRestClientId vatomRestSecretKey twilioAccountSID twilioAuthToken twilioSenderPhoneNumber openAISecretKey]} (s/map-of keyword? any?)]
-   (check-required-params version appKey appName)
-   (call-api "/api/{version}/application/update" :post
-             {:path-params   {"version" version }
+  ([appKey string?, appName string?, ] (update-application-with-http-info appKey appName nil))
+  ([appKey string?, appName string?, {:keys [deviceId accountId about bundleId appIconAssetId appLogoAssetId facebookAppId facebookAppSecret googleApiKey updateEULADate eulaVersion landingPageUrl showInActivities activityDescription inviteWelcomeText invitePageUrl urlScheme platforms downloadUrls categoryIds scoringType hintCost maxScore ticketsPerPoint hasGameData publicNotifications useMatchingAlgorithm globalTickets buildVersion apiVersion placementName placementDescription placementSize placementHeight placementWidth placementRefreshInterval createObjectStore publicContentApproval productionMode minimumSessionLength sessionGapLength localAdsEnabled sqootApiKey trilatProcessingType maxSampleSize minRSSI modules authorizedCount authorizedServers defaultTimezone smtpPass metaData placementMetaData ipsFloor enableAPNSBadge includeInReport defaultAppFilterId enableWelcomeEmail appleAppId appleTeamId appleAuthKeyId ^File appleAuthKey appleIssuerId appStoreKeyId ^File appStoreKey ^File googlePrivateKeyFile authorizeNetApiKey authorizeNetTransactionKey emailSender smtpUser smtpHost vatomBusinessId vatomRestClientId vatomRestSecretKey twilioAccountSID twilioAuthToken twilioSenderPhoneNumber openAISecretKey]} (s/map-of keyword? any?)]
+   (check-required-params appKey appName)
+   (call-api "/application/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "appName" appName "about" about "bundleId" bundleId "appIconAssetId" appIconAssetId "appLogoAssetId" appLogoAssetId "facebookAppId" facebookAppId "facebookAppSecret" facebookAppSecret "googleApiKey" googleApiKey "updateEULADate" updateEULADate "eulaVersion" eulaVersion "landingPageUrl" landingPageUrl "showInActivities" showInActivities "activityDescription" activityDescription "inviteWelcomeText" inviteWelcomeText "invitePageUrl" invitePageUrl "urlScheme" urlScheme "platforms" platforms "downloadUrls" downloadUrls "categoryIds" categoryIds "scoringType" scoringType "hintCost" hintCost "maxScore" maxScore "ticketsPerPoint" ticketsPerPoint "hasGameData" hasGameData "publicNotifications" publicNotifications "useMatchingAlgorithm" useMatchingAlgorithm "globalTickets" globalTickets "buildVersion" buildVersion "apiVersion" apiVersion "placementName" placementName "placementDescription" placementDescription "placementSize" placementSize "placementHeight" placementHeight "placementWidth" placementWidth "placementRefreshInterval" placementRefreshInterval "createObjectStore" createObjectStore "publicContentApproval" publicContentApproval "productionMode" productionMode "minimumSessionLength" minimumSessionLength "sessionGapLength" sessionGapLength "localAdsEnabled" localAdsEnabled "sqootApiKey" sqootApiKey "trilatProcessingType" trilatProcessingType "maxSampleSize" maxSampleSize "minRSSI" minRSSI "modules" modules "authorizedCount" authorizedCount "authorizedServers" authorizedServers "defaultTimezone" defaultTimezone "smtpPass" smtpPass "metaData" metaData "placementMetaData" placementMetaData "ipsFloor" ipsFloor "enableAPNSBadge" enableAPNSBadge "includeInReport" includeInReport "defaultAppFilterId" defaultAppFilterId "enableWelcomeEmail" enableWelcomeEmail "appleAppId" appleAppId "appleTeamId" appleTeamId "appleAuthKeyId" appleAuthKeyId "appleAuthKey" appleAuthKey "appleIssuerId" appleIssuerId "appStoreKeyId" appStoreKeyId "appStoreKey" appStoreKey "googlePrivateKeyFile" googlePrivateKeyFile "authorizeNetApiKey" authorizeNetApiKey "authorizeNetTransactionKey" authorizeNetTransactionKey "emailSender" emailSender "smtpUser" smtpUser "smtpHost" smtpHost "vatomBusinessId" vatomBusinessId "vatomRestClientId" vatomRestClientId "vatomRestSecretKey" vatomRestSecretKey "twilioAccountSID" twilioAccountSID "twilioAuthToken" twilioAuthToken "twilioSenderPhoneNumber" twilioSenderPhoneNumber "openAISecretKey" openAISecretKey }
               :form-params   {}
@@ -678,9 +672,9 @@
 (defn-spec update-application application-response-spec
   "Update Application
   Update an application record"
-  ([version float?, appKey string?, appName string?, ] (update-application version appKey appName nil))
-  ([version float?, appKey string?, appName string?, optional-params any?]
-   (let [res (:data (update-application-with-http-info version appKey appName optional-params))]
+  ([appKey string?, appName string?, ] (update-application appKey appName nil))
+  ([appKey string?, appName string?, optional-params any?]
+   (let [res (:data (update-application-with-http-info appKey appName optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-response-spec res st/string-transformer)
         res))))
@@ -689,10 +683,10 @@
 (defn-spec update-application-active-with-http-info any?
   "Change Appliation Status
   Set the application's active flag to true/false. This effectively activates or deactivates the application."
-  [version float?, accountId int?, appKey string?, active boolean?]
-  (check-required-params version accountId appKey active)
-  (call-api "/api/{version}/application/active" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, active boolean?]
+  (check-required-params accountId appKey active)
+  (call-api "/application/active" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "active" active }
              :form-params   {}
@@ -703,8 +697,8 @@
 (defn-spec update-application-active sirqul-response-spec
   "Change Appliation Status
   Set the application's active flag to true/false. This effectively activates or deactivates the application."
-  [version float?, accountId int?, appKey string?, active boolean?]
-  (let [res (:data (update-application-active-with-http-info version accountId appKey active))]
+  [accountId int?, appKey string?, active boolean?]
+  (let [res (:data (update-application-active-with-http-info accountId appKey active))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -713,11 +707,11 @@
 (defn-spec update-application-placement-with-http-info any?
   "Update Ad Placement
   Updates an ad placement for an application."
-  ([version float?, placementId int?, ] (update-application-placement-with-http-info version placementId nil))
-  ([version float?, placementId int?, {:keys [deviceId accountId name description size height width refreshInterval defaultImageId active]} (s/map-of keyword? any?)]
-   (check-required-params version placementId)
-   (call-api "/api/{version}/application/placement/update" :post
-             {:path-params   {"version" version }
+  ([placementId int?, ] (update-application-placement-with-http-info placementId nil))
+  ([placementId int?, {:keys [deviceId accountId name description size height width refreshInterval defaultImageId active]} (s/map-of keyword? any?)]
+   (check-required-params placementId)
+   (call-api "/application/placement/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "placementId" placementId "name" name "description" description "size" size "height" height "width" width "refreshInterval" refreshInterval "defaultImageId" defaultImageId "active" active }
               :form-params   {}
@@ -728,9 +722,9 @@
 (defn-spec update-application-placement placement-response-spec
   "Update Ad Placement
   Updates an ad placement for an application."
-  ([version float?, placementId int?, ] (update-application-placement version placementId nil))
-  ([version float?, placementId int?, optional-params any?]
-   (let [res (:data (update-application-placement-with-http-info version placementId optional-params))]
+  ([placementId int?, ] (update-application-placement placementId nil))
+  ([placementId int?, optional-params any?]
+   (let [res (:data (update-application-placement-with-http-info placementId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode placement-response-spec res st/string-transformer)
         res))))
@@ -739,11 +733,11 @@
 (defn-spec upload-application-certificate-with-http-info any?
   "Create Application Certificate
   Uploads a certificate for an application that the user has access to."
-  ([version float?, appKey string?, ] (upload-application-certificate-with-http-info version appKey nil))
-  ([version float?, appKey string?, {:keys [deviceId accountId ^File certificate]} (s/map-of keyword? any?)]
-   (check-required-params version appKey)
-   (call-api "/api/{version}/application/certificate/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, ] (upload-application-certificate-with-http-info appKey nil))
+  ([appKey string?, {:keys [deviceId accountId ^File certificate]} (s/map-of keyword? any?)]
+   (check-required-params appKey)
+   (call-api "/application/certificate/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "certificate" certificate }
               :form-params   {}
@@ -754,9 +748,9 @@
 (defn-spec upload-application-certificate sirqul-response-spec
   "Create Application Certificate
   Uploads a certificate for an application that the user has access to."
-  ([version float?, appKey string?, ] (upload-application-certificate version appKey nil))
-  ([version float?, appKey string?, optional-params any?]
-   (let [res (:data (upload-application-certificate-with-http-info version appKey optional-params))]
+  ([appKey string?, ] (upload-application-certificate appKey nil))
+  ([appKey string?, optional-params any?]
+   (let [res (:data (upload-application-certificate-with-http-info appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

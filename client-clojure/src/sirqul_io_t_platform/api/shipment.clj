@@ -353,10 +353,10 @@
 (defn-spec cancel-shipment-with-http-info any?
   "Cancel Shipment
   Remove shipment from route"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/shipment/{id}/cancel" :post
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/shipment/{id}/cancel" :post
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec cancel-shipment any?
   "Cancel Shipment
   Remove shipment from route"
-  [version float?, id int?]
-  (let [res (:data (cancel-shipment-with-http-info version id))]
+  [id int?]
+  (let [res (:data (cancel-shipment-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -377,11 +377,10 @@
 (defn-spec create-shipment-with-http-info any?
   "Create Shipment
   Create new shipment"
-  ([version float?, ] (create-shipment-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/shipment" :post
-             {:path-params   {"version" version }
+  ([] (create-shipment-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/shipment" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -393,9 +392,9 @@
 (defn-spec create-shipment shipment-spec
   "Create Shipment
   Create new shipment"
-  ([version float?, ] (create-shipment version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-shipment-with-http-info version optional-params))]
+  ([] (create-shipment nil))
+  ([optional-params any?]
+   (let [res (:data (create-shipment-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode shipment-spec res st/string-transformer)
         res))))
@@ -404,10 +403,10 @@
 (defn-spec delete-shipment-with-http-info any?
   "Delete Shipment
   Delete an existing shipment"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/shipment/{id}" :delete
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/shipment/{id}" :delete
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +417,8 @@
 (defn-spec delete-shipment any?
   "Delete Shipment
   Delete an existing shipment"
-  [version float?, id int?]
-  (let [res (:data (delete-shipment-with-http-info version id))]
+  [id int?]
+  (let [res (:data (delete-shipment-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -428,10 +427,10 @@
 (defn-spec get-shipment-with-http-info any?
   "Get Shipment
   Get an existing shipment"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/shipment/{id}" :get
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/shipment/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -442,8 +441,8 @@
 (defn-spec get-shipment shipment-spec
   "Get Shipment
   Get an existing shipment"
-  [version float?, id int?]
-  (let [res (:data (get-shipment-with-http-info version id))]
+  [id int?]
+  (let [res (:data (get-shipment-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode shipment-spec res st/string-transformer)
        res)))
@@ -452,11 +451,11 @@
 (defn-spec search-shipments-with-http-info any?
   "Search Shipments
   Search for shipments"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-shipments-with-http-info version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [ownerId riderId routeId]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly)
-   (call-api "/api/{version}/shipment" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-shipments-with-http-info sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [ownerId riderId routeId]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly)
+   (call-api "/shipment" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"ownerId" ownerId "riderId" riderId "routeId" routeId "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -467,9 +466,9 @@
 (defn-spec search-shipments (s/coll-of shipment-spec)
   "Search Shipments
   Search for shipments"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-shipments version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-shipments-with-http-info version sortField descending start limit activeOnly optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-shipments sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-shipments-with-http-info sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of shipment-spec) res st/string-transformer)
         res))))
@@ -478,11 +477,11 @@
 (defn-spec update-shipment-with-http-info any?
   "Update Shipment
   Update an existing shipment"
-  ([version float?, id int?, ] (update-shipment-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/shipment/{id}" :put
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-shipment-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/shipment/{id}" :put
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -494,9 +493,9 @@
 (defn-spec update-shipment shipment-spec
   "Update Shipment
   Update an existing shipment"
-  ([version float?, id int?, ] (update-shipment version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-shipment-with-http-info version id optional-params))]
+  ([id int?, ] (update-shipment id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-shipment-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode shipment-spec res st/string-transformer)
         res))))
@@ -505,11 +504,11 @@
 (defn-spec update-shipment-status-with-http-info any?
   "Uupdate Shipment Status
   Update status of an existing shipment"
-  ([version float?, id int?, ] (update-shipment-status-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/shipment/{id}/status" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-shipment-status-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/shipment/{id}/status" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -521,9 +520,9 @@
 (defn-spec update-shipment-status any?
   "Uupdate Shipment Status
   Update status of an existing shipment"
-  ([version float?, id int?, ] (update-shipment-status version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-shipment-status-with-http-info version id optional-params))]
+  ([id int?, ] (update-shipment-status id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-shipment-status-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))

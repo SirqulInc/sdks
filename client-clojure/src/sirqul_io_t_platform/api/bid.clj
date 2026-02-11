@@ -353,11 +353,11 @@
 (defn-spec create-bid-with-http-info any?
   "Create Bid
   Creates a bid on a biddable object"
-  ([version float?, biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, ] (create-bid-with-http-info version biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule nil))
-  ([version float?, biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule)
-   (call-api "/api/{version}/bid/create" :post
-             {:path-params   {"version" version }
+  ([biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, ] (create-bid-with-http-info biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule nil))
+  ([biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule)
+   (call-api "/bid/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "biddableType" biddableType "biddableId" biddableId "amountPerView" amountPerView "amountPerAction" amountPerAction "budgetAmount" budgetAmount "budgetSchedule" budgetSchedule }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-bid bid-response-spec
   "Create Bid
   Creates a bid on a biddable object"
-  ([version float?, biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, ] (create-bid version biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule nil))
-  ([version float?, biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, optional-params any?]
-   (let [res (:data (create-bid-with-http-info version biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule optional-params))]
+  ([biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, ] (create-bid biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule nil))
+  ([biddableType string?, biddableId int?, amountPerView float?, amountPerAction float?, budgetAmount float?, budgetSchedule string?, optional-params any?]
+   (let [res (:data (create-bid-with-http-info biddableType biddableId amountPerView amountPerAction budgetAmount budgetSchedule optional-params))]
      (if (:decode-models *api-context*)
         (st/decode bid-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec delete-bid-with-http-info any?
   "Delete Bid
   Deleted a bid on a biddable object"
-  ([version float?, bidId int?, ] (delete-bid-with-http-info version bidId nil))
-  ([version float?, bidId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version bidId)
-   (call-api "/api/{version}/bid/delete" :post
-             {:path-params   {"version" version }
+  ([bidId int?, ] (delete-bid-with-http-info bidId nil))
+  ([bidId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params bidId)
+   (call-api "/bid/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "bidId" bidId }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec delete-bid sirqul-response-spec
   "Delete Bid
   Deleted a bid on a biddable object"
-  ([version float?, bidId int?, ] (delete-bid version bidId nil))
-  ([version float?, bidId int?, optional-params any?]
-   (let [res (:data (delete-bid-with-http-info version bidId optional-params))]
+  ([bidId int?, ] (delete-bid bidId nil))
+  ([bidId int?, optional-params any?]
+   (let [res (:data (delete-bid-with-http-info bidId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec get-bid-with-http-info any?
   "Get Bid
   Get the bid details of a biddable object"
-  ([version float?, bidId int?, ] (get-bid-with-http-info version bidId nil))
-  ([version float?, bidId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version bidId)
-   (call-api "/api/{version}/bid/get" :get
-             {:path-params   {"version" version }
+  ([bidId int?, ] (get-bid-with-http-info bidId nil))
+  ([bidId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params bidId)
+   (call-api "/bid/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "bidId" bidId }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec get-bid bid-response-spec
   "Get Bid
   Get the bid details of a biddable object"
-  ([version float?, bidId int?, ] (get-bid version bidId nil))
-  ([version float?, bidId int?, optional-params any?]
-   (let [res (:data (get-bid-with-http-info version bidId optional-params))]
+  ([bidId int?, ] (get-bid bidId nil))
+  ([bidId int?, optional-params any?]
+   (let [res (:data (get-bid-with-http-info bidId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode bid-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec update-bid-with-http-info any?
   "Update Bid
   Updates a bid on a biddable object"
-  ([version float?, bidId int?, ] (update-bid-with-http-info version bidId nil))
-  ([version float?, bidId int?, {:keys [deviceId accountId amountPerView amountPerAction budgetAmount budgetSchedule]} (s/map-of keyword? any?)]
-   (check-required-params version bidId)
-   (call-api "/api/{version}/bid/update" :post
-             {:path-params   {"version" version }
+  ([bidId int?, ] (update-bid-with-http-info bidId nil))
+  ([bidId int?, {:keys [deviceId accountId amountPerView amountPerAction budgetAmount budgetSchedule]} (s/map-of keyword? any?)]
+   (check-required-params bidId)
+   (call-api "/bid/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "bidId" bidId "amountPerView" amountPerView "amountPerAction" amountPerAction "budgetAmount" budgetAmount "budgetSchedule" budgetSchedule }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec update-bid bid-response-spec
   "Update Bid
   Updates a bid on a biddable object"
-  ([version float?, bidId int?, ] (update-bid version bidId nil))
-  ([version float?, bidId int?, optional-params any?]
-   (let [res (:data (update-bid-with-http-info version bidId optional-params))]
+  ([bidId int?, ] (update-bid bidId nil))
+  ([bidId int?, optional-params any?]
+   (let [res (:data (update-bid-with-http-info bidId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode bid-response-spec res st/string-transformer)
         res))))

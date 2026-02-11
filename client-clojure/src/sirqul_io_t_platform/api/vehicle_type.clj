@@ -353,11 +353,11 @@
 (defn-spec create-vehicle-type-with-http-info any?
   "Create Vehicle Type
   Create a new vehicle type"
-  ([version float?, vehicleType string?, ] (create-vehicle-type-with-http-info version vehicleType nil))
-  ([version float?, vehicleType string?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version vehicleType)
-   (call-api "/api/{version}/vehicle/type" :post
-             {:path-params   {"version" version }
+  ([vehicleType string?, ] (create-vehicle-type-with-http-info vehicleType nil))
+  ([vehicleType string?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params vehicleType)
+   (call-api "/vehicle/type" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"vehicleType" vehicleType }
               :form-params   {}
@@ -369,9 +369,9 @@
 (defn-spec create-vehicle-type vehicle-type-spec
   "Create Vehicle Type
   Create a new vehicle type"
-  ([version float?, vehicleType string?, ] (create-vehicle-type version vehicleType nil))
-  ([version float?, vehicleType string?, optional-params any?]
-   (let [res (:data (create-vehicle-type-with-http-info version vehicleType optional-params))]
+  ([vehicleType string?, ] (create-vehicle-type vehicleType nil))
+  ([vehicleType string?, optional-params any?]
+   (let [res (:data (create-vehicle-type-with-http-info vehicleType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode vehicle-type-spec res st/string-transformer)
         res))))
@@ -380,10 +380,10 @@
 (defn-spec delete-vehicle-type-with-http-info any?
   "Delete Vehicle Type
   Delete a vehicle type"
-  [version float?, vehicleTypeId int?]
-  (check-required-params version vehicleTypeId)
-  (call-api "/api/{version}/vehicle/type/{vehicleTypeId}" :delete
-            {:path-params   {"version" version "vehicleTypeId" vehicleTypeId }
+  [vehicleTypeId int?]
+  (check-required-params vehicleTypeId)
+  (call-api "/vehicle/type/{vehicleTypeId}" :delete
+            {:path-params   {"vehicleTypeId" vehicleTypeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +394,8 @@
 (defn-spec delete-vehicle-type any?
   "Delete Vehicle Type
   Delete a vehicle type"
-  [version float?, vehicleTypeId int?]
-  (let [res (:data (delete-vehicle-type-with-http-info version vehicleTypeId))]
+  [vehicleTypeId int?]
+  (let [res (:data (delete-vehicle-type-with-http-info vehicleTypeId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -404,10 +404,10 @@
 (defn-spec get-vehicle-type-with-http-info any?
   "Get Vehicle Type
   Get a vehicle type"
-  [version float?, vehicleTypeId int?]
-  (check-required-params version vehicleTypeId)
-  (call-api "/api/{version}/vehicle/type/{vehicleTypeId}" :get
-            {:path-params   {"version" version "vehicleTypeId" vehicleTypeId }
+  [vehicleTypeId int?]
+  (check-required-params vehicleTypeId)
+  (call-api "/vehicle/type/{vehicleTypeId}" :get
+            {:path-params   {"vehicleTypeId" vehicleTypeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +418,8 @@
 (defn-spec get-vehicle-type vehicle-type-spec
   "Get Vehicle Type
   Get a vehicle type"
-  [version float?, vehicleTypeId int?]
-  (let [res (:data (get-vehicle-type-with-http-info version vehicleTypeId))]
+  [vehicleTypeId int?]
+  (let [res (:data (get-vehicle-type-with-http-info vehicleTypeId))]
     (if (:decode-models *api-context*)
        (st/decode vehicle-type-spec res st/string-transformer)
        res)))
@@ -428,11 +428,11 @@
 (defn-spec search-vehicle-types-with-http-info any?
   "Search Vehicle Type
   Search for types of vehicles"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-vehicle-types-with-http-info version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [retailerId hubId]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly)
-   (call-api "/api/{version}/vehicle/type" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-vehicle-types-with-http-info sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [retailerId hubId]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly)
+   (call-api "/vehicle/type" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"retailerId" retailerId "hubId" hubId "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -443,9 +443,9 @@
 (defn-spec search-vehicle-types (s/coll-of vehicle-type-spec)
   "Search Vehicle Type
   Search for types of vehicles"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-vehicle-types version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-vehicle-types-with-http-info version sortField descending start limit activeOnly optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-vehicle-types sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-vehicle-types-with-http-info sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of vehicle-type-spec) res st/string-transformer)
         res))))
@@ -454,11 +454,11 @@
 (defn-spec update-vehicle-type-with-http-info any?
   "Update Vehicle Type
   Update a vehicle type"
-  ([version float?, vehicleTypeId int?, vehicleType string?, ] (update-vehicle-type-with-http-info version vehicleTypeId vehicleType nil))
-  ([version float?, vehicleTypeId int?, vehicleType string?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version vehicleTypeId vehicleType)
-   (call-api "/api/{version}/vehicle/type/{vehicleTypeId}" :put
-             {:path-params   {"version" version "vehicleTypeId" vehicleTypeId }
+  ([vehicleTypeId int?, vehicleType string?, ] (update-vehicle-type-with-http-info vehicleTypeId vehicleType nil))
+  ([vehicleTypeId int?, vehicleType string?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params vehicleTypeId vehicleType)
+   (call-api "/vehicle/type/{vehicleTypeId}" :put
+             {:path-params   {"vehicleTypeId" vehicleTypeId }
               :header-params {}
               :query-params  {"vehicleType" vehicleType }
               :form-params   {}
@@ -470,9 +470,9 @@
 (defn-spec update-vehicle-type vehicle-type-spec
   "Update Vehicle Type
   Update a vehicle type"
-  ([version float?, vehicleTypeId int?, vehicleType string?, ] (update-vehicle-type version vehicleTypeId vehicleType nil))
-  ([version float?, vehicleTypeId int?, vehicleType string?, optional-params any?]
-   (let [res (:data (update-vehicle-type-with-http-info version vehicleTypeId vehicleType optional-params))]
+  ([vehicleTypeId int?, vehicleType string?, ] (update-vehicle-type vehicleTypeId vehicleType nil))
+  ([vehicleTypeId int?, vehicleType string?, optional-params any?]
+   (let [res (:data (update-vehicle-type-with-http-info vehicleTypeId vehicleType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode vehicle-type-spec res st/string-transformer)
         res))))

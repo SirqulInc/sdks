@@ -353,11 +353,11 @@
 (defn-spec consumer-create-with-http-info any?
   "Create Consumer
   Create a connection to an existing amqp queue and register as a consumer."
-  ([version float?, appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, ] (consumer-create-with-http-info version appKey name hostname username password dataMapping nil))
-  ([version float?, appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, {:keys [deviceId accountId port virtualHost exchanger exchangerType workers useSSL]} (s/map-of keyword? any?)]
-   (check-required-params version appKey name hostname username password dataMapping)
-   (call-api "/api/{version}/queue/consumer/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, ] (consumer-create-with-http-info appKey name hostname username password dataMapping nil))
+  ([appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, {:keys [deviceId accountId port virtualHost exchanger exchangerType workers useSSL]} (s/map-of keyword? any?)]
+   (check-required-params appKey name hostname username password dataMapping)
+   (call-api "/queue/consumer/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "name" name "hostname" hostname "port" port "username" username "password" password "virtualHost" virtualHost "exchanger" exchanger "exchangerType" exchangerType "workers" workers "dataMapping" dataMapping "useSSL" useSSL }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec consumer-create queue-response-spec
   "Create Consumer
   Create a connection to an existing amqp queue and register as a consumer."
-  ([version float?, appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, ] (consumer-create version appKey name hostname username password dataMapping nil))
-  ([version float?, appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, optional-params any?]
-   (let [res (:data (consumer-create-with-http-info version appKey name hostname username password dataMapping optional-params))]
+  ([appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, ] (consumer-create appKey name hostname username password dataMapping nil))
+  ([appKey string?, name string?, hostname string?, username string?, password string?, dataMapping string?, optional-params any?]
+   (let [res (:data (consumer-create-with-http-info appKey name hostname username password dataMapping optional-params))]
      (if (:decode-models *api-context*)
         (st/decode queue-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec consumer-update-with-http-info any?
   "Update Consumer
   Update an existing amqp queue's data mapping."
-  ([version float?, appKey string?, queueId int?, dataMapping string?, ] (consumer-update-with-http-info version appKey queueId dataMapping nil))
-  ([version float?, appKey string?, queueId int?, dataMapping string?, {:keys [deviceId accountId useSSL]} (s/map-of keyword? any?)]
-   (check-required-params version appKey queueId dataMapping)
-   (call-api "/api/{version}/queue/consumer/update" :post
-             {:path-params   {"version" version }
+  ([appKey string?, queueId int?, dataMapping string?, ] (consumer-update-with-http-info appKey queueId dataMapping nil))
+  ([appKey string?, queueId int?, dataMapping string?, {:keys [deviceId accountId useSSL]} (s/map-of keyword? any?)]
+   (check-required-params appKey queueId dataMapping)
+   (call-api "/queue/consumer/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "queueId" queueId "dataMapping" dataMapping "useSSL" useSSL }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec consumer-update queue-response-spec
   "Update Consumer
   Update an existing amqp queue's data mapping."
-  ([version float?, appKey string?, queueId int?, dataMapping string?, ] (consumer-update version appKey queueId dataMapping nil))
-  ([version float?, appKey string?, queueId int?, dataMapping string?, optional-params any?]
-   (let [res (:data (consumer-update-with-http-info version appKey queueId dataMapping optional-params))]
+  ([appKey string?, queueId int?, dataMapping string?, ] (consumer-update appKey queueId dataMapping nil))
+  ([appKey string?, queueId int?, dataMapping string?, optional-params any?]
+   (let [res (:data (consumer-update-with-http-info appKey queueId dataMapping optional-params))]
      (if (:decode-models *api-context*)
         (st/decode queue-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec queue-create-with-http-info any?
   "Create Queue
   Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application."
-  ([version float?, appKey string?, name string?, ] (queue-create-with-http-info version appKey name nil))
-  ([version float?, appKey string?, name string?, {:keys [deviceId accountId workers analyticTags hostname port username password virtualHost useSSL]} (s/map-of keyword? any?)]
-   (check-required-params version appKey name)
-   (call-api "/api/{version}/queue/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, name string?, ] (queue-create-with-http-info appKey name nil))
+  ([appKey string?, name string?, {:keys [deviceId accountId workers analyticTags hostname port username password virtualHost useSSL]} (s/map-of keyword? any?)]
+   (check-required-params appKey name)
+   (call-api "/queue/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "name" name "workers" workers "analyticTags" analyticTags "hostname" hostname "port" port "username" username "password" password "virtualHost" virtualHost "useSSL" useSSL }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec queue-create queue-response-spec
   "Create Queue
   Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application."
-  ([version float?, appKey string?, name string?, ] (queue-create version appKey name nil))
-  ([version float?, appKey string?, name string?, optional-params any?]
-   (let [res (:data (queue-create-with-http-info version appKey name optional-params))]
+  ([appKey string?, name string?, ] (queue-create appKey name nil))
+  ([appKey string?, name string?, optional-params any?]
+   (let [res (:data (queue-create-with-http-info appKey name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode queue-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec queue-delete-with-http-info any?
   "Delete Queue
   Delete the stored queue record and close any active connections to the AMQP servers."
-  ([version float?, queueId int?, ] (queue-delete-with-http-info version queueId nil))
-  ([version float?, queueId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version queueId)
-   (call-api "/api/{version}/queue/delete" :post
-             {:path-params   {"version" version }
+  ([queueId int?, ] (queue-delete-with-http-info queueId nil))
+  ([queueId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params queueId)
+   (call-api "/queue/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "queueId" queueId }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec queue-delete sirqul-response-spec
   "Delete Queue
   Delete the stored queue record and close any active connections to the AMQP servers."
-  ([version float?, queueId int?, ] (queue-delete version queueId nil))
-  ([version float?, queueId int?, optional-params any?]
-   (let [res (:data (queue-delete-with-http-info version queueId optional-params))]
+  ([queueId int?, ] (queue-delete queueId nil))
+  ([queueId int?, optional-params any?]
+   (let [res (:data (queue-delete-with-http-info queueId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,10 @@
 (defn-spec queue-get-with-http-info any?
   "Get Queue
   Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record."
-  ([version float?, ] (queue-get-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId queueId appKey name hostname virtualHost]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/queue/get" :get
-             {:path-params   {"version" version }
+  ([] (queue-get-with-http-info nil))
+  ([{:keys [deviceId accountId queueId appKey name hostname virtualHost]} (s/map-of keyword? any?)]
+   (call-api "/queue/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "queueId" queueId "appKey" appKey "name" name "hostname" hostname "virtualHost" virtualHost }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec queue-get queue-response-spec
   "Get Queue
   Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record."
-  ([version float?, ] (queue-get version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (queue-get-with-http-info version optional-params))]
+  ([] (queue-get nil))
+  ([optional-params any?]
+   (let [res (:data (queue-get-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode queue-response-spec res st/string-transformer)
         res))))
@@ -483,11 +482,11 @@
 (defn-spec queue-publish-with-http-info any?
   "Publish Queue
   Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record."
-  ([version float?, message string?, ] (queue-publish-with-http-info version message nil))
-  ([version float?, message string?, {:keys [queueId appKey name hostname virtualHost]} (s/map-of keyword? any?)]
-   (check-required-params version message)
-   (call-api "/api/{version}/queue/publish" :post
-             {:path-params   {"version" version }
+  ([message string?, ] (queue-publish-with-http-info message nil))
+  ([message string?, {:keys [queueId appKey name hostname virtualHost]} (s/map-of keyword? any?)]
+   (check-required-params message)
+   (call-api "/queue/publish" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"queueId" queueId "appKey" appKey "name" name "hostname" hostname "virtualHost" virtualHost "message" message }
               :form-params   {}
@@ -498,9 +497,9 @@
 (defn-spec queue-publish sirqul-response-spec
   "Publish Queue
   Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record."
-  ([version float?, message string?, ] (queue-publish version message nil))
-  ([version float?, message string?, optional-params any?]
-   (let [res (:data (queue-publish-with-http-info version message optional-params))]
+  ([message string?, ] (queue-publish message nil))
+  ([message string?, optional-params any?]
+   (let [res (:data (queue-publish-with-http-info message optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -509,11 +508,10 @@
 (defn-spec queue-search-with-http-info any?
   "Search Queue
   Get the queues setup for the BillableEntity's applications."
-  ([version float?, ] (queue-search-with-http-info version nil))
-  ([version float?, {:keys [queueId deviceId accountId name start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/queue/search" :get
-             {:path-params   {"version" version }
+  ([] (queue-search-with-http-info nil))
+  ([{:keys [queueId deviceId accountId name start limit]} (s/map-of keyword? any?)]
+   (call-api "/queue/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"queueId" queueId "deviceId" deviceId "accountId" accountId "name" name "start" start "limit" limit }
               :form-params   {}
@@ -524,9 +522,9 @@
 (defn-spec queue-search queue-response-spec
   "Search Queue
   Get the queues setup for the BillableEntity's applications."
-  ([version float?, ] (queue-search version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (queue-search-with-http-info version optional-params))]
+  ([] (queue-search nil))
+  ([optional-params any?]
+   (let [res (:data (queue-search-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode queue-response-spec res st/string-transformer)
         res))))
@@ -535,11 +533,11 @@
 (defn-spec queue-update-with-http-info any?
   "Update Queue
   Update the basic AMQP queue."
-  ([version float?, queueId int?, ] (queue-update-with-http-info version queueId nil))
-  ([version float?, queueId int?, {:keys [deviceId accountId appKey workers analyticTags hostname port username password virtualHost useSSL]} (s/map-of keyword? any?)]
-   (check-required-params version queueId)
-   (call-api "/api/{version}/queue/update" :post
-             {:path-params   {"version" version }
+  ([queueId int?, ] (queue-update-with-http-info queueId nil))
+  ([queueId int?, {:keys [deviceId accountId appKey workers analyticTags hostname port username password virtualHost useSSL]} (s/map-of keyword? any?)]
+   (check-required-params queueId)
+   (call-api "/queue/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "queueId" queueId "workers" workers "analyticTags" analyticTags "hostname" hostname "port" port "username" username "password" password "virtualHost" virtualHost "useSSL" useSSL }
               :form-params   {}
@@ -550,9 +548,9 @@
 (defn-spec queue-update queue-response-spec
   "Update Queue
   Update the basic AMQP queue."
-  ([version float?, queueId int?, ] (queue-update version queueId nil))
-  ([version float?, queueId int?, optional-params any?]
-   (let [res (:data (queue-update-with-http-info version queueId optional-params))]
+  ([queueId int?, ] (queue-update queueId nil))
+  ([queueId int?, optional-params any?]
+   (let [res (:data (queue-update-with-http-info queueId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode queue-response-spec res st/string-transformer)
         res))))

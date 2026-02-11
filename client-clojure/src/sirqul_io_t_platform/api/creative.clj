@@ -353,10 +353,10 @@
 (defn-spec add-preview-with-http-info any?
   "Add Preview
   Enable this ad for preview for this account."
-  [version float?, accountId int?, creativeId int?]
-  (check-required-params version accountId creativeId)
-  (call-api "/api/{version}/creative/addpreview" :post
-            {:path-params   {"version" version }
+  [accountId int?, creativeId int?]
+  (check-required-params accountId creativeId)
+  (call-api "/creative/addpreview" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "creativeId" creativeId }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec add-preview sirqul-response-spec
   "Add Preview
   Enable this ad for preview for this account."
-  [version float?, accountId int?, creativeId int?]
-  (let [res (:data (add-preview-with-http-info version accountId creativeId))]
+  [accountId int?, creativeId int?]
+  (let [res (:data (add-preview-with-http-info accountId creativeId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -377,11 +377,11 @@
 (defn-spec ads-find-with-http-info any?
   "Find Missions
   Get a set of ad filtered by the parameters provided."
-  ([version float?, appKey string?, randomize boolean?, targetedAdsOnly boolean?, ] (ads-find-with-http-info version appKey randomize targetedAdsOnly nil))
-  ([version float?, appKey string?, randomize boolean?, targetedAdsOnly boolean?, {:keys [type accountId appVersion latitude longitude device deviceIdentifier deviceVersion start limit includeAudiences allocatesTickets missionIds]} (s/map-of keyword? any?)]
-   (check-required-params version appKey randomize targetedAdsOnly)
-   (call-api "/api/{version}/ads/find" :get
-             {:path-params   {"version" version }
+  ([appKey string?, randomize boolean?, targetedAdsOnly boolean?, ] (ads-find-with-http-info appKey randomize targetedAdsOnly nil))
+  ([appKey string?, randomize boolean?, targetedAdsOnly boolean?, {:keys [type accountId appVersion latitude longitude device deviceIdentifier deviceVersion start limit includeAudiences allocatesTickets missionIds]} (s/map-of keyword? any?)]
+   (check-required-params appKey randomize targetedAdsOnly)
+   (call-api "/ads/find" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey "type" type "accountId" accountId "appVersion" appVersion "latitude" latitude "longitude" longitude "device" device "deviceIdentifier" deviceIdentifier "deviceVersion" deviceVersion "start" start "limit" limit "includeAudiences" includeAudiences "allocatesTickets" allocatesTickets "randomize" randomize "targetedAdsOnly" targetedAdsOnly "missionIds" missionIds }
               :form-params   {}
@@ -392,9 +392,9 @@
 (defn-spec ads-find (s/coll-of mission-response-spec)
   "Find Missions
   Get a set of ad filtered by the parameters provided."
-  ([version float?, appKey string?, randomize boolean?, targetedAdsOnly boolean?, ] (ads-find version appKey randomize targetedAdsOnly nil))
-  ([version float?, appKey string?, randomize boolean?, targetedAdsOnly boolean?, optional-params any?]
-   (let [res (:data (ads-find-with-http-info version appKey randomize targetedAdsOnly optional-params))]
+  ([appKey string?, randomize boolean?, targetedAdsOnly boolean?, ] (ads-find appKey randomize targetedAdsOnly nil))
+  ([appKey string?, randomize boolean?, targetedAdsOnly boolean?, optional-params any?]
+   (let [res (:data (ads-find-with-http-info appKey randomize targetedAdsOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of mission-response-spec) res st/string-transformer)
         res))))
@@ -403,11 +403,11 @@
 (defn-spec create-creative-with-http-info any?
   "Create Creative
   Create a creative"
-  ([version float?, accountId int?, name string?, active boolean?, waitForAsset boolean?, ] (create-creative-with-http-info version accountId name active waitForAsset nil))
-  ([version float?, accountId int?, name string?, active boolean?, waitForAsset boolean?, {:keys [description assetImageId action data suffix type balance referenceId appVersion missionId offerId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name active waitForAsset)
-   (call-api "/api/{version}/creative/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, active boolean?, waitForAsset boolean?, ] (create-creative-with-http-info accountId name active waitForAsset nil))
+  ([accountId int?, name string?, active boolean?, waitForAsset boolean?, {:keys [description assetImageId action data suffix type balance referenceId appVersion missionId offerId]} (s/map-of keyword? any?)]
+   (check-required-params accountId name active waitForAsset)
+   (call-api "/creative/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "description" description "assetImageId" assetImageId "action" action "data" data "suffix" suffix "type" type "balance" balance "active" active "referenceId" referenceId "appVersion" appVersion "missionId" missionId "offerId" offerId "waitForAsset" waitForAsset }
               :form-params   {}
@@ -418,9 +418,9 @@
 (defn-spec create-creative creative-response-spec
   "Create Creative
   Create a creative"
-  ([version float?, accountId int?, name string?, active boolean?, waitForAsset boolean?, ] (create-creative version accountId name active waitForAsset nil))
-  ([version float?, accountId int?, name string?, active boolean?, waitForAsset boolean?, optional-params any?]
-   (let [res (:data (create-creative-with-http-info version accountId name active waitForAsset optional-params))]
+  ([accountId int?, name string?, active boolean?, waitForAsset boolean?, ] (create-creative accountId name active waitForAsset nil))
+  ([accountId int?, name string?, active boolean?, waitForAsset boolean?, optional-params any?]
+   (let [res (:data (create-creative-with-http-info accountId name active waitForAsset optional-params))]
      (if (:decode-models *api-context*)
         (st/decode creative-response-spec res st/string-transformer)
         res))))
@@ -429,10 +429,10 @@
 (defn-spec delete-creative-with-http-info any?
   "Delete Creative
   Delete a creative"
-  [version float?, accountId int?, creativeId int?]
-  (check-required-params version accountId creativeId)
-  (call-api "/api/{version}/creative/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, creativeId int?]
+  (check-required-params accountId creativeId)
+  (call-api "/creative/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "creativeId" creativeId }
              :form-params   {}
@@ -443,8 +443,8 @@
 (defn-spec delete-creative sirqul-response-spec
   "Delete Creative
   Delete a creative"
-  [version float?, accountId int?, creativeId int?]
-  (let [res (:data (delete-creative-with-http-info version accountId creativeId))]
+  [accountId int?, creativeId int?]
+  (let [res (:data (delete-creative-with-http-info accountId creativeId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -453,10 +453,10 @@
 (defn-spec get-creative-with-http-info any?
   "Get Creative
   Get a creative"
-  [version float?, accountId int?, creativeId int?]
-  (check-required-params version accountId creativeId)
-  (call-api "/api/{version}/creative/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, creativeId int?]
+  (check-required-params accountId creativeId)
+  (call-api "/creative/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "creativeId" creativeId }
              :form-params   {}
@@ -467,8 +467,8 @@
 (defn-spec get-creative creative-response-spec
   "Get Creative
   Get a creative"
-  [version float?, accountId int?, creativeId int?]
-  (let [res (:data (get-creative-with-http-info version accountId creativeId))]
+  [accountId int?, creativeId int?]
+  (let [res (:data (get-creative-with-http-info accountId creativeId))]
     (if (:decode-models *api-context*)
        (st/decode creative-response-spec res st/string-transformer)
        res)))
@@ -477,11 +477,11 @@
 (defn-spec get-creatives-by-application-with-http-info any?
   "Search Creatives
   Get a list of levels for an application, just those the account has permissions to view."
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, ] (get-creatives-by-application-with-http-info version accountId appKey start limit nil))
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, {:keys [missionId keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey start limit)
-   (call-api "/api/{version}/creative/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, start int?, limit int?, ] (get-creatives-by-application-with-http-info accountId appKey start limit nil))
+  ([accountId int?, appKey string?, start int?, limit int?, {:keys [missionId keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey start limit)
+   (call-api "/creative/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "missionId" missionId "keyword" keyword "start" start "limit" limit }
               :form-params   {}
@@ -492,9 +492,9 @@
 (defn-spec get-creatives-by-application (s/coll-of creative-response-spec)
   "Search Creatives
   Get a list of levels for an application, just those the account has permissions to view."
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, ] (get-creatives-by-application version accountId appKey start limit nil))
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, optional-params any?]
-   (let [res (:data (get-creatives-by-application-with-http-info version accountId appKey start limit optional-params))]
+  ([accountId int?, appKey string?, start int?, limit int?, ] (get-creatives-by-application accountId appKey start limit nil))
+  ([accountId int?, appKey string?, start int?, limit int?, optional-params any?]
+   (let [res (:data (get-creatives-by-application-with-http-info accountId appKey start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of creative-response-spec) res st/string-transformer)
         res))))
@@ -503,10 +503,10 @@
 (defn-spec remove-preview-with-http-info any?
   "Remove Preview
   Remove this ad for preview for this account."
-  [version float?, accountId int?, creativeId int?]
-  (check-required-params version accountId creativeId)
-  (call-api "/api/{version}/creative/removepreview" :post
-            {:path-params   {"version" version }
+  [accountId int?, creativeId int?]
+  (check-required-params accountId creativeId)
+  (call-api "/creative/removepreview" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "creativeId" creativeId }
              :form-params   {}
@@ -517,8 +517,8 @@
 (defn-spec remove-preview sirqul-response-spec
   "Remove Preview
   Remove this ad for preview for this account."
-  [version float?, accountId int?, creativeId int?]
-  (let [res (:data (remove-preview-with-http-info version accountId creativeId))]
+  [accountId int?, creativeId int?]
+  (let [res (:data (remove-preview-with-http-info accountId creativeId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -527,11 +527,11 @@
 (defn-spec update-creative-with-http-info any?
   "Update Creative
   Update a creative"
-  ([version float?, accountId int?, creativeId int?, ] (update-creative-with-http-info version accountId creativeId nil))
-  ([version float?, accountId int?, creativeId int?, {:keys [name description assetImageId action data suffix type balance active referenceId appVersion missionId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId creativeId)
-   (call-api "/api/{version}/creative/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, creativeId int?, ] (update-creative-with-http-info accountId creativeId nil))
+  ([accountId int?, creativeId int?, {:keys [name description assetImageId action data suffix type balance active referenceId appVersion missionId]} (s/map-of keyword? any?)]
+   (check-required-params accountId creativeId)
+   (call-api "/creative/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "creativeId" creativeId "name" name "description" description "assetImageId" assetImageId "action" action "data" data "suffix" suffix "type" type "balance" balance "active" active "referenceId" referenceId "appVersion" appVersion "missionId" missionId }
               :form-params   {}
@@ -542,9 +542,9 @@
 (defn-spec update-creative creative-response-spec
   "Update Creative
   Update a creative"
-  ([version float?, accountId int?, creativeId int?, ] (update-creative version accountId creativeId nil))
-  ([version float?, accountId int?, creativeId int?, optional-params any?]
-   (let [res (:data (update-creative-with-http-info version accountId creativeId optional-params))]
+  ([accountId int?, creativeId int?, ] (update-creative accountId creativeId nil))
+  ([accountId int?, creativeId int?, optional-params any?]
+   (let [res (:data (update-creative-with-http-info accountId creativeId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode creative-response-spec res st/string-transformer)
         res))))

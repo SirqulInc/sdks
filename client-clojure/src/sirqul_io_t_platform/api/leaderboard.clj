@@ -353,11 +353,10 @@
 (defn-spec create-leaderboard-with-http-info any?
   "Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
   Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation"
-  ([version float?, ] (create-leaderboard-with-http-info version nil))
-  ([version float?, {:keys [accountId appKey rankType leaderboardMode ^File iconMedia iconAssetId ^File bannerMedia bannerAssetId limitation sortField title description metaData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/leaderboard/create" :post
-             {:path-params   {"version" version }
+  ([] (create-leaderboard-with-http-info nil))
+  ([{:keys [accountId appKey rankType leaderboardMode ^File iconMedia iconAssetId ^File bannerMedia bannerAssetId limitation sortField title description metaData]} (s/map-of keyword? any?)]
+   (call-api "/leaderboard/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "rankType" rankType "leaderboardMode" leaderboardMode "iconMedia" iconMedia "iconAssetId" iconAssetId "bannerMedia" bannerMedia "bannerAssetId" bannerAssetId "limitation" limitation "sortField" sortField "title" title "description" description "metaData" metaData }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec create-leaderboard leaderboard-response-spec
   "Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
   Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation"
-  ([version float?, ] (create-leaderboard version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-leaderboard-with-http-info version optional-params))]
+  ([] (create-leaderboard nil))
+  ([optional-params any?]
+   (let [res (:data (create-leaderboard-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode leaderboard-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec delete-leaderboard-with-http-info any?
   "Delete the Leader Board
   Removes a leader board id."
-  ([version float?, leaderboardId int?, ] (delete-leaderboard-with-http-info version leaderboardId nil))
-  ([version float?, leaderboardId int?, {:keys [accountId]} (s/map-of keyword? any?)]
-   (check-required-params version leaderboardId)
-   (call-api "/api/{version}/leaderboard/delete" :post
-             {:path-params   {"version" version }
+  ([leaderboardId int?, ] (delete-leaderboard-with-http-info leaderboardId nil))
+  ([leaderboardId int?, {:keys [accountId]} (s/map-of keyword? any?)]
+   (check-required-params leaderboardId)
+   (call-api "/leaderboard/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "leaderboardId" leaderboardId }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec delete-leaderboard sirqul-response-spec
   "Delete the Leader Board
   Removes a leader board id."
-  ([version float?, leaderboardId int?, ] (delete-leaderboard version leaderboardId nil))
-  ([version float?, leaderboardId int?, optional-params any?]
-   (let [res (:data (delete-leaderboard-with-http-info version leaderboardId optional-params))]
+  ([leaderboardId int?, ] (delete-leaderboard leaderboardId nil))
+  ([leaderboardId int?, optional-params any?]
+   (let [res (:data (delete-leaderboard-with-http-info leaderboardId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,11 @@
 (defn-spec get-leaderboard-with-http-info any?
   "Read a leaderboard by id and retrieve the matching ranking list
   Read a leaderboard by id and retrieve the matching ranking list"
-  ([version float?, leaderboardId int?, ] (get-leaderboard-with-http-info version leaderboardId nil))
-  ([version float?, leaderboardId int?, {:keys [accountId includeFullRankingList]} (s/map-of keyword? any?)]
-   (check-required-params version leaderboardId)
-   (call-api "/api/{version}/leaderboard/get" :get
-             {:path-params   {"version" version }
+  ([leaderboardId int?, ] (get-leaderboard-with-http-info leaderboardId nil))
+  ([leaderboardId int?, {:keys [accountId includeFullRankingList]} (s/map-of keyword? any?)]
+   (check-required-params leaderboardId)
+   (call-api "/leaderboard/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "leaderboardId" leaderboardId "includeFullRankingList" includeFullRankingList }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec get-leaderboard leaderboard-response-spec
   "Read a leaderboard by id and retrieve the matching ranking list
   Read a leaderboard by id and retrieve the matching ranking list"
-  ([version float?, leaderboardId int?, ] (get-leaderboard version leaderboardId nil))
-  ([version float?, leaderboardId int?, optional-params any?]
-   (let [res (:data (get-leaderboard-with-http-info version leaderboardId optional-params))]
+  ([leaderboardId int?, ] (get-leaderboard leaderboardId nil))
+  ([leaderboardId int?, optional-params any?]
+   (let [res (:data (get-leaderboard-with-http-info leaderboardId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode leaderboard-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,10 @@
 (defn-spec search-leaderboards-with-http-info any?
   "Search leaderboard and retrieve the matching ranking list
   Search leaderboard and retrieve the matching ranking list"
-  ([version float?, ] (search-leaderboards-with-http-info version nil))
-  ([version float?, {:keys [accountId appKey globalOnly keyword leaderboardIds rankTypes sortField descending includeInactive includeAppResponse start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/leaderboard/search" :get
-             {:path-params   {"version" version }
+  ([] (search-leaderboards-with-http-info nil))
+  ([{:keys [accountId appKey globalOnly keyword leaderboardIds rankTypes sortField descending includeInactive includeAppResponse start limit]} (s/map-of keyword? any?)]
+   (call-api "/leaderboard/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "globalOnly" globalOnly "keyword" keyword "leaderboardIds" leaderboardIds "rankTypes" rankTypes "sortField" sortField "descending" descending "includeInactive" includeInactive "includeAppResponse" includeAppResponse "start" start "limit" limit }
               :form-params   {}
@@ -446,9 +444,9 @@
 (defn-spec search-leaderboards leaderboard-response-spec
   "Search leaderboard and retrieve the matching ranking list
   Search leaderboard and retrieve the matching ranking list"
-  ([version float?, ] (search-leaderboards version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-leaderboards-with-http-info version optional-params))]
+  ([] (search-leaderboards nil))
+  ([optional-params any?]
+   (let [res (:data (search-leaderboards-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode leaderboard-response-spec res st/string-transformer)
         res))))
@@ -457,11 +455,11 @@
 (defn-spec update-leaderboard-with-http-info any?
   "Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
   Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation"
-  ([version float?, leaderboardId int?, ] (update-leaderboard-with-http-info version leaderboardId nil))
-  ([version float?, leaderboardId int?, {:keys [accountId appKey rankType leaderboardMode sortField ^File iconMedia iconAssetId ^File bannerMedia bannerAssetId limitation active title description metaData]} (s/map-of keyword? any?)]
-   (check-required-params version leaderboardId)
-   (call-api "/api/{version}/leaderboard/update" :post
-             {:path-params   {"version" version }
+  ([leaderboardId int?, ] (update-leaderboard-with-http-info leaderboardId nil))
+  ([leaderboardId int?, {:keys [accountId appKey rankType leaderboardMode sortField ^File iconMedia iconAssetId ^File bannerMedia bannerAssetId limitation active title description metaData]} (s/map-of keyword? any?)]
+   (check-required-params leaderboardId)
+   (call-api "/leaderboard/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "leaderboardId" leaderboardId "rankType" rankType "leaderboardMode" leaderboardMode "sortField" sortField "iconMedia" iconMedia "iconAssetId" iconAssetId "bannerMedia" bannerMedia "bannerAssetId" bannerAssetId "limitation" limitation "active" active "title" title "description" description "metaData" metaData }
               :form-params   {}
@@ -472,9 +470,9 @@
 (defn-spec update-leaderboard leaderboard-response-spec
   "Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
   Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation"
-  ([version float?, leaderboardId int?, ] (update-leaderboard version leaderboardId nil))
-  ([version float?, leaderboardId int?, optional-params any?]
-   (let [res (:data (update-leaderboard-with-http-info version leaderboardId optional-params))]
+  ([leaderboardId int?, ] (update-leaderboard leaderboardId nil))
+  ([leaderboardId int?, optional-params any?]
+   (let [res (:data (update-leaderboard-with-http-info leaderboardId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode leaderboard-response-spec res st/string-transformer)
         res))))

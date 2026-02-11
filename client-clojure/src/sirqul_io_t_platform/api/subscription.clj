@@ -353,11 +353,11 @@
 (defn-spec create-subscription-with-http-info any?
   "Create Subscription
   Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned."
-  ([version float?, accountId int?, ] (create-subscription-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [planId promoCode]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/subscription/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (create-subscription-with-http-info accountId nil))
+  ([accountId int?, {:keys [planId promoCode]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/subscription/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "planId" planId "promoCode" promoCode }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-subscription subscription-response-spec
   "Create Subscription
   Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned."
-  ([version float?, accountId int?, ] (create-subscription version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (create-subscription-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (create-subscription accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (create-subscription-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode subscription-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-subscription-with-http-info any?
   "Delete Subscription
   Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action"
-  [version float?, accountId int?]
-  (check-required-params version accountId)
-  (call-api "/api/{version}/subscription/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?]
+  (check-required-params accountId)
+  (call-api "/subscription/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-subscription sirqul-response-spec
   "Delete Subscription
   Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action"
-  [version float?, accountId int?]
-  (let [res (:data (delete-subscription-with-http-info version accountId))]
+  [accountId int?]
+  (let [res (:data (delete-subscription-with-http-info accountId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-subscription-with-http-info any?
   "Get Subscription
   Use the accountId to determine the associated BillableEntity.  Then get the subscription."
-  [version float?, accountId int?]
-  (check-required-params version accountId)
-  (call-api "/api/{version}/subscription/get" :get
-            {:path-params   {"version" version }
+  [accountId int?]
+  (check-required-params accountId)
+  (call-api "/subscription/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-subscription subscription-response-spec
   "Get Subscription
   Use the accountId to determine the associated BillableEntity.  Then get the subscription."
-  [version float?, accountId int?]
-  (let [res (:data (get-subscription-with-http-info version accountId))]
+  [accountId int?]
+  (let [res (:data (get-subscription-with-http-info accountId))]
     (if (:decode-models *api-context*)
        (st/decode subscription-response-spec res st/string-transformer)
        res)))
@@ -427,10 +427,10 @@
 (defn-spec get-subscription-plan-with-http-info any?
   "Get Subscription Plan
   Get the matched subscription plan"
-  [version float?, planId int?]
-  (check-required-params version planId)
-  (call-api "/api/{version}/subscription/plan/get" :get
-            {:path-params   {"version" version }
+  [planId int?]
+  (check-required-params planId)
+  (call-api "/subscription/plan/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"planId" planId }
              :form-params   {}
@@ -441,8 +441,8 @@
 (defn-spec get-subscription-plan subscription-plan-response-spec
   "Get Subscription Plan
   Get the matched subscription plan"
-  [version float?, planId int?]
-  (let [res (:data (get-subscription-plan-with-http-info version planId))]
+  [planId int?]
+  (let [res (:data (get-subscription-plan-with-http-info planId))]
     (if (:decode-models *api-context*)
        (st/decode subscription-plan-response-spec res st/string-transformer)
        res)))
@@ -451,11 +451,10 @@
 (defn-spec get-subscription-plans-with-http-info any?
   "List Subscription Plans
   Get the matched subscription plan"
-  ([version float?, ] (get-subscription-plans-with-http-info version nil))
-  ([version float?, {:keys [visible role]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/subscription/plan/list" :get
-             {:path-params   {"version" version }
+  ([] (get-subscription-plans-with-http-info nil))
+  ([{:keys [visible role]} (s/map-of keyword? any?)]
+   (call-api "/subscription/plan/list" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"visible" visible "role" role }
               :form-params   {}
@@ -466,9 +465,9 @@
 (defn-spec get-subscription-plans (s/coll-of subscription-plan-response-spec)
   "List Subscription Plans
   Get the matched subscription plan"
-  ([version float?, ] (get-subscription-plans version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-subscription-plans-with-http-info version optional-params))]
+  ([] (get-subscription-plans nil))
+  ([optional-params any?]
+   (let [res (:data (get-subscription-plans-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of subscription-plan-response-spec) res st/string-transformer)
         res))))
@@ -477,11 +476,11 @@
 (defn-spec get-subscription-usage-with-http-info any?
   "Get Subscription Usage
   Use the accountId to determine the associated BillableEntity.  Then get the application usage."
-  ([version float?, accountId int?, ] (get-subscription-usage-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [applicationId start end]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/subscription/usage/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-subscription-usage-with-http-info accountId nil))
+  ([accountId int?, {:keys [applicationId start end]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/subscription/usage/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "applicationId" applicationId "start" start "end" end }
               :form-params   {}
@@ -492,9 +491,9 @@
 (defn-spec get-subscription-usage application-usage-response-spec
   "Get Subscription Usage
   Use the accountId to determine the associated BillableEntity.  Then get the application usage."
-  ([version float?, accountId int?, ] (get-subscription-usage version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-subscription-usage-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-subscription-usage accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-subscription-usage-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-usage-response-spec res st/string-transformer)
         res))))
@@ -503,11 +502,11 @@
 (defn-spec update-subscription-with-http-info any?
   "Update Subscription
   Updates the subscription for the billable entity for an account"
-  ([version float?, accountId int?, ] (update-subscription-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [planId promoCode active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/subscription/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (update-subscription-with-http-info accountId nil))
+  ([accountId int?, {:keys [planId promoCode active]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/subscription/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "planId" planId "promoCode" promoCode "active" active }
               :form-params   {}
@@ -518,9 +517,9 @@
 (defn-spec update-subscription subscription-response-spec
   "Update Subscription
   Updates the subscription for the billable entity for an account"
-  ([version float?, accountId int?, ] (update-subscription version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (update-subscription-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (update-subscription accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (update-subscription-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode subscription-response-spec res st/string-transformer)
         res))))

@@ -353,11 +353,11 @@
 (defn-spec run-workflow-with-http-info any?
   "Run Workflow
   Runs a published executable workflow"
-  ([version float?, accountId int?, workflowId int?, ] (run-workflow-with-http-info version accountId workflowId nil))
-  ([version float?, accountId int?, workflowId int?, {:keys [skuId versionCode parameters]} (s/map-of keyword? any?)]
-   (check-required-params version accountId workflowId)
-   (call-api "/api/{version}/workflow/run" :post
-             {:path-params   {"version" version }
+  ([accountId int?, workflowId int?, ] (run-workflow-with-http-info accountId workflowId nil))
+  ([accountId int?, workflowId int?, {:keys [skuId versionCode parameters]} (s/map-of keyword? any?)]
+   (check-required-params accountId workflowId)
+   (call-api "/workflow/run" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "workflowId" workflowId "skuId" skuId "versionCode" versionCode "parameters" parameters }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec run-workflow sirqul-response-spec
   "Run Workflow
   Runs a published executable workflow"
-  ([version float?, accountId int?, workflowId int?, ] (run-workflow version accountId workflowId nil))
-  ([version float?, accountId int?, workflowId int?, optional-params any?]
-   (let [res (:data (run-workflow-with-http-info version accountId workflowId optional-params))]
+  ([accountId int?, workflowId int?, ] (run-workflow accountId workflowId nil))
+  ([accountId int?, workflowId int?, optional-params any?]
+   (let [res (:data (run-workflow-with-http-info accountId workflowId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

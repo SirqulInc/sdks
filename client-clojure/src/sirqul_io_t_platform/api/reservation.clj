@@ -353,11 +353,10 @@
 (defn-spec create-reservation-with-http-info any?
   "Create Reservation
   Creates a reservation on an offer object"
-  ([version float?, ] (create-reservation-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId startDate endDate offerId offerLocationId appKey metaData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/reservation/create" :post
-             {:path-params   {"version" version }
+  ([] (create-reservation-with-http-info nil))
+  ([{:keys [deviceId accountId startDate endDate offerId offerLocationId appKey metaData]} (s/map-of keyword? any?)]
+   (call-api "/reservation/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "startDate" startDate "endDate" endDate "offerId" offerId "offerLocationId" offerLocationId "appKey" appKey "metaData" metaData }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec create-reservation any?
   "Create Reservation
   Creates a reservation on an offer object"
-  ([version float?, ] (create-reservation version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-reservation-with-http-info version optional-params))]
+  ([] (create-reservation nil))
+  ([optional-params any?]
+   (let [res (:data (create-reservation-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec delete-reservation-with-http-info any?
   "Delete Reservation
   Deleted a reservation on a reservation object"
-  ([version float?, reservationId int?, ] (delete-reservation-with-http-info version reservationId nil))
-  ([version float?, reservationId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version reservationId)
-   (call-api "/api/{version}/reservation/delete" :post
-             {:path-params   {"version" version }
+  ([reservationId int?, ] (delete-reservation-with-http-info reservationId nil))
+  ([reservationId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params reservationId)
+   (call-api "/reservation/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "reservationId" reservationId }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec delete-reservation any?
   "Delete Reservation
   Deleted a reservation on a reservation object"
-  ([version float?, reservationId int?, ] (delete-reservation version reservationId nil))
-  ([version float?, reservationId int?, optional-params any?]
-   (let [res (:data (delete-reservation-with-http-info version reservationId optional-params))]
+  ([reservationId int?, ] (delete-reservation reservationId nil))
+  ([reservationId int?, optional-params any?]
+   (let [res (:data (delete-reservation-with-http-info reservationId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -404,11 +403,11 @@
 
 (defn-spec reservable-availability-with-http-info any?
   "Update Availability"
-  ([version float?, reservableId int?, reservableType string?, ] (reservable-availability-with-http-info version reservableId reservableType nil))
-  ([version float?, reservableId int?, reservableType string?, {:keys [deviceId accountId availability availabilitySummary]} (s/map-of keyword? any?)]
-   (check-required-params version reservableId reservableType)
-   (call-api "/api/{version}/reservable/availability/update" :post
-             {:path-params   {"version" version }
+  ([reservableId int?, reservableType string?, ] (reservable-availability-with-http-info reservableId reservableType nil))
+  ([reservableId int?, reservableType string?, {:keys [deviceId accountId availability availabilitySummary]} (s/map-of keyword? any?)]
+   (check-required-params reservableId reservableType)
+   (call-api "/reservable/availability/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "reservableId" reservableId "reservableType" reservableType "availability" availability "availabilitySummary" availabilitySummary }
               :form-params   {}
@@ -418,9 +417,9 @@
 
 (defn-spec reservable-availability (s/coll-of availability-response-spec)
   "Update Availability"
-  ([version float?, reservableId int?, reservableType string?, ] (reservable-availability version reservableId reservableType nil))
-  ([version float?, reservableId int?, reservableType string?, optional-params any?]
-   (let [res (:data (reservable-availability-with-http-info version reservableId reservableType optional-params))]
+  ([reservableId int?, reservableType string?, ] (reservable-availability reservableId reservableType nil))
+  ([reservableId int?, reservableType string?, optional-params any?]
+   (let [res (:data (reservable-availability-with-http-info reservableId reservableType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of availability-response-spec) res st/string-transformer)
         res))))
@@ -428,11 +427,11 @@
 
 (defn-spec search-availability-with-http-info any?
   "Search Availability"
-  ([version float?, reservableId int?, reservableType string?, ] (search-availability-with-http-info version reservableId reservableType nil))
-  ([version float?, reservableId int?, reservableType string?, {:keys [deviceId accountId startDate endDate start limit]} (s/map-of keyword? any?)]
-   (check-required-params version reservableId reservableType)
-   (call-api "/api/{version}/reservable/availability/search" :get
-             {:path-params   {"version" version }
+  ([reservableId int?, reservableType string?, ] (search-availability-with-http-info reservableId reservableType nil))
+  ([reservableId int?, reservableType string?, {:keys [deviceId accountId startDate endDate start limit]} (s/map-of keyword? any?)]
+   (check-required-params reservableId reservableType)
+   (call-api "/reservable/availability/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "reservableId" reservableId "reservableType" reservableType "startDate" startDate "endDate" endDate "start" start "limit" limit }
               :form-params   {}
@@ -442,9 +441,9 @@
 
 (defn-spec search-availability (s/coll-of availability-response-spec)
   "Search Availability"
-  ([version float?, reservableId int?, reservableType string?, ] (search-availability version reservableId reservableType nil))
-  ([version float?, reservableId int?, reservableType string?, optional-params any?]
-   (let [res (:data (search-availability-with-http-info version reservableId reservableType optional-params))]
+  ([reservableId int?, reservableType string?, ] (search-availability reservableId reservableType nil))
+  ([reservableId int?, reservableType string?, optional-params any?]
+   (let [res (:data (search-availability-with-http-info reservableId reservableType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of availability-response-spec) res st/string-transformer)
         res))))
@@ -452,11 +451,10 @@
 
 (defn-spec search-reservations-with-http-info any?
   "Search Reservations"
-  ([version float?, ] (search-reservations-with-http-info version nil))
-  ([version float?, {:keys [deviceId appKey accountId filterAccountId reservableId reservableType keyword startDate endDate start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/reservation/search" :get
-             {:path-params   {"version" version }
+  ([] (search-reservations-with-http-info nil))
+  ([{:keys [deviceId appKey accountId filterAccountId reservableId reservableType keyword startDate endDate start limit]} (s/map-of keyword? any?)]
+   (call-api "/reservation/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "appKey" appKey "accountId" accountId "filterAccountId" filterAccountId "reservableId" reservableId "reservableType" reservableType "keyword" keyword "startDate" startDate "endDate" endDate "start" start "limit" limit }
               :form-params   {}
@@ -466,9 +464,9 @@
 
 (defn-spec search-reservations (s/coll-of reservation-response-spec)
   "Search Reservations"
-  ([version float?, ] (search-reservations version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-reservations-with-http-info version optional-params))]
+  ([] (search-reservations nil))
+  ([optional-params any?]
+   (let [res (:data (search-reservations-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of reservation-response-spec) res st/string-transformer)
         res))))
@@ -476,11 +474,11 @@
 
 (defn-spec search-schedule-with-http-info any?
   "Search Schedule"
-  ([version float?, reservableId int?, reservableType string?, startDate int?, endDate int?, ] (search-schedule-with-http-info version reservableId reservableType startDate endDate nil))
-  ([version float?, reservableId int?, reservableType string?, startDate int?, endDate int?, {:keys [deviceId accountId timeBucketMins]} (s/map-of keyword? any?)]
-   (check-required-params version reservableId reservableType startDate endDate)
-   (call-api "/api/{version}/reservable/schedule/search" :get
-             {:path-params   {"version" version }
+  ([reservableId int?, reservableType string?, startDate int?, endDate int?, ] (search-schedule-with-http-info reservableId reservableType startDate endDate nil))
+  ([reservableId int?, reservableType string?, startDate int?, endDate int?, {:keys [deviceId accountId timeBucketMins]} (s/map-of keyword? any?)]
+   (check-required-params reservableId reservableType startDate endDate)
+   (call-api "/reservable/schedule/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "reservableId" reservableId "reservableType" reservableType "startDate" startDate "endDate" endDate "timeBucketMins" timeBucketMins }
               :form-params   {}
@@ -490,9 +488,9 @@
 
 (defn-spec search-schedule (s/coll-of time-slot-response-spec)
   "Search Schedule"
-  ([version float?, reservableId int?, reservableType string?, startDate int?, endDate int?, ] (search-schedule version reservableId reservableType startDate endDate nil))
-  ([version float?, reservableId int?, reservableType string?, startDate int?, endDate int?, optional-params any?]
-   (let [res (:data (search-schedule-with-http-info version reservableId reservableType startDate endDate optional-params))]
+  ([reservableId int?, reservableType string?, startDate int?, endDate int?, ] (search-schedule reservableId reservableType startDate endDate nil))
+  ([reservableId int?, reservableType string?, startDate int?, endDate int?, optional-params any?]
+   (let [res (:data (search-schedule-with-http-info reservableId reservableType startDate endDate optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of time-slot-response-spec) res st/string-transformer)
         res))))

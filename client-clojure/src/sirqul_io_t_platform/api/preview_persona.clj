@@ -353,11 +353,11 @@
 (defn-spec create-persona-with-http-info any?
   "Create Persona
   Creates a new persona. If the given params are null those attributes will be override by null."
-  ([version float?, accountId int?, title string?, ] (create-persona-with-http-info version accountId title nil))
-  ([version float?, accountId int?, title string?, {:keys [previewAccounts date age gender gameExperienceLevel latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version accountId title)
-   (call-api "/api/{version}/persona/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, title string?, ] (create-persona-with-http-info accountId title nil))
+  ([accountId int?, title string?, {:keys [previewAccounts date age gender gameExperienceLevel latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params accountId title)
+   (call-api "/persona/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "title" title "previewAccounts" previewAccounts "date" date "age" age "gender" gender "gameExperienceLevel" gameExperienceLevel "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-persona preview-persona-response-spec
   "Create Persona
   Creates a new persona. If the given params are null those attributes will be override by null."
-  ([version float?, accountId int?, title string?, ] (create-persona version accountId title nil))
-  ([version float?, accountId int?, title string?, optional-params any?]
-   (let [res (:data (create-persona-with-http-info version accountId title optional-params))]
+  ([accountId int?, title string?, ] (create-persona accountId title nil))
+  ([accountId int?, title string?, optional-params any?]
+   (let [res (:data (create-persona-with-http-info accountId title optional-params))]
      (if (:decode-models *api-context*)
         (st/decode preview-persona-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-persona-with-http-info any?
   "Delete Persona
   Mark the persona for deletion."
-  [version float?, accountId int?, personaId int?]
-  (check-required-params version accountId personaId)
-  (call-api "/api/{version}/persona/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, personaId int?]
+  (check-required-params accountId personaId)
+  (call-api "/persona/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "personaId" personaId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-persona sirqul-response-spec
   "Delete Persona
   Mark the persona for deletion."
-  [version float?, accountId int?, personaId int?]
-  (let [res (:data (delete-persona-with-http-info version accountId personaId))]
+  [accountId int?, personaId int?]
+  (let [res (:data (delete-persona-with-http-info accountId personaId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-persona-list-with-http-info any?
   "Get Persona
   Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned."
-  [version float?, accountId int?, personaId int?]
-  (check-required-params version accountId personaId)
-  (call-api "/api/{version}/persona/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, personaId int?]
+  (check-required-params accountId personaId)
+  (call-api "/persona/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "personaId" personaId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-persona-list preview-persona-response-spec
   "Get Persona
   Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned."
-  [version float?, accountId int?, personaId int?]
-  (let [res (:data (get-persona-list-with-http-info version accountId personaId))]
+  [accountId int?, personaId int?]
+  (let [res (:data (get-persona-list-with-http-info accountId personaId))]
     (if (:decode-models *api-context*)
        (st/decode preview-persona-response-spec res st/string-transformer)
        res)))
@@ -427,10 +427,10 @@
 (defn-spec search-persona-with-http-info any?
   "Search Personas
   Search for persona that the account owns by the given account ID."
-  [version float?, accountId int?, start int?, limit int?]
-  (check-required-params version accountId start limit)
-  (call-api "/api/{version}/persona/search" :get
-            {:path-params   {"version" version }
+  [accountId int?, start int?, limit int?]
+  (check-required-params accountId start limit)
+  (call-api "/persona/search" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "start" start "limit" limit }
              :form-params   {}
@@ -441,8 +441,8 @@
 (defn-spec search-persona preview-persona-response-spec
   "Search Personas
   Search for persona that the account owns by the given account ID."
-  [version float?, accountId int?, start int?, limit int?]
-  (let [res (:data (search-persona-with-http-info version accountId start limit))]
+  [accountId int?, start int?, limit int?]
+  (let [res (:data (search-persona-with-http-info accountId start limit))]
     (if (:decode-models *api-context*)
        (st/decode preview-persona-response-spec res st/string-transformer)
        res)))
@@ -451,11 +451,11 @@
 (defn-spec update-persona-with-http-info any?
   "Update Persona
   Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored."
-  ([version float?, accountId int?, personaId int?, ] (update-persona-with-http-info version accountId personaId nil))
-  ([version float?, accountId int?, personaId int?, {:keys [title previewAccounts active date age gender gameExperienceLevel latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version accountId personaId)
-   (call-api "/api/{version}/persona/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, personaId int?, ] (update-persona-with-http-info accountId personaId nil))
+  ([accountId int?, personaId int?, {:keys [title previewAccounts active date age gender gameExperienceLevel latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params accountId personaId)
+   (call-api "/persona/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "personaId" personaId "title" title "previewAccounts" previewAccounts "active" active "date" date "age" age "gender" gender "gameExperienceLevel" gameExperienceLevel "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -466,9 +466,9 @@
 (defn-spec update-persona preview-persona-response-spec
   "Update Persona
   Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored."
-  ([version float?, accountId int?, personaId int?, ] (update-persona version accountId personaId nil))
-  ([version float?, accountId int?, personaId int?, optional-params any?]
-   (let [res (:data (update-persona-with-http-info version accountId personaId optional-params))]
+  ([accountId int?, personaId int?, ] (update-persona accountId personaId nil))
+  ([accountId int?, personaId int?, optional-params any?]
+   (let [res (:data (update-persona-with-http-info accountId personaId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode preview-persona-response-spec res st/string-transformer)
         res))))

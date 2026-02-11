@@ -353,11 +353,11 @@
 (defn-spec assign-employee-with-http-info any?
   "Assign Employee
   Assign An existing account to be an employee"
-  ([version float?, accountId int?, managerAccountId int?, employeeAccountId int?, ] (assign-employee-with-http-info version accountId managerAccountId employeeAccountId nil))
-  ([version float?, accountId int?, managerAccountId int?, employeeAccountId int?, {:keys [role]} (s/map-of keyword? any?)]
-   (check-required-params version accountId managerAccountId employeeAccountId)
-   (call-api "/api/{version}/employee/assign" :post
-             {:path-params   {"version" version }
+  ([accountId int?, managerAccountId int?, employeeAccountId int?, ] (assign-employee-with-http-info accountId managerAccountId employeeAccountId nil))
+  ([accountId int?, managerAccountId int?, employeeAccountId int?, {:keys [role]} (s/map-of keyword? any?)]
+   (check-required-params accountId managerAccountId employeeAccountId)
+   (call-api "/employee/assign" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "managerAccountId" managerAccountId "employeeAccountId" employeeAccountId "role" role }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec assign-employee employee-response-spec
   "Assign Employee
   Assign An existing account to be an employee"
-  ([version float?, accountId int?, managerAccountId int?, employeeAccountId int?, ] (assign-employee version accountId managerAccountId employeeAccountId nil))
-  ([version float?, accountId int?, managerAccountId int?, employeeAccountId int?, optional-params any?]
-   (let [res (:data (assign-employee-with-http-info version accountId managerAccountId employeeAccountId optional-params))]
+  ([accountId int?, managerAccountId int?, employeeAccountId int?, ] (assign-employee accountId managerAccountId employeeAccountId nil))
+  ([accountId int?, managerAccountId int?, employeeAccountId int?, optional-params any?]
+   (let [res (:data (assign-employee-with-http-info accountId managerAccountId employeeAccountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode employee-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec assign-to-location-employee-with-http-info any?
   "Assign Employee to Location
   Assign or unassign the account to a retailer location."
-  ([version float?, accountId int?, retailerLocationId int?, ] (assign-to-location-employee-with-http-info version accountId retailerLocationId nil))
-  ([version float?, accountId int?, retailerLocationId int?, {:keys [employeeAccountId assign]} (s/map-of keyword? any?)]
-   (check-required-params version accountId retailerLocationId)
-   (call-api "/api/{version}/employee/assignToLocation" :post
-             {:path-params   {"version" version }
+  ([accountId int?, retailerLocationId int?, ] (assign-to-location-employee-with-http-info accountId retailerLocationId nil))
+  ([accountId int?, retailerLocationId int?, {:keys [employeeAccountId assign]} (s/map-of keyword? any?)]
+   (check-required-params accountId retailerLocationId)
+   (call-api "/employee/assignToLocation" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "employeeAccountId" employeeAccountId "retailerLocationId" retailerLocationId "assign" assign }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec assign-to-location-employee sirqul-response-spec
   "Assign Employee to Location
   Assign or unassign the account to a retailer location."
-  ([version float?, accountId int?, retailerLocationId int?, ] (assign-to-location-employee version accountId retailerLocationId nil))
-  ([version float?, accountId int?, retailerLocationId int?, optional-params any?]
-   (let [res (:data (assign-to-location-employee-with-http-info version accountId retailerLocationId optional-params))]
+  ([accountId int?, retailerLocationId int?, ] (assign-to-location-employee accountId retailerLocationId nil))
+  ([accountId int?, retailerLocationId int?, optional-params any?]
+   (let [res (:data (assign-to-location-employee-with-http-info accountId retailerLocationId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec create-employee-with-http-info any?
   "Create Employee
   Create a new account record with the provided information."
-  ([version float?, accountId int?, managerAccountId int?, username string?, password string?, ] (create-employee-with-http-info version accountId managerAccountId username password nil))
-  ([version float?, accountId int?, managerAccountId int?, username string?, password string?, {:keys [name prefixName firstName middleName lastName suffixName title aboutUs assetId gender homePhone cellPhone cellPhoneCarrier businessPhone emailAddress streetAddress streetAddress2 city state zipcode country role retailerLocationIds settingsAppKey appBlob assignedDeviceId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId managerAccountId username password)
-   (call-api "/api/{version}/employee/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, managerAccountId int?, username string?, password string?, ] (create-employee-with-http-info accountId managerAccountId username password nil))
+  ([accountId int?, managerAccountId int?, username string?, password string?, {:keys [name prefixName firstName middleName lastName suffixName title aboutUs assetId gender homePhone cellPhone cellPhoneCarrier businessPhone emailAddress streetAddress streetAddress2 city state zipcode country role retailerLocationIds settingsAppKey appBlob assignedDeviceId]} (s/map-of keyword? any?)]
+   (check-required-params accountId managerAccountId username password)
+   (call-api "/employee/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "managerAccountId" managerAccountId "username" username "password" password "name" name "prefixName" prefixName "firstName" firstName "middleName" middleName "lastName" lastName "suffixName" suffixName "title" title "aboutUs" aboutUs "assetId" assetId "gender" gender "homePhone" homePhone "cellPhone" cellPhone "cellPhoneCarrier" cellPhoneCarrier "businessPhone" businessPhone "emailAddress" emailAddress "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "zipcode" zipcode "country" country "role" role "retailerLocationIds" retailerLocationIds "settingsAppKey" settingsAppKey "appBlob" appBlob "assignedDeviceId" assignedDeviceId }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec create-employee employee-response-spec
   "Create Employee
   Create a new account record with the provided information."
-  ([version float?, accountId int?, managerAccountId int?, username string?, password string?, ] (create-employee version accountId managerAccountId username password nil))
-  ([version float?, accountId int?, managerAccountId int?, username string?, password string?, optional-params any?]
-   (let [res (:data (create-employee-with-http-info version accountId managerAccountId username password optional-params))]
+  ([accountId int?, managerAccountId int?, username string?, password string?, ] (create-employee accountId managerAccountId username password nil))
+  ([accountId int?, managerAccountId int?, username string?, password string?, optional-params any?]
+   (let [res (:data (create-employee-with-http-info accountId managerAccountId username password optional-params))]
      (if (:decode-models *api-context*)
         (st/decode employee-response-spec res st/string-transformer)
         res))))
@@ -431,10 +431,10 @@
 (defn-spec delete-employee-with-http-info any?
   "Delete Employee
   Set the deleted date field which marks the record as deleted."
-  [version float?, accountId int?, employeeAccountId int?]
-  (check-required-params version accountId employeeAccountId)
-  (call-api "/api/{version}/employee/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, employeeAccountId int?]
+  (check-required-params accountId employeeAccountId)
+  (call-api "/employee/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "employeeAccountId" employeeAccountId }
              :form-params   {}
@@ -445,8 +445,8 @@
 (defn-spec delete-employee sirqul-response-spec
   "Delete Employee
   Set the deleted date field which marks the record as deleted."
-  [version float?, accountId int?, employeeAccountId int?]
-  (let [res (:data (delete-employee-with-http-info version accountId employeeAccountId))]
+  [accountId int?, employeeAccountId int?]
+  (let [res (:data (delete-employee-with-http-info accountId employeeAccountId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -455,11 +455,11 @@
 (defn-spec get-employee-with-http-info any?
   "Get Employee
   Get the account record for the account id provided."
-  ([version float?, accountId int?, employeeAccountId int?, ] (get-employee-with-http-info version accountId employeeAccountId nil))
-  ([version float?, accountId int?, employeeAccountId int?, {:keys [settingsAppKey]} (s/map-of keyword? any?)]
-   (check-required-params version accountId employeeAccountId)
-   (call-api "/api/{version}/employee/get" :post
-             {:path-params   {"version" version }
+  ([accountId int?, employeeAccountId int?, ] (get-employee-with-http-info accountId employeeAccountId nil))
+  ([accountId int?, employeeAccountId int?, {:keys [settingsAppKey]} (s/map-of keyword? any?)]
+   (check-required-params accountId employeeAccountId)
+   (call-api "/employee/get" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "employeeAccountId" employeeAccountId "settingsAppKey" settingsAppKey }
               :form-params   {}
@@ -470,9 +470,9 @@
 (defn-spec get-employee employee-response-spec
   "Get Employee
   Get the account record for the account id provided."
-  ([version float?, accountId int?, employeeAccountId int?, ] (get-employee version accountId employeeAccountId nil))
-  ([version float?, accountId int?, employeeAccountId int?, optional-params any?]
-   (let [res (:data (get-employee-with-http-info version accountId employeeAccountId optional-params))]
+  ([accountId int?, employeeAccountId int?, ] (get-employee accountId employeeAccountId nil))
+  ([accountId int?, employeeAccountId int?, optional-params any?]
+   (let [res (:data (get-employee-with-http-info accountId employeeAccountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode employee-response-spec res st/string-transformer)
         res))))
@@ -481,11 +481,11 @@
 (defn-spec search-employees-with-http-info any?
   "Search Employees
   Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees."
-  ([version float?, accountId int?, ] (search-employees-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [role retailerId retailerLocationId q keyword sortField descending _i start _l limit activeOnly managedOnly settingsAppKey categoryIds query]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/employee/search" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-employees-with-http-info accountId nil))
+  ([accountId int?, {:keys [role retailerId retailerLocationId q keyword sortField descending _i start _l limit activeOnly managedOnly settingsAppKey categoryIds query]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/employee/search" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "role" role "retailerId" retailerId "retailerLocationId" retailerLocationId "q" q "keyword" keyword "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "activeOnly" activeOnly "managedOnly" managedOnly "settingsAppKey" settingsAppKey "categoryIds" categoryIds "query" query }
               :form-params   {}
@@ -496,9 +496,9 @@
 (defn-spec search-employees (s/coll-of employee-response-spec)
   "Search Employees
   Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees."
-  ([version float?, accountId int?, ] (search-employees version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-employees-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-employees accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-employees-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of employee-response-spec) res st/string-transformer)
         res))))
@@ -507,10 +507,10 @@
 (defn-spec unassign-employee-with-http-info any?
   "Unassign Employee
   Unassign An existing account to be an employee"
-  [version float?, accountId int?, employeeAccountId int?]
-  (check-required-params version accountId employeeAccountId)
-  (call-api "/api/{version}/employee/unassign" :post
-            {:path-params   {"version" version }
+  [accountId int?, employeeAccountId int?]
+  (check-required-params accountId employeeAccountId)
+  (call-api "/employee/unassign" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "employeeAccountId" employeeAccountId }
              :form-params   {}
@@ -521,8 +521,8 @@
 (defn-spec unassign-employee employee-response-spec
   "Unassign Employee
   Unassign An existing account to be an employee"
-  [version float?, accountId int?, employeeAccountId int?]
-  (let [res (:data (unassign-employee-with-http-info version accountId employeeAccountId))]
+  [accountId int?, employeeAccountId int?]
+  (let [res (:data (unassign-employee-with-http-info accountId employeeAccountId))]
     (if (:decode-models *api-context*)
        (st/decode employee-response-spec res st/string-transformer)
        res)))
@@ -531,11 +531,11 @@
 (defn-spec update-employee-with-http-info any?
   "Update Employee
   Update the account record with the provided information."
-  ([version float?, accountId int?, employeeAccountId int?, ] (update-employee-with-http-info version accountId employeeAccountId nil))
-  ([version float?, accountId int?, employeeAccountId int?, {:keys [managerAccountId name prefixName firstName middleName lastName suffixName title assetId gender homePhone cellPhone cellPhoneCarrier businessPhone emailAddress streetAddress streetAddress2 city state zipcode country role active password retailerLocationIds settingsAppKey appBlob assignedDeviceId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId employeeAccountId)
-   (call-api "/api/{version}/employee/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, employeeAccountId int?, ] (update-employee-with-http-info accountId employeeAccountId nil))
+  ([accountId int?, employeeAccountId int?, {:keys [managerAccountId name prefixName firstName middleName lastName suffixName title assetId gender homePhone cellPhone cellPhoneCarrier businessPhone emailAddress streetAddress streetAddress2 city state zipcode country role active password retailerLocationIds settingsAppKey appBlob assignedDeviceId]} (s/map-of keyword? any?)]
+   (check-required-params accountId employeeAccountId)
+   (call-api "/employee/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "employeeAccountId" employeeAccountId "managerAccountId" managerAccountId "name" name "prefixName" prefixName "firstName" firstName "middleName" middleName "lastName" lastName "suffixName" suffixName "title" title "assetId" assetId "gender" gender "homePhone" homePhone "cellPhone" cellPhone "cellPhoneCarrier" cellPhoneCarrier "businessPhone" businessPhone "emailAddress" emailAddress "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "zipcode" zipcode "country" country "role" role "active" active "password" password "retailerLocationIds" retailerLocationIds "settingsAppKey" settingsAppKey "appBlob" appBlob "assignedDeviceId" assignedDeviceId }
               :form-params   {}
@@ -546,9 +546,9 @@
 (defn-spec update-employee employee-response-spec
   "Update Employee
   Update the account record with the provided information."
-  ([version float?, accountId int?, employeeAccountId int?, ] (update-employee version accountId employeeAccountId nil))
-  ([version float?, accountId int?, employeeAccountId int?, optional-params any?]
-   (let [res (:data (update-employee-with-http-info version accountId employeeAccountId optional-params))]
+  ([accountId int?, employeeAccountId int?, ] (update-employee accountId employeeAccountId nil))
+  ([accountId int?, employeeAccountId int?, optional-params any?]
+   (let [res (:data (update-employee-with-http-info accountId employeeAccountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode employee-response-spec res st/string-transformer)
         res))))

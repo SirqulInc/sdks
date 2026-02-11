@@ -353,10 +353,10 @@
 (defn-spec asset-download-with-http-info any?
   "Download Asset
   Downloads an asset from the server for assets that have been uploaded to the server."
-  [version float?, filename string?]
-  (check-required-params version filename)
-  (call-api "/api/{version}/asset/download/{filename}" :get
-            {:path-params   {"version" version "filename" filename }
+  [filename string?]
+  (check-required-params filename)
+  (call-api "/asset/download/{filename}" :get
+            {:path-params   {"filename" filename }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec asset-download sirqul-response-spec
   "Download Asset
   Downloads an asset from the server for assets that have been uploaded to the server."
-  [version float?, filename string?]
-  (let [res (:data (asset-download-with-http-info version filename))]
+  [filename string?]
+  (let [res (:data (asset-download-with-http-info filename))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -377,11 +377,11 @@
 (defn-spec asset-morph-with-http-info any?
   "Convert Offer to Creative
   Converts an offer image + text into a creative image."
-  ([version float?, offerId int?, adSize string?, ] (asset-morph-with-http-info version offerId adSize nil))
-  ([version float?, offerId int?, adSize string?, {:keys [creativeId width height backgroundSize template]} (s/map-of keyword? any?)]
-   (check-required-params version offerId adSize)
-   (call-api "/api/{version}/asset/morph" :post
-             {:path-params   {"version" version }
+  ([offerId int?, adSize string?, ] (asset-morph-with-http-info offerId adSize nil))
+  ([offerId int?, adSize string?, {:keys [creativeId width height backgroundSize template]} (s/map-of keyword? any?)]
+   (check-required-params offerId adSize)
+   (call-api "/asset/morph" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"offerId" offerId "creativeId" creativeId "adSize" adSize "width" width "height" height "backgroundSize" backgroundSize "template" template }
               :form-params   {}
@@ -392,9 +392,9 @@
 (defn-spec asset-morph asset-short-response-spec
   "Convert Offer to Creative
   Converts an offer image + text into a creative image."
-  ([version float?, offerId int?, adSize string?, ] (asset-morph version offerId adSize nil))
-  ([version float?, offerId int?, adSize string?, optional-params any?]
-   (let [res (:data (asset-morph-with-http-info version offerId adSize optional-params))]
+  ([offerId int?, adSize string?, ] (asset-morph offerId adSize nil))
+  ([offerId int?, adSize string?, optional-params any?]
+   (let [res (:data (asset-morph-with-http-info offerId adSize optional-params))]
      (if (:decode-models *api-context*)
         (st/decode asset-short-response-spec res st/string-transformer)
         res))))
@@ -403,11 +403,10 @@
 (defn-spec create-asset-with-http-info any?
   "Create Asset
   Uploads an asset to server and returns an asset id which can be used to assign to various objects."
-  ([version float?, ] (create-asset-with-http-info version nil))
-  ([version float?, {:keys [returnNulls deviceId accountId albumId collectionId addToDefaultAlbum addToMediaLibrary versionCode versionName metaData caption assetType approvalStatus assignedAccountId ^File media mediaUrl mediaString mediaStringFileName mediaStringContentType mediaHeight mediaWidth ^File attachedMedia attachedMediaUrl attachedMediaString attachedMediaStringFileName attachedMediaStringContentType attachedMediaHeight attachedMediaWidth locationDescription app appKey searchTags latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/asset/create" :post
-             {:path-params   {"version" version }
+  ([] (create-asset-with-http-info nil))
+  ([{:keys [returnNulls deviceId accountId albumId collectionId addToDefaultAlbum addToMediaLibrary versionCode versionName metaData caption assetType approvalStatus assignedAccountId ^File media mediaUrl mediaString mediaStringFileName mediaStringContentType mediaHeight mediaWidth ^File attachedMedia attachedMediaUrl attachedMediaString attachedMediaStringFileName attachedMediaStringContentType attachedMediaHeight attachedMediaWidth locationDescription app appKey searchTags latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/asset/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "albumId" albumId "collectionId" collectionId "addToDefaultAlbum" addToDefaultAlbum "addToMediaLibrary" addToMediaLibrary "versionCode" versionCode "versionName" versionName "metaData" metaData "caption" caption "assetType" assetType "approvalStatus" approvalStatus "assignedAccountId" assignedAccountId "media" media "mediaUrl" mediaUrl "mediaString" mediaString "mediaStringFileName" mediaStringFileName "mediaStringContentType" mediaStringContentType "mediaHeight" mediaHeight "mediaWidth" mediaWidth "attachedMedia" attachedMedia "attachedMediaUrl" attachedMediaUrl "attachedMediaString" attachedMediaString "attachedMediaStringFileName" attachedMediaStringFileName "attachedMediaStringContentType" attachedMediaStringContentType "attachedMediaHeight" attachedMediaHeight "attachedMediaWidth" attachedMediaWidth "locationDescription" locationDescription "app" app "appKey" appKey "searchTags" searchTags "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -418,9 +417,9 @@
 (defn-spec create-asset asset-response-spec
   "Create Asset
   Uploads an asset to server and returns an asset id which can be used to assign to various objects."
-  ([version float?, ] (create-asset version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-asset-with-http-info version optional-params))]
+  ([] (create-asset nil))
+  ([optional-params any?]
+   (let [res (:data (create-asset-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode asset-response-spec res st/string-transformer)
         res))))
@@ -429,11 +428,11 @@
 (defn-spec delete-asset-with-http-info any?
   "Delete Asset
   Delete an asset."
-  ([version float?, assetId string?, ] (delete-asset-with-http-info version assetId nil))
-  ([version float?, assetId string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version assetId)
-   (call-api "/api/{version}/asset/delete" :post
-             {:path-params   {"version" version }
+  ([assetId string?, ] (delete-asset-with-http-info assetId nil))
+  ([assetId string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params assetId)
+   (call-api "/asset/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "assetId" assetId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -444,9 +443,9 @@
 (defn-spec delete-asset sirqul-response-spec
   "Delete Asset
   Delete an asset."
-  ([version float?, assetId string?, ] (delete-asset version assetId nil))
-  ([version float?, assetId string?, optional-params any?]
-   (let [res (:data (delete-asset-with-http-info version assetId optional-params))]
+  ([assetId string?, ] (delete-asset assetId nil))
+  ([assetId string?, optional-params any?]
+   (let [res (:data (delete-asset-with-http-info assetId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -455,11 +454,11 @@
 (defn-spec get-asset-with-http-info any?
   "Get Asset
   Gets the full asset response including attached likes and notes."
-  ([version float?, assetId int?, ] (get-asset-with-http-info version assetId nil))
-  ([version float?, assetId int?, {:keys [deviceId accountId noteDescending]} (s/map-of keyword? any?)]
-   (check-required-params version assetId)
-   (call-api "/api/{version}/asset/get" :get
-             {:path-params   {"version" version }
+  ([assetId int?, ] (get-asset-with-http-info assetId nil))
+  ([assetId int?, {:keys [deviceId accountId noteDescending]} (s/map-of keyword? any?)]
+   (check-required-params assetId)
+   (call-api "/asset/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "assetId" assetId "noteDescending" noteDescending }
               :form-params   {}
@@ -470,9 +469,9 @@
 (defn-spec get-asset asset-full-response-spec
   "Get Asset
   Gets the full asset response including attached likes and notes."
-  ([version float?, assetId int?, ] (get-asset version assetId nil))
-  ([version float?, assetId int?, optional-params any?]
-   (let [res (:data (get-asset-with-http-info version assetId optional-params))]
+  ([assetId int?, ] (get-asset assetId nil))
+  ([assetId int?, optional-params any?]
+   (let [res (:data (get-asset-with-http-info assetId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode asset-full-response-spec res st/string-transformer)
         res))))
@@ -481,11 +480,11 @@
 (defn-spec remove-asset-with-http-info any?
   "Remove Asset from Collection
   Remove assets from collections"
-  ([version float?, assetId string?, ] (remove-asset-with-http-info version assetId nil))
-  ([version float?, assetId string?, {:keys [deviceId accountId albumId collectionId removeFromDefaultAlbums latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version assetId)
-   (call-api "/api/{version}/asset/remove" :post
-             {:path-params   {"version" version }
+  ([assetId string?, ] (remove-asset-with-http-info assetId nil))
+  ([assetId string?, {:keys [deviceId accountId albumId collectionId removeFromDefaultAlbums latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params assetId)
+   (call-api "/asset/remove" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumId" albumId "collectionId" collectionId "assetId" assetId "removeFromDefaultAlbums" removeFromDefaultAlbums "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -496,9 +495,9 @@
 (defn-spec remove-asset sirqul-response-spec
   "Remove Asset from Collection
   Remove assets from collections"
-  ([version float?, assetId string?, ] (remove-asset version assetId nil))
-  ([version float?, assetId string?, optional-params any?]
-   (let [res (:data (remove-asset-with-http-info version assetId optional-params))]
+  ([assetId string?, ] (remove-asset assetId nil))
+  ([assetId string?, optional-params any?]
+   (let [res (:data (remove-asset-with-http-info assetId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -507,11 +506,10 @@
 (defn-spec search-assets-with-http-info any?
   "Search Assets
   Searches for assets"
-  ([version float?, ] (search-assets-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId albumIds assetIds appKey mediaType mimeType keyword versionCode versionName updatedSince updatedBefore sortField descending searchMediaLibrary filterByBillable activeOnly returnApp start limit searchMode assetType approvalStatus assignedAccountId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/asset/search" :get
-             {:path-params   {"version" version }
+  ([] (search-assets-with-http-info nil))
+  ([{:keys [deviceId accountId albumIds assetIds appKey mediaType mimeType keyword versionCode versionName updatedSince updatedBefore sortField descending searchMediaLibrary filterByBillable activeOnly returnApp start limit searchMode assetType approvalStatus assignedAccountId]} (s/map-of keyword? any?)]
+   (call-api "/asset/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumIds" albumIds "assetIds" assetIds "appKey" appKey "mediaType" mediaType "mimeType" mimeType "keyword" keyword "versionCode" versionCode "versionName" versionName "updatedSince" updatedSince "updatedBefore" updatedBefore "sortField" sortField "descending" descending "searchMediaLibrary" searchMediaLibrary "filterByBillable" filterByBillable "activeOnly" activeOnly "returnApp" returnApp "start" start "limit" limit "searchMode" searchMode "assetType" assetType "approvalStatus" approvalStatus "assignedAccountId" assignedAccountId }
               :form-params   {}
@@ -522,9 +520,9 @@
 (defn-spec search-assets (s/coll-of asset-response-spec)
   "Search Assets
   Searches for assets"
-  ([version float?, ] (search-assets version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-assets-with-http-info version optional-params))]
+  ([] (search-assets nil))
+  ([optional-params any?]
+   (let [res (:data (search-assets-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of asset-response-spec) res st/string-transformer)
         res))))
@@ -533,11 +531,11 @@
 (defn-spec update-asset-with-http-info any?
   "Update Asset
   Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data."
-  ([version float?, assetId int?, ] (update-asset-with-http-info version assetId nil))
-  ([version float?, assetId int?, {:keys [deviceId accountId albumId attachedAssetId versionCode versionName metaData caption assetType approvalStatus assignedAccountId ^File media mediaUrl mediaString mediaStringFileName mediaStringContentType mediaHeight mediaWidth ^File attachedMedia attachedMediaUrl attachedMediaString attachedMediaStringFileName attachedMediaStringContentType attachedMediaHeight attachedMediaWidth locationDescription searchTags appKey latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version assetId)
-   (call-api "/api/{version}/asset/update" :post
-             {:path-params   {"version" version }
+  ([assetId int?, ] (update-asset-with-http-info assetId nil))
+  ([assetId int?, {:keys [deviceId accountId albumId attachedAssetId versionCode versionName metaData caption assetType approvalStatus assignedAccountId ^File media mediaUrl mediaString mediaStringFileName mediaStringContentType mediaHeight mediaWidth ^File attachedMedia attachedMediaUrl attachedMediaString attachedMediaStringFileName attachedMediaStringContentType attachedMediaHeight attachedMediaWidth locationDescription searchTags appKey latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params assetId)
+   (call-api "/asset/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "assetId" assetId "albumId" albumId "attachedAssetId" attachedAssetId "versionCode" versionCode "versionName" versionName "metaData" metaData "caption" caption "assetType" assetType "approvalStatus" approvalStatus "assignedAccountId" assignedAccountId "media" media "mediaUrl" mediaUrl "mediaString" mediaString "mediaStringFileName" mediaStringFileName "mediaStringContentType" mediaStringContentType "mediaHeight" mediaHeight "mediaWidth" mediaWidth "attachedMedia" attachedMedia "attachedMediaUrl" attachedMediaUrl "attachedMediaString" attachedMediaString "attachedMediaStringFileName" attachedMediaStringFileName "attachedMediaStringContentType" attachedMediaStringContentType "attachedMediaHeight" attachedMediaHeight "attachedMediaWidth" attachedMediaWidth "locationDescription" locationDescription "searchTags" searchTags "appKey" appKey "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -548,9 +546,9 @@
 (defn-spec update-asset sirqul-response-spec
   "Update Asset
   Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data."
-  ([version float?, assetId int?, ] (update-asset version assetId nil))
-  ([version float?, assetId int?, optional-params any?]
-   (let [res (:data (update-asset-with-http-info version assetId optional-params))]
+  ([assetId int?, ] (update-asset assetId nil))
+  ([assetId int?, optional-params any?]
+   (let [res (:data (update-asset-with-http-info assetId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

@@ -353,11 +353,11 @@
 (defn-spec add-or-update-album-contest-with-http-info any?
   "Create or Update Contest
   Creates or updates a contest."
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, ] (add-or-update-album-contest-with-http-info version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup nil))
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, {:keys [deviceId accountId gameType appKey contestType albumContestId title description albumId1 removeAlbum1 albumId2 removeAlbum2 startDate endDate locationDescription connectionIdsToAdd connectionGroupIdsToAdd latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup)
-   (call-api "/api/{version}/consumer/album/contest" :post
-             {:path-params   {"version" version }
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, ] (add-or-update-album-contest-with-http-info publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup nil))
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, {:keys [deviceId accountId gameType appKey contestType albumContestId title description albumId1 removeAlbum1 albumId2 removeAlbum2 startDate endDate locationDescription connectionIdsToAdd connectionGroupIdsToAdd latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup)
+   (call-api "/consumer/album/contest" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "appKey" appKey "contestType" contestType "albumContestId" albumContestId "title" title "description" description "albumId1" albumId1 "removeAlbum1" removeAlbum1 "albumId2" albumId2 "removeAlbum2" removeAlbum2 "startDate" startDate "endDate" endDate "publicRead" publicRead "publicWrite" publicWrite "publicDelete" publicDelete "publicAdd" publicAdd "locationDescription" locationDescription "visibility" visibility "connectionIdsToAdd" connectionIdsToAdd "connectionGroupIdsToAdd" connectionGroupIdsToAdd "includeFriendGroup" includeFriendGroup "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-or-update-album-contest album-contest-response-spec
   "Create or Update Contest
   Creates or updates a contest."
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, ] (add-or-update-album-contest version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup nil))
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, optional-params any?]
-   (let [res (:data (add-or-update-album-contest-with-http-info version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup optional-params))]
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, ] (add-or-update-album-contest publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup nil))
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, optional-params any?]
+   (let [res (:data (add-or-update-album-contest-with-http-info publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup optional-params))]
      (if (:decode-models *api-context*)
         (st/decode album-contest-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec approve-album-contest-with-http-info any?
   "Approve Contest
   Sets the approval status of a contest."
-  ([version float?, albumContestId int?, approvalStatus string?, ] (approve-album-contest-with-http-info version albumContestId approvalStatus nil))
-  ([version float?, albumContestId int?, approvalStatus string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version albumContestId approvalStatus)
-   (call-api "/api/{version}/consumer/album/contest/approve" :post
-             {:path-params   {"version" version }
+  ([albumContestId int?, approvalStatus string?, ] (approve-album-contest-with-http-info albumContestId approvalStatus nil))
+  ([albumContestId int?, approvalStatus string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params albumContestId approvalStatus)
+   (call-api "/consumer/album/contest/approve" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumContestId" albumContestId "approvalStatus" approvalStatus }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec approve-album-contest sirqul-response-spec
   "Approve Contest
   Sets the approval status of a contest."
-  ([version float?, albumContestId int?, approvalStatus string?, ] (approve-album-contest version albumContestId approvalStatus nil))
-  ([version float?, albumContestId int?, approvalStatus string?, optional-params any?]
-   (let [res (:data (approve-album-contest-with-http-info version albumContestId approvalStatus optional-params))]
+  ([albumContestId int?, approvalStatus string?, ] (approve-album-contest albumContestId approvalStatus nil))
+  ([albumContestId int?, approvalStatus string?, optional-params any?]
+   (let [res (:data (approve-album-contest-with-http-info albumContestId approvalStatus optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec delete-contest-with-http-info any?
   "Delete Contest
   Deletes a contest."
-  ([version float?, albumContestId int?, ] (delete-contest-with-http-info version albumContestId nil))
-  ([version float?, albumContestId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version albumContestId)
-   (call-api "/api/{version}/consumer/album/contest/remove" :post
-             {:path-params   {"version" version }
+  ([albumContestId int?, ] (delete-contest-with-http-info albumContestId nil))
+  ([albumContestId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params albumContestId)
+   (call-api "/consumer/album/contest/remove" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumContestId" albumContestId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec delete-contest sirqul-response-spec
   "Delete Contest
   Deletes a contest."
-  ([version float?, albumContestId int?, ] (delete-contest version albumContestId nil))
-  ([version float?, albumContestId int?, optional-params any?]
-   (let [res (:data (delete-contest-with-http-info version albumContestId optional-params))]
+  ([albumContestId int?, ] (delete-contest albumContestId nil))
+  ([albumContestId int?, optional-params any?]
+   (let [res (:data (delete-contest-with-http-info albumContestId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec get-album-contest-with-http-info any?
   "Get Contest
   Gets the contest object including the likes and notes"
-  ([version float?, albumContestId int?, ] (get-album-contest-with-http-info version albumContestId nil))
-  ([version float?, albumContestId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version albumContestId)
-   (call-api "/api/{version}/consumer/album/contest/get" :get
-             {:path-params   {"version" version }
+  ([albumContestId int?, ] (get-album-contest-with-http-info albumContestId nil))
+  ([albumContestId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params albumContestId)
+   (call-api "/consumer/album/contest/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumContestId" albumContestId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec get-album-contest album-contest-response-spec
   "Get Contest
   Gets the contest object including the likes and notes"
-  ([version float?, albumContestId int?, ] (get-album-contest version albumContestId nil))
-  ([version float?, albumContestId int?, optional-params any?]
-   (let [res (:data (get-album-contest-with-http-info version albumContestId optional-params))]
+  ([albumContestId int?, ] (get-album-contest albumContestId nil))
+  ([albumContestId int?, optional-params any?]
+   (let [res (:data (get-album-contest-with-http-info albumContestId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode album-contest-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,11 @@
 (defn-spec get-album-contests-with-http-info any?
   "Search Contests
   Searches on contests."
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-album-contests-with-http-info version filter sortField descending start limit nil))
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, {:keys [deviceId accountId gameType appKey appType contestType ownerId q keyword _i _l dateCreated latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version filter sortField descending start limit)
-   (call-api "/api/{version}/consumer/album/contest/search" :get
-             {:path-params   {"version" version }
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-album-contests-with-http-info filter sortField descending start limit nil))
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, {:keys [deviceId accountId gameType appKey appType contestType ownerId q keyword _i _l dateCreated latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params filter sortField descending start limit)
+   (call-api "/consumer/album/contest/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "appKey" appKey "appType" appType "contestType" contestType "ownerId" ownerId "q" q "keyword" keyword "filter" filter "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "dateCreated" dateCreated "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -472,9 +472,9 @@
 (defn-spec get-album-contests album-contest-list-response-spec
   "Search Contests
   Searches on contests."
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-album-contests version filter sortField descending start limit nil))
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (get-album-contests-with-http-info version filter sortField descending start limit optional-params))]
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-album-contests filter sortField descending start limit nil))
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (get-album-contests-with-http-info filter sortField descending start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode album-contest-list-response-spec res st/string-transformer)
         res))))
@@ -483,11 +483,11 @@
 (defn-spec vote-on-album-contest-with-http-info any?
   "Vote on Contest
   Vote on a collection in a contest."
-  ([version float?, albumContestId int?, albumId int?, ] (vote-on-album-contest-with-http-info version albumContestId albumId nil))
-  ([version float?, albumContestId int?, albumId int?, {:keys [deviceId accountId contestType latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version albumContestId albumId)
-   (call-api "/api/{version}/consumer/album/contest/vote" :post
-             {:path-params   {"version" version }
+  ([albumContestId int?, albumId int?, ] (vote-on-album-contest-with-http-info albumContestId albumId nil))
+  ([albumContestId int?, albumId int?, {:keys [deviceId accountId contestType latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params albumContestId albumId)
+   (call-api "/consumer/album/contest/vote" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumContestId" albumContestId "albumId" albumId "contestType" contestType "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -498,9 +498,9 @@
 (defn-spec vote-on-album-contest album-contest-response-spec
   "Vote on Contest
   Vote on a collection in a contest."
-  ([version float?, albumContestId int?, albumId int?, ] (vote-on-album-contest version albumContestId albumId nil))
-  ([version float?, albumContestId int?, albumId int?, optional-params any?]
-   (let [res (:data (vote-on-album-contest-with-http-info version albumContestId albumId optional-params))]
+  ([albumContestId int?, albumId int?, ] (vote-on-album-contest albumContestId albumId nil))
+  ([albumContestId int?, albumId int?, optional-params any?]
+   (let [res (:data (vote-on-album-contest-with-http-info albumContestId albumId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode album-contest-response-spec res st/string-transformer)
         res))))

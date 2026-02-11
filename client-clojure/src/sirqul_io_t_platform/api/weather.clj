@@ -353,11 +353,10 @@
 (defn-spec search-weather-with-http-info any?
   "Search Weather
   Search the weather forcast for the next 5 days"
-  ([version float?, ] (search-weather-with-http-info version nil))
-  ([version float?, {:keys [regionId latitude longitude timezoneOffset]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/weather/search" :get
-             {:path-params   {"version" version }
+  ([] (search-weather-with-http-info nil))
+  ([{:keys [regionId latitude longitude timezoneOffset]} (s/map-of keyword? any?)]
+   (call-api "/weather/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"regionId" regionId "latitude" latitude "longitude" longitude "timezoneOffset" timezoneOffset }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec search-weather weather-response-spec
   "Search Weather
   Search the weather forcast for the next 5 days"
-  ([version float?, ] (search-weather version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-weather-with-http-info version optional-params))]
+  ([] (search-weather nil))
+  ([optional-params any?]
+   (let [res (:data (search-weather-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode weather-response-spec res st/string-transformer)
         res))))

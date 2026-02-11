@@ -353,11 +353,10 @@
 (defn-spec create-route-settings-with-http-info any?
   "Create Route Setting
   Create a new route setting"
-  ([version float?, ] (create-route-settings-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/route/setting" :post
-             {:path-params   {"version" version }
+  ([] (create-route-settings-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/route/setting" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +368,9 @@
 (defn-spec create-route-settings route-settings-spec
   "Create Route Setting
   Create a new route setting"
-  ([version float?, ] (create-route-settings version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-route-settings-with-http-info version optional-params))]
+  ([] (create-route-settings nil))
+  ([optional-params any?]
+   (let [res (:data (create-route-settings-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode route-settings-spec res st/string-transformer)
         res))))
@@ -380,10 +379,10 @@
 (defn-spec delete-route-settings-with-http-info any?
   "Delete Route Setting
   Delete an existing route setting"
-  [version float?, routeSettingsId int?]
-  (check-required-params version routeSettingsId)
-  (call-api "/api/{version}/route/setting/{routeSettingsId}" :delete
-            {:path-params   {"version" version "routeSettingsId" routeSettingsId }
+  [routeSettingsId int?]
+  (check-required-params routeSettingsId)
+  (call-api "/route/setting/{routeSettingsId}" :delete
+            {:path-params   {"routeSettingsId" routeSettingsId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +393,8 @@
 (defn-spec delete-route-settings any?
   "Delete Route Setting
   Delete an existing route setting"
-  [version float?, routeSettingsId int?]
-  (let [res (:data (delete-route-settings-with-http-info version routeSettingsId))]
+  [routeSettingsId int?]
+  (let [res (:data (delete-route-settings-with-http-info routeSettingsId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -404,10 +403,10 @@
 (defn-spec get-route-settings-with-http-info any?
   "Get Route Setting
   Get an existing route settings"
-  [version float?, routeSettingsId int?]
-  (check-required-params version routeSettingsId)
-  (call-api "/api/{version}/route/setting/{routeSettingsId}" :get
-            {:path-params   {"version" version "routeSettingsId" routeSettingsId }
+  [routeSettingsId int?]
+  (check-required-params routeSettingsId)
+  (call-api "/route/setting/{routeSettingsId}" :get
+            {:path-params   {"routeSettingsId" routeSettingsId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +417,8 @@
 (defn-spec get-route-settings route-settings-spec
   "Get Route Setting
   Get an existing route settings"
-  [version float?, routeSettingsId int?]
-  (let [res (:data (get-route-settings-with-http-info version routeSettingsId))]
+  [routeSettingsId int?]
+  (let [res (:data (get-route-settings-with-http-info routeSettingsId))]
     (if (:decode-models *api-context*)
        (st/decode route-settings-spec res st/string-transformer)
        res)))
@@ -428,11 +427,11 @@
 (defn-spec search-route-settings-with-http-info any?
   "Search Route Settings
   Search for route settings"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-route-settings-with-http-info version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [hubId programId keyword]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly)
-   (call-api "/api/{version}/route/setting" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-route-settings-with-http-info sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [hubId programId keyword]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly)
+   (call-api "/route/setting" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"hubId" hubId "programId" programId "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -443,9 +442,9 @@
 (defn-spec search-route-settings (s/coll-of route-settings-spec)
   "Search Route Settings
   Search for route settings"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-route-settings version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-route-settings-with-http-info version sortField descending start limit activeOnly optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-route-settings sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-route-settings-with-http-info sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of route-settings-spec) res st/string-transformer)
         res))))
@@ -454,11 +453,11 @@
 (defn-spec update-route-settings-with-http-info any?
   "Update Route Setting
   Update an existing route setting"
-  ([version float?, routeSettingsId int?, ] (update-route-settings-with-http-info version routeSettingsId nil))
-  ([version float?, routeSettingsId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version routeSettingsId)
-   (call-api "/api/{version}/route/setting/{routeSettingsId}" :put
-             {:path-params   {"version" version "routeSettingsId" routeSettingsId }
+  ([routeSettingsId int?, ] (update-route-settings-with-http-info routeSettingsId nil))
+  ([routeSettingsId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params routeSettingsId)
+   (call-api "/route/setting/{routeSettingsId}" :put
+             {:path-params   {"routeSettingsId" routeSettingsId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -470,9 +469,9 @@
 (defn-spec update-route-settings route-settings-spec
   "Update Route Setting
   Update an existing route setting"
-  ([version float?, routeSettingsId int?, ] (update-route-settings version routeSettingsId nil))
-  ([version float?, routeSettingsId int?, optional-params any?]
-   (let [res (:data (update-route-settings-with-http-info version routeSettingsId optional-params))]
+  ([routeSettingsId int?, ] (update-route-settings routeSettingsId nil))
+  ([routeSettingsId int?, optional-params any?]
+   (let [res (:data (update-route-settings-with-http-info routeSettingsId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode route-settings-spec res st/string-transformer)
         res))))

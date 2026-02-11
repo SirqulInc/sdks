@@ -353,11 +353,11 @@
 (defn-spec accept-invite-with-http-info any?
   "Accept Invite
   Allows a user to accept an invite. The user could also become the inviter's friend."
-  ([version float?, token string?, accountId int?, ] (accept-invite-with-http-info version token accountId nil))
-  ([version float?, token string?, accountId int?, {:keys [albumId missionId albumContestId offerId offerLocationId retailerLocationId appKey autoFriend autoAttendEvent autoFavoriteOffer autoFavoriteOfferLocation autoFavoriteRetailerLocation]} (s/map-of keyword? any?)]
-   (check-required-params version token accountId)
-   (call-api "/api/{version}/invite/accept" :post
-             {:path-params   {"version" version }
+  ([token string?, accountId int?, ] (accept-invite-with-http-info token accountId nil))
+  ([token string?, accountId int?, {:keys [albumId missionId albumContestId offerId offerLocationId retailerLocationId appKey autoFriend autoAttendEvent autoFavoriteOffer autoFavoriteOfferLocation autoFavoriteRetailerLocation]} (s/map-of keyword? any?)]
+   (check-required-params token accountId)
+   (call-api "/invite/accept" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"token" token "accountId" accountId "albumId" albumId "missionId" missionId "albumContestId" albumContestId "offerId" offerId "offerLocationId" offerLocationId "retailerLocationId" retailerLocationId "appKey" appKey "autoFriend" autoFriend "autoAttendEvent" autoAttendEvent "autoFavoriteOffer" autoFavoriteOffer "autoFavoriteOfferLocation" autoFavoriteOfferLocation "autoFavoriteRetailerLocation" autoFavoriteRetailerLocation }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec accept-invite consumer-invite-response-spec
   "Accept Invite
   Allows a user to accept an invite. The user could also become the inviter's friend."
-  ([version float?, token string?, accountId int?, ] (accept-invite version token accountId nil))
-  ([version float?, token string?, accountId int?, optional-params any?]
-   (let [res (:data (accept-invite-with-http-info version token accountId optional-params))]
+  ([token string?, accountId int?, ] (accept-invite token accountId nil))
+  ([token string?, accountId int?, optional-params any?]
+   (let [res (:data (accept-invite-with-http-info token accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode consumer-invite-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,10 @@
 (defn-spec album-contest-invite-with-http-info any?
   "Invite to Contest
   Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (album-contest-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appId appKey albumContestId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/invite/albumContest" :post
-             {:path-params   {"version" version }
+  ([] (album-contest-invite-with-http-info nil))
+  ([{:keys [deviceId accountId appId appKey albumContestId latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/invite/albumContest" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appId" appId "appKey" appKey "albumContestId" albumContestId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec album-contest-invite invite-response-spec
   "Invite to Contest
   Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (album-contest-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (album-contest-invite-with-http-info version optional-params))]
+  ([] (album-contest-invite nil))
+  ([optional-params any?]
+   (let [res (:data (album-contest-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode invite-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,10 @@
 (defn-spec album-invite-with-http-info any?
   "Invite to Collection
   Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (album-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appId appKey albumId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/invite/album" :post
-             {:path-params   {"version" version }
+  ([] (album-invite-with-http-info nil))
+  ([{:keys [deviceId accountId appId appKey albumId latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/invite/album" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appId" appId "appKey" appKey "albumId" albumId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -420,9 +418,9 @@
 (defn-spec album-invite invite-response-spec
   "Invite to Collection
   Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (album-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (album-invite-with-http-info version optional-params))]
+  ([] (album-invite nil))
+  ([optional-params any?]
+   (let [res (:data (album-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode invite-response-spec res st/string-transformer)
         res))))
@@ -431,11 +429,11 @@
 (defn-spec event-invite-with-http-info any?
   "Invite to Event
   Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet."
-  ([version float?, accountId int?, appKey string?, listingId int?, ] (event-invite-with-http-info version accountId appKey listingId nil))
-  ([version float?, accountId int?, appKey string?, listingId int?, {:keys [receiverAccountIds retailerLocationId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey listingId)
-   (call-api "/api/{version}/invite/event" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, listingId int?, ] (event-invite-with-http-info accountId appKey listingId nil))
+  ([accountId int?, appKey string?, listingId int?, {:keys [receiverAccountIds retailerLocationId]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey listingId)
+   (call-api "/invite/event" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "receiverAccountIds" receiverAccountIds "appKey" appKey "listingId" listingId "retailerLocationId" retailerLocationId }
               :form-params   {}
@@ -446,9 +444,9 @@
 (defn-spec event-invite invite-response-spec
   "Invite to Event
   Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet."
-  ([version float?, accountId int?, appKey string?, listingId int?, ] (event-invite version accountId appKey listingId nil))
-  ([version float?, accountId int?, appKey string?, listingId int?, optional-params any?]
-   (let [res (:data (event-invite-with-http-info version accountId appKey listingId optional-params))]
+  ([accountId int?, appKey string?, listingId int?, ] (event-invite accountId appKey listingId nil))
+  ([accountId int?, appKey string?, listingId int?, optional-params any?]
+   (let [res (:data (event-invite-with-http-info accountId appKey listingId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode invite-response-spec res st/string-transformer)
         res))))
@@ -457,11 +455,10 @@
 (defn-spec game-invite-with-http-info any?
   "Invite to Game Level
   Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (game-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appId appKey gameLevelId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/invite/gameLevel" :post
-             {:path-params   {"version" version }
+  ([] (game-invite-with-http-info nil))
+  ([{:keys [deviceId accountId appId appKey gameLevelId latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/invite/gameLevel" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appId" appId "appKey" appKey "gameLevelId" gameLevelId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -472,9 +469,9 @@
 (defn-spec game-invite invite-response-spec
   "Invite to Game Level
   Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (game-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (game-invite-with-http-info version optional-params))]
+  ([] (game-invite nil))
+  ([optional-params any?]
+   (let [res (:data (game-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode invite-response-spec res st/string-transformer)
         res))))
@@ -483,11 +480,10 @@
 (defn-spec get-invite-with-http-info any?
   "Get Invite
   This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to."
-  ([version float?, ] (get-invite-with-http-info version nil))
-  ([version float?, {:keys [accountId token albumId missionId albumContestId offerId offerLocationId retailerLocationId appKey]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/invite/get" :get
-             {:path-params   {"version" version }
+  ([] (get-invite-with-http-info nil))
+  ([{:keys [accountId token albumId missionId albumContestId offerId offerLocationId retailerLocationId appKey]} (s/map-of keyword? any?)]
+   (call-api "/invite/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "token" token "albumId" albumId "missionId" missionId "albumContestId" albumContestId "offerId" offerId "offerLocationId" offerLocationId "retailerLocationId" retailerLocationId "appKey" appKey }
               :form-params   {}
@@ -498,9 +494,9 @@
 (defn-spec get-invite sirqul-response-spec
   "Get Invite
   This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to."
-  ([version float?, ] (get-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-invite-with-http-info version optional-params))]
+  ([] (get-invite nil))
+  ([optional-params any?]
+   (let [res (:data (get-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -509,11 +505,10 @@
 (defn-spec mission-invite-with-http-info any?
   "Invite to Mission
   Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (mission-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appId appKey missionId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/invite/mission" :post
-             {:path-params   {"version" version }
+  ([] (mission-invite-with-http-info nil))
+  ([{:keys [deviceId accountId appId appKey missionId latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/invite/mission" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appId" appId "appKey" appKey "missionId" missionId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -524,9 +519,9 @@
 (defn-spec mission-invite invite-response-spec
   "Invite to Mission
   Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted."
-  ([version float?, ] (mission-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (mission-invite-with-http-info version optional-params))]
+  ([] (mission-invite nil))
+  ([optional-params any?]
+   (let [res (:data (mission-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode invite-response-spec res st/string-transformer)
         res))))
@@ -535,10 +530,10 @@
 (defn-spec offer-invite-with-http-info any?
   "Invite to Offer
   Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list."
-  [version float?, accountId int?, appKey string?, offerId int?]
-  (check-required-params version accountId appKey offerId)
-  (call-api "/api/{version}/invite/offer" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, offerId int?]
+  (check-required-params accountId appKey offerId)
+  (call-api "/invite/offer" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "offerId" offerId }
              :form-params   {}
@@ -549,8 +544,8 @@
 (defn-spec offer-invite invite-response-spec
   "Invite to Offer
   Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list."
-  [version float?, accountId int?, appKey string?, offerId int?]
-  (let [res (:data (offer-invite-with-http-info version accountId appKey offerId))]
+  [accountId int?, appKey string?, offerId int?]
+  (let [res (:data (offer-invite-with-http-info accountId appKey offerId))]
     (if (:decode-models *api-context*)
        (st/decode invite-response-spec res st/string-transformer)
        res)))
@@ -559,10 +554,10 @@
 (defn-spec offer-location-invite-with-http-info any?
   "Invite to Offer Location
   Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list."
-  [version float?, accountId int?, appKey string?, offerLocationId int?]
-  (check-required-params version accountId appKey offerLocationId)
-  (call-api "/api/{version}/invite/offerLocation" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, offerLocationId int?]
+  (check-required-params accountId appKey offerLocationId)
+  (call-api "/invite/offerLocation" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "offerLocationId" offerLocationId }
              :form-params   {}
@@ -573,8 +568,8 @@
 (defn-spec offer-location-invite invite-response-spec
   "Invite to Offer Location
   Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list."
-  [version float?, accountId int?, appKey string?, offerLocationId int?]
-  (let [res (:data (offer-location-invite-with-http-info version accountId appKey offerLocationId))]
+  [accountId int?, appKey string?, offerLocationId int?]
+  (let [res (:data (offer-location-invite-with-http-info accountId appKey offerLocationId))]
     (if (:decode-models *api-context*)
        (st/decode invite-response-spec res st/string-transformer)
        res)))
@@ -583,11 +578,11 @@
 (defn-spec retailer-location-invite-with-http-info any?
   "Invite to Retailer Location
   Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list."
-  ([version float?, accountId int?, appKey string?, retailerLocationId int?, ] (retailer-location-invite-with-http-info version accountId appKey retailerLocationId nil))
-  ([version float?, accountId int?, appKey string?, retailerLocationId int?, {:keys [albumId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey retailerLocationId)
-   (call-api "/api/{version}/invite/retailerLocation" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, retailerLocationId int?, ] (retailer-location-invite-with-http-info accountId appKey retailerLocationId nil))
+  ([accountId int?, appKey string?, retailerLocationId int?, {:keys [albumId]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey retailerLocationId)
+   (call-api "/invite/retailerLocation" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "retailerLocationId" retailerLocationId "albumId" albumId }
               :form-params   {}
@@ -598,9 +593,9 @@
 (defn-spec retailer-location-invite invite-response-spec
   "Invite to Retailer Location
   Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list."
-  ([version float?, accountId int?, appKey string?, retailerLocationId int?, ] (retailer-location-invite version accountId appKey retailerLocationId nil))
-  ([version float?, accountId int?, appKey string?, retailerLocationId int?, optional-params any?]
-   (let [res (:data (retailer-location-invite-with-http-info version accountId appKey retailerLocationId optional-params))]
+  ([accountId int?, appKey string?, retailerLocationId int?, ] (retailer-location-invite accountId appKey retailerLocationId nil))
+  ([accountId int?, appKey string?, retailerLocationId int?, optional-params any?]
+   (let [res (:data (retailer-location-invite-with-http-info accountId appKey retailerLocationId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode invite-response-spec res st/string-transformer)
         res))))

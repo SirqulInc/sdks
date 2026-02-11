@@ -353,11 +353,10 @@
 (defn-spec category-distance-search-with-http-info any?
   "Search Categories by Distance
   Search for categories by distance."
-  ([version float?, ] (category-distance-search-with-http-info version nil))
-  ([version float?, {:keys [accountId keyword appKey categoryIds parentCategoryIds rootOnly sortField responseGroup descending start limit activeOnly returnExternal exactMatch type externalType minOfferCount latitude longitude range]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/category/distancesearch" :get
-             {:path-params   {"version" version }
+  ([] (category-distance-search-with-http-info nil))
+  ([{:keys [accountId keyword appKey categoryIds parentCategoryIds rootOnly sortField responseGroup descending start limit activeOnly returnExternal exactMatch type externalType minOfferCount latitude longitude range]} (s/map-of keyword? any?)]
+   (call-api "/category/distancesearch" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "appKey" appKey "categoryIds" categoryIds "parentCategoryIds" parentCategoryIds "rootOnly" rootOnly "sortField" sortField "responseGroup" responseGroup "descending" descending "start" start "limit" limit "activeOnly" activeOnly "returnExternal" returnExternal "exactMatch" exactMatch "type" type "externalType" externalType "minOfferCount" minOfferCount "latitude" latitude "longitude" longitude "range" range }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec category-distance-search (s/coll-of category-response-spec)
   "Search Categories by Distance
   Search for categories by distance."
-  ([version float?, ] (category-distance-search version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (category-distance-search-with-http-info version optional-params))]
+  ([] (category-distance-search nil))
+  ([optional-params any?]
+   (let [res (:data (category-distance-search-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of category-response-spec) res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec create-category-with-http-info any?
   "Create Category
   Create a new category."
-  ([version float?, accountId int?, name string?, ] (create-category-with-http-info version accountId name nil))
-  ([version float?, accountId int?, name string?, {:keys [appKey parentCategoryId description type assetId externalId externalType externalCategorySlug sqootSlug active metaData searchTags]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name)
-   (call-api "/api/{version}/category/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, ] (create-category-with-http-info accountId name nil))
+  ([accountId int?, name string?, {:keys [appKey parentCategoryId description type assetId externalId externalType externalCategorySlug sqootSlug active metaData searchTags]} (s/map-of keyword? any?)]
+   (check-required-params accountId name)
+   (call-api "/category/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey "accountId" accountId "parentCategoryId" parentCategoryId "name" name "description" description "type" type "assetId" assetId "externalId" externalId "externalType" externalType "externalCategorySlug" externalCategorySlug "sqootSlug" sqootSlug "active" active "metaData" metaData "searchTags" searchTags }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec create-category category-tree-response-spec
   "Create Category
   Create a new category."
-  ([version float?, accountId int?, name string?, ] (create-category version accountId name nil))
-  ([version float?, accountId int?, name string?, optional-params any?]
-   (let [res (:data (create-category-with-http-info version accountId name optional-params))]
+  ([accountId int?, name string?, ] (create-category accountId name nil))
+  ([accountId int?, name string?, optional-params any?]
+   (let [res (:data (create-category-with-http-info accountId name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode category-tree-response-spec res st/string-transformer)
         res))))
@@ -405,10 +404,10 @@
 (defn-spec delete-category-with-http-info any?
   "Delete Category
   Delete a category."
-  [version float?, accountId int?, categoryId int?]
-  (check-required-params version accountId categoryId)
-  (call-api "/api/{version}/category/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, categoryId int?]
+  (check-required-params accountId categoryId)
+  (call-api "/category/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "categoryId" categoryId }
              :form-params   {}
@@ -419,8 +418,8 @@
 (defn-spec delete-category sirqul-response-spec
   "Delete Category
   Delete a category."
-  [version float?, accountId int?, categoryId int?]
-  (let [res (:data (delete-category-with-http-info version accountId categoryId))]
+  [accountId int?, categoryId int?]
+  (let [res (:data (delete-category-with-http-info accountId categoryId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -429,11 +428,11 @@
 (defn-spec duplicate-category-with-http-info any?
   "Duplicate Category
   Duplicate a category, including all its children."
-  ([version float?, accountId int?, categoryId int?, ] (duplicate-category-with-http-info version accountId categoryId nil))
-  ([version float?, accountId int?, categoryId int?, {:keys [appKey parentCategoryId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId categoryId)
-   (call-api "/api/{version}/category/duplicate" :post
-             {:path-params   {"version" version }
+  ([accountId int?, categoryId int?, ] (duplicate-category-with-http-info accountId categoryId nil))
+  ([accountId int?, categoryId int?, {:keys [appKey parentCategoryId]} (s/map-of keyword? any?)]
+   (check-required-params accountId categoryId)
+   (call-api "/category/duplicate" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey "accountId" accountId "categoryId" categoryId "parentCategoryId" parentCategoryId }
               :form-params   {}
@@ -444,9 +443,9 @@
 (defn-spec duplicate-category category-tree-response-spec
   "Duplicate Category
   Duplicate a category, including all its children."
-  ([version float?, accountId int?, categoryId int?, ] (duplicate-category version accountId categoryId nil))
-  ([version float?, accountId int?, categoryId int?, optional-params any?]
-   (let [res (:data (duplicate-category-with-http-info version accountId categoryId optional-params))]
+  ([accountId int?, categoryId int?, ] (duplicate-category accountId categoryId nil))
+  ([accountId int?, categoryId int?, optional-params any?]
+   (let [res (:data (duplicate-category-with-http-info accountId categoryId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode category-tree-response-spec res st/string-transformer)
         res))))
@@ -455,11 +454,11 @@
 (defn-spec get-category-with-http-info any?
   "Get Category
   Get the details of a specific category. Recursively include all child categories and their children."
-  ([version float?, categoryId int?, ] (get-category-with-http-info version categoryId nil))
-  ([version float?, categoryId int?, {:keys [returnExternal]} (s/map-of keyword? any?)]
-   (check-required-params version categoryId)
-   (call-api "/api/{version}/category/get" :get
-             {:path-params   {"version" version }
+  ([categoryId int?, ] (get-category-with-http-info categoryId nil))
+  ([categoryId int?, {:keys [returnExternal]} (s/map-of keyword? any?)]
+   (check-required-params categoryId)
+   (call-api "/category/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"categoryId" categoryId "returnExternal" returnExternal }
               :form-params   {}
@@ -470,9 +469,9 @@
 (defn-spec get-category category-tree-response-spec
   "Get Category
   Get the details of a specific category. Recursively include all child categories and their children."
-  ([version float?, categoryId int?, ] (get-category version categoryId nil))
-  ([version float?, categoryId int?, optional-params any?]
-   (let [res (:data (get-category-with-http-info version categoryId optional-params))]
+  ([categoryId int?, ] (get-category categoryId nil))
+  ([categoryId int?, optional-params any?]
+   (let [res (:data (get-category-with-http-info categoryId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode category-tree-response-spec res st/string-transformer)
         res))))
@@ -481,11 +480,10 @@
 (defn-spec search-categories-with-http-info any?
   "Search Categories
   Search for categories."
-  ([version float?, ] (search-categories-with-http-info version nil))
-  ([version float?, {:keys [accountId keyword appKey categoryId categoryIds parentCategoryIds rootOnly sortField responseGroup descending start limit activeOnly returnExternal exactMatch type externalType excludeExternalType minOfferCount searchDepth searchMode]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/category/search" :get
-             {:path-params   {"version" version }
+  ([] (search-categories-with-http-info nil))
+  ([{:keys [accountId keyword appKey categoryId categoryIds parentCategoryIds rootOnly sortField responseGroup descending start limit activeOnly returnExternal exactMatch type externalType excludeExternalType minOfferCount searchDepth searchMode]} (s/map-of keyword? any?)]
+   (call-api "/category/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "appKey" appKey "categoryId" categoryId "categoryIds" categoryIds "parentCategoryIds" parentCategoryIds "rootOnly" rootOnly "sortField" sortField "responseGroup" responseGroup "descending" descending "start" start "limit" limit "activeOnly" activeOnly "returnExternal" returnExternal "exactMatch" exactMatch "type" type "externalType" externalType "excludeExternalType" excludeExternalType "minOfferCount" minOfferCount "searchDepth" searchDepth "searchMode" searchMode }
               :form-params   {}
@@ -496,9 +494,9 @@
 (defn-spec search-categories (s/coll-of category-response-spec)
   "Search Categories
   Search for categories."
-  ([version float?, ] (search-categories version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-categories-with-http-info version optional-params))]
+  ([] (search-categories nil))
+  ([optional-params any?]
+   (let [res (:data (search-categories-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of category-response-spec) res st/string-transformer)
         res))))
@@ -507,11 +505,11 @@
 (defn-spec update-category-with-http-info any?
   "Update Category
   Update a category."
-  ([version float?, accountId int?, categoryId int?, ] (update-category-with-http-info version accountId categoryId nil))
-  ([version float?, accountId int?, categoryId int?, {:keys [parentCategoryId name description type assetId externalId externalType externalCategorySlug sqootSlug active metaData searchTags]} (s/map-of keyword? any?)]
-   (check-required-params version accountId categoryId)
-   (call-api "/api/{version}/category/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, categoryId int?, ] (update-category-with-http-info accountId categoryId nil))
+  ([accountId int?, categoryId int?, {:keys [parentCategoryId name description type assetId externalId externalType externalCategorySlug sqootSlug active metaData searchTags]} (s/map-of keyword? any?)]
+   (check-required-params accountId categoryId)
+   (call-api "/category/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "categoryId" categoryId "parentCategoryId" parentCategoryId "name" name "description" description "type" type "assetId" assetId "externalId" externalId "externalType" externalType "externalCategorySlug" externalCategorySlug "sqootSlug" sqootSlug "active" active "metaData" metaData "searchTags" searchTags }
               :form-params   {}
@@ -522,9 +520,9 @@
 (defn-spec update-category category-tree-response-spec
   "Update Category
   Update a category."
-  ([version float?, accountId int?, categoryId int?, ] (update-category version accountId categoryId nil))
-  ([version float?, accountId int?, categoryId int?, optional-params any?]
-   (let [res (:data (update-category-with-http-info version accountId categoryId optional-params))]
+  ([accountId int?, categoryId int?, ] (update-category accountId categoryId nil))
+  ([accountId int?, categoryId int?, optional-params any?]
+   (let [res (:data (update-category-with-http-info accountId categoryId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode category-tree-response-spec res st/string-transformer)
         res))))

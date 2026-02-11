@@ -353,11 +353,10 @@
 (defn-spec create-billable-entity-with-http-info any?
   "Create Billable
   reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity"
-  ([version float?, ] (create-billable-entity-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode businessPhone businessPhoneExt authorizeNetApiKey authorizeNetTransactionKey]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/billable/create" :post
-             {:path-params   {"version" version }
+  ([] (create-billable-entity-with-http-info nil))
+  ([{:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode businessPhone businessPhoneExt authorizeNetApiKey authorizeNetTransactionKey]} (s/map-of keyword? any?)]
+   (call-api "/billable/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "name" name "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "businessPhone" businessPhone "businessPhoneExt" businessPhoneExt "authorizeNetApiKey" authorizeNetApiKey "authorizeNetTransactionKey" authorizeNetTransactionKey }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec create-billable-entity billable-entity-response-spec
   "Create Billable
   reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity"
-  ([version float?, ] (create-billable-entity version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-billable-entity-with-http-info version optional-params))]
+  ([] (create-billable-entity nil))
+  ([optional-params any?]
+   (let [res (:data (create-billable-entity-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode billable-entity-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,10 @@
 (defn-spec delete-billable-entity-with-http-info any?
   "Delete Billable
   Mark the billable as deleted"
-  ([version float?, ] (delete-billable-entity-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/billable/delete" :post
-             {:path-params   {"version" version }
+  ([] (delete-billable-entity-with-http-info nil))
+  ([{:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (call-api "/billable/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId }
               :form-params   {}
@@ -394,9 +392,9 @@
 (defn-spec delete-billable-entity sirqul-response-spec
   "Delete Billable
   Mark the billable as deleted"
-  ([version float?, ] (delete-billable-entity version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (delete-billable-entity-with-http-info version optional-params))]
+  ([] (delete-billable-entity nil))
+  ([optional-params any?]
+   (let [res (:data (delete-billable-entity-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +403,10 @@
 (defn-spec get-billable-entity-with-http-info any?
   "Get Billable
   Used to determine the associated BillableEntity of an account"
-  ([version float?, ] (get-billable-entity-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId includeCounts includePayments]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/billable/get" :get
-             {:path-params   {"version" version }
+  ([] (get-billable-entity-with-http-info nil))
+  ([{:keys [deviceId accountId includeCounts includePayments]} (s/map-of keyword? any?)]
+   (call-api "/billable/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "includeCounts" includeCounts "includePayments" includePayments }
               :form-params   {}
@@ -420,9 +417,9 @@
 (defn-spec get-billable-entity billable-entity-response-spec
   "Get Billable
   Used to determine the associated BillableEntity of an account"
-  ([version float?, ] (get-billable-entity version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-billable-entity-with-http-info version optional-params))]
+  ([] (get-billable-entity nil))
+  ([optional-params any?]
+   (let [res (:data (get-billable-entity-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode billable-entity-response-spec res st/string-transformer)
         res))))
@@ -431,11 +428,10 @@
 (defn-spec update-billable-entity-with-http-info any?
   "Update Billable
   Updates the billable record for an account"
-  ([version float?, ] (update-billable-entity-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode businessPhone businessPhoneExt authorizeNetApiKey authorizeNetTransactionKey]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/billable/update" :post
-             {:path-params   {"version" version }
+  ([] (update-billable-entity-with-http-info nil))
+  ([{:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode businessPhone businessPhoneExt authorizeNetApiKey authorizeNetTransactionKey]} (s/map-of keyword? any?)]
+   (call-api "/billable/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "name" name "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "businessPhone" businessPhone "businessPhoneExt" businessPhoneExt "authorizeNetApiKey" authorizeNetApiKey "authorizeNetTransactionKey" authorizeNetTransactionKey }
               :form-params   {}
@@ -446,9 +442,9 @@
 (defn-spec update-billable-entity billable-entity-response-spec
   "Update Billable
   Updates the billable record for an account"
-  ([version float?, ] (update-billable-entity version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (update-billable-entity-with-http-info version optional-params))]
+  ([] (update-billable-entity nil))
+  ([optional-params any?]
+   (let [res (:data (update-billable-entity-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode billable-entity-response-spec res st/string-transformer)
         res))))

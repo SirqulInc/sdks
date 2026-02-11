@@ -353,10 +353,10 @@
 (defn-spec create-stripe-checkout-session-with-http-info any?
   "Create Stripe Checkout Session
   Create a Stripe checkout session"
-  [version float?, appKey string?, stripeParameters string?]
-  (check-required-params version appKey stripeParameters)
-  (call-api "/api/{version}/stripe/checkout/session/create" :post
-            {:path-params   {"version" version }
+  [appKey string?, stripeParameters string?]
+  (check-required-params appKey stripeParameters)
+  (call-api "/stripe/checkout/session/create" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"appKey" appKey "stripeParameters" stripeParameters }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec create-stripe-checkout-session sirqul-response-spec
   "Create Stripe Checkout Session
   Create a Stripe checkout session"
-  [version float?, appKey string?, stripeParameters string?]
-  (let [res (:data (create-stripe-checkout-session-with-http-info version appKey stripeParameters))]
+  [appKey string?, stripeParameters string?]
+  (let [res (:data (create-stripe-checkout-session-with-http-info appKey stripeParameters))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))

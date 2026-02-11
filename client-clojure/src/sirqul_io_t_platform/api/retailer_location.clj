@@ -353,11 +353,11 @@
 (defn-spec create-retailer-location-consumer-with-http-info any?
   "Create Retailer Location (Consumer)
   Creates a location record for an application that can support crowd sourced locations."
-  ([version float?, appKey string?, name string?, ] (create-retailer-location-consumer-with-http-info version appKey name nil))
-  ([version float?, appKey string?, name string?, {:keys [deviceId accountId streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email detailsHeader detailsBody hours tags logoAssetId picture1AssetId picture2AssetId categoryIds filterIds metaData publicLocation active locationType latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version appKey name)
-   (call-api "/api/{version}/location/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, name string?, ] (create-retailer-location-consumer-with-http-info appKey name nil))
+  ([appKey string?, name string?, {:keys [deviceId accountId streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email detailsHeader detailsBody hours tags logoAssetId picture1AssetId picture2AssetId categoryIds filterIds metaData publicLocation active locationType latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params appKey name)
+   (call-api "/location/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "name" name "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "country" country "businessPhone" businessPhone "businessPhoneExt" businessPhoneExt "website" website "email" email "detailsHeader" detailsHeader "detailsBody" detailsBody "hours" hours "tags" tags "logoAssetId" logoAssetId "picture1AssetId" picture1AssetId "picture2AssetId" picture2AssetId "categoryIds" categoryIds "filterIds" filterIds "metaData" metaData "publicLocation" publicLocation "active" active "locationType" locationType "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-retailer-location-consumer retailer-location-response-spec
   "Create Retailer Location (Consumer)
   Creates a location record for an application that can support crowd sourced locations."
-  ([version float?, appKey string?, name string?, ] (create-retailer-location-consumer version appKey name nil))
-  ([version float?, appKey string?, name string?, optional-params any?]
-   (let [res (:data (create-retailer-location-consumer-with-http-info version appKey name optional-params))]
+  ([appKey string?, name string?, ] (create-retailer-location-consumer appKey name nil))
+  ([appKey string?, name string?, optional-params any?]
+   (let [res (:data (create-retailer-location-consumer-with-http-info appKey name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-location-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec create-retailer-locations-with-http-info any?
   "Create Retailer Location
   Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this."
-  ([version float?, retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, ] (create-retailer-locations-with-http-info version retailerId name streetAddress city state postalCode nil))
-  ([version float?, retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, {:keys [deviceId accountId streetAddress2 country businessPhone businessPhoneExt website email internalId detailsHeader detailsBody hours ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds filterIds latitude longitude building googlePlaceId yelpId active publicLocation locationType audienceIds audienceIdsToAdd audienceIdsToRemove responseFormat responseIncludes]} (s/map-of keyword? any?)]
-   (check-required-params version retailerId name streetAddress city state postalCode)
-   (call-api "/api/{version}/retailer/location/create" :post
-             {:path-params   {"version" version }
+  ([retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, ] (create-retailer-locations-with-http-info retailerId name streetAddress city state postalCode nil))
+  ([retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, {:keys [deviceId accountId streetAddress2 country businessPhone businessPhoneExt website email internalId detailsHeader detailsBody hours ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds filterIds latitude longitude building googlePlaceId yelpId active publicLocation locationType audienceIds audienceIdsToAdd audienceIdsToRemove responseFormat responseIncludes]} (s/map-of keyword? any?)]
+   (check-required-params retailerId name streetAddress city state postalCode)
+   (call-api "/retailer/location/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerId" retailerId "name" name "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "country" country "businessPhone" businessPhone "businessPhoneExt" businessPhoneExt "website" website "email" email "internalId" internalId "detailsHeader" detailsHeader "detailsBody" detailsBody "hours" hours "logo" logo "logoAssetId" logoAssetId "picture1" picture1 "picture1AssetId" picture1AssetId "picture2" picture2 "picture2AssetId" picture2AssetId "categoryIds" categoryIds "filterIds" filterIds "latitude" latitude "longitude" longitude "building" building "googlePlaceId" googlePlaceId "yelpId" yelpId "active" active "publicLocation" publicLocation "locationType" locationType "audienceIds" audienceIds "audienceIdsToAdd" audienceIdsToAdd "audienceIdsToRemove" audienceIdsToRemove "responseFormat" responseFormat "responseIncludes" responseIncludes }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec create-retailer-locations retailer-location-response-spec
   "Create Retailer Location
   Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this."
-  ([version float?, retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, ] (create-retailer-locations version retailerId name streetAddress city state postalCode nil))
-  ([version float?, retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, optional-params any?]
-   (let [res (:data (create-retailer-locations-with-http-info version retailerId name streetAddress city state postalCode optional-params))]
+  ([retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, ] (create-retailer-locations retailerId name streetAddress city state postalCode nil))
+  ([retailerId int?, name string?, streetAddress string?, city string?, state string?, postalCode string?, optional-params any?]
+   (let [res (:data (create-retailer-locations-with-http-info retailerId name streetAddress city state postalCode optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-location-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,10 @@
 (defn-spec delete-retailer-location-with-http-info any?
   "Delete Retailer Location
   Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp."
-  ([version float?, ] (delete-retailer-location-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId retailerLocationId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/retailer/location/delete" :post
-             {:path-params   {"version" version }
+  ([] (delete-retailer-location-with-http-info nil))
+  ([{:keys [deviceId accountId retailerLocationId]} (s/map-of keyword? any?)]
+   (call-api "/retailer/location/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerLocationId" retailerLocationId }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec delete-retailer-location sirqul-response-spec
   "Delete Retailer Location
   Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp."
-  ([version float?, ] (delete-retailer-location version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (delete-retailer-location-with-http-info version optional-params))]
+  ([] (delete-retailer-location nil))
+  ([optional-params any?]
+   (let [res (:data (delete-retailer-location-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,11 @@
 (defn-spec get-retailer-location-with-http-info any?
   "Get Retailer Location
   Gets a retailer location. Only the owner and the employees of the retailer have access to view its information."
-  ([version float?, retailerLocationId int?, ] (get-retailer-location-with-http-info version retailerLocationId nil))
-  ([version float?, retailerLocationId int?, {:keys [deviceId accountId retailerLocationToken]} (s/map-of keyword? any?)]
-   (check-required-params version retailerLocationId)
-   (call-api "/api/{version}/retailer/location/get" :get
-             {:path-params   {"version" version }
+  ([retailerLocationId int?, ] (get-retailer-location-with-http-info retailerLocationId nil))
+  ([retailerLocationId int?, {:keys [deviceId accountId retailerLocationToken]} (s/map-of keyword? any?)]
+   (check-required-params retailerLocationId)
+   (call-api "/retailer/location/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerLocationId" retailerLocationId "retailerLocationToken" retailerLocationToken }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec get-retailer-location retailer-location-response-spec
   "Get Retailer Location
   Gets a retailer location. Only the owner and the employees of the retailer have access to view its information."
-  ([version float?, retailerLocationId int?, ] (get-retailer-location version retailerLocationId nil))
-  ([version float?, retailerLocationId int?, optional-params any?]
-   (let [res (:data (get-retailer-location-with-http-info version retailerLocationId optional-params))]
+  ([retailerLocationId int?, ] (get-retailer-location retailerLocationId nil))
+  ([retailerLocationId int?, optional-params any?]
+   (let [res (:data (get-retailer-location-with-http-info retailerLocationId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-location-response-spec res st/string-transformer)
         res))))
@@ -457,11 +456,11 @@
 (defn-spec get-retailer-location-consumer-with-http-info any?
   "Get Retailer Location (Consumer)
   Gets the details of a retailer location as a consumer."
-  ([version float?, retailerLocationId int?, ] (get-retailer-location-consumer-with-http-info version retailerLocationId nil))
-  ([version float?, retailerLocationId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version retailerLocationId)
-   (call-api "/api/{version}/location/get" :get
-             {:path-params   {"version" version }
+  ([retailerLocationId int?, ] (get-retailer-location-consumer-with-http-info retailerLocationId nil))
+  ([retailerLocationId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params retailerLocationId)
+   (call-api "/location/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerLocationId" retailerLocationId }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec get-retailer-location-consumer retailer-location-response-spec
   "Get Retailer Location (Consumer)
   Gets the details of a retailer location as a consumer."
-  ([version float?, retailerLocationId int?, ] (get-retailer-location-consumer version retailerLocationId nil))
-  ([version float?, retailerLocationId int?, optional-params any?]
-   (let [res (:data (get-retailer-location-consumer-with-http-info version retailerLocationId optional-params))]
+  ([retailerLocationId int?, ] (get-retailer-location-consumer retailerLocationId nil))
+  ([retailerLocationId int?, optional-params any?]
+   (let [res (:data (get-retailer-location-consumer-with-http-info retailerLocationId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-location-response-spec res st/string-transformer)
         res))))
@@ -483,11 +482,11 @@
 (defn-spec indexed-retailer-location-distance-search-with-http-info any?
   "Distance Search Retailer Locations (Indexed)
   Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance."
-  ([version float?, latitude float?, longitude float?, searchRange float?, start int?, limit int?, ] (indexed-retailer-location-distance-search-with-http-info version latitude longitude searchRange start limit nil))
-  ([version float?, latitude float?, longitude float?, searchRange float?, start int?, limit int?, {:keys [accountId address hasOffers categories filters audiences retailerIds retailerLocationIds tags locationType sortField descending q keyword keywordOperator searchExpression distanceUnit returnFavorited returnRetailer returnAssets returnOffers returnCategories returnFilters returnAudiences returnQrCode returnExternalCategoryData includeFavorite includeLiked includeRating]} (s/map-of keyword? any?)]
-   (check-required-params version latitude longitude searchRange start limit)
-   (call-api "/api/{version}/retailer/location/idistancesearch" :get
-             {:path-params   {"version" version }
+  ([latitude float?, longitude float?, searchRange float?, start int?, limit int?, ] (indexed-retailer-location-distance-search-with-http-info latitude longitude searchRange start limit nil))
+  ([latitude float?, longitude float?, searchRange float?, start int?, limit int?, {:keys [accountId address hasOffers categories filters audiences retailerIds retailerLocationIds tags locationType sortField descending q keyword keywordOperator searchExpression distanceUnit returnFavorited returnRetailer returnAssets returnOffers returnCategories returnFilters returnAudiences returnQrCode returnExternalCategoryData includeFavorite includeLiked includeRating]} (s/map-of keyword? any?)]
+   (check-required-params latitude longitude searchRange start limit)
+   (call-api "/retailer/location/idistancesearch" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"latitude" latitude "longitude" longitude "accountId" accountId "address" address "searchRange" searchRange "start" start "limit" limit "hasOffers" hasOffers "categories" categories "filters" filters "audiences" audiences "retailerIds" retailerIds "retailerLocationIds" retailerLocationIds "tags" tags "locationType" locationType "sortField" sortField "descending" descending "q" q "keyword" keyword "keywordOperator" keywordOperator "searchExpression" searchExpression "distanceUnit" distanceUnit "returnFavorited" returnFavorited "returnRetailer" returnRetailer "returnAssets" returnAssets "returnOffers" returnOffers "returnCategories" returnCategories "returnFilters" returnFilters "returnAudiences" returnAudiences "returnQrCode" returnQrCode "returnExternalCategoryData" returnExternalCategoryData "includeFavorite" includeFavorite "includeLiked" includeLiked "includeRating" includeRating }
               :form-params   {}
@@ -498,9 +497,9 @@
 (defn-spec indexed-retailer-location-distance-search (s/coll-of retailer-location-response-spec)
   "Distance Search Retailer Locations (Indexed)
   Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance."
-  ([version float?, latitude float?, longitude float?, searchRange float?, start int?, limit int?, ] (indexed-retailer-location-distance-search version latitude longitude searchRange start limit nil))
-  ([version float?, latitude float?, longitude float?, searchRange float?, start int?, limit int?, optional-params any?]
-   (let [res (:data (indexed-retailer-location-distance-search-with-http-info version latitude longitude searchRange start limit optional-params))]
+  ([latitude float?, longitude float?, searchRange float?, start int?, limit int?, ] (indexed-retailer-location-distance-search latitude longitude searchRange start limit nil))
+  ([latitude float?, longitude float?, searchRange float?, start int?, limit int?, optional-params any?]
+   (let [res (:data (indexed-retailer-location-distance-search-with-http-info latitude longitude searchRange start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of retailer-location-response-spec) res st/string-transformer)
         res))))
@@ -509,11 +508,10 @@
 (defn-spec indexed-retailer-location-search-with-http-info any?
   "Keyword Search Retailer Locations (Indexed)
   Retailer location (faster) indexed search. This searches all retailer locations."
-  ([version float?, ] (indexed-retailer-location-search-with-http-info version nil))
-  ([version float?, {:keys [accountId start limit hasOffers categories filters audiences retailerIds retailerLocationIds tags locationType sortField descending q keyword keywordOperator searchExpression returnRetailer returnAssets returnOffers returnCategories returnFilters returnAudiences returnQrCode returnExternalCategoryData includeFavorite includeLiked includeRating]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/retailer/location/isearch" :get
-             {:path-params   {"version" version }
+  ([] (indexed-retailer-location-search-with-http-info nil))
+  ([{:keys [accountId start limit hasOffers categories filters audiences retailerIds retailerLocationIds tags locationType sortField descending q keyword keywordOperator searchExpression returnRetailer returnAssets returnOffers returnCategories returnFilters returnAudiences returnQrCode returnExternalCategoryData includeFavorite includeLiked includeRating]} (s/map-of keyword? any?)]
+   (call-api "/retailer/location/isearch" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "start" start "limit" limit "hasOffers" hasOffers "categories" categories "filters" filters "audiences" audiences "retailerIds" retailerIds "retailerLocationIds" retailerLocationIds "tags" tags "locationType" locationType "sortField" sortField "descending" descending "q" q "keyword" keyword "keywordOperator" keywordOperator "searchExpression" searchExpression "returnRetailer" returnRetailer "returnAssets" returnAssets "returnOffers" returnOffers "returnCategories" returnCategories "returnFilters" returnFilters "returnAudiences" returnAudiences "returnQrCode" returnQrCode "returnExternalCategoryData" returnExternalCategoryData "includeFavorite" includeFavorite "includeLiked" includeLiked "includeRating" includeRating }
               :form-params   {}
@@ -524,9 +522,9 @@
 (defn-spec indexed-retailer-location-search (s/coll-of retailer-location-response-spec)
   "Keyword Search Retailer Locations (Indexed)
   Retailer location (faster) indexed search. This searches all retailer locations."
-  ([version float?, ] (indexed-retailer-location-search version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (indexed-retailer-location-search-with-http-info version optional-params))]
+  ([] (indexed-retailer-location-search nil))
+  ([optional-params any?]
+   (let [res (:data (indexed-retailer-location-search-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of retailer-location-response-spec) res st/string-transformer)
         res))))
@@ -535,11 +533,10 @@
 (defn-spec search-retailer-locations-with-http-info any?
   "Search Retailer Locations (Owned)
   Searches on retailer locations that the account has access to."
-  ([version float?, ] (search-retailer-locations-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId q keyword retailerIds retailerLocationIds locationType sortField descending _i start _l limit showPublicLocations activeOnly returnRetailer returnAssets returnOffers returnCategories returnFilters returnAudiences returnQrCode includeFavorite includeLiked includeRating]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/retailer/location/search" :get
-             {:path-params   {"version" version }
+  ([] (search-retailer-locations-with-http-info nil))
+  ([{:keys [deviceId accountId q keyword retailerIds retailerLocationIds locationType sortField descending _i start _l limit showPublicLocations activeOnly returnRetailer returnAssets returnOffers returnCategories returnFilters returnAudiences returnQrCode includeFavorite includeLiked includeRating]} (s/map-of keyword? any?)]
+   (call-api "/retailer/location/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "q" q "keyword" keyword "retailerIds" retailerIds "retailerLocationIds" retailerLocationIds "locationType" locationType "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "showPublicLocations" showPublicLocations "activeOnly" activeOnly "returnRetailer" returnRetailer "returnAssets" returnAssets "returnOffers" returnOffers "returnCategories" returnCategories "returnFilters" returnFilters "returnAudiences" returnAudiences "returnQrCode" returnQrCode "includeFavorite" includeFavorite "includeLiked" includeLiked "includeRating" includeRating }
               :form-params   {}
@@ -550,9 +547,9 @@
 (defn-spec search-retailer-locations (s/coll-of retailer-location-response-spec)
   "Search Retailer Locations (Owned)
   Searches on retailer locations that the account has access to."
-  ([version float?, ] (search-retailer-locations version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-retailer-locations-with-http-info version optional-params))]
+  ([] (search-retailer-locations nil))
+  ([optional-params any?]
+   (let [res (:data (search-retailer-locations-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of retailer-location-response-spec) res st/string-transformer)
         res))))
@@ -561,11 +558,11 @@
 (defn-spec update-retailer-locations-with-http-info any?
   "Update Retailer Location
   Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this."
-  ([version float?, retailerLocationId int?, ] (update-retailer-locations-with-http-info version retailerLocationId nil))
-  ([version float?, retailerLocationId int?, {:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email internalId detailsHeader detailsBody hours ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds filterIds latitude longitude building googlePlaceId yelpId metaData paymentProvider active publicLocation locationType audienceIds audienceIdsToAdd audienceIdsToRemove responseFormat tags]} (s/map-of keyword? any?)]
-   (check-required-params version retailerLocationId)
-   (call-api "/api/{version}/retailer/location/update" :post
-             {:path-params   {"version" version }
+  ([retailerLocationId int?, ] (update-retailer-locations-with-http-info retailerLocationId nil))
+  ([retailerLocationId int?, {:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email internalId detailsHeader detailsBody hours ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds filterIds latitude longitude building googlePlaceId yelpId metaData paymentProvider active publicLocation locationType audienceIds audienceIdsToAdd audienceIdsToRemove responseFormat tags]} (s/map-of keyword? any?)]
+   (check-required-params retailerLocationId)
+   (call-api "/retailer/location/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerLocationId" retailerLocationId "name" name "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "country" country "businessPhone" businessPhone "businessPhoneExt" businessPhoneExt "website" website "email" email "internalId" internalId "detailsHeader" detailsHeader "detailsBody" detailsBody "hours" hours "logo" logo "logoAssetId" logoAssetId "picture1" picture1 "picture1AssetId" picture1AssetId "picture2" picture2 "picture2AssetId" picture2AssetId "categoryIds" categoryIds "filterIds" filterIds "latitude" latitude "longitude" longitude "building" building "googlePlaceId" googlePlaceId "yelpId" yelpId "metaData" metaData "paymentProvider" paymentProvider "active" active "publicLocation" publicLocation "locationType" locationType "audienceIds" audienceIds "audienceIdsToAdd" audienceIdsToAdd "audienceIdsToRemove" audienceIdsToRemove "responseFormat" responseFormat "tags" tags }
               :form-params   {}
@@ -576,9 +573,9 @@
 (defn-spec update-retailer-locations retailer-location-response-spec
   "Update Retailer Location
   Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this."
-  ([version float?, retailerLocationId int?, ] (update-retailer-locations version retailerLocationId nil))
-  ([version float?, retailerLocationId int?, optional-params any?]
-   (let [res (:data (update-retailer-locations-with-http-info version retailerLocationId optional-params))]
+  ([retailerLocationId int?, ] (update-retailer-locations retailerLocationId nil))
+  ([retailerLocationId int?, optional-params any?]
+   (let [res (:data (update-retailer-locations-with-http-info retailerLocationId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-location-response-spec res st/string-transformer)
         res))))

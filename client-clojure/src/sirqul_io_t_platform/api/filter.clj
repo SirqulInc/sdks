@@ -353,11 +353,11 @@
 (defn-spec create-filter-with-http-info any?
   "Create Filter
   Create a filter"
-  ([version float?, accountId int?, name string?, ] (create-filter-with-http-info version accountId name nil))
-  ([version float?, accountId int?, name string?, {:keys [appKey parentFilterId description externalId externalType active metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name)
-   (call-api "/api/{version}/filter/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, ] (create-filter-with-http-info accountId name nil))
+  ([accountId int?, name string?, {:keys [appKey parentFilterId description externalId externalType active metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId name)
+   (call-api "/filter/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "parentFilterId" parentFilterId "name" name "description" description "externalId" externalId "externalType" externalType "active" active "metaData" metaData }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-filter filter-tree-response-spec
   "Create Filter
   Create a filter"
-  ([version float?, accountId int?, name string?, ] (create-filter version accountId name nil))
-  ([version float?, accountId int?, name string?, optional-params any?]
-   (let [res (:data (create-filter-with-http-info version accountId name optional-params))]
+  ([accountId int?, name string?, ] (create-filter accountId name nil))
+  ([accountId int?, name string?, optional-params any?]
+   (let [res (:data (create-filter-with-http-info accountId name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode filter-tree-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-filter-with-http-info any?
   "Delete Filter
   Delete a filter."
-  [version float?, accountId int?, filterId int?]
-  (check-required-params version accountId filterId)
-  (call-api "/api/{version}/filter/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, filterId int?]
+  (check-required-params accountId filterId)
+  (call-api "/filter/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "filterId" filterId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-filter sirqul-response-spec
   "Delete Filter
   Delete a filter."
-  [version float?, accountId int?, filterId int?]
-  (let [res (:data (delete-filter-with-http-info version accountId filterId))]
+  [accountId int?, filterId int?]
+  (let [res (:data (delete-filter-with-http-info accountId filterId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-filter-with-http-info any?
   "Get Filter
   Get the details of a specific filter. Recursively include all child filters and their children."
-  [version float?, filterId int?]
-  (check-required-params version filterId)
-  (call-api "/api/{version}/filter/get" :get
-            {:path-params   {"version" version }
+  [filterId int?]
+  (check-required-params filterId)
+  (call-api "/filter/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"filterId" filterId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-filter filter-tree-response-spec
   "Get Filter
   Get the details of a specific filter. Recursively include all child filters and their children."
-  [version float?, filterId int?]
-  (let [res (:data (get-filter-with-http-info version filterId))]
+  [filterId int?]
+  (let [res (:data (get-filter-with-http-info filterId))]
     (if (:decode-models *api-context*)
        (st/decode filter-tree-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,10 @@
 (defn-spec search-filters-with-http-info any?
   "Search Filters
   Search for filters."
-  ([version float?, ] (search-filters-with-http-info version nil))
-  ([version float?, {:keys [accountId keyword appKey responseGroup rootOnly sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/filter/search" :get
-             {:path-params   {"version" version }
+  ([] (search-filters-with-http-info nil))
+  ([{:keys [accountId keyword appKey responseGroup rootOnly sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
+   (call-api "/filter/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "appKey" appKey "responseGroup" responseGroup "rootOnly" rootOnly "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -442,9 +441,9 @@
 (defn-spec search-filters (s/coll-of filter-response-spec)
   "Search Filters
   Search for filters."
-  ([version float?, ] (search-filters version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-filters-with-http-info version optional-params))]
+  ([] (search-filters nil))
+  ([optional-params any?]
+   (let [res (:data (search-filters-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of filter-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +452,11 @@
 (defn-spec update-filter-with-http-info any?
   "Update Filter
   Update a filter."
-  ([version float?, accountId int?, filterId int?, ] (update-filter-with-http-info version accountId filterId nil))
-  ([version float?, accountId int?, filterId int?, {:keys [parentFilterId name description externalId externalType active metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId filterId)
-   (call-api "/api/{version}/filter/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, filterId int?, ] (update-filter-with-http-info accountId filterId nil))
+  ([accountId int?, filterId int?, {:keys [parentFilterId name description externalId externalType active metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId filterId)
+   (call-api "/filter/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "filterId" filterId "parentFilterId" parentFilterId "name" name "description" description "externalId" externalId "externalType" externalType "active" active "metaData" metaData }
               :form-params   {}
@@ -468,9 +467,9 @@
 (defn-spec update-filter filter-tree-response-spec
   "Update Filter
   Update a filter."
-  ([version float?, accountId int?, filterId int?, ] (update-filter version accountId filterId nil))
-  ([version float?, accountId int?, filterId int?, optional-params any?]
-   (let [res (:data (update-filter-with-http-info version accountId filterId optional-params))]
+  ([accountId int?, filterId int?, ] (update-filter accountId filterId nil))
+  ([accountId int?, filterId int?, optional-params any?]
+   (let [res (:data (update-filter-with-http-info accountId filterId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode filter-tree-response-spec res st/string-transformer)
         res))))

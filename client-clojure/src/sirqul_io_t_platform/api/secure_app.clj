@@ -353,11 +353,11 @@
 (defn-spec create-secure-application-with-http-info any?
   "Create Secure Application
   Create a secure application record."
-  ([version float?, accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, ] (create-secure-application-with-http-info version accountId appKey keyCert trustStore username password nil))
-  ([version float?, accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, {:keys [active biometricType biometricPosition biometricPosition2]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey keyCert trustStore username password)
-   (call-api "/api/{version}/secure/application/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, ] (create-secure-application-with-http-info accountId appKey keyCert trustStore username password nil))
+  ([accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, {:keys [active biometricType biometricPosition biometricPosition2]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey keyCert trustStore username password)
+   (call-api "/secure/application/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "active" active "keyCert" keyCert "trustStore" trustStore "username" username "password" password "biometricType" biometricType "biometricPosition" biometricPosition "biometricPosition2" biometricPosition2 }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-secure-application sirqul-response-spec
   "Create Secure Application
   Create a secure application record."
-  ([version float?, accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, ] (create-secure-application version accountId appKey keyCert trustStore username password nil))
-  ([version float?, accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, optional-params any?]
-   (let [res (:data (create-secure-application-with-http-info version accountId appKey keyCert trustStore username password optional-params))]
+  ([accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, ] (create-secure-application accountId appKey keyCert trustStore username password nil))
+  ([accountId int?, appKey string?, ^File keyCert any?, ^File trustStore any?, username string?, password string?, optional-params any?]
+   (let [res (:data (create-secure-application-with-http-info accountId appKey keyCert trustStore username password optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-secure-application-with-http-info any?
   "Delete Secure Application
   Delete a secure application record."
-  [version float?, accountId int?, appKey string?]
-  (check-required-params version accountId appKey)
-  (call-api "/api/{version}/secure/application/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?]
+  (check-required-params accountId appKey)
+  (call-api "/secure/application/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-secure-application sirqul-response-spec
   "Delete Secure Application
   Delete a secure application record."
-  [version float?, accountId int?, appKey string?]
-  (let [res (:data (delete-secure-application-with-http-info version accountId appKey))]
+  [accountId int?, appKey string?]
+  (let [res (:data (delete-secure-application-with-http-info accountId appKey))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,11 +403,11 @@
 (defn-spec login-secure-with-http-info any?
   "Login Clear
   Login via Clear.me. Creates a new account if logging in for the first time."
-  ([version float?, appKey string?, ^File biometricFile any?, ] (login-secure-with-http-info version appKey biometricFile nil))
-  ([version float?, appKey string?, ^File biometricFile any?, {:keys [deviceId ^File biometricFile2 ageRestriction returnProfile responseFilters latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version appKey biometricFile)
-   (call-api "/api/{version}/secure/login" :post
-             {:path-params   {"version" version }
+  ([appKey string?, ^File biometricFile any?, ] (login-secure-with-http-info appKey biometricFile nil))
+  ([appKey string?, ^File biometricFile any?, {:keys [deviceId ^File biometricFile2 ageRestriction returnProfile responseFilters latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params appKey biometricFile)
+   (call-api "/secure/login" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "appKey" appKey "biometricFile" biometricFile "biometricFile2" biometricFile2 "ageRestriction" ageRestriction "returnProfile" returnProfile "responseFilters" responseFilters "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -418,9 +418,9 @@
 (defn-spec login-secure profile-response-spec
   "Login Clear
   Login via Clear.me. Creates a new account if logging in for the first time."
-  ([version float?, appKey string?, ^File biometricFile any?, ] (login-secure version appKey biometricFile nil))
-  ([version float?, appKey string?, ^File biometricFile any?, optional-params any?]
-   (let [res (:data (login-secure-with-http-info version appKey biometricFile optional-params))]
+  ([appKey string?, ^File biometricFile any?, ] (login-secure appKey biometricFile nil))
+  ([appKey string?, ^File biometricFile any?, optional-params any?]
+   (let [res (:data (login-secure-with-http-info appKey biometricFile optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -429,10 +429,10 @@
 (defn-spec purchase-secure-with-http-info any?
   "Purchase Clear
   Purchase via Clear.me. Creates a new account if purchasing for the first time."
-  [version float?, body payment-request]
-  (check-required-params version body)
-  (call-api "/api/{version}/secure/purchase" :post
-            {:path-params   {"version" version }
+  [body payment-request]
+  (check-required-params body)
+  (call-api "/secure/purchase" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -444,8 +444,8 @@
 (defn-spec purchase-secure profile-response-spec
   "Purchase Clear
   Purchase via Clear.me. Creates a new account if purchasing for the first time."
-  [version float?, body payment-request]
-  (let [res (:data (purchase-secure-with-http-info version body))]
+  [body payment-request]
+  (let [res (:data (purchase-secure-with-http-info body))]
     (if (:decode-models *api-context*)
        (st/decode profile-response-spec res st/string-transformer)
        res)))
@@ -454,10 +454,10 @@
 (defn-spec reset-secure-with-http-info any?
   "Rest Secure Application
   Reset a secure application client."
-  [version float?, accountId int?, appKey string?]
-  (check-required-params version accountId appKey)
-  (call-api "/api/{version}/secure/application/reset" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?]
+  (check-required-params accountId appKey)
+  (call-api "/secure/application/reset" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey }
              :form-params   {}
@@ -468,8 +468,8 @@
 (defn-spec reset-secure sirqul-response-spec
   "Rest Secure Application
   Reset a secure application client."
-  [version float?, accountId int?, appKey string?]
-  (let [res (:data (reset-secure-with-http-info version accountId appKey))]
+  [accountId int?, appKey string?]
+  (let [res (:data (reset-secure-with-http-info accountId appKey))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -478,11 +478,11 @@
 (defn-spec update-secure-application-with-http-info any?
   "Update Secure Application
   Update a secure application record."
-  ([version float?, accountId int?, appKey string?, ] (update-secure-application-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [active ^File keyCert ^File trustStore username password biometricType biometricPosition biometricPosition2]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/secure/application/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (update-secure-application-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [active ^File keyCert ^File trustStore username password biometricType biometricPosition biometricPosition2]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/secure/application/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "active" active "keyCert" keyCert "trustStore" trustStore "username" username "password" password "biometricType" biometricType "biometricPosition" biometricPosition "biometricPosition2" biometricPosition2 }
               :form-params   {}
@@ -493,9 +493,9 @@
 (defn-spec update-secure-application sirqul-response-spec
   "Update Secure Application
   Update a secure application record."
-  ([version float?, accountId int?, appKey string?, ] (update-secure-application version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (update-secure-application-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (update-secure-application accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (update-secure-application-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

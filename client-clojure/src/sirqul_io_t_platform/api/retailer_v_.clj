@@ -353,11 +353,11 @@
 (defn-spec get-retaokiler-with-http-info any?
   "Get Retailer
   Gets a retailer. Only the owner and the employees of a retailer have access to view its information."
-  ([version float?, retailerId int?, activeOnly boolean?, ] (get-retaokiler-with-http-info version retailerId activeOnly nil))
-  ([version float?, retailerId int?, activeOnly boolean?, {:keys [keyword sortField start limit]} (s/map-of keyword? any?)]
-   (check-required-params version retailerId activeOnly)
-   (call-api "/api/{version}/retailer" :get
-             {:path-params   {"version" version }
+  ([retailerId int?, activeOnly boolean?, ] (get-retaokiler-with-http-info retailerId activeOnly nil))
+  ([retailerId int?, activeOnly boolean?, {:keys [keyword sortField start limit]} (s/map-of keyword? any?)]
+   (check-required-params retailerId activeOnly)
+   (call-api "/retailer" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"keyword" keyword "sortField" sortField "start" start "limit" limit "retailerId" retailerId "activeOnly" activeOnly }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec get-retaokiler sirqul-response-spec
   "Get Retailer
   Gets a retailer. Only the owner and the employees of a retailer have access to view its information."
-  ([version float?, retailerId int?, activeOnly boolean?, ] (get-retaokiler version retailerId activeOnly nil))
-  ([version float?, retailerId int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (get-retaokiler-with-http-info version retailerId activeOnly optional-params))]
+  ([retailerId int?, activeOnly boolean?, ] (get-retaokiler retailerId activeOnly nil))
+  ([retailerId int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (get-retaokiler-with-http-info retailerId activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

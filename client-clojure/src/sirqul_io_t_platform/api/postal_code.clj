@@ -353,11 +353,11 @@
 (defn-spec create-postal-code-with-http-info any?
   "Create Postal Code
   Create a Postal Code"
-  ([version float?, accountId int?, code string?, latitude float?, longitude float?, ] (create-postal-code-with-http-info version accountId code latitude longitude nil))
-  ([version float?, accountId int?, code string?, latitude float?, longitude float?, {:keys [stateCode city active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId code latitude longitude)
-   (call-api "/api/{version}/postalCode/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, code string?, latitude float?, longitude float?, ] (create-postal-code-with-http-info accountId code latitude longitude nil))
+  ([accountId int?, code string?, latitude float?, longitude float?, {:keys [stateCode city active]} (s/map-of keyword? any?)]
+   (check-required-params accountId code latitude longitude)
+   (call-api "/postalCode/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "code" code "latitude" latitude "longitude" longitude "stateCode" stateCode "city" city "active" active }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-postal-code postal-code-response-spec
   "Create Postal Code
   Create a Postal Code"
-  ([version float?, accountId int?, code string?, latitude float?, longitude float?, ] (create-postal-code version accountId code latitude longitude nil))
-  ([version float?, accountId int?, code string?, latitude float?, longitude float?, optional-params any?]
-   (let [res (:data (create-postal-code-with-http-info version accountId code latitude longitude optional-params))]
+  ([accountId int?, code string?, latitude float?, longitude float?, ] (create-postal-code accountId code latitude longitude nil))
+  ([accountId int?, code string?, latitude float?, longitude float?, optional-params any?]
+   (let [res (:data (create-postal-code-with-http-info accountId code latitude longitude optional-params))]
      (if (:decode-models *api-context*)
         (st/decode postal-code-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-postal-code-with-http-info any?
   "Delete Postal Code
   Delete a Postal Code"
-  [version float?, accountId int?, postalCodeId int?]
-  (check-required-params version accountId postalCodeId)
-  (call-api "/api/{version}/postalCode/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, postalCodeId int?]
+  (check-required-params accountId postalCodeId)
+  (call-api "/postalCode/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "postalCodeId" postalCodeId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-postal-code sirqul-response-spec
   "Delete Postal Code
   Delete a Postal Code"
-  [version float?, accountId int?, postalCodeId int?]
-  (let [res (:data (delete-postal-code-with-http-info version accountId postalCodeId))]
+  [accountId int?, postalCodeId int?]
+  (let [res (:data (delete-postal-code-with-http-info accountId postalCodeId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-postal-code-with-http-info any?
   "Get Postal Code
   Get a Postal Code"
-  [version float?, postalCodeId int?]
-  (check-required-params version postalCodeId)
-  (call-api "/api/{version}/postalCode/get" :get
-            {:path-params   {"version" version }
+  [postalCodeId int?]
+  (check-required-params postalCodeId)
+  (call-api "/postalCode/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"postalCodeId" postalCodeId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-postal-code postal-code-response-spec
   "Get Postal Code
   Get a Postal Code"
-  [version float?, postalCodeId int?]
-  (let [res (:data (get-postal-code-with-http-info version postalCodeId))]
+  [postalCodeId int?]
+  (let [res (:data (get-postal-code-with-http-info postalCodeId))]
     (if (:decode-models *api-context*)
        (st/decode postal-code-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec get-postal-codes-with-http-info any?
   "Search Postal Codes
   Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response."
-  ([version float?, sortField string?, descending boolean?, ] (get-postal-codes-with-http-info version sortField descending nil))
-  ([version float?, sortField string?, descending boolean?, {:keys [latitude longitude keyword miles start limit]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending)
-   (call-api "/api/{version}/postalCode/search" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, ] (get-postal-codes-with-http-info sortField descending nil))
+  ([sortField string?, descending boolean?, {:keys [latitude longitude keyword miles start limit]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending)
+   (call-api "/postalCode/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"latitude" latitude "longitude" longitude "keyword" keyword "miles" miles "start" start "limit" limit "sortField" sortField "descending" descending }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec get-postal-codes (s/coll-of postal-code-response-spec)
   "Search Postal Codes
   Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response."
-  ([version float?, sortField string?, descending boolean?, ] (get-postal-codes version sortField descending nil))
-  ([version float?, sortField string?, descending boolean?, optional-params any?]
-   (let [res (:data (get-postal-codes-with-http-info version sortField descending optional-params))]
+  ([sortField string?, descending boolean?, ] (get-postal-codes sortField descending nil))
+  ([sortField string?, descending boolean?, optional-params any?]
+   (let [res (:data (get-postal-codes-with-http-info sortField descending optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of postal-code-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-postal-code-with-http-info any?
   "Update Postal Code
   Update a Postal Code"
-  ([version float?, accountId int?, postalCodeId int?, ] (update-postal-code-with-http-info version accountId postalCodeId nil))
-  ([version float?, accountId int?, postalCodeId int?, {:keys [code latitude longitude stateCode city active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId postalCodeId)
-   (call-api "/api/{version}/postalCode/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, postalCodeId int?, ] (update-postal-code-with-http-info accountId postalCodeId nil))
+  ([accountId int?, postalCodeId int?, {:keys [code latitude longitude stateCode city active]} (s/map-of keyword? any?)]
+   (check-required-params accountId postalCodeId)
+   (call-api "/postalCode/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "postalCodeId" postalCodeId "code" code "latitude" latitude "longitude" longitude "stateCode" stateCode "city" city "active" active }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-postal-code postal-code-response-spec
   "Update Postal Code
   Update a Postal Code"
-  ([version float?, accountId int?, postalCodeId int?, ] (update-postal-code version accountId postalCodeId nil))
-  ([version float?, accountId int?, postalCodeId int?, optional-params any?]
-   (let [res (:data (update-postal-code-with-http-info version accountId postalCodeId optional-params))]
+  ([accountId int?, postalCodeId int?, ] (update-postal-code accountId postalCodeId nil))
+  ([accountId int?, postalCodeId int?, optional-params any?]
+   (let [res (:data (update-postal-code-with-http-info accountId postalCodeId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode postal-code-response-spec res st/string-transformer)
         res))))

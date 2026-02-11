@@ -353,11 +353,10 @@
 (defn-spec create-location-v2-with-http-info any?
   "Create new location
   Create a new location from a real object location."
-  ([version float?, ] (create-location-v2-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/location" :post
-             {:path-params   {"version" version }
+  ([] (create-location-v2-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/location" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +368,9 @@
 (defn-spec create-location-v2 sirqul-response-spec
   "Create new location
   Create a new location from a real object location."
-  ([version float?, ] (create-location-v2 version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-location-v2-with-http-info version optional-params))]
+  ([] (create-location-v2 nil))
+  ([optional-params any?]
+   (let [res (:data (create-location-v2-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -380,11 +379,11 @@
 (defn-spec update-location-v2-with-http-info any?
   "Update an existing location
   Update an existing location"
-  ([version float?, id int?, ] (update-location-v2-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/location/{id}" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-location-v2-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/location/{id}" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -396,9 +395,9 @@
 (defn-spec update-location-v2 sirqul-response-spec
   "Update an existing location
   Update an existing location"
-  ([version float?, id int?, ] (update-location-v2 version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-location-v2-with-http-info version id optional-params))]
+  ([id int?, ] (update-location-v2 id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-location-v2-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

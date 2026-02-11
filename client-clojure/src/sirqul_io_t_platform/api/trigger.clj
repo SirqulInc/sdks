@@ -353,11 +353,11 @@
 (defn-spec create-trigger-with-http-info any?
   "Create Trigger
   Create a trigger"
-  ([version float?, accountId int?, name string?, ] (create-trigger-with-http-info version accountId name nil))
-  ([version float?, accountId int?, name string?, {:keys [appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression conditionalInput visibility active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name)
-   (call-api "/api/{version}/trigger/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, ] (create-trigger-with-http-info accountId name nil))
+  ([accountId int?, name string?, {:keys [appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression conditionalInput visibility active]} (s/map-of keyword? any?)]
+   (check-required-params accountId name)
+   (call-api "/trigger/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "appKey" appKey "groupingId" groupingId "endpointURL" endpointURL "payload" payload "scheduledDate" scheduledDate "startDate" startDate "endDate" endDate "cronExpression" cronExpression "conditionalInput" conditionalInput "visibility" visibility "active" active }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-trigger trigger-response-spec
   "Create Trigger
   Create a trigger"
-  ([version float?, accountId int?, name string?, ] (create-trigger version accountId name nil))
-  ([version float?, accountId int?, name string?, optional-params any?]
-   (let [res (:data (create-trigger-with-http-info version accountId name optional-params))]
+  ([accountId int?, name string?, ] (create-trigger accountId name nil))
+  ([accountId int?, name string?, optional-params any?]
+   (let [res (:data (create-trigger-with-http-info accountId name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode trigger-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-trigger-with-http-info any?
   "Delete Trigger
   Mark a trigger as deleted."
-  [version float?, accountId int?, triggerId int?]
-  (check-required-params version accountId triggerId)
-  (call-api "/api/{version}/trigger/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, triggerId int?]
+  (check-required-params accountId triggerId)
+  (call-api "/trigger/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "triggerId" triggerId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-trigger sirqul-response-spec
   "Delete Trigger
   Mark a trigger as deleted."
-  [version float?, accountId int?, triggerId int?]
-  (let [res (:data (delete-trigger-with-http-info version accountId triggerId))]
+  [accountId int?, triggerId int?]
+  (let [res (:data (delete-trigger-with-http-info accountId triggerId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-trigger-with-http-info any?
   "Get Trigger
   Get a trigger"
-  [version float?, accountId int?, triggerId int?]
-  (check-required-params version accountId triggerId)
-  (call-api "/api/{version}/trigger/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, triggerId int?]
+  (check-required-params accountId triggerId)
+  (call-api "/trigger/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "triggerId" triggerId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-trigger trigger-response-spec
   "Get Trigger
   Get a trigger"
-  [version float?, accountId int?, triggerId int?]
-  (let [res (:data (get-trigger-with-http-info version accountId triggerId))]
+  [accountId int?, triggerId int?]
+  (let [res (:data (get-trigger-with-http-info accountId triggerId))]
     (if (:decode-models *api-context*)
        (st/decode trigger-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec search-triggers-with-http-info any?
   "Search Triggers
   Search for triggers"
-  ([version float?, accountId int?, ] (search-triggers-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [groupingId filter statuses templateTypes appKey keyword sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/trigger/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-triggers-with-http-info accountId nil))
+  ([accountId int?, {:keys [groupingId filter statuses templateTypes appKey keyword sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/trigger/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "groupingId" groupingId "filter" filter "statuses" statuses "templateTypes" templateTypes "appKey" appKey "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec search-triggers (s/coll-of trigger-response-spec)
   "Search Triggers
   Search for triggers"
-  ([version float?, accountId int?, ] (search-triggers version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-triggers-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-triggers accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-triggers-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of trigger-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-trigger-with-http-info any?
   "Update Trigger
   Update a trigger"
-  ([version float?, triggerId int?, accountId int?, ] (update-trigger-with-http-info version triggerId accountId nil))
-  ([version float?, triggerId int?, accountId int?, {:keys [name appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression conditionalInput visibility active]} (s/map-of keyword? any?)]
-   (check-required-params version triggerId accountId)
-   (call-api "/api/{version}/trigger/update" :post
-             {:path-params   {"version" version }
+  ([triggerId int?, accountId int?, ] (update-trigger-with-http-info triggerId accountId nil))
+  ([triggerId int?, accountId int?, {:keys [name appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression conditionalInput visibility active]} (s/map-of keyword? any?)]
+   (check-required-params triggerId accountId)
+   (call-api "/trigger/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"triggerId" triggerId "accountId" accountId "name" name "appKey" appKey "groupingId" groupingId "endpointURL" endpointURL "payload" payload "scheduledDate" scheduledDate "startDate" startDate "endDate" endDate "cronExpression" cronExpression "conditionalInput" conditionalInput "visibility" visibility "active" active }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-trigger trigger-response-spec
   "Update Trigger
   Update a trigger"
-  ([version float?, triggerId int?, accountId int?, ] (update-trigger version triggerId accountId nil))
-  ([version float?, triggerId int?, accountId int?, optional-params any?]
-   (let [res (:data (update-trigger-with-http-info version triggerId accountId optional-params))]
+  ([triggerId int?, accountId int?, ] (update-trigger triggerId accountId nil))
+  ([triggerId int?, accountId int?, optional-params any?]
+   (let [res (:data (update-trigger-with-http-info triggerId accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode trigger-response-spec res st/string-transformer)
         res))))

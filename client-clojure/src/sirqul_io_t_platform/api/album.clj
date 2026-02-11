@@ -353,11 +353,11 @@
 (defn-spec add-album-collection-with-http-info any?
   "Create Album
   Create an Album."
-  ([version float?, title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, ] (add-album-collection-with-http-info version title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous nil))
-  ([version float?, title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, {:keys [deviceId accountId assetsToAdd ^File media mediaURL assetId ^File attachedMedia attachedMediaURL startDate endDate tags description albumType albumTypeId subType latitude longitude locationDescription visibility gameType appKey cellPhone streetAddress streetAddress2 city state postalCode fullAddress metaData categoryIds categoryFilterIds audienceIds includeAllAppUsersAsMembers includeAudiencesAsMembers audienceOperator approvalStatus linkedObjectType linkedObjectId]} (s/map-of keyword? any?)]
-   (check-required-params version title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous)
-   (call-api "/api/{version}/album/create" :post
-             {:path-params   {"version" version }
+  ([title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, ] (add-album-collection-with-http-info title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous nil))
+  ([title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, {:keys [deviceId accountId assetsToAdd ^File media mediaURL assetId ^File attachedMedia attachedMediaURL startDate endDate tags description albumType albumTypeId subType latitude longitude locationDescription visibility gameType appKey cellPhone streetAddress streetAddress2 city state postalCode fullAddress metaData categoryIds categoryFilterIds audienceIds includeAllAppUsersAsMembers includeAudiencesAsMembers audienceOperator approvalStatus linkedObjectType linkedObjectId]} (s/map-of keyword? any?)]
+   (check-required-params title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous)
+   (call-api "/album/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "title" title "assetsToAdd" assetsToAdd "media" media "mediaURL" mediaURL "assetId" assetId "attachedMedia" attachedMedia "attachedMediaURL" attachedMediaURL "coverAssetNullable" coverAssetNullable "includeCoverInAssetList" includeCoverInAssetList "startDate" startDate "endDate" endDate "tags" tags "description" description "albumType" albumType "albumTypeId" albumTypeId "subType" subType "publicRead" publicRead "publicWrite" publicWrite "publicDelete" publicDelete "publicAdd" publicAdd "latitude" latitude "longitude" longitude "locationDescription" locationDescription "visibility" visibility "gameType" gameType "appKey" appKey "cellPhone" cellPhone "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "fullAddress" fullAddress "anonymous" anonymous "metaData" metaData "categoryIds" categoryIds "categoryFilterIds" categoryFilterIds "audienceIds" audienceIds "includeAllAppUsersAsMembers" includeAllAppUsersAsMembers "includeAudiencesAsMembers" includeAudiencesAsMembers "audienceOperator" audienceOperator "approvalStatus" approvalStatus "linkedObjectType" linkedObjectType "linkedObjectId" linkedObjectId }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-album-collection search-response-spec
   "Create Album
   Create an Album."
-  ([version float?, title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, ] (add-album-collection version title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous nil))
-  ([version float?, title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, optional-params any?]
-   (let [res (:data (add-album-collection-with-http-info version title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous optional-params))]
+  ([title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, ] (add-album-collection title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous nil))
+  ([title string?, coverAssetNullable boolean?, includeCoverInAssetList boolean?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, anonymous boolean?, optional-params any?]
+   (let [res (:data (add-album-collection-with-http-info title coverAssetNullable includeCoverInAssetList publicRead publicWrite publicDelete publicAdd anonymous optional-params))]
      (if (:decode-models *api-context*)
         (st/decode search-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec add-album-users-with-http-info any?
   "Add Album Users
   Add users to an album as participants."
-  ([version float?, albumId int?, includeFriendGroup boolean?, ] (add-album-users-with-http-info version albumId includeFriendGroup nil))
-  ([version float?, albumId int?, includeFriendGroup boolean?, {:keys [deviceId accountId read write delete add connections connectionGroups]} (s/map-of keyword? any?)]
-   (check-required-params version albumId includeFriendGroup)
-   (call-api "/api/{version}/album/user/add" :post
-             {:path-params   {"version" version }
+  ([albumId int?, includeFriendGroup boolean?, ] (add-album-users-with-http-info albumId includeFriendGroup nil))
+  ([albumId int?, includeFriendGroup boolean?, {:keys [deviceId accountId read write delete add connections connectionGroups]} (s/map-of keyword? any?)]
+   (check-required-params albumId includeFriendGroup)
+   (call-api "/album/user/add" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumId" albumId "read" read "write" write "delete" delete "add" add "connections" connections "connectionGroups" connectionGroups "includeFriendGroup" includeFriendGroup }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec add-album-users sirqul-response-spec
   "Add Album Users
   Add users to an album as participants."
-  ([version float?, albumId int?, includeFriendGroup boolean?, ] (add-album-users version albumId includeFriendGroup nil))
-  ([version float?, albumId int?, includeFriendGroup boolean?, optional-params any?]
-   (let [res (:data (add-album-users-with-http-info version albumId includeFriendGroup optional-params))]
+  ([albumId int?, includeFriendGroup boolean?, ] (add-album-users albumId includeFriendGroup nil))
+  ([albumId int?, includeFriendGroup boolean?, optional-params any?]
+   (let [res (:data (add-album-users-with-http-info albumId includeFriendGroup optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec approve-album-with-http-info any?
   "Approve Album
   Sets the approval status of an Album."
-  ([version float?, albumId int?, ] (approve-album-with-http-info version albumId nil))
-  ([version float?, albumId int?, {:keys [deviceId accountId approvalStatus verified]} (s/map-of keyword? any?)]
-   (check-required-params version albumId)
-   (call-api "/api/{version}/album/approve" :post
-             {:path-params   {"version" version }
+  ([albumId int?, ] (approve-album-with-http-info albumId nil))
+  ([albumId int?, {:keys [deviceId accountId approvalStatus verified]} (s/map-of keyword? any?)]
+   (check-required-params albumId)
+   (call-api "/album/approve" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumId" albumId "approvalStatus" approvalStatus "verified" verified }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec approve-album sirqul-response-spec
   "Approve Album
   Sets the approval status of an Album."
-  ([version float?, albumId int?, ] (approve-album version albumId nil))
-  ([version float?, albumId int?, optional-params any?]
-   (let [res (:data (approve-album-with-http-info version albumId optional-params))]
+  ([albumId int?, ] (approve-album albumId nil))
+  ([albumId int?, optional-params any?]
+   (let [res (:data (approve-album-with-http-info albumId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec get-album-collection-with-http-info any?
   "Get Album
   Get an Album."
-  ([version float?, returnNulls boolean?, albumId int?, ] (get-album-collection-with-http-info version returnNulls albumId nil))
-  ([version float?, returnNulls boolean?, albumId int?, {:keys [deviceId accountId likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize]} (s/map-of keyword? any?)]
-   (check-required-params version returnNulls albumId)
-   (call-api "/api/{version}/album/get" :get
-             {:path-params   {"version" version }
+  ([returnNulls boolean?, albumId int?, ] (get-album-collection-with-http-info returnNulls albumId nil))
+  ([returnNulls boolean?, albumId int?, {:keys [deviceId accountId likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize]} (s/map-of keyword? any?)]
+   (check-required-params returnNulls albumId)
+   (call-api "/album/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "albumId" albumId "likePreviewSize" likePreviewSize "assetPreviewSize" assetPreviewSize "notePreviewSize" notePreviewSize "connectionPreviewSize" connectionPreviewSize "audiencePreviewSize" audiencePreviewSize }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec get-album-collection album-full-response-spec
   "Get Album
   Get an Album."
-  ([version float?, returnNulls boolean?, albumId int?, ] (get-album-collection version returnNulls albumId nil))
-  ([version float?, returnNulls boolean?, albumId int?, optional-params any?]
-   (let [res (:data (get-album-collection-with-http-info version returnNulls albumId optional-params))]
+  ([returnNulls boolean?, albumId int?, ] (get-album-collection returnNulls albumId nil))
+  ([returnNulls boolean?, albumId int?, optional-params any?]
+   (let [res (:data (get-album-collection-with-http-info returnNulls albumId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode album-full-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,11 @@
 (defn-spec leave-album-with-http-info any?
   "Leave Album
   Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums."
-  ([version float?, albumId int?, ] (leave-album-with-http-info version albumId nil))
-  ([version float?, albumId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version albumId)
-   (call-api "/api/{version}/album/user/leave" :post
-             {:path-params   {"version" version }
+  ([albumId int?, ] (leave-album-with-http-info albumId nil))
+  ([albumId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params albumId)
+   (call-api "/album/user/leave" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumId" albumId }
               :form-params   {}
@@ -472,9 +472,9 @@
 (defn-spec leave-album sirqul-response-spec
   "Leave Album
   Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums."
-  ([version float?, albumId int?, ] (leave-album version albumId nil))
-  ([version float?, albumId int?, optional-params any?]
-   (let [res (:data (leave-album-with-http-info version albumId optional-params))]
+  ([albumId int?, ] (leave-album albumId nil))
+  ([albumId int?, optional-params any?]
+   (let [res (:data (leave-album-with-http-info albumId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -483,11 +483,11 @@
 (defn-spec remove-album-with-http-info any?
   "Delete Album
   Deletes an Album"
-  ([version float?, albumId int?, ] (remove-album-with-http-info version albumId nil))
-  ([version float?, albumId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version albumId)
-   (call-api "/api/{version}/album/delete" :post
-             {:path-params   {"version" version }
+  ([albumId int?, ] (remove-album-with-http-info albumId nil))
+  ([albumId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params albumId)
+   (call-api "/album/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumId" albumId }
               :form-params   {}
@@ -498,9 +498,9 @@
 (defn-spec remove-album sirqul-response-spec
   "Delete Album
   Deletes an Album"
-  ([version float?, albumId int?, ] (remove-album version albumId nil))
-  ([version float?, albumId int?, optional-params any?]
-   (let [res (:data (remove-album-with-http-info version albumId optional-params))]
+  ([albumId int?, ] (remove-album albumId nil))
+  ([albumId int?, optional-params any?]
+   (let [res (:data (remove-album-with-http-info albumId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -509,11 +509,11 @@
 (defn-spec remove-album-users-with-http-info any?
   "Remove Album Users
   Remove participants of an album."
-  ([version float?, albumId int?, removeFriendGroup boolean?, ] (remove-album-users-with-http-info version albumId removeFriendGroup nil))
-  ([version float?, albumId int?, removeFriendGroup boolean?, {:keys [deviceId accountId connections connectionGroups]} (s/map-of keyword? any?)]
-   (check-required-params version albumId removeFriendGroup)
-   (call-api "/api/{version}/album/user/delete" :post
-             {:path-params   {"version" version }
+  ([albumId int?, removeFriendGroup boolean?, ] (remove-album-users-with-http-info albumId removeFriendGroup nil))
+  ([albumId int?, removeFriendGroup boolean?, {:keys [deviceId accountId connections connectionGroups]} (s/map-of keyword? any?)]
+   (check-required-params albumId removeFriendGroup)
+   (call-api "/album/user/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumId" albumId "connections" connections "connectionGroups" connectionGroups "removeFriendGroup" removeFriendGroup }
               :form-params   {}
@@ -524,9 +524,9 @@
 (defn-spec remove-album-users sirqul-response-spec
   "Remove Album Users
   Remove participants of an album."
-  ([version float?, albumId int?, removeFriendGroup boolean?, ] (remove-album-users version albumId removeFriendGroup nil))
-  ([version float?, albumId int?, removeFriendGroup boolean?, optional-params any?]
-   (let [res (:data (remove-album-users-with-http-info version albumId removeFriendGroup optional-params))]
+  ([albumId int?, removeFriendGroup boolean?, ] (remove-album-users albumId removeFriendGroup nil))
+  ([albumId int?, removeFriendGroup boolean?, optional-params any?]
+   (let [res (:data (remove-album-users-with-http-info albumId removeFriendGroup optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -535,11 +535,11 @@
 (defn-spec search-albums-with-http-info any?
   "Search Albums
   Searches on Albums."
-  ([version float?, filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, ] (search-albums-with-http-info version filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize nil))
-  ([version float?, filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, {:keys [deviceId accountId connectionAccountId ownerId albumIds excludeAlbumIds mediaId keyword albumType limitPerAlbumType dateCreated updatedSince updatedBefore createdSince createdBefore startedSince startedBefore endedSince endedBefore latitude longitude appKey categoryIds categoryFilterIds audienceIds excludeAudienceIds includeCompletable includeRating searchMode stackSearch stackWindowSize minStackPerPage stackPaginationIdentifier stackDetails flagCountMinimum removeFlaggedContent verifiedFilter linkedObjectType linkedObjectId orderAudienceId ignoreDefaultAppFilter searchExpression generateAlbums]} (s/map-of keyword? any?)]
-   (check-required-params version filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize)
-   (call-api "/api/{version}/album/search" :get
-             {:path-params   {"version" version }
+  ([filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, ] (search-albums-with-http-info filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize nil))
+  ([filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, {:keys [deviceId accountId connectionAccountId ownerId albumIds excludeAlbumIds mediaId keyword albumType limitPerAlbumType dateCreated updatedSince updatedBefore createdSince createdBefore startedSince startedBefore endedSince endedBefore latitude longitude appKey categoryIds categoryFilterIds audienceIds excludeAudienceIds includeCompletable includeRating searchMode stackSearch stackWindowSize minStackPerPage stackPaginationIdentifier stackDetails flagCountMinimum removeFlaggedContent verifiedFilter linkedObjectType linkedObjectId orderAudienceId ignoreDefaultAppFilter searchExpression generateAlbums]} (s/map-of keyword? any?)]
+   (check-required-params filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize)
+   (call-api "/album/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "ownerId" ownerId "albumIds" albumIds "excludeAlbumIds" excludeAlbumIds "mediaId" mediaId "keyword" keyword "filter" filter "albumType" albumType "albumTypeId" albumTypeId "subType" subType "includeInactive" includeInactive "sortField" sortField "descending" descending "start" start "limit" limit "limitPerAlbumType" limitPerAlbumType "dateCreated" dateCreated "updatedSince" updatedSince "updatedBefore" updatedBefore "createdSince" createdSince "createdBefore" createdBefore "startedSince" startedSince "startedBefore" startedBefore "endedSince" endedSince "endedBefore" endedBefore "latitude" latitude "longitude" longitude "range" range "appKey" appKey "categoryIds" categoryIds "categoryFilterIds" categoryFilterIds "audienceIds" audienceIds "excludeAudienceIds" excludeAudienceIds "includeLiked" includeLiked "includeFavorited" includeFavorited "includePermissions" includePermissions "includeCompletable" includeCompletable "includeRating" includeRating "likePreviewSize" likePreviewSize "assetPreviewSize" assetPreviewSize "notePreviewSize" notePreviewSize "connectionPreviewSize" connectionPreviewSize "audiencePreviewSize" audiencePreviewSize "searchMode" searchMode "stackSearch" stackSearch "stackWindowSize" stackWindowSize "minStackPerPage" minStackPerPage "stackPaginationIdentifier" stackPaginationIdentifier "stackDetails" stackDetails "flagCountMinimum" flagCountMinimum "removeFlaggedContent" removeFlaggedContent "verifiedFilter" verifiedFilter "linkedObjectType" linkedObjectType "linkedObjectId" linkedObjectId "orderAudienceId" orderAudienceId "ignoreDefaultAppFilter" ignoreDefaultAppFilter "searchExpression" searchExpression "generateAlbums" generateAlbums }
               :form-params   {}
@@ -550,9 +550,9 @@
 (defn-spec search-albums (s/coll-of album-full-response-spec)
   "Search Albums
   Searches on Albums."
-  ([version float?, filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, ] (search-albums version filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize nil))
-  ([version float?, filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, optional-params any?]
-   (let [res (:data (search-albums-with-http-info version filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize optional-params))]
+  ([filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, ] (search-albums filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize nil))
+  ([filter string?, albumTypeId int?, subType string?, includeInactive boolean?, sortField string?, descending boolean?, start int?, limit int?, range float?, includeLiked boolean?, includeFavorited boolean?, includePermissions boolean?, likePreviewSize int?, assetPreviewSize int?, notePreviewSize int?, connectionPreviewSize int?, audiencePreviewSize int?, optional-params any?]
+   (let [res (:data (search-albums-with-http-info filter albumTypeId subType includeInactive sortField descending start limit range includeLiked includeFavorited includePermissions likePreviewSize assetPreviewSize notePreviewSize connectionPreviewSize audiencePreviewSize optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of album-full-response-spec) res st/string-transformer)
         res))))
@@ -561,11 +561,11 @@
 (defn-spec update-album-collection-with-http-info any?
   "Update Album
   Update an Album."
-  ([version float?, albumId int?, ] (update-album-collection-with-http-info version albumId nil))
-  ([version float?, albumId int?, {:keys [deviceId accountId assetsToAdd assetsToRemove assetId ^File media mediaURL active title startDate endDate tags description albumType albumTypeId subType publicRead publicWrite publicDelete publicAdd latitude longitude locationDescription visibility cellPhone streetAddress streetAddress2 city state postalCode fullAddress anonymous metaData categoryIds categoryFilterIds audienceIds audienceIdsToAdd audienceIdsToRemove includeAllAppUsersAsMembers includeAudiencesAsMembers audienceOperator linkedObjectType linkedObjectId indexNow]} (s/map-of keyword? any?)]
-   (check-required-params version albumId)
-   (call-api "/api/{version}/album/update" :post
-             {:path-params   {"version" version }
+  ([albumId int?, ] (update-album-collection-with-http-info albumId nil))
+  ([albumId int?, {:keys [deviceId accountId assetsToAdd assetsToRemove assetId ^File media mediaURL active title startDate endDate tags description albumType albumTypeId subType publicRead publicWrite publicDelete publicAdd latitude longitude locationDescription visibility cellPhone streetAddress streetAddress2 city state postalCode fullAddress anonymous metaData categoryIds categoryFilterIds audienceIds audienceIdsToAdd audienceIdsToRemove includeAllAppUsersAsMembers includeAudiencesAsMembers audienceOperator linkedObjectType linkedObjectId indexNow]} (s/map-of keyword? any?)]
+   (check-required-params albumId)
+   (call-api "/album/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "albumId" albumId "assetsToAdd" assetsToAdd "assetsToRemove" assetsToRemove "assetId" assetId "media" media "mediaURL" mediaURL "active" active "title" title "startDate" startDate "endDate" endDate "tags" tags "description" description "albumType" albumType "albumTypeId" albumTypeId "subType" subType "publicRead" publicRead "publicWrite" publicWrite "publicDelete" publicDelete "publicAdd" publicAdd "latitude" latitude "longitude" longitude "locationDescription" locationDescription "visibility" visibility "cellPhone" cellPhone "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "fullAddress" fullAddress "anonymous" anonymous "metaData" metaData "categoryIds" categoryIds "categoryFilterIds" categoryFilterIds "audienceIds" audienceIds "audienceIdsToAdd" audienceIdsToAdd "audienceIdsToRemove" audienceIdsToRemove "includeAllAppUsersAsMembers" includeAllAppUsersAsMembers "includeAudiencesAsMembers" includeAudiencesAsMembers "audienceOperator" audienceOperator "linkedObjectType" linkedObjectType "linkedObjectId" linkedObjectId "indexNow" indexNow }
               :form-params   {}
@@ -576,9 +576,9 @@
 (defn-spec update-album-collection album-response-spec
   "Update Album
   Update an Album."
-  ([version float?, albumId int?, ] (update-album-collection version albumId nil))
-  ([version float?, albumId int?, optional-params any?]
-   (let [res (:data (update-album-collection-with-http-info version albumId optional-params))]
+  ([albumId int?, ] (update-album-collection albumId nil))
+  ([albumId int?, optional-params any?]
+   (let [res (:data (update-album-collection-with-http-info albumId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode album-response-spec res st/string-transformer)
         res))))

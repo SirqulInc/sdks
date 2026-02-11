@@ -353,11 +353,10 @@
 (defn-spec create-service-hub-with-http-info any?
   "Create Service Hub
   Create new service hub"
-  ([version float?, ] (create-service-hub-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/hub" :post
-             {:path-params   {"version" version }
+  ([] (create-service-hub-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/hub" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +368,9 @@
 (defn-spec create-service-hub service-hub-spec
   "Create Service Hub
   Create new service hub"
-  ([version float?, ] (create-service-hub version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-service-hub-with-http-info version optional-params))]
+  ([] (create-service-hub nil))
+  ([optional-params any?]
+   (let [res (:data (create-service-hub-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode service-hub-spec res st/string-transformer)
         res))))
@@ -380,10 +379,10 @@
 (defn-spec delete-service-hub-with-http-info any?
   "Delete Service Hub
   Delete an existing service hub"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/hub/{id}" :delete
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/hub/{id}" :delete
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +393,8 @@
 (defn-spec delete-service-hub any?
   "Delete Service Hub
   Delete an existing service hub"
-  [version float?, id int?]
-  (let [res (:data (delete-service-hub-with-http-info version id))]
+  [id int?]
+  (let [res (:data (delete-service-hub-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -404,10 +403,10 @@
 (defn-spec get-service-hub-with-http-info any?
   "Get Service Hub
   Get an existing service hub"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/hub/{id}" :get
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/hub/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +417,8 @@
 (defn-spec get-service-hub any?
   "Get Service Hub
   Get an existing service hub"
-  [version float?, id int?]
-  (let [res (:data (get-service-hub-with-http-info version id))]
+  [id int?]
+  (let [res (:data (get-service-hub-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -428,11 +427,11 @@
 (defn-spec post-service-hub-with-http-info any?
   "Update Service Hub
   Update an existing service hub"
-  ([version float?, id int?, ] (post-service-hub-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/hub/{id}" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (post-service-hub-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/hub/{id}" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -444,9 +443,9 @@
 (defn-spec post-service-hub service-hub-spec
   "Update Service Hub
   Update an existing service hub"
-  ([version float?, id int?, ] (post-service-hub version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (post-service-hub-with-http-info version id optional-params))]
+  ([id int?, ] (post-service-hub id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (post-service-hub-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode service-hub-spec res st/string-transformer)
         res))))
@@ -455,11 +454,11 @@
 (defn-spec put-service-hub-with-http-info any?
   "Update Service Hub
   Update an existing service hub"
-  ([version float?, id int?, ] (put-service-hub-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/hub/{id}" :put
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (put-service-hub-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/hub/{id}" :put
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -471,9 +470,9 @@
 (defn-spec put-service-hub service-hub-spec
   "Update Service Hub
   Update an existing service hub"
-  ([version float?, id int?, ] (put-service-hub version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (put-service-hub-with-http-info version id optional-params))]
+  ([id int?, ] (put-service-hub id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (put-service-hub-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode service-hub-spec res st/string-transformer)
         res))))
@@ -482,11 +481,11 @@
 (defn-spec search-service-hubs-with-http-info any?
   "Search Service Hubs
   Search for service hubs."
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-service-hubs-with-http-info version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [keyword retailerId]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly)
-   (call-api "/api/{version}/hub" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-service-hubs-with-http-info sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [keyword retailerId]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly)
+   (call-api "/hub" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"keyword" keyword "retailerId" retailerId "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -497,9 +496,9 @@
 (defn-spec search-service-hubs (s/coll-of service-hub-spec)
   "Search Service Hubs
   Search for service hubs."
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-service-hubs version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-service-hubs-with-http-info version sortField descending start limit activeOnly optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-service-hubs sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-service-hubs-with-http-info sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of service-hub-spec) res st/string-transformer)
         res))))

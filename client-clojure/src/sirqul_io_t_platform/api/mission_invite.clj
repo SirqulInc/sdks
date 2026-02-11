@@ -353,11 +353,10 @@
 (defn-spec create-mission-invite-with-http-info any?
   "Create Mission Invite
   Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided."
-  ([version float?, ] (create-mission-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId missionId joinCode includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/mission/invite/create" :post
-             {:path-params   {"version" version }
+  ([] (create-mission-invite-with-http-info nil))
+  ([{:keys [deviceId accountId missionId joinCode includeGameData]} (s/map-of keyword? any?)]
+   (call-api "/mission/invite/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "missionId" missionId "joinCode" joinCode "includeGameData" includeGameData }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec create-mission-invite mission-response-spec
   "Create Mission Invite
   Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided."
-  ([version float?, ] (create-mission-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-mission-invite-with-http-info version optional-params))]
+  ([] (create-mission-invite nil))
+  ([optional-params any?]
+   (let [res (:data (create-mission-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,10 @@
 (defn-spec delete-mission-invite-with-http-info any?
   "Delete Mission Invite
   Update the mission invite status to quit."
-  ([version float?, ] (delete-mission-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId missionId missionInviteId includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/mission/invite/delete" :post
-             {:path-params   {"version" version }
+  ([] (delete-mission-invite-with-http-info nil))
+  ([{:keys [deviceId accountId missionId missionInviteId includeGameData]} (s/map-of keyword? any?)]
+   (call-api "/mission/invite/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "missionId" missionId "missionInviteId" missionInviteId "includeGameData" includeGameData }
               :form-params   {}
@@ -394,9 +392,9 @@
 (defn-spec delete-mission-invite sirqul-response-spec
   "Delete Mission Invite
   Update the mission invite status to quit."
-  ([version float?, ] (delete-mission-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (delete-mission-invite-with-http-info version optional-params))]
+  ([] (delete-mission-invite nil))
+  ([optional-params any?]
+   (let [res (:data (delete-mission-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +403,10 @@
 (defn-spec get-mission-invite-with-http-info any?
   "Get Mission Invite
   Get the mission invite. An account can only be invited to a mission one time."
-  ([version float?, ] (get-mission-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId missionId missionInviteId includeGameData includeScores]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/mission/invite/get" :get
-             {:path-params   {"version" version }
+  ([] (get-mission-invite-with-http-info nil))
+  ([{:keys [deviceId accountId missionId missionInviteId includeGameData includeScores]} (s/map-of keyword? any?)]
+   (call-api "/mission/invite/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "missionId" missionId "missionInviteId" missionInviteId "includeGameData" includeGameData "includeScores" includeScores }
               :form-params   {}
@@ -420,9 +417,9 @@
 (defn-spec get-mission-invite mission-response-spec
   "Get Mission Invite
   Get the mission invite. An account can only be invited to a mission one time."
-  ([version float?, ] (get-mission-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-mission-invite-with-http-info version optional-params))]
+  ([] (get-mission-invite nil))
+  ([optional-params any?]
+   (let [res (:data (get-mission-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-response-spec res st/string-transformer)
         res))))
@@ -431,11 +428,10 @@
 (defn-spec search-mission-invites-with-http-info any?
   "Search Mission Invites
   Get a list of mission invites that the account has."
-  ([version float?, ] (search-mission-invites-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey appVersion missionId status lastUpdated start limit keyword missionTypes filterByBillable includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/mission/invite/search" :get
-             {:path-params   {"version" version }
+  ([] (search-mission-invites-with-http-info nil))
+  ([{:keys [deviceId accountId appKey appVersion missionId status lastUpdated start limit keyword missionTypes filterByBillable includeGameData]} (s/map-of keyword? any?)]
+   (call-api "/mission/invite/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "appVersion" appVersion "missionId" missionId "status" status "lastUpdated" lastUpdated "start" start "limit" limit "keyword" keyword "missionTypes" missionTypes "filterByBillable" filterByBillable "includeGameData" includeGameData }
               :form-params   {}
@@ -446,9 +442,9 @@
 (defn-spec search-mission-invites (s/coll-of mission-response-spec)
   "Search Mission Invites
   Get a list of mission invites that the account has."
-  ([version float?, ] (search-mission-invites version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-mission-invites-with-http-info version optional-params))]
+  ([] (search-mission-invites nil))
+  ([optional-params any?]
+   (let [res (:data (search-mission-invites-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of mission-response-spec) res st/string-transformer)
         res))))
@@ -457,11 +453,10 @@
 (defn-spec update-mission-invite-with-http-info any?
   "Update Mission Invite
   Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided."
-  ([version float?, ] (update-mission-invite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey missionId missionInviteId packId gameLevelId status permissionableType permissionableId includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/mission/invite/update" :post
-             {:path-params   {"version" version }
+  ([] (update-mission-invite-with-http-info nil))
+  ([{:keys [deviceId accountId appKey missionId missionInviteId packId gameLevelId status permissionableType permissionableId includeGameData]} (s/map-of keyword? any?)]
+   (call-api "/mission/invite/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "missionId" missionId "missionInviteId" missionInviteId "packId" packId "gameLevelId" gameLevelId "status" status "permissionableType" permissionableType "permissionableId" permissionableId "includeGameData" includeGameData }
               :form-params   {}
@@ -472,9 +467,9 @@
 (defn-spec update-mission-invite mission-response-spec
   "Update Mission Invite
   Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided."
-  ([version float?, ] (update-mission-invite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (update-mission-invite-with-http-info version optional-params))]
+  ([] (update-mission-invite nil))
+  ([optional-params any?]
+   (let [res (:data (update-mission-invite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-response-spec res st/string-transformer)
         res))))

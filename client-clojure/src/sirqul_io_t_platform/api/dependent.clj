@@ -353,11 +353,11 @@
 (defn-spec create-with-http-info any?
   "Create Dependent
   Create dependent of the account"
-  ([version float?, accountId int?, ] (create-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/cargo/dependent/{accountId}" :put
-             {:path-params   {"version" version "accountId" accountId }
+  ([accountId int?, ] (create-with-http-info accountId nil))
+  ([accountId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/cargo/dependent/{accountId}" :put
+             {:path-params   {"accountId" accountId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +369,9 @@
 (defn-spec create sirqul-response-spec
   "Create Dependent
   Create dependent of the account"
-  ([version float?, accountId int?, ] (create version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (create-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (create accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (create-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -380,10 +380,10 @@
 (defn-spec get-dependents-with-http-info any?
   "Get dependent list of an account
   Get the dependent list of an account"
-  [version float?, accountId int?]
-  (check-required-params version accountId)
-  (call-api "/api/{version}/cargo/dependent/{accountId}" :get
-            {:path-params   {"version" version "accountId" accountId }
+  [accountId int?]
+  (check-required-params accountId)
+  (call-api "/cargo/dependent/{accountId}" :get
+            {:path-params   {"accountId" accountId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +394,8 @@
 (defn-spec get-dependents sirqul-response-spec
   "Get dependent list of an account
   Get the dependent list of an account"
-  [version float?, accountId int?]
-  (let [res (:data (get-dependents-with-http-info version accountId))]
+  [accountId int?]
+  (let [res (:data (get-dependents-with-http-info accountId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -404,10 +404,10 @@
 (defn-spec remove-dependent-with-http-info any?
   "Delete Dependent
   Delete the Dependent"
-  [version float?, accountId int?, dependentId int?]
-  (check-required-params version accountId dependentId)
-  (call-api "/api/{version}/cargo/dependent/{accountId}" :delete
-            {:path-params   {"version" version "accountId" accountId "dependentId" dependentId }
+  [accountId int?, dependentId int?]
+  (check-required-params accountId dependentId)
+  (call-api "/cargo/dependent/{accountId}" :delete
+            {:path-params   {"accountId" accountId "dependentId" dependentId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +418,8 @@
 (defn-spec remove-dependent any?
   "Delete Dependent
   Delete the Dependent"
-  [version float?, accountId int?, dependentId int?]
-  (let [res (:data (remove-dependent-with-http-info version accountId dependentId))]
+  [accountId int?, dependentId int?]
+  (let [res (:data (remove-dependent-with-http-info accountId dependentId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))

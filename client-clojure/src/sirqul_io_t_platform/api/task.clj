@@ -353,11 +353,11 @@
 (defn-spec create-task-with-http-info any?
   "Create Task
   Create a Task"
-  ([version float?, accountId int?, name string?, ] (create-task-with-http-info version accountId name nil))
-  ([version float?, accountId int?, name string?, {:keys [appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression visibility active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name)
-   (call-api "/api/{version}/task/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, ] (create-task-with-http-info accountId name nil))
+  ([accountId int?, name string?, {:keys [appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression visibility active]} (s/map-of keyword? any?)]
+   (check-required-params accountId name)
+   (call-api "/task/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "appKey" appKey "groupingId" groupingId "endpointURL" endpointURL "payload" payload "scheduledDate" scheduledDate "startDate" startDate "endDate" endDate "cronExpression" cronExpression "visibility" visibility "active" active }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-task task-response-spec
   "Create Task
   Create a Task"
-  ([version float?, accountId int?, name string?, ] (create-task version accountId name nil))
-  ([version float?, accountId int?, name string?, optional-params any?]
-   (let [res (:data (create-task-with-http-info version accountId name optional-params))]
+  ([accountId int?, name string?, ] (create-task accountId name nil))
+  ([accountId int?, name string?, optional-params any?]
+   (let [res (:data (create-task-with-http-info accountId name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode task-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-task-with-http-info any?
   "Delete Task
   Delete a Task"
-  [version float?, accountId int?, taskId int?]
-  (check-required-params version accountId taskId)
-  (call-api "/api/{version}/task/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, taskId int?]
+  (check-required-params accountId taskId)
+  (call-api "/task/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "taskId" taskId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-task sirqul-response-spec
   "Delete Task
   Delete a Task"
-  [version float?, accountId int?, taskId int?]
-  (let [res (:data (delete-task-with-http-info version accountId taskId))]
+  [accountId int?, taskId int?]
+  (let [res (:data (delete-task-with-http-info accountId taskId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-task-with-http-info any?
   "Get Task
   Get a Task"
-  [version float?, accountId int?, taskId int?]
-  (check-required-params version accountId taskId)
-  (call-api "/api/{version}/task/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, taskId int?]
+  (check-required-params accountId taskId)
+  (call-api "/task/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "taskId" taskId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-task task-response-spec
   "Get Task
   Get a Task"
-  [version float?, accountId int?, taskId int?]
-  (let [res (:data (get-task-with-http-info version accountId taskId))]
+  [accountId int?, taskId int?]
+  (let [res (:data (get-task-with-http-info accountId taskId))]
     (if (:decode-models *api-context*)
        (st/decode task-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec search-tasks-with-http-info any?
   "Search Tasks
   Search on Tasks"
-  ([version float?, accountId int?, ] (search-tasks-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [groupingId filter statuses templateTypes appKey keyword sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/task/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-tasks-with-http-info accountId nil))
+  ([accountId int?, {:keys [groupingId filter statuses templateTypes appKey keyword sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/task/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "groupingId" groupingId "filter" filter "statuses" statuses "templateTypes" templateTypes "appKey" appKey "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec search-tasks (s/coll-of task-response-spec)
   "Search Tasks
   Search on Tasks"
-  ([version float?, accountId int?, ] (search-tasks version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-tasks-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-tasks accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-tasks-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of task-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-task-with-http-info any?
   "Update Task
   Update a Task"
-  ([version float?, taskId int?, accountId int?, ] (update-task-with-http-info version taskId accountId nil))
-  ([version float?, taskId int?, accountId int?, {:keys [name appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression visibility active]} (s/map-of keyword? any?)]
-   (check-required-params version taskId accountId)
-   (call-api "/api/{version}/task/update" :post
-             {:path-params   {"version" version }
+  ([taskId int?, accountId int?, ] (update-task-with-http-info taskId accountId nil))
+  ([taskId int?, accountId int?, {:keys [name appKey groupingId endpointURL payload scheduledDate startDate endDate cronExpression visibility active]} (s/map-of keyword? any?)]
+   (check-required-params taskId accountId)
+   (call-api "/task/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"taskId" taskId "accountId" accountId "name" name "appKey" appKey "groupingId" groupingId "endpointURL" endpointURL "payload" payload "scheduledDate" scheduledDate "startDate" startDate "endDate" endDate "cronExpression" cronExpression "visibility" visibility "active" active }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-task task-response-spec
   "Update Task
   Update a Task"
-  ([version float?, taskId int?, accountId int?, ] (update-task version taskId accountId nil))
-  ([version float?, taskId int?, accountId int?, optional-params any?]
-   (let [res (:data (update-task-with-http-info version taskId accountId optional-params))]
+  ([taskId int?, accountId int?, ] (update-task taskId accountId nil))
+  ([taskId int?, accountId int?, optional-params any?]
+   (let [res (:data (update-task-with-http-info taskId accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode task-response-spec res st/string-transformer)
         res))))

@@ -353,11 +353,11 @@
 (defn-spec create-pack-with-http-info any?
   "Create Pack
   Create a pack."
-  ([version float?, accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, ] (create-pack-with-http-info version accountId title packOrder price highest allocateTickets ticketCount nil))
-  ([version float?, accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, {:keys [description searchTags active gameType appKey packType sequenceType backgroundId imageId startDate endDate authorOverride priceType gameLevelIds inGame ticketType points]} (s/map-of keyword? any?)]
-   (check-required-params version accountId title packOrder price highest allocateTickets ticketCount)
-   (call-api "/api/{version}/pack/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, ] (create-pack-with-http-info accountId title packOrder price highest allocateTickets ticketCount nil))
+  ([accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, {:keys [description searchTags active gameType appKey packType sequenceType backgroundId imageId startDate endDate authorOverride priceType gameLevelIds inGame ticketType points]} (s/map-of keyword? any?)]
+   (check-required-params accountId title packOrder price highest allocateTickets ticketCount)
+   (call-api "/pack/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "title" title "description" description "searchTags" searchTags "active" active "gameType" gameType "appKey" appKey "packType" packType "packOrder" packOrder "sequenceType" sequenceType "backgroundId" backgroundId "imageId" imageId "startDate" startDate "endDate" endDate "authorOverride" authorOverride "price" price "priceType" priceType "gameLevelIds" gameLevelIds "inGame" inGame "highest" highest "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-pack pack-response-spec
   "Create Pack
   Create a pack."
-  ([version float?, accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, ] (create-pack version accountId title packOrder price highest allocateTickets ticketCount nil))
-  ([version float?, accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, optional-params any?]
-   (let [res (:data (create-pack-with-http-info version accountId title packOrder price highest allocateTickets ticketCount optional-params))]
+  ([accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, ] (create-pack accountId title packOrder price highest allocateTickets ticketCount nil))
+  ([accountId int?, title string?, packOrder int?, price int?, highest boolean?, allocateTickets boolean?, ticketCount int?, optional-params any?]
+   (let [res (:data (create-pack-with-http-info accountId title packOrder price highest allocateTickets ticketCount optional-params))]
      (if (:decode-models *api-context*)
         (st/decode pack-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-pack-with-http-info any?
   "Delete Pack
   Delete a pack."
-  [version float?, accountId int?, packId int?]
-  (check-required-params version accountId packId)
-  (call-api "/api/{version}/pack/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, packId int?]
+  (check-required-params accountId packId)
+  (call-api "/pack/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "packId" packId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-pack sirqul-response-spec
   "Delete Pack
   Delete a pack."
-  [version float?, accountId int?, packId int?]
-  (let [res (:data (delete-pack-with-http-info version accountId packId))]
+  [accountId int?, packId int?]
+  (let [res (:data (delete-pack-with-http-info accountId packId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-pack-with-http-info any?
   "Get Pack
   Get a pack."
-  [version float?, accountId int?, packId int?, includeGameData boolean?]
-  (check-required-params version accountId packId includeGameData)
-  (call-api "/api/{version}/pack/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, packId int?, includeGameData boolean?]
+  (check-required-params accountId packId includeGameData)
+  (call-api "/pack/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "packId" packId "includeGameData" includeGameData }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-pack pack-response-spec
   "Get Pack
   Get a pack."
-  [version float?, accountId int?, packId int?, includeGameData boolean?]
-  (let [res (:data (get-pack-with-http-info version accountId packId includeGameData))]
+  [accountId int?, packId int?, includeGameData boolean?]
+  (let [res (:data (get-pack-with-http-info accountId packId includeGameData))]
     (if (:decode-models *api-context*)
        (st/decode pack-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec search-packs-with-http-info any?
   "Search Packs
   Search on packs."
-  ([version float?, accountId int?, sortField string?, descending boolean?, ] (search-packs-with-http-info version accountId sortField descending nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, {:keys [keyword packType start limit includeGameData includeInactive appKey]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending)
-   (call-api "/api/{version}/pack/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, ] (search-packs-with-http-info accountId sortField descending nil))
+  ([accountId int?, sortField string?, descending boolean?, {:keys [keyword packType start limit includeGameData includeInactive appKey]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending)
+   (call-api "/pack/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "packType" packType "sortField" sortField "descending" descending "start" start "limit" limit "includeGameData" includeGameData "includeInactive" includeInactive "appKey" appKey }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec search-packs (s/coll-of pack-response-spec)
   "Search Packs
   Search on packs."
-  ([version float?, accountId int?, sortField string?, descending boolean?, ] (search-packs version accountId sortField descending nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, optional-params any?]
-   (let [res (:data (search-packs-with-http-info version accountId sortField descending optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, ] (search-packs accountId sortField descending nil))
+  ([accountId int?, sortField string?, descending boolean?, optional-params any?]
+   (let [res (:data (search-packs-with-http-info accountId sortField descending optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of pack-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-pack-with-http-info any?
   "Update Pack
   Update a pack."
-  ([version float?, accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, ] (update-pack-with-http-info version accountId packId allocateTickets ticketCount nil))
-  ([version float?, accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, {:keys [title description searchTags active gameType appKey packType packOrder sequenceType backgroundId imageId startDate endDate authorOverride price priceType gameLevelIds inGame highest ticketType points]} (s/map-of keyword? any?)]
-   (check-required-params version accountId packId allocateTickets ticketCount)
-   (call-api "/api/{version}/pack/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, ] (update-pack-with-http-info accountId packId allocateTickets ticketCount nil))
+  ([accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, {:keys [title description searchTags active gameType appKey packType packOrder sequenceType backgroundId imageId startDate endDate authorOverride price priceType gameLevelIds inGame highest ticketType points]} (s/map-of keyword? any?)]
+   (check-required-params accountId packId allocateTickets ticketCount)
+   (call-api "/pack/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "packId" packId "title" title "description" description "searchTags" searchTags "active" active "gameType" gameType "appKey" appKey "packType" packType "packOrder" packOrder "sequenceType" sequenceType "backgroundId" backgroundId "imageId" imageId "startDate" startDate "endDate" endDate "authorOverride" authorOverride "price" price "priceType" priceType "gameLevelIds" gameLevelIds "inGame" inGame "highest" highest "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-pack pack-response-spec
   "Update Pack
   Update a pack."
-  ([version float?, accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, ] (update-pack version accountId packId allocateTickets ticketCount nil))
-  ([version float?, accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, optional-params any?]
-   (let [res (:data (update-pack-with-http-info version accountId packId allocateTickets ticketCount optional-params))]
+  ([accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, ] (update-pack accountId packId allocateTickets ticketCount nil))
+  ([accountId int?, packId int?, allocateTickets boolean?, ticketCount int?, optional-params any?]
+   (let [res (:data (update-pack-with-http-info accountId packId allocateTickets ticketCount optional-params))]
      (if (:decode-models *api-context*)
         (st/decode pack-response-spec res st/string-transformer)
         res))))

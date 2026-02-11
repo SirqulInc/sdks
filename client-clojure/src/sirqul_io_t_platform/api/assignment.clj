@@ -353,11 +353,11 @@
 (defn-spec assigment-assignee-account-search-with-http-info any?
   "Search Assignment Assignees
   Search for avaiable users for creating or updating assignment."
-  ([version float?, accountId int?, ] (assigment-assignee-account-search-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/assignment/assignee/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (assigment-assignee-account-search-with-http-info accountId nil))
+  ([accountId int?, {:keys [keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/assignment/assignee/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec assigment-assignee-account-search (s/coll-of account-mini-response-spec)
   "Search Assignment Assignees
   Search for avaiable users for creating or updating assignment."
-  ([version float?, accountId int?, ] (assigment-assignee-account-search version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (assigment-assignee-account-search-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (assigment-assignee-account-search accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (assigment-assignee-account-search-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of account-mini-response-spec) res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec assignment-create-with-http-info any?
   "Create Assignment
   Create an assignment."
-  ([version float?, accountId int?, name string?, assigneeAccountId int?, ] (assignment-create-with-http-info version accountId name assigneeAccountId nil))
-  ([version float?, accountId int?, name string?, assigneeAccountId int?, {:keys [description retailerLocationId tags active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name assigneeAccountId)
-   (call-api "/api/{version}/assignment/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, assigneeAccountId int?, ] (assignment-create-with-http-info accountId name assigneeAccountId nil))
+  ([accountId int?, name string?, assigneeAccountId int?, {:keys [description retailerLocationId tags active]} (s/map-of keyword? any?)]
+   (check-required-params accountId name assigneeAccountId)
+   (call-api "/assignment/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "description" description "assigneeAccountId" assigneeAccountId "retailerLocationId" retailerLocationId "tags" tags "active" active }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec assignment-create assignment-response-spec
   "Create Assignment
   Create an assignment."
-  ([version float?, accountId int?, name string?, assigneeAccountId int?, ] (assignment-create version accountId name assigneeAccountId nil))
-  ([version float?, accountId int?, name string?, assigneeAccountId int?, optional-params any?]
-   (let [res (:data (assignment-create-with-http-info version accountId name assigneeAccountId optional-params))]
+  ([accountId int?, name string?, assigneeAccountId int?, ] (assignment-create accountId name assigneeAccountId nil))
+  ([accountId int?, name string?, assigneeAccountId int?, optional-params any?]
+   (let [res (:data (assignment-create-with-http-info accountId name assigneeAccountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode assignment-response-spec res st/string-transformer)
         res))))
@@ -405,10 +405,10 @@
 (defn-spec assignment-delete-with-http-info any?
   "Delete Assignment
   Delete an assignment."
-  [version float?, accountId int?, assignmentId int?]
-  (check-required-params version accountId assignmentId)
-  (call-api "/api/{version}/assignment/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, assignmentId int?]
+  (check-required-params accountId assignmentId)
+  (call-api "/assignment/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "assignmentId" assignmentId }
              :form-params   {}
@@ -419,8 +419,8 @@
 (defn-spec assignment-delete sirqul-response-spec
   "Delete Assignment
   Delete an assignment."
-  [version float?, accountId int?, assignmentId int?]
-  (let [res (:data (assignment-delete-with-http-info version accountId assignmentId))]
+  [accountId int?, assignmentId int?]
+  (let [res (:data (assignment-delete-with-http-info accountId assignmentId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -429,10 +429,10 @@
 (defn-spec assignment-get-with-http-info any?
   "Get Assignment
   Get the details of an assignment."
-  [version float?, accountId int?, assignmentId int?]
-  (check-required-params version accountId assignmentId)
-  (call-api "/api/{version}/assignment/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, assignmentId int?]
+  (check-required-params accountId assignmentId)
+  (call-api "/assignment/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "assignmentId" assignmentId }
              :form-params   {}
@@ -443,8 +443,8 @@
 (defn-spec assignment-get assignment-response-spec
   "Get Assignment
   Get the details of an assignment."
-  [version float?, accountId int?, assignmentId int?]
-  (let [res (:data (assignment-get-with-http-info version accountId assignmentId))]
+  [accountId int?, assignmentId int?]
+  (let [res (:data (assignment-get-with-http-info accountId assignmentId))]
     (if (:decode-models *api-context*)
        (st/decode assignment-response-spec res st/string-transformer)
        res)))
@@ -453,11 +453,11 @@
 (defn-spec assignment-search-with-http-info any?
   "Search Assignments
   Search for assignments by the given parameters."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-search-with-http-info version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [creatorAccountId assigneeAccountIds retailerLocationIds currentStatusType keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending activeOnly start limit)
-   (call-api "/api/{version}/assignment/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-search-with-http-info accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [creatorAccountId assigneeAccountIds retailerLocationIds currentStatusType keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending activeOnly start limit)
+   (call-api "/assignment/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "creatorAccountId" creatorAccountId "assigneeAccountIds" assigneeAccountIds "retailerLocationIds" retailerLocationIds "currentStatusType" currentStatusType "keyword" keyword "sortField" sortField "descending" descending "activeOnly" activeOnly "start" start "limit" limit }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec assignment-search (s/coll-of assignment-response-spec)
   "Search Assignments
   Search for assignments by the given parameters."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-search version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (assignment-search-with-http-info version accountId sortField descending activeOnly start limit optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-search accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (assignment-search-with-http-info accountId sortField descending activeOnly start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of assignment-response-spec) res st/string-transformer)
         res))))
@@ -479,11 +479,11 @@
 (defn-spec assignment-status-create-with-http-info any?
   "Create Assignment Status
   Create an assignment status."
-  ([version float?, accountId int?, assignmentId int?, ] (assignment-status-create-with-http-info version accountId assignmentId nil))
-  ([version float?, accountId int?, assignmentId int?, {:keys [scheduledNotificationId toDo connection method status closure message followUp active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId assignmentId)
-   (call-api "/api/{version}/assignment/status/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, assignmentId int?, ] (assignment-status-create-with-http-info accountId assignmentId nil))
+  ([accountId int?, assignmentId int?, {:keys [scheduledNotificationId toDo connection method status closure message followUp active]} (s/map-of keyword? any?)]
+   (check-required-params accountId assignmentId)
+   (call-api "/assignment/status/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "assignmentId" assignmentId "scheduledNotificationId" scheduledNotificationId "toDo" toDo "connection" connection "method" method "status" status "closure" closure "message" message "followUp" followUp "active" active }
               :form-params   {}
@@ -494,9 +494,9 @@
 (defn-spec assignment-status-create assignment-status-response-spec
   "Create Assignment Status
   Create an assignment status."
-  ([version float?, accountId int?, assignmentId int?, ] (assignment-status-create version accountId assignmentId nil))
-  ([version float?, accountId int?, assignmentId int?, optional-params any?]
-   (let [res (:data (assignment-status-create-with-http-info version accountId assignmentId optional-params))]
+  ([accountId int?, assignmentId int?, ] (assignment-status-create accountId assignmentId nil))
+  ([accountId int?, assignmentId int?, optional-params any?]
+   (let [res (:data (assignment-status-create-with-http-info accountId assignmentId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode assignment-status-response-spec res st/string-transformer)
         res))))
@@ -505,10 +505,10 @@
 (defn-spec assignment-status-delete-with-http-info any?
   "Deletes Assignment Status
   Deletes an assignment status."
-  [version float?, accountId int?, assignmentStatusId int?]
-  (check-required-params version accountId assignmentStatusId)
-  (call-api "/api/{version}/assignment/status/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, assignmentStatusId int?]
+  (check-required-params accountId assignmentStatusId)
+  (call-api "/assignment/status/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "assignmentStatusId" assignmentStatusId }
              :form-params   {}
@@ -519,8 +519,8 @@
 (defn-spec assignment-status-delete sirqul-response-spec
   "Deletes Assignment Status
   Deletes an assignment status."
-  [version float?, accountId int?, assignmentStatusId int?]
-  (let [res (:data (assignment-status-delete-with-http-info version accountId assignmentStatusId))]
+  [accountId int?, assignmentStatusId int?]
+  (let [res (:data (assignment-status-delete-with-http-info accountId assignmentStatusId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -529,10 +529,10 @@
 (defn-spec assignment-status-get-with-http-info any?
   "Get Assignment Status
   Get an assignment status."
-  [version float?, accountId int?, assignmentStatusId int?]
-  (check-required-params version accountId assignmentStatusId)
-  (call-api "/api/{version}/assignment/status/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, assignmentStatusId int?]
+  (check-required-params accountId assignmentStatusId)
+  (call-api "/assignment/status/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "assignmentStatusId" assignmentStatusId }
              :form-params   {}
@@ -543,8 +543,8 @@
 (defn-spec assignment-status-get assignment-status-response-spec
   "Get Assignment Status
   Get an assignment status."
-  [version float?, accountId int?, assignmentStatusId int?]
-  (let [res (:data (assignment-status-get-with-http-info version accountId assignmentStatusId))]
+  [accountId int?, assignmentStatusId int?]
+  (let [res (:data (assignment-status-get-with-http-info accountId assignmentStatusId))]
     (if (:decode-models *api-context*)
        (st/decode assignment-status-response-spec res st/string-transformer)
        res)))
@@ -553,11 +553,11 @@
 (defn-spec assignment-status-search-with-http-info any?
   "Search Assignment Statuses
   Search on assignment statuses."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-status-search-with-http-info version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [assignmentId creatorAccountId assigneeAccountId retailerLocationId statusType keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending activeOnly start limit)
-   (call-api "/api/{version}/assignment/status/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-status-search-with-http-info accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [assignmentId creatorAccountId assigneeAccountId retailerLocationId statusType keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending activeOnly start limit)
+   (call-api "/assignment/status/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "assignmentId" assignmentId "creatorAccountId" creatorAccountId "assigneeAccountId" assigneeAccountId "retailerLocationId" retailerLocationId "statusType" statusType "keyword" keyword "sortField" sortField "descending" descending "activeOnly" activeOnly "start" start "limit" limit }
               :form-params   {}
@@ -568,9 +568,9 @@
 (defn-spec assignment-status-search (s/coll-of assignment-status-response-spec)
   "Search Assignment Statuses
   Search on assignment statuses."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-status-search version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (assignment-status-search-with-http-info version accountId sortField descending activeOnly start limit optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (assignment-status-search accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (assignment-status-search-with-http-info accountId sortField descending activeOnly start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of assignment-status-response-spec) res st/string-transformer)
         res))))
@@ -579,11 +579,11 @@
 (defn-spec assignment-status-update-with-http-info any?
   "Update Assignment Status
   Updates an assignment status."
-  ([version float?, accountId int?, assignmentStatusId int?, ] (assignment-status-update-with-http-info version accountId assignmentStatusId nil))
-  ([version float?, accountId int?, assignmentStatusId int?, {:keys [scheduledNotificationId toDo connection method status closure message followUp active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId assignmentStatusId)
-   (call-api "/api/{version}/assignment/status/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, assignmentStatusId int?, ] (assignment-status-update-with-http-info accountId assignmentStatusId nil))
+  ([accountId int?, assignmentStatusId int?, {:keys [scheduledNotificationId toDo connection method status closure message followUp active]} (s/map-of keyword? any?)]
+   (check-required-params accountId assignmentStatusId)
+   (call-api "/assignment/status/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "assignmentStatusId" assignmentStatusId "scheduledNotificationId" scheduledNotificationId "toDo" toDo "connection" connection "method" method "status" status "closure" closure "message" message "followUp" followUp "active" active }
               :form-params   {}
@@ -594,9 +594,9 @@
 (defn-spec assignment-status-update assignment-status-response-spec
   "Update Assignment Status
   Updates an assignment status."
-  ([version float?, accountId int?, assignmentStatusId int?, ] (assignment-status-update version accountId assignmentStatusId nil))
-  ([version float?, accountId int?, assignmentStatusId int?, optional-params any?]
-   (let [res (:data (assignment-status-update-with-http-info version accountId assignmentStatusId optional-params))]
+  ([accountId int?, assignmentStatusId int?, ] (assignment-status-update accountId assignmentStatusId nil))
+  ([accountId int?, assignmentStatusId int?, optional-params any?]
+   (let [res (:data (assignment-status-update-with-http-info accountId assignmentStatusId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode assignment-status-response-spec res st/string-transformer)
         res))))
@@ -605,11 +605,11 @@
 (defn-spec assignment-update-with-http-info any?
   "Update Assignment
   Updates an assignment."
-  ([version float?, accountId int?, assignmentId int?, ] (assignment-update-with-http-info version accountId assignmentId nil))
-  ([version float?, accountId int?, assignmentId int?, {:keys [name description assigneeAccountId retailerLocationId tags active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId assignmentId)
-   (call-api "/api/{version}/assignment/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, assignmentId int?, ] (assignment-update-with-http-info accountId assignmentId nil))
+  ([accountId int?, assignmentId int?, {:keys [name description assigneeAccountId retailerLocationId tags active]} (s/map-of keyword? any?)]
+   (check-required-params accountId assignmentId)
+   (call-api "/assignment/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "assignmentId" assignmentId "name" name "description" description "assigneeAccountId" assigneeAccountId "retailerLocationId" retailerLocationId "tags" tags "active" active }
               :form-params   {}
@@ -620,9 +620,9 @@
 (defn-spec assignment-update assignment-response-spec
   "Update Assignment
   Updates an assignment."
-  ([version float?, accountId int?, assignmentId int?, ] (assignment-update version accountId assignmentId nil))
-  ([version float?, accountId int?, assignmentId int?, optional-params any?]
-   (let [res (:data (assignment-update-with-http-info version accountId assignmentId optional-params))]
+  ([accountId int?, assignmentId int?, ] (assignment-update accountId assignmentId nil))
+  ([accountId int?, assignmentId int?, optional-params any?]
+   (let [res (:data (assignment-update-with-http-info accountId assignmentId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode assignment-response-spec res st/string-transformer)
         res))))

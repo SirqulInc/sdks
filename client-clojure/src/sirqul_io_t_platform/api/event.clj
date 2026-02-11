@@ -353,11 +353,10 @@
 (defn-spec attend-event-with-http-info any?
   "Attend Event
   Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action."
-  ([version float?, ] (attend-event-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey listingId retailerLocationId offerLocationId transactionId status latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/event/attend" :post
-             {:path-params   {"version" version }
+  ([] (attend-event-with-http-info nil))
+  ([{:keys [deviceId accountId appKey listingId retailerLocationId offerLocationId transactionId status latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/event/attend" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "listingId" listingId "retailerLocationId" retailerLocationId "offerLocationId" offerLocationId "transactionId" transactionId "status" status "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec attend-event offer-response-spec
   "Attend Event
   Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action."
-  ([version float?, ] (attend-event version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (attend-event-with-http-info version optional-params))]
+  ([] (attend-event nil))
+  ([optional-params any?]
+   (let [res (:data (attend-event-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec create-event-with-http-info any?
   "Create Event
   Create a private event to share with associates."
-  ([version float?, accountId int?, title string?, ] (create-event-with-http-info version accountId title nil))
-  ([version float?, accountId int?, title string?, {:keys [retailerLocationIds subTitle details categoryIds filterIds active imageAssetId redeemableStart redeemableEnd metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId title)
-   (call-api "/api/{version}/event/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, title string?, ] (create-event-with-http-info accountId title nil))
+  ([accountId int?, title string?, {:keys [retailerLocationIds subTitle details categoryIds filterIds active imageAssetId redeemableStart redeemableEnd metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId title)
+   (call-api "/event/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "retailerLocationIds" retailerLocationIds "title" title "subTitle" subTitle "details" details "categoryIds" categoryIds "filterIds" filterIds "active" active "imageAssetId" imageAssetId "redeemableStart" redeemableStart "redeemableEnd" redeemableEnd "metaData" metaData }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec create-event offer-response-spec
   "Create Event
   Create a private event to share with associates."
-  ([version float?, accountId int?, title string?, ] (create-event version accountId title nil))
-  ([version float?, accountId int?, title string?, optional-params any?]
-   (let [res (:data (create-event-with-http-info version accountId title optional-params))]
+  ([accountId int?, title string?, ] (create-event accountId title nil))
+  ([accountId int?, title string?, optional-params any?]
+   (let [res (:data (create-event-with-http-info accountId title optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-response-spec res st/string-transformer)
         res))))
@@ -405,10 +404,10 @@
 (defn-spec delete-event-with-http-info any?
   "Delete Event
   Delete an event that the user has permissions to."
-  [version float?, accountId int?, eventId int?]
-  (check-required-params version accountId eventId)
-  (call-api "/api/{version}/event/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, eventId int?]
+  (check-required-params accountId eventId)
+  (call-api "/event/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "eventId" eventId }
              :form-params   {}
@@ -419,8 +418,8 @@
 (defn-spec delete-event sirqul-response-spec
   "Delete Event
   Delete an event that the user has permissions to."
-  [version float?, accountId int?, eventId int?]
-  (let [res (:data (delete-event-with-http-info version accountId eventId))]
+  [accountId int?, eventId int?]
+  (let [res (:data (delete-event-with-http-info accountId eventId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -429,10 +428,10 @@
 (defn-spec get-event-with-http-info any?
   "Get Event
   Get an event."
-  [version float?, accountId int?, eventId int?]
-  (check-required-params version accountId eventId)
-  (call-api "/api/{version}/event/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, eventId int?]
+  (check-required-params accountId eventId)
+  (call-api "/event/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "eventId" eventId }
              :form-params   {}
@@ -443,8 +442,8 @@
 (defn-spec get-event offer-response-spec
   "Get Event
   Get an event."
-  [version float?, accountId int?, eventId int?]
-  (let [res (:data (get-event-with-http-info version accountId eventId))]
+  [accountId int?, eventId int?]
+  (let [res (:data (get-event-with-http-info accountId eventId))]
     (if (:decode-models *api-context*)
        (st/decode offer-response-spec res st/string-transformer)
        res)))
@@ -453,11 +452,10 @@
 (defn-spec search-event-transactions-with-http-info any?
   "Search Event Attendance
   Searches on event type transactions. This can be used to see who is attending an event."
-  ([version float?, ] (search-event-transactions-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey keyword retailerId retailerLocationId excludeRetailerLocationId listingId offerId offerLocationId customerAccountIds affiliatedCategoryIds startDate endDate statuses sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/event/attendance/search" :get
-             {:path-params   {"version" version }
+  ([] (search-event-transactions-with-http-info nil))
+  ([{:keys [deviceId accountId appKey keyword retailerId retailerLocationId excludeRetailerLocationId listingId offerId offerLocationId customerAccountIds affiliatedCategoryIds startDate endDate statuses sortField descending start limit]} (s/map-of keyword? any?)]
+   (call-api "/event/attendance/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "keyword" keyword "retailerId" retailerId "retailerLocationId" retailerLocationId "excludeRetailerLocationId" excludeRetailerLocationId "listingId" listingId "offerId" offerId "offerLocationId" offerLocationId "customerAccountIds" customerAccountIds "affiliatedCategoryIds" affiliatedCategoryIds "startDate" startDate "endDate" endDate "statuses" statuses "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -468,9 +466,9 @@
 (defn-spec search-event-transactions (s/coll-of event-attendance-response-spec)
   "Search Event Attendance
   Searches on event type transactions. This can be used to see who is attending an event."
-  ([version float?, ] (search-event-transactions version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-event-transactions-with-http-info version optional-params))]
+  ([] (search-event-transactions nil))
+  ([optional-params any?]
+   (let [res (:data (search-event-transactions-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of event-attendance-response-spec) res st/string-transformer)
         res))))
@@ -479,11 +477,11 @@
 (defn-spec search-events-with-http-info any?
   "Search Events
   Searches on events that the account has access to."
-  ([version float?, accountId int?, ] (search-events-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [keyword activeOnly categoryIds filterIds offerAudienceIds transactionAudienceIds sortField descending startDate endDate start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/event/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-events-with-http-info accountId nil))
+  ([accountId int?, {:keys [keyword activeOnly categoryIds filterIds offerAudienceIds transactionAudienceIds sortField descending startDate endDate start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/event/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "activeOnly" activeOnly "categoryIds" categoryIds "filterIds" filterIds "offerAudienceIds" offerAudienceIds "transactionAudienceIds" transactionAudienceIds "sortField" sortField "descending" descending "startDate" startDate "endDate" endDate "start" start "limit" limit }
               :form-params   {}
@@ -494,9 +492,9 @@
 (defn-spec search-events (s/coll-of offer-short-response-spec)
   "Search Events
   Searches on events that the account has access to."
-  ([version float?, accountId int?, ] (search-events version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-events-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-events accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-events-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of offer-short-response-spec) res st/string-transformer)
         res))))
@@ -505,11 +503,11 @@
 (defn-spec update-event-with-http-info any?
   "Update Event
   Update a private event to share with associates."
-  ([version float?, accountId int?, eventId int?, ] (update-event-with-http-info version accountId eventId nil))
-  ([version float?, accountId int?, eventId int?, {:keys [retailerLocationIds title subTitle details categoryIds filterIds active imageAssetId redeemableStart redeemableEnd]} (s/map-of keyword? any?)]
-   (check-required-params version accountId eventId)
-   (call-api "/api/{version}/event/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, eventId int?, ] (update-event-with-http-info accountId eventId nil))
+  ([accountId int?, eventId int?, {:keys [retailerLocationIds title subTitle details categoryIds filterIds active imageAssetId redeemableStart redeemableEnd]} (s/map-of keyword? any?)]
+   (check-required-params accountId eventId)
+   (call-api "/event/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "eventId" eventId "retailerLocationIds" retailerLocationIds "title" title "subTitle" subTitle "details" details "categoryIds" categoryIds "filterIds" filterIds "active" active "imageAssetId" imageAssetId "redeemableStart" redeemableStart "redeemableEnd" redeemableEnd }
               :form-params   {}
@@ -520,9 +518,9 @@
 (defn-spec update-event offer-response-spec
   "Update Event
   Update a private event to share with associates."
-  ([version float?, accountId int?, eventId int?, ] (update-event version accountId eventId nil))
-  ([version float?, accountId int?, eventId int?, optional-params any?]
-   (let [res (:data (update-event-with-http-info version accountId eventId optional-params))]
+  ([accountId int?, eventId int?, ] (update-event accountId eventId nil))
+  ([accountId int?, eventId int?, optional-params any?]
+   (let [res (:data (update-event-with-http-info accountId eventId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-response-spec res st/string-transformer)
         res))))

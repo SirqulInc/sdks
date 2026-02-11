@@ -353,11 +353,10 @@
 (defn-spec create-cargo-type-with-http-info any?
   "Create Cargo Type
   Create new cargo type"
-  ([version float?, ] (create-cargo-type-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/cargo/type" :post
-             {:path-params   {"version" version }
+  ([] (create-cargo-type-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/cargo/type" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +368,9 @@
 (defn-spec create-cargo-type cargo-type-spec
   "Create Cargo Type
   Create new cargo type"
-  ([version float?, ] (create-cargo-type version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-cargo-type-with-http-info version optional-params))]
+  ([] (create-cargo-type nil))
+  ([optional-params any?]
+   (let [res (:data (create-cargo-type-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode cargo-type-spec res st/string-transformer)
         res))))
@@ -380,10 +379,10 @@
 (defn-spec delete-cargo-type-with-http-info any?
   "Delete Cargo Type
   Delete a type of cargo"
-  [version float?, cargoTypeId int?]
-  (check-required-params version cargoTypeId)
-  (call-api "/api/{version}/cargo/type/{cargoTypeId}" :delete
-            {:path-params   {"version" version "cargoTypeId" cargoTypeId }
+  [cargoTypeId int?]
+  (check-required-params cargoTypeId)
+  (call-api "/cargo/type/{cargoTypeId}" :delete
+            {:path-params   {"cargoTypeId" cargoTypeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +393,8 @@
 (defn-spec delete-cargo-type any?
   "Delete Cargo Type
   Delete a type of cargo"
-  [version float?, cargoTypeId int?]
-  (let [res (:data (delete-cargo-type-with-http-info version cargoTypeId))]
+  [cargoTypeId int?]
+  (let [res (:data (delete-cargo-type-with-http-info cargoTypeId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -404,10 +403,10 @@
 (defn-spec get-cargo-type-with-http-info any?
   "Get Cargo Type
   Get an existing cargo type"
-  [version float?, cargoTypeId int?]
-  (check-required-params version cargoTypeId)
-  (call-api "/api/{version}/cargo/type/{cargoTypeId}" :get
-            {:path-params   {"version" version "cargoTypeId" cargoTypeId }
+  [cargoTypeId int?]
+  (check-required-params cargoTypeId)
+  (call-api "/cargo/type/{cargoTypeId}" :get
+            {:path-params   {"cargoTypeId" cargoTypeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +417,8 @@
 (defn-spec get-cargo-type cargo-type-spec
   "Get Cargo Type
   Get an existing cargo type"
-  [version float?, cargoTypeId int?]
-  (let [res (:data (get-cargo-type-with-http-info version cargoTypeId))]
+  [cargoTypeId int?]
+  (let [res (:data (get-cargo-type-with-http-info cargoTypeId))]
     (if (:decode-models *api-context*)
        (st/decode cargo-type-spec res st/string-transformer)
        res)))
@@ -428,11 +427,11 @@
 (defn-spec search-cargo-types-with-http-info any?
   "Search Cargo Type
   Search for types of cargo"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-cargo-types-with-http-info version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [retailerId hubId]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly)
-   (call-api "/api/{version}/cargo/type" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-cargo-types-with-http-info sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [retailerId hubId]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly)
+   (call-api "/cargo/type" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"retailerId" retailerId "hubId" hubId "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -443,9 +442,9 @@
 (defn-spec search-cargo-types (s/coll-of cargo-type-spec)
   "Search Cargo Type
   Search for types of cargo"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-cargo-types version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-cargo-types-with-http-info version sortField descending start limit activeOnly optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-cargo-types sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-cargo-types-with-http-info sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of cargo-type-spec) res st/string-transformer)
         res))))
@@ -454,11 +453,11 @@
 (defn-spec update-cargo-type-with-http-info any?
   "Update Cargo Type
   Update an existing cargo type"
-  ([version float?, cargoTypeId int?, ] (update-cargo-type-with-http-info version cargoTypeId nil))
-  ([version float?, cargoTypeId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version cargoTypeId)
-   (call-api "/api/{version}/cargo/type/{cargoTypeId}" :put
-             {:path-params   {"version" version "cargoTypeId" cargoTypeId }
+  ([cargoTypeId int?, ] (update-cargo-type-with-http-info cargoTypeId nil))
+  ([cargoTypeId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params cargoTypeId)
+   (call-api "/cargo/type/{cargoTypeId}" :put
+             {:path-params   {"cargoTypeId" cargoTypeId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -470,9 +469,9 @@
 (defn-spec update-cargo-type cargo-type-spec
   "Update Cargo Type
   Update an existing cargo type"
-  ([version float?, cargoTypeId int?, ] (update-cargo-type version cargoTypeId nil))
-  ([version float?, cargoTypeId int?, optional-params any?]
-   (let [res (:data (update-cargo-type-with-http-info version cargoTypeId optional-params))]
+  ([cargoTypeId int?, ] (update-cargo-type cargoTypeId nil))
+  ([cargoTypeId int?, optional-params any?]
+   (let [res (:data (update-cargo-type-with-http-info cargoTypeId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode cargo-type-spec res st/string-transformer)
         res))))

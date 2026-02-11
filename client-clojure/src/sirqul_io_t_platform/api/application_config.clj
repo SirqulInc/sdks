@@ -353,11 +353,11 @@
 (defn-spec create-application-config-with-http-info any?
   "Create AppConfig
   Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created."
-  ([version float?, accountId int?, appKey string?, configVersion string?, assetId int?, ] (create-application-config-with-http-info version accountId appKey configVersion assetId nil))
-  ([version float?, accountId int?, appKey string?, configVersion string?, assetId int?, {:keys [retailerId retailerLocationId udid]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey configVersion assetId)
-   (call-api "/api/{version}/appconfig/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, configVersion string?, assetId int?, ] (create-application-config-with-http-info accountId appKey configVersion assetId nil))
+  ([accountId int?, appKey string?, configVersion string?, assetId int?, {:keys [retailerId retailerLocationId udid]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey configVersion assetId)
+   (call-api "/appconfig/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "configVersion" configVersion "assetId" assetId "retailerId" retailerId "retailerLocationId" retailerLocationId "udid" udid }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-application-config application-config-response-spec
   "Create AppConfig
   Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created."
-  ([version float?, accountId int?, appKey string?, configVersion string?, assetId int?, ] (create-application-config version accountId appKey configVersion assetId nil))
-  ([version float?, accountId int?, appKey string?, configVersion string?, assetId int?, optional-params any?]
-   (let [res (:data (create-application-config-with-http-info version accountId appKey configVersion assetId optional-params))]
+  ([accountId int?, appKey string?, configVersion string?, assetId int?, ] (create-application-config accountId appKey configVersion assetId nil))
+  ([accountId int?, appKey string?, configVersion string?, assetId int?, optional-params any?]
+   (let [res (:data (create-application-config-with-http-info accountId appKey configVersion assetId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-config-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-application-config-with-http-info any?
   "Delete AppConfig
   Mark the application configuration for deletion."
-  [version float?, accountId int?, configId int?]
-  (check-required-params version accountId configId)
-  (call-api "/api/{version}/appconfig/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, configId int?]
+  (check-required-params accountId configId)
+  (call-api "/appconfig/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "configId" configId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-application-config sirqul-response-spec
   "Delete AppConfig
   Mark the application configuration for deletion."
-  [version float?, accountId int?, configId int?]
-  (let [res (:data (delete-application-config-with-http-info version accountId configId))]
+  [accountId int?, configId int?]
+  (let [res (:data (delete-application-config-with-http-info accountId configId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-application-config-with-http-info any?
   "Get AppConfig
   Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response."
-  [version float?, accountId int?, configId int?]
-  (check-required-params version accountId configId)
-  (call-api "/api/{version}/appconfig/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, configId int?]
+  (check-required-params accountId configId)
+  (call-api "/appconfig/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "configId" configId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-application-config application-config-response-spec
   "Get AppConfig
   Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response."
-  [version float?, accountId int?, configId int?]
-  (let [res (:data (get-application-config-with-http-info version accountId configId))]
+  [accountId int?, configId int?]
+  (let [res (:data (get-application-config-with-http-info accountId configId))]
     (if (:decode-models *api-context*)
        (st/decode application-config-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec get-application-config-by-config-version-with-http-info any?
   "Get AppConfig by Version
   Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response."
-  ([version float?, appKey string?, configVersion string?, ] (get-application-config-by-config-version-with-http-info version appKey configVersion nil))
-  ([version float?, appKey string?, configVersion string?, {:keys [retailerId retailerLocationId udid allowOlderVersions]} (s/map-of keyword? any?)]
-   (check-required-params version appKey configVersion)
-   (call-api "/api/{version}/appconfig/getbyversion" :get
-             {:path-params   {"version" version }
+  ([appKey string?, configVersion string?, ] (get-application-config-by-config-version-with-http-info appKey configVersion nil))
+  ([appKey string?, configVersion string?, {:keys [retailerId retailerLocationId udid allowOlderVersions]} (s/map-of keyword? any?)]
+   (check-required-params appKey configVersion)
+   (call-api "/appconfig/getbyversion" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey "configVersion" configVersion "retailerId" retailerId "retailerLocationId" retailerLocationId "udid" udid "allowOlderVersions" allowOlderVersions }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec get-application-config-by-config-version application-config-response-spec
   "Get AppConfig by Version
   Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response."
-  ([version float?, appKey string?, configVersion string?, ] (get-application-config-by-config-version version appKey configVersion nil))
-  ([version float?, appKey string?, configVersion string?, optional-params any?]
-   (let [res (:data (get-application-config-by-config-version-with-http-info version appKey configVersion optional-params))]
+  ([appKey string?, configVersion string?, ] (get-application-config-by-config-version appKey configVersion nil))
+  ([appKey string?, configVersion string?, optional-params any?]
+   (let [res (:data (get-application-config-by-config-version-with-http-info appKey configVersion optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-config-response-spec res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec search-application-config-with-http-info any?
   "Search AppConfigs
   Gets all versions of application configurations in a particular app by the given appKey."
-  ([version float?, accountId int?, ] (search-application-config-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [appKey retailerId retailerLocationId udid configVersion sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/appconfig/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-application-config-with-http-info accountId nil))
+  ([accountId int?, {:keys [appKey retailerId retailerLocationId udid configVersion sortField descending start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/appconfig/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "retailerId" retailerId "retailerLocationId" retailerLocationId "udid" udid "configVersion" configVersion "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec search-application-config (s/coll-of application-config-response-spec)
   "Search AppConfigs
   Gets all versions of application configurations in a particular app by the given appKey."
-  ([version float?, accountId int?, ] (search-application-config version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-application-config-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-application-config accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-application-config-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of application-config-response-spec) res st/string-transformer)
         res))))
@@ -479,11 +479,11 @@
 (defn-spec update-application-config-with-http-info any?
   "Update AppConfig
   pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated."
-  ([version float?, accountId int?, configId int?, ] (update-application-config-with-http-info version accountId configId nil))
-  ([version float?, accountId int?, configId int?, {:keys [appKey configVersion assetId retailerId retailerLocationId udid]} (s/map-of keyword? any?)]
-   (check-required-params version accountId configId)
-   (call-api "/api/{version}/appconfig/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, configId int?, ] (update-application-config-with-http-info accountId configId nil))
+  ([accountId int?, configId int?, {:keys [appKey configVersion assetId retailerId retailerLocationId udid]} (s/map-of keyword? any?)]
+   (check-required-params accountId configId)
+   (call-api "/appconfig/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "configId" configId "appKey" appKey "configVersion" configVersion "assetId" assetId "retailerId" retailerId "retailerLocationId" retailerLocationId "udid" udid }
               :form-params   {}
@@ -494,9 +494,9 @@
 (defn-spec update-application-config application-config-response-spec
   "Update AppConfig
   pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated."
-  ([version float?, accountId int?, configId int?, ] (update-application-config version accountId configId nil))
-  ([version float?, accountId int?, configId int?, optional-params any?]
-   (let [res (:data (update-application-config-with-http-info version accountId configId optional-params))]
+  ([accountId int?, configId int?, ] (update-application-config accountId configId nil))
+  ([accountId int?, configId int?, optional-params any?]
+   (let [res (:data (update-application-config-with-http-info accountId configId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode application-config-response-spec res st/string-transformer)
         res))))

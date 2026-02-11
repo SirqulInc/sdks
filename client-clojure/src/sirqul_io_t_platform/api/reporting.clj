@@ -353,11 +353,11 @@
 (defn-spec create-batch-with-http-info any?
   "Create Offline Report
   Create an entry for the batch for offline report"
-  ([version float?, accountId int?, status string?, previewLimit int?, ] (create-batch-with-http-info version accountId status previewLimit nil))
-  ([version float?, accountId int?, status string?, previewLimit int?, {:keys [appKey endpoint parameters name startDate endDate description pageUrl]} (s/map-of keyword? any?)]
-   (check-required-params version accountId status previewLimit)
-   (call-api "/api/{version}/report/batch/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, status string?, previewLimit int?, ] (create-batch-with-http-info accountId status previewLimit nil))
+  ([accountId int?, status string?, previewLimit int?, {:keys [appKey endpoint parameters name startDate endDate description pageUrl]} (s/map-of keyword? any?)]
+   (check-required-params accountId status previewLimit)
+   (call-api "/report/batch/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "status" status "endpoint" endpoint "parameters" parameters "name" name "startDate" startDate "endDate" endDate "description" description "previewLimit" previewLimit "pageUrl" pageUrl }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-batch report-batch-response-spec
   "Create Offline Report
   Create an entry for the batch for offline report"
-  ([version float?, accountId int?, status string?, previewLimit int?, ] (create-batch version accountId status previewLimit nil))
-  ([version float?, accountId int?, status string?, previewLimit int?, optional-params any?]
-   (let [res (:data (create-batch-with-http-info version accountId status previewLimit optional-params))]
+  ([accountId int?, status string?, previewLimit int?, ] (create-batch accountId status previewLimit nil))
+  ([accountId int?, status string?, previewLimit int?, optional-params any?]
+   (let [res (:data (create-batch-with-http-info accountId status previewLimit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode report-batch-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,10 @@
 (defn-spec create-region-leg-summary-batch-with-http-info any?
   "Create Offline Report
   Create an entry for the batch for offline report"
-  ([version float?, ] (create-region-leg-summary-batch-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/report/region/summary/batch" :post
-             {:path-params   {"version" version }
+  ([] (create-region-leg-summary-batch-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/report/region/summary/batch" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -395,9 +394,9 @@
 (defn-spec create-region-leg-summary-batch report-region-leg-summary-batch-response-spec
   "Create Offline Report
   Create an entry for the batch for offline report"
-  ([version float?, ] (create-region-leg-summary-batch version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-region-leg-summary-batch-with-http-info version optional-params))]
+  ([] (create-region-leg-summary-batch nil))
+  ([optional-params any?]
+   (let [res (:data (create-region-leg-summary-batch-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode report-region-leg-summary-batch-response-spec res st/string-transformer)
         res))))
@@ -406,10 +405,10 @@
 (defn-spec delete-batch-with-http-info any?
   "Delete Offline Report
   Deletes a batch report."
-  [version float?, accountId int?, batchId int?]
-  (check-required-params version accountId batchId)
-  (call-api "/api/{version}/report/batch/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, batchId int?]
+  (check-required-params accountId batchId)
+  (call-api "/report/batch/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "batchId" batchId }
              :form-params   {}
@@ -420,8 +419,8 @@
 (defn-spec delete-batch sirqul-response-spec
   "Delete Offline Report
   Deletes a batch report."
-  [version float?, accountId int?, batchId int?]
-  (let [res (:data (delete-batch-with-http-info version accountId batchId))]
+  [accountId int?, batchId int?]
+  (let [res (:data (delete-batch-with-http-info accountId batchId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -430,10 +429,10 @@
 (defn-spec get-report-batch-with-http-info any?
   "Get Offline Report
   Checks status of batch report."
-  [version float?, accountId int?, batchId int?, allResults boolean?]
-  (check-required-params version accountId batchId allResults)
-  (call-api "/api/{version}/report/batch/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, batchId int?, allResults boolean?]
+  (check-required-params accountId batchId allResults)
+  (call-api "/report/batch/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "batchId" batchId "allResults" allResults }
              :form-params   {}
@@ -444,8 +443,8 @@
 (defn-spec get-report-batch report-batch-response-spec
   "Get Offline Report
   Checks status of batch report."
-  [version float?, accountId int?, batchId int?, allResults boolean?]
-  (let [res (:data (get-report-batch-with-http-info version accountId batchId allResults))]
+  [accountId int?, batchId int?, allResults boolean?]
+  (let [res (:data (get-report-batch-with-http-info accountId batchId allResults))]
     (if (:decode-models *api-context*)
        (st/decode report-batch-response-spec res st/string-transformer)
        res)))
@@ -454,11 +453,11 @@
 (defn-spec run-report-with-http-info any?
   "Run Report
   This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application."
-  ([version float?, desc boolean?, ] (run-report-with-http-info version desc nil))
-  ([version float?, desc boolean?, {:keys [accountId query parameters order start limit responseFormat]} (s/map-of keyword? any?)]
-   (check-required-params version desc)
-   (call-api "/api/{version}/report/run" :post
-             {:path-params   {"version" version }
+  ([desc boolean?, ] (run-report-with-http-info desc nil))
+  ([desc boolean?, {:keys [accountId query parameters order start limit responseFormat]} (s/map-of keyword? any?)]
+   (check-required-params desc)
+   (call-api "/report/run" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "query" query "parameters" parameters "order" order "desc" desc "start" start "limit" limit "responseFormat" responseFormat }
               :form-params   {}
@@ -469,9 +468,9 @@
 (defn-spec run-report report-response-spec
   "Run Report
   This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application."
-  ([version float?, desc boolean?, ] (run-report version desc nil))
-  ([version float?, desc boolean?, optional-params any?]
-   (let [res (:data (run-report-with-http-info version desc optional-params))]
+  ([desc boolean?, ] (run-report desc nil))
+  ([desc boolean?, optional-params any?]
+   (let [res (:data (run-report-with-http-info desc optional-params))]
      (if (:decode-models *api-context*)
         (st/decode report-response-spec res st/string-transformer)
         res))))
@@ -480,11 +479,11 @@
 (defn-spec search-batch-with-http-info any?
   "Search Offline Reports
   Retrieves batches for a user.."
-  ([version float?, accountId int?, start int?, limit int?, ] (search-batch-with-http-info version accountId start limit nil))
-  ([version float?, accountId int?, start int?, limit int?, {:keys [names appKey status globalAppSearch startDate endDate]} (s/map-of keyword? any?)]
-   (check-required-params version accountId start limit)
-   (call-api "/api/{version}/report/batch/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, start int?, limit int?, ] (search-batch-with-http-info accountId start limit nil))
+  ([accountId int?, start int?, limit int?, {:keys [names appKey status globalAppSearch startDate endDate]} (s/map-of keyword? any?)]
+   (check-required-params accountId start limit)
+   (call-api "/report/batch/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "names" names "appKey" appKey "status" status "globalAppSearch" globalAppSearch "startDate" startDate "endDate" endDate "start" start "limit" limit }
               :form-params   {}
@@ -495,9 +494,9 @@
 (defn-spec search-batch (s/coll-of report-batch-response-spec)
   "Search Offline Reports
   Retrieves batches for a user.."
-  ([version float?, accountId int?, start int?, limit int?, ] (search-batch version accountId start limit nil))
-  ([version float?, accountId int?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-batch-with-http-info version accountId start limit optional-params))]
+  ([accountId int?, start int?, limit int?, ] (search-batch accountId start limit nil))
+  ([accountId int?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-batch-with-http-info accountId start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of report-batch-response-spec) res st/string-transformer)
         res))))

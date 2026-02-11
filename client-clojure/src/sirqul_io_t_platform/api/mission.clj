@@ -353,11 +353,11 @@
 (defn-spec create-mission-with-http-info any?
   "Create Mission
   Create a user defined mission."
-  ([version float?, accountId int?, title string?, ] (create-mission-with-http-info version accountId title nil))
-  ([version float?, accountId int?, title string?, {:keys [description subType startDate endDate active gameLevelIds creativeIds audienceIds missionTask formatType offerId balance advancedReporting allocateTickets ticketCount ticketType points metaData applicationIds devices deviceIds deviceVersions locations radius]} (s/map-of keyword? any?)]
-   (check-required-params version accountId title)
-   (call-api "/api/{version}/mission/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, title string?, ] (create-mission-with-http-info accountId title nil))
+  ([accountId int?, title string?, {:keys [description subType startDate endDate active gameLevelIds creativeIds audienceIds missionTask formatType offerId balance advancedReporting allocateTickets ticketCount ticketType points metaData applicationIds devices deviceIds deviceVersions locations radius]} (s/map-of keyword? any?)]
+   (check-required-params accountId title)
+   (call-api "/mission/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "title" title "description" description "subType" subType "startDate" startDate "endDate" endDate "active" active "gameLevelIds" gameLevelIds "creativeIds" creativeIds "audienceIds" audienceIds "missionTask" missionTask "formatType" formatType "offerId" offerId "balance" balance "advancedReporting" advancedReporting "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points "metaData" metaData "applicationIds" applicationIds "devices" devices "deviceIds" deviceIds "deviceVersions" deviceVersions "locations" locations "radius" radius }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-mission mission-response-spec
   "Create Mission
   Create a user defined mission."
-  ([version float?, accountId int?, title string?, ] (create-mission version accountId title nil))
-  ([version float?, accountId int?, title string?, optional-params any?]
-   (let [res (:data (create-mission-with-http-info version accountId title optional-params))]
+  ([accountId int?, title string?, ] (create-mission accountId title nil))
+  ([accountId int?, title string?, optional-params any?]
+   (let [res (:data (create-mission-with-http-info accountId title optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-mission-with-http-info any?
   "Delete Mission
   Delete a mission."
-  [version float?, accountId int?, missionId int?]
-  (check-required-params version accountId missionId)
-  (call-api "/api/{version}/mission/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, missionId int?]
+  (check-required-params accountId missionId)
+  (call-api "/mission/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "missionId" missionId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-mission sirqul-response-spec
   "Delete Mission
   Delete a mission."
-  [version float?, accountId int?, missionId int?]
-  (let [res (:data (delete-mission-with-http-info version accountId missionId))]
+  [accountId int?, missionId int?]
+  (let [res (:data (delete-mission-with-http-info accountId missionId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,11 +403,11 @@
 (defn-spec find-missions-with-http-info any?
   "Find Missions
   Get a set of ad filtered by the parameters provided."
-  ([version float?, appKey string?, ] (find-missions-with-http-info version appKey nil))
-  ([version float?, appKey string?, {:keys [suffix type accountId appVersion latitude longitude device deviceIdentifier deviceVersion start limit includeGameData includeAudiences allocatesTickets randomize targetedAdsOnly missionIds audienceOperator]} (s/map-of keyword? any?)]
-   (check-required-params version appKey)
-   (call-api "/api/{version}/mission/find" :get
-             {:path-params   {"version" version }
+  ([appKey string?, ] (find-missions-with-http-info appKey nil))
+  ([appKey string?, {:keys [suffix type accountId appVersion latitude longitude device deviceIdentifier deviceVersion start limit includeGameData includeAudiences allocatesTickets randomize targetedAdsOnly missionIds audienceOperator]} (s/map-of keyword? any?)]
+   (check-required-params appKey)
+   (call-api "/mission/find" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"appKey" appKey "suffix" suffix "type" type "accountId" accountId "appVersion" appVersion "latitude" latitude "longitude" longitude "device" device "deviceIdentifier" deviceIdentifier "deviceVersion" deviceVersion "start" start "limit" limit "includeGameData" includeGameData "includeAudiences" includeAudiences "allocatesTickets" allocatesTickets "randomize" randomize "targetedAdsOnly" targetedAdsOnly "missionIds" missionIds "audienceOperator" audienceOperator }
               :form-params   {}
@@ -418,9 +418,9 @@
 (defn-spec find-missions mission-response-spec
   "Find Missions
   Get a set of ad filtered by the parameters provided."
-  ([version float?, appKey string?, ] (find-missions version appKey nil))
-  ([version float?, appKey string?, optional-params any?]
-   (let [res (:data (find-missions-with-http-info version appKey optional-params))]
+  ([appKey string?, ] (find-missions appKey nil))
+  ([appKey string?, optional-params any?]
+   (let [res (:data (find-missions-with-http-info appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-response-spec res st/string-transformer)
         res))))
@@ -429,11 +429,11 @@
 (defn-spec get-mission-with-http-info any?
   "Get Mission
   Get a mission."
-  ([version float?, accountId int?, missionId int?, ] (get-mission-with-http-info version accountId missionId nil))
-  ([version float?, accountId int?, missionId int?, {:keys [returnCreative]} (s/map-of keyword? any?)]
-   (check-required-params version accountId missionId)
-   (call-api "/api/{version}/mission/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, missionId int?, ] (get-mission-with-http-info accountId missionId nil))
+  ([accountId int?, missionId int?, {:keys [returnCreative]} (s/map-of keyword? any?)]
+   (check-required-params accountId missionId)
+   (call-api "/mission/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "missionId" missionId "returnCreative" returnCreative }
               :form-params   {}
@@ -444,9 +444,9 @@
 (defn-spec get-mission mission-response-spec
   "Get Mission
   Get a mission."
-  ([version float?, accountId int?, missionId int?, ] (get-mission version accountId missionId nil))
-  ([version float?, accountId int?, missionId int?, optional-params any?]
-   (let [res (:data (get-mission-with-http-info version accountId missionId optional-params))]
+  ([accountId int?, missionId int?, ] (get-mission accountId missionId nil))
+  ([accountId int?, missionId int?, optional-params any?]
+   (let [res (:data (get-mission-with-http-info accountId missionId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-response-spec res st/string-transformer)
         res))))
@@ -455,11 +455,11 @@
 (defn-spec import-mission-with-http-info any?
   "Import Mission
   Create a mission using a source item such as an offer location."
-  ([version float?, accountId int?, latitude float?, longitude float?, appKey string?, ] (import-mission-with-http-info version accountId latitude longitude appKey nil))
-  ([version float?, accountId int?, latitude float?, longitude float?, appKey string?, {:keys [keyword start limit adSize]} (s/map-of keyword? any?)]
-   (check-required-params version accountId latitude longitude appKey)
-   (call-api "/api/{version}/mission/import" :post
-             {:path-params   {"version" version }
+  ([accountId int?, latitude float?, longitude float?, appKey string?, ] (import-mission-with-http-info accountId latitude longitude appKey nil))
+  ([accountId int?, latitude float?, longitude float?, appKey string?, {:keys [keyword start limit adSize]} (s/map-of keyword? any?)]
+   (check-required-params accountId latitude longitude appKey)
+   (call-api "/mission/import" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "latitude" latitude "longitude" longitude "keyword" keyword "start" start "limit" limit "appKey" appKey "adSize" adSize }
               :form-params   {}
@@ -470,9 +470,9 @@
 (defn-spec import-mission sirqul-response-spec
   "Import Mission
   Create a mission using a source item such as an offer location."
-  ([version float?, accountId int?, latitude float?, longitude float?, appKey string?, ] (import-mission version accountId latitude longitude appKey nil))
-  ([version float?, accountId int?, latitude float?, longitude float?, appKey string?, optional-params any?]
-   (let [res (:data (import-mission-with-http-info version accountId latitude longitude appKey optional-params))]
+  ([accountId int?, latitude float?, longitude float?, appKey string?, ] (import-mission accountId latitude longitude appKey nil))
+  ([accountId int?, latitude float?, longitude float?, appKey string?, optional-params any?]
+   (let [res (:data (import-mission-with-http-info accountId latitude longitude appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -481,10 +481,10 @@
 (defn-spec search-mission-formats-with-http-info any?
   "Search Mission Formats
   Searches on pre-defined mission formats"
-  [version float?, start int?, limit int?, activeOnly boolean?]
-  (check-required-params version start limit activeOnly)
-  (call-api "/api/{version}/mission/format/search" :get
-            {:path-params   {"version" version }
+  [start int?, limit int?, activeOnly boolean?]
+  (check-required-params start limit activeOnly)
+  (call-api "/mission/format/search" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"start" start "limit" limit "activeOnly" activeOnly }
              :form-params   {}
@@ -495,8 +495,8 @@
 (defn-spec search-mission-formats (s/coll-of mission-format-response-spec)
   "Search Mission Formats
   Searches on pre-defined mission formats"
-  [version float?, start int?, limit int?, activeOnly boolean?]
-  (let [res (:data (search-mission-formats-with-http-info version start limit activeOnly))]
+  [start int?, limit int?, activeOnly boolean?]
+  (let [res (:data (search-mission-formats-with-http-info start limit activeOnly))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of mission-format-response-spec) res st/string-transformer)
        res)))
@@ -505,11 +505,11 @@
 (defn-spec search-missions-with-http-info any?
   "Search Missions
   Get the list missions available to the account."
-  ([version float?, accountId int?, ] (search-missions-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [keyword subType start limit includeGameData includeAudiences includeInactive suffix sortField descending]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/mission/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-missions-with-http-info accountId nil))
+  ([accountId int?, {:keys [keyword subType start limit includeGameData includeAudiences includeInactive suffix sortField descending]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/mission/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "subType" subType "start" start "limit" limit "includeGameData" includeGameData "includeAudiences" includeAudiences "includeInactive" includeInactive "suffix" suffix "sortField" sortField "descending" descending }
               :form-params   {}
@@ -520,9 +520,9 @@
 (defn-spec search-missions (s/coll-of mission-response-spec)
   "Search Missions
   Get the list missions available to the account."
-  ([version float?, accountId int?, ] (search-missions version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-missions-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-missions accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-missions-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of mission-response-spec) res st/string-transformer)
         res))))
@@ -531,11 +531,11 @@
 (defn-spec search-missions-by-billable-entity-with-http-info any?
   "Search Missions by Billable Entity
   Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers."
-  ([version float?, accountId int?, ] (search-missions-by-billable-entity-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [keyword start limit includeGameData includeAudiences includeInactive suffix sortField descending]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/mission/searchByBillableEntity" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-missions-by-billable-entity-with-http-info accountId nil))
+  ([accountId int?, {:keys [keyword start limit includeGameData includeAudiences includeInactive suffix sortField descending]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/mission/searchByBillableEntity" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "start" start "limit" limit "includeGameData" includeGameData "includeAudiences" includeAudiences "includeInactive" includeInactive "suffix" suffix "sortField" sortField "descending" descending }
               :form-params   {}
@@ -546,9 +546,9 @@
 (defn-spec search-missions-by-billable-entity (s/coll-of mission-response-spec)
   "Search Missions by Billable Entity
   Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers."
-  ([version float?, accountId int?, ] (search-missions-by-billable-entity version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-missions-by-billable-entity-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-missions-by-billable-entity accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-missions-by-billable-entity-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of mission-response-spec) res st/string-transformer)
         res))))
@@ -557,11 +557,11 @@
 (defn-spec update-mission-with-http-info any?
   "Update Mission
   Update a mission."
-  ([version float?, accountId int?, missionId int?, ] (update-mission-with-http-info version accountId missionId nil))
-  ([version float?, accountId int?, missionId int?, {:keys [title description subType metaData startDate endDate active gameLevelIds creativeIds audienceIds offerId balance advancedReporting allocateTickets ticketCount ticketType points applicationIds devices deviceIds deviceVersions locations radius]} (s/map-of keyword? any?)]
-   (check-required-params version accountId missionId)
-   (call-api "/api/{version}/mission/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, missionId int?, ] (update-mission-with-http-info accountId missionId nil))
+  ([accountId int?, missionId int?, {:keys [title description subType metaData startDate endDate active gameLevelIds creativeIds audienceIds offerId balance advancedReporting allocateTickets ticketCount ticketType points applicationIds devices deviceIds deviceVersions locations radius]} (s/map-of keyword? any?)]
+   (check-required-params accountId missionId)
+   (call-api "/mission/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "missionId" missionId "title" title "description" description "subType" subType "metaData" metaData "startDate" startDate "endDate" endDate "active" active "gameLevelIds" gameLevelIds "creativeIds" creativeIds "audienceIds" audienceIds "offerId" offerId "balance" balance "advancedReporting" advancedReporting "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points "applicationIds" applicationIds "devices" devices "deviceIds" deviceIds "deviceVersions" deviceVersions "locations" locations "radius" radius }
               :form-params   {}
@@ -572,9 +572,9 @@
 (defn-spec update-mission mission-response-spec
   "Update Mission
   Update a mission."
-  ([version float?, accountId int?, missionId int?, ] (update-mission version accountId missionId nil))
-  ([version float?, accountId int?, missionId int?, optional-params any?]
-   (let [res (:data (update-mission-with-http-info version accountId missionId optional-params))]
+  ([accountId int?, missionId int?, ] (update-mission accountId missionId nil))
+  ([accountId int?, missionId int?, optional-params any?]
+   (let [res (:data (update-mission-with-http-info accountId missionId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-response-spec res st/string-transformer)
         res))))

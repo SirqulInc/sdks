@@ -353,10 +353,10 @@
 (defn-spec check-disbursements-with-http-info any?
   "Check Disbursements
   Checks the status of a captured disbrusement to see if it has been settled."
-  [version float?, disbursementId int?]
-  (check-required-params version disbursementId)
-  (call-api "/api/{version}/disbursement/check" :get
-            {:path-params   {"version" version }
+  [disbursementId int?]
+  (check-required-params disbursementId)
+  (call-api "/disbursement/check" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"disbursementId" disbursementId }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec check-disbursements disbursement-response-spec
   "Check Disbursements
   Checks the status of a captured disbrusement to see if it has been settled."
-  [version float?, disbursementId int?]
-  (let [res (:data (check-disbursements-with-http-info version disbursementId))]
+  [disbursementId int?]
+  (let [res (:data (check-disbursements-with-http-info disbursementId))]
     (if (:decode-models *api-context*)
        (st/decode disbursement-response-spec res st/string-transformer)
        res)))
@@ -377,11 +377,11 @@
 (defn-spec create-disbursement-with-http-info any?
   "Create Disbursement
   Creates a Disbursement for sending money to a retailer"
-  ([version float?, accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, ] (create-disbursement-with-http-info version accountId receiverAccountId originalSenderAccountId amount provider nil))
-  ([version float?, accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, {:keys [scheduledDate title comment externalId introspectionParams]} (s/map-of keyword? any?)]
-   (check-required-params version accountId receiverAccountId originalSenderAccountId amount provider)
-   (call-api "/api/{version}/disbursement/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, ] (create-disbursement-with-http-info accountId receiverAccountId originalSenderAccountId amount provider nil))
+  ([accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, {:keys [scheduledDate title comment externalId introspectionParams]} (s/map-of keyword? any?)]
+   (check-required-params accountId receiverAccountId originalSenderAccountId amount provider)
+   (call-api "/disbursement/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "receiverAccountId" receiverAccountId "originalSenderAccountId" originalSenderAccountId "amount" amount "provider" provider "scheduledDate" scheduledDate "title" title "comment" comment "externalId" externalId "introspectionParams" introspectionParams }
               :form-params   {}
@@ -392,9 +392,9 @@
 (defn-spec create-disbursement disbursement-response-spec
   "Create Disbursement
   Creates a Disbursement for sending money to a retailer"
-  ([version float?, accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, ] (create-disbursement version accountId receiverAccountId originalSenderAccountId amount provider nil))
-  ([version float?, accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, optional-params any?]
-   (let [res (:data (create-disbursement-with-http-info version accountId receiverAccountId originalSenderAccountId amount provider optional-params))]
+  ([accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, ] (create-disbursement accountId receiverAccountId originalSenderAccountId amount provider nil))
+  ([accountId int?, receiverAccountId int?, originalSenderAccountId int?, amount float?, provider string?, optional-params any?]
+   (let [res (:data (create-disbursement-with-http-info accountId receiverAccountId originalSenderAccountId amount provider optional-params))]
      (if (:decode-models *api-context*)
         (st/decode disbursement-response-spec res st/string-transformer)
         res))))
@@ -403,10 +403,10 @@
 (defn-spec get-disbursement-with-http-info any?
   "Get Disbursement
   Get Disbursement details"
-  [version float?, accountId int?, disbursementId int?]
-  (check-required-params version accountId disbursementId)
-  (call-api "/api/{version}/disbursement/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, disbursementId int?]
+  (check-required-params accountId disbursementId)
+  (call-api "/disbursement/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "disbursementId" disbursementId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-disbursement disbursement-response-spec
   "Get Disbursement
   Get Disbursement details"
-  [version float?, accountId int?, disbursementId int?]
-  (let [res (:data (get-disbursement-with-http-info version accountId disbursementId))]
+  [accountId int?, disbursementId int?]
+  (let [res (:data (get-disbursement-with-http-info accountId disbursementId))]
     (if (:decode-models *api-context*)
        (st/decode disbursement-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec search-disbursements-with-http-info any?
   "Search Disbursements
   Search Disbursements"
-  ([version float?, accountId int?, ] (search-disbursements-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [receiverAccountId statuses providers beforeDate afterDate start limit activeOnly externalId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/disbursement/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-disbursements-with-http-info accountId nil))
+  ([accountId int?, {:keys [receiverAccountId statuses providers beforeDate afterDate start limit activeOnly externalId]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/disbursement/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "receiverAccountId" receiverAccountId "statuses" statuses "providers" providers "beforeDate" beforeDate "afterDate" afterDate "start" start "limit" limit "activeOnly" activeOnly "externalId" externalId }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec search-disbursements (s/coll-of disbursement-response-spec)
   "Search Disbursements
   Search Disbursements"
-  ([version float?, accountId int?, ] (search-disbursements version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-disbursements-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-disbursements accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-disbursements-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of disbursement-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-disbursement-with-http-info any?
   "Update Disbursement
   Update Disbursement"
-  ([version float?, accountId int?, disbursementId int?, ] (update-disbursement-with-http-info version accountId disbursementId nil))
-  ([version float?, accountId int?, disbursementId int?, {:keys [amount provider scheduledDate title comment externalId retry introspectionParams]} (s/map-of keyword? any?)]
-   (check-required-params version accountId disbursementId)
-   (call-api "/api/{version}/disbursement/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, disbursementId int?, ] (update-disbursement-with-http-info accountId disbursementId nil))
+  ([accountId int?, disbursementId int?, {:keys [amount provider scheduledDate title comment externalId retry introspectionParams]} (s/map-of keyword? any?)]
+   (check-required-params accountId disbursementId)
+   (call-api "/disbursement/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "disbursementId" disbursementId "amount" amount "provider" provider "scheduledDate" scheduledDate "title" title "comment" comment "externalId" externalId "retry" retry "introspectionParams" introspectionParams }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-disbursement disbursement-response-spec
   "Update Disbursement
   Update Disbursement"
-  ([version float?, accountId int?, disbursementId int?, ] (update-disbursement version accountId disbursementId nil))
-  ([version float?, accountId int?, disbursementId int?, optional-params any?]
-   (let [res (:data (update-disbursement-with-http-info version accountId disbursementId optional-params))]
+  ([accountId int?, disbursementId int?, ] (update-disbursement accountId disbursementId nil))
+  ([accountId int?, disbursementId int?, optional-params any?]
+   (let [res (:data (update-disbursement-with-http-info accountId disbursementId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode disbursement-response-spec res st/string-transformer)
         res))))

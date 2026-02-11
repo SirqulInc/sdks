@@ -353,10 +353,10 @@
 (defn-spec sms-buy-offer-with-http-info any?
   "Buy Offer by SMS
   Recieve an SMS payload from Twillio to purchase an offer."
-  [version float?, appKey string?, Body string?, From string?, currencyType string?]
-  (check-required-params version appKey Body From currencyType)
-  (call-api "/api/{version}/sms/buyoffer/{appKey}" :post
-            {:path-params   {"version" version "appKey" appKey }
+  [appKey string?, Body string?, From string?, currencyType string?]
+  (check-required-params appKey Body From currencyType)
+  (call-api "/sms/buyoffer/{appKey}" :post
+            {:path-params   {"appKey" appKey }
              :header-params {}
              :query-params  {"Body" Body "From" From "currencyType" currencyType }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec sms-buy-offer twi-ml-response-spec
   "Buy Offer by SMS
   Recieve an SMS payload from Twillio to purchase an offer."
-  [version float?, appKey string?, Body string?, From string?, currencyType string?]
-  (let [res (:data (sms-buy-offer-with-http-info version appKey Body From currencyType))]
+  [appKey string?, Body string?, From string?, currencyType string?]
+  (let [res (:data (sms-buy-offer-with-http-info appKey Body From currencyType))]
     (if (:decode-models *api-context*)
        (st/decode twi-ml-response-spec res st/string-transformer)
        res)))

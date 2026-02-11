@@ -353,11 +353,11 @@
 (defn-spec create-word-with-http-info any?
   "Create Word
   Create a word by the given params."
-  ([version float?, accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-word-with-http-info version accountId word definition active allocateTickets ticketCount nil))
-  ([version float?, accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, {:keys [assetId ticketType points]} (s/map-of keyword? any?)]
-   (check-required-params version accountId word definition active allocateTickets ticketCount)
-   (call-api "/api/{version}/game/word/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-word-with-http-info accountId word definition active allocateTickets ticketCount nil))
+  ([accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, {:keys [assetId ticketType points]} (s/map-of keyword? any?)]
+   (check-required-params accountId word definition active allocateTickets ticketCount)
+   (call-api "/game/word/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "word" word "definition" definition "assetId" assetId "active" active "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-word wordz-word-response-spec
   "Create Word
   Create a word by the given params."
-  ([version float?, accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-word version accountId word definition active allocateTickets ticketCount nil))
-  ([version float?, accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, optional-params any?]
-   (let [res (:data (create-word-with-http-info version accountId word definition active allocateTickets ticketCount optional-params))]
+  ([accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-word accountId word definition active allocateTickets ticketCount nil))
+  ([accountId int?, word string?, definition string?, active boolean?, allocateTickets boolean?, ticketCount int?, optional-params any?]
+   (let [res (:data (create-word-with-http-info accountId word definition active allocateTickets ticketCount optional-params))]
      (if (:decode-models *api-context*)
         (st/decode wordz-word-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-word-with-http-info any?
   "Delete Word
   Delete a word by the given id. The accountId given needs to be the owner or executive to delete."
-  [version float?, wordId int?, accountId int?]
-  (check-required-params version wordId accountId)
-  (call-api "/api/{version}/game/word/delete" :delete
-            {:path-params   {"version" version }
+  [wordId int?, accountId int?]
+  (check-required-params wordId accountId)
+  (call-api "/game/word/delete" :delete
+            {:path-params   {}
              :header-params {}
              :query-params  {"wordId" wordId "accountId" accountId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-word sirqul-response-spec
   "Delete Word
   Delete a word by the given id. The accountId given needs to be the owner or executive to delete."
-  [version float?, wordId int?, accountId int?]
-  (let [res (:data (delete-word-with-http-info version wordId accountId))]
+  [wordId int?, accountId int?]
+  (let [res (:data (delete-word-with-http-info wordId accountId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-word-with-http-info any?
   "Get Word
   Get a word by the given id."
-  [version float?, wordId int?, accountId int?]
-  (check-required-params version wordId accountId)
-  (call-api "/api/{version}/game/word/get" :get
-            {:path-params   {"version" version }
+  [wordId int?, accountId int?]
+  (check-required-params wordId accountId)
+  (call-api "/game/word/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"wordId" wordId "accountId" accountId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-word wordz-word-response-spec
   "Get Word
   Get a word by the given id."
-  [version float?, wordId int?, accountId int?]
-  (let [res (:data (get-word-with-http-info version wordId accountId))]
+  [wordId int?, accountId int?]
+  (let [res (:data (get-word-with-http-info wordId accountId))]
     (if (:decode-models *api-context*)
        (st/decode wordz-word-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec get-words-with-http-info any?
   "Search Words
   Search for words by the given params."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (get-words-with-http-info version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending activeOnly start limit)
-   (call-api "/api/{version}/game/word/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (get-words-with-http-info accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending activeOnly start limit)
+   (call-api "/game/word/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "sortField" sortField "descending" descending "activeOnly" activeOnly "start" start "limit" limit }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec get-words (s/coll-of wordz-word-response-spec)
   "Search Words
   Search for words by the given params."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (get-words version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (get-words-with-http-info version accountId sortField descending activeOnly start limit optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (get-words accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (get-words-with-http-info accountId sortField descending activeOnly start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of wordz-word-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-word-with-http-info any?
   "Update Word
   Update a word by the given params."
-  ([version float?, wordId int?, accountId int?, ticketCount int?, ] (update-word-with-http-info version wordId accountId ticketCount nil))
-  ([version float?, wordId int?, accountId int?, ticketCount int?, {:keys [wordText definition assetId active allocateTickets ticketType points]} (s/map-of keyword? any?)]
-   (check-required-params version wordId accountId ticketCount)
-   (call-api "/api/{version}/game/word/update" :post
-             {:path-params   {"version" version }
+  ([wordId int?, accountId int?, ticketCount int?, ] (update-word-with-http-info wordId accountId ticketCount nil))
+  ([wordId int?, accountId int?, ticketCount int?, {:keys [wordText definition assetId active allocateTickets ticketType points]} (s/map-of keyword? any?)]
+   (check-required-params wordId accountId ticketCount)
+   (call-api "/game/word/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"wordId" wordId "accountId" accountId "wordText" wordText "definition" definition "assetId" assetId "active" active "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-word wordz-word-response-spec
   "Update Word
   Update a word by the given params."
-  ([version float?, wordId int?, accountId int?, ticketCount int?, ] (update-word version wordId accountId ticketCount nil))
-  ([version float?, wordId int?, accountId int?, ticketCount int?, optional-params any?]
-   (let [res (:data (update-word-with-http-info version wordId accountId ticketCount optional-params))]
+  ([wordId int?, accountId int?, ticketCount int?, ] (update-word wordId accountId ticketCount nil))
+  ([wordId int?, accountId int?, ticketCount int?, optional-params any?]
+   (let [res (:data (update-word-with-http-info wordId accountId ticketCount optional-params))]
      (if (:decode-models *api-context*)
         (st/decode wordz-word-response-spec res st/string-transformer)
         res))))

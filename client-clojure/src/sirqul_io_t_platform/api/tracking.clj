@@ -353,11 +353,11 @@
 (defn-spec batch-save-tracking-with-http-info any?
   "Create Batch Tracking
   Batch create tracking legs"
-  ([version float?, data string?, ] (batch-save-tracking-with-http-info version data nil))
-  ([version float?, data string?, {:keys [deviceId accountId generateAccounts updateAccountLocations defaultTag slaveUID]} (s/map-of keyword? any?)]
-   (check-required-params version data)
-   (call-api "/api/{version}/tracking/batch/create" :post
-             {:path-params   {"version" version }
+  ([data string?, ] (batch-save-tracking-with-http-info data nil))
+  ([data string?, {:keys [deviceId accountId generateAccounts updateAccountLocations defaultTag slaveUID]} (s/map-of keyword? any?)]
+   (check-required-params data)
+   (call-api "/tracking/batch/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "data" data "generateAccounts" generateAccounts "updateAccountLocations" updateAccountLocations "defaultTag" defaultTag "slaveUID" slaveUID }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec batch-save-tracking (s/coll-of leg-spec)
   "Create Batch Tracking
   Batch create tracking legs"
-  ([version float?, data string?, ] (batch-save-tracking version data nil))
-  ([version float?, data string?, optional-params any?]
-   (let [res (:data (batch-save-tracking-with-http-info version data optional-params))]
+  ([data string?, ] (batch-save-tracking data nil))
+  ([data string?, optional-params any?]
+   (let [res (:data (batch-save-tracking-with-http-info data optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of leg-spec) res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec get-predicted-locations-with-http-info any?
   "Get Predicted Locations
   Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks."
-  ([version float?, accountId int?, ] (get-predicted-locations-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [latitude longitude dateCheck hourCheck threshold distanceUnit searchRange sortOrder]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/tracking/predicted/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-predicted-locations-with-http-info accountId nil))
+  ([accountId int?, {:keys [latitude longitude dateCheck hourCheck threshold distanceUnit searchRange sortOrder]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/tracking/predicted/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "latitude" latitude "longitude" longitude "dateCheck" dateCheck "hourCheck" hourCheck "threshold" threshold "distanceUnit" distanceUnit "searchRange" searchRange "sortOrder" sortOrder }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec get-predicted-locations predicted-location-response-spec
   "Get Predicted Locations
   Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks."
-  ([version float?, accountId int?, ] (get-predicted-locations version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-predicted-locations-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-predicted-locations accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-predicted-locations-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode predicted-location-response-spec res st/string-transformer)
         res))))
@@ -405,10 +405,10 @@
 (defn-spec get-predicted-path-with-http-info any?
   "Get Tracking Path
   Get the path (lat/long coordinates) between 2 steps previously logged for a customer."
-  [version float?, accountId int?, startStepId int?, endStepId int?]
-  (check-required-params version accountId startStepId endStepId)
-  (call-api "/api/{version}/tracking/path/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, startStepId int?, endStepId int?]
+  (check-required-params accountId startStepId endStepId)
+  (call-api "/tracking/path/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "startStepId" startStepId "endStepId" endStepId }
              :form-params   {}
@@ -419,8 +419,8 @@
 (defn-spec get-predicted-path (s/coll-of step-response-spec)
   "Get Tracking Path
   Get the path (lat/long coordinates) between 2 steps previously logged for a customer."
-  [version float?, accountId int?, startStepId int?, endStepId int?]
-  (let [res (:data (get-predicted-path-with-http-info version accountId startStepId endStepId))]
+  [accountId int?, startStepId int?, endStepId int?]
+  (let [res (:data (get-predicted-path-with-http-info accountId startStepId endStepId))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of step-response-spec) res st/string-transformer)
        res)))
@@ -429,11 +429,11 @@
 (defn-spec get-preferred-locations-with-http-info any?
   "Search Preferred Locations
   Search on preferred locations for a user, which is created when a customer resides in a place for a period of time."
-  ([version float?, accountId int?, ] (get-preferred-locations-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [latitude longitude dateCheck hourCheck sortField descending start limit searchRange distanceUnit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/tracking/preferred/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-preferred-locations-with-http-info accountId nil))
+  ([accountId int?, {:keys [latitude longitude dateCheck hourCheck sortField descending start limit searchRange distanceUnit]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/tracking/preferred/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "latitude" latitude "longitude" longitude "dateCheck" dateCheck "hourCheck" hourCheck "sortField" sortField "descending" descending "start" start "limit" limit "searchRange" searchRange "distanceUnit" distanceUnit }
               :form-params   {}
@@ -444,9 +444,9 @@
 (defn-spec get-preferred-locations (s/coll-of preferred-location-response-spec)
   "Search Preferred Locations
   Search on preferred locations for a user, which is created when a customer resides in a place for a period of time."
-  ([version float?, accountId int?, ] (get-preferred-locations version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-preferred-locations-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-preferred-locations accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-preferred-locations-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of preferred-location-response-spec) res st/string-transformer)
         res))))
@@ -455,11 +455,10 @@
 (defn-spec get-tracking-legs-with-http-info any?
   "Search Tracking
   Retrieve tracking data to be able to show where a user has been."
-  ([version float?, ] (get-tracking-legs-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId ownerId trackingDeviceId startDate endDate tags getLastPoint]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/tracking/search" :get
-             {:path-params   {"version" version }
+  ([] (get-tracking-legs-with-http-info nil))
+  ([{:keys [deviceId accountId ownerId trackingDeviceId startDate endDate tags getLastPoint]} (s/map-of keyword? any?)]
+   (call-api "/tracking/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "ownerId" ownerId "trackingDeviceId" trackingDeviceId "startDate" startDate "endDate" endDate "tags" tags "getLastPoint" getLastPoint }
               :form-params   {}
@@ -470,9 +469,9 @@
 (defn-spec get-tracking-legs (s/coll-of leg-response-spec)
   "Search Tracking
   Retrieve tracking data to be able to show where a user has been."
-  ([version float?, ] (get-tracking-legs version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-tracking-legs-with-http-info version optional-params))]
+  ([] (get-tracking-legs nil))
+  ([optional-params any?]
+   (let [res (:data (get-tracking-legs-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of leg-response-spec) res st/string-transformer)
         res))))
@@ -481,11 +480,11 @@
 (defn-spec save-tracking-leg-with-http-info any?
   "Create Tracking Leg
   Send tracking points to be able to generate pathing data"
-  ([version float?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-leg-with-http-info version startLat startLng startDate endLat endLng endDate nil))
-  ([version float?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, {:keys [deviceId accountId distance duration steps tags]} (s/map-of keyword? any?)]
-   (check-required-params version startLat startLng startDate endLat endLng endDate)
-   (call-api "/api/{version}/tracking/leg/create" :post
-             {:path-params   {"version" version }
+  ([startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-leg-with-http-info startLat startLng startDate endLat endLng endDate nil))
+  ([startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, {:keys [deviceId accountId distance duration steps tags]} (s/map-of keyword? any?)]
+   (check-required-params startLat startLng startDate endLat endLng endDate)
+   (call-api "/tracking/leg/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "distance" distance "duration" duration "startLat" startLat "startLng" startLng "startDate" startDate "endLat" endLat "endLng" endLng "endDate" endDate "steps" steps "tags" tags }
               :form-params   {}
@@ -496,9 +495,9 @@
 (defn-spec save-tracking-leg sirqul-response-spec
   "Create Tracking Leg
   Send tracking points to be able to generate pathing data"
-  ([version float?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-leg version startLat startLng startDate endLat endLng endDate nil))
-  ([version float?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, optional-params any?]
-   (let [res (:data (save-tracking-leg-with-http-info version startLat startLng startDate endLat endLng endDate optional-params))]
+  ([startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-leg startLat startLng startDate endLat endLng endDate nil))
+  ([startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, optional-params any?]
+   (let [res (:data (save-tracking-leg-with-http-info startLat startLng startDate endLat endLng endDate optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -507,11 +506,11 @@
 (defn-spec save-tracking-step-with-http-info any?
   "Create Tracking Step
   Send tracking points to be able to generate pathing data"
-  ([version float?, legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-step-with-http-info version legId startLat startLng startDate endLat endLng endDate nil))
-  ([version float?, legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, {:keys [deviceId accountId distance duration]} (s/map-of keyword? any?)]
-   (check-required-params version legId startLat startLng startDate endLat endLng endDate)
-   (call-api "/api/{version}/tracking/step/create" :post
-             {:path-params   {"version" version }
+  ([legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-step-with-http-info legId startLat startLng startDate endLat endLng endDate nil))
+  ([legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, {:keys [deviceId accountId distance duration]} (s/map-of keyword? any?)]
+   (check-required-params legId startLat startLng startDate endLat endLng endDate)
+   (call-api "/tracking/step/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "legId" legId "distance" distance "duration" duration "startLat" startLat "startLng" startLng "startDate" startDate "endLat" endLat "endLng" endLng "endDate" endDate }
               :form-params   {}
@@ -522,9 +521,9 @@
 (defn-spec save-tracking-step sirqul-response-spec
   "Create Tracking Step
   Send tracking points to be able to generate pathing data"
-  ([version float?, legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-step version legId startLat startLng startDate endLat endLng endDate nil))
-  ([version float?, legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, optional-params any?]
-   (let [res (:data (save-tracking-step-with-http-info version legId startLat startLng startDate endLat endLng endDate optional-params))]
+  ([legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, ] (save-tracking-step legId startLat startLng startDate endLat endLng endDate nil))
+  ([legId int?, startLat float?, startLng float?, startDate int?, endLat float?, endLng float?, endDate int?, optional-params any?]
+   (let [res (:data (save-tracking-step-with-http-info legId startLat startLng startDate endLat endLng endDate optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -533,11 +532,11 @@
 (defn-spec search-accounts-with-tracking-legs-with-http-info any?
   "List Tracking
   Search for all accounts that have tracking legs data by the given constraints."
-  ([version float?, accountId int?, ] (search-accounts-with-tracking-legs-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [keyword startDate endDate tags audienceIds latitude longitude range sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/tracking/list" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-accounts-with-tracking-legs-with-http-info accountId nil))
+  ([accountId int?, {:keys [keyword startDate endDate tags audienceIds latitude longitude range sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/tracking/list" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "startDate" startDate "endDate" endDate "tags" tags "audienceIds" audienceIds "latitude" latitude "longitude" longitude "range" range "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -548,9 +547,9 @@
 (defn-spec search-accounts-with-tracking-legs (s/coll-of account-mini-response-spec)
   "List Tracking
   Search for all accounts that have tracking legs data by the given constraints."
-  ([version float?, accountId int?, ] (search-accounts-with-tracking-legs version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-accounts-with-tracking-legs-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-accounts-with-tracking-legs accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-accounts-with-tracking-legs-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of account-mini-response-spec) res st/string-transformer)
         res))))
@@ -559,11 +558,11 @@
 (defn-spec search-tracking-legs-with-http-info any?
   "Search Tracking (Billable)
   Retrieve tracking data for billable/account scoped queries."
-  ([version float?, accountId int?, appKey string?, ] (search-tracking-legs-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [trackingDeviceId startDate endDate tags start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/tracking/searchByBillable" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (search-tracking-legs-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [trackingDeviceId startDate endDate tags start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/tracking/searchByBillable" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "trackingDeviceId" trackingDeviceId "startDate" startDate "endDate" endDate "tags" tags "start" start "limit" limit }
               :form-params   {}
@@ -574,9 +573,9 @@
 (defn-spec search-tracking-legs (s/coll-of leg-response-spec)
   "Search Tracking (Billable)
   Retrieve tracking data for billable/account scoped queries."
-  ([version float?, accountId int?, appKey string?, ] (search-tracking-legs version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (search-tracking-legs-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (search-tracking-legs accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (search-tracking-legs-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of leg-response-spec) res st/string-transformer)
         res))))

@@ -353,11 +353,10 @@
 (defn-spec get-ticket-count-with-http-info any?
   "Get Ticket Count
   Gets the ticket count."
-  ([version float?, ] (get-ticket-count-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId gameType appKey ticketType]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/ticket/count" :get
-             {:path-params   {"version" version }
+  ([] (get-ticket-count-with-http-info nil))
+  ([{:keys [deviceId accountId gameType appKey ticketType]} (s/map-of keyword? any?)]
+   (call-api "/ticket/count" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "appKey" appKey "ticketType" ticketType }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec get-ticket-count count-response-spec
   "Get Ticket Count
   Gets the ticket count."
-  ([version float?, ] (get-ticket-count version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-ticket-count-with-http-info version optional-params))]
+  ([] (get-ticket-count nil))
+  ([optional-params any?]
+   (let [res (:data (get-ticket-count-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode count-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,10 @@
 (defn-spec get-ticket-list-with-http-info any?
   "Get Ticket List
   Gets the list of tickets."
-  ([version float?, ] (get-ticket-list-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId ticketObjectType actionType ticketIds objectIds receiptTokens gameType appKey]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/ticket/getList" :get
-             {:path-params   {"version" version }
+  ([] (get-ticket-list-with-http-info nil))
+  ([{:keys [deviceId accountId ticketObjectType actionType ticketIds objectIds receiptTokens gameType appKey]} (s/map-of keyword? any?)]
+   (call-api "/ticket/getList" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "ticketObjectType" ticketObjectType "actionType" actionType "ticketIds" ticketIds "objectIds" objectIds "receiptTokens" receiptTokens "gameType" gameType "appKey" appKey }
               :form-params   {}
@@ -394,9 +392,9 @@
 (defn-spec get-ticket-list ticket-list-response-spec
   "Get Ticket List
   Gets the list of tickets."
-  ([version float?, ] (get-ticket-list version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-ticket-list-with-http-info version optional-params))]
+  ([] (get-ticket-list nil))
+  ([optional-params any?]
+   (let [res (:data (get-ticket-list-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode ticket-list-response-spec res st/string-transformer)
         res))))
@@ -405,11 +403,11 @@
 (defn-spec gift-purchase-with-http-info any?
   "Gift Tickets
   Gift tickets to another user."
-  ([version float?, receiverAccountId int?, ticketId int?, ] (gift-purchase-with-http-info version receiverAccountId ticketId nil))
-  ([version float?, receiverAccountId int?, ticketId int?, {:keys [deviceId accountId assetId customMessage gameType appKey]} (s/map-of keyword? any?)]
-   (check-required-params version receiverAccountId ticketId)
-   (call-api "/api/{version}/purchase/gift" :post
-             {:path-params   {"version" version }
+  ([receiverAccountId int?, ticketId int?, ] (gift-purchase-with-http-info receiverAccountId ticketId nil))
+  ([receiverAccountId int?, ticketId int?, {:keys [deviceId accountId assetId customMessage gameType appKey]} (s/map-of keyword? any?)]
+   (check-required-params receiverAccountId ticketId)
+   (call-api "/purchase/gift" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "receiverAccountId" receiverAccountId "ticketId" ticketId "assetId" assetId "customMessage" customMessage "gameType" gameType "appKey" appKey }
               :form-params   {}
@@ -420,9 +418,9 @@
 (defn-spec gift-purchase sirqul-response-spec
   "Gift Tickets
   Gift tickets to another user."
-  ([version float?, receiverAccountId int?, ticketId int?, ] (gift-purchase version receiverAccountId ticketId nil))
-  ([version float?, receiverAccountId int?, ticketId int?, optional-params any?]
-   (let [res (:data (gift-purchase-with-http-info version receiverAccountId ticketId optional-params))]
+  ([receiverAccountId int?, ticketId int?, ] (gift-purchase receiverAccountId ticketId nil))
+  ([receiverAccountId int?, ticketId int?, optional-params any?]
+   (let [res (:data (gift-purchase-with-http-info receiverAccountId ticketId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -431,11 +429,11 @@
 (defn-spec save-ticket-with-http-info any?
   "Save Ticket
   Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system."
-  ([version float?, actionType string?, ticketObjectType string?, ] (save-ticket-with-http-info version actionType ticketObjectType nil))
-  ([version float?, actionType string?, ticketObjectType string?, {:keys [returnNulls deviceId accountId gameType appKey objectId purchaseCode receiptToken receiptData count ticketType purchaseProvider purchaseType returnProfileResponse includeProfileResponse appVersion]} (s/map-of keyword? any?)]
-   (check-required-params version actionType ticketObjectType)
-   (call-api "/api/{version}/ticket/save" :post
-             {:path-params   {"version" version }
+  ([actionType string?, ticketObjectType string?, ] (save-ticket-with-http-info actionType ticketObjectType nil))
+  ([actionType string?, ticketObjectType string?, {:keys [returnNulls deviceId accountId gameType appKey objectId purchaseCode receiptToken receiptData count ticketType purchaseProvider purchaseType returnProfileResponse includeProfileResponse appVersion]} (s/map-of keyword? any?)]
+   (check-required-params actionType ticketObjectType)
+   (call-api "/ticket/save" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "gameType" gameType "appKey" appKey "actionType" actionType "ticketObjectType" ticketObjectType "objectId" objectId "purchaseCode" purchaseCode "receiptToken" receiptToken "receiptData" receiptData "count" count "ticketType" ticketType "purchaseProvider" purchaseProvider "purchaseType" purchaseType "returnProfileResponse" returnProfileResponse "includeProfileResponse" includeProfileResponse "appVersion" appVersion }
               :form-params   {}
@@ -446,9 +444,9 @@
 (defn-spec save-ticket profile-response-spec
   "Save Ticket
   Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system."
-  ([version float?, actionType string?, ticketObjectType string?, ] (save-ticket version actionType ticketObjectType nil))
-  ([version float?, actionType string?, ticketObjectType string?, optional-params any?]
-   (let [res (:data (save-ticket-with-http-info version actionType ticketObjectType optional-params))]
+  ([actionType string?, ticketObjectType string?, ] (save-ticket actionType ticketObjectType nil))
+  ([actionType string?, ticketObjectType string?, optional-params any?]
+   (let [res (:data (save-ticket-with-http-info actionType ticketObjectType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -457,11 +455,11 @@
 (defn-spec save-ticket-via-file-upload-with-http-info any?
   "Save Ticket with Reciept
   Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post"
-  ([version float?, actionType string?, ticketObjectType string?, ^File receiptData any?, ] (save-ticket-via-file-upload-with-http-info version actionType ticketObjectType receiptData nil))
-  ([version float?, actionType string?, ticketObjectType string?, ^File receiptData any?, {:keys [returnNulls deviceId accountId gameType appKey objectId purchaseCode receiptToken count ticketType purchaseProvider purchaseType returnProfileResponse includeProfileResponse appVersion]} (s/map-of keyword? any?)]
-   (check-required-params version actionType ticketObjectType receiptData)
-   (call-api "/api/{version}/ticket/save/fileUpload" :post
-             {:path-params   {"version" version }
+  ([actionType string?, ticketObjectType string?, ^File receiptData any?, ] (save-ticket-via-file-upload-with-http-info actionType ticketObjectType receiptData nil))
+  ([actionType string?, ticketObjectType string?, ^File receiptData any?, {:keys [returnNulls deviceId accountId gameType appKey objectId purchaseCode receiptToken count ticketType purchaseProvider purchaseType returnProfileResponse includeProfileResponse appVersion]} (s/map-of keyword? any?)]
+   (check-required-params actionType ticketObjectType receiptData)
+   (call-api "/ticket/save/fileUpload" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "gameType" gameType "appKey" appKey "actionType" actionType "ticketObjectType" ticketObjectType "objectId" objectId "purchaseCode" purchaseCode "receiptToken" receiptToken "receiptData" receiptData "count" count "ticketType" ticketType "purchaseProvider" purchaseProvider "purchaseType" purchaseType "returnProfileResponse" returnProfileResponse "includeProfileResponse" includeProfileResponse "appVersion" appVersion }
               :form-params   {}
@@ -472,9 +470,9 @@
 (defn-spec save-ticket-via-file-upload profile-response-spec
   "Save Ticket with Reciept
   Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post"
-  ([version float?, actionType string?, ticketObjectType string?, ^File receiptData any?, ] (save-ticket-via-file-upload version actionType ticketObjectType receiptData nil))
-  ([version float?, actionType string?, ticketObjectType string?, ^File receiptData any?, optional-params any?]
-   (let [res (:data (save-ticket-via-file-upload-with-http-info version actionType ticketObjectType receiptData optional-params))]
+  ([actionType string?, ticketObjectType string?, ^File receiptData any?, ] (save-ticket-via-file-upload actionType ticketObjectType receiptData nil))
+  ([actionType string?, ticketObjectType string?, ^File receiptData any?, optional-params any?]
+   (let [res (:data (save-ticket-via-file-upload-with-http-info actionType ticketObjectType receiptData optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -483,10 +481,9 @@
 (defn-spec ticket-offers-with-http-info any?
   "Get Ticket Offers
   Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer."
-  [version float?]
-  (check-required-params version)
-  (call-api "/api/{version}/ticket/ticketoffers" :get
-            {:path-params   {"version" version }
+  []
+  (call-api "/ticket/ticketoffers" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -497,8 +494,8 @@
 (defn-spec ticket-offers ticket-offer-response-spec
   "Get Ticket Offers
   Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer."
-  [version float?]
-  (let [res (:data (ticket-offers-with-http-info version))]
+  []
+  (let [res (:data (ticket-offers-with-http-info))]
     (if (:decode-models *api-context*)
        (st/decode ticket-offer-response-spec res st/string-transformer)
        res)))

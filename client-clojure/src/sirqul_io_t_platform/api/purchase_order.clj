@@ -353,11 +353,11 @@
 (defn-spec create-order-with-http-info any?
   "Create Order
   Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created"
-  ([version float?, appKey string?, cart string?, ] (create-order-with-http-info version appKey cart nil))
-  ([version float?, appKey string?, cart string?, {:keys [deviceId accountId description currencyType paymentMethodId externalOrderId externalPaymentId remoteRefType externalDate promoCode]} (s/map-of keyword? any?)]
-   (check-required-params version appKey cart)
-   (call-api "/api/{version}/order/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, cart string?, ] (create-order-with-http-info appKey cart nil))
+  ([appKey string?, cart string?, {:keys [deviceId accountId description currencyType paymentMethodId externalOrderId externalPaymentId remoteRefType externalDate promoCode]} (s/map-of keyword? any?)]
+   (check-required-params appKey cart)
+   (call-api "/order/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "description" description "currencyType" currencyType "cart" cart "paymentMethodId" paymentMethodId "externalOrderId" externalOrderId "externalPaymentId" externalPaymentId "remoteRefType" remoteRefType "externalDate" externalDate "promoCode" promoCode }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-order order-response-spec
   "Create Order
   Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created"
-  ([version float?, appKey string?, cart string?, ] (create-order version appKey cart nil))
-  ([version float?, appKey string?, cart string?, optional-params any?]
-   (let [res (:data (create-order-with-http-info version appKey cart optional-params))]
+  ([appKey string?, cart string?, ] (create-order appKey cart nil))
+  ([appKey string?, cart string?, optional-params any?]
+   (let [res (:data (create-order-with-http-info appKey cart optional-params))]
      (if (:decode-models *api-context*)
         (st/decode order-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec delete-order-with-http-info any?
   "Delete Order
   Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId."
-  ([version float?, orderId int?, ] (delete-order-with-http-info version orderId nil))
-  ([version float?, orderId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version orderId)
-   (call-api "/api/{version}/order/delete" :post
-             {:path-params   {"version" version }
+  ([orderId int?, ] (delete-order-with-http-info orderId nil))
+  ([orderId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params orderId)
+   (call-api "/order/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "orderId" orderId }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec delete-order sirqul-response-spec
   "Delete Order
   Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId."
-  ([version float?, orderId int?, ] (delete-order version orderId nil))
-  ([version float?, orderId int?, optional-params any?]
-   (let [res (:data (delete-order-with-http-info version orderId optional-params))]
+  ([orderId int?, ] (delete-order orderId nil))
+  ([orderId int?, optional-params any?]
+   (let [res (:data (delete-order-with-http-info orderId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,10 @@
 (defn-spec get-order-with-http-info any?
   "Get Order
   Get an order record"
-  ([version float?, ] (get-order-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId orderId externalOrderId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/order/get" :get
-             {:path-params   {"version" version }
+  ([] (get-order-with-http-info nil))
+  ([{:keys [deviceId accountId orderId externalOrderId]} (s/map-of keyword? any?)]
+   (call-api "/order/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "orderId" orderId "externalOrderId" externalOrderId }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec get-order order-response-spec
   "Get Order
   Get an order record"
-  ([version float?, ] (get-order version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-order-with-http-info version optional-params))]
+  ([] (get-order nil))
+  ([optional-params any?]
+   (let [res (:data (get-order-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode order-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,11 @@
 (defn-spec preview-order-with-http-info any?
   "Preview Order
   Previews a purchase to see the total cost before making it."
-  ([version float?, appKey string?, cart string?, ] (preview-order-with-http-info version appKey cart nil))
-  ([version float?, appKey string?, cart string?, {:keys [deviceId accountId description currencyType paymentMethodId externalOrderId externalPaymentId remoteRefType externalDate promoCode]} (s/map-of keyword? any?)]
-   (check-required-params version appKey cart)
-   (call-api "/api/{version}/order/preview" :post
-             {:path-params   {"version" version }
+  ([appKey string?, cart string?, ] (preview-order-with-http-info appKey cart nil))
+  ([appKey string?, cart string?, {:keys [deviceId accountId description currencyType paymentMethodId externalOrderId externalPaymentId remoteRefType externalDate promoCode]} (s/map-of keyword? any?)]
+   (check-required-params appKey cart)
+   (call-api "/order/preview" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "description" description "currencyType" currencyType "cart" cart "paymentMethodId" paymentMethodId "externalOrderId" externalOrderId "externalPaymentId" externalPaymentId "remoteRefType" remoteRefType "externalDate" externalDate "promoCode" promoCode }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec preview-order order-response-spec
   "Preview Order
   Previews a purchase to see the total cost before making it."
-  ([version float?, appKey string?, cart string?, ] (preview-order version appKey cart nil))
-  ([version float?, appKey string?, cart string?, optional-params any?]
-   (let [res (:data (preview-order-with-http-info version appKey cart optional-params))]
+  ([appKey string?, cart string?, ] (preview-order appKey cart nil))
+  ([appKey string?, cart string?, optional-params any?]
+   (let [res (:data (preview-order-with-http-info appKey cart optional-params))]
      (if (:decode-models *api-context*)
         (st/decode order-response-spec res st/string-transformer)
         res))))
@@ -457,11 +456,11 @@
 (defn-spec search-orders-with-http-info any?
   "Search Orders
   Search on active orders by customer"
-  ([version float?, appKey string?, ] (search-orders-with-http-info version appKey nil))
-  ([version float?, appKey string?, {:keys [deviceId accountId start limit descending activeOnly ignoreCustomerFilter orderItemTypes orderItemIds orderCustomTypes orderCustomIds sortField offerTypes specialOfferTypes categoryIds filterIds offerAudienceIds transactionAudienceIds offerIds offerLocationIds retailerIds retailerLocationIds statuses keyword redeemableStartDate redeemableEndDate startedSince startedBefore endedSince endedBefore]} (s/map-of keyword? any?)]
-   (check-required-params version appKey)
-   (call-api "/api/{version}/order/search" :get
-             {:path-params   {"version" version }
+  ([appKey string?, ] (search-orders-with-http-info appKey nil))
+  ([appKey string?, {:keys [deviceId accountId start limit descending activeOnly ignoreCustomerFilter orderItemTypes orderItemIds orderCustomTypes orderCustomIds sortField offerTypes specialOfferTypes categoryIds filterIds offerAudienceIds transactionAudienceIds offerIds offerLocationIds retailerIds retailerLocationIds statuses keyword redeemableStartDate redeemableEndDate startedSince startedBefore endedSince endedBefore]} (s/map-of keyword? any?)]
+   (check-required-params appKey)
+   (call-api "/order/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "start" start "limit" limit "descending" descending "activeOnly" activeOnly "ignoreCustomerFilter" ignoreCustomerFilter "orderItemTypes" orderItemTypes "orderItemIds" orderItemIds "orderCustomTypes" orderCustomTypes "orderCustomIds" orderCustomIds "sortField" sortField "offerTypes" offerTypes "specialOfferTypes" specialOfferTypes "categoryIds" categoryIds "filterIds" filterIds "offerAudienceIds" offerAudienceIds "transactionAudienceIds" transactionAudienceIds "offerIds" offerIds "offerLocationIds" offerLocationIds "retailerIds" retailerIds "retailerLocationIds" retailerLocationIds "statuses" statuses "keyword" keyword "redeemableStartDate" redeemableStartDate "redeemableEndDate" redeemableEndDate "startedSince" startedSince "startedBefore" startedBefore "endedSince" endedSince "endedBefore" endedBefore }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec search-orders (s/coll-of order-response-spec)
   "Search Orders
   Search on active orders by customer"
-  ([version float?, appKey string?, ] (search-orders version appKey nil))
-  ([version float?, appKey string?, optional-params any?]
-   (let [res (:data (search-orders-with-http-info version appKey optional-params))]
+  ([appKey string?, ] (search-orders appKey nil))
+  ([appKey string?, optional-params any?]
+   (let [res (:data (search-orders-with-http-info appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of order-response-spec) res st/string-transformer)
         res))))
@@ -483,11 +482,11 @@
 (defn-spec update-order-with-http-info any?
   "Update Order
   Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it."
-  ([version float?, orderId int?, appKey string?, cart string?, ] (update-order-with-http-info version orderId appKey cart nil))
-  ([version float?, orderId int?, appKey string?, cart string?, {:keys [deviceId accountId paymentTransactionId description currencyType paymentMethodId externalPaymentId externalDate]} (s/map-of keyword? any?)]
-   (check-required-params version orderId appKey cart)
-   (call-api "/api/{version}/order/update" :post
-             {:path-params   {"version" version }
+  ([orderId int?, appKey string?, cart string?, ] (update-order-with-http-info orderId appKey cart nil))
+  ([orderId int?, appKey string?, cart string?, {:keys [deviceId accountId paymentTransactionId description currencyType paymentMethodId externalPaymentId externalDate]} (s/map-of keyword? any?)]
+   (check-required-params orderId appKey cart)
+   (call-api "/order/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "orderId" orderId "paymentTransactionId" paymentTransactionId "appKey" appKey "description" description "currencyType" currencyType "cart" cart "paymentMethodId" paymentMethodId "externalPaymentId" externalPaymentId "externalDate" externalDate }
               :form-params   {}
@@ -498,9 +497,9 @@
 (defn-spec update-order order-response-spec
   "Update Order
   Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it."
-  ([version float?, orderId int?, appKey string?, cart string?, ] (update-order version orderId appKey cart nil))
-  ([version float?, orderId int?, appKey string?, cart string?, optional-params any?]
-   (let [res (:data (update-order-with-http-info version orderId appKey cart optional-params))]
+  ([orderId int?, appKey string?, cart string?, ] (update-order orderId appKey cart nil))
+  ([orderId int?, appKey string?, cart string?, optional-params any?]
+   (let [res (:data (update-order-with-http-info orderId appKey cart optional-params))]
      (if (:decode-models *api-context*)
         (st/decode order-response-spec res st/string-transformer)
         res))))

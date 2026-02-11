@@ -353,11 +353,11 @@
 (defn-spec image-generation-with-http-info any?
   "Generate images with OpenAI
   Generate images with OpenAI."
-  ([version float?, accountId int?, postBody string?, ] (image-generation-with-http-info version accountId postBody nil))
-  ([version float?, accountId int?, postBody string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId postBody)
-   (call-api "/api/{version}/openai/v1/images/generations" :post
-             {:path-params   {"version" version }
+  ([accountId int?, postBody string?, ] (image-generation-with-http-info accountId postBody nil))
+  ([accountId int?, postBody string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId postBody)
+   (call-api "/openai/v1/images/generations" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "postBody" postBody "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec image-generation wrapped-proxy-item-response-spec
   "Generate images with OpenAI
   Generate images with OpenAI."
-  ([version float?, accountId int?, postBody string?, ] (image-generation version accountId postBody nil))
-  ([version float?, accountId int?, postBody string?, optional-params any?]
-   (let [res (:data (image-generation-with-http-info version accountId postBody optional-params))]
+  ([accountId int?, postBody string?, ] (image-generation accountId postBody nil))
+  ([accountId int?, postBody string?, optional-params any?]
+   (let [res (:data (image-generation-with-http-info accountId postBody optional-params))]
      (if (:decode-models *api-context*)
         (st/decode wrapped-proxy-item-response-spec res st/string-transformer)
         res))))

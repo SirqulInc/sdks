@@ -353,11 +353,10 @@
 (defn-spec create-offer-transaction-with-http-info any?
   "Create Wallet Offers
   Adds offers to the wallet"
-  ([version float?, ] (create-offer-transaction-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId offerId offerLocationId offerCart promoCode currencyType usePoints metaData appKey status]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/wallet/create" :post
-             {:path-params   {"version" version }
+  ([] (create-offer-transaction-with-http-info nil))
+  ([{:keys [deviceId accountId offerId offerLocationId offerCart promoCode currencyType usePoints metaData appKey status]} (s/map-of keyword? any?)]
+   (call-api "/wallet/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "offerId" offerId "offerLocationId" offerLocationId "offerCart" offerCart "promoCode" promoCode "currencyType" currencyType "usePoints" usePoints "metaData" metaData "appKey" appKey "status" status }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec create-offer-transaction (s/coll-of offer-transaction-response-spec)
   "Create Wallet Offers
   Adds offers to the wallet"
-  ([version float?, ] (create-offer-transaction version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-offer-transaction-with-http-info version optional-params))]
+  ([] (create-offer-transaction nil))
+  ([optional-params any?]
+   (let [res (:data (create-offer-transaction-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of offer-transaction-response-spec) res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec delete-offer-transaction-with-http-info any?
   "Delete Wallet Offer
   Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId."
-  ([version float?, transactionId int?, ] (delete-offer-transaction-with-http-info version transactionId nil))
-  ([version float?, transactionId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version transactionId)
-   (call-api "/api/{version}/wallet/delete" :post
-             {:path-params   {"version" version }
+  ([transactionId int?, ] (delete-offer-transaction-with-http-info transactionId nil))
+  ([transactionId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params transactionId)
+   (call-api "/wallet/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "transactionId" transactionId }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec delete-offer-transaction sirqul-response-spec
   "Delete Wallet Offer
   Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId."
-  ([version float?, transactionId int?, ] (delete-offer-transaction version transactionId nil))
-  ([version float?, transactionId int?, optional-params any?]
-   (let [res (:data (delete-offer-transaction-with-http-info version transactionId optional-params))]
+  ([transactionId int?, ] (delete-offer-transaction transactionId nil))
+  ([transactionId int?, optional-params any?]
+   (let [res (:data (delete-offer-transaction-with-http-info transactionId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -404,11 +403,11 @@
 
 (defn-spec get-offer-transaction-with-http-info any?
   "Get Wallet Offer"
-  ([version float?, transactionId int?, ] (get-offer-transaction-with-http-info version transactionId nil))
-  ([version float?, transactionId int?, {:keys [deviceId accountId includeMission latitude longitude returnFullResponse]} (s/map-of keyword? any?)]
-   (check-required-params version transactionId)
-   (call-api "/api/{version}/wallet/get" :get
-             {:path-params   {"version" version }
+  ([transactionId int?, ] (get-offer-transaction-with-http-info transactionId nil))
+  ([transactionId int?, {:keys [deviceId accountId includeMission latitude longitude returnFullResponse]} (s/map-of keyword? any?)]
+   (check-required-params transactionId)
+   (call-api "/wallet/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "transactionId" transactionId "includeMission" includeMission "latitude" latitude "longitude" longitude "returnFullResponse" returnFullResponse }
               :form-params   {}
@@ -418,9 +417,9 @@
 
 (defn-spec get-offer-transaction offer-transaction-response-spec
   "Get Wallet Offer"
-  ([version float?, transactionId int?, ] (get-offer-transaction version transactionId nil))
-  ([version float?, transactionId int?, optional-params any?]
-   (let [res (:data (get-offer-transaction-with-http-info version transactionId optional-params))]
+  ([transactionId int?, ] (get-offer-transaction transactionId nil))
+  ([transactionId int?, optional-params any?]
+   (let [res (:data (get-offer-transaction-with-http-info transactionId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-transaction-response-spec res st/string-transformer)
         res))))
@@ -429,11 +428,10 @@
 (defn-spec preview-offer-transaction-with-http-info any?
   "Preview Wallet Offers
   Preview the final cost of a transaction without charging the user"
-  ([version float?, ] (preview-offer-transaction-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId offerId offerLocationId offerCart promoCode currencyType usePoints metaData appKey]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/wallet/preview" :post
-             {:path-params   {"version" version }
+  ([] (preview-offer-transaction-with-http-info nil))
+  ([{:keys [deviceId accountId offerId offerLocationId offerCart promoCode currencyType usePoints metaData appKey]} (s/map-of keyword? any?)]
+   (call-api "/wallet/preview" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "offerId" offerId "offerLocationId" offerLocationId "offerCart" offerCart "promoCode" promoCode "currencyType" currencyType "usePoints" usePoints "metaData" metaData "appKey" appKey }
               :form-params   {}
@@ -444,9 +442,9 @@
 (defn-spec preview-offer-transaction (s/coll-of offer-transaction-response-spec)
   "Preview Wallet Offers
   Preview the final cost of a transaction without charging the user"
-  ([version float?, ] (preview-offer-transaction version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (preview-offer-transaction-with-http-info version optional-params))]
+  ([] (preview-offer-transaction nil))
+  ([optional-params any?]
+   (let [res (:data (preview-offer-transaction-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of offer-transaction-response-spec) res st/string-transformer)
         res))))
@@ -455,11 +453,10 @@
 (defn-spec search-offer-transactions-with-http-info any?
   "Search Wallet Offers
   Search on active offers currently in the user's wallet, or past offers the user has already redeemed."
-  ([version float?, ] (search-offer-transactions-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId keyword retailerId retailerIds retailerLocationId retailerLocationIds excludeRetailerLocationIds offerId offerIds offerLocationId offerLocationIds offerType offerTypes specialOfferType specialOfferTypes categoryIds filterIds offerAudienceIds sortField descending start limit latitude longitude redeemableStartDate redeemableEndDate filterByParentOffer startedSince startedBefore endedSince endedBefore redeemed statuses reservationsOnly activeOnly returnFullResponse recurringStartedSince recurringStartedBefore recurringExpirationSince recurringExpirationBefore]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/wallet/search" :get
-             {:path-params   {"version" version }
+  ([] (search-offer-transactions-with-http-info nil))
+  ([{:keys [deviceId accountId keyword retailerId retailerIds retailerLocationId retailerLocationIds excludeRetailerLocationIds offerId offerIds offerLocationId offerLocationIds offerType offerTypes specialOfferType specialOfferTypes categoryIds filterIds offerAudienceIds sortField descending start limit latitude longitude redeemableStartDate redeemableEndDate filterByParentOffer startedSince startedBefore endedSince endedBefore redeemed statuses reservationsOnly activeOnly returnFullResponse recurringStartedSince recurringStartedBefore recurringExpirationSince recurringExpirationBefore]} (s/map-of keyword? any?)]
+   (call-api "/wallet/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "keyword" keyword "retailerId" retailerId "retailerIds" retailerIds "retailerLocationId" retailerLocationId "retailerLocationIds" retailerLocationIds "excludeRetailerLocationIds" excludeRetailerLocationIds "offerId" offerId "offerIds" offerIds "offerLocationId" offerLocationId "offerLocationIds" offerLocationIds "offerType" offerType "offerTypes" offerTypes "specialOfferType" specialOfferType "specialOfferTypes" specialOfferTypes "categoryIds" categoryIds "filterIds" filterIds "offerAudienceIds" offerAudienceIds "sortField" sortField "descending" descending "start" start "limit" limit "latitude" latitude "longitude" longitude "redeemableStartDate" redeemableStartDate "redeemableEndDate" redeemableEndDate "filterByParentOffer" filterByParentOffer "startedSince" startedSince "startedBefore" startedBefore "endedSince" endedSince "endedBefore" endedBefore "redeemed" redeemed "statuses" statuses "reservationsOnly" reservationsOnly "activeOnly" activeOnly "returnFullResponse" returnFullResponse "recurringStartedSince" recurringStartedSince "recurringStartedBefore" recurringStartedBefore "recurringExpirationSince" recurringExpirationSince "recurringExpirationBefore" recurringExpirationBefore }
               :form-params   {}
@@ -470,9 +467,9 @@
 (defn-spec search-offer-transactions (s/coll-of offer-transaction-response-spec)
   "Search Wallet Offers
   Search on active offers currently in the user's wallet, or past offers the user has already redeemed."
-  ([version float?, ] (search-offer-transactions version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-offer-transactions-with-http-info version optional-params))]
+  ([] (search-offer-transactions nil))
+  ([optional-params any?]
+   (let [res (:data (search-offer-transactions-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of offer-transaction-response-spec) res st/string-transformer)
         res))))
@@ -487,11 +484,11 @@ Not redeemable means the customer has received the offer but has not decided to 
 Redeemable means the customer has chosen to use the offer and wishes to redeem it.
 
 Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point."
-  ([version float?, transactionId int?, status int?, ] (update-offer-transaction-with-http-info version transactionId status nil))
-  ([version float?, transactionId int?, status int?, {:keys [deviceId accountId offerLocationId currencyType usePoints appKey latitude longitude metaData returnFullResponse exceptionMembershipOfferIds]} (s/map-of keyword? any?)]
-   (check-required-params version transactionId status)
-   (call-api "/api/{version}/wallet/update" :post
-             {:path-params   {"version" version }
+  ([transactionId int?, status int?, ] (update-offer-transaction-with-http-info transactionId status nil))
+  ([transactionId int?, status int?, {:keys [deviceId accountId offerLocationId currencyType usePoints appKey latitude longitude metaData returnFullResponse exceptionMembershipOfferIds]} (s/map-of keyword? any?)]
+   (check-required-params transactionId status)
+   (call-api "/wallet/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "transactionId" transactionId "offerLocationId" offerLocationId "currencyType" currencyType "usePoints" usePoints "appKey" appKey "status" status "latitude" latitude "longitude" longitude "metaData" metaData "returnFullResponse" returnFullResponse "exceptionMembershipOfferIds" exceptionMembershipOfferIds }
               :form-params   {}
@@ -508,9 +505,9 @@ Not redeemable means the customer has received the offer but has not decided to 
 Redeemable means the customer has chosen to use the offer and wishes to redeem it.
 
 Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point."
-  ([version float?, transactionId int?, status int?, ] (update-offer-transaction version transactionId status nil))
-  ([version float?, transactionId int?, status int?, optional-params any?]
-   (let [res (:data (update-offer-transaction-with-http-info version transactionId status optional-params))]
+  ([transactionId int?, status int?, ] (update-offer-transaction transactionId status nil))
+  ([transactionId int?, status int?, optional-params any?]
+   (let [res (:data (update-offer-transaction-with-http-info transactionId status optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-transaction-response-spec res st/string-transformer)
         res))))

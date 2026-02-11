@@ -353,11 +353,11 @@
 (defn-spec add-or-update-theme-descriptor-with-http-info any?
   "Create/Update Theme
   Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme."
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, ] (add-or-update-theme-descriptor-with-http-info version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues nil))
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, {:keys [deviceId accountId gameType themeDescriptorId title description connectionIdsToAdd connectionGroupIdsToAdd appVersion colorValueJson stringReplacerJson customJsonObjects ^File iconImage ^File sceneAtlasImage ^File bgImage ^File bgSound musicSelection locationDescription latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues)
-   (call-api "/api/{version}/consumer/theme" :post
-             {:path-params   {"version" version }
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, ] (add-or-update-theme-descriptor-with-http-info publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues nil))
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, {:keys [deviceId accountId gameType themeDescriptorId title description connectionIdsToAdd connectionGroupIdsToAdd appVersion colorValueJson stringReplacerJson customJsonObjects ^File iconImage ^File sceneAtlasImage ^File bgImage ^File bgSound musicSelection locationDescription latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues)
+   (call-api "/consumer/theme" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "themeDescriptorId" themeDescriptorId "title" title "description" description "publicRead" publicRead "publicWrite" publicWrite "publicDelete" publicDelete "publicAdd" publicAdd "visibility" visibility "connectionIdsToAdd" connectionIdsToAdd "connectionGroupIdsToAdd" connectionGroupIdsToAdd "includeFriendGroup" includeFriendGroup "appVersion" appVersion "colorValueJson" colorValueJson "stringReplacerJson" stringReplacerJson "customJsonObjects" customJsonObjects "iconImage" iconImage "sceneAtlasImage" sceneAtlasImage "bgImage" bgImage "bgSound" bgSound "musicSelection" musicSelection "completeWithDefaultValues" completeWithDefaultValues "locationDescription" locationDescription "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-or-update-theme-descriptor theme-descriptor-response-spec
   "Create/Update Theme
   Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme."
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, ] (add-or-update-theme-descriptor version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues nil))
-  ([version float?, publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, optional-params any?]
-   (let [res (:data (add-or-update-theme-descriptor-with-http-info version publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues optional-params))]
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, ] (add-or-update-theme-descriptor publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues nil))
+  ([publicRead boolean?, publicWrite boolean?, publicDelete boolean?, publicAdd boolean?, visibility string?, includeFriendGroup boolean?, completeWithDefaultValues boolean?, optional-params any?]
+   (let [res (:data (add-or-update-theme-descriptor-with-http-info publicRead publicWrite publicDelete publicAdd visibility includeFriendGroup completeWithDefaultValues optional-params))]
      (if (:decode-models *api-context*)
         (st/decode theme-descriptor-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec get-theme-descriptor-with-http-info any?
   "Get Theme
   Gets a theme."
-  ([version float?, themeDescriptorId int?, ] (get-theme-descriptor-with-http-info version themeDescriptorId nil))
-  ([version float?, themeDescriptorId int?, {:keys [deviceId accountId gameType latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version themeDescriptorId)
-   (call-api "/api/{version}/consumer/theme/get" :get
-             {:path-params   {"version" version }
+  ([themeDescriptorId int?, ] (get-theme-descriptor-with-http-info themeDescriptorId nil))
+  ([themeDescriptorId int?, {:keys [deviceId accountId gameType latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params themeDescriptorId)
+   (call-api "/consumer/theme/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "themeDescriptorId" themeDescriptorId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec get-theme-descriptor purchase-item-list-response-spec
   "Get Theme
   Gets a theme."
-  ([version float?, themeDescriptorId int?, ] (get-theme-descriptor version themeDescriptorId nil))
-  ([version float?, themeDescriptorId int?, optional-params any?]
-   (let [res (:data (get-theme-descriptor-with-http-info version themeDescriptorId optional-params))]
+  ([themeDescriptorId int?, ] (get-theme-descriptor themeDescriptorId nil))
+  ([themeDescriptorId int?, optional-params any?]
+   (let [res (:data (get-theme-descriptor-with-http-info themeDescriptorId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode purchase-item-list-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec get-theme-descriptors-with-http-info any?
   "Search Themes
   Searches for themes."
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-theme-descriptors-with-http-info version filter sortField descending start limit nil))
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, {:keys [deviceId accountId gameType contestType ownerId q keyword _i _l dateCreated appVersion latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version filter sortField descending start limit)
-   (call-api "/api/{version}/consumer/theme/search" :get
-             {:path-params   {"version" version }
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-theme-descriptors-with-http-info filter sortField descending start limit nil))
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, {:keys [deviceId accountId gameType contestType ownerId q keyword _i _l dateCreated appVersion latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params filter sortField descending start limit)
+   (call-api "/consumer/theme/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "contestType" contestType "ownerId" ownerId "q" q "keyword" keyword "filter" filter "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "dateCreated" dateCreated "appVersion" appVersion "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec get-theme-descriptors purchase-item-list-response-spec
   "Search Themes
   Searches for themes."
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-theme-descriptors version filter sortField descending start limit nil))
-  ([version float?, filter string?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (get-theme-descriptors-with-http-info version filter sortField descending start limit optional-params))]
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, ] (get-theme-descriptors filter sortField descending start limit nil))
+  ([filter string?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (get-theme-descriptors-with-http-info filter sortField descending start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode purchase-item-list-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec remove-theme-descriptor-with-http-info any?
   "Delete Theme
   Removes a theme."
-  ([version float?, themeDescriptorId int?, ] (remove-theme-descriptor-with-http-info version themeDescriptorId nil))
-  ([version float?, themeDescriptorId int?, {:keys [deviceId accountId gameType latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version themeDescriptorId)
-   (call-api "/api/{version}/consumer/theme/remove" :post
-             {:path-params   {"version" version }
+  ([themeDescriptorId int?, ] (remove-theme-descriptor-with-http-info themeDescriptorId nil))
+  ([themeDescriptorId int?, {:keys [deviceId accountId gameType latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params themeDescriptorId)
+   (call-api "/consumer/theme/remove" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "themeDescriptorId" themeDescriptorId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec remove-theme-descriptor sirqul-response-spec
   "Delete Theme
   Removes a theme."
-  ([version float?, themeDescriptorId int?, ] (remove-theme-descriptor version themeDescriptorId nil))
-  ([version float?, themeDescriptorId int?, optional-params any?]
-   (let [res (:data (remove-theme-descriptor-with-http-info version themeDescriptorId optional-params))]
+  ([themeDescriptorId int?, ] (remove-theme-descriptor themeDescriptorId nil))
+  ([themeDescriptorId int?, optional-params any?]
+   (let [res (:data (remove-theme-descriptor-with-http-info themeDescriptorId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

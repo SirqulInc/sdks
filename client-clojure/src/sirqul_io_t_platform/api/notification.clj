@@ -353,11 +353,11 @@
 (defn-spec create-notification-template-with-http-info any?
   "Create Notification Template
   Create a notification template. Developers will only be able to create notification templates for their own applications."
-  ([version float?, accountId int?, conduit string?, title string?, body string?, ] (create-notification-template-with-http-info version accountId conduit title body nil))
-  ([version float?, accountId int?, conduit string?, title string?, body string?, {:keys [appKey event tags]} (s/map-of keyword? any?)]
-   (check-required-params version accountId conduit title body)
-   (call-api "/api/{version}/notification/template/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, conduit string?, title string?, body string?, ] (create-notification-template-with-http-info accountId conduit title body nil))
+  ([accountId int?, conduit string?, title string?, body string?, {:keys [appKey event tags]} (s/map-of keyword? any?)]
+   (check-required-params accountId conduit title body)
+   (call-api "/notification/template/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "event" event "conduit" conduit "title" title "body" body "tags" tags }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-notification-template notification-template-response-spec
   "Create Notification Template
   Create a notification template. Developers will only be able to create notification templates for their own applications."
-  ([version float?, accountId int?, conduit string?, title string?, body string?, ] (create-notification-template version accountId conduit title body nil))
-  ([version float?, accountId int?, conduit string?, title string?, body string?, optional-params any?]
-   (let [res (:data (create-notification-template-with-http-info version accountId conduit title body optional-params))]
+  ([accountId int?, conduit string?, title string?, body string?, ] (create-notification-template accountId conduit title body nil))
+  ([accountId int?, conduit string?, title string?, body string?, optional-params any?]
+   (let [res (:data (create-notification-template-with-http-info accountId conduit title body optional-params))]
      (if (:decode-models *api-context*)
         (st/decode notification-template-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec create-or-update-blocked-notifications-with-http-info any?
   "Create or update blocked notification settings
   Create or update blocked notification settings"
-  ([version float?, appKey string?, data string?, ] (create-or-update-blocked-notifications-with-http-info version appKey data nil))
-  ([version float?, appKey string?, data string?, {:keys [accountId]} (s/map-of keyword? any?)]
-   (check-required-params version appKey data)
-   (call-api "/api/{version}/notification/blocked/batch" :post
-             {:path-params   {"version" version }
+  ([appKey string?, data string?, ] (create-or-update-blocked-notifications-with-http-info appKey data nil))
+  ([appKey string?, data string?, {:keys [accountId]} (s/map-of keyword? any?)]
+   (check-required-params appKey data)
+   (call-api "/notification/blocked/batch" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "data" data }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec create-or-update-blocked-notifications blocked-notification-response-spec
   "Create or update blocked notification settings
   Create or update blocked notification settings"
-  ([version float?, appKey string?, data string?, ] (create-or-update-blocked-notifications version appKey data nil))
-  ([version float?, appKey string?, data string?, optional-params any?]
-   (let [res (:data (create-or-update-blocked-notifications-with-http-info version appKey data optional-params))]
+  ([appKey string?, data string?, ] (create-or-update-blocked-notifications appKey data nil))
+  ([appKey string?, data string?, optional-params any?]
+   (let [res (:data (create-or-update-blocked-notifications-with-http-info appKey data optional-params))]
      (if (:decode-models *api-context*)
         (st/decode blocked-notification-response-spec res st/string-transformer)
         res))))
@@ -405,10 +405,10 @@
 (defn-spec delete-notification-template-with-http-info any?
   "Delete Notification Template
   Deletes a notification template. Developers will only be able to delete notification templates for their own applications."
-  [version float?, accountId int?, notificationTemplateId int?]
-  (check-required-params version accountId notificationTemplateId)
-  (call-api "/api/{version}/notification/template/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, notificationTemplateId int?]
+  (check-required-params accountId notificationTemplateId)
+  (call-api "/notification/template/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "notificationTemplateId" notificationTemplateId }
              :form-params   {}
@@ -419,8 +419,8 @@
 (defn-spec delete-notification-template notification-template-response-spec
   "Delete Notification Template
   Deletes a notification template. Developers will only be able to delete notification templates for their own applications."
-  [version float?, accountId int?, notificationTemplateId int?]
-  (let [res (:data (delete-notification-template-with-http-info version accountId notificationTemplateId))]
+  [accountId int?, notificationTemplateId int?]
+  (let [res (:data (delete-notification-template-with-http-info accountId notificationTemplateId))]
     (if (:decode-models *api-context*)
        (st/decode notification-template-response-spec res st/string-transformer)
        res)))
@@ -429,10 +429,10 @@
 (defn-spec get-notification-template-with-http-info any?
   "Get Notification Template
   Get the details of a notification template. Developers will only be able to see notification templates for their own applications."
-  [version float?, accountId int?, notificationTemplateId int?]
-  (check-required-params version accountId notificationTemplateId)
-  (call-api "/api/{version}/notification/template/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, notificationTemplateId int?]
+  (check-required-params accountId notificationTemplateId)
+  (call-api "/notification/template/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "notificationTemplateId" notificationTemplateId }
              :form-params   {}
@@ -443,8 +443,8 @@
 (defn-spec get-notification-template notification-template-response-spec
   "Get Notification Template
   Get the details of a notification template. Developers will only be able to see notification templates for their own applications."
-  [version float?, accountId int?, notificationTemplateId int?]
-  (let [res (:data (get-notification-template-with-http-info version accountId notificationTemplateId))]
+  [accountId int?, notificationTemplateId int?]
+  (let [res (:data (get-notification-template-with-http-info accountId notificationTemplateId))]
     (if (:decode-models *api-context*)
        (st/decode notification-template-response-spec res st/string-transformer)
        res)))
@@ -453,11 +453,10 @@
 (defn-spec get-notifications-with-http-info any?
   "Get Notifications
   Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true."
-  ([version float?, ] (get-notifications-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId connectionAccountId appKey eventType contentIds contentTypes parentIds parentTypes actionCategory conduits keyword returnReadMessages markAsRead fromDate latitude longitude returnSent ignoreFlagged start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/notification/search" :get
-             {:path-params   {"version" version }
+  ([] (get-notifications-with-http-info nil))
+  ([{:keys [deviceId accountId connectionAccountId appKey eventType contentIds contentTypes parentIds parentTypes actionCategory conduits keyword returnReadMessages markAsRead fromDate latitude longitude returnSent ignoreFlagged start limit]} (s/map-of keyword? any?)]
+   (call-api "/notification/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "appKey" appKey "eventType" eventType "contentIds" contentIds "contentTypes" contentTypes "parentIds" parentIds "parentTypes" parentTypes "actionCategory" actionCategory "conduits" conduits "keyword" keyword "returnReadMessages" returnReadMessages "markAsRead" markAsRead "fromDate" fromDate "latitude" latitude "longitude" longitude "returnSent" returnSent "ignoreFlagged" ignoreFlagged "start" start "limit" limit }
               :form-params   {}
@@ -468,9 +467,9 @@
 (defn-spec get-notifications notification-message-list-response-spec
   "Get Notifications
   Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true."
-  ([version float?, ] (get-notifications version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-notifications-with-http-info version optional-params))]
+  ([] (get-notifications nil))
+  ([optional-params any?]
+   (let [res (:data (get-notifications-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode notification-message-list-response-spec res st/string-transformer)
         res))))
@@ -479,11 +478,11 @@
 (defn-spec register-notification-token-with-http-info any?
   "Register Notification Token
   Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications."
-  ([version float?, token string?, pushType string?, ] (register-notification-token-with-http-info version token pushType nil))
-  ([version float?, token string?, pushType string?, {:keys [deviceId accountId environment appKey gameType active latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version token pushType)
-   (call-api "/api/{version}/notification/token" :post
-             {:path-params   {"version" version }
+  ([token string?, pushType string?, ] (register-notification-token-with-http-info token pushType nil))
+  ([token string?, pushType string?, {:keys [deviceId accountId environment appKey gameType active latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params token pushType)
+   (call-api "/notification/token" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "token" token "pushType" pushType "environment" environment "appKey" appKey "gameType" gameType "active" active "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -494,9 +493,9 @@
 (defn-spec register-notification-token sirqul-response-spec
   "Register Notification Token
   Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications."
-  ([version float?, token string?, pushType string?, ] (register-notification-token version token pushType nil))
-  ([version float?, token string?, pushType string?, optional-params any?]
-   (let [res (:data (register-notification-token-with-http-info version token pushType optional-params))]
+  ([token string?, pushType string?, ] (register-notification-token token pushType nil))
+  ([token string?, pushType string?, optional-params any?]
+   (let [res (:data (register-notification-token-with-http-info token pushType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -505,11 +504,11 @@
 (defn-spec search-blocked-notifications-with-http-info any?
   "Search on the user's blocked notification settings
   Search on the user's blocked notification settings"
-  ([version float?, appKey string?, ] (search-blocked-notifications-with-http-info version appKey nil))
-  ([version float?, appKey string?, {:keys [accountId searchTags events conduits customTypes contentTypes contentIds sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version appKey)
-   (call-api "/api/{version}/notification/blocked/search" :get
-             {:path-params   {"version" version }
+  ([appKey string?, ] (search-blocked-notifications-with-http-info appKey nil))
+  ([appKey string?, {:keys [accountId searchTags events conduits customTypes contentTypes contentIds sortField descending start limit]} (s/map-of keyword? any?)]
+   (check-required-params appKey)
+   (call-api "/notification/blocked/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "searchTags" searchTags "events" events "conduits" conduits "customTypes" customTypes "contentTypes" contentTypes "contentIds" contentIds "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -520,9 +519,9 @@
 (defn-spec search-blocked-notifications blocked-notification-response-spec
   "Search on the user's blocked notification settings
   Search on the user's blocked notification settings"
-  ([version float?, appKey string?, ] (search-blocked-notifications version appKey nil))
-  ([version float?, appKey string?, optional-params any?]
-   (let [res (:data (search-blocked-notifications-with-http-info version appKey optional-params))]
+  ([appKey string?, ] (search-blocked-notifications appKey nil))
+  ([appKey string?, optional-params any?]
+   (let [res (:data (search-blocked-notifications-with-http-info appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode blocked-notification-response-spec res st/string-transformer)
         res))))
@@ -531,11 +530,11 @@
 (defn-spec search-notification-template-with-http-info any?
   "Search Notification Templates
   Search for notification templates on owned applications."
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (search-notification-template-with-http-info version accountId sortField descending start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, {:keys [appKey event conduit globalOnly reservedOnly keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending start limit)
-   (call-api "/api/{version}/notification/template/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (search-notification-template-with-http-info accountId sortField descending start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, {:keys [appKey event conduit globalOnly reservedOnly keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending start limit)
+   (call-api "/notification/template/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "event" event "conduit" conduit "globalOnly" globalOnly "reservedOnly" reservedOnly "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -546,9 +545,9 @@
 (defn-spec search-notification-template notification-template-response-spec
   "Search Notification Templates
   Search for notification templates on owned applications."
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (search-notification-template version accountId sortField descending start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-notification-template-with-http-info version accountId sortField descending start limit optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (search-notification-template accountId sortField descending start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-notification-template-with-http-info accountId sortField descending start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode notification-template-response-spec res st/string-transformer)
         res))))
@@ -557,11 +556,11 @@
 (defn-spec search-recipients-with-http-info any?
   "Search for Recipients
   Search for application users to send notifications."
-  ([version float?, sortField string?, ] (search-recipients-with-http-info version sortField nil))
-  ([version float?, sortField string?, {:keys [deviceId accountId appKey conduit keyword audienceId audienceIds connectionGroupIds recipientAccountIds descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version sortField)
-   (call-api "/api/{version}/notification/recipient/search" :get
-             {:path-params   {"version" version }
+  ([sortField string?, ] (search-recipients-with-http-info sortField nil))
+  ([sortField string?, {:keys [deviceId accountId appKey conduit keyword audienceId audienceIds connectionGroupIds recipientAccountIds descending start limit]} (s/map-of keyword? any?)]
+   (check-required-params sortField)
+   (call-api "/notification/recipient/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "conduit" conduit "keyword" keyword "audienceId" audienceId "audienceIds" audienceIds "connectionGroupIds" connectionGroupIds "recipientAccountIds" recipientAccountIds "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -572,9 +571,9 @@
 (defn-spec search-recipients (s/coll-of notification-recipient-response-spec)
   "Search for Recipients
   Search for application users to send notifications."
-  ([version float?, sortField string?, ] (search-recipients version sortField nil))
-  ([version float?, sortField string?, optional-params any?]
-   (let [res (:data (search-recipients-with-http-info version sortField optional-params))]
+  ([sortField string?, ] (search-recipients sortField nil))
+  ([sortField string?, optional-params any?]
+   (let [res (:data (search-recipients-with-http-info sortField optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of notification-recipient-response-spec) res st/string-transformer)
         res))))
@@ -583,11 +582,10 @@
 (defn-spec search-recipients-count-with-http-info any?
   "Search for Recipients (Counts/Grouped)
   Search for application users to send notifications (count/grouped variant)."
-  ([version float?, ] (search-recipients-count-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey conduit keyword audienceId audienceIds connectionGroupIds sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/notification/recipient/search/count" :get
-             {:path-params   {"version" version }
+  ([] (search-recipients-count-with-http-info nil))
+  ([{:keys [deviceId accountId appKey conduit keyword audienceId audienceIds connectionGroupIds sortField descending start limit]} (s/map-of keyword? any?)]
+   (call-api "/notification/recipient/search/count" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "conduit" conduit "keyword" keyword "audienceId" audienceId "audienceIds" audienceIds "connectionGroupIds" connectionGroupIds "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -598,9 +596,9 @@
 (defn-spec search-recipients-count notification-recipient-response-list-response-spec
   "Search for Recipients (Counts/Grouped)
   Search for application users to send notifications (count/grouped variant)."
-  ([version float?, ] (search-recipients-count version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-recipients-count-with-http-info version optional-params))]
+  ([] (search-recipients-count nil))
+  ([optional-params any?]
+   (let [res (:data (search-recipients-count-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode notification-recipient-response-list-response-spec res st/string-transformer)
         res))))
@@ -609,11 +607,11 @@
 (defn-spec send-batch-notifications-with-http-info any?
   "Send Batch Notifications
   Send notifications to all users of an application. Only someone with permissions to the application can do this."
-  ([version float?, accountId int?, appKey string?, customMessage string?, ] (send-batch-notifications-with-http-info version accountId appKey customMessage nil))
-  ([version float?, accountId int?, appKey string?, customMessage string?, {:keys [conduit contentId contentName contentType parentId parentType]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey customMessage)
-   (call-api "/api/{version}/notification/batch" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, customMessage string?, ] (send-batch-notifications-with-http-info accountId appKey customMessage nil))
+  ([accountId int?, appKey string?, customMessage string?, {:keys [conduit contentId contentName contentType parentId parentType]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey customMessage)
+   (call-api "/notification/batch" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "conduit" conduit "customMessage" customMessage "contentId" contentId "contentName" contentName "contentType" contentType "parentId" parentId "parentType" parentType }
               :form-params   {}
@@ -624,9 +622,9 @@
 (defn-spec send-batch-notifications sirqul-response-spec
   "Send Batch Notifications
   Send notifications to all users of an application. Only someone with permissions to the application can do this."
-  ([version float?, accountId int?, appKey string?, customMessage string?, ] (send-batch-notifications version accountId appKey customMessage nil))
-  ([version float?, accountId int?, appKey string?, customMessage string?, optional-params any?]
-   (let [res (:data (send-batch-notifications-with-http-info version accountId appKey customMessage optional-params))]
+  ([accountId int?, appKey string?, customMessage string?, ] (send-batch-notifications accountId appKey customMessage nil))
+  ([accountId int?, appKey string?, customMessage string?, optional-params any?]
+   (let [res (:data (send-batch-notifications-with-http-info accountId appKey customMessage optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -635,11 +633,10 @@
 (defn-spec send-custom-notifications-with-http-info any?
   "Send Custom Notifications
   Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored."
-  ([version float?, ] (send-custom-notifications-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId receiverAccountIds includeFriendGroup appKey gameType conduit contentId contentName contentType parentId parentType actionCategory subject customMessage friendOnlyAPNS latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/notification/custom" :post
-             {:path-params   {"version" version }
+  ([] (send-custom-notifications-with-http-info nil))
+  ([{:keys [deviceId accountId receiverAccountIds includeFriendGroup appKey gameType conduit contentId contentName contentType parentId parentType actionCategory subject customMessage friendOnlyAPNS latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/notification/custom" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "receiverAccountIds" receiverAccountIds "includeFriendGroup" includeFriendGroup "appKey" appKey "gameType" gameType "conduit" conduit "contentId" contentId "contentName" contentName "contentType" contentType "parentId" parentId "parentType" parentType "actionCategory" actionCategory "subject" subject "customMessage" customMessage "friendOnlyAPNS" friendOnlyAPNS "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -650,9 +647,9 @@
 (defn-spec send-custom-notifications sirqul-response-spec
   "Send Custom Notifications
   Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored."
-  ([version float?, ] (send-custom-notifications version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (send-custom-notifications-with-http-info version optional-params))]
+  ([] (send-custom-notifications nil))
+  ([optional-params any?]
+   (let [res (:data (send-custom-notifications-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -661,11 +658,11 @@
 (defn-spec update-notification-template-with-http-info any?
   "Update Notification Template
   Update a notification template. Developers will only be able to update notification templates for their own applications."
-  ([version float?, accountId int?, notificationTemplateId int?, ] (update-notification-template-with-http-info version accountId notificationTemplateId nil))
-  ([version float?, accountId int?, notificationTemplateId int?, {:keys [title body tags]} (s/map-of keyword? any?)]
-   (check-required-params version accountId notificationTemplateId)
-   (call-api "/api/{version}/notification/template/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, notificationTemplateId int?, ] (update-notification-template-with-http-info accountId notificationTemplateId nil))
+  ([accountId int?, notificationTemplateId int?, {:keys [title body tags]} (s/map-of keyword? any?)]
+   (check-required-params accountId notificationTemplateId)
+   (call-api "/notification/template/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "notificationTemplateId" notificationTemplateId "title" title "body" body "tags" tags }
               :form-params   {}
@@ -676,9 +673,9 @@
 (defn-spec update-notification-template notification-template-response-spec
   "Update Notification Template
   Update a notification template. Developers will only be able to update notification templates for their own applications."
-  ([version float?, accountId int?, notificationTemplateId int?, ] (update-notification-template version accountId notificationTemplateId nil))
-  ([version float?, accountId int?, notificationTemplateId int?, optional-params any?]
-   (let [res (:data (update-notification-template-with-http-info version accountId notificationTemplateId optional-params))]
+  ([accountId int?, notificationTemplateId int?, ] (update-notification-template accountId notificationTemplateId nil))
+  ([accountId int?, notificationTemplateId int?, optional-params any?]
+   (let [res (:data (update-notification-template-with-http-info accountId notificationTemplateId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode notification-template-response-spec res st/string-transformer)
         res))))

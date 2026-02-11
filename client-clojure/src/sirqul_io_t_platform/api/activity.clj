@@ -353,10 +353,10 @@
 (defn-spec create-entity-reference-with-http-info any?
   "Create an entity reference.
   Creates a reference for an entity for syncing data between servers."
-  [version float?, body entity-reference]
-  (check-required-params version body)
-  (call-api "/api/{version}/entity/reference" :post
-            {:path-params   {"version" version }
+  [body entity-reference]
+  (check-required-params body)
+  (call-api "/entity/reference" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -368,8 +368,8 @@
 (defn-spec create-entity-reference activity-response-spec
   "Create an entity reference.
   Creates a reference for an entity for syncing data between servers."
-  [version float?, body entity-reference]
-  (let [res (:data (create-entity-reference-with-http-info version body))]
+  [body entity-reference]
+  (let [res (:data (create-entity-reference-with-http-info body))]
     (if (:decode-models *api-context*)
        (st/decode activity-response-spec res st/string-transformer)
        res)))

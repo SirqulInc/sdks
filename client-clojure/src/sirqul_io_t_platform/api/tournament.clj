@@ -353,11 +353,11 @@
 (defn-spec create-tournament-with-http-info any?
   "Create Tournament
   Create a tournament."
-  ([version float?, accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, ] (create-tournament-with-http-info version accountId appKey title costToPlay startDate nil))
-  ([version float?, accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, {:keys [subType imageAssetId secondsBetweenLevels secondsForTieBreaker secondsBetweenPacks maximumLevelLength costToPlayType minimumToPlay startingLimit availableLimit description metaData audienceIds active enableBuyBack offerIds offerAssetId fixedReward splitReward allocateTickets tournamentData missionType visibility preliminaryGroups preliminaryGroupAdvancements enableMultipleEntries enableMultipleVotes featured winnerTag tieTag]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey title costToPlay startDate)
-   (call-api "/api/{version}/tournament/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, ] (create-tournament-with-http-info accountId appKey title costToPlay startDate nil))
+  ([accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, {:keys [subType imageAssetId secondsBetweenLevels secondsForTieBreaker secondsBetweenPacks maximumLevelLength costToPlayType minimumToPlay startingLimit availableLimit description metaData audienceIds active enableBuyBack offerIds offerAssetId fixedReward splitReward allocateTickets tournamentData missionType visibility preliminaryGroups preliminaryGroupAdvancements enableMultipleEntries enableMultipleVotes featured winnerTag tieTag]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey title costToPlay startDate)
+   (call-api "/tournament/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "title" title "subType" subType "imageAssetId" imageAssetId "secondsBetweenLevels" secondsBetweenLevels "secondsForTieBreaker" secondsForTieBreaker "secondsBetweenPacks" secondsBetweenPacks "maximumLevelLength" maximumLevelLength "costToPlay" costToPlay "costToPlayType" costToPlayType "minimumToPlay" minimumToPlay "startingLimit" startingLimit "availableLimit" availableLimit "description" description "metaData" metaData "startDate" startDate "audienceIds" audienceIds "active" active "enableBuyBack" enableBuyBack "offerIds" offerIds "offerAssetId" offerAssetId "fixedReward" fixedReward "splitReward" splitReward "allocateTickets" allocateTickets "tournamentData" tournamentData "missionType" missionType "visibility" visibility "preliminaryGroups" preliminaryGroups "preliminaryGroupAdvancements" preliminaryGroupAdvancements "enableMultipleEntries" enableMultipleEntries "enableMultipleVotes" enableMultipleVotes "featured" featured "winnerTag" winnerTag "tieTag" tieTag }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-tournament tournament-response-spec
   "Create Tournament
   Create a tournament."
-  ([version float?, accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, ] (create-tournament version accountId appKey title costToPlay startDate nil))
-  ([version float?, accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, optional-params any?]
-   (let [res (:data (create-tournament-with-http-info version accountId appKey title costToPlay startDate optional-params))]
+  ([accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, ] (create-tournament accountId appKey title costToPlay startDate nil))
+  ([accountId int?, appKey string?, title string?, costToPlay int?, startDate int?, optional-params any?]
+   (let [res (:data (create-tournament-with-http-info accountId appKey title costToPlay startDate optional-params))]
      (if (:decode-models *api-context*)
         (st/decode tournament-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-tournament-with-http-info any?
   "Delete Tournament
   Delete a tournament."
-  [version float?, accountId int?, missionId int?]
-  (check-required-params version accountId missionId)
-  (call-api "/api/{version}/tournament/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, missionId int?]
+  (check-required-params accountId missionId)
+  (call-api "/tournament/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "missionId" missionId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-tournament sirqul-response-spec
   "Delete Tournament
   Delete a tournament."
-  [version float?, accountId int?, missionId int?]
-  (let [res (:data (delete-tournament-with-http-info version accountId missionId))]
+  [accountId int?, missionId int?]
+  (let [res (:data (delete-tournament-with-http-info accountId missionId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,11 +403,11 @@
 (defn-spec get-tournament-with-http-info any?
   "Get Tournament
   Get a tournament."
-  ([version float?, accountId int?, ] (get-tournament-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [missionId joinCode includeScores objectPreviewSize]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/tournament/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-tournament-with-http-info accountId nil))
+  ([accountId int?, {:keys [missionId joinCode includeScores objectPreviewSize]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/tournament/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "missionId" missionId "joinCode" joinCode "includeScores" includeScores "objectPreviewSize" objectPreviewSize }
               :form-params   {}
@@ -418,9 +418,9 @@
 (defn-spec get-tournament tournament-response-spec
   "Get Tournament
   Get a tournament."
-  ([version float?, accountId int?, ] (get-tournament version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-tournament-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-tournament accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-tournament-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode tournament-response-spec res st/string-transformer)
         res))))
@@ -429,11 +429,11 @@
 (defn-spec search-objects-with-http-info any?
   "Search Tournament Objects
   Search on game objects of tournaments"
-  ([version float?, accountId int?, gameLevelId int?, ] (search-objects-with-http-info version accountId gameLevelId nil))
-  ([version float?, accountId int?, gameLevelId int?, {:keys [sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId gameLevelId)
-   (call-api "/api/{version}/tournament/object/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, gameLevelId int?, ] (search-objects-with-http-info accountId gameLevelId nil))
+  ([accountId int?, gameLevelId int?, {:keys [sortField descending start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId gameLevelId)
+   (call-api "/tournament/object/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "gameLevelId" gameLevelId "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -444,9 +444,9 @@
 (defn-spec search-objects sirqul-response-spec
   "Search Tournament Objects
   Search on game objects of tournaments"
-  ([version float?, accountId int?, gameLevelId int?, ] (search-objects version accountId gameLevelId nil))
-  ([version float?, accountId int?, gameLevelId int?, optional-params any?]
-   (let [res (:data (search-objects-with-http-info version accountId gameLevelId optional-params))]
+  ([accountId int?, gameLevelId int?, ] (search-objects accountId gameLevelId nil))
+  ([accountId int?, gameLevelId int?, optional-params any?]
+   (let [res (:data (search-objects-with-http-info accountId gameLevelId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -455,11 +455,11 @@
 (defn-spec search-rounds-with-http-info any?
   "Search Tournament Rounds
   Search for the user's tournament games."
-  ([version float?, accountId int?, appKey string?, ] (search-rounds-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [status missionType currentOnly visibilities start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/tournament/round/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (search-rounds-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [status missionType currentOnly visibilities start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/tournament/round/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "status" status "missionType" missionType "currentOnly" currentOnly "visibilities" visibilities "start" start "limit" limit }
               :form-params   {}
@@ -470,9 +470,9 @@
 (defn-spec search-rounds sirqul-response-spec
   "Search Tournament Rounds
   Search for the user's tournament games."
-  ([version float?, accountId int?, appKey string?, ] (search-rounds version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (search-rounds-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (search-rounds accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (search-rounds-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -481,11 +481,11 @@
 (defn-spec search-tournaments-with-http-info any?
   "Search Tournaments
   Search for tournaments"
-  ([version float?, accountId int?, appKey string?, ] (search-tournaments-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [keyword subType includeInactive missionTypes filter sortField descending visibility start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/tournament/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (search-tournaments-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [keyword subType includeInactive missionTypes filter sortField descending visibility start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/tournament/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "keyword" keyword "subType" subType "includeInactive" includeInactive "missionTypes" missionTypes "filter" filter "sortField" sortField "descending" descending "visibility" visibility "start" start "limit" limit }
               :form-params   {}
@@ -496,9 +496,9 @@
 (defn-spec search-tournaments mission-short-response-spec
   "Search Tournaments
   Search for tournaments"
-  ([version float?, accountId int?, appKey string?, ] (search-tournaments version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (search-tournaments-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (search-tournaments accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (search-tournaments-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode mission-short-response-spec res st/string-transformer)
         res))))
@@ -507,11 +507,11 @@
 (defn-spec submit-tournament-score-with-http-info any?
   "Submit Tournament Score
   Submit an array of scores for a tournament match."
-  ([version float?, accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, ] (submit-tournament-score-with-http-info version accountId appKey missionId gameId packId scores nil))
-  ([version float?, accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, {:keys [gameLevelId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey missionId gameId packId scores)
-   (call-api "/api/{version}/tournament/score" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, ] (submit-tournament-score-with-http-info accountId appKey missionId gameId packId scores nil))
+  ([accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, {:keys [gameLevelId]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey missionId gameId packId scores)
+   (call-api "/tournament/score" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "missionId" missionId "gameId" gameId "packId" packId "gameLevelId" gameLevelId "scores" scores }
               :form-params   {}
@@ -522,9 +522,9 @@
 (defn-spec submit-tournament-score sirqul-response-spec
   "Submit Tournament Score
   Submit an array of scores for a tournament match."
-  ([version float?, accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, ] (submit-tournament-score version accountId appKey missionId gameId packId scores nil))
-  ([version float?, accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, optional-params any?]
-   (let [res (:data (submit-tournament-score-with-http-info version accountId appKey missionId gameId packId scores optional-params))]
+  ([accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, ] (submit-tournament-score accountId appKey missionId gameId packId scores nil))
+  ([accountId int?, appKey string?, missionId int?, gameId int?, packId int?, scores string?, optional-params any?]
+   (let [res (:data (submit-tournament-score-with-http-info accountId appKey missionId gameId packId scores optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -533,11 +533,11 @@
 (defn-spec submit-tournament-vote-with-http-info any?
   "Submit a vote for a multi-stage album tournament.
   Submit a vote for a multi-stage album tournament."
-  ([version float?, accountId int?, appKey string?, missionId int?, gameObjectId int?, ] (submit-tournament-vote-with-http-info version accountId appKey missionId gameObjectId nil))
-  ([version float?, accountId int?, appKey string?, missionId int?, gameObjectId int?, {:keys [deviceId checkIfDeviceAlreadyVoted]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey missionId gameObjectId)
-   (call-api "/api/{version}/tournament/vote" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, missionId int?, gameObjectId int?, ] (submit-tournament-vote-with-http-info accountId appKey missionId gameObjectId nil))
+  ([accountId int?, appKey string?, missionId int?, gameObjectId int?, {:keys [deviceId checkIfDeviceAlreadyVoted]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey missionId gameObjectId)
+   (call-api "/tournament/vote" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "missionId" missionId "gameObjectId" gameObjectId "checkIfDeviceAlreadyVoted" checkIfDeviceAlreadyVoted }
               :form-params   {}
@@ -548,9 +548,9 @@
 (defn-spec submit-tournament-vote sirqul-response-spec
   "Submit a vote for a multi-stage album tournament.
   Submit a vote for a multi-stage album tournament."
-  ([version float?, accountId int?, appKey string?, missionId int?, gameObjectId int?, ] (submit-tournament-vote version accountId appKey missionId gameObjectId nil))
-  ([version float?, accountId int?, appKey string?, missionId int?, gameObjectId int?, optional-params any?]
-   (let [res (:data (submit-tournament-vote-with-http-info version accountId appKey missionId gameObjectId optional-params))]
+  ([accountId int?, appKey string?, missionId int?, gameObjectId int?, ] (submit-tournament-vote accountId appKey missionId gameObjectId nil))
+  ([accountId int?, appKey string?, missionId int?, gameObjectId int?, optional-params any?]
+   (let [res (:data (submit-tournament-vote-with-http-info accountId appKey missionId gameObjectId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -559,10 +559,10 @@
 (defn-spec substitute-tournament-player-with-http-info any?
   "Substitute Tournament Player
   Service to replace the user's opponent in the current level - pack - mission with an AI account."
-  [version float?, accountId int?, missionId int?, packId int?, gameLevelId int?]
-  (check-required-params version accountId missionId packId gameLevelId)
-  (call-api "/api/{version}/tournament/substitute" :post
-            {:path-params   {"version" version }
+  [accountId int?, missionId int?, packId int?, gameLevelId int?]
+  (check-required-params accountId missionId packId gameLevelId)
+  (call-api "/tournament/substitute" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "missionId" missionId "packId" packId "gameLevelId" gameLevelId }
              :form-params   {}
@@ -573,8 +573,8 @@
 (defn-spec substitute-tournament-player sirqul-response-spec
   "Substitute Tournament Player
   Service to replace the user's opponent in the current level - pack - mission with an AI account."
-  [version float?, accountId int?, missionId int?, packId int?, gameLevelId int?]
-  (let [res (:data (substitute-tournament-player-with-http-info version accountId missionId packId gameLevelId))]
+  [accountId int?, missionId int?, packId int?, gameLevelId int?]
+  (let [res (:data (substitute-tournament-player-with-http-info accountId missionId packId gameLevelId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -583,11 +583,11 @@
 (defn-spec update-tournament-with-http-info any?
   "Update Tournament
   Update a tournament."
-  ([version float?, accountId int?, missionId int?, ] (update-tournament-with-http-info version accountId missionId nil))
-  ([version float?, accountId int?, missionId int?, {:keys [title subType imageAssetId secondsBetweenLevels secondsForTieBreaker secondsBetweenPacks maximumLevelLength costToPlay costToPlayType minimumToPlay startingLimit availableLimit description metaData startDate audienceIds active enableBuyBack offerIds offerAssetId fixedReward splitReward allocateTickets tournamentData visibility preliminaryGroups preliminaryGroupAdvancements enableMultipleEntries enableMultipleVotes featured winnerTag tieTag]} (s/map-of keyword? any?)]
-   (check-required-params version accountId missionId)
-   (call-api "/api/{version}/tournament/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, missionId int?, ] (update-tournament-with-http-info accountId missionId nil))
+  ([accountId int?, missionId int?, {:keys [title subType imageAssetId secondsBetweenLevels secondsForTieBreaker secondsBetweenPacks maximumLevelLength costToPlay costToPlayType minimumToPlay startingLimit availableLimit description metaData startDate audienceIds active enableBuyBack offerIds offerAssetId fixedReward splitReward allocateTickets tournamentData visibility preliminaryGroups preliminaryGroupAdvancements enableMultipleEntries enableMultipleVotes featured winnerTag tieTag]} (s/map-of keyword? any?)]
+   (check-required-params accountId missionId)
+   (call-api "/tournament/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "missionId" missionId "title" title "subType" subType "imageAssetId" imageAssetId "secondsBetweenLevels" secondsBetweenLevels "secondsForTieBreaker" secondsForTieBreaker "secondsBetweenPacks" secondsBetweenPacks "maximumLevelLength" maximumLevelLength "costToPlay" costToPlay "costToPlayType" costToPlayType "minimumToPlay" minimumToPlay "startingLimit" startingLimit "availableLimit" availableLimit "description" description "metaData" metaData "startDate" startDate "audienceIds" audienceIds "active" active "enableBuyBack" enableBuyBack "offerIds" offerIds "offerAssetId" offerAssetId "fixedReward" fixedReward "splitReward" splitReward "allocateTickets" allocateTickets "tournamentData" tournamentData "visibility" visibility "preliminaryGroups" preliminaryGroups "preliminaryGroupAdvancements" preliminaryGroupAdvancements "enableMultipleEntries" enableMultipleEntries "enableMultipleVotes" enableMultipleVotes "featured" featured "winnerTag" winnerTag "tieTag" tieTag }
               :form-params   {}
@@ -598,9 +598,9 @@
 (defn-spec update-tournament tournament-response-spec
   "Update Tournament
   Update a tournament."
-  ([version float?, accountId int?, missionId int?, ] (update-tournament version accountId missionId nil))
-  ([version float?, accountId int?, missionId int?, optional-params any?]
-   (let [res (:data (update-tournament-with-http-info version accountId missionId optional-params))]
+  ([accountId int?, missionId int?, ] (update-tournament accountId missionId nil))
+  ([accountId int?, missionId int?, optional-params any?]
+   (let [res (:data (update-tournament-with-http-info accountId missionId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode tournament-response-spec res st/string-transformer)
         res))))

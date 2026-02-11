@@ -353,11 +353,11 @@
 (defn-spec add-favorite-with-http-info any?
   "Create Favorite
   Adds an offer, offer location, retailer location, or category to your favorites."
-  ([version float?, favoritableId int?, favoritableType string?, ] (add-favorite-with-http-info version favoritableId favoritableType nil))
-  ([version float?, favoritableId int?, favoritableType string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version favoritableId favoritableType)
-   (call-api "/api/{version}/favorite/create" :post
-             {:path-params   {"version" version }
+  ([favoritableId int?, favoritableType string?, ] (add-favorite-with-http-info favoritableId favoritableType nil))
+  ([favoritableId int?, favoritableType string?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params favoritableId favoritableType)
+   (call-api "/favorite/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "favoritableId" favoritableId "favoritableType" favoritableType "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-favorite wrapped-response-spec
   "Create Favorite
   Adds an offer, offer location, retailer location, or category to your favorites."
-  ([version float?, favoritableId int?, favoritableType string?, ] (add-favorite version favoritableId favoritableType nil))
-  ([version float?, favoritableId int?, favoritableType string?, optional-params any?]
-   (let [res (:data (add-favorite-with-http-info version favoritableId favoritableType optional-params))]
+  ([favoritableId int?, favoritableType string?, ] (add-favorite favoritableId favoritableType nil))
+  ([favoritableId int?, favoritableType string?, optional-params any?]
+   (let [res (:data (add-favorite-with-http-info favoritableId favoritableType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode wrapped-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,10 @@
 (defn-spec delete-favorite-with-http-info any?
   "Delete Favorite
   Removes a favorited item from the user's favorites list."
-  ([version float?, ] (delete-favorite-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId favoriteId favoritableId favoritableType]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/favorite/delete" :post
-             {:path-params   {"version" version }
+  ([] (delete-favorite-with-http-info nil))
+  ([{:keys [deviceId accountId favoriteId favoritableId favoritableType]} (s/map-of keyword? any?)]
+   (call-api "/favorite/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "favoriteId" favoriteId "favoritableId" favoritableId "favoritableType" favoritableType }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec delete-favorite sirqul-response-spec
   "Delete Favorite
   Removes a favorited item from the user's favorites list."
-  ([version float?, ] (delete-favorite version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (delete-favorite-with-http-info version optional-params))]
+  ([] (delete-favorite nil))
+  ([optional-params any?]
+   (let [res (:data (delete-favorite-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,11 @@
 (defn-spec get-favorite-with-http-info any?
   "Get Favorite
   Retrieves a single favorited item."
-  ([version float?, favoriteId int?, ] (get-favorite-with-http-info version favoriteId nil))
-  ([version float?, favoriteId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version favoriteId)
-   (call-api "/api/{version}/favorite/get" :get
-             {:path-params   {"version" version }
+  ([favoriteId int?, ] (get-favorite-with-http-info favoriteId nil))
+  ([favoriteId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params favoriteId)
+   (call-api "/favorite/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "favoriteId" favoriteId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec get-favorite wrapped-response-spec
   "Get Favorite
   Retrieves a single favorited item."
-  ([version float?, favoriteId int?, ] (get-favorite version favoriteId nil))
-  ([version float?, favoriteId int?, optional-params any?]
-   (let [res (:data (get-favorite-with-http-info version favoriteId optional-params))]
+  ([favoriteId int?, ] (get-favorite favoriteId nil))
+  ([favoriteId int?, optional-params any?]
+   (let [res (:data (get-favorite-with-http-info favoriteId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode wrapped-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,11 @@
 (defn-spec search-favorites-with-http-info any?
   "Search Favorites
   Searches on the user's favorites."
-  ([version float?, favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, ] (search-favorites-with-http-info version favoritableType sortField descending start limit activeOnly returnFullResponse nil))
-  ([version float?, favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, {:keys [deviceId accountId connectionAccountId secondaryType keyword latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version favoritableType sortField descending start limit activeOnly returnFullResponse)
-   (call-api "/api/{version}/favorite/search" :get
-             {:path-params   {"version" version }
+  ([favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, ] (search-favorites-with-http-info favoritableType sortField descending start limit activeOnly returnFullResponse nil))
+  ([favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, {:keys [deviceId accountId connectionAccountId secondaryType keyword latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params favoritableType sortField descending start limit activeOnly returnFullResponse)
+   (call-api "/favorite/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "favoritableType" favoritableType "secondaryType" secondaryType "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly "returnFullResponse" returnFullResponse "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec search-favorites search-response-spec
   "Search Favorites
   Searches on the user's favorites."
-  ([version float?, favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, ] (search-favorites version favoritableType sortField descending start limit activeOnly returnFullResponse nil))
-  ([version float?, favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, optional-params any?]
-   (let [res (:data (search-favorites-with-http-info version favoritableType sortField descending start limit activeOnly returnFullResponse optional-params))]
+  ([favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, ] (search-favorites favoritableType sortField descending start limit activeOnly returnFullResponse nil))
+  ([favoritableType string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, returnFullResponse boolean?, optional-params any?]
+   (let [res (:data (search-favorites-with-http-info favoritableType sortField descending start limit activeOnly returnFullResponse optional-params))]
      (if (:decode-models *api-context*)
         (st/decode search-response-spec res st/string-transformer)
         res))))
@@ -457,11 +456,11 @@
 (defn-spec who-has-favorited-with-http-info any?
   "Who has Favorited
   Searches for everyone that has favorited an item"
-  ([version float?, favoritableId int?, favoritableType string?, start int?, limit int?, ] (who-has-favorited-with-http-info version favoritableId favoritableType start limit nil))
-  ([version float?, favoritableId int?, favoritableType string?, start int?, limit int?, {:keys [deviceId accountId latitude longitude keyword]} (s/map-of keyword? any?)]
-   (check-required-params version favoritableId favoritableType start limit)
-   (call-api "/api/{version}/favorite/whois" :get
-             {:path-params   {"version" version }
+  ([favoritableId int?, favoritableType string?, start int?, limit int?, ] (who-has-favorited-with-http-info favoritableId favoritableType start limit nil))
+  ([favoritableId int?, favoritableType string?, start int?, limit int?, {:keys [deviceId accountId latitude longitude keyword]} (s/map-of keyword? any?)]
+   (check-required-params favoritableId favoritableType start limit)
+   (call-api "/favorite/whois" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "favoritableId" favoritableId "favoritableType" favoritableType "keyword" keyword "start" start "limit" limit }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec who-has-favorited (s/coll-of account-response-spec)
   "Who has Favorited
   Searches for everyone that has favorited an item"
-  ([version float?, favoritableId int?, favoritableType string?, start int?, limit int?, ] (who-has-favorited version favoritableId favoritableType start limit nil))
-  ([version float?, favoritableId int?, favoritableType string?, start int?, limit int?, optional-params any?]
-   (let [res (:data (who-has-favorited-with-http-info version favoritableId favoritableType start limit optional-params))]
+  ([favoritableId int?, favoritableType string?, start int?, limit int?, ] (who-has-favorited favoritableId favoritableType start limit nil))
+  ([favoritableId int?, favoritableType string?, start int?, limit int?, optional-params any?]
+   (let [res (:data (who-has-favorited-with-http-info favoritableId favoritableType start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of account-response-spec) res st/string-transformer)
         res))))

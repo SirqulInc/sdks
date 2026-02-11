@@ -357,11 +357,11 @@
 The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination. 
 
  The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password."
-  ([version float?, thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, ] (create-credential-with-http-info version thirdPartyId thirdPartyToken networkUID appKey nil))
-  ([version float?, thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, {:keys [accountId deviceId sessionId thirdPartyName emailAddress signinOnlyMode responseFilters latitude longitude metaData thirdPartyRefreshToken audienceIdsToAdd audienceIdsToRemove]} (s/map-of keyword? any?)]
-   (check-required-params version thirdPartyId thirdPartyToken networkUID appKey)
-   (call-api "/api/{version}/thirdparty/credential/create" :post
-             {:path-params   {"version" version }
+  ([thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, ] (create-credential-with-http-info thirdPartyId thirdPartyToken networkUID appKey nil))
+  ([thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, {:keys [accountId deviceId sessionId thirdPartyName emailAddress signinOnlyMode responseFilters latitude longitude metaData thirdPartyRefreshToken audienceIdsToAdd audienceIdsToRemove]} (s/map-of keyword? any?)]
+   (check-required-params thirdPartyId thirdPartyToken networkUID appKey)
+   (call-api "/thirdparty/credential/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "deviceId" deviceId "sessionId" sessionId "thirdPartyId" thirdPartyId "thirdPartyName" thirdPartyName "thirdPartyToken" thirdPartyToken "networkUID" networkUID "appKey" appKey "emailAddress" emailAddress "signinOnlyMode" signinOnlyMode "responseFilters" responseFilters "latitude" latitude "longitude" longitude "metaData" metaData "thirdPartyRefreshToken" thirdPartyRefreshToken "audienceIdsToAdd" audienceIdsToAdd "audienceIdsToRemove" audienceIdsToRemove }
               :form-params   {}
@@ -376,9 +376,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination. 
 
  The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password."
-  ([version float?, thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, ] (create-credential version thirdPartyId thirdPartyToken networkUID appKey nil))
-  ([version float?, thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, optional-params any?]
-   (let [res (:data (create-credential-with-http-info version thirdPartyId thirdPartyToken networkUID appKey optional-params))]
+  ([thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, ] (create-credential thirdPartyId thirdPartyToken networkUID appKey nil))
+  ([thirdPartyId string?, thirdPartyToken string?, networkUID string?, appKey string?, optional-params any?]
+   (let [res (:data (create-credential-with-http-info thirdPartyId thirdPartyToken networkUID appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -387,11 +387,11 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec create-network-with-http-info any?
   "Create Network
   Creates a custom third party network."
-  ([version float?, accountId int?, name string?, enableIntrospection boolean?, ] (create-network-with-http-info version accountId name enableIntrospection nil))
-  ([version float?, accountId int?, name string?, enableIntrospection boolean?, {:keys [description introspectionMethod introspectionURL introspectionParams requiredRootField enableMFA sizeMFA shelfLifeMFA oauthTokenURL ^File oauthPrivateKey ^File oauthPublicKey oauthClientId oauthSecretKey body]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name enableIntrospection)
-   (call-api "/api/{version}/thirdparty/network/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, enableIntrospection boolean?, ] (create-network-with-http-info accountId name enableIntrospection nil))
+  ([accountId int?, name string?, enableIntrospection boolean?, {:keys [description introspectionMethod introspectionURL introspectionParams requiredRootField enableMFA sizeMFA shelfLifeMFA oauthTokenURL ^File oauthPrivateKey ^File oauthPublicKey oauthClientId oauthSecretKey body]} (s/map-of keyword? any?)]
+   (check-required-params accountId name enableIntrospection)
+   (call-api "/thirdparty/network/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "description" description "enableIntrospection" enableIntrospection "introspectionMethod" introspectionMethod "introspectionURL" introspectionURL "introspectionParams" introspectionParams "requiredRootField" requiredRootField "enableMFA" enableMFA "sizeMFA" sizeMFA "shelfLifeMFA" shelfLifeMFA "oauthTokenURL" oauthTokenURL "oauthPrivateKey" oauthPrivateKey "oauthPublicKey" oauthPublicKey "oauthClientId" oauthClientId "oauthSecretKey" oauthSecretKey }
               :form-params   {}
@@ -403,9 +403,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec create-network third-party-network-response-spec
   "Create Network
   Creates a custom third party network."
-  ([version float?, accountId int?, name string?, enableIntrospection boolean?, ] (create-network version accountId name enableIntrospection nil))
-  ([version float?, accountId int?, name string?, enableIntrospection boolean?, optional-params any?]
-   (let [res (:data (create-network-with-http-info version accountId name enableIntrospection optional-params))]
+  ([accountId int?, name string?, enableIntrospection boolean?, ] (create-network accountId name enableIntrospection nil))
+  ([accountId int?, name string?, enableIntrospection boolean?, optional-params any?]
+   (let [res (:data (create-network-with-http-info accountId name enableIntrospection optional-params))]
      (if (:decode-models *api-context*)
         (st/decode third-party-network-response-spec res st/string-transformer)
         res))))
@@ -414,10 +414,10 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec delete-credential-with-http-info any?
   "Delete Credential
   Delete a third party network on a Sirqul account."
-  [version float?, accountId int?, networkUID string?, thirdPartyId string?, appKey string?]
-  (check-required-params version accountId networkUID thirdPartyId appKey)
-  (call-api "/api/{version}/thirdparty/credential/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, networkUID string?, thirdPartyId string?, appKey string?]
+  (check-required-params accountId networkUID thirdPartyId appKey)
+  (call-api "/thirdparty/credential/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "networkUID" networkUID "thirdPartyId" thirdPartyId "appKey" appKey }
              :form-params   {}
@@ -428,8 +428,8 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec delete-credential sirqul-response-spec
   "Delete Credential
   Delete a third party network on a Sirqul account."
-  [version float?, accountId int?, networkUID string?, thirdPartyId string?, appKey string?]
-  (let [res (:data (delete-credential-with-http-info version accountId networkUID thirdPartyId appKey))]
+  [accountId int?, networkUID string?, thirdPartyId string?, appKey string?]
+  (let [res (:data (delete-credential-with-http-info accountId networkUID thirdPartyId appKey))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -438,10 +438,10 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec delete-network-with-http-info any?
   "Delete Network
   Marks a custom third party network as deleted. Only the network owners and managers have access to this."
-  [version float?, accountId int?, networkUID string?]
-  (check-required-params version accountId networkUID)
-  (call-api "/api/{version}/thirdparty/network/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, networkUID string?]
+  (check-required-params accountId networkUID)
+  (call-api "/thirdparty/network/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "networkUID" networkUID }
              :form-params   {}
@@ -452,8 +452,8 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec delete-network sirqul-response-spec
   "Delete Network
   Marks a custom third party network as deleted. Only the network owners and managers have access to this."
-  [version float?, accountId int?, networkUID string?]
-  (let [res (:data (delete-network-with-http-info version accountId networkUID))]
+  [accountId int?, networkUID string?]
+  (let [res (:data (delete-network-with-http-info accountId networkUID))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -462,11 +462,11 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec get-credential-with-http-info any?
   "Get Credential
   Gets the account information given a third party token."
-  ([version float?, networkUID string?, appKey string?, ] (get-credential-with-http-info version networkUID appKey nil))
-  ([version float?, networkUID string?, appKey string?, {:keys [accountId deviceId sessionId thirdPartyCredentialId thirdPartyToken thirdPartySecret createNewAccount responseFilters latitude longitude audienceIdsToAdd audienceIdsToRemove referralAccountId]} (s/map-of keyword? any?)]
-   (check-required-params version networkUID appKey)
-   (call-api "/api/{version}/thirdparty/credential/get" :post
-             {:path-params   {"version" version }
+  ([networkUID string?, appKey string?, ] (get-credential-with-http-info networkUID appKey nil))
+  ([networkUID string?, appKey string?, {:keys [accountId deviceId sessionId thirdPartyCredentialId thirdPartyToken thirdPartySecret createNewAccount responseFilters latitude longitude audienceIdsToAdd audienceIdsToRemove referralAccountId]} (s/map-of keyword? any?)]
+   (check-required-params networkUID appKey)
+   (call-api "/thirdparty/credential/get" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "deviceId" deviceId "sessionId" sessionId "thirdPartyCredentialId" thirdPartyCredentialId "thirdPartyToken" thirdPartyToken "thirdPartySecret" thirdPartySecret "createNewAccount" createNewAccount "networkUID" networkUID "appKey" appKey "responseFilters" responseFilters "latitude" latitude "longitude" longitude "audienceIdsToAdd" audienceIdsToAdd "audienceIdsToRemove" audienceIdsToRemove "referralAccountId" referralAccountId }
               :form-params   {}
@@ -477,9 +477,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec get-credential profile-response-spec
   "Get Credential
   Gets the account information given a third party token."
-  ([version float?, networkUID string?, appKey string?, ] (get-credential version networkUID appKey nil))
-  ([version float?, networkUID string?, appKey string?, optional-params any?]
-   (let [res (:data (get-credential-with-http-info version networkUID appKey optional-params))]
+  ([networkUID string?, appKey string?, ] (get-credential networkUID appKey nil))
+  ([networkUID string?, appKey string?, optional-params any?]
+   (let [res (:data (get-credential-with-http-info networkUID appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -488,10 +488,10 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec get-network-with-http-info any?
   "Get Network
   Get the details of a third party network. Only the network owners and managers have access to this."
-  [version float?, accountId int?, networkUID string?]
-  (check-required-params version accountId networkUID)
-  (call-api "/api/{version}/thirdparty/network/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, networkUID string?]
+  (check-required-params accountId networkUID)
+  (call-api "/thirdparty/network/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "networkUID" networkUID }
              :form-params   {}
@@ -502,8 +502,8 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec get-network third-party-network-response-spec
   "Get Network
   Get the details of a third party network. Only the network owners and managers have access to this."
-  [version float?, accountId int?, networkUID string?]
-  (let [res (:data (get-network-with-http-info version accountId networkUID))]
+  [accountId int?, networkUID string?]
+  (let [res (:data (get-network-with-http-info accountId networkUID))]
     (if (:decode-models *api-context*)
        (st/decode third-party-network-response-spec res st/string-transformer)
        res)))
@@ -512,11 +512,11 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec search-credentials-with-http-info any?
   "Search Credentials
   Search on a user's linked third party networks."
-  ([version float?, accountId int?, ] (search-credentials-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [keyword networkUID descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/thirdparty/credential/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-credentials-with-http-info accountId nil))
+  ([accountId int?, {:keys [keyword networkUID descending start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/thirdparty/credential/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "networkUID" networkUID "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -527,9 +527,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec search-credentials (s/coll-of third-party-credential-response-spec)
   "Search Credentials
   Search on a user's linked third party networks."
-  ([version float?, accountId int?, ] (search-credentials version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-credentials-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-credentials accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-credentials-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of third-party-credential-response-spec) res st/string-transformer)
         res))))
@@ -538,11 +538,11 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec search-networks-with-http-info any?
   "Search Networks
   Search on supported third party networks and custom networks from external users."
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-networks-with-http-info version accountId sortField descending start limit activeOnly nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [keyword filterBillable]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending start limit activeOnly)
-   (call-api "/api/{version}/thirdparty/network/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-networks-with-http-info accountId sortField descending start limit activeOnly nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [keyword filterBillable]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending start limit activeOnly)
+   (call-api "/thirdparty/network/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly "filterBillable" filterBillable }
               :form-params   {}
@@ -553,9 +553,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec search-networks (s/coll-of third-party-network-short-response-spec)
   "Search Networks
   Search on supported third party networks and custom networks from external users."
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-networks version accountId sortField descending start limit activeOnly nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-networks-with-http-info version accountId sortField descending start limit activeOnly optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-networks accountId sortField descending start limit activeOnly nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-networks-with-http-info accountId sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of third-party-network-short-response-spec) res st/string-transformer)
         res))))
@@ -564,11 +564,11 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec send-mfa-challenge-with-http-info any?
   "Send MFA Challenge
   Sends an MFA challenge (SMS or Email) for networks with MFA enabled."
-  ([version float?, networkUID string?, appKey string?, ] (send-mfa-challenge-with-http-info version networkUID appKey nil))
-  ([version float?, networkUID string?, appKey string?, {:keys [thirdPartyToken thirdPartyCredentialId deviceId]} (s/map-of keyword? any?)]
-   (check-required-params version networkUID appKey)
-   (call-api "/api/{version}/thirdparty/credential/mfa/send" :post
-             {:path-params   {"version" version }
+  ([networkUID string?, appKey string?, ] (send-mfa-challenge-with-http-info networkUID appKey nil))
+  ([networkUID string?, appKey string?, {:keys [thirdPartyToken thirdPartyCredentialId deviceId]} (s/map-of keyword? any?)]
+   (check-required-params networkUID appKey)
+   (call-api "/thirdparty/credential/mfa/send" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"thirdPartyToken" thirdPartyToken "thirdPartyCredentialId" thirdPartyCredentialId "networkUID" networkUID "appKey" appKey "deviceId" deviceId }
               :form-params   {}
@@ -579,9 +579,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec send-mfa-challenge sirqul-response-spec
   "Send MFA Challenge
   Sends an MFA challenge (SMS or Email) for networks with MFA enabled."
-  ([version float?, networkUID string?, appKey string?, ] (send-mfa-challenge version networkUID appKey nil))
-  ([version float?, networkUID string?, appKey string?, optional-params any?]
-   (let [res (:data (send-mfa-challenge-with-http-info version networkUID appKey optional-params))]
+  ([networkUID string?, appKey string?, ] (send-mfa-challenge networkUID appKey nil))
+  ([networkUID string?, appKey string?, optional-params any?]
+   (let [res (:data (send-mfa-challenge-with-http-info networkUID appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -590,11 +590,11 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec update-credential-with-http-info any?
   "Update Credential
   Updates a third-party login for an account."
-  ([version float?, networkUID string?, thirdPartyId string?, appKey string?, ] (update-credential-with-http-info version networkUID thirdPartyId appKey nil))
-  ([version float?, networkUID string?, thirdPartyId string?, appKey string?, {:keys [deviceId thirdPartyName thirdPartyToken responseFilters metaData thirdPartyRefreshToken]} (s/map-of keyword? any?)]
-   (check-required-params version networkUID thirdPartyId appKey)
-   (call-api "/api/{version}/thirdparty/credential/update" :post
-             {:path-params   {"version" version }
+  ([networkUID string?, thirdPartyId string?, appKey string?, ] (update-credential-with-http-info networkUID thirdPartyId appKey nil))
+  ([networkUID string?, thirdPartyId string?, appKey string?, {:keys [deviceId thirdPartyName thirdPartyToken responseFilters metaData thirdPartyRefreshToken]} (s/map-of keyword? any?)]
+   (check-required-params networkUID thirdPartyId appKey)
+   (call-api "/thirdparty/credential/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "networkUID" networkUID "thirdPartyId" thirdPartyId "thirdPartyName" thirdPartyName "thirdPartyToken" thirdPartyToken "appKey" appKey "responseFilters" responseFilters "metaData" metaData "thirdPartyRefreshToken" thirdPartyRefreshToken }
               :form-params   {}
@@ -605,9 +605,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec update-credential profile-response-spec
   "Update Credential
   Updates a third-party login for an account."
-  ([version float?, networkUID string?, thirdPartyId string?, appKey string?, ] (update-credential version networkUID thirdPartyId appKey nil))
-  ([version float?, networkUID string?, thirdPartyId string?, appKey string?, optional-params any?]
-   (let [res (:data (update-credential-with-http-info version networkUID thirdPartyId appKey optional-params))]
+  ([networkUID string?, thirdPartyId string?, appKey string?, ] (update-credential networkUID thirdPartyId appKey nil))
+  ([networkUID string?, thirdPartyId string?, appKey string?, optional-params any?]
+   (let [res (:data (update-credential-with-http-info networkUID thirdPartyId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -616,11 +616,11 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec update-network-with-http-info any?
   "Update Network
   Updates a custom third party network. Only the network owners and managers have access to this."
-  ([version float?, accountId int?, networkUID string?, ] (update-network-with-http-info version accountId networkUID nil))
-  ([version float?, accountId int?, networkUID string?, {:keys [name description enableIntrospection introspectionMethod introspectionURL introspectionParams requiredRootField enableMFA sizeMFA shelfLifeMFA oauthTokenURL ^File oauthPrivateKey ^File oauthPublicKey oauthClientId oauthSecretKey body]} (s/map-of keyword? any?)]
-   (check-required-params version accountId networkUID)
-   (call-api "/api/{version}/thirdparty/network/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, networkUID string?, ] (update-network-with-http-info accountId networkUID nil))
+  ([accountId int?, networkUID string?, {:keys [name description enableIntrospection introspectionMethod introspectionURL introspectionParams requiredRootField enableMFA sizeMFA shelfLifeMFA oauthTokenURL ^File oauthPrivateKey ^File oauthPublicKey oauthClientId oauthSecretKey body]} (s/map-of keyword? any?)]
+   (check-required-params accountId networkUID)
+   (call-api "/thirdparty/network/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "networkUID" networkUID "name" name "description" description "enableIntrospection" enableIntrospection "introspectionMethod" introspectionMethod "introspectionURL" introspectionURL "introspectionParams" introspectionParams "requiredRootField" requiredRootField "enableMFA" enableMFA "sizeMFA" sizeMFA "shelfLifeMFA" shelfLifeMFA "oauthTokenURL" oauthTokenURL "oauthPrivateKey" oauthPrivateKey "oauthPublicKey" oauthPublicKey "oauthClientId" oauthClientId "oauthSecretKey" oauthSecretKey }
               :form-params   {}
@@ -632,9 +632,9 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
 (defn-spec update-network third-party-network-response-spec
   "Update Network
   Updates a custom third party network. Only the network owners and managers have access to this."
-  ([version float?, accountId int?, networkUID string?, ] (update-network version accountId networkUID nil))
-  ([version float?, accountId int?, networkUID string?, optional-params any?]
-   (let [res (:data (update-network-with-http-info version accountId networkUID optional-params))]
+  ([accountId int?, networkUID string?, ] (update-network accountId networkUID nil))
+  ([accountId int?, networkUID string?, optional-params any?]
+   (let [res (:data (update-network-with-http-info accountId networkUID optional-params))]
      (if (:decode-models *api-context*)
         (st/decode third-party-network-response-spec res st/string-transformer)
         res))))

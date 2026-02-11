@@ -353,10 +353,10 @@
 (defn-spec compute-routing-with-http-info any?
   "Compute Route
   This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off."
-  [version float?, data string?]
-  (check-required-params version data)
-  (call-api "/api/{version}/routing/compute" :post
-            {:path-params   {"version" version }
+  [data string?]
+  (check-required-params data)
+  (call-api "/routing/compute" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"data" data }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec compute-routing routing-list-response-spec
   "Compute Route
   This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off."
-  [version float?, data string?]
-  (let [res (:data (compute-routing-with-http-info version data))]
+  [data string?]
+  (let [res (:data (compute-routing-with-http-info data))]
     (if (:decode-models *api-context*)
        (st/decode routing-list-response-spec res st/string-transformer)
        res)))

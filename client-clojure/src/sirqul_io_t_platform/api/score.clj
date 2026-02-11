@@ -354,11 +354,11 @@
   "Create Score
   Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via 
 a list of {@link MessageResponse}."
-  ([version float?, accountId int?, appKey string?, points int?, ] (create-score-with-http-info version accountId appKey points nil))
-  ([version float?, accountId int?, appKey string?, points int?, {:keys [missionId gameId packId gameLevelId gameObjectId timeTaken highest]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey points)
-   (call-api "/api/{version}/score/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, points int?, ] (create-score-with-http-info accountId appKey points nil))
+  ([accountId int?, appKey string?, points int?, {:keys [missionId gameId packId gameLevelId gameObjectId timeTaken highest]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey points)
+   (call-api "/score/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "missionId" missionId "gameId" gameId "packId" packId "gameLevelId" gameLevelId "gameObjectId" gameObjectId "points" points "timeTaken" timeTaken "highest" highest }
               :form-params   {}
@@ -370,9 +370,9 @@ a list of {@link MessageResponse}."
   "Create Score
   Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via 
 a list of {@link MessageResponse}."
-  ([version float?, accountId int?, appKey string?, points int?, ] (create-score version accountId appKey points nil))
-  ([version float?, accountId int?, appKey string?, points int?, optional-params any?]
-   (let [res (:data (create-score-with-http-info version accountId appKey points optional-params))]
+  ([accountId int?, appKey string?, points int?, ] (create-score accountId appKey points nil))
+  ([accountId int?, appKey string?, points int?, optional-params any?]
+   (let [res (:data (create-score-with-http-info accountId appKey points optional-params))]
      (if (:decode-models *api-context*)
         (st/decode score-response-spec res st/string-transformer)
         res))))
@@ -381,11 +381,11 @@ a list of {@link MessageResponse}."
 (defn-spec get-score-with-http-info any?
   "Get Score
   Get the high score for an item.  Pass in the full path IDs for the score."
-  ([version float?, accountId int?, appKey string?, ] (get-score-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [missionId gameId packId gameLevelId gameObjectId scoreObjectType scoreStatus]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/score/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (get-score-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [missionId gameId packId gameLevelId gameObjectId scoreObjectType scoreStatus]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/score/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "missionId" missionId "gameId" gameId "packId" packId "gameLevelId" gameLevelId "gameObjectId" gameObjectId "scoreObjectType" scoreObjectType "scoreStatus" scoreStatus }
               :form-params   {}
@@ -396,9 +396,9 @@ a list of {@link MessageResponse}."
 (defn-spec get-score score-response-spec
   "Get Score
   Get the high score for an item.  Pass in the full path IDs for the score."
-  ([version float?, accountId int?, appKey string?, ] (get-score version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (get-score-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (get-score accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (get-score-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode score-response-spec res st/string-transformer)
         res))))
@@ -407,11 +407,11 @@ a list of {@link MessageResponse}."
 (defn-spec search-scores-with-http-info any?
   "Search Score
   Search the scores for an item.  Pass in the full path IDs for the scores."
-  ([version float?, accountId int?, appKey string?, ] (search-scores-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [missionId gameId packId gameLevelId gameObjectId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/score/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (search-scores-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [missionId gameId packId gameLevelId gameObjectId]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/score/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "missionId" missionId "gameId" gameId "packId" packId "gameLevelId" gameLevelId "gameObjectId" gameObjectId }
               :form-params   {}
@@ -422,9 +422,9 @@ a list of {@link MessageResponse}."
 (defn-spec search-scores (s/coll-of score-response-spec)
   "Search Score
   Search the scores for an item.  Pass in the full path IDs for the scores."
-  ([version float?, accountId int?, appKey string?, ] (search-scores version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (search-scores-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (search-scores accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (search-scores-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of score-response-spec) res st/string-transformer)
         res))))

@@ -13,7 +13,7 @@
 
 (def default-api-context
   "Default API context."
-  {:base-url        "http://localhost"
+  {:base-url        "https://dev.sirqul.com/api/3.18"
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :decode-models   false

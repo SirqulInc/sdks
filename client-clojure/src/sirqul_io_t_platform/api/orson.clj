@@ -353,11 +353,11 @@
 (defn-spec add-movie-with-http-info any?
   "Add Movie
   Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term."
-  ([version float?, accountId int?, movieName string?, ] (add-movie-with-http-info version accountId movieName nil))
-  ([version float?, accountId int?, movieName string?, {:keys [thirdPartyAccountId tags ^File file url callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId movieName)
-   (call-api "/api/{version}/orson/ai/addMovie" :post
-             {:path-params   {"version" version }
+  ([accountId int?, movieName string?, ] (add-movie-with-http-info accountId movieName nil))
+  ([accountId int?, movieName string?, {:keys [thirdPartyAccountId tags ^File file url callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId movieName)
+   (call-api "/orson/ai/addMovie" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "tags" tags "movieName" movieName "file" file "url" url "callback" callback }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-movie orson-ai-add-movie-response-spec
   "Add Movie
   Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term."
-  ([version float?, accountId int?, movieName string?, ] (add-movie version accountId movieName nil))
-  ([version float?, accountId int?, movieName string?, optional-params any?]
-   (let [res (:data (add-movie-with-http-info version accountId movieName optional-params))]
+  ([accountId int?, movieName string?, ] (add-movie accountId movieName nil))
+  ([accountId int?, movieName string?, optional-params any?]
+   (let [res (:data (add-movie-with-http-info accountId movieName optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-add-movie-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec ai-docs-with-http-info any?
   "Search Docs
   Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document."
-  ([version float?, accountId int?, doc string?, ] (ai-docs-with-http-info version accountId doc nil))
-  ([version float?, accountId int?, doc string?, {:keys [return_topics limit offset]} (s/map-of keyword? any?)]
-   (check-required-params version accountId doc)
-   (call-api "/api/{version}/orson/ai/docs" :get
-             {:path-params   {"version" version }
+  ([accountId int?, doc string?, ] (ai-docs-with-http-info accountId doc nil))
+  ([accountId int?, doc string?, {:keys [return_topics limit offset]} (s/map-of keyword? any?)]
+   (check-required-params accountId doc)
+   (call-api "/orson/ai/docs" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "doc" doc "return_topics" return_topics "limit" limit "offset" offset }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec ai-docs orson-ai-proto-response-spec
   "Search Docs
   Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document."
-  ([version float?, accountId int?, doc string?, ] (ai-docs version accountId doc nil))
-  ([version float?, accountId int?, doc string?, optional-params any?]
-   (let [res (:data (ai-docs-with-http-info version accountId doc optional-params))]
+  ([accountId int?, doc string?, ] (ai-docs accountId doc nil))
+  ([accountId int?, doc string?, optional-params any?]
+   (let [res (:data (ai-docs-with-http-info accountId doc optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-proto-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec ai-find-images-with-http-info any?
   "Find images
   Returns a list of URIs of images that match the text."
-  ([version float?, accountId int?, text string?, ] (ai-find-images-with-http-info version accountId text nil))
-  ([version float?, accountId int?, text string?, {:keys [parse_flag fetch_flag size]} (s/map-of keyword? any?)]
-   (check-required-params version accountId text)
-   (call-api "/api/{version}/orson/ai/img" :get
-             {:path-params   {"version" version }
+  ([accountId int?, text string?, ] (ai-find-images-with-http-info accountId text nil))
+  ([accountId int?, text string?, {:keys [parse_flag fetch_flag size]} (s/map-of keyword? any?)]
+   (check-required-params accountId text)
+   (call-api "/orson/ai/img" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "text" text "parse_flag" parse_flag "fetch_flag" fetch_flag "size" size }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec ai-find-images orson-ai-proto-response-spec
   "Find images
   Returns a list of URIs of images that match the text."
-  ([version float?, accountId int?, text string?, ] (ai-find-images version accountId text nil))
-  ([version float?, accountId int?, text string?, optional-params any?]
-   (let [res (:data (ai-find-images-with-http-info version accountId text optional-params))]
+  ([accountId int?, text string?, ] (ai-find-images accountId text nil))
+  ([accountId int?, text string?, optional-params any?]
+   (let [res (:data (ai-find-images-with-http-info accountId text optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-proto-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec ai-tags-with-http-info any?
   "Search Tags
   Search the tags column of user provided tags using this endpoint."
-  ([version float?, accountId int?, tags string?, ] (ai-tags-with-http-info version accountId tags nil))
-  ([version float?, accountId int?, tags string?, {:keys [conditional limit offset]} (s/map-of keyword? any?)]
-   (check-required-params version accountId tags)
-   (call-api "/api/{version}/orson/ai/tags" :get
-             {:path-params   {"version" version }
+  ([accountId int?, tags string?, ] (ai-tags-with-http-info accountId tags nil))
+  ([accountId int?, tags string?, {:keys [conditional limit offset]} (s/map-of keyword? any?)]
+   (check-required-params accountId tags)
+   (call-api "/orson/ai/tags" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "tags" tags "conditional" conditional "limit" limit "offset" offset }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec ai-tags orson-ai-proto-response-spec
   "Search Tags
   Search the tags column of user provided tags using this endpoint."
-  ([version float?, accountId int?, tags string?, ] (ai-tags version accountId tags nil))
-  ([version float?, accountId int?, tags string?, optional-params any?]
-   (let [res (:data (ai-tags-with-http-info version accountId tags optional-params))]
+  ([accountId int?, tags string?, ] (ai-tags accountId tags nil))
+  ([accountId int?, tags string?, optional-params any?]
+   (let [res (:data (ai-tags-with-http-info accountId tags optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-proto-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,11 @@
 (defn-spec ai-text-with-http-info any?
   "Search Text
   Search the movie text column of movie text using this endpoint."
-  ([version float?, accountId int?, terms string?, ] (ai-text-with-http-info version accountId terms nil))
-  ([version float?, accountId int?, terms string?, {:keys [conditional limit offset]} (s/map-of keyword? any?)]
-   (check-required-params version accountId terms)
-   (call-api "/api/{version}/orson/ai/text" :get
-             {:path-params   {"version" version }
+  ([accountId int?, terms string?, ] (ai-text-with-http-info accountId terms nil))
+  ([accountId int?, terms string?, {:keys [conditional limit offset]} (s/map-of keyword? any?)]
+   (check-required-params accountId terms)
+   (call-api "/orson/ai/text" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "terms" terms "conditional" conditional "limit" limit "offset" offset }
               :form-params   {}
@@ -472,9 +472,9 @@
 (defn-spec ai-text orson-ai-proto-response-spec
   "Search Text
   Search the movie text column of movie text using this endpoint."
-  ([version float?, accountId int?, terms string?, ] (ai-text version accountId terms nil))
-  ([version float?, accountId int?, terms string?, optional-params any?]
-   (let [res (:data (ai-text-with-http-info version accountId terms optional-params))]
+  ([accountId int?, terms string?, ] (ai-text accountId terms nil))
+  ([accountId int?, terms string?, optional-params any?]
+   (let [res (:data (ai-text-with-http-info accountId terms optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-proto-response-spec res st/string-transformer)
         res))))
@@ -483,11 +483,11 @@
 (defn-spec batch-with-http-info any?
   "Batch Analysis
   Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file.."
-  ([version float?, accountId int?, ] (batch-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [thirdPartyAccountId limit operations ^File file url callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/orson/ai/batch" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (batch-with-http-info accountId nil))
+  ([accountId int?, {:keys [thirdPartyAccountId limit operations ^File file url callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/orson/ai/batch" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "limit" limit "operations" operations "file" file "url" url "callback" callback }
               :form-params   {}
@@ -498,9 +498,9 @@
 (defn-spec batch orson-ai-batch-response-spec
   "Batch Analysis
   Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file.."
-  ([version float?, accountId int?, ] (batch version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (batch-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (batch accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (batch-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-batch-response-spec res st/string-transformer)
         res))))
@@ -509,10 +509,10 @@
 (defn-spec create-instant-episode-with-http-info any?
   "Creates an instant episode
   Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately."
-  [version float?, accountId int?, data string?]
-  (check-required-params version accountId data)
-  (call-api "/api/{version}/orson/stories/episodes/instant" :post
-            {:path-params   {"version" version }
+  [accountId int?, data string?]
+  (check-required-params accountId data)
+  (call-api "/orson/stories/episodes/instant" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "data" data }
              :form-params   {}
@@ -523,8 +523,8 @@
 (defn-spec create-instant-episode orson-episode-response-spec
   "Creates an instant episode
   Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately."
-  [version float?, accountId int?, data string?]
-  (let [res (:data (create-instant-episode-with-http-info version accountId data))]
+  [accountId int?, data string?]
+  (let [res (:data (create-instant-episode-with-http-info accountId data))]
     (if (:decode-models *api-context*)
        (st/decode orson-episode-response-spec res st/string-transformer)
        res)))
@@ -533,11 +533,11 @@
 (defn-spec create-voice-canvas-with-http-info any?
   "Create VoiceCanvas images
   Create VoiceCanvas images for provided text, file upload, or file URL"
-  ([version float?, accountId int?, dimensions string?, ] (create-voice-canvas-with-http-info version accountId dimensions nil))
-  ([version float?, accountId int?, dimensions string?, {:keys [thirdPartyAccountId text ^File file url parseFlag fetchFlag callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId dimensions)
-   (call-api "/api/{version}/orson/ai/voiceCanvas" :post
-             {:path-params   {"version" version }
+  ([accountId int?, dimensions string?, ] (create-voice-canvas-with-http-info accountId dimensions nil))
+  ([accountId int?, dimensions string?, {:keys [thirdPartyAccountId text ^File file url parseFlag fetchFlag callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId dimensions)
+   (call-api "/orson/ai/voiceCanvas" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "dimensions" dimensions "text" text "file" file "url" url "parseFlag" parseFlag "fetchFlag" fetchFlag "callback" callback }
               :form-params   {}
@@ -548,9 +548,9 @@
 (defn-spec create-voice-canvas orson-ai-voice-canvas-response-spec
   "Create VoiceCanvas images
   Create VoiceCanvas images for provided text, file upload, or file URL"
-  ([version float?, accountId int?, dimensions string?, ] (create-voice-canvas version accountId dimensions nil))
-  ([version float?, accountId int?, dimensions string?, optional-params any?]
-   (let [res (:data (create-voice-canvas-with-http-info version accountId dimensions optional-params))]
+  ([accountId int?, dimensions string?, ] (create-voice-canvas accountId dimensions nil))
+  ([accountId int?, dimensions string?, optional-params any?]
+   (let [res (:data (create-voice-canvas-with-http-info accountId dimensions optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-voice-canvas-response-spec res st/string-transformer)
         res))))
@@ -559,11 +559,11 @@
 (defn-spec emotion-with-http-info any?
   "Detect emotions
   Detects emotions in an audio or video recording."
-  ([version float?, accountId int?, ] (emotion-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [thirdPartyAccountId ^File file url callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/orson/ai/emotion" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (emotion-with-http-info accountId nil))
+  ([accountId int?, {:keys [thirdPartyAccountId ^File file url callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/orson/ai/emotion" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "file" file "url" url "callback" callback }
               :form-params   {}
@@ -574,9 +574,9 @@
 (defn-spec emotion orson-ai-emotions-response-spec
   "Detect emotions
   Detects emotions in an audio or video recording."
-  ([version float?, accountId int?, ] (emotion version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (emotion-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (emotion accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (emotion-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-emotions-response-spec res st/string-transformer)
         res))))
@@ -585,10 +585,10 @@
 (defn-spec get-add-movie-result-with-http-info any?
   "Get Add Movie Result
   Get the result of an in progress Add Movie request from an earlier POST."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/addMovie/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/addMovie/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -599,8 +599,8 @@
 (defn-spec get-add-movie-result orson-ai-add-movie-response-spec
   "Get Add Movie Result
   Get the result of an in progress Add Movie request from an earlier POST."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-add-movie-result-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-add-movie-result-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-add-movie-response-spec res st/string-transformer)
        res)))
@@ -609,10 +609,10 @@
 (defn-spec get-batch-with-http-info any?
   "Get Batch Analysis Results
   Gets the completed Video Batch results, if done, or an error or status update if not."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/batch/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/batch/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -623,8 +623,8 @@
 (defn-spec get-batch orson-ai-batch-response-spec
   "Get Batch Analysis Results
   Gets the completed Video Batch results, if done, or an error or status update if not."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-batch-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-batch-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-batch-response-spec res st/string-transformer)
        res)))
@@ -633,10 +633,10 @@
 (defn-spec get-emotion-with-http-info any?
   "Get Emotion Results
   Checks the Emotion analysis and returns in progress, results, or error."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/emotion/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/emotion/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -647,8 +647,8 @@
 (defn-spec get-emotion orson-ai-emotions-response-spec
   "Get Emotion Results
   Checks the Emotion analysis and returns in progress, results, or error."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-emotion-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-emotion-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-emotions-response-spec res st/string-transformer)
        res)))
@@ -657,10 +657,10 @@
 (defn-spec get-episode-status-with-http-info any?
   "Check episode status
   Gets a summary of the episode's status, including any renders."
-  [version float?, episodeId int?, accountId int?]
-  (check-required-params version episodeId accountId)
-  (call-api "/api/{version}/orson/stories/episodes/{episodeId}/status" :get
-            {:path-params   {"version" version "episodeId" episodeId }
+  [episodeId int?, accountId int?]
+  (check-required-params episodeId accountId)
+  (call-api "/orson/stories/episodes/{episodeId}/status" :get
+            {:path-params   {"episodeId" episodeId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -671,8 +671,8 @@
 (defn-spec get-episode-status orson-episode-response-spec
   "Check episode status
   Gets a summary of the episode's status, including any renders."
-  [version float?, episodeId int?, accountId int?]
-  (let [res (:data (get-episode-status-with-http-info version episodeId accountId))]
+  [episodeId int?, accountId int?]
+  (let [res (:data (get-episode-status-with-http-info episodeId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-episode-response-spec res st/string-transformer)
        res)))
@@ -681,10 +681,10 @@
 (defn-spec get-render-status-with-http-info any?
   "Check episode status
   Gets a summary of the episode's status, including any renders."
-  [version float?, renderId string?, accountId int?]
-  (check-required-params version renderId accountId)
-  (call-api "/api/{version}/orson/stories/renders/{renderId}/status" :get
-            {:path-params   {"version" version "renderId" renderId }
+  [renderId string?, accountId int?]
+  (check-required-params renderId accountId)
+  (call-api "/orson/stories/renders/{renderId}/status" :get
+            {:path-params   {"renderId" renderId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -695,8 +695,8 @@
 (defn-spec get-render-status orson-render-response-spec
   "Check episode status
   Gets a summary of the episode's status, including any renders."
-  [version float?, renderId string?, accountId int?]
-  (let [res (:data (get-render-status-with-http-info version renderId accountId))]
+  [renderId string?, accountId int?]
+  (let [res (:data (get-render-status-with-http-info renderId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-render-response-spec res st/string-transformer)
        res)))
@@ -705,10 +705,10 @@
 (defn-spec get-stt-with-http-info any?
   "Get Speach to Text Result
   The results of the video transcription and optional translation."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/stt/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/stt/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -719,8 +719,8 @@
 (defn-spec get-stt orson-ai-stt-response-spec
   "Get Speach to Text Result
   The results of the video transcription and optional translation."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-stt-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-stt-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-stt-response-spec res st/string-transformer)
        res)))
@@ -729,10 +729,10 @@
 (defn-spec get-tech-tune-with-http-info any?
   "Get TechTune Results
   Get a result or continue waiting for a pending request for TechTune analysis."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/techTune/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/techTune/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -743,8 +743,8 @@
 (defn-spec get-tech-tune orson-ai-tech-tune-response-spec
   "Get TechTune Results
   Get a result or continue waiting for a pending request for TechTune analysis."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-tech-tune-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-tech-tune-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-tech-tune-response-spec res st/string-transformer)
        res)))
@@ -753,10 +753,10 @@
 (defn-spec get-topics-with-http-info any?
   "Get Topics
   Get the result of an in progress Topics Analysis from an earlier POST."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/topics/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/topics/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -767,8 +767,8 @@
 (defn-spec get-topics orson-ai-topics-response-spec
   "Get Topics
   Get the result of an in progress Topics Analysis from an earlier POST."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-topics-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-topics-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-topics-response-spec res st/string-transformer)
        res)))
@@ -777,10 +777,10 @@
 (defn-spec get-tts-with-http-info any?
   "Get Text to Speach Result
   Check the status of an in progress Text-to-Speech call or download the result."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/tts/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/tts/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -791,8 +791,8 @@
 (defn-spec get-tts orson-ai-tts-response-spec
   "Get Text to Speach Result
   Check the status of an in progress Text-to-Speech call or download the result."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-tts-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-tts-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-tts-response-spec res st/string-transformer)
        res)))
@@ -801,10 +801,10 @@
 (defn-spec get-voice-canvas-with-http-info any?
   "Get VoiceCanvas images
   Get a result or continue waiting for a pending request for VoiceCanvas Images."
-  [version float?, requestId string?, accountId int?]
-  (check-required-params version requestId accountId)
-  (call-api "/api/{version}/orson/ai/voiceCanvas/{requestId}" :get
-            {:path-params   {"version" version "requestId" requestId }
+  [requestId string?, accountId int?]
+  (check-required-params requestId accountId)
+  (call-api "/orson/ai/voiceCanvas/{requestId}" :get
+            {:path-params   {"requestId" requestId }
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -815,8 +815,8 @@
 (defn-spec get-voice-canvas orson-ai-voice-canvas-response-spec
   "Get VoiceCanvas images
   Get a result or continue waiting for a pending request for VoiceCanvas Images."
-  [version float?, requestId string?, accountId int?]
-  (let [res (:data (get-voice-canvas-with-http-info version requestId accountId))]
+  [requestId string?, accountId int?]
+  (let [res (:data (get-voice-canvas-with-http-info requestId accountId))]
     (if (:decode-models *api-context*)
        (st/decode orson-ai-voice-canvas-response-spec res st/string-transformer)
        res)))
@@ -825,10 +825,10 @@
 (defn-spec start-video-render-with-http-info any?
   "Starts a StoryStitch video render
   Starts a StoryStitch video render to produce your final video, returning the status details."
-  [version float?, accountId int?, data string?]
-  (check-required-params version accountId data)
-  (call-api "/api/{version}/orson/stories/renders" :post
-            {:path-params   {"version" version }
+  [accountId int?, data string?]
+  (check-required-params accountId data)
+  (call-api "/orson/stories/renders" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "data" data }
              :form-params   {}
@@ -839,8 +839,8 @@
 (defn-spec start-video-render orson-render-response-spec
   "Starts a StoryStitch video render
   Starts a StoryStitch video render to produce your final video, returning the status details."
-  [version float?, accountId int?, data string?]
-  (let [res (:data (start-video-render-with-http-info version accountId data))]
+  [accountId int?, data string?]
+  (let [res (:data (start-video-render-with-http-info accountId data))]
     (if (:decode-models *api-context*)
        (st/decode orson-render-response-spec res st/string-transformer)
        res)))
@@ -849,11 +849,11 @@
 (defn-spec stt-with-http-info any?
   "Speach to Text
   Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages."
-  ([version float?, accountId int?, ] (stt-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [thirdPartyAccountId sourceLanguage targetLanguage ^File file url callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/orson/ai/stt" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (stt-with-http-info accountId nil))
+  ([accountId int?, {:keys [thirdPartyAccountId sourceLanguage targetLanguage ^File file url callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/orson/ai/stt" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "sourceLanguage" sourceLanguage "targetLanguage" targetLanguage "file" file "url" url "callback" callback }
               :form-params   {}
@@ -864,9 +864,9 @@
 (defn-spec stt orson-ai-stt-response-spec
   "Speach to Text
   Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages."
-  ([version float?, accountId int?, ] (stt version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (stt-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (stt accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (stt-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-stt-response-spec res st/string-transformer)
         res))))
@@ -875,11 +875,11 @@
 (defn-spec summarize-topics-with-http-info any?
   "Summarize Topics
   Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score."
-  ([version float?, accountId int?, ] (summarize-topics-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [thirdPartyAccountId doc ^File file url limit offset callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/orson/ai/topics" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (summarize-topics-with-http-info accountId nil))
+  ([accountId int?, {:keys [thirdPartyAccountId doc ^File file url limit offset callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/orson/ai/topics" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "doc" doc "file" file "url" url "limit" limit "offset" offset "callback" callback }
               :form-params   {}
@@ -890,9 +890,9 @@
 (defn-spec summarize-topics orson-ai-topics-response-spec
   "Summarize Topics
   Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score."
-  ([version float?, accountId int?, ] (summarize-topics version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (summarize-topics-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (summarize-topics accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (summarize-topics-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-topics-response-spec res st/string-transformer)
         res))))
@@ -901,11 +901,11 @@
 (defn-spec tech-tune-with-http-info any?
   "Detect Technical Issues
   Analyses a movie file to detect technical issues, such as too few people in frame."
-  ([version float?, accountId int?, numFacesExpected int?, ] (tech-tune-with-http-info version accountId numFacesExpected nil))
-  ([version float?, accountId int?, numFacesExpected int?, {:keys [thirdPartyAccountId ^File file url callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId numFacesExpected)
-   (call-api "/api/{version}/orson/ai/techTune" :post
-             {:path-params   {"version" version }
+  ([accountId int?, numFacesExpected int?, ] (tech-tune-with-http-info accountId numFacesExpected nil))
+  ([accountId int?, numFacesExpected int?, {:keys [thirdPartyAccountId ^File file url callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId numFacesExpected)
+   (call-api "/orson/ai/techTune" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "numFacesExpected" numFacesExpected "file" file "url" url "callback" callback }
               :form-params   {}
@@ -916,9 +916,9 @@
 (defn-spec tech-tune orson-ai-tech-tune-response-spec
   "Detect Technical Issues
   Analyses a movie file to detect technical issues, such as too few people in frame."
-  ([version float?, accountId int?, numFacesExpected int?, ] (tech-tune version accountId numFacesExpected nil))
-  ([version float?, accountId int?, numFacesExpected int?, optional-params any?]
-   (let [res (:data (tech-tune-with-http-info version accountId numFacesExpected optional-params))]
+  ([accountId int?, numFacesExpected int?, ] (tech-tune accountId numFacesExpected nil))
+  ([accountId int?, numFacesExpected int?, optional-params any?]
+   (let [res (:data (tech-tune-with-http-info accountId numFacesExpected optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-tech-tune-response-spec res st/string-transformer)
         res))))
@@ -927,11 +927,11 @@
 (defn-spec tts-with-http-info any?
   "Text to Speach
   Creates an audio file for the given text, with the option of language and voice selection."
-  ([version float?, accountId int?, text string?, ] (tts-with-http-info version accountId text nil))
-  ([version float?, accountId int?, text string?, {:keys [thirdPartyAccountId language voice callback]} (s/map-of keyword? any?)]
-   (check-required-params version accountId text)
-   (call-api "/api/{version}/orson/ai/tts" :post
-             {:path-params   {"version" version }
+  ([accountId int?, text string?, ] (tts-with-http-info accountId text nil))
+  ([accountId int?, text string?, {:keys [thirdPartyAccountId language voice callback]} (s/map-of keyword? any?)]
+   (check-required-params accountId text)
+   (call-api "/orson/ai/tts" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "thirdPartyAccountId" thirdPartyAccountId "text" text "language" language "voice" voice "callback" callback }
               :form-params   {}
@@ -942,9 +942,9 @@
 (defn-spec tts orson-ai-tts-response-spec
   "Text to Speach
   Creates an audio file for the given text, with the option of language and voice selection."
-  ([version float?, accountId int?, text string?, ] (tts version accountId text nil))
-  ([version float?, accountId int?, text string?, optional-params any?]
-   (let [res (:data (tts-with-http-info version accountId text optional-params))]
+  ([accountId int?, text string?, ] (tts accountId text nil))
+  ([accountId int?, text string?, optional-params any?]
+   (let [res (:data (tts-with-http-info accountId text optional-params))]
      (if (:decode-models *api-context*)
         (st/decode orson-ai-tts-response-spec res st/string-transformer)
         res))))

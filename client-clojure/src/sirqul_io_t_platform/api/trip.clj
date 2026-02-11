@@ -353,11 +353,10 @@
 (defn-spec create-trip-with-http-info any?
   "Create Trip
   Create a new trip"
-  ([version float?, ] (create-trip-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/trip" :post
-             {:path-params   {"version" version }
+  ([] (create-trip-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/trip" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +368,9 @@
 (defn-spec create-trip trip-spec
   "Create Trip
   Create a new trip"
-  ([version float?, ] (create-trip version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-trip-with-http-info version optional-params))]
+  ([] (create-trip nil))
+  ([optional-params any?]
+   (let [res (:data (create-trip-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode trip-spec res st/string-transformer)
         res))))
@@ -380,10 +379,10 @@
 (defn-spec delete-with-http-info any?
   "Delete Trip
   Delete an existing trip"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/trip/{id}" :delete
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/trip/{id}" :delete
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +393,8 @@
 (defn-spec delete any?
   "Delete Trip
   Delete an existing trip"
-  [version float?, id int?]
-  (let [res (:data (delete-with-http-info version id))]
+  [id int?]
+  (let [res (:data (delete-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -404,10 +403,10 @@
 (defn-spec drive-trip-with-http-info any?
   "Set Trip Preference Driver
   Update trip preference to drive, also create a route and assign the trip to the route"
-  [version float?, id int?, recurrence boolean?]
-  (check-required-params version id recurrence)
-  (call-api "/api/{version}/trip/{id}/drive" :post
-            {:path-params   {"version" version "id" id }
+  [id int?, recurrence boolean?]
+  (check-required-params id recurrence)
+  (call-api "/trip/{id}/drive" :post
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {"recurrence" recurrence }
              :form-params   {}
@@ -418,8 +417,8 @@
 (defn-spec drive-trip trip-spec
   "Set Trip Preference Driver
   Update trip preference to drive, also create a route and assign the trip to the route"
-  [version float?, id int?, recurrence boolean?]
-  (let [res (:data (drive-trip-with-http-info version id recurrence))]
+  [id int?, recurrence boolean?]
+  (let [res (:data (drive-trip-with-http-info id recurrence))]
     (if (:decode-models *api-context*)
        (st/decode trip-spec res st/string-transformer)
        res)))
@@ -428,10 +427,10 @@
 (defn-spec flexible-trip-with-http-info any?
   "Set Trip Preference Flexible
   Update trip preference to flexible."
-  [version float?, id int?, recurrence boolean?]
-  (check-required-params version id recurrence)
-  (call-api "/api/{version}/trip/{id}/flexible" :post
-            {:path-params   {"version" version "id" id }
+  [id int?, recurrence boolean?]
+  (check-required-params id recurrence)
+  (call-api "/trip/{id}/flexible" :post
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {"recurrence" recurrence }
              :form-params   {}
@@ -442,8 +441,8 @@
 (defn-spec flexible-trip trip-spec
   "Set Trip Preference Flexible
   Update trip preference to flexible."
-  [version float?, id int?, recurrence boolean?]
-  (let [res (:data (flexible-trip-with-http-info version id recurrence))]
+  [id int?, recurrence boolean?]
+  (let [res (:data (flexible-trip-with-http-info id recurrence))]
     (if (:decode-models *api-context*)
        (st/decode trip-spec res st/string-transformer)
        res)))
@@ -452,10 +451,10 @@
 (defn-spec get-trip-with-http-info any?
   "Get Trip
   Get an existing trip"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/trip/{id}" :get
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/trip/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -466,8 +465,8 @@
 (defn-spec get-trip trip-spec
   "Get Trip
   Get an existing trip"
-  [version float?, id int?]
-  (let [res (:data (get-trip-with-http-info version id))]
+  [id int?]
+  (let [res (:data (get-trip-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode trip-spec res st/string-transformer)
        res)))
@@ -476,11 +475,11 @@
 (defn-spec get-trip-matches-with-http-info any?
   "Get Trip Matches
   Get matching trips of specific trip"
-  ([version float?, id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-trip-matches-with-http-info version id sortField descending start limit activeOnly nil))
-  ([version float?, id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [matchedHasRoute matchedHasDriver]} (s/map-of keyword? any?)]
-   (check-required-params version id sortField descending start limit activeOnly)
-   (call-api "/api/{version}/trip/{id}/match" :get
-             {:path-params   {"version" version "id" id }
+  ([id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-trip-matches-with-http-info id sortField descending start limit activeOnly nil))
+  ([id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [matchedHasRoute matchedHasDriver]} (s/map-of keyword? any?)]
+   (check-required-params id sortField descending start limit activeOnly)
+   (call-api "/trip/{id}/match" :get
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {"matchedHasRoute" matchedHasRoute "matchedHasDriver" matchedHasDriver "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -491,9 +490,9 @@
 (defn-spec get-trip-matches (s/coll-of trip-spec)
   "Get Trip Matches
   Get matching trips of specific trip"
-  ([version float?, id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-trip-matches version id sortField descending start limit activeOnly nil))
-  ([version float?, id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (get-trip-matches-with-http-info version id sortField descending start limit activeOnly optional-params))]
+  ([id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-trip-matches id sortField descending start limit activeOnly nil))
+  ([id int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (get-trip-matches-with-http-info id sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of trip-spec) res st/string-transformer)
         res))))
@@ -502,11 +501,10 @@
 (defn-spec process-trip-matches-with-http-info any?
   "Process Trip Matches
   Process trip matching, assign trips with no route to matched trips with route."
-  ([version float?, ] (process-trip-matches-with-http-info version nil))
-  ([version float?, {:keys [startDate endDate tripId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/trip/match/process" :post
-             {:path-params   {"version" version }
+  ([] (process-trip-matches-with-http-info nil))
+  ([{:keys [startDate endDate tripId]} (s/map-of keyword? any?)]
+   (call-api "/trip/match/process" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"startDate" startDate "endDate" endDate "tripId" tripId }
               :form-params   {}
@@ -517,9 +515,9 @@
 (defn-spec process-trip-matches (s/coll-of trip-spec)
   "Process Trip Matches
   Process trip matching, assign trips with no route to matched trips with route."
-  ([version float?, ] (process-trip-matches version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (process-trip-matches-with-http-info version optional-params))]
+  ([] (process-trip-matches nil))
+  ([optional-params any?]
+   (let [res (:data (process-trip-matches-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of trip-spec) res st/string-transformer)
         res))))
@@ -528,10 +526,10 @@
 (defn-spec ride-with-http-info any?
   "Set Trip Preference Rider
   Update trip preference to ride."
-  [version float?, id int?, recurrence boolean?]
-  (check-required-params version id recurrence)
-  (call-api "/api/{version}/trip/{id}/ride" :post
-            {:path-params   {"version" version "id" id }
+  [id int?, recurrence boolean?]
+  (check-required-params id recurrence)
+  (call-api "/trip/{id}/ride" :post
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {"recurrence" recurrence }
              :form-params   {}
@@ -542,8 +540,8 @@
 (defn-spec ride trip-spec
   "Set Trip Preference Rider
   Update trip preference to ride."
-  [version float?, id int?, recurrence boolean?]
-  (let [res (:data (ride-with-http-info version id recurrence))]
+  [id int?, recurrence boolean?]
+  (let [res (:data (ride-with-http-info id recurrence))]
     (if (:decode-models *api-context*)
        (st/decode trip-spec res st/string-transformer)
        res)))
@@ -552,11 +550,11 @@
 (defn-spec search-with-http-info any?
   "Search Trips
   Search for trips"
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-with-http-info version accountId sortField descending start limit activeOnly nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [startDate endDate hasNotifications]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending start limit activeOnly)
-   (call-api "/api/{version}/trip" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-with-http-info accountId sortField descending start limit activeOnly nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [startDate endDate hasNotifications]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending start limit activeOnly)
+   (call-api "/trip" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "startDate" startDate "endDate" endDate "hasNotifications" hasNotifications "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -567,9 +565,9 @@
 (defn-spec search (s/coll-of trip-spec)
   "Search Trips
   Search for trips"
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search version accountId sortField descending start limit activeOnly nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-with-http-info version accountId sortField descending start limit activeOnly optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search accountId sortField descending start limit activeOnly nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-with-http-info accountId sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of trip-spec) res st/string-transformer)
         res))))
@@ -578,11 +576,11 @@
 (defn-spec search-trips-with-http-info any?
   "Search Trips
   Search for trips with matching information."
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-trips-with-http-info version accountId sortField descending start limit activeOnly nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [startDate endDate matchedHasRoute matchedHasDriver]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending start limit activeOnly)
-   (call-api "/api/{version}/trip/match" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-trips-with-http-info accountId sortField descending start limit activeOnly nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [startDate endDate matchedHasRoute matchedHasDriver]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending start limit activeOnly)
+   (call-api "/trip/match" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "startDate" startDate "endDate" endDate "matchedHasRoute" matchedHasRoute "matchedHasDriver" matchedHasDriver "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -593,9 +591,9 @@
 (defn-spec search-trips (s/coll-of trip-spec)
   "Search Trips
   Search for trips with matching information."
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-trips version accountId sortField descending start limit activeOnly nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-trips-with-http-info version accountId sortField descending start limit activeOnly optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-trips accountId sortField descending start limit activeOnly nil))
+  ([accountId int?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-trips-with-http-info accountId sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of trip-spec) res st/string-transformer)
         res))))
@@ -603,11 +601,11 @@
 
 (defn-spec update-locations-with-http-info any?
   "Update Trip Locations"
-  ([version float?, id int?, ] (update-locations-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/trip/{id}/locations" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-locations-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/trip/{id}/locations" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -618,9 +616,9 @@
 
 (defn-spec update-locations trip-spec
   "Update Trip Locations"
-  ([version float?, id int?, ] (update-locations version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-locations-with-http-info version id optional-params))]
+  ([id int?, ] (update-locations id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-locations-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode trip-spec res st/string-transformer)
         res))))
@@ -628,11 +626,11 @@
 
 (defn-spec update-recurrence-locations-with-http-info any?
   "Update Recurrence Locations"
-  ([version float?, id int?, ] (update-recurrence-locations-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/trip/{id}/locations/recurrence" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-recurrence-locations-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/trip/{id}/locations/recurrence" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -643,9 +641,9 @@
 
 (defn-spec update-recurrence-locations (s/coll-of trip-spec)
   "Update Recurrence Locations"
-  ([version float?, id int?, ] (update-recurrence-locations version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-recurrence-locations-with-http-info version id optional-params))]
+  ([id int?, ] (update-recurrence-locations id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-recurrence-locations-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of trip-spec) res st/string-transformer)
         res))))
@@ -653,11 +651,11 @@
 
 (defn-spec update-recurrence-shipments-with-http-info any?
   "Update Recurrence Shipments"
-  ([version float?, id int?, ] (update-recurrence-shipments-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/trip/{id}/shipments/recurrence" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-recurrence-shipments-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/trip/{id}/shipments/recurrence" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -668,9 +666,9 @@
 
 (defn-spec update-recurrence-shipments (s/coll-of trip-spec)
   "Update Recurrence Shipments"
-  ([version float?, id int?, ] (update-recurrence-shipments version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-recurrence-shipments-with-http-info version id optional-params))]
+  ([id int?, ] (update-recurrence-shipments id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-recurrence-shipments-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of trip-spec) res st/string-transformer)
         res))))
@@ -678,11 +676,11 @@
 
 (defn-spec update-shipments-with-http-info any?
   "Update Trip Shipments"
-  ([version float?, id int?, ] (update-shipments-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/trip/{id}/shipments" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-shipments-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/trip/{id}/shipments" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -693,9 +691,9 @@
 
 (defn-spec update-shipments trip-spec
   "Update Trip Shipments"
-  ([version float?, id int?, ] (update-shipments version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-shipments-with-http-info version id optional-params))]
+  ([id int?, ] (update-shipments id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-shipments-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode trip-spec res st/string-transformer)
         res))))
@@ -704,11 +702,11 @@
 (defn-spec update-trip-with-http-info any?
   "Update Trip
   Update an existing trip. Does not support recurring trip update."
-  ([version float?, id int?, ] (update-trip-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/trip/{id}" :put
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-trip-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/trip/{id}" :put
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -720,9 +718,9 @@
 (defn-spec update-trip trip-spec
   "Update Trip
   Update an existing trip. Does not support recurring trip update."
-  ([version float?, id int?, ] (update-trip version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-trip-with-http-info version id optional-params))]
+  ([id int?, ] (update-trip id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-trip-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode trip-spec res st/string-transformer)
         res))))
@@ -731,11 +729,11 @@
 (defn-spec update-trip-notifications-with-http-info any?
   "Trip Notifications
   Update the trip notifications"
-  ([version float?, id int?, ] (update-trip-notifications-with-http-info version id nil))
-  ([version float?, id int?, {:keys [notifications]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/trip/notifications" :post
-             {:path-params   {"version" version }
+  ([id int?, ] (update-trip-notifications-with-http-info id nil))
+  ([id int?, {:keys [notifications]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/trip/notifications" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"id" id "notifications" notifications }
               :form-params   {}
@@ -746,9 +744,9 @@
 (defn-spec update-trip-notifications trip-spec
   "Trip Notifications
   Update the trip notifications"
-  ([version float?, id int?, ] (update-trip-notifications version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-trip-notifications-with-http-info version id optional-params))]
+  ([id int?, ] (update-trip-notifications id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-trip-notifications-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode trip-spec res st/string-transformer)
         res))))

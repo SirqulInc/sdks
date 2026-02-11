@@ -353,11 +353,11 @@
 (defn-spec create-flag-with-http-info any?
   "Create Flag
   Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors"
-  ([version float?, flagableType string?, flagableId int?, ] (create-flag-with-http-info version flagableType flagableId nil))
-  ([version float?, flagableType string?, flagableId int?, {:keys [deviceId accountId flagDescription latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version flagableType flagableId)
-   (call-api "/api/{version}/flag/create" :post
-             {:path-params   {"version" version }
+  ([flagableType string?, flagableId int?, ] (create-flag-with-http-info flagableType flagableId nil))
+  ([flagableType string?, flagableId int?, {:keys [deviceId accountId flagDescription latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params flagableType flagableId)
+   (call-api "/flag/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "flagableType" flagableType "flagableId" flagableId "flagDescription" flagDescription "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-flag sirqul-response-spec
   "Create Flag
   Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors"
-  ([version float?, flagableType string?, flagableId int?, ] (create-flag version flagableType flagableId nil))
-  ([version float?, flagableType string?, flagableId int?, optional-params any?]
-   (let [res (:data (create-flag-with-http-info version flagableType flagableId optional-params))]
+  ([flagableType string?, flagableId int?, ] (create-flag flagableType flagableId nil))
+  ([flagableType string?, flagableId int?, optional-params any?]
+   (let [res (:data (create-flag-with-http-info flagableType flagableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,10 @@
 (defn-spec delete-flag-with-http-info any?
   "Delete Flag
   Deletes a flag."
-  ([version float?, ] (delete-flag-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId itemBeingFlaggedType itemBeingFlaggedId flagableType flagableId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/flag/delete" :post
-             {:path-params   {"version" version }
+  ([] (delete-flag-with-http-info nil))
+  ([{:keys [deviceId accountId itemBeingFlaggedType itemBeingFlaggedId flagableType flagableId]} (s/map-of keyword? any?)]
+   (call-api "/flag/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "itemBeingFlaggedType" itemBeingFlaggedType "itemBeingFlaggedId" itemBeingFlaggedId "flagableType" flagableType "flagableId" flagableId }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec delete-flag sirqul-response-spec
   "Delete Flag
   Deletes a flag."
-  ([version float?, ] (delete-flag version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (delete-flag-with-http-info version optional-params))]
+  ([] (delete-flag nil))
+  ([optional-params any?]
+   (let [res (:data (delete-flag-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,11 @@
 (defn-spec get-flag-with-http-info any?
   "Get Flag
   Gets the details on whether the user has flagged a particular flagable object."
-  ([version float?, flagableType string?, flagableId int?, ] (get-flag-with-http-info version flagableType flagableId nil))
-  ([version float?, flagableType string?, flagableId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version flagableType flagableId)
-   (call-api "/api/{version}/flag/get" :get
-             {:path-params   {"version" version }
+  ([flagableType string?, flagableId int?, ] (get-flag-with-http-info flagableType flagableId nil))
+  ([flagableType string?, flagableId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params flagableType flagableId)
+   (call-api "/flag/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "flagableType" flagableType "flagableId" flagableId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec get-flag flag-response-spec
   "Get Flag
   Gets the details on whether the user has flagged a particular flagable object."
-  ([version float?, flagableType string?, flagableId int?, ] (get-flag version flagableType flagableId nil))
-  ([version float?, flagableType string?, flagableId int?, optional-params any?]
-   (let [res (:data (get-flag-with-http-info version flagableType flagableId optional-params))]
+  ([flagableType string?, flagableId int?, ] (get-flag flagableType flagableId nil))
+  ([flagableType string?, flagableId int?, optional-params any?]
+   (let [res (:data (get-flag-with-http-info flagableType flagableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode flag-response-spec res st/string-transformer)
         res))))
@@ -431,10 +430,10 @@
 (defn-spec get-flag-threshold-with-http-info any?
   "Get Flag Threshold
   Get the flag threshold value on an object type for a particular application."
-  [version float?, itemBeingFlaggedType string?, appKey string?]
-  (check-required-params version itemBeingFlaggedType appKey)
-  (call-api "/api/{version}/flag/threshold/get" :get
-            {:path-params   {"version" version }
+  [itemBeingFlaggedType string?, appKey string?]
+  (check-required-params itemBeingFlaggedType appKey)
+  (call-api "/flag/threshold/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"itemBeingFlaggedType" itemBeingFlaggedType "appKey" appKey }
              :form-params   {}
@@ -445,8 +444,8 @@
 (defn-spec get-flag-threshold count-response-spec
   "Get Flag Threshold
   Get the flag threshold value on an object type for a particular application."
-  [version float?, itemBeingFlaggedType string?, appKey string?]
-  (let [res (:data (get-flag-threshold-with-http-info version itemBeingFlaggedType appKey))]
+  [itemBeingFlaggedType string?, appKey string?]
+  (let [res (:data (get-flag-threshold-with-http-info itemBeingFlaggedType appKey))]
     (if (:decode-models *api-context*)
        (st/decode count-response-spec res st/string-transformer)
        res)))
@@ -455,11 +454,11 @@
 (defn-spec update-flag-threshold-with-http-info any?
   "Update Flag Threshold
   Update the flag threshold on an object type for a particular application."
-  ([version float?, itemBeingFlaggedType string?, threshold int?, appKey string?, ] (update-flag-threshold-with-http-info version itemBeingFlaggedType threshold appKey nil))
-  ([version float?, itemBeingFlaggedType string?, threshold int?, appKey string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version itemBeingFlaggedType threshold appKey)
-   (call-api "/api/{version}/flag/threshold/update" :post
-             {:path-params   {"version" version }
+  ([itemBeingFlaggedType string?, threshold int?, appKey string?, ] (update-flag-threshold-with-http-info itemBeingFlaggedType threshold appKey nil))
+  ([itemBeingFlaggedType string?, threshold int?, appKey string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params itemBeingFlaggedType threshold appKey)
+   (call-api "/flag/threshold/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "itemBeingFlaggedType" itemBeingFlaggedType "threshold" threshold "appKey" appKey }
               :form-params   {}
@@ -470,9 +469,9 @@
 (defn-spec update-flag-threshold count-response-spec
   "Update Flag Threshold
   Update the flag threshold on an object type for a particular application."
-  ([version float?, itemBeingFlaggedType string?, threshold int?, appKey string?, ] (update-flag-threshold version itemBeingFlaggedType threshold appKey nil))
-  ([version float?, itemBeingFlaggedType string?, threshold int?, appKey string?, optional-params any?]
-   (let [res (:data (update-flag-threshold-with-http-info version itemBeingFlaggedType threshold appKey optional-params))]
+  ([itemBeingFlaggedType string?, threshold int?, appKey string?, ] (update-flag-threshold itemBeingFlaggedType threshold appKey nil))
+  ([itemBeingFlaggedType string?, threshold int?, appKey string?, optional-params any?]
+   (let [res (:data (update-flag-threshold-with-http-info itemBeingFlaggedType threshold appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode count-response-spec res st/string-transformer)
         res))))

@@ -353,11 +353,10 @@
 (defn-spec get-token-with-http-info any?
   "Get Facebook Token
   Gets a user's Facebook token."
-  ([version float?, ] (get-token-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/facebook/getfbtoken" :get
-             {:path-params   {"version" version }
+  ([] (get-token-with-http-info nil))
+  ([{:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/facebook/getfbtoken" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec get-token token-response-spec
   "Get Facebook Token
   Gets a user's Facebook token."
-  ([version float?, ] (get-token version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-token-with-http-info version optional-params))]
+  ([] (get-token nil))
+  ([optional-params any?]
+   (let [res (:data (get-token-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode token-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec graph-interface-with-http-info any?
   "Post to Facebook
   Make Facebook posts on behalf of the user."
-  ([version float?, event string?, ] (graph-interface-with-http-info version event nil))
-  ([version float?, event string?, {:keys [deviceId accountId permissionableType permissionableId assetId gameType appKey latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version event)
-   (call-api "/api/{version}/facebook/graph" :post
-             {:path-params   {"version" version }
+  ([event string?, ] (graph-interface-with-http-info event nil))
+  ([event string?, {:keys [deviceId accountId permissionableType permissionableId assetId gameType appKey latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params event)
+   (call-api "/facebook/graph" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "event" event "permissionableType" permissionableType "permissionableId" permissionableId "assetId" assetId "gameType" gameType "appKey" appKey "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec graph-interface sirqul-response-spec
   "Post to Facebook
   Make Facebook posts on behalf of the user."
-  ([version float?, event string?, ] (graph-interface version event nil))
-  ([version float?, event string?, optional-params any?]
-   (let [res (:data (graph-interface-with-http-info version event optional-params))]
+  ([event string?, ] (graph-interface event nil))
+  ([event string?, optional-params any?]
+   (let [res (:data (graph-interface-with-http-info event optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

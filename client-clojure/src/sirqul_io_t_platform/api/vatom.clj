@@ -353,11 +353,11 @@
 (defn-spec create-following-with-http-info any?
   "Create following
   Create following."
-  ([version float?, accountId int?, vatomParameters string?, ] (create-following-with-http-info version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomParameters)
-   (call-api "/api/{version}/vatom/me/rels/following/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomParameters string?, ] (create-following-with-http-info accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomParameters)
+   (call-api "/vatom/me/rels/following/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-following any?
   "Create following
   Create following."
-  ([version float?, accountId int?, vatomParameters string?, ] (create-following version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, optional-params any?]
-   (let [res (:data (create-following-with-http-info version accountId vatomParameters optional-params))]
+  ([accountId int?, vatomParameters string?, ] (create-following accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, optional-params any?]
+   (let [res (:data (create-following-with-http-info accountId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec create-space-with-http-info any?
   "Create Vatom Space
   Create a Vatom space."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (create-space-with-http-info version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomParameters)
-   (call-api "/api/{version}/vatom/b/spaces/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomParameters string?, ] (create-space-with-http-info accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomParameters)
+   (call-api "/vatom/b/spaces/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec create-space any?
   "Create Vatom Space
   Create a Vatom space."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (create-space version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (create-space-with-http-info version accountId appKey vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomParameters string?, ] (create-space accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (create-space-with-http-info accountId appKey vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec create-vatom-event-with-http-info any?
   "Create Vatom Event
   Create a Vatom event."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (create-vatom-event-with-http-info version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomParameters)
-   (call-api "/api/{version}/vatom/b/events/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomParameters string?, ] (create-vatom-event-with-http-info accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomParameters)
+   (call-api "/vatom/b/events/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec create-vatom-event any?
   "Create Vatom Event
   Create a Vatom event."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (create-vatom-event version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (create-vatom-event-with-http-info version accountId appKey vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomParameters string?, ] (create-vatom-event accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (create-vatom-event-with-http-info accountId appKey vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec delete-following-with-http-info any?
   "Delete following
   Delete following."
-  ([version float?, accountId int?, vatomRelsKey string?, ] (delete-following-with-http-info version accountId vatomRelsKey nil))
-  ([version float?, accountId int?, vatomRelsKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomRelsKey)
-   (call-api "/api/{version}/vatom/me/rels/following/delete" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomRelsKey string?, ] (delete-following-with-http-info accountId vatomRelsKey nil))
+  ([accountId int?, vatomRelsKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomRelsKey)
+   (call-api "/vatom/me/rels/following/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomRelsKey" vatomRelsKey "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec delete-following any?
   "Delete following
   Delete following."
-  ([version float?, accountId int?, vatomRelsKey string?, ] (delete-following version accountId vatomRelsKey nil))
-  ([version float?, accountId int?, vatomRelsKey string?, optional-params any?]
-   (let [res (:data (delete-following-with-http-info version accountId vatomRelsKey optional-params))]
+  ([accountId int?, vatomRelsKey string?, ] (delete-following accountId vatomRelsKey nil))
+  ([accountId int?, vatomRelsKey string?, optional-params any?]
+   (let [res (:data (delete-following-with-http-info accountId vatomRelsKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -457,11 +457,11 @@
 (defn-spec delete-points-balance-with-http-info any?
   "Reset All Points Balance
   Reset All Points Balance."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (delete-points-balance-with-http-info version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomCampaignId)
-   (call-api "/api/{version}/vatom/b/campaign/points/delete" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (delete-points-balance-with-http-info accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomCampaignId)
+   (call-api "/vatom/b/campaign/points/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomCampaignId" vatomCampaignId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -472,9 +472,9 @@
 (defn-spec delete-points-balance any?
   "Reset All Points Balance
   Reset All Points Balance."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (delete-points-balance version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
-   (let [res (:data (delete-points-balance-with-http-info version accountId appKey vatomCampaignId optional-params))]
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (delete-points-balance accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
+   (let [res (:data (delete-points-balance-with-http-info accountId appKey vatomCampaignId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -483,11 +483,11 @@
 (defn-spec delete-space-with-http-info any?
   "Delete Vatom Space
   Delete a Vatom space."
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, ] (delete-space-with-http-info version accountId appKey vatomSpaceId nil))
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomSpaceId)
-   (call-api "/api/{version}/vatom/b/spaces/delete" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomSpaceId string?, ] (delete-space-with-http-info accountId appKey vatomSpaceId nil))
+  ([accountId int?, appKey string?, vatomSpaceId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomSpaceId)
+   (call-api "/vatom/b/spaces/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomSpaceId" vatomSpaceId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -498,9 +498,9 @@
 (defn-spec delete-space any?
   "Delete Vatom Space
   Delete a Vatom space."
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, ] (delete-space version accountId appKey vatomSpaceId nil))
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, optional-params any?]
-   (let [res (:data (delete-space-with-http-info version accountId appKey vatomSpaceId optional-params))]
+  ([accountId int?, appKey string?, vatomSpaceId string?, ] (delete-space accountId appKey vatomSpaceId nil))
+  ([accountId int?, appKey string?, vatomSpaceId string?, optional-params any?]
+   (let [res (:data (delete-space-with-http-info accountId appKey vatomSpaceId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -509,11 +509,11 @@
 (defn-spec delete-vatom-event-with-http-info any?
   "Delete Vatom Event
   Delete a Vatom event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, ] (delete-vatom-event-with-http-info version accountId appKey vatomEventId nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomEventId)
-   (call-api "/api/{version}/vatom/b/events/delete" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomEventId string?, ] (delete-vatom-event-with-http-info accountId appKey vatomEventId nil))
+  ([accountId int?, appKey string?, vatomEventId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomEventId)
+   (call-api "/vatom/b/events/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomEventId" vatomEventId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -524,9 +524,9 @@
 (defn-spec delete-vatom-event any?
   "Delete Vatom Event
   Delete a Vatom event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, ] (delete-vatom-event version accountId appKey vatomEventId nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, optional-params any?]
-   (let [res (:data (delete-vatom-event-with-http-info version accountId appKey vatomEventId optional-params))]
+  ([accountId int?, appKey string?, vatomEventId string?, ] (delete-vatom-event accountId appKey vatomEventId nil))
+  ([accountId int?, appKey string?, vatomEventId string?, optional-params any?]
+   (let [res (:data (delete-vatom-event-with-http-info accountId appKey vatomEventId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -535,11 +535,11 @@
 (defn-spec delete-vatom-nft-with-http-info any?
   "Delete Vatom NFT
   Delete Vatom NFT"
-  ([version float?, accountId int?, vatomId string?, ] (delete-vatom-nft-with-http-info version accountId vatomId nil))
-  ([version float?, accountId int?, vatomId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomId)
-   (call-api "/api/{version}/vatom/vatoms/delete" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomId string?, ] (delete-vatom-nft-with-http-info accountId vatomId nil))
+  ([accountId int?, vatomId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomId)
+   (call-api "/vatom/vatoms/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomId" vatomId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -550,9 +550,9 @@
 (defn-spec delete-vatom-nft any?
   "Delete Vatom NFT
   Delete Vatom NFT"
-  ([version float?, accountId int?, vatomId string?, ] (delete-vatom-nft version accountId vatomId nil))
-  ([version float?, accountId int?, vatomId string?, optional-params any?]
-   (let [res (:data (delete-vatom-nft-with-http-info version accountId vatomId optional-params))]
+  ([accountId int?, vatomId string?, ] (delete-vatom-nft accountId vatomId nil))
+  ([accountId int?, vatomId string?, optional-params any?]
+   (let [res (:data (delete-vatom-nft-with-http-info accountId vatomId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -561,11 +561,11 @@
 (defn-spec execute-action-on-nft-with-http-info any?
   "Execute Action on NFT
   Execute Action on NFT."
-  ([version float?, accountId int?, vatomId string?, vatomParameters string?, ] (execute-action-on-nft-with-http-info version accountId vatomId vatomParameters nil))
-  ([version float?, accountId int?, vatomId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomId vatomParameters)
-   (call-api "/api/{version}/vatom/vatoms/execute-action" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomId string?, vatomParameters string?, ] (execute-action-on-nft-with-http-info accountId vatomId vatomParameters nil))
+  ([accountId int?, vatomId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomId vatomParameters)
+   (call-api "/vatom/vatoms/execute-action" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomId" vatomId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -576,9 +576,9 @@
 (defn-spec execute-action-on-nft any?
   "Execute Action on NFT
   Execute Action on NFT."
-  ([version float?, accountId int?, vatomId string?, vatomParameters string?, ] (execute-action-on-nft version accountId vatomId vatomParameters nil))
-  ([version float?, accountId int?, vatomId string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (execute-action-on-nft-with-http-info version accountId vatomId vatomParameters optional-params))]
+  ([accountId int?, vatomId string?, vatomParameters string?, ] (execute-action-on-nft accountId vatomId vatomParameters nil))
+  ([accountId int?, vatomId string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (execute-action-on-nft-with-http-info accountId vatomId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -587,11 +587,11 @@
 (defn-spec geomap-search-with-http-info any?
   "Search Vatom Geo Map
   Search Vatom Geo Map"
-  ([version float?, accountId int?, vatomParameters string?, ] (geomap-search-with-http-info version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomParameters)
-   (call-api "/api/{version}/vatom/vatoms/geo-map/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomParameters string?, ] (geomap-search-with-http-info accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomParameters)
+   (call-api "/vatom/vatoms/geo-map/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -602,9 +602,9 @@
 (defn-spec geomap-search any?
   "Search Vatom Geo Map
   Search Vatom Geo Map"
-  ([version float?, accountId int?, vatomParameters string?, ] (geomap-search version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, optional-params any?]
-   (let [res (:data (geomap-search-with-http-info version accountId vatomParameters optional-params))]
+  ([accountId int?, vatomParameters string?, ] (geomap-search accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, optional-params any?]
+   (let [res (:data (geomap-search-with-http-info accountId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -613,11 +613,11 @@
 (defn-spec get-business-behaviors-with-http-info any?
   "Get Vatom Business Behaviors
   Gets the behaviors of a business."
-  ([version float?, accountId int?, appKey string?, ] (get-business-behaviors-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/behaviors" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (get-business-behaviors-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/behaviors" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -628,9 +628,9 @@
 (defn-spec get-business-behaviors any?
   "Get Vatom Business Behaviors
   Gets the behaviors of a business."
-  ([version float?, accountId int?, appKey string?, ] (get-business-behaviors version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (get-business-behaviors-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (get-business-behaviors accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (get-business-behaviors-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -639,11 +639,11 @@
 (defn-spec get-business-coins-balance-with-http-info any?
   "Get the coins for a Business
   Get the coins for a Businesss."
-  ([version float?, accountId int?, appKey string?, ] (get-business-coins-balance-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/coins/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (get-business-coins-balance-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/coins/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -654,9 +654,9 @@
 (defn-spec get-business-coins-balance any?
   "Get the coins for a Business
   Get the coins for a Businesss."
-  ([version float?, accountId int?, appKey string?, ] (get-business-coins-balance version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (get-business-coins-balance-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (get-business-coins-balance accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (get-business-coins-balance-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -665,11 +665,11 @@
 (defn-spec get-business-ids-with-http-info any?
   "Get the user business ids
   Get the business ids the logged in user has access to."
-  ([version float?, accountId int?, ] (get-business-ids-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/vatom/me/businesses" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-business-ids-with-http-info accountId nil))
+  ([accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/vatom/me/businesses" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -680,9 +680,9 @@
 (defn-spec get-business-ids any?
   "Get the user business ids
   Get the business ids the logged in user has access to."
-  ([version float?, accountId int?, ] (get-business-ids version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-business-ids-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-business-ids accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-business-ids-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -691,11 +691,11 @@
 (defn-spec get-business-info-with-http-info any?
   "Get Vatom Business Info
   Gets the business info tied to this account."
-  ([version float?, accountId int?, appKey string?, ] (get-business-info-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (get-business-info-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -706,9 +706,9 @@
 (defn-spec get-business-info any?
   "Get Vatom Business Info
   Gets the business info tied to this account."
-  ([version float?, accountId int?, appKey string?, ] (get-business-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (get-business-info-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (get-business-info accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (get-business-info-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -717,11 +717,11 @@
 (defn-spec get-business-users-with-http-info any?
   "Get Vatom Business Users
   Gets the users of a business."
-  ([version float?, accountId int?, appKey string?, ] (get-business-users-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/users" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (get-business-users-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/users" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -732,9 +732,9 @@
 (defn-spec get-business-users any?
   "Get Vatom Business Users
   Gets the users of a business."
-  ([version float?, accountId int?, appKey string?, ] (get-business-users version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (get-business-users-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (get-business-users accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (get-business-users-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -743,11 +743,11 @@
 (defn-spec get-campaign-group-entities-with-http-info any?
   "Get Campaign Group Entities
   Get campaign group entities."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-entities-with-http-info version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomCampaignId)
-   (call-api "/api/{version}/vatom/b/campaign-groups/entities" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-entities-with-http-info accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomCampaignId)
+   (call-api "/vatom/b/campaign-groups/entities" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomCampaignId" vatomCampaignId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -758,9 +758,9 @@
 (defn-spec get-campaign-group-entities any?
   "Get Campaign Group Entities
   Get campaign group entities."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-entities version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
-   (let [res (:data (get-campaign-group-entities-with-http-info version accountId appKey vatomCampaignId optional-params))]
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-entities accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
+   (let [res (:data (get-campaign-group-entities-with-http-info accountId appKey vatomCampaignId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -769,11 +769,11 @@
 (defn-spec get-campaign-group-rules-with-http-info any?
   "Get Campaign Group Rules
   Get campaign group rules."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-rules-with-http-info version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomCampaignId)
-   (call-api "/api/{version}/vatom/b/campaign-groups/rules" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-rules-with-http-info accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomCampaignId)
+   (call-api "/vatom/b/campaign-groups/rules" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomCampaignId" vatomCampaignId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -784,9 +784,9 @@
 (defn-spec get-campaign-group-rules any?
   "Get Campaign Group Rules
   Get campaign group rules."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-rules version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
-   (let [res (:data (get-campaign-group-rules-with-http-info version accountId appKey vatomCampaignId optional-params))]
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-rules accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
+   (let [res (:data (get-campaign-group-rules-with-http-info accountId appKey vatomCampaignId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -795,11 +795,11 @@
 (defn-spec get-campaign-group-stats-with-http-info any?
   "Get Campaign Group Stats
   Get campaign group stats."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-stats-with-http-info version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomCampaignId)
-   (call-api "/api/{version}/vatom/b/campaign-groups/stats" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-stats-with-http-info accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomCampaignId)
+   (call-api "/vatom/b/campaign-groups/stats" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomCampaignId" vatomCampaignId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -810,9 +810,9 @@
 (defn-spec get-campaign-group-stats any?
   "Get Campaign Group Stats
   Get campaign group stats."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-stats version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
-   (let [res (:data (get-campaign-group-stats-with-http-info version accountId appKey vatomCampaignId optional-params))]
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-group-stats accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
+   (let [res (:data (get-campaign-group-stats-with-http-info accountId appKey vatomCampaignId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -821,11 +821,11 @@
 (defn-spec get-campaign-info-with-http-info any?
   "Get Campaign Info
   Gets the info on a campaign."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-info-with-http-info version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomCampaignId)
-   (call-api "/api/{version}/vatom/b/campaign-groups/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-info-with-http-info accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomCampaignId)
+   (call-api "/vatom/b/campaign-groups/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomCampaignId" vatomCampaignId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -836,9 +836,9 @@
 (defn-spec get-campaign-info any?
   "Get Campaign Info
   Gets the info on a campaign."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-info version accountId appKey vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
-   (let [res (:data (get-campaign-info-with-http-info version accountId appKey vatomCampaignId optional-params))]
+  ([accountId int?, appKey string?, vatomCampaignId string?, ] (get-campaign-info accountId appKey vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, optional-params any?]
+   (let [res (:data (get-campaign-info-with-http-info accountId appKey vatomCampaignId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -847,11 +847,11 @@
 (defn-spec get-event-guest-list-with-http-info any?
   "Get Vatom Event Guest List
   Gets the guest list of an event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, ] (get-event-guest-list-with-http-info version accountId appKey vatomEventId nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomEventId)
-   (call-api "/api/{version}/vatom/b/events/guests/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomEventId string?, ] (get-event-guest-list-with-http-info accountId appKey vatomEventId nil))
+  ([accountId int?, appKey string?, vatomEventId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomEventId)
+   (call-api "/vatom/b/events/guests/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomEventId" vatomEventId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -862,9 +862,9 @@
 (defn-spec get-event-guest-list any?
   "Get Vatom Event Guest List
   Gets the guest list of an event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, ] (get-event-guest-list version accountId appKey vatomEventId nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, optional-params any?]
-   (let [res (:data (get-event-guest-list-with-http-info version accountId appKey vatomEventId optional-params))]
+  ([accountId int?, appKey string?, vatomEventId string?, ] (get-event-guest-list accountId appKey vatomEventId nil))
+  ([accountId int?, appKey string?, vatomEventId string?, optional-params any?]
+   (let [res (:data (get-event-guest-list-with-http-info accountId appKey vatomEventId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -873,11 +873,11 @@
 (defn-spec get-inventory-with-http-info any?
   "Get Vatom User's Inventory
   Gets the logged in user's Vatom Inventory."
-  ([version float?, accountId int?, vatomParameters string?, ] (get-inventory-with-http-info version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomParameters)
-   (call-api "/api/{version}/vatom/me/inventory" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomParameters string?, ] (get-inventory-with-http-info accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomParameters)
+   (call-api "/vatom/me/inventory" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -888,9 +888,9 @@
 (defn-spec get-inventory any?
   "Get Vatom User's Inventory
   Gets the logged in user's Vatom Inventory."
-  ([version float?, accountId int?, vatomParameters string?, ] (get-inventory version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, optional-params any?]
-   (let [res (:data (get-inventory-with-http-info version accountId vatomParameters optional-params))]
+  ([accountId int?, vatomParameters string?, ] (get-inventory accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, optional-params any?]
+   (let [res (:data (get-inventory-with-http-info accountId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -899,11 +899,11 @@
 (defn-spec get-my-following-with-http-info any?
   "Get following
   Get following."
-  ([version float?, accountId int?, ] (get-my-following-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/vatom/me/rels/following" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-my-following-with-http-info accountId nil))
+  ([accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/vatom/me/rels/following" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -914,9 +914,9 @@
 (defn-spec get-my-following any?
   "Get following
   Get following."
-  ([version float?, accountId int?, ] (get-my-following version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-my-following-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-my-following accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-my-following-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -925,11 +925,11 @@
 (defn-spec get-points-balance-with-http-info any?
   "Get Points Balance
   Gets the points balance of a Vatom user."
-  ([version float?, accountId int?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance-with-http-info version accountId vatomUserId vatomCampaignId nil))
-  ([version float?, accountId int?, vatomUserId string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId vatomCampaignId)
-   (call-api "/api/{version}/vatom/u/campaign/points/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance-with-http-info accountId vatomUserId vatomCampaignId nil))
+  ([accountId int?, vatomUserId string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId vatomCampaignId)
+   (call-api "/vatom/u/campaign/points/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "vatomCampaignId" vatomCampaignId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -940,9 +940,9 @@
 (defn-spec get-points-balance any?
   "Get Points Balance
   Gets the points balance of a Vatom user."
-  ([version float?, accountId int?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance version accountId vatomUserId vatomCampaignId nil))
-  ([version float?, accountId int?, vatomUserId string?, vatomCampaignId string?, optional-params any?]
-   (let [res (:data (get-points-balance-with-http-info version accountId vatomUserId vatomCampaignId optional-params))]
+  ([accountId int?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance accountId vatomUserId vatomCampaignId nil))
+  ([accountId int?, vatomUserId string?, vatomCampaignId string?, optional-params any?]
+   (let [res (:data (get-points-balance-with-http-info accountId vatomUserId vatomCampaignId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -951,11 +951,11 @@
 (defn-spec get-points-balance-as-business-with-http-info any?
   "Get Points Balance as Business
   Gets the points balance of a Vatom user."
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance-as-business-with-http-info version accountId appKey vatomUserId vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomUserId vatomCampaignId)
-   (call-api "/api/{version}/vatom/b/campaign/u/points/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance-as-business-with-http-info accountId appKey vatomUserId vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomUserId vatomCampaignId)
+   (call-api "/vatom/b/campaign/u/points/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomUserId" vatomUserId "vatomCampaignId" vatomCampaignId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -966,9 +966,9 @@
 (defn-spec get-points-balance-as-business any?
   "Get Points Balance as Business
   Gets the points balance of a Vatom user."
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance-as-business version accountId appKey vatomUserId vatomCampaignId nil))
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, optional-params any?]
-   (let [res (:data (get-points-balance-as-business-with-http-info version accountId appKey vatomUserId vatomCampaignId optional-params))]
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, ] (get-points-balance-as-business accountId appKey vatomUserId vatomCampaignId nil))
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, optional-params any?]
+   (let [res (:data (get-points-balance-as-business-with-http-info accountId appKey vatomUserId vatomCampaignId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -977,11 +977,11 @@
 (defn-spec get-space-with-http-info any?
   "Get Vatom Space
   Gets the details of a space."
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, ] (get-space-with-http-info version accountId appKey vatomSpaceId nil))
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomSpaceId)
-   (call-api "/api/{version}/vatom/b/spaces/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomSpaceId string?, ] (get-space-with-http-info accountId appKey vatomSpaceId nil))
+  ([accountId int?, appKey string?, vatomSpaceId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomSpaceId)
+   (call-api "/vatom/b/spaces/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomSpaceId" vatomSpaceId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -992,9 +992,9 @@
 (defn-spec get-space any?
   "Get Vatom Space
   Gets the details of a space."
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, ] (get-space version accountId appKey vatomSpaceId nil))
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, optional-params any?]
-   (let [res (:data (get-space-with-http-info version accountId appKey vatomSpaceId optional-params))]
+  ([accountId int?, appKey string?, vatomSpaceId string?, ] (get-space accountId appKey vatomSpaceId nil))
+  ([accountId int?, appKey string?, vatomSpaceId string?, optional-params any?]
+   (let [res (:data (get-space-with-http-info accountId appKey vatomSpaceId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1003,11 +1003,11 @@
 (defn-spec get-user-coins-as-business-with-http-info any?
   "Get the coins for a user (as a Business)
   Get the coins for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, ] (get-user-coins-as-business-with-http-info version accountId vatomUserId appKey nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId appKey)
-   (call-api "/api/{version}/vatom/b/users/coins/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, appKey string?, ] (get-user-coins-as-business-with-http-info accountId vatomUserId appKey nil))
+  ([accountId int?, vatomUserId string?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId appKey)
+   (call-api "/vatom/b/users/coins/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "appKey" appKey "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1018,9 +1018,9 @@
 (defn-spec get-user-coins-as-business any?
   "Get the coins for a user (as a Business)
   Get the coins for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, ] (get-user-coins-as-business version accountId vatomUserId appKey nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, optional-params any?]
-   (let [res (:data (get-user-coins-as-business-with-http-info version accountId vatomUserId appKey optional-params))]
+  ([accountId int?, vatomUserId string?, appKey string?, ] (get-user-coins-as-business accountId vatomUserId appKey nil))
+  ([accountId int?, vatomUserId string?, appKey string?, optional-params any?]
+   (let [res (:data (get-user-coins-as-business-with-http-info accountId vatomUserId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1029,11 +1029,11 @@
 (defn-spec get-user-coins-balance-with-http-info any?
   "Gets the coins balance for a Vatom User
   Gets the coins balance for a Vatom User."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-coins-balance-with-http-info version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId)
-   (call-api "/api/{version}/vatom/u/coins/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, ] (get-user-coins-balance-with-http-info accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId)
+   (call-api "/vatom/u/coins/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1044,9 +1044,9 @@
 (defn-spec get-user-coins-balance any?
   "Gets the coins balance for a Vatom User
   Gets the coins balance for a Vatom User."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-coins-balance version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, optional-params any?]
-   (let [res (:data (get-user-coins-balance-with-http-info version accountId vatomUserId optional-params))]
+  ([accountId int?, vatomUserId string?, ] (get-user-coins-balance accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, optional-params any?]
+   (let [res (:data (get-user-coins-balance-with-http-info accountId vatomUserId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1055,11 +1055,11 @@
 (defn-spec get-user-followers-with-http-info any?
   "Get user followers
   Get user followers."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-followers-with-http-info version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId)
-   (call-api "/api/{version}/vatom/users/rels/followers" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, ] (get-user-followers-with-http-info accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId)
+   (call-api "/vatom/users/rels/followers" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1070,9 +1070,9 @@
 (defn-spec get-user-followers any?
   "Get user followers
   Get user followers."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-followers version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, optional-params any?]
-   (let [res (:data (get-user-followers-with-http-info version accountId vatomUserId optional-params))]
+  ([accountId int?, vatomUserId string?, ] (get-user-followers accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, optional-params any?]
+   (let [res (:data (get-user-followers-with-http-info accountId vatomUserId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1081,11 +1081,11 @@
 (defn-spec get-user-following-with-http-info any?
   "Get user following
   Get user following."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-following-with-http-info version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId)
-   (call-api "/api/{version}/vatom/users/rels/following" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, ] (get-user-following-with-http-info accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId)
+   (call-api "/vatom/users/rels/following" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1096,9 +1096,9 @@
 (defn-spec get-user-following any?
   "Get user following
   Get user following."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-following version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, optional-params any?]
-   (let [res (:data (get-user-following-with-http-info version accountId vatomUserId optional-params))]
+  ([accountId int?, vatomUserId string?, ] (get-user-following accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, optional-params any?]
+   (let [res (:data (get-user-following-with-http-info accountId vatomUserId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1107,11 +1107,11 @@
 (defn-spec get-user-info-with-http-info any?
   "Get User Info
   Get a User's Info."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-info-with-http-info version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId)
-   (call-api "/api/{version}/vatom/user/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, ] (get-user-info-with-http-info accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId)
+   (call-api "/vatom/user/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1122,9 +1122,9 @@
 (defn-spec get-user-info any?
   "Get User Info
   Get a User's Info."
-  ([version float?, accountId int?, vatomUserId string?, ] (get-user-info version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, optional-params any?]
-   (let [res (:data (get-user-info-with-http-info version accountId vatomUserId optional-params))]
+  ([accountId int?, vatomUserId string?, ] (get-user-info accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, optional-params any?]
+   (let [res (:data (get-user-info-with-http-info accountId vatomUserId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1133,11 +1133,11 @@
 (defn-spec get-user-profile-with-http-info any?
   "Get Vatom User Profile
   Gets the logged in user's profile in Vatom."
-  ([version float?, accountId int?, ] (get-user-profile-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/vatom/me/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-user-profile-with-http-info accountId nil))
+  ([accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/vatom/me/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1148,9 +1148,9 @@
 (defn-spec get-user-profile any?
   "Get Vatom User Profile
   Gets the logged in user's profile in Vatom."
-  ([version float?, accountId int?, ] (get-user-profile version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-user-profile-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-user-profile accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-user-profile-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1159,11 +1159,11 @@
 (defn-spec get-vatom-event-with-http-info any?
   "Get Vatom Event
   Gets the details of a event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, ] (get-vatom-event-with-http-info version accountId appKey vatomEventId nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomEventId)
-   (call-api "/api/{version}/vatom/b/events/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomEventId string?, ] (get-vatom-event-with-http-info accountId appKey vatomEventId nil))
+  ([accountId int?, appKey string?, vatomEventId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomEventId)
+   (call-api "/vatom/b/events/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomEventId" vatomEventId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1174,9 +1174,9 @@
 (defn-spec get-vatom-event any?
   "Get Vatom Event
   Gets the details of a event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, ] (get-vatom-event version accountId appKey vatomEventId nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, optional-params any?]
-   (let [res (:data (get-vatom-event-with-http-info version accountId appKey vatomEventId optional-params))]
+  ([accountId int?, appKey string?, vatomEventId string?, ] (get-vatom-event accountId appKey vatomEventId nil))
+  ([accountId int?, appKey string?, vatomEventId string?, optional-params any?]
+   (let [res (:data (get-vatom-event-with-http-info accountId appKey vatomEventId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1185,11 +1185,11 @@
 (defn-spec get-vatom-nft-with-http-info any?
   "Get Vatom NFT Details
   Get Vatom NFT Details"
-  ([version float?, accountId int?, vatomId string?, ] (get-vatom-nft-with-http-info version accountId vatomId nil))
-  ([version float?, accountId int?, vatomId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomId)
-   (call-api "/api/{version}/vatom/vatoms/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomId string?, ] (get-vatom-nft-with-http-info accountId vatomId nil))
+  ([accountId int?, vatomId string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomId)
+   (call-api "/vatom/vatoms/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomId" vatomId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1200,9 +1200,9 @@
 (defn-spec get-vatom-nft any?
   "Get Vatom NFT Details
   Get Vatom NFT Details"
-  ([version float?, accountId int?, vatomId string?, ] (get-vatom-nft version accountId vatomId nil))
-  ([version float?, accountId int?, vatomId string?, optional-params any?]
-   (let [res (:data (get-vatom-nft-with-http-info version accountId vatomId optional-params))]
+  ([accountId int?, vatomId string?, ] (get-vatom-nft accountId vatomId nil))
+  ([accountId int?, vatomId string?, optional-params any?]
+   (let [res (:data (get-vatom-nft-with-http-info accountId vatomId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1211,11 +1211,11 @@
 (defn-spec list-communities-with-http-info any?
   "List Vatom Communities
   Gets the communities tied to a business."
-  ([version float?, accountId int?, appKey string?, ] (list-communities-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/communities/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (list-communities-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/communities/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1226,9 +1226,9 @@
 (defn-spec list-communities any?
   "List Vatom Communities
   Gets the communities tied to a business."
-  ([version float?, accountId int?, appKey string?, ] (list-communities version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (list-communities-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (list-communities accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (list-communities-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1237,11 +1237,11 @@
 (defn-spec list-events-with-http-info any?
   "List Vatom Events
   Gets the events tied to a business."
-  ([version float?, accountId int?, appKey string?, ] (list-events-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/events/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (list-events-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/events/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1252,9 +1252,9 @@
 (defn-spec list-events any?
   "List Vatom Events
   Gets the events tied to a business."
-  ([version float?, accountId int?, appKey string?, ] (list-events version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (list-events-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (list-events accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (list-events-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1263,11 +1263,11 @@
 (defn-spec list-spaces-with-http-info any?
   "List Vatom Spaces
   Gets the spaces tied to a business."
-  ([version float?, accountId int?, appKey string?, ] (list-spaces-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/spaces/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (list-spaces-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/spaces/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1278,9 +1278,9 @@
 (defn-spec list-spaces any?
   "List Vatom Spaces
   Gets the spaces tied to a business."
-  ([version float?, accountId int?, appKey string?, ] (list-spaces version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (list-spaces-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (list-spaces accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (list-spaces-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1289,11 +1289,11 @@
 (defn-spec list-user-coin-transactions-with-http-info any?
   "List Coin Transactions for a Vatom User
   Gets the logged in user's Vatom coin transactions."
-  ([version float?, accountId int?, vatomUserId string?, ] (list-user-coin-transactions-with-http-info version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId)
-   (call-api "/api/{version}/vatom/u/coins/txns/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, ] (list-user-coin-transactions-with-http-info accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId)
+   (call-api "/vatom/u/coins/txns/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1304,9 +1304,9 @@
 (defn-spec list-user-coin-transactions any?
   "List Coin Transactions for a Vatom User
   Gets the logged in user's Vatom coin transactions."
-  ([version float?, accountId int?, vatomUserId string?, ] (list-user-coin-transactions version accountId vatomUserId nil))
-  ([version float?, accountId int?, vatomUserId string?, optional-params any?]
-   (let [res (:data (list-user-coin-transactions-with-http-info version accountId vatomUserId optional-params))]
+  ([accountId int?, vatomUserId string?, ] (list-user-coin-transactions accountId vatomUserId nil))
+  ([accountId int?, vatomUserId string?, optional-params any?]
+   (let [res (:data (list-user-coin-transactions-with-http-info accountId vatomUserId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1315,11 +1315,11 @@
 (defn-spec list-user-coin-transactions-as-business-with-http-info any?
   "List coin transactions for a user (as a Business)
   List coin transactions for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, ] (list-user-coin-transactions-as-business-with-http-info version accountId vatomUserId appKey nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId appKey)
-   (call-api "/api/{version}/vatom/b/users/coins/txns/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, appKey string?, ] (list-user-coin-transactions-as-business-with-http-info accountId vatomUserId appKey nil))
+  ([accountId int?, vatomUserId string?, appKey string?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId appKey)
+   (call-api "/vatom/b/users/coins/txns/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1330,9 +1330,9 @@
 (defn-spec list-user-coin-transactions-as-business any?
   "List coin transactions for a user (as a Business)
   List coin transactions for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, ] (list-user-coin-transactions-as-business version accountId vatomUserId appKey nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, optional-params any?]
-   (let [res (:data (list-user-coin-transactions-as-business-with-http-info version accountId vatomUserId appKey optional-params))]
+  ([accountId int?, vatomUserId string?, appKey string?, ] (list-user-coin-transactions-as-business accountId vatomUserId appKey nil))
+  ([accountId int?, vatomUserId string?, appKey string?, optional-params any?]
+   (let [res (:data (list-user-coin-transactions-as-business-with-http-info accountId vatomUserId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1341,11 +1341,11 @@
 (defn-spec perform-action-on-nft-with-http-info any?
   "Perform Action on NFT
   Perform Action on NFT."
-  ([version float?, accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, ] (perform-action-on-nft-with-http-info version accountId vatomId vatomAction vatomParameters nil))
-  ([version float?, accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomId vatomAction vatomParameters)
-   (call-api "/api/{version}/vatom/me/vatoms/actions" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, ] (perform-action-on-nft-with-http-info accountId vatomId vatomAction vatomParameters nil))
+  ([accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomId vatomAction vatomParameters)
+   (call-api "/vatom/me/vatoms/actions" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomId" vatomId "vatomAction" vatomAction "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1356,9 +1356,9 @@
 (defn-spec perform-action-on-nft any?
   "Perform Action on NFT
   Perform Action on NFT."
-  ([version float?, accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, ] (perform-action-on-nft version accountId vatomId vatomAction vatomParameters nil))
-  ([version float?, accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (perform-action-on-nft-with-http-info version accountId vatomId vatomAction vatomParameters optional-params))]
+  ([accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, ] (perform-action-on-nft accountId vatomId vatomAction vatomParameters nil))
+  ([accountId int?, vatomId string?, vatomAction string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (perform-action-on-nft-with-http-info accountId vatomId vatomAction vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1367,11 +1367,11 @@
 (defn-spec redeem-nft-with-http-info any?
   "Redeem NFT
   Redeem an NFT."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (redeem-nft-with-http-info version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomParameters)
-   (call-api "/api/{version}/vatom/b/redemptions" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomParameters string?, ] (redeem-nft-with-http-info accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomParameters)
+   (call-api "/vatom/b/redemptions" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1382,9 +1382,9 @@
 (defn-spec redeem-nft any?
   "Redeem NFT
   Redeem an NFT."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (redeem-nft version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (redeem-nft-with-http-info version accountId appKey vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomParameters string?, ] (redeem-nft accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (redeem-nft-with-http-info accountId appKey vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1393,11 +1393,11 @@
 (defn-spec redeem-user-coins-as-business-with-http-info any?
   "Redeem the coins for a user (as a Business)
   Redeem the coins for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (redeem-user-coins-as-business-with-http-info version accountId vatomUserId appKey vatomParameters nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId appKey vatomParameters)
-   (call-api "/api/{version}/vatom/b/users/coins/redeem" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (redeem-user-coins-as-business-with-http-info accountId vatomUserId appKey vatomParameters nil))
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId appKey vatomParameters)
+   (call-api "/vatom/b/users/coins/redeem" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1408,9 +1408,9 @@
 (defn-spec redeem-user-coins-as-business any?
   "Redeem the coins for a user (as a Business)
   Redeem the coins for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (redeem-user-coins-as-business version accountId vatomUserId appKey vatomParameters nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (redeem-user-coins-as-business-with-http-info version accountId vatomUserId appKey vatomParameters optional-params))]
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (redeem-user-coins-as-business accountId vatomUserId appKey vatomParameters nil))
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (redeem-user-coins-as-business-with-http-info accountId vatomUserId appKey vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1419,11 +1419,11 @@
 (defn-spec search-businesses-with-http-info any?
   "Search for Vatom Businesses
   Searches for Vatom businesses."
-  ([version float?, accountId int?, ] (search-businesses-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/vatom/b/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-businesses-with-http-info accountId nil))
+  ([accountId int?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/vatom/b/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1434,9 +1434,9 @@
 (defn-spec search-businesses any?
   "Search for Vatom Businesses
   Searches for Vatom businesses."
-  ([version float?, accountId int?, ] (search-businesses version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-businesses-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-businesses accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-businesses-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1445,11 +1445,11 @@
 (defn-spec search-campaign-groups-with-http-info any?
   "Search Campaign Groups
   Search campaign groups."
-  ([version float?, accountId int?, appKey string?, ] (search-campaign-groups-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/vatom/b/campaign-groups/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (search-campaign-groups-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/vatom/b/campaign-groups/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1460,9 +1460,9 @@
 (defn-spec search-campaign-groups any?
   "Search Campaign Groups
   Search campaign groups."
-  ([version float?, accountId int?, appKey string?, ] (search-campaign-groups version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (search-campaign-groups-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (search-campaign-groups accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (search-campaign-groups-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1471,11 +1471,11 @@
 (defn-spec search-identities-with-http-info any?
   "Search User Identities
   Search User Identities."
-  ([version float?, accountId int?, ] (search-identities-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/vatom/me/identities/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-identities-with-http-info accountId nil))
+  ([accountId int?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/vatom/me/identities/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1486,9 +1486,9 @@
 (defn-spec search-identities any?
   "Search User Identities
   Search User Identities."
-  ([version float?, accountId int?, ] (search-identities version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-identities-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-identities accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-identities-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1497,11 +1497,11 @@
 (defn-spec search-inventory-with-http-info any?
   "Search Vatom User's Inventory
   Searches the logged in user's Vatom Inventory."
-  ([version float?, accountId int?, ] (search-inventory-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/vatom/user-inventory/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-inventory-with-http-info accountId nil))
+  ([accountId int?, {:keys [vatomParameters returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/vatom/user-inventory/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1512,9 +1512,9 @@
 (defn-spec search-inventory any?
   "Search Vatom User's Inventory
   Searches the logged in user's Vatom Inventory."
-  ([version float?, accountId int?, ] (search-inventory version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-inventory-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-inventory accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-inventory-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1523,11 +1523,11 @@
 (defn-spec send-nft-with-http-info any?
   "Send NFT
   Send an NFT."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, ] (send-nft-with-http-info version accountId appKey vatomCampaignId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomCampaignId vatomParameters)
-   (call-api "/api/{version}/vatom/b/campaigns/send" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, ] (send-nft-with-http-info accountId appKey vatomCampaignId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomCampaignId vatomParameters)
+   (call-api "/vatom/b/campaigns/send" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomCampaignId" vatomCampaignId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1538,9 +1538,9 @@
 (defn-spec send-nft any?
   "Send NFT
   Send an NFT."
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, ] (send-nft version accountId appKey vatomCampaignId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (send-nft-with-http-info version accountId appKey vatomCampaignId vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, ] (send-nft accountId appKey vatomCampaignId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomCampaignId string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (send-nft-with-http-info accountId appKey vatomCampaignId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1549,11 +1549,11 @@
 (defn-spec set-points-balance-as-business-with-http-info any?
   "Set Points Balance as Business
   Sets the points balance of a Vatom user."
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, ] (set-points-balance-as-business-with-http-info version accountId appKey vatomUserId vatomCampaignId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomUserId vatomCampaignId vatomParameters)
-   (call-api "/api/{version}/vatom/b/campaign/u/points/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, ] (set-points-balance-as-business-with-http-info accountId appKey vatomUserId vatomCampaignId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomUserId vatomCampaignId vatomParameters)
+   (call-api "/vatom/b/campaign/u/points/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomUserId" vatomUserId "vatomCampaignId" vatomCampaignId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1564,9 +1564,9 @@
 (defn-spec set-points-balance-as-business any?
   "Set Points Balance as Business
   Sets the points balance of a Vatom user."
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, ] (set-points-balance-as-business version accountId appKey vatomUserId vatomCampaignId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (set-points-balance-as-business-with-http-info version accountId appKey vatomUserId vatomCampaignId vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, ] (set-points-balance-as-business accountId appKey vatomUserId vatomCampaignId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomUserId string?, vatomCampaignId string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (set-points-balance-as-business-with-http-info accountId appKey vatomUserId vatomCampaignId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1575,11 +1575,11 @@
 (defn-spec transfer-user-coins-with-http-info any?
   "Transfer coins from Vatom Users
   Transfer coins from Vatom Users."
-  ([version float?, accountId int?, vatomUserId string?, vatomParameters string?, ] (transfer-user-coins-with-http-info version accountId vatomUserId vatomParameters nil))
-  ([version float?, accountId int?, vatomUserId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId vatomParameters)
-   (call-api "/api/{version}/vatom/u/coins/transfer" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, vatomParameters string?, ] (transfer-user-coins-with-http-info accountId vatomUserId vatomParameters nil))
+  ([accountId int?, vatomUserId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId vatomParameters)
+   (call-api "/vatom/u/coins/transfer" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1590,9 +1590,9 @@
 (defn-spec transfer-user-coins any?
   "Transfer coins from Vatom Users
   Transfer coins from Vatom Users."
-  ([version float?, accountId int?, vatomUserId string?, vatomParameters string?, ] (transfer-user-coins version accountId vatomUserId vatomParameters nil))
-  ([version float?, accountId int?, vatomUserId string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (transfer-user-coins-with-http-info version accountId vatomUserId vatomParameters optional-params))]
+  ([accountId int?, vatomUserId string?, vatomParameters string?, ] (transfer-user-coins accountId vatomUserId vatomParameters nil))
+  ([accountId int?, vatomUserId string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (transfer-user-coins-with-http-info accountId vatomUserId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1601,11 +1601,11 @@
 (defn-spec update-business-coins-with-http-info any?
   "Fund coins for a Business
   Fund/update coins for a Businesss."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (update-business-coins-with-http-info version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomParameters)
-   (call-api "/api/{version}/vatom/b/coins/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomParameters string?, ] (update-business-coins-with-http-info accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomParameters)
+   (call-api "/vatom/b/coins/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1616,9 +1616,9 @@
 (defn-spec update-business-coins any?
   "Fund coins for a Business
   Fund/update coins for a Businesss."
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, ] (update-business-coins version accountId appKey vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (update-business-coins-with-http-info version accountId appKey vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomParameters string?, ] (update-business-coins accountId appKey vatomParameters nil))
+  ([accountId int?, appKey string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (update-business-coins-with-http-info accountId appKey vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1627,11 +1627,11 @@
 (defn-spec update-event-guest-list-with-http-info any?
   "Update Vatom Event Guest List
   Update the guest list of an event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-event-guest-list-with-http-info version accountId appKey vatomEventId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomEventId vatomParameters)
-   (call-api "/api/{version}/vatom/b/events/guests/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-event-guest-list-with-http-info accountId appKey vatomEventId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomEventId vatomParameters)
+   (call-api "/vatom/b/events/guests/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomEventId" vatomEventId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1642,9 +1642,9 @@
 (defn-spec update-event-guest-list any?
   "Update Vatom Event Guest List
   Update the guest list of an event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-event-guest-list version accountId appKey vatomEventId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (update-event-guest-list-with-http-info version accountId appKey vatomEventId vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-event-guest-list accountId appKey vatomEventId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (update-event-guest-list-with-http-info accountId appKey vatomEventId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1653,11 +1653,11 @@
 (defn-spec update-space-with-http-info any?
   "Update Vatom Space
   Update a Vatom space."
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, ] (update-space-with-http-info version accountId appKey vatomSpaceId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomSpaceId vatomParameters)
-   (call-api "/api/{version}/vatom/b/spaces/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, ] (update-space-with-http-info accountId appKey vatomSpaceId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomSpaceId vatomParameters)
+   (call-api "/vatom/b/spaces/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomSpaceId" vatomSpaceId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1668,9 +1668,9 @@
 (defn-spec update-space any?
   "Update Vatom Space
   Update a Vatom space."
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, ] (update-space version accountId appKey vatomSpaceId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (update-space-with-http-info version accountId appKey vatomSpaceId vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, ] (update-space accountId appKey vatomSpaceId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomSpaceId string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (update-space-with-http-info accountId appKey vatomSpaceId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1679,11 +1679,11 @@
 (defn-spec update-user-coins-as-business-with-http-info any?
   "Update the coins for a user (as a Business)
   Update the coins for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (update-user-coins-as-business-with-http-info version accountId vatomUserId appKey vatomParameters nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomUserId appKey vatomParameters)
-   (call-api "/api/{version}/vatom/b/users/coins/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (update-user-coins-as-business-with-http-info accountId vatomUserId appKey vatomParameters nil))
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomUserId appKey vatomParameters)
+   (call-api "/vatom/b/users/coins/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomUserId" vatomUserId "appKey" appKey "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1694,9 +1694,9 @@
 (defn-spec update-user-coins-as-business any?
   "Update the coins for a user (as a Business)
   Update the coins for a user (as a Business)."
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (update-user-coins-as-business version accountId vatomUserId appKey vatomParameters nil))
-  ([version float?, accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (update-user-coins-as-business-with-http-info version accountId vatomUserId appKey vatomParameters optional-params))]
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, ] (update-user-coins-as-business accountId vatomUserId appKey vatomParameters nil))
+  ([accountId int?, vatomUserId string?, appKey string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (update-user-coins-as-business-with-http-info accountId vatomUserId appKey vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1705,11 +1705,11 @@
 (defn-spec update-user-profile-with-http-info any?
   "Update Vatom User Profile
   Gets the logged in user's profile in Vatom."
-  ([version float?, accountId int?, vatomParameters string?, ] (update-user-profile-with-http-info version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId vatomParameters)
-   (call-api "/api/{version}/vatom/me/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, vatomParameters string?, ] (update-user-profile-with-http-info accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId vatomParameters)
+   (call-api "/vatom/me/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1720,9 +1720,9 @@
 (defn-spec update-user-profile any?
   "Update Vatom User Profile
   Gets the logged in user's profile in Vatom."
-  ([version float?, accountId int?, vatomParameters string?, ] (update-user-profile version accountId vatomParameters nil))
-  ([version float?, accountId int?, vatomParameters string?, optional-params any?]
-   (let [res (:data (update-user-profile-with-http-info version accountId vatomParameters optional-params))]
+  ([accountId int?, vatomParameters string?, ] (update-user-profile accountId vatomParameters nil))
+  ([accountId int?, vatomParameters string?, optional-params any?]
+   (let [res (:data (update-user-profile-with-http-info accountId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -1731,11 +1731,11 @@
 (defn-spec update-vatom-event-with-http-info any?
   "Update Vatom Event
   Update a Vatom event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-vatom-event-with-http-info version accountId appKey vatomEventId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey vatomEventId vatomParameters)
-   (call-api "/api/{version}/vatom/b/events/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-vatom-event-with-http-info accountId appKey vatomEventId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, {:keys [returnRawResponse]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey vatomEventId vatomParameters)
+   (call-api "/vatom/b/events/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "vatomEventId" vatomEventId "vatomParameters" vatomParameters "returnRawResponse" returnRawResponse }
               :form-params   {}
@@ -1746,9 +1746,9 @@
 (defn-spec update-vatom-event any?
   "Update Vatom Event
   Update a Vatom event."
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-vatom-event version accountId appKey vatomEventId vatomParameters nil))
-  ([version float?, accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, optional-params any?]
-   (let [res (:data (update-vatom-event-with-http-info version accountId appKey vatomEventId vatomParameters optional-params))]
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, ] (update-vatom-event accountId appKey vatomEventId vatomParameters nil))
+  ([accountId int?, appKey string?, vatomEventId string?, vatomParameters string?, optional-params any?]
+   (let [res (:data (update-vatom-event-with-http-info accountId appKey vatomEventId vatomParameters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))

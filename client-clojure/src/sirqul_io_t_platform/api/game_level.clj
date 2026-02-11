@@ -353,11 +353,11 @@
 (defn-spec create-game-level-with-http-info any?
   "Create Game Level
   Create a game level. Currently does NOT support game objects."
-  ([version float?, accountId int?, name string?, gameData string?, gameDataSuffix string?, ] (create-game-level-with-http-info version accountId name gameData gameDataSuffix nil))
-  ([version float?, accountId int?, name string?, gameData string?, gameDataSuffix string?, {:keys [appKey description difficulty appVersion assetImageId assetIconId visibility friendGroup connectionIds connectionGroupIds balance active allocateTickets ticketCount ticketType points tutorialTitle tutorialMessage tutorialAlignment tutorialImageAssetId offerId metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name gameData gameDataSuffix)
-   (call-api "/api/{version}/level/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, gameData string?, gameDataSuffix string?, ] (create-game-level-with-http-info accountId name gameData gameDataSuffix nil))
+  ([accountId int?, name string?, gameData string?, gameDataSuffix string?, {:keys [appKey description difficulty appVersion assetImageId assetIconId visibility friendGroup connectionIds connectionGroupIds balance active allocateTickets ticketCount ticketType points tutorialTitle tutorialMessage tutorialAlignment tutorialImageAssetId offerId metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId name gameData gameDataSuffix)
+   (call-api "/level/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "name" name "description" description "difficulty" difficulty "appVersion" appVersion "assetImageId" assetImageId "assetIconId" assetIconId "gameData" gameData "gameDataSuffix" gameDataSuffix "visibility" visibility "friendGroup" friendGroup "connectionIds" connectionIds "connectionGroupIds" connectionGroupIds "balance" balance "active" active "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points "tutorialTitle" tutorialTitle "tutorialMessage" tutorialMessage "tutorialAlignment" tutorialAlignment "tutorialImageAssetId" tutorialImageAssetId "offerId" offerId "metaData" metaData }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-game-level game-level-response-spec
   "Create Game Level
   Create a game level. Currently does NOT support game objects."
-  ([version float?, accountId int?, name string?, gameData string?, gameDataSuffix string?, ] (create-game-level version accountId name gameData gameDataSuffix nil))
-  ([version float?, accountId int?, name string?, gameData string?, gameDataSuffix string?, optional-params any?]
-   (let [res (:data (create-game-level-with-http-info version accountId name gameData gameDataSuffix optional-params))]
+  ([accountId int?, name string?, gameData string?, gameDataSuffix string?, ] (create-game-level accountId name gameData gameDataSuffix nil))
+  ([accountId int?, name string?, gameData string?, gameDataSuffix string?, optional-params any?]
+   (let [res (:data (create-game-level-with-http-info accountId name gameData gameDataSuffix optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-level-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-game-level-with-http-info any?
   "Delete Game Level
   Delete a game level. The level and account must be valid and have the appropirate permissions to view the content."
-  [version float?, accountId int?, levelId int?]
-  (check-required-params version accountId levelId)
-  (call-api "/api/{version}/level/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, levelId int?]
+  (check-required-params accountId levelId)
+  (call-api "/level/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "levelId" levelId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-game-level sirqul-response-spec
   "Delete Game Level
   Delete a game level. The level and account must be valid and have the appropirate permissions to view the content."
-  [version float?, accountId int?, levelId int?]
-  (let [res (:data (delete-game-level-with-http-info version accountId levelId))]
+  [accountId int?, levelId int?]
+  (let [res (:data (delete-game-level-with-http-info accountId levelId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,11 +403,11 @@
 (defn-spec get-game-level-with-http-info any?
   "Get Game Level
   Get a game level. The level and account must be valid and have the appropirate permissions to view the content."
-  ([version float?, accountId int?, levelId int?, ] (get-game-level-with-http-info version accountId levelId nil))
-  ([version float?, accountId int?, levelId int?, {:keys [includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId levelId)
-   (call-api "/api/{version}/level/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, levelId int?, ] (get-game-level-with-http-info accountId levelId nil))
+  ([accountId int?, levelId int?, {:keys [includeGameData]} (s/map-of keyword? any?)]
+   (check-required-params accountId levelId)
+   (call-api "/level/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "levelId" levelId "includeGameData" includeGameData }
               :form-params   {}
@@ -418,9 +418,9 @@
 (defn-spec get-game-level game-level-response-spec
   "Get Game Level
   Get a game level. The level and account must be valid and have the appropirate permissions to view the content."
-  ([version float?, accountId int?, levelId int?, ] (get-game-level version accountId levelId nil))
-  ([version float?, accountId int?, levelId int?, optional-params any?]
-   (let [res (:data (get-game-level-with-http-info version accountId levelId optional-params))]
+  ([accountId int?, levelId int?, ] (get-game-level accountId levelId nil))
+  ([accountId int?, levelId int?, optional-params any?]
+   (let [res (:data (get-game-level-with-http-info accountId levelId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-level-response-spec res st/string-transformer)
         res))))
@@ -429,11 +429,11 @@
 (defn-spec get-game-levels-by-application-with-http-info any?
   "Search Game Levels
   Get a list of levels for an application, just those the account has permissions to view."
-  ([version float?, accountId int?, appKey string?, ] (get-game-levels-by-application-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [keyword sortField descending start limit appVersion includeGameData filters]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/level/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (get-game-levels-by-application-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [keyword sortField descending start limit appVersion includeGameData filters]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/level/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "appVersion" appVersion "includeGameData" includeGameData "filters" filters }
               :form-params   {}
@@ -444,9 +444,9 @@
 (defn-spec get-game-levels-by-application game-level-list-response-spec
   "Search Game Levels
   Get a list of levels for an application, just those the account has permissions to view."
-  ([version float?, accountId int?, appKey string?, ] (get-game-levels-by-application version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (get-game-levels-by-application-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (get-game-levels-by-application accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (get-game-levels-by-application-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-level-list-response-spec res st/string-transformer)
         res))))
@@ -455,11 +455,11 @@
 (defn-spec get-game-levels-by-billable-entity-with-http-info any?
   "Search Game Level by Billable Entity
   Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity."
-  ([version float?, accountId int?, ] (get-game-levels-by-billable-entity-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [appKey keyword sortField descending activeOnly start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/level/searchByBillableEntity" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (get-game-levels-by-billable-entity-with-http-info accountId nil))
+  ([accountId int?, {:keys [appKey keyword sortField descending activeOnly start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/level/searchByBillableEntity" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "keyword" keyword "sortField" sortField "descending" descending "activeOnly" activeOnly "start" start "limit" limit }
               :form-params   {}
@@ -470,9 +470,9 @@
 (defn-spec get-game-levels-by-billable-entity game-level-response-spec
   "Search Game Level by Billable Entity
   Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity."
-  ([version float?, accountId int?, ] (get-game-levels-by-billable-entity version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (get-game-levels-by-billable-entity-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (get-game-levels-by-billable-entity accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (get-game-levels-by-billable-entity-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-level-response-spec res st/string-transformer)
         res))))
@@ -481,10 +481,10 @@
 (defn-spec get-questions-in-level-with-http-info any?
   "Get Level Questions
   Get questions within a level."
-  [version float?, levelId int?, accountId int?]
-  (check-required-params version levelId accountId)
-  (call-api "/api/{version}/level/questions/get" :get
-            {:path-params   {"version" version }
+  [levelId int?, accountId int?]
+  (check-required-params levelId accountId)
+  (call-api "/level/questions/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"levelId" levelId "accountId" accountId }
              :form-params   {}
@@ -495,8 +495,8 @@
 (defn-spec get-questions-in-level question-response-spec
   "Get Level Questions
   Get questions within a level."
-  [version float?, levelId int?, accountId int?]
-  (let [res (:data (get-questions-in-level-with-http-info version levelId accountId))]
+  [levelId int?, accountId int?]
+  (let [res (:data (get-questions-in-level-with-http-info levelId accountId))]
     (if (:decode-models *api-context*)
        (st/decode question-response-spec res st/string-transformer)
        res)))
@@ -505,10 +505,10 @@
 (defn-spec get-words-in-level-with-http-info any?
   "Get Level Words
   Get words within a level."
-  [version float?, levelId int?, accountId int?]
-  (check-required-params version levelId accountId)
-  (call-api "/api/{version}/level/words/get" :get
-            {:path-params   {"version" version }
+  [levelId int?, accountId int?]
+  (check-required-params levelId accountId)
+  (call-api "/level/words/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"levelId" levelId "accountId" accountId }
              :form-params   {}
@@ -519,8 +519,8 @@
 (defn-spec get-words-in-level wordz-word-response-spec
   "Get Level Words
   Get words within a level."
-  [version float?, levelId int?, accountId int?]
-  (let [res (:data (get-words-in-level-with-http-info version levelId accountId))]
+  [levelId int?, accountId int?]
+  (let [res (:data (get-words-in-level-with-http-info levelId accountId))]
     (if (:decode-models *api-context*)
        (st/decode wordz-word-response-spec res st/string-transformer)
        res)))
@@ -529,11 +529,11 @@
 (defn-spec update-game-level-with-http-info any?
   "Update Game Level
   Update a game level. Currently does NOT support game objects."
-  ([version float?, accountId int?, levelId int?, ] (update-game-level-with-http-info version accountId levelId nil))
-  ([version float?, accountId int?, levelId int?, {:keys [appKey name description difficulty appVersion assetImageId assetIconId gameData gameDataSuffix visibility friendGroup connectionIds connectionGroupIds balance active allocateTickets ticketCount ticketType points tutorialTitle tutorialMessage tutorialAlignment tutorialImageAssetId offerId metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId levelId)
-   (call-api "/api/{version}/level/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, levelId int?, ] (update-game-level-with-http-info accountId levelId nil))
+  ([accountId int?, levelId int?, {:keys [appKey name description difficulty appVersion assetImageId assetIconId gameData gameDataSuffix visibility friendGroup connectionIds connectionGroupIds balance active allocateTickets ticketCount ticketType points tutorialTitle tutorialMessage tutorialAlignment tutorialImageAssetId offerId metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId levelId)
+   (call-api "/level/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "levelId" levelId "name" name "description" description "difficulty" difficulty "appVersion" appVersion "assetImageId" assetImageId "assetIconId" assetIconId "gameData" gameData "gameDataSuffix" gameDataSuffix "visibility" visibility "friendGroup" friendGroup "connectionIds" connectionIds "connectionGroupIds" connectionGroupIds "balance" balance "active" active "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points "tutorialTitle" tutorialTitle "tutorialMessage" tutorialMessage "tutorialAlignment" tutorialAlignment "tutorialImageAssetId" tutorialImageAssetId "offerId" offerId "metaData" metaData }
               :form-params   {}
@@ -544,9 +544,9 @@
 (defn-spec update-game-level game-level-response-spec
   "Update Game Level
   Update a game level. Currently does NOT support game objects."
-  ([version float?, accountId int?, levelId int?, ] (update-game-level version accountId levelId nil))
-  ([version float?, accountId int?, levelId int?, optional-params any?]
-   (let [res (:data (update-game-level-with-http-info version accountId levelId optional-params))]
+  ([accountId int?, levelId int?, ] (update-game-level accountId levelId nil))
+  ([accountId int?, levelId int?, optional-params any?]
+   (let [res (:data (update-game-level-with-http-info accountId levelId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-level-response-spec res st/string-transformer)
         res))))
@@ -555,10 +555,10 @@
 (defn-spec update-questions-in-level-with-http-info any?
   "Update Level Questions
   Updates a level with question game objects."
-  [version float?, levelId int?, accountId int?, questionIds string?]
-  (check-required-params version levelId accountId questionIds)
-  (call-api "/api/{version}/level/questions/update" :post
-            {:path-params   {"version" version }
+  [levelId int?, accountId int?, questionIds string?]
+  (check-required-params levelId accountId questionIds)
+  (call-api "/level/questions/update" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"levelId" levelId "accountId" accountId "questionIds" questionIds }
              :form-params   {}
@@ -569,8 +569,8 @@
 (defn-spec update-questions-in-level sirqul-response-spec
   "Update Level Questions
   Updates a level with question game objects."
-  [version float?, levelId int?, accountId int?, questionIds string?]
-  (let [res (:data (update-questions-in-level-with-http-info version levelId accountId questionIds))]
+  [levelId int?, accountId int?, questionIds string?]
+  (let [res (:data (update-questions-in-level-with-http-info levelId accountId questionIds))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -579,10 +579,10 @@
 (defn-spec update-words-in-level-with-http-info any?
   "Update Level Words
   Updates a level with word game objects."
-  [version float?, levelId int?, accountId int?, wordIds string?]
-  (check-required-params version levelId accountId wordIds)
-  (call-api "/api/{version}/level/words/update" :post
-            {:path-params   {"version" version }
+  [levelId int?, accountId int?, wordIds string?]
+  (check-required-params levelId accountId wordIds)
+  (call-api "/level/words/update" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"levelId" levelId "accountId" accountId "wordIds" wordIds }
              :form-params   {}
@@ -593,8 +593,8 @@
 (defn-spec update-words-in-level sirqul-response-spec
   "Update Level Words
   Updates a level with word game objects."
-  [version float?, levelId int?, accountId int?, wordIds string?]
-  (let [res (:data (update-words-in-level-with-http-info version levelId accountId wordIds))]
+  [levelId int?, accountId int?, wordIds string?]
+  (let [res (:data (update-words-in-level-with-http-info levelId accountId wordIds))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))

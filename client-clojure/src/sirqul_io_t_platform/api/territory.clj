@@ -353,11 +353,11 @@
 (defn-spec create-territory-with-http-info any?
   "Create Territory
   Creates a territory."
-  ([version float?, accountId int?, name string?, ] (create-territory-with-http-info version accountId name nil))
-  ([version float?, accountId int?, name string?, {:keys [active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name)
-   (call-api "/api/{version}/territory/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, ] (create-territory-with-http-info accountId name nil))
+  ([accountId int?, name string?, {:keys [active]} (s/map-of keyword? any?)]
+   (check-required-params accountId name)
+   (call-api "/territory/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "active" active }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-territory territory-response-spec
   "Create Territory
   Creates a territory."
-  ([version float?, accountId int?, name string?, ] (create-territory version accountId name nil))
-  ([version float?, accountId int?, name string?, optional-params any?]
-   (let [res (:data (create-territory-with-http-info version accountId name optional-params))]
+  ([accountId int?, name string?, ] (create-territory accountId name nil))
+  ([accountId int?, name string?, optional-params any?]
+   (let [res (:data (create-territory-with-http-info accountId name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode territory-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-territory-with-http-info any?
   "Delete Territory
   Deletes a territory."
-  [version float?, accountId int?, territoryId int?]
-  (check-required-params version accountId territoryId)
-  (call-api "/api/{version}/territory/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, territoryId int?]
+  (check-required-params accountId territoryId)
+  (call-api "/territory/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "territoryId" territoryId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-territory sirqul-response-spec
   "Delete Territory
   Deletes a territory."
-  [version float?, accountId int?, territoryId int?]
-  (let [res (:data (delete-territory-with-http-info version accountId territoryId))]
+  [accountId int?, territoryId int?]
+  (let [res (:data (delete-territory-with-http-info accountId territoryId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-territory-with-http-info any?
   "Get Territory
   Get a territory."
-  [version float?, territoryId int?]
-  (check-required-params version territoryId)
-  (call-api "/api/{version}/territory/get" :get
-            {:path-params   {"version" version }
+  [territoryId int?]
+  (check-required-params territoryId)
+  (call-api "/territory/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"territoryId" territoryId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-territory territory-response-spec
   "Get Territory
   Get a territory."
-  [version float?, territoryId int?]
-  (let [res (:data (get-territory-with-http-info version territoryId))]
+  [territoryId int?]
+  (let [res (:data (get-territory-with-http-info territoryId))]
     (if (:decode-models *api-context*)
        (st/decode territory-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec search-territories-with-http-info any?
   "Search Territories
   Searches on territories."
-  ([version float?, sortField string?, descending boolean?, ] (search-territories-with-http-info version sortField descending nil))
-  ([version float?, sortField string?, descending boolean?, {:keys [keyword start limit]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending)
-   (call-api "/api/{version}/territory/search" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, ] (search-territories-with-http-info sortField descending nil))
+  ([sortField string?, descending boolean?, {:keys [keyword start limit]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending)
+   (call-api "/territory/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"keyword" keyword "start" start "limit" limit "sortField" sortField "descending" descending }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec search-territories (s/coll-of territory-response-spec)
   "Search Territories
   Searches on territories."
-  ([version float?, sortField string?, descending boolean?, ] (search-territories version sortField descending nil))
-  ([version float?, sortField string?, descending boolean?, optional-params any?]
-   (let [res (:data (search-territories-with-http-info version sortField descending optional-params))]
+  ([sortField string?, descending boolean?, ] (search-territories sortField descending nil))
+  ([sortField string?, descending boolean?, optional-params any?]
+   (let [res (:data (search-territories-with-http-info sortField descending optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of territory-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-territory-with-http-info any?
   "Update Territory
   Updates a territory."
-  ([version float?, accountId int?, territoryId int?, ] (update-territory-with-http-info version accountId territoryId nil))
-  ([version float?, accountId int?, territoryId int?, {:keys [name active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId territoryId)
-   (call-api "/api/{version}/territory/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, territoryId int?, ] (update-territory-with-http-info accountId territoryId nil))
+  ([accountId int?, territoryId int?, {:keys [name active]} (s/map-of keyword? any?)]
+   (check-required-params accountId territoryId)
+   (call-api "/territory/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "territoryId" territoryId "name" name "active" active }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-territory territory-response-spec
   "Update Territory
   Updates a territory."
-  ([version float?, accountId int?, territoryId int?, ] (update-territory version accountId territoryId nil))
-  ([version float?, accountId int?, territoryId int?, optional-params any?]
-   (let [res (:data (update-territory-with-http-info version accountId territoryId optional-params))]
+  ([accountId int?, territoryId int?, ] (update-territory accountId territoryId nil))
+  ([accountId int?, territoryId int?, optional-params any?]
+   (let [res (:data (update-territory-with-http-info accountId territoryId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode territory-response-spec res st/string-transformer)
         res))))

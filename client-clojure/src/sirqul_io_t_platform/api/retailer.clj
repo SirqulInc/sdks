@@ -353,11 +353,11 @@
 (defn-spec create-retailer-with-http-info any?
   "Create Retailer
   Create a retailer record. A billable entity must be created first before a retailer record can be made."
-  ([version float?, name string?, ] (create-retailer-with-http-info version name nil))
-  ([version float?, name string?, {:keys [deviceId accountId streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email facebookUrl twitterUrl ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds categoryIdsToAdd categoryIdsToRemove filterIds latitude longitude metaData searchTags retailerType visibility createDefaultLocation responseFormat]} (s/map-of keyword? any?)]
-   (check-required-params version name)
-   (call-api "/api/{version}/retailer/create" :post
-             {:path-params   {"version" version }
+  ([name string?, ] (create-retailer-with-http-info name nil))
+  ([name string?, {:keys [deviceId accountId streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email facebookUrl twitterUrl ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds categoryIdsToAdd categoryIdsToRemove filterIds latitude longitude metaData searchTags retailerType visibility createDefaultLocation responseFormat]} (s/map-of keyword? any?)]
+   (check-required-params name)
+   (call-api "/retailer/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "name" name "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "country" country "businessPhone" businessPhone "businessPhoneExt" businessPhoneExt "website" website "email" email "facebookUrl" facebookUrl "twitterUrl" twitterUrl "logo" logo "logoAssetId" logoAssetId "picture1" picture1 "picture1AssetId" picture1AssetId "picture2" picture2 "picture2AssetId" picture2AssetId "categoryIds" categoryIds "categoryIdsToAdd" categoryIdsToAdd "categoryIdsToRemove" categoryIdsToRemove "filterIds" filterIds "latitude" latitude "longitude" longitude "metaData" metaData "searchTags" searchTags "retailerType" retailerType "visibility" visibility "createDefaultLocation" createDefaultLocation "responseFormat" responseFormat }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-retailer retailer-full-response-spec
   "Create Retailer
   Create a retailer record. A billable entity must be created first before a retailer record can be made."
-  ([version float?, name string?, ] (create-retailer version name nil))
-  ([version float?, name string?, optional-params any?]
-   (let [res (:data (create-retailer-with-http-info version name optional-params))]
+  ([name string?, ] (create-retailer name nil))
+  ([name string?, optional-params any?]
+   (let [res (:data (create-retailer-with-http-info name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-full-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,10 @@
 (defn-spec delete-retailer-with-http-info any?
   "Delete Retailer
   Set the deleted timestamp to current time."
-  ([version float?, ] (delete-retailer-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId retailerId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/retailer/delete" :post
-             {:path-params   {"version" version }
+  ([] (delete-retailer-with-http-info nil))
+  ([{:keys [deviceId accountId retailerId]} (s/map-of keyword? any?)]
+   (call-api "/retailer/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerId" retailerId }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec delete-retailer sirqul-response-spec
   "Delete Retailer
   Set the deleted timestamp to current time."
-  ([version float?, ] (delete-retailer version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (delete-retailer-with-http-info version optional-params))]
+  ([] (delete-retailer nil))
+  ([optional-params any?]
+   (let [res (:data (delete-retailer-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,11 @@
 (defn-spec get-retailer-with-http-info any?
   "Get Retailer
   Gets a retailer. Only the owner and the employees of a retailer have access to view its information."
-  ([version float?, retailerId int?, ] (get-retailer-with-http-info version retailerId nil))
-  ([version float?, retailerId int?, {:keys [deviceId accountId includeCounts]} (s/map-of keyword? any?)]
-   (check-required-params version retailerId)
-   (call-api "/api/{version}/retailer/get" :get
-             {:path-params   {"version" version }
+  ([retailerId int?, ] (get-retailer-with-http-info retailerId nil))
+  ([retailerId int?, {:keys [deviceId accountId includeCounts]} (s/map-of keyword? any?)]
+   (check-required-params retailerId)
+   (call-api "/retailer/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerId" retailerId "includeCounts" includeCounts }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec get-retailer retailer-full-response-spec
   "Get Retailer
   Gets a retailer. Only the owner and the employees of a retailer have access to view its information."
-  ([version float?, retailerId int?, ] (get-retailer version retailerId nil))
-  ([version float?, retailerId int?, optional-params any?]
-   (let [res (:data (get-retailer-with-http-info version retailerId optional-params))]
+  ([retailerId int?, ] (get-retailer retailerId nil))
+  ([retailerId int?, optional-params any?]
+   (let [res (:data (get-retailer-with-http-info retailerId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-full-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,11 @@
 (defn-spec get-retailers-with-http-info any?
   "Search Retailers
   earches on retailers that the account has access to."
-  ([version float?, visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-retailers-with-http-info version visibility sortField descending start limit activeOnly nil))
-  ([version float?, visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [deviceId accountId q keyword categoryIds filterIds _i _l]} (s/map-of keyword? any?)]
-   (check-required-params version visibility sortField descending start limit activeOnly)
-   (call-api "/api/{version}/retailer/search" :get
-             {:path-params   {"version" version }
+  ([visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-retailers-with-http-info visibility sortField descending start limit activeOnly nil))
+  ([visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [deviceId accountId q keyword categoryIds filterIds _i _l]} (s/map-of keyword? any?)]
+   (check-required-params visibility sortField descending start limit activeOnly)
+   (call-api "/retailer/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "q" q "keyword" keyword "categoryIds" categoryIds "filterIds" filterIds "visibility" visibility "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec get-retailers (s/coll-of retailer-response-spec)
   "Search Retailers
   earches on retailers that the account has access to."
-  ([version float?, visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-retailers version visibility sortField descending start limit activeOnly nil))
-  ([version float?, visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (get-retailers-with-http-info version visibility sortField descending start limit activeOnly optional-params))]
+  ([visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (get-retailers visibility sortField descending start limit activeOnly nil))
+  ([visibility string?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (get-retailers-with-http-info visibility sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of retailer-response-spec) res st/string-transformer)
         res))))
@@ -457,11 +456,11 @@
 (defn-spec retailer-login-check-with-http-info any?
   "Login Retailer
   Retailer login check."
-  ([version float?, username string?, password string?, ] (retailer-login-check-with-http-info version username password nil))
-  ([version float?, username string?, password string?, {:keys [deviceId latitude longitude appKey]} (s/map-of keyword? any?)]
-   (check-required-params version username password)
-   (call-api "/api/{version}/retailer/login" :post
-             {:path-params   {"version" version }
+  ([username string?, password string?, ] (retailer-login-check-with-http-info username password nil))
+  ([username string?, password string?, {:keys [deviceId latitude longitude appKey]} (s/map-of keyword? any?)]
+   (check-required-params username password)
+   (call-api "/retailer/login" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"username" username "password" password "deviceId" deviceId "latitude" latitude "longitude" longitude "appKey" appKey }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec retailer-login-check account-login-response-spec
   "Login Retailer
   Retailer login check."
-  ([version float?, username string?, password string?, ] (retailer-login-check version username password nil))
-  ([version float?, username string?, password string?, optional-params any?]
-   (let [res (:data (retailer-login-check-with-http-info version username password optional-params))]
+  ([username string?, password string?, ] (retailer-login-check username password nil))
+  ([username string?, password string?, optional-params any?]
+   (let [res (:data (retailer-login-check-with-http-info username password optional-params))]
      (if (:decode-models *api-context*)
         (st/decode account-login-response-spec res st/string-transformer)
         res))))
@@ -483,11 +482,11 @@
 (defn-spec update-retailer-with-http-info any?
   "Update Retailer
   Update a retailer record. Only the owner and the employees of the retailer have access to update its information."
-  ([version float?, retailerId int?, ] (update-retailer-with-http-info version retailerId nil))
-  ([version float?, retailerId int?, {:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email facebookUrl twitterUrl ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds filterIds latitude longitude metaData searchTags retailerType visibility active responseFormat]} (s/map-of keyword? any?)]
-   (check-required-params version retailerId)
-   (call-api "/api/{version}/retailer/update" :post
-             {:path-params   {"version" version }
+  ([retailerId int?, ] (update-retailer-with-http-info retailerId nil))
+  ([retailerId int?, {:keys [deviceId accountId name streetAddress streetAddress2 city state postalCode country businessPhone businessPhoneExt website email facebookUrl twitterUrl ^File logo logoAssetId ^File picture1 picture1AssetId ^File picture2 picture2AssetId categoryIds filterIds latitude longitude metaData searchTags retailerType visibility active responseFormat]} (s/map-of keyword? any?)]
+   (check-required-params retailerId)
+   (call-api "/retailer/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "retailerId" retailerId "name" name "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "postalCode" postalCode "country" country "businessPhone" businessPhone "businessPhoneExt" businessPhoneExt "website" website "email" email "facebookUrl" facebookUrl "twitterUrl" twitterUrl "logo" logo "logoAssetId" logoAssetId "picture1" picture1 "picture1AssetId" picture1AssetId "picture2" picture2 "picture2AssetId" picture2AssetId "categoryIds" categoryIds "filterIds" filterIds "latitude" latitude "longitude" longitude "metaData" metaData "searchTags" searchTags "retailerType" retailerType "visibility" visibility "active" active "responseFormat" responseFormat }
               :form-params   {}
@@ -498,9 +497,9 @@
 (defn-spec update-retailer retailer-full-response-spec
   "Update Retailer
   Update a retailer record. Only the owner and the employees of the retailer have access to update its information."
-  ([version float?, retailerId int?, ] (update-retailer version retailerId nil))
-  ([version float?, retailerId int?, optional-params any?]
-   (let [res (:data (update-retailer-with-http-info version retailerId optional-params))]
+  ([retailerId int?, ] (update-retailer retailerId nil))
+  ([retailerId int?, optional-params any?]
+   (let [res (:data (update-retailer-with-http-info retailerId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode retailer-full-response-spec res st/string-transformer)
         res))))

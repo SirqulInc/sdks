@@ -353,11 +353,10 @@
 (defn-spec create-game-with-http-info any?
   "Create a Game
   Create a Game."
-  ([version float?, ] (create-game-with-http-info version nil))
-  ([version float?, {:keys [accountId appKey title description metaData packIds includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/game/create" :post
-             {:path-params   {"version" version }
+  ([] (create-game-with-http-info nil))
+  ([{:keys [accountId appKey title description metaData packIds includeGameData]} (s/map-of keyword? any?)]
+   (call-api "/game/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "title" title "description" description "metaData" metaData "packIds" packIds "includeGameData" includeGameData }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec create-game game-response-spec
   "Create a Game
   Create a Game."
-  ([version float?, ] (create-game version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-game-with-http-info version optional-params))]
+  ([] (create-game nil))
+  ([optional-params any?]
+   (let [res (:data (create-game-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-response-spec res st/string-transformer)
         res))))
@@ -379,10 +378,10 @@
 (defn-spec delete-game-with-http-info any?
   "Delete a Game
   Delete a game."
-  [version float?, accountId int?, gameId int?]
-  (check-required-params version accountId gameId)
-  (call-api "/api/{version}/game/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, gameId int?]
+  (check-required-params accountId gameId)
+  (call-api "/game/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "gameId" gameId }
              :form-params   {}
@@ -393,8 +392,8 @@
 (defn-spec delete-game sirqul-response-spec
   "Delete a Game
   Delete a game."
-  [version float?, accountId int?, gameId int?]
-  (let [res (:data (delete-game-with-http-info version accountId gameId))]
+  [accountId int?, gameId int?]
+  (let [res (:data (delete-game-with-http-info accountId gameId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,11 +402,11 @@
 (defn-spec get-game-with-http-info any?
   "Get a Game by id
   Get a Game by id."
-  ([version float?, accountId int?, gameId int?, ] (get-game-with-http-info version accountId gameId nil))
-  ([version float?, accountId int?, gameId int?, {:keys [includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId gameId)
-   (call-api "/api/{version}/game/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, gameId int?, ] (get-game-with-http-info accountId gameId nil))
+  ([accountId int?, gameId int?, {:keys [includeGameData]} (s/map-of keyword? any?)]
+   (check-required-params accountId gameId)
+   (call-api "/game/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "gameId" gameId "includeGameData" includeGameData }
               :form-params   {}
@@ -418,9 +417,9 @@
 (defn-spec get-game game-response-spec
   "Get a Game by id
   Get a Game by id."
-  ([version float?, accountId int?, gameId int?, ] (get-game version accountId gameId nil))
-  ([version float?, accountId int?, gameId int?, optional-params any?]
-   (let [res (:data (get-game-with-http-info version accountId gameId optional-params))]
+  ([accountId int?, gameId int?, ] (get-game accountId gameId nil))
+  ([accountId int?, gameId int?, optional-params any?]
+   (let [res (:data (get-game-with-http-info accountId gameId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-response-spec res st/string-transformer)
         res))))
@@ -429,11 +428,11 @@
 (defn-spec search-games-with-http-info any?
   "Search a Game
   Get a list of games for an application, just those the account has permissions to view."
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, ] (search-games-with-http-info version accountId appKey start limit nil))
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, {:keys [keyword appVersion includeGameData includeInactive]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey start limit)
-   (call-api "/api/{version}/game/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, start int?, limit int?, ] (search-games-with-http-info accountId appKey start limit nil))
+  ([accountId int?, appKey string?, start int?, limit int?, {:keys [keyword appVersion includeGameData includeInactive]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey start limit)
+   (call-api "/game/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "keyword" keyword "start" start "limit" limit "appVersion" appVersion "includeGameData" includeGameData "includeInactive" includeInactive }
               :form-params   {}
@@ -444,9 +443,9 @@
 (defn-spec search-games game-response-spec
   "Search a Game
   Get a list of games for an application, just those the account has permissions to view."
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, ] (search-games version accountId appKey start limit nil))
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-games-with-http-info version accountId appKey start limit optional-params))]
+  ([accountId int?, appKey string?, start int?, limit int?, ] (search-games accountId appKey start limit nil))
+  ([accountId int?, appKey string?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-games-with-http-info accountId appKey start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-response-spec res st/string-transformer)
         res))))
@@ -455,11 +454,10 @@
 (defn-spec update-game-with-http-info any?
   "Update a Game
   Update a Game"
-  ([version float?, ] (update-game-with-http-info version nil))
-  ([version float?, {:keys [accountId gameId appKey title description metaData packIds includeGameData]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/game/update" :post
-             {:path-params   {"version" version }
+  ([] (update-game-with-http-info nil))
+  ([{:keys [accountId gameId appKey title description metaData packIds includeGameData]} (s/map-of keyword? any?)]
+   (call-api "/game/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "gameId" gameId "appKey" appKey "title" title "description" description "metaData" metaData "packIds" packIds "includeGameData" includeGameData }
               :form-params   {}
@@ -470,9 +468,9 @@
 (defn-spec update-game game-response-spec
   "Update a Game
   Update a Game"
-  ([version float?, ] (update-game version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (update-game-with-http-info version optional-params))]
+  ([] (update-game nil))
+  ([optional-params any?]
+   (let [res (:data (update-game-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode game-response-spec res st/string-transformer)
         res))))

@@ -353,10 +353,10 @@
 (defn-spec approve-route-with-http-info any?
   "Approve Route
   Approve a route"
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}/approve" :post
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}/approve" :post
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec approve-route route-spec
   "Approve Route
   Approve a route"
-  [version float?, routeId int?]
-  (let [res (:data (approve-route-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (approve-route-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode route-spec res st/string-transformer)
        res)))
@@ -377,11 +377,11 @@
 (defn-spec copy-route-with-http-info any?
   "Copy Route
   Make an copy of the given route with optional overriding properties"
-  ([version float?, routeId int?, ] (copy-route-with-http-info version routeId nil))
-  ([version float?, routeId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version routeId)
-   (call-api "/api/{version}/route/{routeId}/copy" :post
-             {:path-params   {"version" version "routeId" routeId }
+  ([routeId int?, ] (copy-route-with-http-info routeId nil))
+  ([routeId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params routeId)
+   (call-api "/route/{routeId}/copy" :post
+             {:path-params   {"routeId" routeId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -393,9 +393,9 @@
 (defn-spec copy-route route-spec
   "Copy Route
   Make an copy of the given route with optional overriding properties"
-  ([version float?, routeId int?, ] (copy-route version routeId nil))
-  ([version float?, routeId int?, optional-params any?]
-   (let [res (:data (copy-route-with-http-info version routeId optional-params))]
+  ([routeId int?, ] (copy-route routeId nil))
+  ([routeId int?, optional-params any?]
+   (let [res (:data (copy-route-with-http-info routeId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode route-spec res st/string-transformer)
         res))))
@@ -404,11 +404,10 @@
 (defn-spec create-route-with-http-info any?
   "Create Route
   Create new route"
-  ([version float?, ] (create-route-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/route" :post
-             {:path-params   {"version" version }
+  ([] (create-route-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/route" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec create-route route-spec
   "Create Route
   Create new route"
-  ([version float?, ] (create-route version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-route-with-http-info version optional-params))]
+  ([] (create-route nil))
+  ([optional-params any?]
+   (let [res (:data (create-route-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode route-spec res st/string-transformer)
         res))))
@@ -431,10 +430,10 @@
 (defn-spec create-route-directions-with-http-info any?
   "Update Route Directions
   Regenerate the directions of a route"
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}/directions" :put
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}/directions" :put
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -445,8 +444,8 @@
 (defn-spec create-route-directions (s/coll-of direction-spec)
   "Update Route Directions
   Regenerate the directions of a route"
-  [version float?, routeId int?]
-  (let [res (:data (create-route-directions-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (create-route-directions-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of direction-spec) res st/string-transformer)
        res)))
@@ -455,10 +454,10 @@
 (defn-spec create-route-polyline-with-http-info any?
   "Create Route Polyline
   Update the polyline of the requested route"
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}/polyline" :put
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}/polyline" :put
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -469,8 +468,8 @@
 (defn-spec create-route-polyline route-spec
   "Create Route Polyline
   Update the polyline of the requested route"
-  [version float?, routeId int?]
-  (let [res (:data (create-route-polyline-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (create-route-polyline-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode route-spec res st/string-transformer)
        res)))
@@ -479,10 +478,10 @@
 (defn-spec delete-route-with-http-info any?
   "Delete Route
   Delete an existing route"
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}" :delete
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}" :delete
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -493,8 +492,8 @@
 (defn-spec delete-route any?
   "Delete Route
   Delete an existing route"
-  [version float?, routeId int?]
-  (let [res (:data (delete-route-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (delete-route-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -503,10 +502,10 @@
 (defn-spec disapprove-route-with-http-info any?
   "Disapprove Route
   Disapprove a route"
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}/disapprove" :post
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}/disapprove" :post
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -517,8 +516,8 @@
 (defn-spec disapprove-route route-spec
   "Disapprove Route
   Disapprove a route"
-  [version float?, routeId int?]
-  (let [res (:data (disapprove-route-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (disapprove-route-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode route-spec res st/string-transformer)
        res)))
@@ -527,10 +526,10 @@
 (defn-spec get-route-with-http-info any?
   "Get Route
   Get an existing route"
-  [version float?, routeId int?, showInheritedProperties boolean?]
-  (check-required-params version routeId showInheritedProperties)
-  (call-api "/api/{version}/route/{routeId}" :get
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?, showInheritedProperties boolean?]
+  (check-required-params routeId showInheritedProperties)
+  (call-api "/route/{routeId}" :get
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {"showInheritedProperties" showInheritedProperties }
              :form-params   {}
@@ -541,8 +540,8 @@
 (defn-spec get-route route-spec
   "Get Route
   Get an existing route"
-  [version float?, routeId int?, showInheritedProperties boolean?]
-  (let [res (:data (get-route-with-http-info version routeId showInheritedProperties))]
+  [routeId int?, showInheritedProperties boolean?]
+  (let [res (:data (get-route-with-http-info routeId showInheritedProperties))]
     (if (:decode-models *api-context*)
        (st/decode route-spec res st/string-transformer)
        res)))
@@ -551,10 +550,10 @@
 (defn-spec get-route-directions-with-http-info any?
   "Get Route Directions
   Get the directions of a route"
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}/directions" :get
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}/directions" :get
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -565,8 +564,8 @@
 (defn-spec get-route-directions (s/coll-of direction-spec)
   "Get Route Directions
   Get the directions of a route"
-  [version float?, routeId int?]
-  (let [res (:data (get-route-directions-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (get-route-directions-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of direction-spec) res st/string-transformer)
        res)))
@@ -575,10 +574,10 @@
 (defn-spec get-route-shipments-with-http-info any?
   "Get Route Shipments
   Get the shipments on the requested route"
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}/shipments" :get
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}/shipments" :get
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -589,8 +588,8 @@
 (defn-spec get-route-shipments (s/coll-of shipment-spec)
   "Get Route Shipments
   Get the shipments on the requested route"
-  [version float?, routeId int?]
-  (let [res (:data (get-route-shipments-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (get-route-shipments-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of shipment-spec) res st/string-transformer)
        res)))
@@ -599,10 +598,10 @@
 (defn-spec get-route-stop-with-http-info any?
   "Get Route Stop
   Get the specific stop on a route"
-  [version float?, routeId int?, stopId int?]
-  (check-required-params version routeId stopId)
-  (call-api "/api/{version}/route/{routeId}/stop/{stopId}" :get
-            {:path-params   {"version" version "routeId" routeId "stopId" stopId }
+  [routeId int?, stopId int?]
+  (check-required-params routeId stopId)
+  (call-api "/route/{routeId}/stop/{stopId}" :get
+            {:path-params   {"routeId" routeId "stopId" stopId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -613,8 +612,8 @@
 (defn-spec get-route-stop stop-spec
   "Get Route Stop
   Get the specific stop on a route"
-  [version float?, routeId int?, stopId int?]
-  (let [res (:data (get-route-stop-with-http-info version routeId stopId))]
+  [routeId int?, stopId int?]
+  (let [res (:data (get-route-stop-with-http-info routeId stopId))]
     (if (:decode-models *api-context*)
        (st/decode stop-spec res st/string-transformer)
        res)))
@@ -623,10 +622,10 @@
 (defn-spec get-route-stops-with-http-info any?
   "Get Route Stops
   The stops of the route requested"
-  [version float?, routeId int?, confirmedOnly boolean?]
-  (check-required-params version routeId confirmedOnly)
-  (call-api "/api/{version}/route/{routeId}/stops" :get
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?, confirmedOnly boolean?]
+  (check-required-params routeId confirmedOnly)
+  (call-api "/route/{routeId}/stops" :get
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {"confirmedOnly" confirmedOnly }
              :form-params   {}
@@ -637,8 +636,8 @@
 (defn-spec get-route-stops (s/coll-of stop-spec)
   "Get Route Stops
   The stops of the route requested"
-  [version float?, routeId int?, confirmedOnly boolean?]
-  (let [res (:data (get-route-stops-with-http-info version routeId confirmedOnly))]
+  [routeId int?, confirmedOnly boolean?]
+  (let [res (:data (get-route-stops-with-http-info routeId confirmedOnly))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of stop-spec) res st/string-transformer)
        res)))
@@ -647,10 +646,10 @@
 (defn-spec get-shipments-at-stop-with-http-info any?
   "Get Shipments At Stop
   Get the list of shipments on the requested route at a stop"
-  [version float?, routeId int?, stopId int?]
-  (check-required-params version routeId stopId)
-  (call-api "/api/{version}/route/{routeId}/stop/{stopId}/shipments" :get
-            {:path-params   {"version" version "routeId" routeId "stopId" stopId }
+  [routeId int?, stopId int?]
+  (check-required-params routeId stopId)
+  (call-api "/route/{routeId}/stop/{stopId}/shipments" :get
+            {:path-params   {"routeId" routeId "stopId" stopId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -661,8 +660,8 @@
 (defn-spec get-shipments-at-stop (s/coll-of shipment-spec)
   "Get Shipments At Stop
   Get the list of shipments on the requested route at a stop"
-  [version float?, routeId int?, stopId int?]
-  (let [res (:data (get-shipments-at-stop-with-http-info version routeId stopId))]
+  [routeId int?, stopId int?]
+  (let [res (:data (get-shipments-at-stop-with-http-info routeId stopId))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of shipment-spec) res st/string-transformer)
        res)))
@@ -671,10 +670,10 @@
 (defn-spec optimize-route-with-http-info any?
   "Optimize Route
   Optimize a route. The optimization method based on how the server is configured."
-  [version float?, routeId int?]
-  (check-required-params version routeId)
-  (call-api "/api/{version}/route/{routeId}/optimize" :post
-            {:path-params   {"version" version "routeId" routeId }
+  [routeId int?]
+  (check-required-params routeId)
+  (call-api "/route/{routeId}/optimize" :post
+            {:path-params   {"routeId" routeId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -685,8 +684,8 @@
 (defn-spec optimize-route any?
   "Optimize Route
   Optimize a route. The optimization method based on how the server is configured."
-  [version float?, routeId int?]
-  (let [res (:data (optimize-route-with-http-info version routeId))]
+  [routeId int?]
+  (let [res (:data (optimize-route-with-http-info routeId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -695,10 +694,10 @@
 (defn-spec remove-stop-with-http-info any?
   "Delete Stop
   Delete a stop on a route"
-  [version float?, routeId int?, stopId int?]
-  (check-required-params version routeId stopId)
-  (call-api "/api/{version}/route/{routeId}/stop/{stopId}" :delete
-            {:path-params   {"version" version "routeId" routeId "stopId" stopId }
+  [routeId int?, stopId int?]
+  (check-required-params routeId stopId)
+  (call-api "/route/{routeId}/stop/{stopId}" :delete
+            {:path-params   {"routeId" routeId "stopId" stopId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -709,8 +708,8 @@
 (defn-spec remove-stop any?
   "Delete Stop
   Delete a stop on a route"
-  [version float?, routeId int?, stopId int?]
-  (let [res (:data (remove-stop-with-http-info version routeId stopId))]
+  [routeId int?, stopId int?]
+  (let [res (:data (remove-stop-with-http-info routeId stopId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -719,11 +718,11 @@
 (defn-spec reorder-route-stops-patch-with-http-info any?
   "Reorder Route Stops
   Reordering the stops on the route with and update route distance, time, direction, and polyline"
-  ([version float?, routeId int?, ] (reorder-route-stops-patch-with-http-info version routeId nil))
-  ([version float?, routeId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version routeId)
-   (call-api "/api/{version}/route/{routeId}/stops/reorder" :patch
-             {:path-params   {"version" version "routeId" routeId }
+  ([routeId int?, ] (reorder-route-stops-patch-with-http-info routeId nil))
+  ([routeId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params routeId)
+   (call-api "/route/{routeId}/stops/reorder" :patch
+             {:path-params   {"routeId" routeId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -735,9 +734,9 @@
 (defn-spec reorder-route-stops-patch (s/coll-of stop-spec)
   "Reorder Route Stops
   Reordering the stops on the route with and update route distance, time, direction, and polyline"
-  ([version float?, routeId int?, ] (reorder-route-stops-patch version routeId nil))
-  ([version float?, routeId int?, optional-params any?]
-   (let [res (:data (reorder-route-stops-patch-with-http-info version routeId optional-params))]
+  ([routeId int?, ] (reorder-route-stops-patch routeId nil))
+  ([routeId int?, optional-params any?]
+   (let [res (:data (reorder-route-stops-patch-with-http-info routeId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of stop-spec) res st/string-transformer)
         res))))
@@ -746,11 +745,11 @@
 (defn-spec reorder-route-stops-post-with-http-info any?
   "Reorder Route Stops
   Reordering the stops on the route with and update route distance, time, direction, and polyline"
-  ([version float?, routeId int?, ] (reorder-route-stops-post-with-http-info version routeId nil))
-  ([version float?, routeId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version routeId)
-   (call-api "/api/{version}/route/{routeId}/stops/reorder" :post
-             {:path-params   {"version" version "routeId" routeId }
+  ([routeId int?, ] (reorder-route-stops-post-with-http-info routeId nil))
+  ([routeId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params routeId)
+   (call-api "/route/{routeId}/stops/reorder" :post
+             {:path-params   {"routeId" routeId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -762,9 +761,9 @@
 (defn-spec reorder-route-stops-post (s/coll-of stop-spec)
   "Reorder Route Stops
   Reordering the stops on the route with and update route distance, time, direction, and polyline"
-  ([version float?, routeId int?, ] (reorder-route-stops-post version routeId nil))
-  ([version float?, routeId int?, optional-params any?]
-   (let [res (:data (reorder-route-stops-post-with-http-info version routeId optional-params))]
+  ([routeId int?, ] (reorder-route-stops-post routeId nil))
+  ([routeId int?, optional-params any?]
+   (let [res (:data (reorder-route-stops-post-with-http-info routeId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of stop-spec) res st/string-transformer)
         res))))
@@ -773,11 +772,11 @@
 (defn-spec search-routes-with-http-info any?
   "Search Routes
   Search for routes."
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, ] (search-routes-with-http-info version sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, {:keys [hubId programId scheduledStart scheduledEnd updatedStart updatedEnd featured seatCount approved started completed valid parentId]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties)
-   (call-api "/api/{version}/route" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, ] (search-routes-with-http-info sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, {:keys [hubId programId scheduledStart scheduledEnd updatedStart updatedEnd featured seatCount approved started completed valid parentId]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties)
+   (call-api "/route" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"hubId" hubId "programId" programId "scheduledStart" scheduledStart "scheduledEnd" scheduledEnd "updatedStart" updatedStart "updatedEnd" updatedEnd "featured" featured "seatCount" seatCount "approved" approved "started" started "completed" completed "valid" valid "parentId" parentId "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly "includesEmpty" includesEmpty "rootOnly" rootOnly "showInheritedProperties" showInheritedProperties }
               :form-params   {}
@@ -788,9 +787,9 @@
 (defn-spec search-routes (s/coll-of route-spec)
   "Search Routes
   Search for routes."
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, ] (search-routes version sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, optional-params any?]
-   (let [res (:data (search-routes-with-http-info version sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, ] (search-routes sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, includesEmpty boolean?, rootOnly boolean?, showInheritedProperties boolean?, optional-params any?]
+   (let [res (:data (search-routes-with-http-info sortField descending start limit activeOnly includesEmpty rootOnly showInheritedProperties optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of route-spec) res st/string-transformer)
         res))))
@@ -799,10 +798,10 @@
 (defn-spec set-driver-with-http-info any?
   "Set Driver
   Update the driver of the route."
-  [version float?, id int?, driverId int?]
-  (check-required-params version id driverId)
-  (call-api "/api/{version}/route/{id}/driver/{driverId}" :post
-            {:path-params   {"version" version "id" id "driverId" driverId }
+  [id int?, driverId int?]
+  (check-required-params id driverId)
+  (call-api "/route/{id}/driver/{driverId}" :post
+            {:path-params   {"id" id "driverId" driverId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -813,8 +812,8 @@
 (defn-spec set-driver any?
   "Set Driver
   Update the driver of the route."
-  [version float?, id int?, driverId int?]
-  (let [res (:data (set-driver-with-http-info version id driverId))]
+  [id int?, driverId int?]
+  (let [res (:data (set-driver-with-http-info id driverId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -823,11 +822,11 @@
 (defn-spec update-route-with-http-info any?
   "Update Route
   Update an existing route"
-  ([version float?, routeId int?, ] (update-route-with-http-info version routeId nil))
-  ([version float?, routeId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version routeId)
-   (call-api "/api/{version}/route/{routeId}" :put
-             {:path-params   {"version" version "routeId" routeId }
+  ([routeId int?, ] (update-route-with-http-info routeId nil))
+  ([routeId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params routeId)
+   (call-api "/route/{routeId}" :put
+             {:path-params   {"routeId" routeId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -839,9 +838,9 @@
 (defn-spec update-route route-spec
   "Update Route
   Update an existing route"
-  ([version float?, routeId int?, ] (update-route version routeId nil))
-  ([version float?, routeId int?, optional-params any?]
-   (let [res (:data (update-route-with-http-info version routeId optional-params))]
+  ([routeId int?, ] (update-route routeId nil))
+  ([routeId int?, optional-params any?]
+   (let [res (:data (update-route-with-http-info routeId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode route-spec res st/string-transformer)
         res))))
@@ -850,11 +849,11 @@
 (defn-spec update-route-stop-with-http-info any?
   "Update Route Stop
   Update a stop on a specified route"
-  ([version float?, routeId int?, stopId int?, ] (update-route-stop-with-http-info version routeId stopId nil))
-  ([version float?, routeId int?, stopId int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version routeId stopId)
-   (call-api "/api/{version}/route/{routeId}/stop/{stopId}" :put
-             {:path-params   {"version" version "routeId" routeId "stopId" stopId }
+  ([routeId int?, stopId int?, ] (update-route-stop-with-http-info routeId stopId nil))
+  ([routeId int?, stopId int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params routeId stopId)
+   (call-api "/route/{routeId}/stop/{stopId}" :put
+             {:path-params   {"routeId" routeId "stopId" stopId }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -866,9 +865,9 @@
 (defn-spec update-route-stop any?
   "Update Route Stop
   Update a stop on a specified route"
-  ([version float?, routeId int?, stopId int?, ] (update-route-stop version routeId stopId nil))
-  ([version float?, routeId int?, stopId int?, optional-params any?]
-   (let [res (:data (update-route-stop-with-http-info version routeId stopId optional-params))]
+  ([routeId int?, stopId int?, ] (update-route-stop routeId stopId nil))
+  ([routeId int?, stopId int?, optional-params any?]
+   (let [res (:data (update-route-stop-with-http-info routeId stopId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))

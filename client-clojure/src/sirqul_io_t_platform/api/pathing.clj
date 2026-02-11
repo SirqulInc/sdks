@@ -353,10 +353,10 @@
 (defn-spec compute-path-with-http-info any?
   "Calculate Path
   Calculates the shortest path from point to point on a grid"
-  [version float?, data string?, units string?, reducePath boolean?, directions boolean?]
-  (check-required-params version data units reducePath directions)
-  (call-api "/api/{version}/pathing/compute" :get
-            {:path-params   {"version" version }
+  [data string?, units string?, reducePath boolean?, directions boolean?]
+  (check-required-params data units reducePath directions)
+  (call-api "/pathing/compute" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"data" data "units" units "reducePath" reducePath "directions" directions }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec compute-path pathing-response-spec
   "Calculate Path
   Calculates the shortest path from point to point on a grid"
-  [version float?, data string?, units string?, reducePath boolean?, directions boolean?]
-  (let [res (:data (compute-path-with-http-info version data units reducePath directions))]
+  [data string?, units string?, reducePath boolean?, directions boolean?]
+  (let [res (:data (compute-path-with-http-info data units reducePath directions))]
     (if (:decode-models *api-context*)
        (st/decode pathing-response-spec res st/string-transformer)
        res)))

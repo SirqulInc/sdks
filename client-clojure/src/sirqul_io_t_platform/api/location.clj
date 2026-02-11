@@ -353,11 +353,11 @@
 (defn-spec cache-trilateration-data-with-http-info any?
   "Create Trilateration Data with File
   Creates trilateration samples for a source device (i.e. a router)."
-  ([version float?, udid string?, ] (cache-trilateration-data-with-http-info version udid nil))
-  ([version float?, udid string?, {:keys [sourceTime minimumSampleSize data ^File dataFile]} (s/map-of keyword? any?)]
-   (check-required-params version udid)
-   (call-api "/api/{version}/location/trilaterate/cache" :post
-             {:path-params   {"version" version }
+  ([udid string?, ] (cache-trilateration-data-with-http-info udid nil))
+  ([udid string?, {:keys [sourceTime minimumSampleSize data ^File dataFile]} (s/map-of keyword? any?)]
+   (check-required-params udid)
+   (call-api "/location/trilaterate/cache" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"udid" udid "sourceTime" sourceTime "minimumSampleSize" minimumSampleSize "data" data "dataFile" dataFile }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec cache-trilateration-data sirqul-response-spec
   "Create Trilateration Data with File
   Creates trilateration samples for a source device (i.e. a router)."
-  ([version float?, udid string?, ] (cache-trilateration-data version udid nil))
-  ([version float?, udid string?, optional-params any?]
-   (let [res (:data (cache-trilateration-data-with-http-info version udid optional-params))]
+  ([udid string?, ] (cache-trilateration-data udid nil))
+  ([udid string?, optional-params any?]
+   (let [res (:data (cache-trilateration-data-with-http-info udid optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,10 @@
 (defn-spec cache-trilateration-data-gzip-with-http-info any?
   "Create Trilateration Data with Rest
   Creates trilateration samples for a source device (i.e. a router)."
-  ([version float?, ] (cache-trilateration-data-gzip-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/location/trilaterate/cache/submit" :post
-             {:path-params   {"version" version }
+  ([] (cache-trilateration-data-gzip-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/location/trilaterate/cache/submit" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -395,9 +394,9 @@
 (defn-spec cache-trilateration-data-gzip sirqul-response-spec
   "Create Trilateration Data with Rest
   Creates trilateration samples for a source device (i.e. a router)."
-  ([version float?, ] (cache-trilateration-data-gzip version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (cache-trilateration-data-gzip-with-http-info version optional-params))]
+  ([] (cache-trilateration-data-gzip nil))
+  ([optional-params any?]
+   (let [res (:data (cache-trilateration-data-gzip-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -406,11 +405,10 @@
 (defn-spec get-location-by-ip-with-http-info any?
   "Get Location by IP
   Get location information based on an IP address."
-  ([version float?, ] (get-location-by-ip-with-http-info version nil))
-  ([version float?, {:keys [ip]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/location/ip" :get
-             {:path-params   {"version" version }
+  ([] (get-location-by-ip-with-http-info nil))
+  ([{:keys [ip]} (s/map-of keyword? any?)]
+   (call-api "/location/ip" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"ip" ip }
               :form-params   {}
@@ -421,9 +419,9 @@
 (defn-spec get-location-by-ip coords-response-spec
   "Get Location by IP
   Get location information based on an IP address."
-  ([version float?, ] (get-location-by-ip version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-location-by-ip-with-http-info version optional-params))]
+  ([] (get-location-by-ip nil))
+  ([optional-params any?]
+   (let [res (:data (get-location-by-ip-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode coords-response-spec res st/string-transformer)
         res))))
@@ -432,11 +430,10 @@
 (defn-spec get-location-by-trilateration-with-http-info any?
   "Get Location by Trilateration
   Send in device data and calculate a position based on signal strengths."
-  ([version float?, ] (get-location-by-trilateration-with-http-info version nil))
-  ([version float?, {:keys [accountId latitude longitude data responseFilters]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/location/trilaterate" :get
-             {:path-params   {"version" version }
+  ([] (get-location-by-trilateration-with-http-info nil))
+  ([{:keys [accountId latitude longitude data responseFilters]} (s/map-of keyword? any?)]
+   (call-api "/account/location/trilaterate" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "latitude" latitude "longitude" longitude "data" data "responseFilters" responseFilters }
               :form-params   {}
@@ -447,9 +444,9 @@
 (defn-spec get-location-by-trilateration geo-point-response-spec
   "Get Location by Trilateration
   Send in device data and calculate a position based on signal strengths."
-  ([version float?, ] (get-location-by-trilateration version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-location-by-trilateration-with-http-info version optional-params))]
+  ([] (get-location-by-trilateration nil))
+  ([optional-params any?]
+   (let [res (:data (get-location-by-trilateration-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode geo-point-response-spec res st/string-transformer)
         res))))
@@ -458,11 +455,10 @@
 (defn-spec get-locations-with-http-info any?
   "Search Regions or Postal Codes
   Searches geographic locations by proximity via address or keyword."
-  ([version float?, ] (get-locations-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId currentlatitude currentlongitude currentLatitude currentLongitude query zipcode zipCode selectedMaplatitude selectedMaplongitude selectedMapLatitude selectedMapLongitude searchRange useGeocode _i start _l limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/location/search" :get
-             {:path-params   {"version" version }
+  ([] (get-locations-with-http-info nil))
+  ([{:keys [deviceId accountId currentlatitude currentlongitude currentLatitude currentLongitude query zipcode zipCode selectedMaplatitude selectedMaplongitude selectedMapLatitude selectedMapLongitude searchRange useGeocode _i start _l limit]} (s/map-of keyword? any?)]
+   (call-api "/location/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "currentlatitude" currentlatitude "currentlongitude" currentlongitude "currentLatitude" currentLatitude "currentLongitude" currentLongitude "query" query "zipcode" zipcode "zipCode" zipCode "selectedMaplatitude" selectedMaplatitude "selectedMaplongitude" selectedMaplongitude "selectedMapLatitude" selectedMapLatitude "selectedMapLongitude" selectedMapLongitude "searchRange" searchRange "useGeocode" useGeocode "_i" _i "start" start "_l" _l "limit" limit }
               :form-params   {}
@@ -473,9 +469,9 @@
 (defn-spec get-locations location-search-response-spec
   "Search Regions or Postal Codes
   Searches geographic locations by proximity via address or keyword."
-  ([version float?, ] (get-locations version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-locations-with-http-info version optional-params))]
+  ([] (get-locations nil))
+  ([optional-params any?]
+   (let [res (:data (get-locations-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode location-search-response-spec res st/string-transformer)
         res))))

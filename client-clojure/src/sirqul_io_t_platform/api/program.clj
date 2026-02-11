@@ -353,11 +353,10 @@
 (defn-spec create-program-with-http-info any?
   "Create Program
   Create a new program"
-  ([version float?, ] (create-program-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/program" :post
-             {:path-params   {"version" version }
+  ([] (create-program-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/program" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +368,9 @@
 (defn-spec create-program program-spec
   "Create Program
   Create a new program"
-  ([version float?, ] (create-program version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-program-with-http-info version optional-params))]
+  ([] (create-program nil))
+  ([optional-params any?]
+   (let [res (:data (create-program-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode program-spec res st/string-transformer)
         res))))
@@ -380,10 +379,10 @@
 (defn-spec delete-program-with-http-info any?
   "Delete Program
   Delete an existing program"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/program/{id}" :delete
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/program/{id}" :delete
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +393,8 @@
 (defn-spec delete-program any?
   "Delete Program
   Delete an existing program"
-  [version float?, id int?]
-  (let [res (:data (delete-program-with-http-info version id))]
+  [id int?]
+  (let [res (:data (delete-program-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -404,10 +403,10 @@
 (defn-spec get-program-with-http-info any?
   "Get Program
   Get an existing program"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/program/{id}" :get
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/program/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +417,8 @@
 (defn-spec get-program program-spec
   "Get Program
   Get an existing program"
-  [version float?, id int?]
-  (let [res (:data (get-program-with-http-info version id))]
+  [id int?]
+  (let [res (:data (get-program-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode program-spec res st/string-transformer)
        res)))
@@ -428,11 +427,11 @@
 (defn-spec post-program-with-http-info any?
   "Update Program
   Update an existing program"
-  ([version float?, id int?, ] (post-program-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/program/{id}" :post
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (post-program-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/program/{id}" :post
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -444,9 +443,9 @@
 (defn-spec post-program program-spec
   "Update Program
   Update an existing program"
-  ([version float?, id int?, ] (post-program version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (post-program-with-http-info version id optional-params))]
+  ([id int?, ] (post-program id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (post-program-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode program-spec res st/string-transformer)
         res))))
@@ -455,11 +454,11 @@
 (defn-spec put-program-with-http-info any?
   "Update Program
   Update an existing program"
-  ([version float?, id int?, ] (put-program-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/program/{id}" :put
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (put-program-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/program/{id}" :put
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -471,9 +470,9 @@
 (defn-spec put-program program-spec
   "Update Program
   Update an existing program"
-  ([version float?, id int?, ] (put-program version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (put-program-with-http-info version id optional-params))]
+  ([id int?, ] (put-program id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (put-program-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode program-spec res st/string-transformer)
         res))))
@@ -482,11 +481,11 @@
 (defn-spec search-programs-with-http-info any?
   "Search Programs
   Search for programs"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-programs-with-http-info version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [keyword]} (s/map-of keyword? any?)]
-   (check-required-params version sortField descending start limit activeOnly)
-   (call-api "/api/{version}/program" :get
-             {:path-params   {"version" version }
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-programs-with-http-info sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, {:keys [keyword]} (s/map-of keyword? any?)]
+   (check-required-params sortField descending start limit activeOnly)
+   (call-api "/program" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -497,9 +496,9 @@
 (defn-spec search-programs (s/coll-of program-spec)
   "Search Programs
   Search for programs"
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-programs version sortField descending start limit activeOnly nil))
-  ([version float?, sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
-   (let [res (:data (search-programs-with-http-info version sortField descending start limit activeOnly optional-params))]
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, ] (search-programs sortField descending start limit activeOnly nil))
+  ([sortField string?, descending boolean?, start int?, limit int?, activeOnly boolean?, optional-params any?]
+   (let [res (:data (search-programs-with-http-info sortField descending start limit activeOnly optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of program-spec) res st/string-transformer)
         res))))

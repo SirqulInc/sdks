@@ -353,11 +353,10 @@
 (defn-spec account-location-search-with-http-info any?
   "Search Accounts by Location
   Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts."
-  ([version float?, ] (account-location-search-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId q keyword postalCode latitude longitude appKey range locationLastUpdated gender minAge maxAge companionshipIndex _i start _l limit searchMode sortField descending roles tags experience categoryIds audienceIds audienceOperator updateCurrentLocation updatePreferredSettings showExactLocations showConnectionToSearcher flagCountMinimum verifiedUserOnly contentAdminOnly]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/search" :get
-             {:path-params   {"version" version }
+  ([] (account-location-search-with-http-info nil))
+  ([{:keys [deviceId accountId q keyword postalCode latitude longitude appKey range locationLastUpdated gender minAge maxAge companionshipIndex _i start _l limit searchMode sortField descending roles tags experience categoryIds audienceIds audienceOperator updateCurrentLocation updatePreferredSettings showExactLocations showConnectionToSearcher flagCountMinimum verifiedUserOnly contentAdminOnly]} (s/map-of keyword? any?)]
+   (call-api "/account/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "q" q "keyword" keyword "postalCode" postalCode "latitude" latitude "longitude" longitude "appKey" appKey "range" range "locationLastUpdated" locationLastUpdated "gender" gender "minAge" minAge "maxAge" maxAge "companionshipIndex" companionshipIndex "_i" _i "start" start "_l" _l "limit" limit "searchMode" searchMode "sortField" sortField "descending" descending "roles" roles "tags" tags "experience" experience "categoryIds" categoryIds "audienceIds" audienceIds "audienceOperator" audienceOperator "updateCurrentLocation" updateCurrentLocation "updatePreferredSettings" updatePreferredSettings "showExactLocations" showExactLocations "showConnectionToSearcher" showConnectionToSearcher "flagCountMinimum" flagCountMinimum "verifiedUserOnly" verifiedUserOnly "contentAdminOnly" contentAdminOnly }
               :form-params   {}
@@ -368,9 +367,9 @@
 (defn-spec account-location-search user-location-search-response-spec
   "Search Accounts by Location
   Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts."
-  ([version float?, ] (account-location-search version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (account-location-search-with-http-info version optional-params))]
+  ([] (account-location-search nil))
+  ([optional-params any?]
+   (let [res (:data (account-location-search-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode user-location-search-response-spec res st/string-transformer)
         res))))
@@ -379,11 +378,11 @@
 (defn-spec block-account-with-http-info any?
   "Block Account
   Moves or removes an account into the user's blocked group."
-  ([version float?, accountIdBeingBlocked int?, ] (block-account-with-http-info version accountIdBeingBlocked nil))
-  ([version float?, accountIdBeingBlocked int?, {:keys [deviceId accountId blockFlagValue removeFromGroupsIfBlocked latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version accountIdBeingBlocked)
-   (call-api "/api/{version}/account/block" :post
-             {:path-params   {"version" version }
+  ([accountIdBeingBlocked int?, ] (block-account-with-http-info accountIdBeingBlocked nil))
+  ([accountIdBeingBlocked int?, {:keys [deviceId accountId blockFlagValue removeFromGroupsIfBlocked latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params accountIdBeingBlocked)
+   (call-api "/account/block" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "accountIdBeingBlocked" accountIdBeingBlocked "blockFlagValue" blockFlagValue "removeFromGroupsIfBlocked" removeFromGroupsIfBlocked "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec block-account sirqul-response-spec
   "Block Account
   Moves or removes an account into the user's blocked group."
-  ([version float?, accountIdBeingBlocked int?, ] (block-account version accountIdBeingBlocked nil))
-  ([version float?, accountIdBeingBlocked int?, optional-params any?]
-   (let [res (:data (block-account-with-http-info version accountIdBeingBlocked optional-params))]
+  ([accountIdBeingBlocked int?, ] (block-account accountIdBeingBlocked nil))
+  ([accountIdBeingBlocked int?, optional-params any?]
+   (let [res (:data (block-account-with-http-info accountIdBeingBlocked optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,11 @@
 (defn-spec create-account-with-http-info any?
   "Create Account
   Create a new account by role."
-  ([version float?, username string?, password string?, ] (create-account-with-http-info version username password nil))
-  ([version float?, username string?, password string?, {:keys [name prefixName firstName middleName lastName suffixName title deviceId deviceIdType emailAddress assetId streetAddress zipcode gender birthday homePhone cellPhone cellPhoneCarrier businessPhone role platforms tags aboutUs gameExperience categoryIds hometown height heightIndex ethnicity bodyType maritalStatus children religion education educationIndex smoke drink companionship companionshipIndex preferredMinAge preferredMaxAge preferredMinHeight preferredMaxHeight preferredGender preferredEducation preferredEducationIndex preferredBodyType preferredEthnicity preferredLocation preferredLocationRange latitude longitude acceptedTerms inviteToken referralAccountId sendValidation gameType appKey appVersion responseType audienceIdsToAdd appBlob appEnablePush appEnableSMS appEnableEmail locationVisibility homeLatitude homeLongitude appNickname personalAudienceId]} (s/map-of keyword? any?)]
-   (check-required-params version username password)
-   (call-api "/api/{version}/account/create" :post
-             {:path-params   {"version" version }
+  ([username string?, password string?, ] (create-account-with-http-info username password nil))
+  ([username string?, password string?, {:keys [name prefixName firstName middleName lastName suffixName title deviceId deviceIdType emailAddress assetId streetAddress zipcode gender birthday homePhone cellPhone cellPhoneCarrier businessPhone role platforms tags aboutUs gameExperience categoryIds hometown height heightIndex ethnicity bodyType maritalStatus children religion education educationIndex smoke drink companionship companionshipIndex preferredMinAge preferredMaxAge preferredMinHeight preferredMaxHeight preferredGender preferredEducation preferredEducationIndex preferredBodyType preferredEthnicity preferredLocation preferredLocationRange latitude longitude acceptedTerms inviteToken referralAccountId sendValidation gameType appKey appVersion responseType audienceIdsToAdd appBlob appEnablePush appEnableSMS appEnableEmail locationVisibility homeLatitude homeLongitude appNickname personalAudienceId]} (s/map-of keyword? any?)]
+   (check-required-params username password)
+   (call-api "/account/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"name" name "prefixName" prefixName "firstName" firstName "middleName" middleName "lastName" lastName "suffixName" suffixName "title" title "deviceId" deviceId "deviceIdType" deviceIdType "username" username "password" password "emailAddress" emailAddress "assetId" assetId "streetAddress" streetAddress "zipcode" zipcode "gender" gender "birthday" birthday "homePhone" homePhone "cellPhone" cellPhone "cellPhoneCarrier" cellPhoneCarrier "businessPhone" businessPhone "role" role "platforms" platforms "tags" tags "aboutUs" aboutUs "gameExperience" gameExperience "categoryIds" categoryIds "hometown" hometown "height" height "heightIndex" heightIndex "ethnicity" ethnicity "bodyType" bodyType "maritalStatus" maritalStatus "children" children "religion" religion "education" education "educationIndex" educationIndex "smoke" smoke "drink" drink "companionship" companionship "companionshipIndex" companionshipIndex "preferredMinAge" preferredMinAge "preferredMaxAge" preferredMaxAge "preferredMinHeight" preferredMinHeight "preferredMaxHeight" preferredMaxHeight "preferredGender" preferredGender "preferredEducation" preferredEducation "preferredEducationIndex" preferredEducationIndex "preferredBodyType" preferredBodyType "preferredEthnicity" preferredEthnicity "preferredLocation" preferredLocation "preferredLocationRange" preferredLocationRange "latitude" latitude "longitude" longitude "acceptedTerms" acceptedTerms "inviteToken" inviteToken "referralAccountId" referralAccountId "sendValidation" sendValidation "gameType" gameType "appKey" appKey "appVersion" appVersion "responseType" responseType "audienceIdsToAdd" audienceIdsToAdd "appBlob" appBlob "appEnablePush" appEnablePush "appEnableSMS" appEnableSMS "appEnableEmail" appEnableEmail "locationVisibility" locationVisibility "homeLatitude" homeLatitude "homeLongitude" homeLongitude "appNickname" appNickname "personalAudienceId" personalAudienceId }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec create-account account-login-response-spec
   "Create Account
   Create a new account by role."
-  ([version float?, username string?, password string?, ] (create-account version username password nil))
-  ([version float?, username string?, password string?, optional-params any?]
-   (let [res (:data (create-account-with-http-info version username password optional-params))]
+  ([username string?, password string?, ] (create-account username password nil))
+  ([username string?, password string?, optional-params any?]
+   (let [res (:data (create-account-with-http-info username password optional-params))]
      (if (:decode-models *api-context*)
         (st/decode account-login-response-spec res st/string-transformer)
         res))))
@@ -431,11 +430,10 @@
 (defn-spec edit-account-with-http-info any?
   "Update Account
   Edit the user's profile information"
-  ([version float?, ] (edit-account-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId connectionAccountId role assetId name prefixName firstName middleName lastName suffixName title gender age birthday homePhone cellPhone cellPhoneCarrier businessPhone emailAddress streetAddress streetAddress2 city state zipcode country makeProfileInfoPublic makeGameInfoPublic makeFriendsInfoPublic hometown height heightIndex ethnicity bodyType maritalStatus children religion education educationIndex smoke drink companionship companionshipIndex preferredMinAge preferredMaxAge preferredMinHeight preferredMaxHeight preferredGender preferredEducation preferredEducationIndex preferredBodyType preferredEthnicity preferredLocation preferredLocationRange platforms tags aboutUs matchToken gameExperience categories categoryIds responseFilters showAsZipcode showExactLocation showOthersExactLocation acceptedTerms locationVisibility appBlob appEnablePush appEnableSMS appEnableEmail gameType appKey latitude longitude returnProfile audienceIdsToAdd audienceIdsToRemove referralAccountId appNickname personalAudienceId nonGuestUsername]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/profile/update" :post
-             {:path-params   {"version" version }
+  ([] (edit-account-with-http-info nil))
+  ([{:keys [deviceId accountId connectionAccountId role assetId name prefixName firstName middleName lastName suffixName title gender age birthday homePhone cellPhone cellPhoneCarrier businessPhone emailAddress streetAddress streetAddress2 city state zipcode country makeProfileInfoPublic makeGameInfoPublic makeFriendsInfoPublic hometown height heightIndex ethnicity bodyType maritalStatus children religion education educationIndex smoke drink companionship companionshipIndex preferredMinAge preferredMaxAge preferredMinHeight preferredMaxHeight preferredGender preferredEducation preferredEducationIndex preferredBodyType preferredEthnicity preferredLocation preferredLocationRange platforms tags aboutUs matchToken gameExperience categories categoryIds responseFilters showAsZipcode showExactLocation showOthersExactLocation acceptedTerms locationVisibility appBlob appEnablePush appEnableSMS appEnableEmail gameType appKey latitude longitude returnProfile audienceIdsToAdd audienceIdsToRemove referralAccountId appNickname personalAudienceId nonGuestUsername]} (s/map-of keyword? any?)]
+   (call-api "/account/profile/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "role" role "assetId" assetId "name" name "prefixName" prefixName "firstName" firstName "middleName" middleName "lastName" lastName "suffixName" suffixName "title" title "gender" gender "age" age "birthday" birthday "homePhone" homePhone "cellPhone" cellPhone "cellPhoneCarrier" cellPhoneCarrier "businessPhone" businessPhone "emailAddress" emailAddress "streetAddress" streetAddress "streetAddress2" streetAddress2 "city" city "state" state "zipcode" zipcode "country" country "makeProfileInfoPublic" makeProfileInfoPublic "makeGameInfoPublic" makeGameInfoPublic "makeFriendsInfoPublic" makeFriendsInfoPublic "hometown" hometown "height" height "heightIndex" heightIndex "ethnicity" ethnicity "bodyType" bodyType "maritalStatus" maritalStatus "children" children "religion" religion "education" education "educationIndex" educationIndex "smoke" smoke "drink" drink "companionship" companionship "companionshipIndex" companionshipIndex "preferredMinAge" preferredMinAge "preferredMaxAge" preferredMaxAge "preferredMinHeight" preferredMinHeight "preferredMaxHeight" preferredMaxHeight "preferredGender" preferredGender "preferredEducation" preferredEducation "preferredEducationIndex" preferredEducationIndex "preferredBodyType" preferredBodyType "preferredEthnicity" preferredEthnicity "preferredLocation" preferredLocation "preferredLocationRange" preferredLocationRange "platforms" platforms "tags" tags "aboutUs" aboutUs "matchToken" matchToken "gameExperience" gameExperience "categories" categories "categoryIds" categoryIds "responseFilters" responseFilters "showAsZipcode" showAsZipcode "showExactLocation" showExactLocation "showOthersExactLocation" showOthersExactLocation "acceptedTerms" acceptedTerms "locationVisibility" locationVisibility "appBlob" appBlob "appEnablePush" appEnablePush "appEnableSMS" appEnableSMS "appEnableEmail" appEnableEmail "gameType" gameType "appKey" appKey "latitude" latitude "longitude" longitude "returnProfile" returnProfile "audienceIdsToAdd" audienceIdsToAdd "audienceIdsToRemove" audienceIdsToRemove "referralAccountId" referralAccountId "appNickname" appNickname "personalAudienceId" personalAudienceId "nonGuestUsername" nonGuestUsername }
               :form-params   {}
@@ -446,9 +444,9 @@
 (defn-spec edit-account profile-info-response-spec
   "Update Account
   Edit the user's profile information"
-  ([version float?, ] (edit-account version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (edit-account-with-http-info version optional-params))]
+  ([] (edit-account nil))
+  ([optional-params any?]
+   (let [res (:data (edit-account-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-info-response-spec res st/string-transformer)
         res))))
@@ -457,11 +455,10 @@
 (defn-spec edit-username-with-http-info any?
   "Update Username and Email
   Update account's own username and/or emailAddress"
-  ([version float?, ] (edit-username-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId emailAddress username]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/username/update" :post
-             {:path-params   {"version" version }
+  ([] (edit-username-with-http-info nil))
+  ([{:keys [deviceId accountId emailAddress username]} (s/map-of keyword? any?)]
+   (call-api "/account/username/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "emailAddress" emailAddress "username" username }
               :form-params   {}
@@ -472,9 +469,9 @@
 (defn-spec edit-username sirqul-response-spec
   "Update Username and Email
   Update account's own username and/or emailAddress"
-  ([version float?, ] (edit-username version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (edit-username-with-http-info version optional-params))]
+  ([] (edit-username nil))
+  ([optional-params any?]
+   (let [res (:data (edit-username-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -483,11 +480,10 @@
 (defn-spec get-account-with-http-info any?
   "Get Account
   Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account."
-  ([version float?, ] (get-account-with-http-info version nil))
-  ([version float?, {:keys [returnNulls deviceId accountId connectionAccountEmail connectionAccountId responseFilters gameType appKey purchaseType updateViewedDate latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/profile/get" :get
-             {:path-params   {"version" version }
+  ([] (get-account-with-http-info nil))
+  ([{:keys [returnNulls deviceId accountId connectionAccountEmail connectionAccountId responseFilters gameType appKey purchaseType updateViewedDate latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/account/profile/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "connectionAccountEmail" connectionAccountEmail "connectionAccountId" connectionAccountId "responseFilters" responseFilters "gameType" gameType "appKey" appKey "purchaseType" purchaseType "updateViewedDate" updateViewedDate "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -498,9 +494,9 @@
 (defn-spec get-account profile-response-spec
   "Get Account
   Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account."
-  ([version float?, ] (get-account version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-account-with-http-info version optional-params))]
+  ([] (get-account nil))
+  ([optional-params any?]
+   (let [res (:data (get-account-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -509,11 +505,10 @@
 (defn-spec get-profile-assets-with-http-info any?
   "Get Profile Assets
   Get a list of assets a person has ever uploaded. Filters the list based on parameters."
-  ([version float?, ] (get-profile-assets-with-http-info version nil))
-  ([version float?, {:keys [returnNulls deviceId accountId ownerId mediaTypes mimeTypes sortField descending latitude longitude _i start _l limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/profile/assets" :get
-             {:path-params   {"version" version }
+  ([] (get-profile-assets-with-http-info nil))
+  ([{:keys [returnNulls deviceId accountId ownerId mediaTypes mimeTypes sortField descending latitude longitude _i start _l limit]} (s/map-of keyword? any?)]
+   (call-api "/account/profile/assets" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"returnNulls" returnNulls "deviceId" deviceId "accountId" accountId "ownerId" ownerId "mediaTypes" mediaTypes "mimeTypes" mimeTypes "sortField" sortField "descending" descending "latitude" latitude "longitude" longitude "_i" _i "start" start "_l" _l "limit" limit }
               :form-params   {}
@@ -524,9 +519,9 @@
 (defn-spec get-profile-assets asset-list-response-spec
   "Get Profile Assets
   Get a list of assets a person has ever uploaded. Filters the list based on parameters."
-  ([version float?, ] (get-profile-assets version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-profile-assets-with-http-info version optional-params))]
+  ([] (get-profile-assets nil))
+  ([optional-params any?]
+   (let [res (:data (get-profile-assets-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode asset-list-response-spec res st/string-transformer)
         res))))
@@ -535,11 +530,10 @@
 (defn-spec get-referral-list-with-http-info any?
   "Search Accounts
   Gets a user's account profile and their referral List."
-  ([version float?, ] (get-referral-list-with-http-info version nil))
-  ([version float?, {:keys [accountId appKey retrieveType levelLimit ancestorLevelLimit childrenLevelLimit ancestorListStart ancestorListLimit childrenListStart childrenListLimit childrenChildren]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/referral/list" :get
-             {:path-params   {"version" version }
+  ([] (get-referral-list-with-http-info nil))
+  ([{:keys [accountId appKey retrieveType levelLimit ancestorLevelLimit childrenLevelLimit ancestorListStart ancestorListLimit childrenListStart childrenListLimit childrenChildren]} (s/map-of keyword? any?)]
+   (call-api "/account/referral/list" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "retrieveType" retrieveType "levelLimit" levelLimit "ancestorLevelLimit" ancestorLevelLimit "childrenLevelLimit" childrenLevelLimit "ancestorListStart" ancestorListStart "ancestorListLimit" ancestorListLimit "childrenListStart" childrenListStart "childrenListLimit" childrenListLimit "childrenChildren" childrenChildren }
               :form-params   {}
@@ -550,9 +544,9 @@
 (defn-spec get-referral-list any?
   "Search Accounts
   Gets a user's account profile and their referral List."
-  ([version float?, ] (get-referral-list version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-referral-list-with-http-info version optional-params))]
+  ([] (get-referral-list nil))
+  ([optional-params any?]
+   (let [res (:data (get-referral-list-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -561,11 +555,10 @@
 (defn-spec get-settings-with-http-info any?
   "Get Account Settings
   Get the account settings for a user"
-  ([version float?, ] (get-settings-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/settings/get" :get
-             {:path-params   {"version" version }
+  ([] (get-settings-with-http-info nil))
+  ([{:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/account/settings/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -576,9 +569,9 @@
 (defn-spec get-settings user-settings-response-spec
   "Get Account Settings
   Get the account settings for a user"
-  ([version float?, ] (get-settings version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-settings-with-http-info version optional-params))]
+  ([] (get-settings nil))
+  ([optional-params any?]
+   (let [res (:data (get-settings-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode user-settings-response-spec res st/string-transformer)
         res))))
@@ -587,11 +580,11 @@
 (defn-spec login-delegate-with-http-info any?
   "Login as Account
   A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now."
-  ([version float?, accessToken string?, appKey string?, ] (login-delegate-with-http-info version accessToken appKey nil))
-  ([version float?, accessToken string?, appKey string?, {:keys [deviceId accessTokenSecret delegatedAccountId delegatedUsername networkUID ageRestriction responseFilters latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version accessToken appKey)
-   (call-api "/api/{version}/account/login/delegate" :post
-             {:path-params   {"version" version }
+  ([accessToken string?, appKey string?, ] (login-delegate-with-http-info accessToken appKey nil))
+  ([accessToken string?, appKey string?, {:keys [deviceId accessTokenSecret delegatedAccountId delegatedUsername networkUID ageRestriction responseFilters latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params accessToken appKey)
+   (call-api "/account/login/delegate" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accessToken" accessToken "accessTokenSecret" accessTokenSecret "delegatedAccountId" delegatedAccountId "delegatedUsername" delegatedUsername "networkUID" networkUID "appKey" appKey "ageRestriction" ageRestriction "responseFilters" responseFilters "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -602,9 +595,9 @@
 (defn-spec login-delegate profile-response-spec
   "Login as Account
   A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now."
-  ([version float?, accessToken string?, appKey string?, ] (login-delegate version accessToken appKey nil))
-  ([version float?, accessToken string?, appKey string?, optional-params any?]
-   (let [res (:data (login-delegate-with-http-info version accessToken appKey optional-params))]
+  ([accessToken string?, appKey string?, ] (login-delegate accessToken appKey nil))
+  ([accessToken string?, appKey string?, optional-params any?]
+   (let [res (:data (login-delegate-with-http-info accessToken appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -613,11 +606,11 @@
 (defn-spec login-general-with-http-info any?
   "Login Account
   General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}"
-  ([version float?, accessToken string?, networkUID string?, appKey string?, ] (login-general-with-http-info version accessToken networkUID appKey nil))
-  ([version float?, accessToken string?, networkUID string?, appKey string?, {:keys [deviceId deviceIdType accessTokenSecret ageRestriction responseFilters latitude longitude emailMatch chosenAccountId thirdPartyCredentialId]} (s/map-of keyword? any?)]
-   (check-required-params version accessToken networkUID appKey)
-   (call-api "/api/{version}/account/login" :post
-             {:path-params   {"version" version }
+  ([accessToken string?, networkUID string?, appKey string?, ] (login-general-with-http-info accessToken networkUID appKey nil))
+  ([accessToken string?, networkUID string?, appKey string?, {:keys [deviceId deviceIdType accessTokenSecret ageRestriction responseFilters latitude longitude emailMatch chosenAccountId thirdPartyCredentialId]} (s/map-of keyword? any?)]
+   (check-required-params accessToken networkUID appKey)
+   (call-api "/account/login" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "deviceIdType" deviceIdType "accessToken" accessToken "accessTokenSecret" accessTokenSecret "networkUID" networkUID "appKey" appKey "ageRestriction" ageRestriction "responseFilters" responseFilters "latitude" latitude "longitude" longitude "emailMatch" emailMatch "chosenAccountId" chosenAccountId "thirdPartyCredentialId" thirdPartyCredentialId }
               :form-params   {}
@@ -628,9 +621,9 @@
 (defn-spec login-general profile-response-spec
   "Login Account
   General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}"
-  ([version float?, accessToken string?, networkUID string?, appKey string?, ] (login-general version accessToken networkUID appKey nil))
-  ([version float?, accessToken string?, networkUID string?, appKey string?, optional-params any?]
-   (let [res (:data (login-general-with-http-info version accessToken networkUID appKey optional-params))]
+  ([accessToken string?, networkUID string?, appKey string?, ] (login-general accessToken networkUID appKey nil))
+  ([accessToken string?, networkUID string?, appKey string?, optional-params any?]
+   (let [res (:data (login-general-with-http-info accessToken networkUID appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -639,11 +632,11 @@
 (defn-spec login-username-with-http-info any?
   "Login Account (Username)
   Login to system with an account"
-  ([version float?, username string?, password string?, ] (login-username-with-http-info version username password nil))
-  ([version float?, username string?, password string?, {:keys [deviceId latitude longitude app gameType appKey returnProfile responseFilters]} (s/map-of keyword? any?)]
-   (check-required-params version username password)
-   (call-api "/api/{version}/account/get" :post
-             {:path-params   {"version" version }
+  ([username string?, password string?, ] (login-username-with-http-info username password nil))
+  ([username string?, password string?, {:keys [deviceId latitude longitude app gameType appKey returnProfile responseFilters]} (s/map-of keyword? any?)]
+   (check-required-params username password)
+   (call-api "/account/get" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "username" username "password" password "latitude" latitude "longitude" longitude "app" app "gameType" gameType "appKey" appKey "returnProfile" returnProfile "responseFilters" responseFilters }
               :form-params   {}
@@ -654,9 +647,9 @@
 (defn-spec login-username profile-response-spec
   "Login Account (Username)
   Login to system with an account"
-  ([version float?, username string?, password string?, ] (login-username version username password nil))
-  ([version float?, username string?, password string?, optional-params any?]
-   (let [res (:data (login-username-with-http-info version username password optional-params))]
+  ([username string?, password string?, ] (login-username username password nil))
+  ([username string?, password string?, optional-params any?]
+   (let [res (:data (login-username-with-http-info username password optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -665,11 +658,10 @@
 (defn-spec logout-with-http-info any?
   "Logout Account
   Cleans up the users data for logging out."
-  ([version float?, ] (logout-with-http-info version nil))
-  ([version float?, {:keys [deviceId deviceIdType accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/logout" :post
-             {:path-params   {"version" version }
+  ([] (logout-with-http-info nil))
+  ([{:keys [deviceId deviceIdType accountId latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/account/logout" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "deviceIdType" deviceIdType "accountId" accountId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -680,9 +672,9 @@
 (defn-spec logout sirqul-response-spec
   "Logout Account
   Cleans up the users data for logging out."
-  ([version float?, ] (logout version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (logout-with-http-info version optional-params))]
+  ([] (logout nil))
+  ([optional-params any?]
+   (let [res (:data (logout-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -691,11 +683,11 @@
 (defn-spec merge-account-with-http-info any?
   "Merge Account
   Merges the analytics, achievements, leaderboards of two accounts."
-  ([version float?, mergeAccountId int?, appKey string?, ] (merge-account-with-http-info version mergeAccountId appKey nil))
-  ([version float?, mergeAccountId int?, appKey string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version mergeAccountId appKey)
-   (call-api "/api/{version}/account/merge" :post
-             {:path-params   {"version" version }
+  ([mergeAccountId int?, appKey string?, ] (merge-account-with-http-info mergeAccountId appKey nil))
+  ([mergeAccountId int?, appKey string?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params mergeAccountId appKey)
+   (call-api "/account/merge" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "mergeAccountId" mergeAccountId "appKey" appKey }
               :form-params   {}
@@ -706,9 +698,9 @@
 (defn-spec merge-account sirqul-response-spec
   "Merge Account
   Merges the analytics, achievements, leaderboards of two accounts."
-  ([version float?, mergeAccountId int?, appKey string?, ] (merge-account version mergeAccountId appKey nil))
-  ([version float?, mergeAccountId int?, appKey string?, optional-params any?]
-   (let [res (:data (merge-account-with-http-info version mergeAccountId appKey optional-params))]
+  ([mergeAccountId int?, appKey string?, ] (merge-account mergeAccountId appKey nil))
+  ([mergeAccountId int?, appKey string?, optional-params any?]
+   (let [res (:data (merge-account-with-http-info mergeAccountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -717,10 +709,10 @@
 (defn-spec password-change-with-http-info any?
   "Update Password
   Update the account password."
-  [version float?, accountId int?, oldPassword string?, newPassword string?, confirmPassword string?]
-  (check-required-params version accountId oldPassword newPassword confirmPassword)
-  (call-api "/api/{version}/account/passwordchange" :post
-            {:path-params   {"version" version }
+  [accountId int?, oldPassword string?, newPassword string?, confirmPassword string?]
+  (check-required-params accountId oldPassword newPassword confirmPassword)
+  (call-api "/account/passwordchange" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "oldPassword" oldPassword "newPassword" newPassword "confirmPassword" confirmPassword }
              :form-params   {}
@@ -731,8 +723,8 @@
 (defn-spec password-change sirqul-response-spec
   "Update Password
   Update the account password."
-  [version float?, accountId int?, oldPassword string?, newPassword string?, confirmPassword string?]
-  (let [res (:data (password-change-with-http-info version accountId oldPassword newPassword confirmPassword))]
+  [accountId int?, oldPassword string?, newPassword string?, confirmPassword string?]
+  (let [res (:data (password-change-with-http-info accountId oldPassword newPassword confirmPassword))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -741,10 +733,10 @@
 (defn-spec password-reset-with-http-info any?
   "Reset Password
   Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token."
-  [version float?, token string?, password string?, confirm string?]
-  (check-required-params version token password confirm)
-  (call-api "/api/{version}/account/passwordreset" :post
-            {:path-params   {"version" version }
+  [token string?, password string?, confirm string?]
+  (check-required-params token password confirm)
+  (call-api "/account/passwordreset" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"token" token "password" password "confirm" confirm }
              :form-params   {}
@@ -755,8 +747,8 @@
 (defn-spec password-reset sirqul-response-spec
   "Reset Password
   Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token."
-  [version float?, token string?, password string?, confirm string?]
-  (let [res (:data (password-reset-with-http-info version token password confirm))]
+  [token string?, password string?, confirm string?]
+  (let [res (:data (password-reset-with-http-info token password confirm))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -765,11 +757,11 @@
 (defn-spec request-password-reset-with-http-info any?
   "Request Password Reset
   Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours."
-  ([version float?, email string?, ] (request-password-reset-with-http-info version email nil))
-  ([version float?, email string?, {:keys [from domain subUrl referer]} (s/map-of keyword? any?)]
-   (check-required-params version email)
-   (call-api "/api/{version}/account/requestpasswordreset" :post
-             {:path-params   {"version" version }
+  ([email string?, ] (request-password-reset-with-http-info email nil))
+  ([email string?, {:keys [from domain subUrl referer]} (s/map-of keyword? any?)]
+   (check-required-params email)
+   (call-api "/account/requestpasswordreset" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"email" email "from" from "domain" domain "subUrl" subUrl "referer" referer }
               :form-params   {}
@@ -780,9 +772,9 @@
 (defn-spec request-password-reset sirqul-response-spec
   "Request Password Reset
   Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours."
-  ([version float?, email string?, ] (request-password-reset version email nil))
-  ([version float?, email string?, optional-params any?]
-   (let [res (:data (request-password-reset-with-http-info version email optional-params))]
+  ([email string?, ] (request-password-reset email nil))
+  ([email string?, optional-params any?]
+   (let [res (:data (request-password-reset-with-http-info email optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -791,10 +783,10 @@
 (defn-spec request-validate-account-with-http-info any?
   "Send Validation Request
   Send an email to validate a user's account."
-  [version float?, accountId int?]
-  (check-required-params version accountId)
-  (call-api "/api/{version}/account/requestValidateAccount" :post
-            {:path-params   {"version" version }
+  [accountId int?]
+  (check-required-params accountId)
+  (call-api "/account/requestValidateAccount" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId }
              :form-params   {}
@@ -805,8 +797,8 @@
 (defn-spec request-validate-account sirqul-response-spec
   "Send Validation Request
   Send an email to validate a user's account."
-  [version float?, accountId int?]
-  (let [res (:data (request-validate-account-with-http-info version accountId))]
+  [accountId int?]
+  (let [res (:data (request-validate-account-with-http-info accountId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -815,11 +807,11 @@
 (defn-spec search-accounts-with-http-info any?
   "Search Accounts
   Search for account profiles."
-  ([version float?, accountId int?, appKey string?, ] (search-accounts-with-http-info version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, {:keys [keyword latitude longitude radius gender gameExperience age categoryIds returnNulls responseFilters purchaseType sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey)
-   (call-api "/api/{version}/account/profile/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, ] (search-accounts-with-http-info accountId appKey nil))
+  ([accountId int?, appKey string?, {:keys [keyword latitude longitude radius gender gameExperience age categoryIds returnNulls responseFilters purchaseType sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey)
+   (call-api "/account/profile/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "keyword" keyword "latitude" latitude "longitude" longitude "radius" radius "gender" gender "gameExperience" gameExperience "age" age "categoryIds" categoryIds "returnNulls" returnNulls "responseFilters" responseFilters "purchaseType" purchaseType "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -830,9 +822,9 @@
 (defn-spec search-accounts (s/coll-of profile-response-spec)
   "Search Accounts
   Search for account profiles."
-  ([version float?, accountId int?, appKey string?, ] (search-accounts version accountId appKey nil))
-  ([version float?, accountId int?, appKey string?, optional-params any?]
-   (let [res (:data (search-accounts-with-http-info version accountId appKey optional-params))]
+  ([accountId int?, appKey string?, ] (search-accounts accountId appKey nil))
+  ([accountId int?, appKey string?, optional-params any?]
+   (let [res (:data (search-accounts-with-http-info accountId appKey optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of profile-response-spec) res st/string-transformer)
         res))))
@@ -841,11 +833,11 @@
 (defn-spec secure-login-with-http-info any?
   "Login Account (Encrypted Username)
   ogin with encrypted user-name and password."
-  ([version float?, username string?, password string?, gameType string?, ] (secure-login-with-http-info version username password gameType nil))
-  ([version float?, username string?, password string?, gameType string?, {:keys [deviceId charsetName latitude longitude returnProfile responseFilters]} (s/map-of keyword? any?)]
-   (check-required-params version username password gameType)
-   (call-api "/api/{version}/account/login/validate" :post
-             {:path-params   {"version" version }
+  ([username string?, password string?, gameType string?, ] (secure-login-with-http-info username password gameType nil))
+  ([username string?, password string?, gameType string?, {:keys [deviceId charsetName latitude longitude returnProfile responseFilters]} (s/map-of keyword? any?)]
+   (check-required-params username password gameType)
+   (call-api "/account/login/validate" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "username" username "password" password "gameType" gameType "charsetName" charsetName "latitude" latitude "longitude" longitude "returnProfile" returnProfile "responseFilters" responseFilters }
               :form-params   {}
@@ -856,9 +848,9 @@
 (defn-spec secure-login profile-response-spec
   "Login Account (Encrypted Username)
   ogin with encrypted user-name and password."
-  ([version float?, username string?, password string?, gameType string?, ] (secure-login version username password gameType nil))
-  ([version float?, username string?, password string?, gameType string?, optional-params any?]
-   (let [res (:data (secure-login-with-http-info version username password gameType optional-params))]
+  ([username string?, password string?, gameType string?, ] (secure-login username password gameType nil))
+  ([username string?, password string?, gameType string?, optional-params any?]
+   (let [res (:data (secure-login-with-http-info username password gameType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))
@@ -867,11 +859,11 @@
 (defn-spec secure-signup-with-http-info any?
   "Create Account (Encrypted Username)
   Create a new account by role (with encrypted user-name and password)"
-  ([version float?, deviceId string?, username string?, password string?, ] (secure-signup-with-http-info version deviceId username password nil))
-  ([version float?, deviceId string?, username string?, password string?, {:keys [name inviteToken prefixName firstName middleName lastName suffixName title deviceIdType emailAddress assetId address zipcode gender birthday homePhone cellPhone cellPhoneCarrier businessPhone role platforms tags aboutUs gameExperience categoryIds hometown height heightIndex ethnicity bodyType maritalStatus children religion education educationIndex smoke drink companionship companionshipIndex preferredMinAge preferredMaxAge preferredMinHeight preferredMaxHeight preferredGender preferredEducation preferredEducationIndex preferredBodyType preferredEthnicity preferredLocation preferredLocationRange latitude longitude acceptedTerms charsetName gameType appKey appVersion responseType]} (s/map-of keyword? any?)]
-   (check-required-params version deviceId username password)
-   (call-api "/api/{version}/account/create/validate" :post
-             {:path-params   {"version" version }
+  ([deviceId string?, username string?, password string?, ] (secure-signup-with-http-info deviceId username password nil))
+  ([deviceId string?, username string?, password string?, {:keys [name inviteToken prefixName firstName middleName lastName suffixName title deviceIdType emailAddress assetId address zipcode gender birthday homePhone cellPhone cellPhoneCarrier businessPhone role platforms tags aboutUs gameExperience categoryIds hometown height heightIndex ethnicity bodyType maritalStatus children religion education educationIndex smoke drink companionship companionshipIndex preferredMinAge preferredMaxAge preferredMinHeight preferredMaxHeight preferredGender preferredEducation preferredEducationIndex preferredBodyType preferredEthnicity preferredLocation preferredLocationRange latitude longitude acceptedTerms charsetName gameType appKey appVersion responseType]} (s/map-of keyword? any?)]
+   (check-required-params deviceId username password)
+   (call-api "/account/create/validate" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"name" name "inviteToken" inviteToken "prefixName" prefixName "firstName" firstName "middleName" middleName "lastName" lastName "suffixName" suffixName "title" title "deviceId" deviceId "deviceIdType" deviceIdType "username" username "password" password "emailAddress" emailAddress "assetId" assetId "address" address "zipcode" zipcode "gender" gender "birthday" birthday "homePhone" homePhone "cellPhone" cellPhone "cellPhoneCarrier" cellPhoneCarrier "businessPhone" businessPhone "role" role "platforms" platforms "tags" tags "aboutUs" aboutUs "gameExperience" gameExperience "categoryIds" categoryIds "hometown" hometown "height" height "heightIndex" heightIndex "ethnicity" ethnicity "bodyType" bodyType "maritalStatus" maritalStatus "children" children "religion" religion "education" education "educationIndex" educationIndex "smoke" smoke "drink" drink "companionship" companionship "companionshipIndex" companionshipIndex "preferredMinAge" preferredMinAge "preferredMaxAge" preferredMaxAge "preferredMinHeight" preferredMinHeight "preferredMaxHeight" preferredMaxHeight "preferredGender" preferredGender "preferredEducation" preferredEducation "preferredEducationIndex" preferredEducationIndex "preferredBodyType" preferredBodyType "preferredEthnicity" preferredEthnicity "preferredLocation" preferredLocation "preferredLocationRange" preferredLocationRange "latitude" latitude "longitude" longitude "acceptedTerms" acceptedTerms "charsetName" charsetName "gameType" gameType "appKey" appKey "appVersion" appVersion "responseType" responseType }
               :form-params   {}
@@ -882,9 +874,9 @@
 (defn-spec secure-signup profile-info-response-spec
   "Create Account (Encrypted Username)
   Create a new account by role (with encrypted user-name and password)"
-  ([version float?, deviceId string?, username string?, password string?, ] (secure-signup version deviceId username password nil))
-  ([version float?, deviceId string?, username string?, password string?, optional-params any?]
-   (let [res (:data (secure-signup-with-http-info version deviceId username password optional-params))]
+  ([deviceId string?, username string?, password string?, ] (secure-signup deviceId username password nil))
+  ([deviceId string?, username string?, password string?, optional-params any?]
+   (let [res (:data (secure-signup-with-http-info deviceId username password optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-info-response-spec res st/string-transformer)
         res))))
@@ -893,11 +885,10 @@
 (defn-spec set-match-token-with-http-info any?
   "Save Match Token
   Save user's match token to be used for profile match making"
-  ([version float?, ] (set-match-token-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId matchToken gameType appKey latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/consumer/profile/matchToken" :post
-             {:path-params   {"version" version }
+  ([] (set-match-token-with-http-info nil))
+  ([{:keys [deviceId accountId matchToken gameType appKey latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/consumer/profile/matchToken" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "matchToken" matchToken "gameType" gameType "appKey" appKey "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -908,9 +899,9 @@
 (defn-spec set-match-token sirqul-response-spec
   "Save Match Token
   Save user's match token to be used for profile match making"
-  ([version float?, ] (set-match-token version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (set-match-token-with-http-info version optional-params))]
+  ([] (set-match-token nil))
+  ([optional-params any?]
+   (let [res (:data (set-match-token-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -919,11 +910,11 @@
 (defn-spec update-actve-status-with-http-info any?
   "Update Account Active Status
   Activate or deactivate an account (requires appropriate permissions)."
-  ([version float?, accountId int?, connectionAccountId int?, active boolean?, ] (update-actve-status-with-http-info version accountId connectionAccountId active nil))
-  ([version float?, accountId int?, connectionAccountId int?, active boolean?, {:keys [deviceId appKey]} (s/map-of keyword? any?)]
-   (check-required-params version accountId connectionAccountId active)
-   (call-api "/api/{version}/account/active/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, connectionAccountId int?, active boolean?, ] (update-actve-status-with-http-info accountId connectionAccountId active nil))
+  ([accountId int?, connectionAccountId int?, active boolean?, {:keys [deviceId appKey]} (s/map-of keyword? any?)]
+   (check-required-params accountId connectionAccountId active)
+   (call-api "/account/active/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "appKey" appKey "active" active }
               :form-params   {}
@@ -934,9 +925,9 @@
 (defn-spec update-actve-status sirqul-response-spec
   "Update Account Active Status
   Activate or deactivate an account (requires appropriate permissions)."
-  ([version float?, accountId int?, connectionAccountId int?, active boolean?, ] (update-actve-status version accountId connectionAccountId active nil))
-  ([version float?, accountId int?, connectionAccountId int?, active boolean?, optional-params any?]
-   (let [res (:data (update-actve-status-with-http-info version accountId connectionAccountId active optional-params))]
+  ([accountId int?, connectionAccountId int?, active boolean?, ] (update-actve-status accountId connectionAccountId active nil))
+  ([accountId int?, connectionAccountId int?, active boolean?, optional-params any?]
+   (let [res (:data (update-actve-status-with-http-info accountId connectionAccountId active optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -945,11 +936,10 @@
 (defn-spec update-location-with-http-info any?
   "Update Location
   Update the account location"
-  ([version float?, ] (update-location-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId latitude longitude clientTime]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/location/update" :post
-             {:path-params   {"version" version }
+  ([] (update-location-with-http-info nil))
+  ([{:keys [deviceId accountId latitude longitude clientTime]} (s/map-of keyword? any?)]
+   (call-api "/account/location/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "latitude" latitude "longitude" longitude "clientTime" clientTime }
               :form-params   {}
@@ -960,9 +950,9 @@
 (defn-spec update-location sirqul-response-spec
   "Update Location
   Update the account location"
-  ([version float?, ] (update-location version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (update-location-with-http-info version optional-params))]
+  ([] (update-location nil))
+  ([optional-params any?]
+   (let [res (:data (update-location-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -971,11 +961,10 @@
 (defn-spec update-settings-with-http-info any?
   "Update Account Settings
   Update the account settings for a user"
-  ([version float?, ] (update-settings-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId blockedNotifications suggestionMethod suggestionCount suggestionTimeFrame showOthersExactLocation showAsZipcode showExactLocation favoriteVisibility latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/account/settings/update" :post
-             {:path-params   {"version" version }
+  ([] (update-settings-with-http-info nil))
+  ([{:keys [deviceId accountId blockedNotifications suggestionMethod suggestionCount suggestionTimeFrame showOthersExactLocation showAsZipcode showExactLocation favoriteVisibility latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/account/settings/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "blockedNotifications" blockedNotifications "suggestionMethod" suggestionMethod "suggestionCount" suggestionCount "suggestionTimeFrame" suggestionTimeFrame "showOthersExactLocation" showOthersExactLocation "showAsZipcode" showAsZipcode "showExactLocation" showExactLocation "favoriteVisibility" favoriteVisibility "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -986,9 +975,9 @@
 (defn-spec update-settings user-settings-response-spec
   "Update Account Settings
   Update the account settings for a user"
-  ([version float?, ] (update-settings version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (update-settings-with-http-info version optional-params))]
+  ([] (update-settings nil))
+  ([optional-params any?]
+   (let [res (:data (update-settings-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode user-settings-response-spec res st/string-transformer)
         res))))
@@ -997,10 +986,10 @@
 (defn-spec validate-account-signup-with-http-info any?
   "Save Validation Status
   Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token."
-  [version float?, token string?]
-  (check-required-params version token)
-  (call-api "/api/{version}/account/validateAccountSignup" :post
-            {:path-params   {"version" version }
+  [token string?]
+  (check-required-params token)
+  (call-api "/account/validateAccountSignup" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"token" token }
              :form-params   {}
@@ -1011,8 +1000,8 @@
 (defn-spec validate-account-signup account-login-response-spec
   "Save Validation Status
   Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token."
-  [version float?, token string?]
-  (let [res (:data (validate-account-signup-with-http-info version token))]
+  [token string?]
+  (let [res (:data (validate-account-signup-with-http-info token))]
     (if (:decode-models *api-context*)
        (st/decode account-login-response-spec res st/string-transformer)
        res)))
@@ -1021,10 +1010,10 @@
 (defn-spec validate-password-reset-with-http-info any?
   "Validate Password Reset Token
   Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password."
-  [version float?, token string?]
-  (check-required-params version token)
-  (call-api "/api/{version}/account/validatepasswordreset" :post
-            {:path-params   {"version" version }
+  [token string?]
+  (check-required-params token)
+  (call-api "/account/validatepasswordreset" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"token" token }
              :form-params   {}
@@ -1035,8 +1024,8 @@
 (defn-spec validate-password-reset sirqul-response-spec
   "Validate Password Reset Token
   Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password."
-  [version float?, token string?]
-  (let [res (:data (validate-password-reset-with-http-info version token))]
+  [token string?]
+  (let [res (:data (validate-password-reset-with-http-info token))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))

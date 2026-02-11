@@ -353,11 +353,11 @@
 (defn-spec create-media-with-http-info any?
   "Create Media
   Create a media offering."
-  ([version float?, accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, ] (create-media-with-http-info version accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active nil))
-  ([version float?, accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, {:keys [retailerLocationIds subTitle details subDetails finePrint barcodeEntry externalRedeemOptions externalUrl ticketsRewardType ticketsReward activated expires ticketPriceType showRemaining showRedeemed replaced featured categoryIds filterIds barcodeAssetId imageAssetId imageAssetId1 imageAssetId2 imageAssetId3 imageAssetId4 imageAssetId5 publisher redeemableStart redeemableEnd conditionType isbn asin catalogNumbers parentalRating availabilityDate mediaType duration author releaseDate collectionIds availability availabilitySummary]} (s/map-of keyword? any?)]
-   (check-required-params version accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active)
-   (call-api "/api/{version}/media/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, ] (create-media-with-http-info accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active nil))
+  ([accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, {:keys [retailerLocationIds subTitle details subDetails finePrint barcodeEntry externalRedeemOptions externalUrl ticketsRewardType ticketsReward activated expires ticketPriceType showRemaining showRedeemed replaced featured categoryIds filterIds barcodeAssetId imageAssetId imageAssetId1 imageAssetId2 imageAssetId3 imageAssetId4 imageAssetId5 publisher redeemableStart redeemableEnd conditionType isbn asin catalogNumbers parentalRating availabilityDate mediaType duration author releaseDate collectionIds availability availabilitySummary]} (s/map-of keyword? any?)]
+   (check-required-params accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active)
+   (call-api "/media/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "retailerLocationIds" retailerLocationIds "title" title "subTitle" subTitle "details" details "subDetails" subDetails "finePrint" finePrint "barcodeType" barcodeType "barcodeEntry" barcodeEntry "externalRedeemOptions" externalRedeemOptions "externalUrl" externalUrl "ticketsRewardType" ticketsRewardType "ticketsReward" ticketsReward "activated" activated "expires" expires "noExpiration" noExpiration "availableLimit" availableLimit "availableLimitPerUser" availableLimitPerUser "addedLimit" addedLimit "viewLimit" viewLimit "maxPrints" maxPrints "ticketPriceType" ticketPriceType "ticketPrice" ticketPrice "fullPrice" fullPrice "discountPrice" discountPrice "showRemaining" showRemaining "showRedeemed" showRedeemed "replaced" replaced "featured" featured "specialOfferType" specialOfferType "offerVisibility" offerVisibility "categoryIds" categoryIds "filterIds" filterIds "active" active "barcodeAssetId" barcodeAssetId "imageAssetId" imageAssetId "imageAssetId1" imageAssetId1 "imageAssetId2" imageAssetId2 "imageAssetId3" imageAssetId3 "imageAssetId4" imageAssetId4 "imageAssetId5" imageAssetId5 "publisher" publisher "redeemableStart" redeemableStart "redeemableEnd" redeemableEnd "conditionType" conditionType "isbn" isbn "asin" asin "catalogNumbers" catalogNumbers "parentalRating" parentalRating "availabilityDate" availabilityDate "mediaType" mediaType "duration" duration "author" author "releaseDate" releaseDate "collectionIds" collectionIds "availability" availability "availabilitySummary" availabilitySummary }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-media media-offer-response-spec
   "Create Media
   Create a media offering."
-  ([version float?, accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, ] (create-media version accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active nil))
-  ([version float?, accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, optional-params any?]
-   (let [res (:data (create-media-with-http-info version accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active optional-params))]
+  ([accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, ] (create-media accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active nil))
+  ([accountId int?, title string?, barcodeType string?, noExpiration boolean?, availableLimit int?, availableLimitPerUser int?, addedLimit int?, viewLimit int?, maxPrints int?, ticketPrice int?, fullPrice float?, discountPrice float?, specialOfferType string?, offerVisibility string?, active boolean?, optional-params any?]
+   (let [res (:data (create-media-with-http-info accountId title barcodeType noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPrice fullPrice discountPrice specialOfferType offerVisibility active optional-params))]
      (if (:decode-models *api-context*)
         (st/decode media-offer-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-media-with-http-info any?
   "Delete Media
   Delete a media offering that the user has permissions to."
-  [version float?, accountId int?, mediaId int?]
-  (check-required-params version accountId mediaId)
-  (call-api "/api/{version}/media/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, mediaId int?]
+  (check-required-params accountId mediaId)
+  (call-api "/media/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "mediaId" mediaId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-media sirqul-response-spec
   "Delete Media
   Delete a media offering that the user has permissions to."
-  [version float?, accountId int?, mediaId int?]
-  (let [res (:data (delete-media-with-http-info version accountId mediaId))]
+  [accountId int?, mediaId int?]
+  (let [res (:data (delete-media-with-http-info accountId mediaId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-media-with-http-info any?
   "Media Get
   Get a media offering."
-  [version float?, accountId int?, mediaId int?]
-  (check-required-params version accountId mediaId)
-  (call-api "/api/{version}/media/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, mediaId int?]
+  (check-required-params accountId mediaId)
+  (call-api "/media/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "mediaId" mediaId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-media media-offer-response-spec
   "Media Get
   Get a media offering."
-  [version float?, accountId int?, mediaId int?]
-  (let [res (:data (get-media-with-http-info version accountId mediaId))]
+  [accountId int?, mediaId int?]
+  (let [res (:data (get-media-with-http-info accountId mediaId))]
     (if (:decode-models *api-context*)
        (st/decode media-offer-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec search-media-with-http-info any?
   "Search Media
   Searches on events that the account has access to."
-  ([version float?, accountId int?, activeOnly boolean?, sortField string?, descending boolean?, ] (search-media-with-http-info version accountId activeOnly sortField descending nil))
-  ([version float?, accountId int?, activeOnly boolean?, sortField string?, descending boolean?, {:keys [keyword categoryIds filterIds start limit]} (s/map-of keyword? any?)]
-   (check-required-params version accountId activeOnly sortField descending)
-   (call-api "/api/{version}/media/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, activeOnly boolean?, sortField string?, descending boolean?, ] (search-media-with-http-info accountId activeOnly sortField descending nil))
+  ([accountId int?, activeOnly boolean?, sortField string?, descending boolean?, {:keys [keyword categoryIds filterIds start limit]} (s/map-of keyword? any?)]
+   (check-required-params accountId activeOnly sortField descending)
+   (call-api "/media/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "activeOnly" activeOnly "categoryIds" categoryIds "filterIds" filterIds "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec search-media (s/coll-of media-offer-response-spec)
   "Search Media
   Searches on events that the account has access to."
-  ([version float?, accountId int?, activeOnly boolean?, sortField string?, descending boolean?, ] (search-media version accountId activeOnly sortField descending nil))
-  ([version float?, accountId int?, activeOnly boolean?, sortField string?, descending boolean?, optional-params any?]
-   (let [res (:data (search-media-with-http-info version accountId activeOnly sortField descending optional-params))]
+  ([accountId int?, activeOnly boolean?, sortField string?, descending boolean?, ] (search-media accountId activeOnly sortField descending nil))
+  ([accountId int?, activeOnly boolean?, sortField string?, descending boolean?, optional-params any?]
+   (let [res (:data (search-media-with-http-info accountId activeOnly sortField descending optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of media-offer-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-media-with-http-info any?
   "Update Media
   Update a media offering."
-  ([version float?, accountId int?, mediaId int?, ] (update-media-with-http-info version accountId mediaId nil))
-  ([version float?, accountId int?, mediaId int?, {:keys [retailerLocationIds offerLocations title subTitle details subDetails finePrint barcodeType barcodeEntry externalRedeemOptions externalUrl ticketsRewardType ticketsReward activated expires noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPriceType ticketPrice fullPrice discountPrice showRemaining showRedeemed replaced featured specialOfferType offerVisibility categoryIds filterIds active barcodeAssetId imageAssetId imageAssetId1 imageAssetId2 imageAssetId3 imageAssetId4 imageAssetId5 publisher redeemableStart redeemableEnd conditionType isbn asin catalogNumbers availabilityDate parentalRating mediaType duration author releaseDate collectionIds availability availabilitySummary]} (s/map-of keyword? any?)]
-   (check-required-params version accountId mediaId)
-   (call-api "/api/{version}/media/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, mediaId int?, ] (update-media-with-http-info accountId mediaId nil))
+  ([accountId int?, mediaId int?, {:keys [retailerLocationIds offerLocations title subTitle details subDetails finePrint barcodeType barcodeEntry externalRedeemOptions externalUrl ticketsRewardType ticketsReward activated expires noExpiration availableLimit availableLimitPerUser addedLimit viewLimit maxPrints ticketPriceType ticketPrice fullPrice discountPrice showRemaining showRedeemed replaced featured specialOfferType offerVisibility categoryIds filterIds active barcodeAssetId imageAssetId imageAssetId1 imageAssetId2 imageAssetId3 imageAssetId4 imageAssetId5 publisher redeemableStart redeemableEnd conditionType isbn asin catalogNumbers availabilityDate parentalRating mediaType duration author releaseDate collectionIds availability availabilitySummary]} (s/map-of keyword? any?)]
+   (check-required-params accountId mediaId)
+   (call-api "/media/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "mediaId" mediaId "retailerLocationIds" retailerLocationIds "offerLocations" offerLocations "title" title "subTitle" subTitle "details" details "subDetails" subDetails "finePrint" finePrint "barcodeType" barcodeType "barcodeEntry" barcodeEntry "externalRedeemOptions" externalRedeemOptions "externalUrl" externalUrl "ticketsRewardType" ticketsRewardType "ticketsReward" ticketsReward "activated" activated "expires" expires "noExpiration" noExpiration "availableLimit" availableLimit "availableLimitPerUser" availableLimitPerUser "addedLimit" addedLimit "viewLimit" viewLimit "maxPrints" maxPrints "ticketPriceType" ticketPriceType "ticketPrice" ticketPrice "fullPrice" fullPrice "discountPrice" discountPrice "showRemaining" showRemaining "showRedeemed" showRedeemed "replaced" replaced "featured" featured "specialOfferType" specialOfferType "offerVisibility" offerVisibility "categoryIds" categoryIds "filterIds" filterIds "active" active "barcodeAssetId" barcodeAssetId "imageAssetId" imageAssetId "imageAssetId1" imageAssetId1 "imageAssetId2" imageAssetId2 "imageAssetId3" imageAssetId3 "imageAssetId4" imageAssetId4 "imageAssetId5" imageAssetId5 "publisher" publisher "redeemableStart" redeemableStart "redeemableEnd" redeemableEnd "conditionType" conditionType "isbn" isbn "asin" asin "catalogNumbers" catalogNumbers "availabilityDate" availabilityDate "parentalRating" parentalRating "mediaType" mediaType "duration" duration "author" author "releaseDate" releaseDate "collectionIds" collectionIds "availability" availability "availabilitySummary" availabilitySummary }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-media media-offer-response-spec
   "Update Media
   Update a media offering."
-  ([version float?, accountId int?, mediaId int?, ] (update-media version accountId mediaId nil))
-  ([version float?, accountId int?, mediaId int?, optional-params any?]
-   (let [res (:data (update-media-with-http-info version accountId mediaId optional-params))]
+  ([accountId int?, mediaId int?, ] (update-media accountId mediaId nil))
+  ([accountId int?, mediaId int?, optional-params any?]
+   (let [res (:data (update-media-with-http-info accountId mediaId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode media-offer-response-spec res st/string-transformer)
         res))))

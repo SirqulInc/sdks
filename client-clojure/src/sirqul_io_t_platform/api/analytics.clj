@@ -353,10 +353,10 @@
 (defn-spec activities-with-http-info any?
   "Get User Activity
   Get an activity feed by user."
-  [version float?, start int?, limit int?, accountId int?]
-  (check-required-params version start limit accountId)
-  (call-api "/api/{version}/analytics/useractivity" :get
-            {:path-params   {"version" version }
+  [start int?, limit int?, accountId int?]
+  (check-required-params start limit accountId)
+  (call-api "/analytics/useractivity" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"start" start "limit" limit "accountId" accountId }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec activities (s/coll-of user-activity-response-spec)
   "Get User Activity
   Get an activity feed by user."
-  [version float?, start int?, limit int?, accountId int?]
-  (let [res (:data (activities-with-http-info version start limit accountId))]
+  [start int?, limit int?, accountId int?]
+  (let [res (:data (activities-with-http-info start limit accountId))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of user-activity-response-spec) res st/string-transformer)
        res)))
@@ -377,11 +377,10 @@
 (defn-spec aggregated-filtered-usage-with-http-info any?
   "Get Aggregated Filtered Usage
   Query analytics to get data used for nested graphs and charts"
-  ([version float?, ] (aggregated-filtered-usage-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId applicationId appKey startDate endDate deviceType device deviceOS gender ageGroup country state city zip model tag userAccountId userAccountDisplay userAccountUsername groupByRoot groupBy distinctCount sortField descending hideUnknown responseFormat _l limit latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/analytics/aggregatedFilteredUsage" :get
-             {:path-params   {"version" version }
+  ([] (aggregated-filtered-usage-with-http-info nil))
+  ([{:keys [deviceId accountId applicationId appKey startDate endDate deviceType device deviceOS gender ageGroup country state city zip model tag userAccountId userAccountDisplay userAccountUsername groupByRoot groupBy distinctCount sortField descending hideUnknown responseFormat _l limit latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/analytics/aggregatedFilteredUsage" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "applicationId" applicationId "appKey" appKey "startDate" startDate "endDate" endDate "deviceType" deviceType "device" device "deviceOS" deviceOS "gender" gender "ageGroup" ageGroup "country" country "state" state "city" city "zip" zip "model" model "tag" tag "userAccountId" userAccountId "userAccountDisplay" userAccountDisplay "userAccountUsername" userAccountUsername "groupByRoot" groupByRoot "groupBy" groupBy "distinctCount" distinctCount "sortField" sortField "descending" descending "hideUnknown" hideUnknown "responseFormat" responseFormat "_l" _l "limit" limit "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -392,9 +391,9 @@
 (defn-spec aggregated-filtered-usage chart-data-spec
   "Get Aggregated Filtered Usage
   Query analytics to get data used for nested graphs and charts"
-  ([version float?, ] (aggregated-filtered-usage version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (aggregated-filtered-usage-with-http-info version optional-params))]
+  ([] (aggregated-filtered-usage nil))
+  ([optional-params any?]
+   (let [res (:data (aggregated-filtered-usage-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode chart-data-spec res st/string-transformer)
         res))))
@@ -403,11 +402,10 @@
 (defn-spec filtered-usage-with-http-info any?
   "Get Filtered Usage
   Query analytics to get data used for graphs and charts"
-  ([version float?, ] (filtered-usage-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId applicationId appKey startDate endDate deviceType device deviceOS gender ageGroup country state city zip model tag userAccountId userAccountDisplay userAccountUsername customId customType customValue customValue2 customLong customLong2 customMessage customMessage2 groupBy distinctCount sumColumn sortField descending hideUnknown responseFormat _l limit latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/analytics/filteredUsage" :get
-             {:path-params   {"version" version }
+  ([] (filtered-usage-with-http-info nil))
+  ([{:keys [deviceId accountId applicationId appKey startDate endDate deviceType device deviceOS gender ageGroup country state city zip model tag userAccountId userAccountDisplay userAccountUsername customId customType customValue customValue2 customLong customLong2 customMessage customMessage2 groupBy distinctCount sumColumn sortField descending hideUnknown responseFormat _l limit latitude longitude]} (s/map-of keyword? any?)]
+   (call-api "/analytics/filteredUsage" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "applicationId" applicationId "appKey" appKey "startDate" startDate "endDate" endDate "deviceType" deviceType "device" device "deviceOS" deviceOS "gender" gender "ageGroup" ageGroup "country" country "state" state "city" city "zip" zip "model" model "tag" tag "userAccountId" userAccountId "userAccountDisplay" userAccountDisplay "userAccountUsername" userAccountUsername "customId" customId "customType" customType "customValue" customValue "customValue2" customValue2 "customLong" customLong "customLong2" customLong2 "customMessage" customMessage "customMessage2" customMessage2 "groupBy" groupBy "distinctCount" distinctCount "sumColumn" sumColumn "sortField" sortField "descending" descending "hideUnknown" hideUnknown "responseFormat" responseFormat "_l" _l "limit" limit "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -418,9 +416,9 @@
 (defn-spec filtered-usage chart-data-spec
   "Get Filtered Usage
   Query analytics to get data used for graphs and charts"
-  ([version float?, ] (filtered-usage version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (filtered-usage-with-http-info version optional-params))]
+  ([] (filtered-usage nil))
+  ([optional-params any?]
+   (let [res (:data (filtered-usage-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode chart-data-spec res st/string-transformer)
         res))))
@@ -429,11 +427,11 @@
 (defn-spec usage-with-http-info any?
   "Create Usage Record
   Record an analytic record for a known state within the application."
-  ([version float?, tag string?, ] (usage-with-http-info version tag nil))
-  ([version float?, tag string?, {:keys [deviceId accountId applicationId appKey appVersion device deviceType deviceOS model latitude longitude customId customType achievementIncrement city state country zip locationDescription clientTime errorMessage ip userAgent backgroundEvent customMessage customMessage2 customValue customValue2 customLong customLong2]} (s/map-of keyword? any?)]
-   (check-required-params version tag)
-   (call-api "/api/{version}/analytics/usage" :post
-             {:path-params   {"version" version }
+  ([tag string?, ] (usage-with-http-info tag nil))
+  ([tag string?, {:keys [deviceId accountId applicationId appKey appVersion device deviceType deviceOS model latitude longitude customId customType achievementIncrement city state country zip locationDescription clientTime errorMessage ip userAgent backgroundEvent customMessage customMessage2 customValue customValue2 customLong customLong2]} (s/map-of keyword? any?)]
+   (check-required-params tag)
+   (call-api "/analytics/usage" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"tag" tag "deviceId" deviceId "accountId" accountId "applicationId" applicationId "appKey" appKey "appVersion" appVersion "device" device "deviceType" deviceType "deviceOS" deviceOS "model" model "latitude" latitude "longitude" longitude "customId" customId "customType" customType "achievementIncrement" achievementIncrement "city" city "state" state "country" country "zip" zip "locationDescription" locationDescription "clientTime" clientTime "errorMessage" errorMessage "ip" ip "userAgent" userAgent "backgroundEvent" backgroundEvent "customMessage" customMessage "customMessage2" customMessage2 "customValue" customValue "customValue2" customValue2 "customLong" customLong "customLong2" customLong2 }
               :form-params   {}
@@ -444,9 +442,9 @@
 (defn-spec usage sirqul-response-spec
   "Create Usage Record
   Record an analytic record for a known state within the application."
-  ([version float?, tag string?, ] (usage version tag nil))
-  ([version float?, tag string?, optional-params any?]
-   (let [res (:data (usage-with-http-info version tag optional-params))]
+  ([tag string?, ] (usage tag nil))
+  ([tag string?, optional-params any?]
+   (let [res (:data (usage-with-http-info tag optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -455,11 +453,11 @@
 (defn-spec usage-batch-with-http-info any?
   "Create Multiple Usage Records
   Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch."
-  ([version float?, appKey string?, device string?, data string?, ] (usage-batch-with-http-info version appKey device data nil))
-  ([version float?, appKey string?, device string?, data string?, {:keys [deviceId accountId appVersion deviceType deviceOS model updateRanking returnSummaryResponse]} (s/map-of keyword? any?)]
-   (check-required-params version appKey device data)
-   (call-api "/api/{version}/analytics/usage/batch" :post
-             {:path-params   {"version" version }
+  ([appKey string?, device string?, data string?, ] (usage-batch-with-http-info appKey device data nil))
+  ([appKey string?, device string?, data string?, {:keys [deviceId accountId appVersion deviceType deviceOS model updateRanking returnSummaryResponse]} (s/map-of keyword? any?)]
+   (check-required-params appKey device data)
+   (call-api "/analytics/usage/batch" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "appVersion" appVersion "device" device "deviceType" deviceType "deviceOS" deviceOS "model" model "data" data "updateRanking" updateRanking "returnSummaryResponse" returnSummaryResponse }
               :form-params   {}
@@ -470,9 +468,9 @@
 (defn-spec usage-batch sirqul-response-spec
   "Create Multiple Usage Records
   Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch."
-  ([version float?, appKey string?, device string?, data string?, ] (usage-batch version appKey device data nil))
-  ([version float?, appKey string?, device string?, data string?, optional-params any?]
-   (let [res (:data (usage-batch-with-http-info version appKey device data optional-params))]
+  ([appKey string?, device string?, data string?, ] (usage-batch appKey device data nil))
+  ([appKey string?, device string?, data string?, optional-params any?]
+   (let [res (:data (usage-batch-with-http-info appKey device data optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

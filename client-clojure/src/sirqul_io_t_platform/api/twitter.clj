@@ -353,10 +353,10 @@
 (defn-spec authorize-twitter-with-http-info any?
   "Authorize Twitter
   Makes an authorization call to twitter for a user to login and allow any app permissions."
-  [version float?, appKey string?]
-  (check-required-params version appKey)
-  (call-api "/api/{version}/twitter/authorize" :post
-            {:path-params   {"version" version }
+  [appKey string?]
+  (check-required-params appKey)
+  (call-api "/twitter/authorize" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"appKey" appKey }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec authorize-twitter sirqul-response-spec
   "Authorize Twitter
   Makes an authorization call to twitter for a user to login and allow any app permissions."
-  [version float?, appKey string?]
-  (let [res (:data (authorize-twitter-with-http-info version appKey))]
+  [appKey string?]
+  (let [res (:data (authorize-twitter-with-http-info appKey))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -377,11 +377,11 @@
 (defn-spec login-twitter-with-http-info any?
   "Login Twitter
   Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in."
-  ([version float?, accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, ] (login-twitter-with-http-info version accessToken accessTokenSecret appKey responseFilters nil))
-  ([version float?, accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, {:keys [deviceId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version accessToken accessTokenSecret appKey responseFilters)
-   (call-api "/api/{version}/twitter/login" :post
-             {:path-params   {"version" version }
+  ([accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, ] (login-twitter-with-http-info accessToken accessTokenSecret appKey responseFilters nil))
+  ([accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, {:keys [deviceId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params accessToken accessTokenSecret appKey responseFilters)
+   (call-api "/twitter/login" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accessToken" accessToken "accessTokenSecret" accessTokenSecret "appKey" appKey "responseFilters" responseFilters "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -392,9 +392,9 @@
 (defn-spec login-twitter profile-response-spec
   "Login Twitter
   Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in."
-  ([version float?, accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, ] (login-twitter version accessToken accessTokenSecret appKey responseFilters nil))
-  ([version float?, accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, optional-params any?]
-   (let [res (:data (login-twitter-with-http-info version accessToken accessTokenSecret appKey responseFilters optional-params))]
+  ([accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, ] (login-twitter accessToken accessTokenSecret appKey responseFilters nil))
+  ([accessToken string?, accessTokenSecret string?, appKey string?, responseFilters string?, optional-params any?]
+   (let [res (:data (login-twitter-with-http-info accessToken accessTokenSecret appKey responseFilters optional-params))]
      (if (:decode-models *api-context*)
         (st/decode profile-response-spec res st/string-transformer)
         res))))

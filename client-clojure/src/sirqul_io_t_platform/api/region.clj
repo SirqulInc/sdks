@@ -353,11 +353,11 @@
 (defn-spec create-region-with-http-info any?
   "Create Region
   Create a region."
-  ([version float?, accountId int?, regionClass string?, shortName string?, ] (create-region-with-http-info version accountId regionClass shortName nil))
-  ([version float?, accountId int?, regionClass string?, shortName string?, {:keys [fullName parentIds childrenIds postalCodeIds locations retailerLocationId visibility categoryIds filterIds start end polygon metaData latitude longitude versionCode root active]} (s/map-of keyword? any?)]
-   (check-required-params version accountId regionClass shortName)
-   (call-api "/api/{version}/region/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, regionClass string?, shortName string?, ] (create-region-with-http-info accountId regionClass shortName nil))
+  ([accountId int?, regionClass string?, shortName string?, {:keys [fullName parentIds childrenIds postalCodeIds locations retailerLocationId visibility categoryIds filterIds start end polygon metaData latitude longitude versionCode root active]} (s/map-of keyword? any?)]
+   (check-required-params accountId regionClass shortName)
+   (call-api "/region/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "regionClass" regionClass "shortName" shortName "fullName" fullName "parentIds" parentIds "childrenIds" childrenIds "postalCodeIds" postalCodeIds "locations" locations "retailerLocationId" retailerLocationId "visibility" visibility "categoryIds" categoryIds "filterIds" filterIds "start" start "end" end "polygon" polygon "metaData" metaData "latitude" latitude "longitude" longitude "versionCode" versionCode "root" root "active" active }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-region region-response-spec
   "Create Region
   Create a region."
-  ([version float?, accountId int?, regionClass string?, shortName string?, ] (create-region version accountId regionClass shortName nil))
-  ([version float?, accountId int?, regionClass string?, shortName string?, optional-params any?]
-   (let [res (:data (create-region-with-http-info version accountId regionClass shortName optional-params))]
+  ([accountId int?, regionClass string?, shortName string?, ] (create-region accountId regionClass shortName nil))
+  ([accountId int?, regionClass string?, shortName string?, optional-params any?]
+   (let [res (:data (create-region-with-http-info accountId regionClass shortName optional-params))]
      (if (:decode-models *api-context*)
         (st/decode region-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-region-with-http-info any?
   "Delete Region
   Delete a region."
-  [version float?, accountId int?, regionId int?]
-  (check-required-params version accountId regionId)
-  (call-api "/api/{version}/region/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, regionId int?]
+  (check-required-params accountId regionId)
+  (call-api "/region/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "regionId" regionId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-region region-response-spec
   "Delete Region
   Delete a region."
-  [version float?, accountId int?, regionId int?]
-  (let [res (:data (delete-region-with-http-info version accountId regionId))]
+  [accountId int?, regionId int?]
+  (let [res (:data (delete-region-with-http-info accountId regionId))]
     (if (:decode-models *api-context*)
        (st/decode region-response-spec res st/string-transformer)
        res)))
@@ -403,11 +403,11 @@
 (defn-spec get-region-with-http-info any?
   "Get Region
   Get a region."
-  ([version float?, regionId int?, ] (get-region-with-http-info version regionId nil))
-  ([version float?, regionId int?, {:keys [accountId]} (s/map-of keyword? any?)]
-   (check-required-params version regionId)
-   (call-api "/api/{version}/region/get" :get
-             {:path-params   {"version" version }
+  ([regionId int?, ] (get-region-with-http-info regionId nil))
+  ([regionId int?, {:keys [accountId]} (s/map-of keyword? any?)]
+   (check-required-params regionId)
+   (call-api "/region/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "regionId" regionId }
               :form-params   {}
@@ -418,9 +418,9 @@
 (defn-spec get-region region-response-spec
   "Get Region
   Get a region."
-  ([version float?, regionId int?, ] (get-region version regionId nil))
-  ([version float?, regionId int?, optional-params any?]
-   (let [res (:data (get-region-with-http-info version regionId optional-params))]
+  ([regionId int?, ] (get-region regionId nil))
+  ([regionId int?, optional-params any?]
+   (let [res (:data (get-region-with-http-info regionId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode region-response-spec res st/string-transformer)
         res))))
@@ -429,11 +429,10 @@
 (defn-spec search-regions-with-http-info any?
   "Search Regions
   Get the list of regions."
-  ([version float?, ] (search-regions-with-http-info version nil))
-  ([version float?, {:keys [accountId query keyword latitude longitude range regionClass visibility searchMode sortField descending includeParent includeChildren includePostalCodes categoryIds filterIds versionCode activeOnly showDeleted lastUpdatedSince start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/region/search" :get
-             {:path-params   {"version" version }
+  ([] (search-regions-with-http-info nil))
+  ([{:keys [accountId query keyword latitude longitude range regionClass visibility searchMode sortField descending includeParent includeChildren includePostalCodes categoryIds filterIds versionCode activeOnly showDeleted lastUpdatedSince start limit]} (s/map-of keyword? any?)]
+   (call-api "/region/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "query" query "keyword" keyword "latitude" latitude "longitude" longitude "range" range "regionClass" regionClass "visibility" visibility "searchMode" searchMode "sortField" sortField "descending" descending "includeParent" includeParent "includeChildren" includeChildren "includePostalCodes" includePostalCodes "categoryIds" categoryIds "filterIds" filterIds "versionCode" versionCode "activeOnly" activeOnly "showDeleted" showDeleted "lastUpdatedSince" lastUpdatedSince "start" start "limit" limit }
               :form-params   {}
@@ -444,9 +443,9 @@
 (defn-spec search-regions (s/coll-of region-response-spec)
   "Search Regions
   Get the list of regions."
-  ([version float?, ] (search-regions version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-regions-with-http-info version optional-params))]
+  ([] (search-regions nil))
+  ([optional-params any?]
+   (let [res (:data (search-regions-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of region-response-spec) res st/string-transformer)
         res))))
@@ -455,11 +454,11 @@
 (defn-spec update-region-with-http-info any?
   "Update Region
   Update a region."
-  ([version float?, accountId int?, regionId int?, ] (update-region-with-http-info version accountId regionId nil))
-  ([version float?, accountId int?, regionId int?, {:keys [regionClass shortName fullName parentIds childrenIds postalCodeIds locations retailerLocationId visibility categoryIds filterIds start end polygon metaData latitude longitude versionCode root active clearLists]} (s/map-of keyword? any?)]
-   (check-required-params version accountId regionId)
-   (call-api "/api/{version}/region/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, regionId int?, ] (update-region-with-http-info accountId regionId nil))
+  ([accountId int?, regionId int?, {:keys [regionClass shortName fullName parentIds childrenIds postalCodeIds locations retailerLocationId visibility categoryIds filterIds start end polygon metaData latitude longitude versionCode root active clearLists]} (s/map-of keyword? any?)]
+   (check-required-params accountId regionId)
+   (call-api "/region/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "regionId" regionId "regionClass" regionClass "shortName" shortName "fullName" fullName "parentIds" parentIds "childrenIds" childrenIds "postalCodeIds" postalCodeIds "locations" locations "retailerLocationId" retailerLocationId "visibility" visibility "categoryIds" categoryIds "filterIds" filterIds "start" start "end" end "polygon" polygon "metaData" metaData "latitude" latitude "longitude" longitude "versionCode" versionCode "root" root "active" active "clearLists" clearLists }
               :form-params   {}
@@ -470,9 +469,9 @@
 (defn-spec update-region region-response-spec
   "Update Region
   Update a region."
-  ([version float?, accountId int?, regionId int?, ] (update-region version accountId regionId nil))
-  ([version float?, accountId int?, regionId int?, optional-params any?]
-   (let [res (:data (update-region-with-http-info version accountId regionId optional-params))]
+  ([accountId int?, regionId int?, ] (update-region accountId regionId nil))
+  ([accountId int?, regionId int?, optional-params any?]
+   (let [res (:data (update-region-with-http-info accountId regionId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode region-response-spec res st/string-transformer)
         res))))

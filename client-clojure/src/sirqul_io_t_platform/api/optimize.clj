@@ -353,10 +353,10 @@
 (defn-spec get-optimization-result-with-http-info any?
   "Get Optimization Result
   Get the results of the import batch."
-  [version float?, batchID string?, start int?, limit int?]
-  (check-required-params version batchID start limit)
-  (call-api "/api/{version}/optimize/result/{batchID}" :get
-            {:path-params   {"version" version "batchID" batchID }
+  [batchID string?, start int?, limit int?]
+  (check-required-params batchID start limit)
+  (call-api "/optimize/result/{batchID}" :get
+            {:path-params   {"batchID" batchID }
              :header-params {}
              :query-params  {"start" start "limit" limit }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec get-optimization-result (s/map-of string? shipment-order-spec)
   "Get Optimization Result
   Get the results of the import batch."
-  [version float?, batchID string?, start int?, limit int?]
-  (let [res (:data (get-optimization-result-with-http-info version batchID start limit))]
+  [batchID string?, start int?, limit int?]
+  (let [res (:data (get-optimization-result-with-http-info batchID start limit))]
     (if (:decode-models *api-context*)
        (st/decode (s/map-of string? shipment-order-spec) res st/string-transformer)
        res)))
@@ -377,11 +377,10 @@
 (defn-spec request-optimization-with-http-info any?
   "Request Optimization
   Request and upload of shipment orders and create ShipmentImportBatch for optimization."
-  ([version float?, ] (request-optimization-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/optimize/request" :post
-             {:path-params   {"version" version }
+  ([] (request-optimization-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/optimize/request" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -393,9 +392,9 @@
 (defn-spec request-optimization import-statuses-spec
   "Request Optimization
   Request and upload of shipment orders and create ShipmentImportBatch for optimization."
-  ([version float?, ] (request-optimization version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (request-optimization-with-http-info version optional-params))]
+  ([] (request-optimization nil))
+  ([optional-params any?]
+   (let [res (:data (request-optimization-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode import-statuses-spec res st/string-transformer)
         res))))

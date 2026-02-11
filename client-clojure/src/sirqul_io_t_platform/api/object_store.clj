@@ -359,10 +359,10 @@ Duplicate   field names are not allowed.
 The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
 
   The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number."
-  [version float?, accountId int?, appKey string?, objectName string?, fieldName string?, fieldType string?]
-  (check-required-params version accountId appKey objectName fieldName fieldType)
-  (call-api "/api/{version}/object/field/add" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, objectName string?, fieldName string?, fieldType string?]
+  (check-required-params accountId appKey objectName fieldName fieldType)
+  (call-api "/object/field/add" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "objectName" objectName "fieldName" fieldName "fieldType" fieldType }
              :form-params   {}
@@ -379,8 +379,8 @@ Duplicate   field names are not allowed.
 The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
 
   The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number."
-  [version float?, accountId int?, appKey string?, objectName string?, fieldName string?, fieldType string?]
-  (let [res (:data (add-field-with-http-info version accountId appKey objectName fieldName fieldType))]
+  [accountId int?, appKey string?, objectName string?, fieldName string?, fieldType string?]
+  (let [res (:data (add-field-with-http-info accountId appKey objectName fieldName fieldType))]
     (if (:decode-models *api-context*)
        (st/decode object-store-response-spec res st/string-transformer)
        res)))
@@ -389,11 +389,11 @@ The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD,
 (defn-spec create-data-with-http-info any?
   "Create Data
   Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object."
-  ([version float?, objectName string?, ] (create-data-with-http-info version objectName nil))
-  ([version float?, objectName string?, {:keys [accountId body]} (s/map-of keyword? any?)]
-   (check-required-params version objectName)
-   (call-api "/api/{version}/object/data/{objectName}" :post
-             {:path-params   {"version" version "objectName" objectName }
+  ([objectName string?, ] (create-data-with-http-info objectName nil))
+  ([objectName string?, {:keys [accountId body]} (s/map-of keyword? any?)]
+   (check-required-params objectName)
+   (call-api "/object/data/{objectName}" :post
+             {:path-params   {"objectName" objectName }
               :header-params {}
               :query-params  {"accountId" accountId }
               :form-params   {}
@@ -405,9 +405,9 @@ The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD,
 (defn-spec create-data object-store-response-spec
   "Create Data
   Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object."
-  ([version float?, objectName string?, ] (create-data version objectName nil))
-  ([version float?, objectName string?, optional-params any?]
-   (let [res (:data (create-data-with-http-info version objectName optional-params))]
+  ([objectName string?, ] (create-data objectName nil))
+  ([objectName string?, optional-params any?]
+   (let [res (:data (create-data-with-http-info objectName optional-params))]
      (if (:decode-models *api-context*)
         (st/decode object-store-response-spec res st/string-transformer)
         res))))
@@ -420,10 +420,10 @@ The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD,
 Duplicate object names are not allowed. 
 
 The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW."
-  [version float?, accountId int?, appKey string?, objectName string?]
-  (check-required-params version accountId appKey objectName)
-  (call-api "/api/{version}/object/create" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, objectName string?]
+  (check-required-params accountId appKey objectName)
+  (call-api "/object/create" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "objectName" objectName }
              :form-params   {}
@@ -438,8 +438,8 @@ The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, 
 Duplicate object names are not allowed. 
 
 The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW."
-  [version float?, accountId int?, appKey string?, objectName string?]
-  (let [res (:data (create-object-with-http-info version accountId appKey objectName))]
+  [accountId int?, appKey string?, objectName string?]
+  (let [res (:data (create-object-with-http-info accountId appKey objectName))]
     (if (:decode-models *api-context*)
        (st/decode object-store-response-spec res st/string-transformer)
        res)))
@@ -448,11 +448,11 @@ The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, 
 (defn-spec delete-data-with-http-info any?
   "Delete Data
   Delete a record for the specified object. Cannot be undone so use only when abolutely sure."
-  ([version float?, objectName string?, objectId string?, ] (delete-data-with-http-info version objectName objectId nil))
-  ([version float?, objectName string?, objectId string?, {:keys [accountId]} (s/map-of keyword? any?)]
-   (check-required-params version objectName objectId)
-   (call-api "/api/{version}/object/data/{objectName}/{objectId}" :delete
-             {:path-params   {"version" version "objectName" objectName "objectId" objectId }
+  ([objectName string?, objectId string?, ] (delete-data-with-http-info objectName objectId nil))
+  ([objectName string?, objectId string?, {:keys [accountId]} (s/map-of keyword? any?)]
+   (check-required-params objectName objectId)
+   (call-api "/object/data/{objectName}/{objectId}" :delete
+             {:path-params   {"objectName" objectName "objectId" objectId }
               :header-params {}
               :query-params  {"accountId" accountId }
               :form-params   {}
@@ -463,9 +463,9 @@ The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, 
 (defn-spec delete-data object-store-response-spec
   "Delete Data
   Delete a record for the specified object. Cannot be undone so use only when abolutely sure."
-  ([version float?, objectName string?, objectId string?, ] (delete-data version objectName objectId nil))
-  ([version float?, objectName string?, objectId string?, optional-params any?]
-   (let [res (:data (delete-data-with-http-info version objectName objectId optional-params))]
+  ([objectName string?, objectId string?, ] (delete-data objectName objectId nil))
+  ([objectName string?, objectId string?, optional-params any?]
+   (let [res (:data (delete-data-with-http-info objectName objectId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode object-store-response-spec res st/string-transformer)
         res))))
@@ -476,10 +476,10 @@ The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, 
   Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field. 
 
 The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED"
-  [version float?, accountId int?, appKey string?, objectName string?, fieldName string?]
-  (check-required-params version accountId appKey objectName fieldName)
-  (call-api "/api/{version}/object/field/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, objectName string?, fieldName string?]
+  (check-required-params accountId appKey objectName fieldName)
+  (call-api "/object/field/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "objectName" objectName "fieldName" fieldName }
              :form-params   {}
@@ -492,8 +492,8 @@ The following field names   are reserved and cannot be removed from the object: 
   Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field. 
 
 The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED"
-  [version float?, accountId int?, appKey string?, objectName string?, fieldName string?]
-  (let [res (:data (delete-field-with-http-info version accountId appKey objectName fieldName))]
+  [accountId int?, appKey string?, objectName string?, fieldName string?]
+  (let [res (:data (delete-field-with-http-info accountId appKey objectName fieldName))]
     (if (:decode-models *api-context*)
        (st/decode object-store-response-spec res st/string-transformer)
        res)))
@@ -502,10 +502,10 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec delete-object-with-http-info any?
   "Delete Object
   Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure."
-  [version float?, accountId int?, appKey string?, objectName string?]
-  (check-required-params version accountId appKey objectName)
-  (call-api "/api/{version}/object/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, objectName string?]
+  (check-required-params accountId appKey objectName)
+  (call-api "/object/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "objectName" objectName }
              :form-params   {}
@@ -516,8 +516,8 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec delete-object object-store-response-spec
   "Delete Object
   Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure."
-  [version float?, accountId int?, appKey string?, objectName string?]
-  (let [res (:data (delete-object-with-http-info version accountId appKey objectName))]
+  [accountId int?, appKey string?, objectName string?]
+  (let [res (:data (delete-object-with-http-info accountId appKey objectName))]
     (if (:decode-models *api-context*)
        (st/decode object-store-response-spec res st/string-transformer)
        res)))
@@ -526,11 +526,11 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec get-data-with-http-info any?
   "Get Data
   Get a specific record from a specified object."
-  ([version float?, objectName string?, objectId string?, ] (get-data-with-http-info version objectName objectId nil))
-  ([version float?, objectName string?, objectId string?, {:keys [accountId include]} (s/map-of keyword? any?)]
-   (check-required-params version objectName objectId)
-   (call-api "/api/{version}/object/data/{objectName}/{objectId}" :get
-             {:path-params   {"version" version "objectName" objectName "objectId" objectId }
+  ([objectName string?, objectId string?, ] (get-data-with-http-info objectName objectId nil))
+  ([objectName string?, objectId string?, {:keys [accountId include]} (s/map-of keyword? any?)]
+   (check-required-params objectName objectId)
+   (call-api "/object/data/{objectName}/{objectId}" :get
+             {:path-params   {"objectName" objectName "objectId" objectId }
               :header-params {}
               :query-params  {"accountId" accountId "include" include }
               :form-params   {}
@@ -541,9 +541,9 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec get-data object-store-response-spec
   "Get Data
   Get a specific record from a specified object."
-  ([version float?, objectName string?, objectId string?, ] (get-data version objectName objectId nil))
-  ([version float?, objectName string?, objectId string?, optional-params any?]
-   (let [res (:data (get-data-with-http-info version objectName objectId optional-params))]
+  ([objectName string?, objectId string?, ] (get-data objectName objectId nil))
+  ([objectName string?, objectId string?, optional-params any?]
+   (let [res (:data (get-data-with-http-info objectName objectId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode object-store-response-spec res st/string-transformer)
         res))))
@@ -552,10 +552,10 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec get-object-with-http-info any?
   "Get Object
   Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY."
-  [version float?, accountId int?, appKey string?, objectName string?]
-  (check-required-params version accountId appKey objectName)
-  (call-api "/api/{version}/object/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, appKey string?, objectName string?]
+  (check-required-params accountId appKey objectName)
+  (call-api "/object/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "appKey" appKey "objectName" objectName }
              :form-params   {}
@@ -566,8 +566,8 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec get-object object-store-response-spec
   "Get Object
   Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY."
-  [version float?, accountId int?, appKey string?, objectName string?]
-  (let [res (:data (get-object-with-http-info version accountId appKey objectName))]
+  [accountId int?, appKey string?, objectName string?]
+  (let [res (:data (get-object-with-http-info accountId appKey objectName))]
     (if (:decode-models *api-context*)
        (st/decode object-store-response-spec res st/string-transformer)
        res)))
@@ -576,11 +576,11 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec search-data-with-http-info any?
   "Search Data
   Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query"
-  ([version float?, objectName string?, count boolean?, start int?, limit int?, ] (search-data-with-http-info version objectName count start limit nil))
-  ([version float?, objectName string?, count boolean?, start int?, limit int?, {:keys [accountId criteria order include]} (s/map-of keyword? any?)]
-   (check-required-params version objectName count start limit)
-   (call-api "/api/{version}/object/data/{objectName}" :get
-             {:path-params   {"version" version "objectName" objectName }
+  ([objectName string?, count boolean?, start int?, limit int?, ] (search-data-with-http-info objectName count start limit nil))
+  ([objectName string?, count boolean?, start int?, limit int?, {:keys [accountId criteria order include]} (s/map-of keyword? any?)]
+   (check-required-params objectName count start limit)
+   (call-api "/object/data/{objectName}" :get
+             {:path-params   {"objectName" objectName }
               :header-params {}
               :query-params  {"accountId" accountId "criteria" criteria "count" count "start" start "limit" limit "order" order "include" include }
               :form-params   {}
@@ -591,9 +591,9 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec search-data object-store-response-spec
   "Search Data
   Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query"
-  ([version float?, objectName string?, count boolean?, start int?, limit int?, ] (search-data version objectName count start limit nil))
-  ([version float?, objectName string?, count boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-data-with-http-info version objectName count start limit optional-params))]
+  ([objectName string?, count boolean?, start int?, limit int?, ] (search-data objectName count start limit nil))
+  ([objectName string?, count boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-data-with-http-info objectName count start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode object-store-response-spec res st/string-transformer)
         res))))
@@ -602,11 +602,11 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec search-object-with-http-info any?
   "Search Objects
   Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined."
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, ] (search-object-with-http-info version accountId appKey start limit nil))
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, {:keys [keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey start limit)
-   (call-api "/api/{version}/object/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, start int?, limit int?, ] (search-object-with-http-info accountId appKey start limit nil))
+  ([accountId int?, appKey string?, start int?, limit int?, {:keys [keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey start limit)
+   (call-api "/object/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "keyword" keyword "start" start "limit" limit }
               :form-params   {}
@@ -617,9 +617,9 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec search-object object-store-response-spec
   "Search Objects
   Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined."
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, ] (search-object version accountId appKey start limit nil))
-  ([version float?, accountId int?, appKey string?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-object-with-http-info version accountId appKey start limit optional-params))]
+  ([accountId int?, appKey string?, start int?, limit int?, ] (search-object accountId appKey start limit nil))
+  ([accountId int?, appKey string?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-object-with-http-info accountId appKey start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode object-store-response-spec res st/string-transformer)
         res))))
@@ -628,11 +628,11 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec update-data-with-http-info any?
   "Update Data
   Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object."
-  ([version float?, objectName string?, objectId string?, ] (update-data-with-http-info version objectName objectId nil))
-  ([version float?, objectName string?, objectId string?, {:keys [accountId body]} (s/map-of keyword? any?)]
-   (check-required-params version objectName objectId)
-   (call-api "/api/{version}/object/data/{objectName}/{objectId}" :put
-             {:path-params   {"version" version "objectName" objectName "objectId" objectId }
+  ([objectName string?, objectId string?, ] (update-data-with-http-info objectName objectId nil))
+  ([objectName string?, objectId string?, {:keys [accountId body]} (s/map-of keyword? any?)]
+   (check-required-params objectName objectId)
+   (call-api "/object/data/{objectName}/{objectId}" :put
+             {:path-params   {"objectName" objectName "objectId" objectId }
               :header-params {}
               :query-params  {"accountId" accountId }
               :form-params   {}
@@ -644,9 +644,9 @@ The following field names   are reserved and cannot be removed from the object: 
 (defn-spec update-data object-store-response-spec
   "Update Data
   Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object."
-  ([version float?, objectName string?, objectId string?, ] (update-data version objectName objectId nil))
-  ([version float?, objectName string?, objectId string?, optional-params any?]
-   (let [res (:data (update-data-with-http-info version objectName objectId optional-params))]
+  ([objectName string?, objectId string?, ] (update-data objectName objectId nil))
+  ([objectName string?, objectId string?, optional-params any?]
+   (let [res (:data (update-data-with-http-info objectName objectId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode object-store-response-spec res st/string-transformer)
         res))))

@@ -353,11 +353,11 @@
 (defn-spec create-rating-with-http-info any?
   "Create Rating
   This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object."
-  ([version float?, ratableType string?, ratableId int?, ratingValue int?, ] (create-rating-with-http-info version ratableType ratableId ratingValue nil))
-  ([version float?, ratableType string?, ratableId int?, ratingValue int?, {:keys [deviceId accountId categoryId display description locationDescription latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version ratableType ratableId ratingValue)
-   (call-api "/api/{version}/rating/create" :post
-             {:path-params   {"version" version }
+  ([ratableType string?, ratableId int?, ratingValue int?, ] (create-rating-with-http-info ratableType ratableId ratingValue nil))
+  ([ratableType string?, ratableId int?, ratingValue int?, {:keys [deviceId accountId categoryId display description locationDescription latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params ratableType ratableId ratingValue)
+   (call-api "/rating/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "ratableType" ratableType "ratableId" ratableId "ratingValue" ratingValue "categoryId" categoryId "display" display "description" description "locationDescription" locationDescription "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-rating rating-response-spec
   "Create Rating
   This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object."
-  ([version float?, ratableType string?, ratableId int?, ratingValue int?, ] (create-rating version ratableType ratableId ratingValue nil))
-  ([version float?, ratableType string?, ratableId int?, ratingValue int?, optional-params any?]
-   (let [res (:data (create-rating-with-http-info version ratableType ratableId ratingValue optional-params))]
+  ([ratableType string?, ratableId int?, ratingValue int?, ] (create-rating ratableType ratableId ratingValue nil))
+  ([ratableType string?, ratableId int?, ratingValue int?, optional-params any?]
+   (let [res (:data (create-rating-with-http-info ratableType ratableId ratingValue optional-params))]
      (if (:decode-models *api-context*)
         (st/decode rating-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec delete-rating-with-http-info any?
   "Delete Rating
   Sets a rating as deleted."
-  ([version float?, ratingId int?, ] (delete-rating-with-http-info version ratingId nil))
-  ([version float?, ratingId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version ratingId)
-   (call-api "/api/{version}/rating/delete" :post
-             {:path-params   {"version" version }
+  ([ratingId int?, ] (delete-rating-with-http-info ratingId nil))
+  ([ratingId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params ratingId)
+   (call-api "/rating/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "ratingId" ratingId }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec delete-rating sirqul-response-spec
   "Delete Rating
   Sets a rating as deleted."
-  ([version float?, ratingId int?, ] (delete-rating version ratingId nil))
-  ([version float?, ratingId int?, optional-params any?]
-   (let [res (:data (delete-rating-with-http-info version ratingId optional-params))]
+  ([ratingId int?, ] (delete-rating ratingId nil))
+  ([ratingId int?, optional-params any?]
+   (let [res (:data (delete-rating-with-http-info ratingId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,10 @@
 (defn-spec search-location-rating-indexes-with-http-info any?
   "Search Location Rating Indexes
   Search for retailer locations by averages near you."
-  ([version float?, ] (search-location-rating-indexes-with-http-info version nil))
-  ([version float?, {:keys [categoryIds keyword locationType sortField descending start limit searchRange latitude longitude returnOverallRating distanceUnit returnRetailer returnAssets returnOffers returnCategories returnFilters]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/location/rating/index/search" :get
-             {:path-params   {"version" version }
+  ([] (search-location-rating-indexes-with-http-info nil))
+  ([{:keys [categoryIds keyword locationType sortField descending start limit searchRange latitude longitude returnOverallRating distanceUnit returnRetailer returnAssets returnOffers returnCategories returnFilters]} (s/map-of keyword? any?)]
+   (call-api "/location/rating/index/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"categoryIds" categoryIds "keyword" keyword "locationType" locationType "sortField" sortField "descending" descending "start" start "limit" limit "searchRange" searchRange "latitude" latitude "longitude" longitude "returnOverallRating" returnOverallRating "distanceUnit" distanceUnit "returnRetailer" returnRetailer "returnAssets" returnAssets "returnOffers" returnOffers "returnCategories" returnCategories "returnFilters" returnFilters }
               :form-params   {}
@@ -420,9 +419,9 @@
 (defn-spec search-location-rating-indexes (s/coll-of rating-index-response-spec)
   "Search Location Rating Indexes
   Search for retailer locations by averages near you."
-  ([version float?, ] (search-location-rating-indexes version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-location-rating-indexes-with-http-info version optional-params))]
+  ([] (search-location-rating-indexes nil))
+  ([optional-params any?]
+   (let [res (:data (search-location-rating-indexes-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of rating-index-response-spec) res st/string-transformer)
         res))))
@@ -431,11 +430,11 @@
 (defn-spec search-rating-indexes-with-http-info any?
   "Search Rating Indexes
   Search for ratable items by averages."
-  ([version float?, ratableType string?, ] (search-rating-indexes-with-http-info version ratableType nil))
-  ([version float?, ratableType string?, {:keys [ratableIds categoryIds secondaryType keyword sortField descending start limit latitude longitude returnRatable returnOverallRating]} (s/map-of keyword? any?)]
-   (check-required-params version ratableType)
-   (call-api "/api/{version}/rating/index/search" :get
-             {:path-params   {"version" version }
+  ([ratableType string?, ] (search-rating-indexes-with-http-info ratableType nil))
+  ([ratableType string?, {:keys [ratableIds categoryIds secondaryType keyword sortField descending start limit latitude longitude returnRatable returnOverallRating]} (s/map-of keyword? any?)]
+   (check-required-params ratableType)
+   (call-api "/rating/index/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"ratableType" ratableType "ratableIds" ratableIds "categoryIds" categoryIds "secondaryType" secondaryType "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "latitude" latitude "longitude" longitude "returnRatable" returnRatable "returnOverallRating" returnOverallRating }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec search-rating-indexes (s/coll-of rating-index-response-spec)
   "Search Rating Indexes
   Search for ratable items by averages."
-  ([version float?, ratableType string?, ] (search-rating-indexes version ratableType nil))
-  ([version float?, ratableType string?, optional-params any?]
-   (let [res (:data (search-rating-indexes-with-http-info version ratableType optional-params))]
+  ([ratableType string?, ] (search-rating-indexes ratableType nil))
+  ([ratableType string?, optional-params any?]
+   (let [res (:data (search-rating-indexes-with-http-info ratableType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of rating-index-response-spec) res st/string-transformer)
         res))))
@@ -457,11 +456,10 @@
 (defn-spec search-ratings-with-http-info any?
   "Search Ratings
   Search for ratings on a ratable object."
-  ([version float?, ] (search-ratings-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId filterAccountId ratableType ratableId categoryIds keyword sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/rating/search" :get
-             {:path-params   {"version" version }
+  ([] (search-ratings-with-http-info nil))
+  ([{:keys [deviceId accountId filterAccountId ratableType ratableId categoryIds keyword sortField descending start limit]} (s/map-of keyword? any?)]
+   (call-api "/rating/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "filterAccountId" filterAccountId "ratableType" ratableType "ratableId" ratableId "categoryIds" categoryIds "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -472,9 +470,9 @@
 (defn-spec search-ratings (s/coll-of rating-response-spec)
   "Search Ratings
   Search for ratings on a ratable object."
-  ([version float?, ] (search-ratings version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-ratings-with-http-info version optional-params))]
+  ([] (search-ratings nil))
+  ([optional-params any?]
+   (let [res (:data (search-ratings-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of rating-response-spec) res st/string-transformer)
         res))))
@@ -483,11 +481,11 @@
 (defn-spec update-rating-with-http-info any?
   "Update Rating
   Update an existing rating. Only the creator of the rating have permission to update."
-  ([version float?, ratingId int?, ] (update-rating-with-http-info version ratingId nil))
-  ([version float?, ratingId int?, {:keys [deviceId accountId ratingValue categoryId display description locationDescription latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version ratingId)
-   (call-api "/api/{version}/rating/update" :post
-             {:path-params   {"version" version }
+  ([ratingId int?, ] (update-rating-with-http-info ratingId nil))
+  ([ratingId int?, {:keys [deviceId accountId ratingValue categoryId display description locationDescription latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params ratingId)
+   (call-api "/rating/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "ratingId" ratingId "ratingValue" ratingValue "categoryId" categoryId "display" display "description" description "locationDescription" locationDescription "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -498,9 +496,9 @@
 (defn-spec update-rating rating-response-spec
   "Update Rating
   Update an existing rating. Only the creator of the rating have permission to update."
-  ([version float?, ratingId int?, ] (update-rating version ratingId nil))
-  ([version float?, ratingId int?, optional-params any?]
-   (let [res (:data (update-rating-with-http-info version ratingId optional-params))]
+  ([ratingId int?, ] (update-rating ratingId nil))
+  ([ratingId int?, optional-params any?]
+   (let [res (:data (update-rating-with-http-info ratingId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode rating-response-spec res st/string-transformer)
         res))))

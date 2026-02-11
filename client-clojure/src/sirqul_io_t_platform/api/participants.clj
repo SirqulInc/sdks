@@ -353,11 +353,11 @@
 (defn-spec process-all-participants-with-http-info any?
   "Process All Participant Feeds
   Processes all supported participant feeds."
-  ([version float?, accountId int?, ] (process-all-participants-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [appKey useShortNameAsID]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/participant/process/all" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ] (process-all-participants-with-http-info accountId nil))
+  ([accountId int?, {:keys [appKey useShortNameAsID]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/participant/process/all" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "useShortNameAsID" useShortNameAsID }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec process-all-participants sirqul-response-spec
   "Process All Participant Feeds
   Processes all supported participant feeds."
-  ([version float?, accountId int?, ] (process-all-participants version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (process-all-participants-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (process-all-participants accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (process-all-participants-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec process-participants-with-http-info any?
   "Process Participants Feed
   Processes a participant feed or uploaded file for a specific league."
-  ([version float?, accountId int?, league string?, ] (process-participants-with-http-info version accountId league nil))
-  ([version float?, accountId int?, league string?, {:keys [appKey useShortNameAsID ^File file]} (s/map-of keyword? any?)]
-   (check-required-params version accountId league)
-   (call-api "/api/{version}/participant/process" :post
-             {:path-params   {"version" version }
+  ([accountId int?, league string?, ] (process-participants-with-http-info accountId league nil))
+  ([accountId int?, league string?, {:keys [appKey useShortNameAsID ^File file]} (s/map-of keyword? any?)]
+   (check-required-params accountId league)
+   (call-api "/participant/process" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "league" league "appKey" appKey "useShortNameAsID" useShortNameAsID "file" file }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec process-participants sirqul-response-spec
   "Process Participants Feed
   Processes a participant feed or uploaded file for a specific league."
-  ([version float?, accountId int?, league string?, ] (process-participants version accountId league nil))
-  ([version float?, accountId int?, league string?, optional-params any?]
-   (let [res (:data (process-participants-with-http-info version accountId league optional-params))]
+  ([accountId int?, league string?, ] (process-participants accountId league nil))
+  ([accountId int?, league string?, optional-params any?]
+   (let [res (:data (process-participants-with-http-info accountId league optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

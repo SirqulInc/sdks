@@ -353,10 +353,10 @@
 (defn-spec get-stop-with-http-info any?
   "Get Stop
   Get an existing stop"
-  [version float?, id int?]
-  (check-required-params version id)
-  (call-api "/api/{version}/stop/{id}" :get
-            {:path-params   {"version" version "id" id }
+  [id int?]
+  (check-required-params id)
+  (call-api "/stop/{id}" :get
+            {:path-params   {"id" id }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec get-stop stop-spec
   "Get Stop
   Get an existing stop"
-  [version float?, id int?]
-  (let [res (:data (get-stop-with-http-info version id))]
+  [id int?]
+  (let [res (:data (get-stop-with-http-info id))]
     (if (:decode-models *api-context*)
        (st/decode stop-spec res st/string-transformer)
        res)))
@@ -377,11 +377,11 @@
 (defn-spec update-stop-with-http-info any?
   "Update Stop
   Update an existing stop"
-  ([version float?, id int?, ] (update-stop-with-http-info version id nil))
-  ([version float?, id int?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version id)
-   (call-api "/api/{version}/stop/{id}" :put
-             {:path-params   {"version" version "id" id }
+  ([id int?, ] (update-stop-with-http-info id nil))
+  ([id int?, {:keys [body]} (s/map-of keyword? any?)]
+   (check-required-params id)
+   (call-api "/stop/{id}" :put
+             {:path-params   {"id" id }
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -393,9 +393,9 @@
 (defn-spec update-stop stop-spec
   "Update Stop
   Update an existing stop"
-  ([version float?, id int?, ] (update-stop version id nil))
-  ([version float?, id int?, optional-params any?]
-   (let [res (:data (update-stop-with-http-info version id optional-params))]
+  ([id int?, ] (update-stop id nil))
+  ([id int?, optional-params any?]
+   (let [res (:data (update-stop-with-http-info id optional-params))]
      (if (:decode-models *api-context*)
         (st/decode stop-spec res st/string-transformer)
         res))))

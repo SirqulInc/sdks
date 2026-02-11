@@ -353,10 +353,10 @@
 (defn-spec simulation-with-http-info any?
   "Routing Simulation
   Simulates routing requests."
-  [version float?, data string?, realTime boolean?]
-  (check-required-params version data realTime)
-  (call-api "/api/{version}/simulation/routing" :post
-            {:path-params   {"version" version }
+  [data string?, realTime boolean?]
+  (check-required-params data realTime)
+  (call-api "/simulation/routing" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"data" data "realTime" realTime }
              :form-params   {}
@@ -367,8 +367,8 @@
 (defn-spec simulation sirqul-response-spec
   "Routing Simulation
   Simulates routing requests."
-  [version float?, data string?, realTime boolean?]
-  (let [res (:data (simulation-with-http-info version data realTime))]
+  [data string?, realTime boolean?]
+  (let [res (:data (simulation-with-http-info data realTime))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))

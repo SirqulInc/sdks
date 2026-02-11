@@ -353,11 +353,11 @@
 (defn-spec create-purchase-item-with-http-info any?
   "Create Purchase
   Creates a purchase item for in app purchases"
-  ([version float?, appKey string?, name string?, purchaseType string?, ] (create-purchase-item-with-http-info version appKey name purchaseType nil))
-  ([version float?, appKey string?, name string?, purchaseType string?, {:keys [deviceId accountId description tickets price purchaseCode secretKey purchaseLimit serviceAction coverAssetId promoAssetId giftable assetable allocateTickets ticketType points offerLocationId]} (s/map-of keyword? any?)]
-   (check-required-params version appKey name purchaseType)
-   (call-api "/api/{version}/purchase/create" :post
-             {:path-params   {"version" version }
+  ([appKey string?, name string?, purchaseType string?, ] (create-purchase-item-with-http-info appKey name purchaseType nil))
+  ([appKey string?, name string?, purchaseType string?, {:keys [deviceId accountId description tickets price purchaseCode secretKey purchaseLimit serviceAction coverAssetId promoAssetId giftable assetable allocateTickets ticketType points offerLocationId]} (s/map-of keyword? any?)]
+   (check-required-params appKey name purchaseType)
+   (call-api "/purchase/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "name" name "description" description "tickets" tickets "price" price "purchaseType" purchaseType "purchaseCode" purchaseCode "secretKey" secretKey "purchaseLimit" purchaseLimit "serviceAction" serviceAction "coverAssetId" coverAssetId "promoAssetId" promoAssetId "giftable" giftable "assetable" assetable "allocateTickets" allocateTickets "ticketType" ticketType "points" points "offerLocationId" offerLocationId }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-purchase-item purchase-item-full-response-spec
   "Create Purchase
   Creates a purchase item for in app purchases"
-  ([version float?, appKey string?, name string?, purchaseType string?, ] (create-purchase-item version appKey name purchaseType nil))
-  ([version float?, appKey string?, name string?, purchaseType string?, optional-params any?]
-   (let [res (:data (create-purchase-item-with-http-info version appKey name purchaseType optional-params))]
+  ([appKey string?, name string?, purchaseType string?, ] (create-purchase-item appKey name purchaseType nil))
+  ([appKey string?, name string?, purchaseType string?, optional-params any?]
+   (let [res (:data (create-purchase-item-with-http-info appKey name purchaseType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode purchase-item-full-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec delete-purchase-item-with-http-info any?
   "Delete Purchase
   Marks the purchase item as deleted"
-  ([version float?, purchaseItemId int?, ] (delete-purchase-item-with-http-info version purchaseItemId nil))
-  ([version float?, purchaseItemId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version purchaseItemId)
-   (call-api "/api/{version}/purchase/delete" :post
-             {:path-params   {"version" version }
+  ([purchaseItemId int?, ] (delete-purchase-item-with-http-info purchaseItemId nil))
+  ([purchaseItemId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params purchaseItemId)
+   (call-api "/purchase/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "purchaseItemId" purchaseItemId }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec delete-purchase-item sirqul-response-spec
   "Delete Purchase
   Marks the purchase item as deleted"
-  ([version float?, purchaseItemId int?, ] (delete-purchase-item version purchaseItemId nil))
-  ([version float?, purchaseItemId int?, optional-params any?]
-   (let [res (:data (delete-purchase-item-with-http-info version purchaseItemId optional-params))]
+  ([purchaseItemId int?, ] (delete-purchase-item purchaseItemId nil))
+  ([purchaseItemId int?, optional-params any?]
+   (let [res (:data (delete-purchase-item-with-http-info purchaseItemId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec get-purchase-item-with-http-info any?
   "Get Purchase
   Get detailed information about a purchase item"
-  ([version float?, purchaseItemId int?, ] (get-purchase-item-with-http-info version purchaseItemId nil))
-  ([version float?, purchaseItemId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
-   (check-required-params version purchaseItemId)
-   (call-api "/api/{version}/purchase/get" :get
-             {:path-params   {"version" version }
+  ([purchaseItemId int?, ] (get-purchase-item-with-http-info purchaseItemId nil))
+  ([purchaseItemId int?, {:keys [deviceId accountId]} (s/map-of keyword? any?)]
+   (check-required-params purchaseItemId)
+   (call-api "/purchase/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "purchaseItemId" purchaseItemId }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec get-purchase-item purchase-item-full-response-spec
   "Get Purchase
   Get detailed information about a purchase item"
-  ([version float?, purchaseItemId int?, ] (get-purchase-item version purchaseItemId nil))
-  ([version float?, purchaseItemId int?, optional-params any?]
-   (let [res (:data (get-purchase-item-with-http-info version purchaseItemId optional-params))]
+  ([purchaseItemId int?, ] (get-purchase-item purchaseItemId nil))
+  ([purchaseItemId int?, optional-params any?]
+   (let [res (:data (get-purchase-item-with-http-info purchaseItemId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode purchase-item-full-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,10 @@
 (defn-spec search-purchase-items-with-http-info any?
   "Search Purchases
   Search for purchasable items from the system"
-  ([version float?, ] (search-purchase-items-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey filterByBillable purchaseType serviceAction keyword sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/purchase/search" :get
-             {:path-params   {"version" version }
+  ([] (search-purchase-items-with-http-info nil))
+  ([{:keys [deviceId accountId appKey filterByBillable purchaseType serviceAction keyword sortField descending start limit activeOnly]} (s/map-of keyword? any?)]
+   (call-api "/purchase/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "filterByBillable" filterByBillable "purchaseType" purchaseType "serviceAction" serviceAction "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly }
               :form-params   {}
@@ -446,9 +445,9 @@
 (defn-spec search-purchase-items (s/coll-of purchase-item-response-spec)
   "Search Purchases
   Search for purchasable items from the system"
-  ([version float?, ] (search-purchase-items version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-purchase-items-with-http-info version optional-params))]
+  ([] (search-purchase-items nil))
+  ([optional-params any?]
+   (let [res (:data (search-purchase-items-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of purchase-item-response-spec) res st/string-transformer)
         res))))
@@ -457,11 +456,11 @@
 (defn-spec update-purchase-item-with-http-info any?
   "Update Purchase
   Updates a purchase item for in app purchases"
-  ([version float?, purchaseItemId int?, ] (update-purchase-item-with-http-info version purchaseItemId nil))
-  ([version float?, purchaseItemId int?, {:keys [deviceId accountId name description tickets price purchaseType purchaseCode secretKey purchaseLimit serviceAction coverAssetId promoAssetId giftable assetable active allocateTickets ticketType points offerLocationId]} (s/map-of keyword? any?)]
-   (check-required-params version purchaseItemId)
-   (call-api "/api/{version}/purchase/update" :post
-             {:path-params   {"version" version }
+  ([purchaseItemId int?, ] (update-purchase-item-with-http-info purchaseItemId nil))
+  ([purchaseItemId int?, {:keys [deviceId accountId name description tickets price purchaseType purchaseCode secretKey purchaseLimit serviceAction coverAssetId promoAssetId giftable assetable active allocateTickets ticketType points offerLocationId]} (s/map-of keyword? any?)]
+   (check-required-params purchaseItemId)
+   (call-api "/purchase/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "purchaseItemId" purchaseItemId "name" name "description" description "tickets" tickets "price" price "purchaseType" purchaseType "purchaseCode" purchaseCode "secretKey" secretKey "purchaseLimit" purchaseLimit "serviceAction" serviceAction "coverAssetId" coverAssetId "promoAssetId" promoAssetId "giftable" giftable "assetable" assetable "active" active "allocateTickets" allocateTickets "ticketType" ticketType "points" points "offerLocationId" offerLocationId }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec update-purchase-item purchase-item-full-response-spec
   "Update Purchase
   Updates a purchase item for in app purchases"
-  ([version float?, purchaseItemId int?, ] (update-purchase-item version purchaseItemId nil))
-  ([version float?, purchaseItemId int?, optional-params any?]
-   (let [res (:data (update-purchase-item-with-http-info version purchaseItemId optional-params))]
+  ([purchaseItemId int?, ] (update-purchase-item purchaseItemId nil))
+  ([purchaseItemId int?, optional-params any?]
+   (let [res (:data (update-purchase-item-with-http-info purchaseItemId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode purchase-item-full-response-spec res st/string-transformer)
         res))))

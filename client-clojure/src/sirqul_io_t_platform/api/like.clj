@@ -353,11 +353,11 @@
 (defn-spec register-like-with-http-info any?
   "Create Like
   Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one."
-  ([version float?, likableType string?, likableId int?, ] (register-like-with-http-info version likableType likableId nil))
-  ([version float?, likableType string?, likableId int?, {:keys [deviceId accountId permissionableType permissionableId like app gameType appKey latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version likableType likableId)
-   (call-api "/api/{version}/like" :post
-             {:path-params   {"version" version }
+  ([likableType string?, likableId int?, ] (register-like-with-http-info likableType likableId nil))
+  ([likableType string?, likableId int?, {:keys [deviceId accountId permissionableType permissionableId like app gameType appKey latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params likableType likableId)
+   (call-api "/like" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "likableType" likableType "likableId" likableId "permissionableType" permissionableType "permissionableId" permissionableId "like" like "app" app "gameType" gameType "appKey" appKey "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec register-like likable-response-spec
   "Create Like
   Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one."
-  ([version float?, likableType string?, likableId int?, ] (register-like version likableType likableId nil))
-  ([version float?, likableType string?, likableId int?, optional-params any?]
-   (let [res (:data (register-like-with-http-info version likableType likableId optional-params))]
+  ([likableType string?, likableId int?, ] (register-like likableType likableId nil))
+  ([likableType string?, likableId int?, optional-params any?]
+   (let [res (:data (register-like-with-http-info likableType likableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode likable-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec remove-like-with-http-info any?
   "Delete Like
   Removes a like. This will make the user \"neutral\"."
-  ([version float?, likableType string?, likableId int?, ] (remove-like-with-http-info version likableType likableId nil))
-  ([version float?, likableType string?, likableId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version likableType likableId)
-   (call-api "/api/{version}/like/delete" :post
-             {:path-params   {"version" version }
+  ([likableType string?, likableId int?, ] (remove-like-with-http-info likableType likableId nil))
+  ([likableType string?, likableId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params likableType likableId)
+   (call-api "/like/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "likableType" likableType "likableId" likableId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec remove-like likable-response-spec
   "Delete Like
   Removes a like. This will make the user \"neutral\"."
-  ([version float?, likableType string?, likableId int?, ] (remove-like version likableType likableId nil))
-  ([version float?, likableType string?, likableId int?, optional-params any?]
-   (let [res (:data (remove-like-with-http-info version likableType likableId optional-params))]
+  ([likableType string?, likableId int?, ] (remove-like likableType likableId nil))
+  ([likableType string?, likableId int?, optional-params any?]
+   (let [res (:data (remove-like-with-http-info likableType likableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode likable-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec search-likes-with-http-info any?
   "Search Likes
   Search for likes on a likable object."
-  ([version float?, likableType string?, likableId int?, ] (search-likes-with-http-info version likableType likableId nil))
-  ([version float?, likableType string?, likableId int?, {:keys [deviceId accountId connectionAccountIds sortField descending updatedSince updatedBefore start limit]} (s/map-of keyword? any?)]
-   (check-required-params version likableType likableId)
-   (call-api "/api/{version}/like/search" :get
-             {:path-params   {"version" version }
+  ([likableType string?, likableId int?, ] (search-likes-with-http-info likableType likableId nil))
+  ([likableType string?, likableId int?, {:keys [deviceId accountId connectionAccountIds sortField descending updatedSince updatedBefore start limit]} (s/map-of keyword? any?)]
+   (check-required-params likableType likableId)
+   (call-api "/like/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountIds" connectionAccountIds "likableType" likableType "likableId" likableId "sortField" sortField "descending" descending "updatedSince" updatedSince "updatedBefore" updatedBefore "start" start "limit" limit }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec search-likes search-response-spec
   "Search Likes
   Search for likes on a likable object."
-  ([version float?, likableType string?, likableId int?, ] (search-likes version likableType likableId nil))
-  ([version float?, likableType string?, likableId int?, optional-params any?]
-   (let [res (:data (search-likes-with-http-info version likableType likableId optional-params))]
+  ([likableType string?, likableId int?, ] (search-likes likableType likableId nil))
+  ([likableType string?, likableId int?, optional-params any?]
+   (let [res (:data (search-likes-with-http-info likableType likableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode search-response-spec res st/string-transformer)
         res))))

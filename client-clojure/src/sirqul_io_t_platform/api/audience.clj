@@ -353,11 +353,11 @@
 (defn-spec create-audience-with-http-info any?
   "Create Audience
   Create a user defined audience."
-  ([version float?, accountId int?, name string?, ] (create-audience-with-http-info version accountId name nil))
-  ([version float?, accountId int?, name string?, {:keys [description searchTags gender ageGroups categoryIds applicationIds gameExperienceLevel devices deviceIds deviceVersions locations radius startTimeOffset endTimeOffset sendSuggestion associateDescription associateType associateId groupingId metaData visibility audienceType useOrder cohortRegionsData appKey trilaterationTypes uniqueName]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name)
-   (call-api "/api/{version}/audience/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, ] (create-audience-with-http-info accountId name nil))
+  ([accountId int?, name string?, {:keys [description searchTags gender ageGroups categoryIds applicationIds gameExperienceLevel devices deviceIds deviceVersions locations radius startTimeOffset endTimeOffset sendSuggestion associateDescription associateType associateId groupingId metaData visibility audienceType useOrder cohortRegionsData appKey trilaterationTypes uniqueName]} (s/map-of keyword? any?)]
+   (check-required-params accountId name)
+   (call-api "/audience/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "description" description "searchTags" searchTags "gender" gender "ageGroups" ageGroups "categoryIds" categoryIds "applicationIds" applicationIds "gameExperienceLevel" gameExperienceLevel "devices" devices "deviceIds" deviceIds "deviceVersions" deviceVersions "locations" locations "radius" radius "startTimeOffset" startTimeOffset "endTimeOffset" endTimeOffset "sendSuggestion" sendSuggestion "associateDescription" associateDescription "associateType" associateType "associateId" associateId "groupingId" groupingId "metaData" metaData "visibility" visibility "audienceType" audienceType "useOrder" useOrder "cohortRegionsData" cohortRegionsData "appKey" appKey "trilaterationTypes" trilaterationTypes "uniqueName" uniqueName }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-audience audience-response-spec
   "Create Audience
   Create a user defined audience."
-  ([version float?, accountId int?, name string?, ] (create-audience version accountId name nil))
-  ([version float?, accountId int?, name string?, optional-params any?]
-   (let [res (:data (create-audience-with-http-info version accountId name optional-params))]
+  ([accountId int?, name string?, ] (create-audience accountId name nil))
+  ([accountId int?, name string?, optional-params any?]
+   (let [res (:data (create-audience-with-http-info accountId name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode audience-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-audience-with-http-info any?
   "Delete Audience
   Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content."
-  [version float?, accountId int?, audienceId int?]
-  (check-required-params version accountId audienceId)
-  (call-api "/api/{version}/audience/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, audienceId int?]
+  (check-required-params accountId audienceId)
+  (call-api "/audience/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "audienceId" audienceId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-audience sirqul-response-spec
   "Delete Audience
   Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content."
-  [version float?, accountId int?, audienceId int?]
-  (let [res (:data (delete-audience-with-http-info version accountId audienceId))]
+  [accountId int?, audienceId int?]
+  (let [res (:data (delete-audience-with-http-info accountId audienceId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,9 @@
 (defn-spec get-age-groups-with-http-info any?
   "Get Age Groups
   Gets the list of available age groups that can be selected by consumers and retailers targeting offers."
-  [version float?]
-  (check-required-params version)
-  (call-api "/api/{version}/audience/ageGroups" :get
-            {:path-params   {"version" version }
+  []
+  (call-api "/audience/ageGroups" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -417,8 +416,8 @@
 (defn-spec get-age-groups (s/coll-of age-group-response-spec)
   "Get Age Groups
   Gets the list of available age groups that can be selected by consumers and retailers targeting offers."
-  [version float?]
-  (let [res (:data (get-age-groups-with-http-info version))]
+  []
+  (let [res (:data (get-age-groups-with-http-info))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of age-group-response-spec) res st/string-transformer)
        res)))
@@ -427,11 +426,11 @@
 (defn-spec get-audience-with-http-info any?
   "Get Audience
   Get an audience. The audience and account must be valid and have the appropriate permissions to view the content."
-  ([version float?, accountId int?, audienceId int?, ] (get-audience-with-http-info version accountId audienceId nil))
-  ([version float?, accountId int?, audienceId int?, {:keys [appKey returnAccountCount returnAlbumCount albumTypesForCount]} (s/map-of keyword? any?)]
-   (check-required-params version accountId audienceId)
-   (call-api "/api/{version}/audience/get" :get
-             {:path-params   {"version" version }
+  ([accountId int?, audienceId int?, ] (get-audience-with-http-info accountId audienceId nil))
+  ([accountId int?, audienceId int?, {:keys [appKey returnAccountCount returnAlbumCount albumTypesForCount]} (s/map-of keyword? any?)]
+   (check-required-params accountId audienceId)
+   (call-api "/audience/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "audienceId" audienceId "appKey" appKey "returnAccountCount" returnAccountCount "returnAlbumCount" returnAlbumCount "albumTypesForCount" albumTypesForCount }
               :form-params   {}
@@ -442,9 +441,9 @@
 (defn-spec get-audience audience-response-spec
   "Get Audience
   Get an audience. The audience and account must be valid and have the appropriate permissions to view the content."
-  ([version float?, accountId int?, audienceId int?, ] (get-audience version accountId audienceId nil))
-  ([version float?, accountId int?, audienceId int?, optional-params any?]
-   (let [res (:data (get-audience-with-http-info version accountId audienceId optional-params))]
+  ([accountId int?, audienceId int?, ] (get-audience accountId audienceId nil))
+  ([accountId int?, audienceId int?, optional-params any?]
+   (let [res (:data (get-audience-with-http-info accountId audienceId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode audience-response-spec res st/string-transformer)
         res))))
@@ -453,11 +452,10 @@
 (defn-spec get-audience-list-with-http-info any?
   "Search Audiences
   Get the list audiences owned by the account"
-  ([version float?, ] (get-audience-list-with-http-info version nil))
-  ([version float?, {:keys [accountId albumIds keyword keywordFields sortField descending start limit sendSuggestion activeOnly groupByGroupingId appKey returnGlobal exactKeyword audienceType audienceTypes returnAccountCount returnAlbumCount albumTypesForCount]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/audience/search" :get
-             {:path-params   {"version" version }
+  ([] (get-audience-list-with-http-info nil))
+  ([{:keys [accountId albumIds keyword keywordFields sortField descending start limit sendSuggestion activeOnly groupByGroupingId appKey returnGlobal exactKeyword audienceType audienceTypes returnAccountCount returnAlbumCount albumTypesForCount]} (s/map-of keyword? any?)]
+   (call-api "/audience/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "albumIds" albumIds "keyword" keyword "keywordFields" keywordFields "sortField" sortField "descending" descending "start" start "limit" limit "sendSuggestion" sendSuggestion "activeOnly" activeOnly "groupByGroupingId" groupByGroupingId "appKey" appKey "returnGlobal" returnGlobal "exactKeyword" exactKeyword "audienceType" audienceType "audienceTypes" audienceTypes "returnAccountCount" returnAccountCount "returnAlbumCount" returnAlbumCount "albumTypesForCount" albumTypesForCount }
               :form-params   {}
@@ -468,9 +466,9 @@
 (defn-spec get-audience-list (s/coll-of search-response-spec)
   "Search Audiences
   Get the list audiences owned by the account"
-  ([version float?, ] (get-audience-list version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-audience-list-with-http-info version optional-params))]
+  ([] (get-audience-list nil))
+  ([optional-params any?]
+   (let [res (:data (get-audience-list-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of search-response-spec) res st/string-transformer)
         res))))
@@ -479,10 +477,10 @@
 (defn-spec get-devices-with-http-info any?
   "Get Devices
   Gets the list of available devices that can be selected by consumers and retailers."
-  [version float?, includeInactive boolean?]
-  (check-required-params version includeInactive)
-  (call-api "/api/{version}/audience/devices" :get
-            {:path-params   {"version" version }
+  [includeInactive boolean?]
+  (check-required-params includeInactive)
+  (call-api "/audience/devices" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"includeInactive" includeInactive }
              :form-params   {}
@@ -493,8 +491,8 @@
 (defn-spec get-devices (s/coll-of audience-device-response-spec)
   "Get Devices
   Gets the list of available devices that can be selected by consumers and retailers."
-  [version float?, includeInactive boolean?]
-  (let [res (:data (get-devices-with-http-info version includeInactive))]
+  [includeInactive boolean?]
+  (let [res (:data (get-devices-with-http-info includeInactive))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of audience-device-response-spec) res st/string-transformer)
        res)))
@@ -503,10 +501,9 @@
 (defn-spec get-experiences-with-http-info any?
   "Get Experiences
   Gets the list of available experiences that can be selected by consumers and retailers."
-  [version float?]
-  (check-required-params version)
-  (call-api "/api/{version}/audience/experiences" :get
-            {:path-params   {"version" version }
+  []
+  (call-api "/audience/experiences" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -517,8 +514,8 @@
 (defn-spec get-experiences sirqul-response-spec
   "Get Experiences
   Gets the list of available experiences that can be selected by consumers and retailers."
-  [version float?]
-  (let [res (:data (get-experiences-with-http-info version))]
+  []
+  (let [res (:data (get-experiences-with-http-info))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -527,10 +524,10 @@
 (defn-spec get-grouped-audiences-with-http-info any?
   "Get GroupedAudiences
   Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content."
-  [version float?, accountId int?, audienceGroupingId string?]
-  (check-required-params version accountId audienceGroupingId)
-  (call-api "/api/{version}/audience/grouped/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, audienceGroupingId string?]
+  (check-required-params accountId audienceGroupingId)
+  (call-api "/audience/grouped/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "audienceGroupingId" audienceGroupingId }
              :form-params   {}
@@ -541,8 +538,8 @@
 (defn-spec get-grouped-audiences audience-response-spec
   "Get GroupedAudiences
   Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content."
-  [version float?, accountId int?, audienceGroupingId string?]
-  (let [res (:data (get-grouped-audiences-with-http-info version accountId audienceGroupingId))]
+  [accountId int?, audienceGroupingId string?]
+  (let [res (:data (get-grouped-audiences-with-http-info accountId audienceGroupingId))]
     (if (:decode-models *api-context*)
        (st/decode audience-response-spec res st/string-transformer)
        res)))
@@ -551,10 +548,10 @@
 (defn-spec list-by-account-with-http-info any?
   "List Suggestions by Audience
   List either Missions or Offers that the user matches the assigned audience."
-  [version float?, accountId int?, limit int?, suggestionType string?]
-  (check-required-params version accountId limit suggestionType)
-  (call-api "/api/{version}/audience/suggestion/list" :post
-            {:path-params   {"version" version }
+  [accountId int?, limit int?, suggestionType string?]
+  (check-required-params accountId limit suggestionType)
+  (call-api "/audience/suggestion/list" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "limit" limit "suggestionType" suggestionType }
              :form-params   {}
@@ -565,8 +562,8 @@
 (defn-spec list-by-account offer-list-response-spec
   "List Suggestions by Audience
   List either Missions or Offers that the user matches the assigned audience."
-  [version float?, accountId int?, limit int?, suggestionType string?]
-  (let [res (:data (list-by-account-with-http-info version accountId limit suggestionType))]
+  [accountId int?, limit int?, suggestionType string?]
+  (let [res (:data (list-by-account-with-http-info accountId limit suggestionType))]
     (if (:decode-models *api-context*)
        (st/decode offer-list-response-spec res st/string-transformer)
        res)))
@@ -575,11 +572,11 @@
 (defn-spec list-by-audience-with-http-info any?
   "List Offers by Audience
   Get a list of offer locations based on audience information provided."
-  ([version float?, limit int?, ] (list-by-audience-with-http-info version limit nil))
-  ([version float?, limit int?, {:keys [gender age categoryIds latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version limit)
-   (call-api "/api/{version}/audience/suggestion/offersByAudience" :get
-             {:path-params   {"version" version }
+  ([limit int?, ] (list-by-audience-with-http-info limit nil))
+  ([limit int?, {:keys [gender age categoryIds latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params limit)
+   (call-api "/audience/suggestion/offersByAudience" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"gender" gender "age" age "categoryIds" categoryIds "latitude" latitude "longitude" longitude "limit" limit }
               :form-params   {}
@@ -590,9 +587,9 @@
 (defn-spec list-by-audience offer-list-response-spec
   "List Offers by Audience
   Get a list of offer locations based on audience information provided."
-  ([version float?, limit int?, ] (list-by-audience version limit nil))
-  ([version float?, limit int?, optional-params any?]
-   (let [res (:data (list-by-audience-with-http-info version limit optional-params))]
+  ([limit int?, ] (list-by-audience limit nil))
+  ([limit int?, optional-params any?]
+   (let [res (:data (list-by-audience-with-http-info limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode offer-list-response-spec res st/string-transformer)
         res))))
@@ -601,10 +598,10 @@
 (defn-spec list-lastest-by-account-with-http-info any?
   "List Sent Suggestions
   Return list of recent trigger suggestions that have been sent to the user."
-  [version float?, accountId int?, timeframe int?, suggestionType string?]
-  (check-required-params version accountId timeframe suggestionType)
-  (call-api "/api/{version}/audience/suggestion/latest" :get
-            {:path-params   {"version" version }
+  [accountId int?, timeframe int?, suggestionType string?]
+  (check-required-params accountId timeframe suggestionType)
+  (call-api "/audience/suggestion/latest" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "timeframe" timeframe "suggestionType" suggestionType }
              :form-params   {}
@@ -615,8 +612,8 @@
 (defn-spec list-lastest-by-account offer-list-response-spec
   "List Sent Suggestions
   Return list of recent trigger suggestions that have been sent to the user."
-  [version float?, accountId int?, timeframe int?, suggestionType string?]
-  (let [res (:data (list-lastest-by-account-with-http-info version accountId timeframe suggestionType))]
+  [accountId int?, timeframe int?, suggestionType string?]
+  (let [res (:data (list-lastest-by-account-with-http-info accountId timeframe suggestionType))]
     (if (:decode-models *api-context*)
        (st/decode offer-list-response-spec res st/string-transformer)
        res)))
@@ -625,10 +622,10 @@
 (defn-spec send-by-account-with-http-info any?
   "Send Suggestions
   Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity."
-  [version float?, accountId int?, latitude float?, longitude float?]
-  (check-required-params version accountId latitude longitude)
-  (call-api "/api/{version}/audience/suggestion/send" :post
-            {:path-params   {"version" version }
+  [accountId int?, latitude float?, longitude float?]
+  (check-required-params accountId latitude longitude)
+  (call-api "/audience/suggestion/send" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "latitude" latitude "longitude" longitude }
              :form-params   {}
@@ -639,8 +636,8 @@
 (defn-spec send-by-account sirqul-response-spec
   "Send Suggestions
   Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity."
-  [version float?, accountId int?, latitude float?, longitude float?]
-  (let [res (:data (send-by-account-with-http-info version accountId latitude longitude))]
+  [accountId int?, latitude float?, longitude float?]
+  (let [res (:data (send-by-account-with-http-info accountId latitude longitude))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -649,11 +646,11 @@
 (defn-spec update-audience-with-http-info any?
   "Update Audience
   Update a user defined audience."
-  ([version float?, accountId int?, audienceId int?, ] (update-audience-with-http-info version accountId audienceId nil))
-  ([version float?, accountId int?, audienceId int?, {:keys [name description searchTags gender ageGroups categoryIds applicationIds gameExperienceLevel devices deviceIds deviceVersions locations radius active sendSuggestion startTimeOffset endTimeOffset associateDescription associateType associateId groupingId metaData visibility audienceType useOrder cohortRegionsData appKey trilaterationTypes uniqueName]} (s/map-of keyword? any?)]
-   (check-required-params version accountId audienceId)
-   (call-api "/api/{version}/audience/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, audienceId int?, ] (update-audience-with-http-info accountId audienceId nil))
+  ([accountId int?, audienceId int?, {:keys [name description searchTags gender ageGroups categoryIds applicationIds gameExperienceLevel devices deviceIds deviceVersions locations radius active sendSuggestion startTimeOffset endTimeOffset associateDescription associateType associateId groupingId metaData visibility audienceType useOrder cohortRegionsData appKey trilaterationTypes uniqueName]} (s/map-of keyword? any?)]
+   (check-required-params accountId audienceId)
+   (call-api "/audience/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "audienceId" audienceId "name" name "description" description "searchTags" searchTags "gender" gender "ageGroups" ageGroups "categoryIds" categoryIds "applicationIds" applicationIds "gameExperienceLevel" gameExperienceLevel "devices" devices "deviceIds" deviceIds "deviceVersions" deviceVersions "locations" locations "radius" radius "active" active "sendSuggestion" sendSuggestion "startTimeOffset" startTimeOffset "endTimeOffset" endTimeOffset "associateDescription" associateDescription "associateType" associateType "associateId" associateId "groupingId" groupingId "metaData" metaData "visibility" visibility "audienceType" audienceType "useOrder" useOrder "cohortRegionsData" cohortRegionsData "appKey" appKey "trilaterationTypes" trilaterationTypes "uniqueName" uniqueName }
               :form-params   {}
@@ -664,9 +661,9 @@
 (defn-spec update-audience audience-response-spec
   "Update Audience
   Update a user defined audience."
-  ([version float?, accountId int?, audienceId int?, ] (update-audience version accountId audienceId nil))
-  ([version float?, accountId int?, audienceId int?, optional-params any?]
-   (let [res (:data (update-audience-with-http-info version accountId audienceId optional-params))]
+  ([accountId int?, audienceId int?, ] (update-audience accountId audienceId nil))
+  ([accountId int?, audienceId int?, optional-params any?]
+   (let [res (:data (update-audience-with-http-info accountId audienceId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode audience-response-spec res st/string-transformer)
         res))))

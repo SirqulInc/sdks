@@ -353,11 +353,11 @@
 (defn-spec create-listing-with-http-info any?
   "Create Listing
   Creates a listing."
-  ([version float?, accountId int?, name string?, ] (create-listing-with-http-info version accountId name nil))
-  ([version float?, accountId int?, name string?, {:keys [filterIds description start end locationName locationDescription isPrivate externalId externalId2 externalGroupId active metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name)
-   (call-api "/api/{version}/listing/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, ] (create-listing-with-http-info accountId name nil))
+  ([accountId int?, name string?, {:keys [filterIds description start end locationName locationDescription isPrivate externalId externalId2 externalGroupId active metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId name)
+   (call-api "/listing/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "filterIds" filterIds "description" description "start" start "end" end "locationName" locationName "locationDescription" locationDescription "isPrivate" isPrivate "externalId" externalId "externalId2" externalId2 "externalGroupId" externalGroupId "active" active "metaData" metaData }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-listing listing-full-response-spec
   "Create Listing
   Creates a listing."
-  ([version float?, accountId int?, name string?, ] (create-listing version accountId name nil))
-  ([version float?, accountId int?, name string?, optional-params any?]
-   (let [res (:data (create-listing-with-http-info version accountId name optional-params))]
+  ([accountId int?, name string?, ] (create-listing accountId name nil))
+  ([accountId int?, name string?, optional-params any?]
+   (let [res (:data (create-listing-with-http-info accountId name optional-params))]
      (if (:decode-models *api-context*)
         (st/decode listing-full-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-listing-with-http-info any?
   "Delete Listing
   Delete a listing."
-  [version float?, accountId int?, listingId int?]
-  (check-required-params version accountId listingId)
-  (call-api "/api/{version}/listing/delete" :post
-            {:path-params   {"version" version }
+  [accountId int?, listingId int?]
+  (check-required-params accountId listingId)
+  (call-api "/listing/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "listingId" listingId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-listing sirqul-response-spec
   "Delete Listing
   Delete a listing."
-  [version float?, accountId int?, listingId int?]
-  (let [res (:data (delete-listing-with-http-info version accountId listingId))]
+  [accountId int?, listingId int?]
+  (let [res (:data (delete-listing-with-http-info accountId listingId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-listing-with-http-info any?
   "Get Listing
   Get a listing by id."
-  [version float?, listingId int?]
-  (check-required-params version listingId)
-  (call-api "/api/{version}/listing/get" :get
-            {:path-params   {"version" version }
+  [listingId int?]
+  (check-required-params listingId)
+  (call-api "/listing/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"listingId" listingId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-listing listing-full-response-spec
   "Get Listing
   Get a listing by id."
-  [version float?, listingId int?]
-  (let [res (:data (get-listing-with-http-info version listingId))]
+  [listingId int?]
+  (let [res (:data (get-listing-with-http-info listingId))]
     (if (:decode-models *api-context*)
        (st/decode listing-full-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,10 @@
 (defn-spec search-listing-with-http-info any?
   "Search Listings
   Search for event listings from the start time to end time"
-  ([version float?, ] (search-listing-with-http-info version nil))
-  ([version float?, {:keys [accountId keyword start limit activeOnly latitude longitude startDate endDate categoryIds filterIds useListingOrderIds externalId externalId2 externalGroupId]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/listing/search" :get
-             {:path-params   {"version" version }
+  ([] (search-listing-with-http-info nil))
+  ([{:keys [accountId keyword start limit activeOnly latitude longitude startDate endDate categoryIds filterIds useListingOrderIds externalId externalId2 externalGroupId]} (s/map-of keyword? any?)]
+   (call-api "/listing/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "start" start "limit" limit "activeOnly" activeOnly "latitude" latitude "longitude" longitude "startDate" startDate "endDate" endDate "categoryIds" categoryIds "filterIds" filterIds "useListingOrderIds" useListingOrderIds "externalId" externalId "externalId2" externalId2 "externalGroupId" externalGroupId }
               :form-params   {}
@@ -442,9 +441,9 @@
 (defn-spec search-listing (s/coll-of listing-response-spec)
   "Search Listings
   Search for event listings from the start time to end time"
-  ([version float?, ] (search-listing version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-listing-with-http-info version optional-params))]
+  ([] (search-listing nil))
+  ([optional-params any?]
+   (let [res (:data (search-listing-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of listing-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +452,10 @@
 (defn-spec summary-listing-with-http-info any?
   "Summary Listing
   Search for a list of summary listings from the start time up to 8 days out."
-  ([version float?, ] (summary-listing-with-http-info version nil))
-  ([version float?, {:keys [accountId startDate categoryIds daysToInclude useListingOrderIds]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/listing/summary" :get
-             {:path-params   {"version" version }
+  ([] (summary-listing-with-http-info nil))
+  ([{:keys [accountId startDate categoryIds daysToInclude useListingOrderIds]} (s/map-of keyword? any?)]
+   (call-api "/listing/summary" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "startDate" startDate "categoryIds" categoryIds "daysToInclude" daysToInclude "useListingOrderIds" useListingOrderIds }
               :form-params   {}
@@ -468,9 +466,9 @@
 (defn-spec summary-listing (s/coll-of listing-group-response-spec)
   "Summary Listing
   Search for a list of summary listings from the start time up to 8 days out."
-  ([version float?, ] (summary-listing version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (summary-listing-with-http-info version optional-params))]
+  ([] (summary-listing nil))
+  ([optional-params any?]
+   (let [res (:data (summary-listing-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of listing-group-response-spec) res st/string-transformer)
         res))))
@@ -479,11 +477,11 @@
 (defn-spec update-listing-with-http-info any?
   "Update Listing
   Updates a listing."
-  ([version float?, accountId int?, listingId int?, ] (update-listing-with-http-info version accountId listingId nil))
-  ([version float?, accountId int?, listingId int?, {:keys [filterIds name description start end locationName locationDescription isPrivate externalId externalId2 externalGroupId active metaData]} (s/map-of keyword? any?)]
-   (check-required-params version accountId listingId)
-   (call-api "/api/{version}/listing/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, listingId int?, ] (update-listing-with-http-info accountId listingId nil))
+  ([accountId int?, listingId int?, {:keys [filterIds name description start end locationName locationDescription isPrivate externalId externalId2 externalGroupId active metaData]} (s/map-of keyword? any?)]
+   (check-required-params accountId listingId)
+   (call-api "/listing/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "listingId" listingId "filterIds" filterIds "name" name "description" description "start" start "end" end "locationName" locationName "locationDescription" locationDescription "isPrivate" isPrivate "externalId" externalId "externalId2" externalId2 "externalGroupId" externalGroupId "active" active "metaData" metaData }
               :form-params   {}
@@ -494,9 +492,9 @@
 (defn-spec update-listing listing-full-response-spec
   "Update Listing
   Updates a listing."
-  ([version float?, accountId int?, listingId int?, ] (update-listing version accountId listingId nil))
-  ([version float?, accountId int?, listingId int?, optional-params any?]
-   (let [res (:data (update-listing-with-http-info version accountId listingId optional-params))]
+  ([accountId int?, listingId int?, ] (update-listing accountId listingId nil))
+  ([accountId int?, listingId int?, optional-params any?]
+   (let [res (:data (update-listing-with-http-info accountId listingId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode listing-full-response-spec res st/string-transformer)
         res))))

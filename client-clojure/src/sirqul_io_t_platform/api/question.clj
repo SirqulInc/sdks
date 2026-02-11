@@ -353,11 +353,11 @@
 (defn-spec create-question-with-http-info any?
   "Create Question
   Create a question and related answers by the given params."
-  ([version float?, accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-question-with-http-info version accountId question answers active allocateTickets ticketCount nil))
-  ([version float?, accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, {:keys [tags videoURL assetId ticketType points]} (s/map-of keyword? any?)]
-   (check-required-params version accountId question answers active allocateTickets ticketCount)
-   (call-api "/api/{version}/game/question/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-question-with-http-info accountId question answers active allocateTickets ticketCount nil))
+  ([accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, {:keys [tags videoURL assetId ticketType points]} (s/map-of keyword? any?)]
+   (check-required-params accountId question answers active allocateTickets ticketCount)
+   (call-api "/game/question/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "question" question "answers" answers "tags" tags "videoURL" videoURL "assetId" assetId "active" active "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-question question-response-spec
   "Create Question
   Create a question and related answers by the given params."
-  ([version float?, accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-question version accountId question answers active allocateTickets ticketCount nil))
-  ([version float?, accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, optional-params any?]
-   (let [res (:data (create-question-with-http-info version accountId question answers active allocateTickets ticketCount optional-params))]
+  ([accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, ] (create-question accountId question answers active allocateTickets ticketCount nil))
+  ([accountId int?, question string?, answers string?, active boolean?, allocateTickets boolean?, ticketCount int?, optional-params any?]
+   (let [res (:data (create-question-with-http-info accountId question answers active allocateTickets ticketCount optional-params))]
      (if (:decode-models *api-context*)
         (st/decode question-response-spec res st/string-transformer)
         res))))
@@ -379,10 +379,10 @@
 (defn-spec delete-question-with-http-info any?
   "Delete Question
   Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete."
-  [version float?, questionId int?, accountId int?]
-  (check-required-params version questionId accountId)
-  (call-api "/api/{version}/game/question/delete" :post
-            {:path-params   {"version" version }
+  [questionId int?, accountId int?]
+  (check-required-params questionId accountId)
+  (call-api "/game/question/delete" :post
+            {:path-params   {}
              :header-params {}
              :query-params  {"questionId" questionId "accountId" accountId }
              :form-params   {}
@@ -393,8 +393,8 @@
 (defn-spec delete-question sirqul-response-spec
   "Delete Question
   Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete."
-  [version float?, questionId int?, accountId int?]
-  (let [res (:data (delete-question-with-http-info version questionId accountId))]
+  [questionId int?, accountId int?]
+  (let [res (:data (delete-question-with-http-info questionId accountId))]
     (if (:decode-models *api-context*)
        (st/decode sirqul-response-spec res st/string-transformer)
        res)))
@@ -403,10 +403,10 @@
 (defn-spec get-question-with-http-info any?
   "Get Question
   Get a question by the given id."
-  [version float?, questionId int?, accountId int?]
-  (check-required-params version questionId accountId)
-  (call-api "/api/{version}/game/question/get" :get
-            {:path-params   {"version" version }
+  [questionId int?, accountId int?]
+  (check-required-params questionId accountId)
+  (call-api "/game/question/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"questionId" questionId "accountId" accountId }
              :form-params   {}
@@ -417,8 +417,8 @@
 (defn-spec get-question question-response-spec
   "Get Question
   Get a question by the given id."
-  [version float?, questionId int?, accountId int?]
-  (let [res (:data (get-question-with-http-info version questionId accountId))]
+  [questionId int?, accountId int?]
+  (let [res (:data (get-question-with-http-info questionId accountId))]
     (if (:decode-models *api-context*)
        (st/decode question-response-spec res st/string-transformer)
        res)))
@@ -427,11 +427,11 @@
 (defn-spec search-questions-with-http-info any?
   "Search Questions
   Search for questions by the given params."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (search-questions-with-http-info version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [keyword]} (s/map-of keyword? any?)]
-   (check-required-params version accountId sortField descending activeOnly start limit)
-   (call-api "/api/{version}/game/question/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (search-questions-with-http-info accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, {:keys [keyword]} (s/map-of keyword? any?)]
+   (check-required-params accountId sortField descending activeOnly start limit)
+   (call-api "/game/question/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "keyword" keyword "sortField" sortField "descending" descending "activeOnly" activeOnly "start" start "limit" limit }
               :form-params   {}
@@ -442,9 +442,9 @@
 (defn-spec search-questions (s/coll-of question-response-spec)
   "Search Questions
   Search for questions by the given params."
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (search-questions version accountId sortField descending activeOnly start limit nil))
-  ([version float?, accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (search-questions-with-http-info version accountId sortField descending activeOnly start limit optional-params))]
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, ] (search-questions accountId sortField descending activeOnly start limit nil))
+  ([accountId int?, sortField string?, descending boolean?, activeOnly boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (search-questions-with-http-info accountId sortField descending activeOnly start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of question-response-spec) res st/string-transformer)
         res))))
@@ -453,11 +453,11 @@
 (defn-spec update-question-with-http-info any?
   "Update Question
   Update a question and related answers."
-  ([version float?, questionId int?, accountId int?, ticketCount int?, ] (update-question-with-http-info version questionId accountId ticketCount nil))
-  ([version float?, questionId int?, accountId int?, ticketCount int?, {:keys [question answers tags videoURL assetId active allocateTickets ticketType points]} (s/map-of keyword? any?)]
-   (check-required-params version questionId accountId ticketCount)
-   (call-api "/api/{version}/game/question/update" :post
-             {:path-params   {"version" version }
+  ([questionId int?, accountId int?, ticketCount int?, ] (update-question-with-http-info questionId accountId ticketCount nil))
+  ([questionId int?, accountId int?, ticketCount int?, {:keys [question answers tags videoURL assetId active allocateTickets ticketType points]} (s/map-of keyword? any?)]
+   (check-required-params questionId accountId ticketCount)
+   (call-api "/game/question/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"questionId" questionId "accountId" accountId "question" question "answers" answers "tags" tags "videoURL" videoURL "assetId" assetId "active" active "allocateTickets" allocateTickets "ticketCount" ticketCount "ticketType" ticketType "points" points }
               :form-params   {}
@@ -468,9 +468,9 @@
 (defn-spec update-question question-response-spec
   "Update Question
   Update a question and related answers."
-  ([version float?, questionId int?, accountId int?, ticketCount int?, ] (update-question version questionId accountId ticketCount nil))
-  ([version float?, questionId int?, accountId int?, ticketCount int?, optional-params any?]
-   (let [res (:data (update-question-with-http-info version questionId accountId ticketCount optional-params))]
+  ([questionId int?, accountId int?, ticketCount int?, ] (update-question questionId accountId ticketCount nil))
+  ([questionId int?, accountId int?, ticketCount int?, optional-params any?]
+   (let [res (:data (update-question-with-http-info questionId accountId ticketCount optional-params))]
      (if (:decode-models *api-context*)
         (st/decode question-response-spec res st/string-transformer)
         res))))

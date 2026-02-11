@@ -353,11 +353,11 @@
 (defn-spec create-scheduled-notification-with-http-info any?
   "Create Scheduled Notification
   This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods"
-  ([version float?, accountId int?, name string?, type string?, message string?, ] (create-scheduled-notification-with-http-info version accountId name type message nil))
-  ([version float?, accountId int?, name string?, type string?, message string?, {:keys [contentId contentName contentType parentId parentType appKey groupingId connectionGroupIds connectionAccountIds audienceId audienceIds albumIds reportId reportParams endpointURL payload scheduledDate startDate endDate cronExpression cronType metaData conditionalInput templateType visibility active sendNow eventType deepLinkURI sendToAll]} (s/map-of keyword? any?)]
-   (check-required-params version accountId name type message)
-   (call-api "/api/{version}/notification/schedule/create" :post
-             {:path-params   {"version" version }
+  ([accountId int?, name string?, type string?, message string?, ] (create-scheduled-notification-with-http-info accountId name type message nil))
+  ([accountId int?, name string?, type string?, message string?, {:keys [contentId contentName contentType parentId parentType appKey groupingId connectionGroupIds connectionAccountIds audienceId audienceIds albumIds reportId reportParams endpointURL payload scheduledDate startDate endDate cronExpression cronType metaData conditionalInput templateType visibility active sendNow eventType deepLinkURI sendToAll]} (s/map-of keyword? any?)]
+   (check-required-params accountId name type message)
+   (call-api "/notification/schedule/create" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "name" name "type" type "message" message "contentId" contentId "contentName" contentName "contentType" contentType "parentId" parentId "parentType" parentType "appKey" appKey "groupingId" groupingId "connectionGroupIds" connectionGroupIds "connectionAccountIds" connectionAccountIds "audienceId" audienceId "audienceIds" audienceIds "albumIds" albumIds "reportId" reportId "reportParams" reportParams "endpointURL" endpointURL "payload" payload "scheduledDate" scheduledDate "startDate" startDate "endDate" endDate "cronExpression" cronExpression "cronType" cronType "metaData" metaData "conditionalInput" conditionalInput "templateType" templateType "visibility" visibility "active" active "sendNow" sendNow "eventType" eventType "deepLinkURI" deepLinkURI "sendToAll" sendToAll }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec create-scheduled-notification scheduled-notification-full-response-spec
   "Create Scheduled Notification
   This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods"
-  ([version float?, accountId int?, name string?, type string?, message string?, ] (create-scheduled-notification version accountId name type message nil))
-  ([version float?, accountId int?, name string?, type string?, message string?, optional-params any?]
-   (let [res (:data (create-scheduled-notification-with-http-info version accountId name type message optional-params))]
+  ([accountId int?, name string?, type string?, message string?, ] (create-scheduled-notification accountId name type message nil))
+  ([accountId int?, name string?, type string?, message string?, optional-params any?]
+   (let [res (:data (create-scheduled-notification-with-http-info accountId name type message optional-params))]
      (if (:decode-models *api-context*)
         (st/decode scheduled-notification-full-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec delete-scheduled-notification-with-http-info any?
   "Delete Scheduled Notification
   This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi."
-  ([version float?, accountId int?, scheduledNotificationId int?, ] (delete-scheduled-notification-with-http-info version accountId scheduledNotificationId nil))
-  ([version float?, accountId int?, scheduledNotificationId int?, {:keys [deleteByGroupingId]} (s/map-of keyword? any?)]
-   (check-required-params version accountId scheduledNotificationId)
-   (call-api "/api/{version}/notification/schedule/delete" :post
-             {:path-params   {"version" version }
+  ([accountId int?, scheduledNotificationId int?, ] (delete-scheduled-notification-with-http-info accountId scheduledNotificationId nil))
+  ([accountId int?, scheduledNotificationId int?, {:keys [deleteByGroupingId]} (s/map-of keyword? any?)]
+   (check-required-params accountId scheduledNotificationId)
+   (call-api "/notification/schedule/delete" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "scheduledNotificationId" scheduledNotificationId "deleteByGroupingId" deleteByGroupingId }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec delete-scheduled-notification scheduled-notification-full-response-spec
   "Delete Scheduled Notification
   This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi."
-  ([version float?, accountId int?, scheduledNotificationId int?, ] (delete-scheduled-notification version accountId scheduledNotificationId nil))
-  ([version float?, accountId int?, scheduledNotificationId int?, optional-params any?]
-   (let [res (:data (delete-scheduled-notification-with-http-info version accountId scheduledNotificationId optional-params))]
+  ([accountId int?, scheduledNotificationId int?, ] (delete-scheduled-notification accountId scheduledNotificationId nil))
+  ([accountId int?, scheduledNotificationId int?, optional-params any?]
+   (let [res (:data (delete-scheduled-notification-with-http-info accountId scheduledNotificationId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode scheduled-notification-full-response-spec res st/string-transformer)
         res))))
@@ -405,10 +405,10 @@
 (defn-spec get-scheduled-notification-with-http-info any?
   "Get Scheduled Notification
   Get a ScheduledNotification"
-  [version float?, accountId int?, scheduledNotificationId int?]
-  (check-required-params version accountId scheduledNotificationId)
-  (call-api "/api/{version}/notification/schedule/get" :get
-            {:path-params   {"version" version }
+  [accountId int?, scheduledNotificationId int?]
+  (check-required-params accountId scheduledNotificationId)
+  (call-api "/notification/schedule/get" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"accountId" accountId "scheduledNotificationId" scheduledNotificationId }
              :form-params   {}
@@ -419,8 +419,8 @@
 (defn-spec get-scheduled-notification scheduled-notification-full-response-spec
   "Get Scheduled Notification
   Get a ScheduledNotification"
-  [version float?, accountId int?, scheduledNotificationId int?]
-  (let [res (:data (get-scheduled-notification-with-http-info version accountId scheduledNotificationId))]
+  [accountId int?, scheduledNotificationId int?]
+  (let [res (:data (get-scheduled-notification-with-http-info accountId scheduledNotificationId))]
     (if (:decode-models *api-context*)
        (st/decode scheduled-notification-full-response-spec res st/string-transformer)
        res)))
@@ -429,11 +429,11 @@
 (defn-spec schedule-notification-listings-with-http-info any?
   "Generate Schedule Notifications
   Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users."
-  ([version float?, accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, ] (schedule-notification-listings-with-http-info version accountId appKey reportName message offset recipientReportId nil))
-  ([version float?, accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, {:keys [reportParams type]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey reportName message offset recipientReportId)
-   (call-api "/api/{version}/notification/schedule/generate" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, ] (schedule-notification-listings-with-http-info accountId appKey reportName message offset recipientReportId nil))
+  ([accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, {:keys [reportParams type]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey reportName message offset recipientReportId)
+   (call-api "/notification/schedule/generate" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "reportName" reportName "reportParams" reportParams "message" message "offset" offset "type" type "recipientReportId" recipientReportId }
               :form-params   {}
@@ -444,9 +444,9 @@
 (defn-spec schedule-notification-listings sirqul-response-spec
   "Generate Schedule Notifications
   Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users."
-  ([version float?, accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, ] (schedule-notification-listings version accountId appKey reportName message offset recipientReportId nil))
-  ([version float?, accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, optional-params any?]
-   (let [res (:data (schedule-notification-listings-with-http-info version accountId appKey reportName message offset recipientReportId optional-params))]
+  ([accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, ] (schedule-notification-listings accountId appKey reportName message offset recipientReportId nil))
+  ([accountId int?, appKey string?, reportName string?, message string?, offset int?, recipientReportId int?, optional-params any?]
+   (let [res (:data (schedule-notification-listings-with-http-info accountId appKey reportName message offset recipientReportId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,11 @@
   This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.
 
 In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators."
-  ([version float?, accountId int?, ] (search-scheduled-notifications-with-http-info version accountId nil))
-  ([version float?, accountId int?, {:keys [groupingId audienceId filter types contentIds contentTypes parentIds parentTypes statuses templateTypes appKey keyword sortField descending start limit activeOnly groupByGroupingId returnAudienceAccountCount]} (s/map-of keyword? any?)]
-   (check-required-params version accountId)
-   (call-api "/api/{version}/notification/schedule/search" :get
-             {:path-params   {"version" version }
+  ([accountId int?, ] (search-scheduled-notifications-with-http-info accountId nil))
+  ([accountId int?, {:keys [groupingId audienceId filter types contentIds contentTypes parentIds parentTypes statuses templateTypes appKey keyword sortField descending start limit activeOnly groupByGroupingId returnAudienceAccountCount]} (s/map-of keyword? any?)]
+   (check-required-params accountId)
+   (call-api "/notification/schedule/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "groupingId" groupingId "audienceId" audienceId "filter" filter "types" types "contentIds" contentIds "contentTypes" contentTypes "parentIds" parentIds "parentTypes" parentTypes "statuses" statuses "templateTypes" templateTypes "appKey" appKey "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit "activeOnly" activeOnly "groupByGroupingId" groupByGroupingId "returnAudienceAccountCount" returnAudienceAccountCount }
               :form-params   {}
@@ -474,9 +474,9 @@ In addition, if a PUBLIC Scheduled Notification was created for an application t
   This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.
 
 In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators."
-  ([version float?, accountId int?, ] (search-scheduled-notifications version accountId nil))
-  ([version float?, accountId int?, optional-params any?]
-   (let [res (:data (search-scheduled-notifications-with-http-info version accountId optional-params))]
+  ([accountId int?, ] (search-scheduled-notifications accountId nil))
+  ([accountId int?, optional-params any?]
+   (let [res (:data (search-scheduled-notifications-with-http-info accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode scheduled-notification-full-response-spec res st/string-transformer)
         res))))
@@ -487,11 +487,11 @@ In addition, if a PUBLIC Scheduled Notification was created for an application t
   This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.
 
 Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi."
-  ([version float?, scheduledNotificationId int?, accountId int?, ] (update-scheduled-notification-with-http-info version scheduledNotificationId accountId nil))
-  ([version float?, scheduledNotificationId int?, accountId int?, {:keys [name type message payload contentId contentName contentType parentId parentType appKey groupingId connectionGroupIds connectionAccountIds audienceId audienceIds albumIds reportId reportParams endpointURL scheduledDate startDate endDate cronExpression cronType metaData conditionalInput templateType visibility active errorMessage status updateByGroupingId sendNow eventType deepLinkURI sendToAll]} (s/map-of keyword? any?)]
-   (check-required-params version scheduledNotificationId accountId)
-   (call-api "/api/{version}/notification/schedule/update" :post
-             {:path-params   {"version" version }
+  ([scheduledNotificationId int?, accountId int?, ] (update-scheduled-notification-with-http-info scheduledNotificationId accountId nil))
+  ([scheduledNotificationId int?, accountId int?, {:keys [name type message payload contentId contentName contentType parentId parentType appKey groupingId connectionGroupIds connectionAccountIds audienceId audienceIds albumIds reportId reportParams endpointURL scheduledDate startDate endDate cronExpression cronType metaData conditionalInput templateType visibility active errorMessage status updateByGroupingId sendNow eventType deepLinkURI sendToAll]} (s/map-of keyword? any?)]
+   (check-required-params scheduledNotificationId accountId)
+   (call-api "/notification/schedule/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"scheduledNotificationId" scheduledNotificationId "accountId" accountId "name" name "type" type "message" message "payload" payload "contentId" contentId "contentName" contentName "contentType" contentType "parentId" parentId "parentType" parentType "appKey" appKey "groupingId" groupingId "connectionGroupIds" connectionGroupIds "connectionAccountIds" connectionAccountIds "audienceId" audienceId "audienceIds" audienceIds "albumIds" albumIds "reportId" reportId "reportParams" reportParams "endpointURL" endpointURL "scheduledDate" scheduledDate "startDate" startDate "endDate" endDate "cronExpression" cronExpression "cronType" cronType "metaData" metaData "conditionalInput" conditionalInput "templateType" templateType "visibility" visibility "active" active "errorMessage" errorMessage "status" status "updateByGroupingId" updateByGroupingId "sendNow" sendNow "eventType" eventType "deepLinkURI" deepLinkURI "sendToAll" sendToAll }
               :form-params   {}
@@ -504,9 +504,9 @@ Only the original owner of the Scheduled Notification or someone with write perm
   This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.
 
 Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi."
-  ([version float?, scheduledNotificationId int?, accountId int?, ] (update-scheduled-notification version scheduledNotificationId accountId nil))
-  ([version float?, scheduledNotificationId int?, accountId int?, optional-params any?]
-   (let [res (:data (update-scheduled-notification-with-http-info version scheduledNotificationId accountId optional-params))]
+  ([scheduledNotificationId int?, accountId int?, ] (update-scheduled-notification scheduledNotificationId accountId nil))
+  ([scheduledNotificationId int?, accountId int?, optional-params any?]
+   (let [res (:data (update-scheduled-notification-with-http-info scheduledNotificationId accountId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode scheduled-notification-full-response-spec res st/string-transformer)
         res))))

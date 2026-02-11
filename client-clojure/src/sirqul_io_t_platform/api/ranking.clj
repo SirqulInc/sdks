@@ -353,11 +353,11 @@
 (defn-spec get-historical-rankings-with-http-info any?
   "Search Historical Rankings
   Get historical leaderboard rankings by time-frame."
-  ([version float?, appKey string?, rankType string?, startDate int?, endDate int?, ] (get-historical-rankings-with-http-info version appKey rankType startDate endDate nil))
-  ([version float?, appKey string?, rankType string?, startDate int?, endDate int?, {:keys [deviceId accountId sortField descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version appKey rankType startDate endDate)
-   (call-api "/api/{version}/ranking/historical/search" :get
-             {:path-params   {"version" version }
+  ([appKey string?, rankType string?, startDate int?, endDate int?, ] (get-historical-rankings-with-http-info appKey rankType startDate endDate nil))
+  ([appKey string?, rankType string?, startDate int?, endDate int?, {:keys [deviceId accountId sortField descending start limit]} (s/map-of keyword? any?)]
+   (check-required-params appKey rankType startDate endDate)
+   (call-api "/ranking/historical/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "rankType" rankType "startDate" startDate "endDate" endDate "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec get-historical-rankings rank-full-response-spec
   "Search Historical Rankings
   Get historical leaderboard rankings by time-frame."
-  ([version float?, appKey string?, rankType string?, startDate int?, endDate int?, ] (get-historical-rankings version appKey rankType startDate endDate nil))
-  ([version float?, appKey string?, rankType string?, startDate int?, endDate int?, optional-params any?]
-   (let [res (:data (get-historical-rankings-with-http-info version appKey rankType startDate endDate optional-params))]
+  ([appKey string?, rankType string?, startDate int?, endDate int?, ] (get-historical-rankings appKey rankType startDate endDate nil))
+  ([appKey string?, rankType string?, startDate int?, endDate int?, optional-params any?]
+   (let [res (:data (get-historical-rankings-with-http-info appKey rankType startDate endDate optional-params))]
      (if (:decode-models *api-context*)
         (st/decode rank-full-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,10 @@
 (defn-spec get-rankings-with-http-info any?
   "Search Rankings
   Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank."
-  ([version float?, ] (get-rankings-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId gameType appKey q keyword rankType leaderboardMode withinAccountIds returnUserRank albumId audienceId sortField descending _i start _l limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/ranking/search" :get
-             {:path-params   {"version" version }
+  ([] (get-rankings-with-http-info nil))
+  ([{:keys [deviceId accountId gameType appKey q keyword rankType leaderboardMode withinAccountIds returnUserRank albumId audienceId sortField descending _i start _l limit]} (s/map-of keyword? any?)]
+   (call-api "/ranking/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "appKey" appKey "q" q "keyword" keyword "rankType" rankType "leaderboardMode" leaderboardMode "withinAccountIds" withinAccountIds "returnUserRank" returnUserRank "albumId" albumId "audienceId" audienceId "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit }
               :form-params   {}
@@ -394,9 +393,9 @@
 (defn-spec get-rankings rank-full-response-spec
   "Search Rankings
   Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank."
-  ([version float?, ] (get-rankings version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-rankings-with-http-info version optional-params))]
+  ([] (get-rankings nil))
+  ([optional-params any?]
+   (let [res (:data (get-rankings-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode rank-full-response-spec res st/string-transformer)
         res))))
@@ -405,11 +404,10 @@
 (defn-spec get-user-rank-with-http-info any?
   "Get Personal Rankings
   Returns the user's ranks for one or more rank types and modes."
-  ([version float?, ] (get-user-rank-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId appKey rankType returnUserRank leaderboardMode sortField keyword descending start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/ranking/personal/ranks" :post
-             {:path-params   {"version" version }
+  ([] (get-user-rank-with-http-info nil))
+  ([{:keys [deviceId accountId appKey rankType returnUserRank leaderboardMode sortField keyword descending start limit]} (s/map-of keyword? any?)]
+   (call-api "/ranking/personal/ranks" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "appKey" appKey "rankType" rankType "returnUserRank" returnUserRank "leaderboardMode" leaderboardMode "sortField" sortField "keyword" keyword "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -420,9 +418,9 @@
 (defn-spec get-user-rank any?
   "Get Personal Rankings
   Returns the user's ranks for one or more rank types and modes."
-  ([version float?, ] (get-user-rank version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (get-user-rank-with-http-info version optional-params))]
+  ([] (get-user-rank nil))
+  ([optional-params any?]
+   (let [res (:data (get-user-rank-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode any? res st/string-transformer)
         res))))
@@ -431,11 +429,11 @@
 (defn-spec override-user-rank-with-http-info any?
   "Override User Rank
   Allows an admin of an application to override a user's scores for a leaderboard."
-  ([version float?, accountId int?, ownerAccountId int?, appKey string?, rankType string?, ] (override-user-rank-with-http-info version accountId ownerAccountId appKey rankType nil))
-  ([version float?, accountId int?, ownerAccountId int?, appKey string?, rankType string?, {:keys [totalScore totalCount totalTime dailyScore dailyCount dailyTime weeklyScore weeklyCount weeklyTime monthlyScore monthlyCount monthlyTime topScore lowestScore streakCount streakBestCount startDate endDate]} (s/map-of keyword? any?)]
-   (check-required-params version accountId ownerAccountId appKey rankType)
-   (call-api "/api/{version}/ranking/override" :post
-             {:path-params   {"version" version }
+  ([accountId int?, ownerAccountId int?, appKey string?, rankType string?, ] (override-user-rank-with-http-info accountId ownerAccountId appKey rankType nil))
+  ([accountId int?, ownerAccountId int?, appKey string?, rankType string?, {:keys [totalScore totalCount totalTime dailyScore dailyCount dailyTime weeklyScore weeklyCount weeklyTime monthlyScore monthlyCount monthlyTime topScore lowestScore streakCount streakBestCount startDate endDate]} (s/map-of keyword? any?)]
+   (check-required-params accountId ownerAccountId appKey rankType)
+   (call-api "/ranking/override" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "ownerAccountId" ownerAccountId "appKey" appKey "rankType" rankType "totalScore" totalScore "totalCount" totalCount "totalTime" totalTime "dailyScore" dailyScore "dailyCount" dailyCount "dailyTime" dailyTime "weeklyScore" weeklyScore "weeklyCount" weeklyCount "weeklyTime" weeklyTime "monthlyScore" monthlyScore "monthlyCount" monthlyCount "monthlyTime" monthlyTime "topScore" topScore "lowestScore" lowestScore "streakCount" streakCount "streakBestCount" streakBestCount "startDate" startDate "endDate" endDate }
               :form-params   {}
@@ -446,9 +444,9 @@
 (defn-spec override-user-rank sirqul-response-spec
   "Override User Rank
   Allows an admin of an application to override a user's scores for a leaderboard."
-  ([version float?, accountId int?, ownerAccountId int?, appKey string?, rankType string?, ] (override-user-rank version accountId ownerAccountId appKey rankType nil))
-  ([version float?, accountId int?, ownerAccountId int?, appKey string?, rankType string?, optional-params any?]
-   (let [res (:data (override-user-rank-with-http-info version accountId ownerAccountId appKey rankType optional-params))]
+  ([accountId int?, ownerAccountId int?, appKey string?, rankType string?, ] (override-user-rank accountId ownerAccountId appKey rankType nil))
+  ([accountId int?, ownerAccountId int?, appKey string?, rankType string?, optional-params any?]
+   (let [res (:data (override-user-rank-with-http-info accountId ownerAccountId appKey rankType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -457,11 +455,11 @@
 (defn-spec update-rankings-with-http-info any?
   "Update Ranking
   Update the rank value"
-  ([version float?, accountId int?, appKey string?, rankType string?, ] (update-rankings-with-http-info version accountId appKey rankType nil))
-  ([version float?, accountId int?, appKey string?, rankType string?, {:keys [increment timeIncrement tag startDate endDate updateGlobal createLeaderboard]} (s/map-of keyword? any?)]
-   (check-required-params version accountId appKey rankType)
-   (call-api "/api/{version}/ranking/update" :post
-             {:path-params   {"version" version }
+  ([accountId int?, appKey string?, rankType string?, ] (update-rankings-with-http-info accountId appKey rankType nil))
+  ([accountId int?, appKey string?, rankType string?, {:keys [increment timeIncrement tag startDate endDate updateGlobal createLeaderboard]} (s/map-of keyword? any?)]
+   (check-required-params accountId appKey rankType)
+   (call-api "/ranking/update" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "rankType" rankType "increment" increment "timeIncrement" timeIncrement "tag" tag "startDate" startDate "endDate" endDate "updateGlobal" updateGlobal "createLeaderboard" createLeaderboard }
               :form-params   {}
@@ -472,9 +470,9 @@
 (defn-spec update-rankings sirqul-response-spec
   "Update Ranking
   Update the rank value"
-  ([version float?, accountId int?, appKey string?, rankType string?, ] (update-rankings version accountId appKey rankType nil))
-  ([version float?, accountId int?, appKey string?, rankType string?, optional-params any?]
-   (let [res (:data (update-rankings-with-http-info version accountId appKey rankType optional-params))]
+  ([accountId int?, appKey string?, rankType string?, ] (update-rankings accountId appKey rankType nil))
+  ([accountId int?, appKey string?, rankType string?, optional-params any?]
+   (let [res (:data (update-rankings-with-http-info accountId appKey rankType optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

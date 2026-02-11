@@ -355,11 +355,11 @@
   Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.   
 
 Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application."
-  ([version float?, start int?, limit int?, ] (get-app-data-with-http-info version start limit nil))
-  ([version float?, start int?, limit int?, {:keys [deviceId accountId gameType includeGameData q keyword sortField descending _i _l gameObjectCount filter dateCreated ownerId missionIds gameIds packIds gameLevelIds appVersion includeHigherVersionPacks includeHigherVersionLevels responseGroups purchaseType]} (s/map-of keyword? any?)]
-   (check-required-params version start limit)
-   (call-api "/api/{version}/app/get" :get
-             {:path-params   {"version" version }
+  ([start int?, limit int?, ] (get-app-data-with-http-info start limit nil))
+  ([start int?, limit int?, {:keys [deviceId accountId gameType includeGameData q keyword sortField descending _i _l gameObjectCount filter dateCreated ownerId missionIds gameIds packIds gameLevelIds appVersion includeHigherVersionPacks includeHigherVersionLevels responseGroups purchaseType]} (s/map-of keyword? any?)]
+   (check-required-params start limit)
+   (call-api "/app/get" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "includeGameData" includeGameData "q" q "keyword" keyword "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "gameObjectCount" gameObjectCount "filter" filter "dateCreated" dateCreated "ownerId" ownerId "missionIds" missionIds "gameIds" gameIds "packIds" packIds "gameLevelIds" gameLevelIds "appVersion" appVersion "includeHigherVersionPacks" includeHigherVersionPacks "includeHigherVersionLevels" includeHigherVersionLevels "responseGroups" responseGroups "purchaseType" purchaseType }
               :form-params   {}
@@ -372,9 +372,9 @@ Using the various parameters can return the applications default mission   (buil
   Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.   
 
 Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application."
-  ([version float?, start int?, limit int?, ] (get-app-data version start limit nil))
-  ([version float?, start int?, limit int?, optional-params any?]
-   (let [res (:data (get-app-data-with-http-info version start limit optional-params))]
+  ([start int?, limit int?, ] (get-app-data start limit nil))
+  ([start int?, limit int?, optional-params any?]
+   (let [res (:data (get-app-data-with-http-info start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode app-response-spec res st/string-transformer)
         res))))
@@ -387,11 +387,11 @@ Using the various parameters can return the applications default mission   (buil
 The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.    
 
 Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application"
-  ([version float?, gameType string?, start int?, limit int?, data string?, ] (post-app-data-with-http-info version gameType start limit data nil))
-  ([version float?, gameType string?, start int?, limit int?, data string?, {:keys [deviceId accountId includeGameData q keyword sortField descending _i _l gameObjectCount filter dateCreated ownerId missionIds gameIds packIds gameLevelIds appVersion includeHigherVersionPacks includeHigherVersionLevels responseGroups purchaseType]} (s/map-of keyword? any?)]
-   (check-required-params version gameType start limit data)
-   (call-api "/api/{version}/app/post" :post
-             {:path-params   {"version" version }
+  ([gameType string?, start int?, limit int?, data string?, ] (post-app-data-with-http-info gameType start limit data nil))
+  ([gameType string?, start int?, limit int?, data string?, {:keys [deviceId accountId includeGameData q keyword sortField descending _i _l gameObjectCount filter dateCreated ownerId missionIds gameIds packIds gameLevelIds appVersion includeHigherVersionPacks includeHigherVersionLevels responseGroups purchaseType]} (s/map-of keyword? any?)]
+   (check-required-params gameType start limit data)
+   (call-api "/app/post" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "gameType" gameType "includeGameData" includeGameData "q" q "keyword" keyword "sortField" sortField "descending" descending "_i" _i "start" start "_l" _l "limit" limit "gameObjectCount" gameObjectCount "filter" filter "dateCreated" dateCreated "ownerId" ownerId "missionIds" missionIds "gameIds" gameIds "packIds" packIds "gameLevelIds" gameLevelIds "appVersion" appVersion "includeHigherVersionPacks" includeHigherVersionPacks "includeHigherVersionLevels" includeHigherVersionLevels "responseGroups" responseGroups "purchaseType" purchaseType "data" data }
               :form-params   {}
@@ -406,9 +406,9 @@ Using the various parameters can return the applications default mission   (buil
 The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.    
 
 Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application"
-  ([version float?, gameType string?, start int?, limit int?, data string?, ] (post-app-data version gameType start limit data nil))
-  ([version float?, gameType string?, start int?, limit int?, data string?, optional-params any?]
-   (let [res (:data (post-app-data-with-http-info version gameType start limit data optional-params))]
+  ([gameType string?, start int?, limit int?, data string?, ] (post-app-data gameType start limit data nil))
+  ([gameType string?, start int?, limit int?, data string?, optional-params any?]
+   (let [res (:data (post-app-data-with-http-info gameType start limit data optional-params))]
      (if (:decode-models *api-context*)
         (st/decode app-response-spec res st/string-transformer)
         res))))
@@ -417,11 +417,10 @@ Using the various parameters can return the applications default mission   (buil
 (defn-spec regen-app-data-with-http-info any?
   "Regenerate App Data
   Regenerate the app data cache for apps"
-  ([version float?, ] (regen-app-data-with-http-info version nil))
-  ([version float?, {:keys [accountId appKey buildVersion apiVersion]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/app/regen" :post
-             {:path-params   {"version" version }
+  ([] (regen-app-data-with-http-info nil))
+  ([{:keys [accountId appKey buildVersion apiVersion]} (s/map-of keyword? any?)]
+   (call-api "/app/regen" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"accountId" accountId "appKey" appKey "buildVersion" buildVersion "apiVersion" apiVersion }
               :form-params   {}
@@ -432,9 +431,9 @@ Using the various parameters can return the applications default mission   (buil
 (defn-spec regen-app-data sirqul-response-spec
   "Regenerate App Data
   Regenerate the app data cache for apps"
-  ([version float?, ] (regen-app-data version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (regen-app-data-with-http-info version optional-params))]
+  ([] (regen-app-data nil))
+  ([optional-params any?]
+   (let [res (:data (regen-app-data-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))

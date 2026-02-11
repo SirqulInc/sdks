@@ -353,11 +353,10 @@
 (defn-spec create-shipment-batch-with-http-info any?
   "Create Shipment Batch
   Create a new shipment batch"
-  ([version float?, ] (create-shipment-batch-with-http-info version nil))
-  ([version float?, {:keys [body]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/shipment/batch" :post
-             {:path-params   {"version" version }
+  ([] (create-shipment-batch-with-http-info nil))
+  ([{:keys [body]} (s/map-of keyword? any?)]
+   (call-api "/shipment/batch" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {}
               :form-params   {}
@@ -369,9 +368,9 @@
 (defn-spec create-shipment-batch shipment-batch-spec
   "Create Shipment Batch
   Create a new shipment batch"
-  ([version float?, ] (create-shipment-batch version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (create-shipment-batch-with-http-info version optional-params))]
+  ([] (create-shipment-batch nil))
+  ([optional-params any?]
+   (let [res (:data (create-shipment-batch-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode shipment-batch-spec res st/string-transformer)
         res))))
@@ -380,10 +379,10 @@
 (defn-spec delete-shipment-batch-with-http-info any?
   "Delete Shipment Batch
   Search for shipment batches"
-  [version float?, batchId int?]
-  (check-required-params version batchId)
-  (call-api "/api/{version}/shipment/batch/{batchId}" :delete
-            {:path-params   {"version" version "batchId" batchId }
+  [batchId int?]
+  (check-required-params batchId)
+  (call-api "/shipment/batch/{batchId}" :delete
+            {:path-params   {"batchId" batchId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -394,8 +393,8 @@
 (defn-spec delete-shipment-batch any?
   "Delete Shipment Batch
   Search for shipment batches"
-  [version float?, batchId int?]
-  (let [res (:data (delete-shipment-batch-with-http-info version batchId))]
+  [batchId int?]
+  (let [res (:data (delete-shipment-batch-with-http-info batchId))]
     (if (:decode-models *api-context*)
        (st/decode any? res st/string-transformer)
        res)))
@@ -404,10 +403,10 @@
 (defn-spec get-shipment-batch-with-http-info any?
   "Get Shipment Batch
   Get an existing shipment batch"
-  [version float?, batchId int?]
-  (check-required-params version batchId)
-  (call-api "/api/{version}/shipment/batch/{batchId}" :get
-            {:path-params   {"version" version "batchId" batchId }
+  [batchId int?]
+  (check-required-params batchId)
+  (call-api "/shipment/batch/{batchId}" :get
+            {:path-params   {"batchId" batchId }
              :header-params {}
              :query-params  {}
              :form-params   {}
@@ -418,8 +417,8 @@
 (defn-spec get-shipment-batch shipment-batch-spec
   "Get Shipment Batch
   Get an existing shipment batch"
-  [version float?, batchId int?]
-  (let [res (:data (get-shipment-batch-with-http-info version batchId))]
+  [batchId int?]
+  (let [res (:data (get-shipment-batch-with-http-info batchId))]
     (if (:decode-models *api-context*)
        (st/decode shipment-batch-spec res st/string-transformer)
        res)))
@@ -428,11 +427,11 @@
 (defn-spec get-shipment-batch-status-with-http-info any?
   "Get Shipment Batch Status
   Get the import status list of the import shipment batch"
-  ([version float?, batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (get-shipment-batch-status-with-http-info version batchId accountId sortField descending start limit nil))
-  ([version float?, batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, {:keys [valid started completed hasShipment hasRoute keyword]} (s/map-of keyword? any?)]
-   (check-required-params version batchId accountId sortField descending start limit)
-   (call-api "/api/{version}/shipment/batch/{batchId}/status" :get
-             {:path-params   {"version" version "batchId" batchId }
+  ([batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (get-shipment-batch-status-with-http-info batchId accountId sortField descending start limit nil))
+  ([batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, {:keys [valid started completed hasShipment hasRoute keyword]} (s/map-of keyword? any?)]
+   (check-required-params batchId accountId sortField descending start limit)
+   (call-api "/shipment/batch/{batchId}/status" :get
+             {:path-params   {"batchId" batchId }
               :header-params {}
               :query-params  {"accountId" accountId "valid" valid "started" started "completed" completed "hasShipment" hasShipment "hasRoute" hasRoute "keyword" keyword "sortField" sortField "descending" descending "start" start "limit" limit }
               :form-params   {}
@@ -443,9 +442,9 @@
 (defn-spec get-shipment-batch-status (s/coll-of shipment-import-status-spec)
   "Get Shipment Batch Status
   Get the import status list of the import shipment batch"
-  ([version float?, batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (get-shipment-batch-status version batchId accountId sortField descending start limit nil))
-  ([version float?, batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
-   (let [res (:data (get-shipment-batch-status-with-http-info version batchId accountId sortField descending start limit optional-params))]
+  ([batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, ] (get-shipment-batch-status batchId accountId sortField descending start limit nil))
+  ([batchId int?, accountId int?, sortField string?, descending boolean?, start int?, limit int?, optional-params any?]
+   (let [res (:data (get-shipment-batch-status-with-http-info batchId accountId sortField descending start limit optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of shipment-import-status-spec) res st/string-transformer)
         res))))
@@ -454,10 +453,10 @@
 (defn-spec search-shipment-batch-with-http-info any?
   "Search Shipment Batch
   Search for shipment batches"
-  [version float?, hubId int?, sortField string?, descending boolean?, start int?, limit int?]
-  (check-required-params version hubId sortField descending start limit)
-  (call-api "/api/{version}/shipment/batch" :get
-            {:path-params   {"version" version }
+  [hubId int?, sortField string?, descending boolean?, start int?, limit int?]
+  (check-required-params hubId sortField descending start limit)
+  (call-api "/shipment/batch" :get
+            {:path-params   {}
              :header-params {}
              :query-params  {"hubId" hubId "sortField" sortField "descending" descending "start" start "limit" limit }
              :form-params   {}
@@ -468,8 +467,8 @@
 (defn-spec search-shipment-batch (s/coll-of shipment-batch-spec)
   "Search Shipment Batch
   Search for shipment batches"
-  [version float?, hubId int?, sortField string?, descending boolean?, start int?, limit int?]
-  (let [res (:data (search-shipment-batch-with-http-info version hubId sortField descending start limit))]
+  [hubId int?, sortField string?, descending boolean?, start int?, limit int?]
+  (let [res (:data (search-shipment-batch-with-http-info hubId sortField descending start limit))]
     (if (:decode-models *api-context*)
        (st/decode (s/coll-of shipment-batch-spec) res st/string-transformer)
        res)))

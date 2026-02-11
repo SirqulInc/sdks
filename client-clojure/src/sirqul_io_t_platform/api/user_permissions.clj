@@ -353,11 +353,11 @@
 (defn-spec add-users-to-permissionable-with-http-info any?
   "Add User
   Adds a user to a permissionable object."
-  ([version float?, permissionableType string?, permissionableId int?, ] (add-users-to-permissionable-with-http-info version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, {:keys [deviceId accountId read write delete add connectionIds connectionAccountIds connectionGroupIds pending admin includeFriendGroup latitude longitude audienceIds]} (s/map-of keyword? any?)]
-   (check-required-params version permissionableType permissionableId)
-   (call-api "/api/{version}/consumer/permissions/add" :post
-             {:path-params   {"version" version }
+  ([permissionableType string?, permissionableId int?, ] (add-users-to-permissionable-with-http-info permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, {:keys [deviceId accountId read write delete add connectionIds connectionAccountIds connectionGroupIds pending admin includeFriendGroup latitude longitude audienceIds]} (s/map-of keyword? any?)]
+   (check-required-params permissionableType permissionableId)
+   (call-api "/consumer/permissions/add" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "permissionableType" permissionableType "permissionableId" permissionableId "read" read "write" write "delete" delete "add" add "connectionIds" connectionIds "connectionAccountIds" connectionAccountIds "connectionGroupIds" connectionGroupIds "pending" pending "admin" admin "includeFriendGroup" includeFriendGroup "latitude" latitude "longitude" longitude "audienceIds" audienceIds }
               :form-params   {}
@@ -368,9 +368,9 @@
 (defn-spec add-users-to-permissionable sirqul-response-spec
   "Add User
   Adds a user to a permissionable object."
-  ([version float?, permissionableType string?, permissionableId int?, ] (add-users-to-permissionable version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, optional-params any?]
-   (let [res (:data (add-users-to-permissionable-with-http-info version permissionableType permissionableId optional-params))]
+  ([permissionableType string?, permissionableId int?, ] (add-users-to-permissionable permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, optional-params any?]
+   (let [res (:data (add-users-to-permissionable-with-http-info permissionableType permissionableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -379,11 +379,11 @@
 (defn-spec approve-permissionable-with-http-info any?
   "Approve Permissionable
   Sets the approval status of a permissionable object."
-  ([version float?, permissionableType string?, permissionableId int?, ] (approve-permissionable-with-http-info version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, {:keys [deviceId accountId approvalStatus]} (s/map-of keyword? any?)]
-   (check-required-params version permissionableType permissionableId)
-   (call-api "/api/{version}/permissionable/approve" :post
-             {:path-params   {"version" version }
+  ([permissionableType string?, permissionableId int?, ] (approve-permissionable-with-http-info permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, {:keys [deviceId accountId approvalStatus]} (s/map-of keyword? any?)]
+   (check-required-params permissionableType permissionableId)
+   (call-api "/permissionable/approve" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "permissionableType" permissionableType "permissionableId" permissionableId "approvalStatus" approvalStatus }
               :form-params   {}
@@ -394,9 +394,9 @@
 (defn-spec approve-permissionable sirqul-response-spec
   "Approve Permissionable
   Sets the approval status of a permissionable object."
-  ([version float?, permissionableType string?, permissionableId int?, ] (approve-permissionable version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, optional-params any?]
-   (let [res (:data (approve-permissionable-with-http-info version permissionableType permissionableId optional-params))]
+  ([permissionableType string?, permissionableId int?, ] (approve-permissionable permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, optional-params any?]
+   (let [res (:data (approve-permissionable-with-http-info permissionableType permissionableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -405,11 +405,11 @@
 (defn-spec leave-from-permissionable-with-http-info any?
   "Leave
   Used when the user wants to leave from someone else's permissionable object"
-  ([version float?, permissionableType string?, permissionableId int?, ] (leave-from-permissionable-with-http-info version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
-   (check-required-params version permissionableType permissionableId)
-   (call-api "/api/{version}/consumer/permissions/leave" :post
-             {:path-params   {"version" version }
+  ([permissionableType string?, permissionableId int?, ] (leave-from-permissionable-with-http-info permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, {:keys [deviceId accountId latitude longitude]} (s/map-of keyword? any?)]
+   (check-required-params permissionableType permissionableId)
+   (call-api "/consumer/permissions/leave" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "permissionableType" permissionableType "permissionableId" permissionableId "latitude" latitude "longitude" longitude }
               :form-params   {}
@@ -420,9 +420,9 @@
 (defn-spec leave-from-permissionable sirqul-response-spec
   "Leave
   Used when the user wants to leave from someone else's permissionable object"
-  ([version float?, permissionableType string?, permissionableId int?, ] (leave-from-permissionable version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, optional-params any?]
-   (let [res (:data (leave-from-permissionable-with-http-info version permissionableType permissionableId optional-params))]
+  ([permissionableType string?, permissionableId int?, ] (leave-from-permissionable permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, optional-params any?]
+   (let [res (:data (leave-from-permissionable-with-http-info permissionableType permissionableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -431,11 +431,11 @@
 (defn-spec remove-users-from-permissionable-with-http-info any?
   "Remove User
   Used to remove someone (assuming they have permission) from a permissionable object"
-  ([version float?, permissionableType string?, permissionableId int?, ] (remove-users-from-permissionable-with-http-info version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, {:keys [deviceId accountId connectionIds connectionAccountIds connectionGroupIds removeFriendGroup latitude longitude audienceIds]} (s/map-of keyword? any?)]
-   (check-required-params version permissionableType permissionableId)
-   (call-api "/api/{version}/consumer/permissions/remove" :post
-             {:path-params   {"version" version }
+  ([permissionableType string?, permissionableId int?, ] (remove-users-from-permissionable-with-http-info permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, {:keys [deviceId accountId connectionIds connectionAccountIds connectionGroupIds removeFriendGroup latitude longitude audienceIds]} (s/map-of keyword? any?)]
+   (check-required-params permissionableType permissionableId)
+   (call-api "/consumer/permissions/remove" :post
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "permissionableType" permissionableType "permissionableId" permissionableId "connectionIds" connectionIds "connectionAccountIds" connectionAccountIds "connectionGroupIds" connectionGroupIds "removeFriendGroup" removeFriendGroup "latitude" latitude "longitude" longitude "audienceIds" audienceIds }
               :form-params   {}
@@ -446,9 +446,9 @@
 (defn-spec remove-users-from-permissionable sirqul-response-spec
   "Remove User
   Used to remove someone (assuming they have permission) from a permissionable object"
-  ([version float?, permissionableType string?, permissionableId int?, ] (remove-users-from-permissionable version permissionableType permissionableId nil))
-  ([version float?, permissionableType string?, permissionableId int?, optional-params any?]
-   (let [res (:data (remove-users-from-permissionable-with-http-info version permissionableType permissionableId optional-params))]
+  ([permissionableType string?, permissionableId int?, ] (remove-users-from-permissionable permissionableType permissionableId nil))
+  ([permissionableType string?, permissionableId int?, optional-params any?]
+   (let [res (:data (remove-users-from-permissionable-with-http-info permissionableType permissionableId optional-params))]
      (if (:decode-models *api-context*)
         (st/decode sirqul-response-spec res st/string-transformer)
         res))))
@@ -457,11 +457,10 @@
 (defn-spec search-permissionables-with-http-info any?
   "Search Permissionables
   Search on UserPermissions"
-  ([version float?, ] (search-permissionables-with-http-info version nil))
-  ([version float?, {:keys [deviceId accountId connectionAccountId connectionAccountIds permissionableType permissionableId keyword sortField descending pending admin start limit]} (s/map-of keyword? any?)]
-   (check-required-params version)
-   (call-api "/api/{version}/permissions/search" :get
-             {:path-params   {"version" version }
+  ([] (search-permissionables-with-http-info nil))
+  ([{:keys [deviceId accountId connectionAccountId connectionAccountIds permissionableType permissionableId keyword sortField descending pending admin start limit]} (s/map-of keyword? any?)]
+   (call-api "/permissions/search" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "connectionAccountIds" connectionAccountIds "permissionableType" permissionableType "permissionableId" permissionableId "keyword" keyword "sortField" sortField "descending" descending "pending" pending "admin" admin "start" start "limit" limit }
               :form-params   {}
@@ -472,9 +471,9 @@
 (defn-spec search-permissionables (s/coll-of user-permissions-response-spec)
   "Search Permissionables
   Search on UserPermissions"
-  ([version float?, ] (search-permissionables version nil))
-  ([version float?, optional-params any?]
-   (let [res (:data (search-permissionables-with-http-info version optional-params))]
+  ([] (search-permissionables nil))
+  ([optional-params any?]
+   (let [res (:data (search-permissionables-with-http-info optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of user-permissions-response-spec) res st/string-transformer)
         res))))
@@ -483,11 +482,11 @@
 (defn-spec search-permissionables-following-distance-with-http-info any?
   "Search Permissionables by Distnace
   Search on UserPermissions by distance"
-  ([version float?, latitude float?, longitude float?, ] (search-permissionables-following-distance-with-http-info version latitude longitude nil))
-  ([version float?, latitude float?, longitude float?, {:keys [deviceId accountId connectionAccountId connectionAccountIds permissionableType permissionableId searchRange keyword pending admin start limit]} (s/map-of keyword? any?)]
-   (check-required-params version latitude longitude)
-   (call-api "/api/{version}/permissions/distancesearch" :get
-             {:path-params   {"version" version }
+  ([latitude float?, longitude float?, ] (search-permissionables-following-distance-with-http-info latitude longitude nil))
+  ([latitude float?, longitude float?, {:keys [deviceId accountId connectionAccountId connectionAccountIds permissionableType permissionableId searchRange keyword pending admin start limit]} (s/map-of keyword? any?)]
+   (check-required-params latitude longitude)
+   (call-api "/permissions/distancesearch" :get
+             {:path-params   {}
               :header-params {}
               :query-params  {"deviceId" deviceId "accountId" accountId "connectionAccountId" connectionAccountId "connectionAccountIds" connectionAccountIds "permissionableType" permissionableType "permissionableId" permissionableId "latitude" latitude "longitude" longitude "searchRange" searchRange "keyword" keyword "pending" pending "admin" admin "start" start "limit" limit }
               :form-params   {}
@@ -498,9 +497,9 @@
 (defn-spec search-permissionables-following-distance (s/coll-of user-permissions-response-spec)
   "Search Permissionables by Distnace
   Search on UserPermissions by distance"
-  ([version float?, latitude float?, longitude float?, ] (search-permissionables-following-distance version latitude longitude nil))
-  ([version float?, latitude float?, longitude float?, optional-params any?]
-   (let [res (:data (search-permissionables-following-distance-with-http-info version latitude longitude optional-params))]
+  ([latitude float?, longitude float?, ] (search-permissionables-following-distance latitude longitude nil))
+  ([latitude float?, longitude float?, optional-params any?]
+   (let [res (:data (search-permissionables-following-distance-with-http-info latitude longitude optional-params))]
      (if (:decode-models *api-context*)
         (st/decode (s/coll-of user-permissions-response-spec) res st/string-transformer)
         res))))
