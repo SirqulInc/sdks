@@ -21,7 +21,7 @@ open class NoteAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,23 +29,21 @@ open class NoteAPI {
 
 
     /// Batch Note Operation
-    /// - POST /api/{version}/note/batch
+    /// - POST /note/batch
     /// - Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-    /// - parameter version: (path)  
     /// - parameter notableId: (query) The id of the notable object the batch operation will affect 
     /// - parameter notableType: (query) The notable object type (for example ALBUM, ASSET, OFFER, etc.) 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter batchOperation: (query) The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func batchOperation(version: Double, notableId: Int64, notableType: String, deviceId: String? = nil, accountId: Int64? = nil, batchOperation: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func batchOperation(notableId: Int64, notableType: String, deviceId: String? = nil, accountId: Int64? = nil, batchOperation: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/note/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/note/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -73,9 +71,8 @@ open class NoteAPI {
 
 
     /// Create Note
-    /// - POST /api/{version}/note/create
+    /// - POST /note/create
     /// - This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-    /// - parameter version: (path)  
     /// - parameter comment: (query) The message the user wishes to leave a comment on 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -119,14 +116,13 @@ open class NoteAPI {
     /// - parameter assetLatitude: (query) the latitude of the asset (optional)
     /// - parameter assetLongitude: (query) the longitude of the asset (optional)
     /// - returns: AnyPublisher<NoteResponse, Error> 
-    open func createNote(version: Double, comment: String, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, receiverAccountIds: String? = nil, returnFullResponse: Bool? = nil, initializeAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: Data? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: Data? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil) -> AnyPublisher<NoteResponse, Error> {
+    open func createNote(comment: String, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, receiverAccountIds: String? = nil, returnFullResponse: Bool? = nil, initializeAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: Data? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: Data? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil) -> AnyPublisher<NoteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/note/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/note/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -191,9 +187,8 @@ open class NoteAPI {
 
 
     /// Delete Note
-    /// - POST /api/{version}/note/delete
+    /// - POST /note/delete
     /// - Sets a comment (note) as deleted.
-    /// - parameter version: (path)  
     /// - parameter noteId: (query) The ID of the note to delete 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -201,14 +196,13 @@ open class NoteAPI {
     /// - parameter longitude: (query) The current location of the user (optional)
     /// - parameter appKey: (query) The application key used to identify the application (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteNote(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteNote(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/note/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/note/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -237,22 +231,20 @@ open class NoteAPI {
 
 
     /// Get Note
-    /// - POST /api/{version}/note/get
+    /// - POST /note/get
     /// - Get for a note based on its Id.
-    /// - parameter version: (path)  
     /// - parameter noteId: (query) the id of the note to get 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter returnFullResponse: (query) Determines whether to return the NoteFullResponse for the item (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func getNote(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, returnFullResponse: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func getNote(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, returnFullResponse: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/note/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/note/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -296,9 +288,8 @@ open class NoteAPI {
     }
 
     /// Search Notes
-    /// - POST /api/{version}/note/search
+    /// - POST /note/search
     /// - Search for notes on a notable object.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter notableType: (query) The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional)
@@ -317,14 +308,13 @@ open class NoteAPI {
     /// - parameter start: (query) The record to begin the return set on (optional)
     /// - parameter limit: (query) The number of records to return (optional)
     /// - returns: AnyPublisher<[NoteResponse], Error> 
-    open func searchNotes(version: Double, deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, flagCountMinimum: Int64? = nil, flagsExceedThreshold: Bool? = nil, includeInactive: Bool? = nil, sortField: SearchNotesSortField? = nil, descending: Bool? = nil, returnFullResponse: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[NoteResponse], Error> {
+    open func searchNotes(deviceId: String? = nil, accountId: Int64? = nil, notableType: String? = nil, notableId: Int64? = nil, noteTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, flagCountMinimum: Int64? = nil, flagsExceedThreshold: Bool? = nil, includeInactive: Bool? = nil, sortField: SearchNotesSortField? = nil, descending: Bool? = nil, returnFullResponse: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[NoteResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/note/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/note/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -364,9 +354,8 @@ open class NoteAPI {
 
 
     /// Update Note
-    /// - POST /api/{version}/note/update
+    /// - POST /note/update
     /// - Update an existing comment (note). Only the creator of the note have permission to update.
-    /// - parameter version: (path)  
     /// - parameter noteId: (query) The id of the note, used when editing a comment 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -409,14 +398,13 @@ open class NoteAPI {
     /// - parameter assetLatitude: (query) the latitude of the asset (optional)
     /// - parameter assetLongitude: (query) the longitude of the asset (optional)
     /// - returns: AnyPublisher<NoteResponse, Error> 
-    open func updateNote(version: Double, noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, comment: String? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, active: Bool? = nil, updateAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: Data? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: Data? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil) -> AnyPublisher<NoteResponse, Error> {
+    open func updateNote(noteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, comment: String? = nil, noteType: String? = nil, assetIds: String? = nil, tags: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, appKey: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, active: Bool? = nil, updateAsset: Bool? = nil, assetReturnNulls: Bool? = nil, assetAlbumId: Int64? = nil, assetCollectionId: Int64? = nil, assetAddToDefaultAlbum: String? = nil, assetAddToMediaLibrary: Bool? = nil, assetVersionCode: Int? = nil, assetVersionName: String? = nil, assetMetaData: String? = nil, assetCaption: String? = nil, assetMedia: Data? = nil, assetMediaUrl: String? = nil, assetMediaString: String? = nil, assetMediaStringFileName: String? = nil, assetMediaStringContentType: String? = nil, assetAttachedMedia: Data? = nil, assetAttachedMediaUrl: String? = nil, assetAttachedMediaString: String? = nil, assetAttachedMediaStringFileName: String? = nil, assetAttachedMediaStringContentType: String? = nil, assetLocationDescription: String? = nil, assetApp: String? = nil, assetSearchTags: String? = nil, assetLatitude: Double? = nil, assetLongitude: Double? = nil) -> AnyPublisher<NoteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/note/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/note/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

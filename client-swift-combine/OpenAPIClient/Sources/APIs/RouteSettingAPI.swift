@@ -21,7 +21,7 @@ open class RouteSettingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class RouteSettingAPI {
 
 
     /// Create Route Setting
-    /// - POST /api/{version}/route/setting
+    /// - POST /route/setting
     /// - Create a new route setting
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<RouteSettings, Error> 
-    open func createRouteSettings(version: Double, body: RouteSettings? = nil) -> AnyPublisher<RouteSettings, Error> {
+    open func createRouteSettings(body: RouteSettings? = nil) -> AnyPublisher<RouteSettings, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/setting"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/route/setting"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -64,19 +62,17 @@ open class RouteSettingAPI {
 
 
     /// Delete Route Setting
-    /// - DELETE /api/{version}/route/setting/{routeSettingsId}
+    /// - DELETE /route/setting/{routeSettingsId}
     /// - Delete an existing route setting
-    /// - parameter version: (path)  
     /// - parameter routeSettingsId: (path) the id of the route setting to delete 
     /// - returns: AnyPublisher<[String: Any], Error> 
-    open func deleteRouteSettings(version: Double, routeSettingsId: Int64) -> AnyPublisher<[String: Any], Error> {
+    open func deleteRouteSettings(routeSettingsId: Int64) -> AnyPublisher<[String: Any], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/setting/{routeSettingsId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/setting/{routeSettingsId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeSettingsId}", with: "\(routeSettingsId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -102,19 +98,17 @@ open class RouteSettingAPI {
 
 
     /// Get Route Setting
-    /// - GET /api/{version}/route/setting/{routeSettingsId}
+    /// - GET /route/setting/{routeSettingsId}
     /// - Get an existing route settings
-    /// - parameter version: (path)  
     /// - parameter routeSettingsId: (path) the id of the route settings to get 
     /// - returns: AnyPublisher<RouteSettings, Error> 
-    open func getRouteSettings(version: Double, routeSettingsId: Int64) -> AnyPublisher<RouteSettings, Error> {
+    open func getRouteSettings(routeSettingsId: Int64) -> AnyPublisher<RouteSettings, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/setting/{routeSettingsId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/setting/{routeSettingsId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeSettingsId}", with: "\(routeSettingsId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -136,9 +130,8 @@ open class RouteSettingAPI {
 
 
     /// Search Route Settings
-    /// - GET /api/{version}/route/setting
+    /// - GET /route/setting
     /// - Search for route settings
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) The start index for pagination 
@@ -148,14 +141,13 @@ open class RouteSettingAPI {
     /// - parameter programId: (query) The program that the route belongs under (optional)
     /// - parameter keyword: (query) The keyword to search for the route (optional)
     /// - returns: AnyPublisher<[RouteSettings], Error> 
-    open func searchRouteSettings(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, hubId: Int64? = nil, programId: Int64? = nil, keyword: String? = nil) -> AnyPublisher<[RouteSettings], Error> {
+    open func searchRouteSettings(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, hubId: Int64? = nil, programId: Int64? = nil, keyword: String? = nil) -> AnyPublisher<[RouteSettings], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/setting"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/route/setting"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -186,20 +178,18 @@ open class RouteSettingAPI {
 
 
     /// Update Route Setting
-    /// - PUT /api/{version}/route/setting/{routeSettingsId}
+    /// - PUT /route/setting/{routeSettingsId}
     /// - Update an existing route setting
-    /// - parameter version: (path)  
     /// - parameter routeSettingsId: (path) the id of the route settings to update 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<RouteSettings, Error> 
-    open func updateRouteSettings(version: Double, routeSettingsId: Int64, body: RouteSettings? = nil) -> AnyPublisher<RouteSettings, Error> {
+    open func updateRouteSettings(routeSettingsId: Int64, body: RouteSettings? = nil) -> AnyPublisher<RouteSettings, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/setting/{routeSettingsId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/setting/{routeSettingsId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeSettingsId}", with: "\(routeSettingsId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)

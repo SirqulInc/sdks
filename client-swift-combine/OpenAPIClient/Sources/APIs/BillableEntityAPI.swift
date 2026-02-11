@@ -21,7 +21,7 @@ open class BillableEntityAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class BillableEntityAPI {
 
 
     /// Create Billable
-    /// - POST /api/{version}/billable/create
+    /// - POST /billable/create
     /// - reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter name: (query) The name of the entity responsible for billing  (optional)
@@ -45,14 +44,13 @@ open class BillableEntityAPI {
     /// - parameter authorizeNetApiKey: (query) Authorize Net Api Key (optional)
     /// - parameter authorizeNetTransactionKey: (query) Authorize Net Transaction Key (optional)
     /// - returns: AnyPublisher<BillableEntityResponse, Error> 
-    open func createBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil) -> AnyPublisher<BillableEntityResponse, Error> {
+    open func createBillableEntity(deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil) -> AnyPublisher<BillableEntityResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billable/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billable/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -87,20 +85,18 @@ open class BillableEntityAPI {
 
 
     /// Delete Billable
-    /// - POST /api/{version}/billable/delete
+    /// - POST /billable/delete
     /// - Mark the billable as deleted
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account used to perform the delete, must have rights to edit the billable entity. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteBillableEntity(deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billable/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billable/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -125,22 +121,20 @@ open class BillableEntityAPI {
 
 
     /// Get Billable
-    /// - GET /api/{version}/billable/get
+    /// - GET /billable/get
     /// - Used to determine the associated BillableEntity of an account
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter includeCounts: (query) Determines whether to include the retailer dash board counts into the response (optional, default to false)
     /// - parameter includePayments: (query) Whether to enable payments or not (optional, default to true)
     /// - returns: AnyPublisher<BillableEntityResponse, Error> 
-    open func getBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, includePayments: Bool? = nil) -> AnyPublisher<BillableEntityResponse, Error> {
+    open func getBillableEntity(deviceId: String? = nil, accountId: Int64? = nil, includeCounts: Bool? = nil, includePayments: Bool? = nil) -> AnyPublisher<BillableEntityResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billable/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billable/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -167,9 +161,8 @@ open class BillableEntityAPI {
 
 
     /// Update Billable
-    /// - POST /api/{version}/billable/update
+    /// - POST /billable/update
     /// - Updates the billable record for an account
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity. (optional)
     /// - parameter name: (query) The name of the entity responsible for billing  (optional)
@@ -183,14 +176,13 @@ open class BillableEntityAPI {
     /// - parameter authorizeNetApiKey: (query) Authorize Net Api Key of the billable entity (optional)
     /// - parameter authorizeNetTransactionKey: (query) Authorize Net Transaction Key of the billable entity (optional)
     /// - returns: AnyPublisher<BillableEntityResponse, Error> 
-    open func updateBillableEntity(version: Double, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil) -> AnyPublisher<BillableEntityResponse, Error> {
+    open func updateBillableEntity(deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil) -> AnyPublisher<BillableEntityResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billable/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billable/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

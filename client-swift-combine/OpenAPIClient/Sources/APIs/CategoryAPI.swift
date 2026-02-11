@@ -21,7 +21,7 @@ open class CategoryAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -50,9 +50,8 @@ open class CategoryAPI {
     }
 
     /// Search Categories by Distance
-    /// - GET /api/{version}/category/distancesearch
+    /// - GET /category/distancesearch
     /// - Search for categories by distance.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (optional)
     /// - parameter keyword: (query) The keyword string to search on (optional)
     /// - parameter appKey: (query) the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -74,14 +73,13 @@ open class CategoryAPI {
     /// - parameter longitude: (query) the longitude of where the search is centered on (optional)
     /// - parameter range: (query) the maximum range the category can be from the center (optional)
     /// - returns: AnyPublisher<[CategoryResponse], Error> 
-    open func categoryDistanceSearch(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: CategoryDistanceSearchSortField? = nil, responseGroup: CategoryDistanceSearchResponseGroup? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, minOfferCount: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil) -> AnyPublisher<[CategoryResponse], Error> {
+    open func categoryDistanceSearch(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: CategoryDistanceSearchSortField? = nil, responseGroup: CategoryDistanceSearchResponseGroup? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, minOfferCount: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil) -> AnyPublisher<[CategoryResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/category/distancesearch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/category/distancesearch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -124,9 +122,8 @@ open class CategoryAPI {
 
 
     /// Create Category
-    /// - POST /api/{version}/category/create
+    /// - POST /category/create
     /// - Create a new category.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
     /// - parameter name: (query) The name of the category 
     /// - parameter appKey: (query) The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional)
@@ -142,14 +139,13 @@ open class CategoryAPI {
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - parameter searchTags: (query) user defined strings for searching (optional)
     /// - returns: AnyPublisher<CategoryTreeResponse, Error> 
-    open func createCategory(version: Double, accountId: Int64, name: String, appKey: String? = nil, parentCategoryId: Int64? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
+    open func createCategory(accountId: Int64, name: String, appKey: String? = nil, parentCategoryId: Int64? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/category/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/category/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -186,20 +182,18 @@ open class CategoryAPI {
 
 
     /// Delete Category
-    /// - POST /api/{version}/category/delete
+    /// - POST /category/delete
     /// - Delete a category.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the ID of the account 
     /// - parameter categoryId: (query) the ID of the category 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteCategory(version: Double, accountId: Int64, categoryId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteCategory(accountId: Int64, categoryId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/category/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/category/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -224,22 +218,20 @@ open class CategoryAPI {
 
 
     /// Duplicate Category
-    /// - POST /api/{version}/category/duplicate
+    /// - POST /category/duplicate
     /// - Duplicate a category, including all its children.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
     /// - parameter categoryId: (query) The category ID to duplicate (includes all children) 
     /// - parameter appKey: (query) The application to assign the new category to, may be different then the application the source category is assigned to (optional)
     /// - parameter parentCategoryId: (query) The parent category ID to add the target category to. (optional)
     /// - returns: AnyPublisher<CategoryTreeResponse, Error> 
-    open func duplicateCategory(version: Double, accountId: Int64, categoryId: Int64, appKey: String? = nil, parentCategoryId: Int64? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
+    open func duplicateCategory(accountId: Int64, categoryId: Int64, appKey: String? = nil, parentCategoryId: Int64? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/category/duplicate"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/category/duplicate"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -266,20 +258,18 @@ open class CategoryAPI {
 
 
     /// Get Category
-    /// - GET /api/{version}/category/get
+    /// - GET /category/get
     /// - Get the details of a specific category. Recursively include all child categories and their children.
-    /// - parameter version: (path)  
     /// - parameter categoryId: (query) the ID of the category 
     /// - parameter returnExternal: (query) Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to true)
     /// - returns: AnyPublisher<CategoryTreeResponse, Error> 
-    open func getCategory(version: Double, categoryId: Int64, returnExternal: Bool? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
+    open func getCategory(categoryId: Int64, returnExternal: Bool? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/category/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/category/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -325,9 +315,8 @@ open class CategoryAPI {
     }
 
     /// Search Categories
-    /// - GET /api/{version}/category/search
+    /// - GET /category/search
     /// - Search for categories.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (optional)
     /// - parameter keyword: (query) The string to search on (optional)
     /// - parameter appKey: (query) the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional)
@@ -350,14 +339,13 @@ open class CategoryAPI {
     /// - parameter searchDepth: (query) When searching by a specific parent category (to return sub children), this determines the number of child layers to search in. The minimum is 1, the maximum is 4. (optional, default to 4)
     /// - parameter searchMode: (query) The search index mode to use (e.g. OPENSEARCH or RDS) (optional)
     /// - returns: AnyPublisher<[CategoryResponse], Error> 
-    open func searchCategories(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryId: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SearchCategoriesSortField? = nil, responseGroup: SearchCategoriesResponseGroup? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, excludeExternalType: Bool? = nil, minOfferCount: Int? = nil, searchDepth: Int? = nil, searchMode: String? = nil) -> AnyPublisher<[CategoryResponse], Error> {
+    open func searchCategories(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, categoryId: String? = nil, categoryIds: String? = nil, parentCategoryIds: String? = nil, rootOnly: Bool? = nil, sortField: SearchCategoriesSortField? = nil, responseGroup: SearchCategoriesResponseGroup? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, returnExternal: Bool? = nil, exactMatch: Bool? = nil, type: String? = nil, externalType: String? = nil, excludeExternalType: Bool? = nil, minOfferCount: Int? = nil, searchDepth: Int? = nil, searchMode: String? = nil) -> AnyPublisher<[CategoryResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/category/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/category/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -401,9 +389,8 @@ open class CategoryAPI {
 
 
     /// Update Category
-    /// - POST /api/{version}/category/update
+    /// - POST /category/update
     /// - Update a category.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter categoryId: (query) The ID of the category to edit 
     /// - parameter parentCategoryId: (query) The ID of the parent category, if not provided then the parent category will be null (optional)
@@ -419,14 +406,13 @@ open class CategoryAPI {
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - parameter searchTags: (query) user defined strings for searching (optional)
     /// - returns: AnyPublisher<CategoryTreeResponse, Error> 
-    open func updateCategory(version: Double, accountId: Int64, categoryId: Int64, parentCategoryId: Int64? = nil, name: String? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
+    open func updateCategory(accountId: Int64, categoryId: Int64, parentCategoryId: Int64? = nil, name: String? = nil, description: String? = nil, type: String? = nil, assetId: Int64? = nil, externalId: String? = nil, externalType: String? = nil, externalCategorySlug: String? = nil, sqootSlug: String? = nil, active: Bool? = nil, metaData: String? = nil, searchTags: String? = nil) -> AnyPublisher<CategoryTreeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/category/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/category/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

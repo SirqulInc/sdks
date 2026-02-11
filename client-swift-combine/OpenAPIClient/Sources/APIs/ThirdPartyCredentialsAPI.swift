@@ -21,7 +21,7 @@ open class ThirdPartyCredentialsAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Create Credential
-    /// - POST /api/{version}/thirdparty/credential/create
+    /// - POST /thirdparty/credential/create
     /// - This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-    /// - parameter version: (path)  
     /// - parameter thirdPartyId: (query) the third party user account id 
     /// - parameter thirdPartyToken: (query) the access token to authenticate with (ex: username or fb token or phone number) 
     /// - parameter networkUID: (query) the access provider to authenticate against 
@@ -50,14 +49,13 @@ open class ThirdPartyCredentialsAPI {
     /// - parameter audienceIdsToAdd: (query) audience ids to add to the account (optional)
     /// - parameter audienceIdsToRemove: (query) audience ids to remove from the account (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func createCredential(version: Double, thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyName: String? = nil, emailAddress: String? = nil, signinOnlyMode: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func createCredential(thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyName: String? = nil, emailAddress: String? = nil, signinOnlyMode: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/credential/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/credential/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -97,9 +95,8 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Create Network
-    /// - POST /api/{version}/thirdparty/network/create
+    /// - POST /thirdparty/network/create
     /// - Creates a custom third party network.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id making the request 
     /// - parameter name: (query) The name of the network 
     /// - parameter enableIntrospection: (query) Whether the network uses introspection calls 
@@ -118,14 +115,13 @@ open class ThirdPartyCredentialsAPI {
     /// - parameter oauthSecretKey: (query) OAuth secret key (optional)
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ThirdPartyNetworkResponse, Error> 
-    open func createNetwork(version: Double, accountId: Int64, name: String, enableIntrospection: Bool, description: String? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: Data? = nil, oauthPublicKey: Data? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil) -> AnyPublisher<ThirdPartyNetworkResponse, Error> {
+    open func createNetwork(accountId: Int64, name: String, enableIntrospection: Bool, description: String? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: Data? = nil, oauthPublicKey: Data? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil) -> AnyPublisher<ThirdPartyNetworkResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/network/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/network/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -166,22 +162,20 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Delete Credential
-    /// - POST /api/{version}/thirdparty/credential/delete
+    /// - POST /thirdparty/credential/delete
     /// - Delete a third party network on a Sirqul account.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter networkUID: (query) The third party network identifier 
     /// - parameter thirdPartyId: (query) The third party user id 
     /// - parameter appKey: (query) the application key 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteCredential(version: Double, accountId: Int64, networkUID: String, thirdPartyId: String, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteCredential(accountId: Int64, networkUID: String, thirdPartyId: String, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/credential/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/credential/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -208,20 +202,18 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Delete Network
-    /// - POST /api/{version}/thirdparty/network/delete
+    /// - POST /thirdparty/network/delete
     /// - Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteNetwork(version: Double, accountId: Int64, networkUID: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteNetwork(accountId: Int64, networkUID: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/network/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/network/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -246,9 +238,8 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Get Credential
-    /// - POST /api/{version}/thirdparty/credential/get
+    /// - POST /thirdparty/credential/get
     /// - Gets the account information given a third party token.
-    /// - parameter version: (path)  
     /// - parameter networkUID: (query) the access provider to authenticate against 
     /// - parameter appKey: (query) the application key 
     /// - parameter accountId: (query) the unique account id of a specific account that will be bound to the third-party credentials (optional)
@@ -265,14 +256,13 @@ open class ThirdPartyCredentialsAPI {
     /// - parameter audienceIdsToRemove: (query) audience ids to remove from the account (optional)
     /// - parameter referralAccountId: (query) account id of the referrer (inviter-invitee relationship) (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func getCredential(version: Double, networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyCredentialId: Int64? = nil, thirdPartyToken: String? = nil, thirdPartySecret: String? = nil, createNewAccount: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func getCredential(networkUID: String, appKey: String, accountId: Int64? = nil, deviceId: String? = nil, sessionId: String? = nil, thirdPartyCredentialId: Int64? = nil, thirdPartyToken: String? = nil, thirdPartySecret: String? = nil, createNewAccount: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/credential/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/credential/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -310,20 +300,18 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Get Network
-    /// - GET /api/{version}/thirdparty/network/get
+    /// - GET /thirdparty/network/get
     /// - Get the details of a third party network. Only the network owners and managers have access to this.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id making the request 
     /// - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
     /// - returns: AnyPublisher<ThirdPartyNetworkResponse, Error> 
-    open func getNetwork(version: Double, accountId: Int64, networkUID: String) -> AnyPublisher<ThirdPartyNetworkResponse, Error> {
+    open func getNetwork(accountId: Int64, networkUID: String) -> AnyPublisher<ThirdPartyNetworkResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/network/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/network/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -348,9 +336,8 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Search Credentials
-    /// - GET /api/{version}/thirdparty/credential/search
+    /// - GET /thirdparty/credential/search
     /// - Search on a user's linked third party networks.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter keyword: (query) The keyword used to search on the third party name and network string (optional)
     /// - parameter networkUID: (query) The network UID to filter results with (optional)
@@ -358,14 +345,13 @@ open class ThirdPartyCredentialsAPI {
     /// - parameter start: (query) The start of the pagination (optional, default to 0)
     /// - parameter limit: (query) The limit of the pagination (optional, default to 20)
     /// - returns: AnyPublisher<[ThirdPartyCredentialResponse], Error> 
-    open func searchCredentials(version: Double, accountId: Int64, keyword: String? = nil, networkUID: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[ThirdPartyCredentialResponse], Error> {
+    open func searchCredentials(accountId: Int64, keyword: String? = nil, networkUID: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[ThirdPartyCredentialResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/credential/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/credential/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -410,9 +396,8 @@ open class ThirdPartyCredentialsAPI {
     }
 
     /// Search Networks
-    /// - GET /api/{version}/thirdparty/network/search
+    /// - GET /thirdparty/network/search
     /// - Search on supported third party networks and custom networks from external users.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id making the request 
     /// - parameter sortField: (query) The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME 
     /// - parameter descending: (query) The order to return the search results 
@@ -422,14 +407,13 @@ open class ThirdPartyCredentialsAPI {
     /// - parameter keyword: (query) The keyword used to search on the network name and description fields (optional)
     /// - parameter filterBillable: (query) Determines whether to only return applications that the user has access to (optional)
     /// - returns: AnyPublisher<[ThirdPartyNetworkShortResponse], Error> 
-    open func searchNetworks(version: Double, accountId: Int64, sortField: SearchNetworksSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, filterBillable: Bool? = nil) -> AnyPublisher<[ThirdPartyNetworkShortResponse], Error> {
+    open func searchNetworks(accountId: Int64, sortField: SearchNetworksSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, filterBillable: Bool? = nil) -> AnyPublisher<[ThirdPartyNetworkShortResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/network/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/network/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -460,23 +444,21 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Send MFA Challenge
-    /// - POST /api/{version}/thirdparty/credential/mfa/send
+    /// - POST /thirdparty/credential/mfa/send
     /// - Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-    /// - parameter version: (path)  
     /// - parameter networkUID: (query) the third party network provider that has MFA enabled 
     /// - parameter appKey: (query) the application key 
     /// - parameter thirdPartyToken: (query) the access token to authenticate with (optional)
     /// - parameter thirdPartyCredentialId: (query) optional id of the existing third party credential (optional)
     /// - parameter deviceId: (query) the unique id of the device making the request (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func sendMFAChallenge(version: Double, networkUID: String, appKey: String, thirdPartyToken: String? = nil, thirdPartyCredentialId: Int64? = nil, deviceId: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func sendMFAChallenge(networkUID: String, appKey: String, thirdPartyToken: String? = nil, thirdPartyCredentialId: Int64? = nil, deviceId: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/credential/mfa/send"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/credential/mfa/send"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -504,9 +486,8 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Update Credential
-    /// - POST /api/{version}/thirdparty/credential/update
+    /// - POST /thirdparty/credential/update
     /// - Updates a third-party login for an account.
-    /// - parameter version: (path)  
     /// - parameter networkUID: (query) the access provider to authenticate against 
     /// - parameter thirdPartyId: (query) the third party user account id 
     /// - parameter appKey: (query) the application key 
@@ -517,14 +498,13 @@ open class ThirdPartyCredentialsAPI {
     /// - parameter metaData: (query) External custom client defined data (optional)
     /// - parameter thirdPartyRefreshToken: (query) optional refresh token for the third party (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func updateCredential(version: Double, networkUID: String, thirdPartyId: String, appKey: String, deviceId: String? = nil, thirdPartyName: String? = nil, thirdPartyToken: String? = nil, responseFilters: String? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func updateCredential(networkUID: String, thirdPartyId: String, appKey: String, deviceId: String? = nil, thirdPartyName: String? = nil, thirdPartyToken: String? = nil, responseFilters: String? = nil, metaData: String? = nil, thirdPartyRefreshToken: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/credential/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/credential/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -556,9 +536,8 @@ open class ThirdPartyCredentialsAPI {
 
 
     /// Update Network
-    /// - POST /api/{version}/thirdparty/network/update
+    /// - POST /thirdparty/network/update
     /// - Updates a custom third party network. Only the network owners and managers have access to this.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id making the request 
     /// - parameter networkUID: (query) The unique identifier for the third party network defined by Sirqul 
     /// - parameter name: (query) The name of the network (optional)
@@ -578,14 +557,13 @@ open class ThirdPartyCredentialsAPI {
     /// - parameter oauthSecretKey: (query) OAuth secret key (optional)
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ThirdPartyNetworkResponse, Error> 
-    open func updateNetwork(version: Double, accountId: Int64, networkUID: String, name: String? = nil, description: String? = nil, enableIntrospection: Bool? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: Data? = nil, oauthPublicKey: Data? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil) -> AnyPublisher<ThirdPartyNetworkResponse, Error> {
+    open func updateNetwork(accountId: Int64, networkUID: String, name: String? = nil, description: String? = nil, enableIntrospection: Bool? = nil, introspectionMethod: String? = nil, introspectionURL: String? = nil, introspectionParams: String? = nil, requiredRootField: String? = nil, enableMFA: Bool? = nil, sizeMFA: Int? = nil, shelfLifeMFA: Int? = nil, oauthTokenURL: String? = nil, oauthPrivateKey: Data? = nil, oauthPublicKey: Data? = nil, oauthClientId: String? = nil, oauthSecretKey: String? = nil, body: String? = nil) -> AnyPublisher<ThirdPartyNetworkResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/thirdparty/network/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/thirdparty/network/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

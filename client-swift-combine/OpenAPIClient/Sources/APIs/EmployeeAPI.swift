@@ -21,7 +21,7 @@ open class EmployeeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,22 +29,20 @@ open class EmployeeAPI {
 
 
     /// Assign Employee
-    /// - POST /api/{version}/employee/assign
+    /// - POST /employee/assign
     /// - Assign An existing account to be an employee
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter managerAccountId: (query) The account id of the manager to assign under 
     /// - parameter employeeAccountId: (query) The account id of the user to be assigned as employee 
     /// - parameter role: (query) The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional)
     /// - returns: AnyPublisher<EmployeeResponse, Error> 
-    open func assignEmployee(version: Double, accountId: Int64, managerAccountId: Int64, employeeAccountId: Int64, role: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
+    open func assignEmployee(accountId: Int64, managerAccountId: Int64, employeeAccountId: Int64, role: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/assign"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/assign"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -71,22 +69,20 @@ open class EmployeeAPI {
 
 
     /// Assign Employee to Location
-    /// - POST /api/{version}/employee/assignToLocation
+    /// - POST /employee/assignToLocation
     /// - Assign or unassign the account to a retailer location.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter retailerLocationId: (query) The retailer location to apply the change to 
     /// - parameter employeeAccountId: (query) The account id of the user to apply the change to (optional)
     /// - parameter assign: (query) If true (default) assign to the location, otherwise remove from the retailer (optional, default to true)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func assignToLocationEmployee(version: Double, accountId: Int64, retailerLocationId: Int64, employeeAccountId: Int64? = nil, assign: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func assignToLocationEmployee(accountId: Int64, retailerLocationId: Int64, employeeAccountId: Int64? = nil, assign: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/assignToLocation"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/assignToLocation"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -121,9 +117,8 @@ open class EmployeeAPI {
     }
 
     /// Create Employee
-    /// - POST /api/{version}/employee/create
+    /// - POST /employee/create
     /// - Create a new account record with the provided information.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter managerAccountId: (query) The account id of the manager to assign under 
     /// - parameter username: (query) The username/email for the new user. This must be unique across the entire the system. 
@@ -155,14 +150,13 @@ open class EmployeeAPI {
     /// - parameter appBlob: (query) external custom client defined data (per Application) (optional)
     /// - parameter assignedDeviceId: (query) The device id to assign to the user (used for IPS beacon tracking) (optional)
     /// - returns: AnyPublisher<EmployeeResponse, Error> 
-    open func createEmployee(version: Double, accountId: Int64, managerAccountId: Int64, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, aboutUs: String? = nil, assetId: Int64? = nil, gender: CreateEmployeeGender? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
+    open func createEmployee(accountId: Int64, managerAccountId: Int64, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, aboutUs: String? = nil, assetId: Int64? = nil, gender: CreateEmployeeGender? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -215,20 +209,18 @@ open class EmployeeAPI {
 
 
     /// Delete Employee
-    /// - POST /api/{version}/employee/delete
+    /// - POST /employee/delete
     /// - Set the deleted date field which marks the record as deleted.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter employeeAccountId: (query) the id of the employee to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteEmployee(version: Double, accountId: Int64, employeeAccountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteEmployee(accountId: Int64, employeeAccountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -253,21 +245,19 @@ open class EmployeeAPI {
 
 
     /// Get Employee
-    /// - POST /api/{version}/employee/get
+    /// - POST /employee/get
     /// - Get the account record for the account id provided.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of logged in user 
     /// - parameter employeeAccountId: (query) the id of the employee account to get 
     /// - parameter settingsAppKey: (query) Determines whether to return the application settings for the employee for a particular application (optional)
     /// - returns: AnyPublisher<EmployeeResponse, Error> 
-    open func getEmployee(version: Double, accountId: Int64, employeeAccountId: Int64, settingsAppKey: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
+    open func getEmployee(accountId: Int64, employeeAccountId: Int64, settingsAppKey: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -309,9 +299,8 @@ open class EmployeeAPI {
     }
 
     /// Search Employees
-    /// - POST /api/{version}/employee/search
+    /// - POST /employee/search
     /// - Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter role: (query) The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional)
     /// - parameter retailerId: (query) Filters employees by retailer (optional)
@@ -330,14 +319,13 @@ open class EmployeeAPI {
     /// - parameter categoryIds: (query) Comma separated list of category ids to filter results (optional)
     /// - parameter query: (query) Legacy/reporting query parameter used for formatting employee responses (optional)
     /// - returns: AnyPublisher<[EmployeeResponse], Error> 
-    open func searchEmployees(version: Double, accountId: Int64, role: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, q: String? = nil, keyword: String? = nil, sortField: SearchEmployeesSortField? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, managedOnly: Bool? = nil, settingsAppKey: String? = nil, categoryIds: String? = nil, query: String? = nil) -> AnyPublisher<[EmployeeResponse], Error> {
+    open func searchEmployees(accountId: Int64, role: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, q: String? = nil, keyword: String? = nil, sortField: SearchEmployeesSortField? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, managedOnly: Bool? = nil, settingsAppKey: String? = nil, categoryIds: String? = nil, query: String? = nil) -> AnyPublisher<[EmployeeResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -377,20 +365,18 @@ open class EmployeeAPI {
 
 
     /// Unassign Employee
-    /// - POST /api/{version}/employee/unassign
+    /// - POST /employee/unassign
     /// - Unassign An existing account to be an employee
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter employeeAccountId: (query) The account id of the user to be unassigned 
     /// - returns: AnyPublisher<EmployeeResponse, Error> 
-    open func unassignEmployee(version: Double, accountId: Int64, employeeAccountId: Int64) -> AnyPublisher<EmployeeResponse, Error> {
+    open func unassignEmployee(accountId: Int64, employeeAccountId: Int64) -> AnyPublisher<EmployeeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/unassign"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/unassign"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -423,9 +409,8 @@ open class EmployeeAPI {
     }
 
     /// Update Employee
-    /// - POST /api/{version}/employee/update
+    /// - POST /employee/update
     /// - Update the account record with the provided information.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter employeeAccountId: (query) the id of the employee account 
     /// - parameter managerAccountId: (query) The account id of the manager to assign under (optional)
@@ -457,14 +442,13 @@ open class EmployeeAPI {
     /// - parameter appBlob: (query) external custom client defined data (per Application) (optional)
     /// - parameter assignedDeviceId: (query) The device id to assign to the user (used for IPS beacon tracking) (optional)
     /// - returns: AnyPublisher<EmployeeResponse, Error> 
-    open func updateEmployee(version: Double, accountId: Int64, employeeAccountId: Int64, managerAccountId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, assetId: Int64? = nil, gender: UpdateEmployeeGender? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, active: Bool? = nil, password: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
+    open func updateEmployee(accountId: Int64, employeeAccountId: Int64, managerAccountId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, assetId: Int64? = nil, gender: UpdateEmployeeGender? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, role: String? = nil, active: Bool? = nil, password: String? = nil, retailerLocationIds: String? = nil, settingsAppKey: String? = nil, appBlob: String? = nil, assignedDeviceId: String? = nil) -> AnyPublisher<EmployeeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/employee/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/employee/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

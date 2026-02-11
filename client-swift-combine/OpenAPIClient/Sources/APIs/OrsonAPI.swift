@@ -21,7 +21,7 @@ open class OrsonAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class OrsonAPI {
 
 
     /// Add Movie
-    /// - POST /api/{version}/orson/ai/addMovie
+    /// - POST /orson/ai/addMovie
     /// - Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter movieName: (query) Movie Name 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -40,14 +39,13 @@ open class OrsonAPI {
     /// - parameter url: (query) A recording file to download and analyze (Size limit: 1GB) (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiAddMovieResponse, Error> 
-    open func addMovie(version: Double, accountId: Int64, movieName: String, thirdPartyAccountId: String? = nil, tags: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiAddMovieResponse, Error> {
+    open func addMovie(accountId: Int64, movieName: String, thirdPartyAccountId: String? = nil, tags: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiAddMovieResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/addMovie"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/addMovie"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -77,23 +75,21 @@ open class OrsonAPI {
 
 
     /// Search Docs
-    /// - GET /api/{version}/orson/ai/docs
+    /// - GET /orson/ai/docs
     /// - Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter doc: (query) Doc 
     /// - parameter returnTopics: (query) Return Topics (optional)
     /// - parameter limit: (query) Limit (optional)
     /// - parameter offset: (query) Offset (optional)
     /// - returns: AnyPublisher<OrsonAiProtoResponse, Error> 
-    open func aiDocs(version: Double, accountId: Int64, doc: String, returnTopics: Bool? = nil, limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
+    open func aiDocs(accountId: Int64, doc: String, returnTopics: Bool? = nil, limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/docs"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/docs"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -121,23 +117,21 @@ open class OrsonAPI {
 
 
     /// Find images
-    /// - GET /api/{version}/orson/ai/img
+    /// - GET /orson/ai/img
     /// - Returns a list of URIs of images that match the text.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter text: (query) Text 
     /// - parameter parseFlag: (query) Parse Flag (optional)
     /// - parameter fetchFlag: (query) Fetch Flag (optional)
     /// - parameter size: (query) Size (optional)
     /// - returns: AnyPublisher<OrsonAiProtoResponse, Error> 
-    open func aiFindImages(version: Double, accountId: Int64, text: String, parseFlag: String? = nil, fetchFlag: String? = nil, size: String? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
+    open func aiFindImages(accountId: Int64, text: String, parseFlag: String? = nil, fetchFlag: String? = nil, size: String? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/img"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/img"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -165,23 +159,21 @@ open class OrsonAPI {
 
 
     /// Search Tags
-    /// - GET /api/{version}/orson/ai/tags
+    /// - GET /orson/ai/tags
     /// - Search the tags column of user provided tags using this endpoint.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter tags: (query) Tags 
     /// - parameter conditional: (query) Conditional (optional)
     /// - parameter limit: (query) Limit (optional)
     /// - parameter offset: (query) Offset (optional)
     /// - returns: AnyPublisher<OrsonAiProtoResponse, Error> 
-    open func aiTags(version: Double, accountId: Int64, tags: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
+    open func aiTags(accountId: Int64, tags: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/tags"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/tags"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -209,23 +201,21 @@ open class OrsonAPI {
 
 
     /// Search Text
-    /// - GET /api/{version}/orson/ai/text
+    /// - GET /orson/ai/text
     /// - Search the movie text column of movie text using this endpoint.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter terms: (query) Terms 
     /// - parameter conditional: (query) Conditional (optional)
     /// - parameter limit: (query) Limit (optional)
     /// - parameter offset: (query) Offset (optional)
     /// - returns: AnyPublisher<OrsonAiProtoResponse, Error> 
-    open func aiText(version: Double, accountId: Int64, terms: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
+    open func aiText(accountId: Int64, terms: String, conditional: String? = nil, limit: Int? = nil, offset: Int? = nil) -> AnyPublisher<OrsonAiProtoResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/text"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/text"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -253,9 +243,8 @@ open class OrsonAPI {
 
 
     /// Batch Analysis
-    /// - POST /api/{version}/orson/ai/batch
+    /// - POST /orson/ai/batch
     /// - Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
     /// - parameter limit: (query) The number of topics to return (optional)
@@ -264,14 +253,13 @@ open class OrsonAPI {
     /// - parameter url: (query) A recording file to download and analyze (Size limit: 1GB) (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiBatchResponse, Error> 
-    open func batch(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, limit: Int? = nil, operations: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiBatchResponse, Error> {
+    open func batch(accountId: Int64, thirdPartyAccountId: String? = nil, limit: Int? = nil, operations: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiBatchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -301,20 +289,18 @@ open class OrsonAPI {
 
 
     /// Creates an instant episode
-    /// - POST /api/{version}/orson/stories/episodes/instant
+    /// - POST /orson/stories/episodes/instant
     /// - Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter data: (query) Request Data String 
     /// - returns: AnyPublisher<OrsonEpisodeResponse, Error> 
-    open func createInstantEpisode(version: Double, accountId: Int64, data: String) -> AnyPublisher<OrsonEpisodeResponse, Error> {
+    open func createInstantEpisode(accountId: Int64, data: String) -> AnyPublisher<OrsonEpisodeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/stories/episodes/instant"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/stories/episodes/instant"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -339,9 +325,8 @@ open class OrsonAPI {
 
 
     /// Create VoiceCanvas images
-    /// - POST /api/{version}/orson/ai/voiceCanvas
+    /// - POST /orson/ai/voiceCanvas
     /// - Create VoiceCanvas images for provided text, file upload, or file URL
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter dimensions: (query) Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot; 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -352,14 +337,13 @@ open class OrsonAPI {
     /// - parameter fetchFlag: (query) When true, fetches images instead of generating them (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiVoiceCanvasResponse, Error> 
-    open func createVoiceCanvas(version: Double, accountId: Int64, dimensions: String, thirdPartyAccountId: String? = nil, text: String? = nil, file: Data? = nil, url: String? = nil, parseFlag: Bool? = nil, fetchFlag: Bool? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiVoiceCanvasResponse, Error> {
+    open func createVoiceCanvas(accountId: Int64, dimensions: String, thirdPartyAccountId: String? = nil, text: String? = nil, file: Data? = nil, url: String? = nil, parseFlag: Bool? = nil, fetchFlag: Bool? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiVoiceCanvasResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/voiceCanvas"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/voiceCanvas"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -391,23 +375,21 @@ open class OrsonAPI {
 
 
     /// Detect emotions
-    /// - POST /api/{version}/orson/ai/emotion
+    /// - POST /orson/ai/emotion
     /// - Detects emotions in an audio or video recording.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
     /// - parameter file: (query) An uploaded recording to analyze (Currently limited to 10MB) (optional)
     /// - parameter url: (query) A recording file to download and analyze (Size limit: 1GB) (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiEmotionsResponse, Error> 
-    open func emotion(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiEmotionsResponse, Error> {
+    open func emotion(accountId: Int64, thirdPartyAccountId: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiEmotionsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/emotion"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/emotion"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -435,20 +417,18 @@ open class OrsonAPI {
 
 
     /// Get Add Movie Result
-    /// - GET /api/{version}/orson/ai/addMovie/{requestId}
+    /// - GET /orson/ai/addMovie/{requestId}
     /// - Get the result of an in progress Add Movie request from an earlier POST.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiAddMovieResponse, Error> 
-    open func getAddMovieResult(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiAddMovieResponse, Error> {
+    open func getAddMovieResult(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiAddMovieResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/addMovie/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/addMovie/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -473,20 +453,18 @@ open class OrsonAPI {
 
 
     /// Get Batch Analysis Results
-    /// - GET /api/{version}/orson/ai/batch/{requestId}
+    /// - GET /orson/ai/batch/{requestId}
     /// - Gets the completed Video Batch results, if done, or an error or status update if not.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiBatchResponse, Error> 
-    open func getBatch(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiBatchResponse, Error> {
+    open func getBatch(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiBatchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/batch/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/batch/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -511,20 +489,18 @@ open class OrsonAPI {
 
 
     /// Get Emotion Results
-    /// - GET /api/{version}/orson/ai/emotion/{requestId}
+    /// - GET /orson/ai/emotion/{requestId}
     /// - Checks the Emotion analysis and returns in progress, results, or error.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiEmotionsResponse, Error> 
-    open func getEmotion(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiEmotionsResponse, Error> {
+    open func getEmotion(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiEmotionsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/emotion/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/emotion/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -549,20 +525,18 @@ open class OrsonAPI {
 
 
     /// Check episode status
-    /// - GET /api/{version}/orson/stories/episodes/{episodeId}/status
+    /// - GET /orson/stories/episodes/{episodeId}/status
     /// - Gets a summary of the episode's status, including any renders.
-    /// - parameter version: (path)  
     /// - parameter episodeId: (path) Episode ID 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonEpisodeResponse, Error> 
-    open func getEpisodeStatus(version: Double, episodeId: Int64, accountId: Int64) -> AnyPublisher<OrsonEpisodeResponse, Error> {
+    open func getEpisodeStatus(episodeId: Int64, accountId: Int64) -> AnyPublisher<OrsonEpisodeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/stories/episodes/{episodeId}/status"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/stories/episodes/{episodeId}/status"
                 localVarPath = localVarPath.replacingOccurrences(of: "{episodeId}", with: "\(episodeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -587,20 +561,18 @@ open class OrsonAPI {
 
 
     /// Check episode status
-    /// - GET /api/{version}/orson/stories/renders/{renderId}/status
+    /// - GET /orson/stories/renders/{renderId}/status
     /// - Gets a summary of the episode's status, including any renders.
-    /// - parameter version: (path)  
     /// - parameter renderId: (path) Render ID 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonRenderResponse, Error> 
-    open func getRenderStatus(version: Double, renderId: String, accountId: Int64) -> AnyPublisher<OrsonRenderResponse, Error> {
+    open func getRenderStatus(renderId: String, accountId: Int64) -> AnyPublisher<OrsonRenderResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/stories/renders/{renderId}/status"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/stories/renders/{renderId}/status"
                 localVarPath = localVarPath.replacingOccurrences(of: "{renderId}", with: renderId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -625,20 +597,18 @@ open class OrsonAPI {
 
 
     /// Get Speach to Text Result
-    /// - GET /api/{version}/orson/ai/stt/{requestId}
+    /// - GET /orson/ai/stt/{requestId}
     /// - The results of the video transcription and optional translation.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiSTTResponse, Error> 
-    open func getSTT(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiSTTResponse, Error> {
+    open func getSTT(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiSTTResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/stt/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/stt/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -663,20 +633,18 @@ open class OrsonAPI {
 
 
     /// Get Text to Speach Result
-    /// - GET /api/{version}/orson/ai/tts/{requestId}
+    /// - GET /orson/ai/tts/{requestId}
     /// - Check the status of an in progress Text-to-Speech call or download the result.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiTTSResponse, Error> 
-    open func getTTS(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiTTSResponse, Error> {
+    open func getTTS(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiTTSResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/tts/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/tts/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -701,20 +669,18 @@ open class OrsonAPI {
 
 
     /// Get TechTune Results
-    /// - GET /api/{version}/orson/ai/techTune/{requestId}
+    /// - GET /orson/ai/techTune/{requestId}
     /// - Get a result or continue waiting for a pending request for TechTune analysis.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiTechTuneResponse, Error> 
-    open func getTechTune(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiTechTuneResponse, Error> {
+    open func getTechTune(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiTechTuneResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/techTune/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/techTune/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -739,20 +705,18 @@ open class OrsonAPI {
 
 
     /// Get Topics
-    /// - GET /api/{version}/orson/ai/topics/{requestId}
+    /// - GET /orson/ai/topics/{requestId}
     /// - Get the result of an in progress Topics Analysis from an earlier POST.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiTopicsResponse, Error> 
-    open func getTopics(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiTopicsResponse, Error> {
+    open func getTopics(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiTopicsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/topics/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/topics/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -777,20 +741,18 @@ open class OrsonAPI {
 
 
     /// Get VoiceCanvas images
-    /// - GET /api/{version}/orson/ai/voiceCanvas/{requestId}
+    /// - GET /orson/ai/voiceCanvas/{requestId}
     /// - Get a result or continue waiting for a pending request for VoiceCanvas Images.
-    /// - parameter version: (path)  
     /// - parameter requestId: (path) Orson Request Id 
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - returns: AnyPublisher<OrsonAiVoiceCanvasResponse, Error> 
-    open func getVoiceCanvas(version: Double, requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiVoiceCanvasResponse, Error> {
+    open func getVoiceCanvas(requestId: String, accountId: Int64) -> AnyPublisher<OrsonAiVoiceCanvasResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/voiceCanvas/{requestId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/orson/ai/voiceCanvas/{requestId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{requestId}", with: requestId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -815,20 +777,18 @@ open class OrsonAPI {
 
 
     /// Starts a StoryStitch video render
-    /// - POST /api/{version}/orson/stories/renders
+    /// - POST /orson/stories/renders
     /// - Starts a StoryStitch video render to produce your final video, returning the status details.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter data: (query) Request Data String 
     /// - returns: AnyPublisher<OrsonRenderResponse, Error> 
-    open func startVideoRender(version: Double, accountId: Int64, data: String) -> AnyPublisher<OrsonRenderResponse, Error> {
+    open func startVideoRender(accountId: Int64, data: String) -> AnyPublisher<OrsonRenderResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/stories/renders"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/stories/renders"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -853,9 +813,8 @@ open class OrsonAPI {
 
 
     /// Speach to Text
-    /// - POST /api/{version}/orson/ai/stt
+    /// - POST /orson/ai/stt
     /// - Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
     /// - parameter sourceLanguage: (query) Source Language (optional)
@@ -864,14 +823,13 @@ open class OrsonAPI {
     /// - parameter url: (query) A recording file to download and analyze (Size limit: 1GB) (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiSTTResponse, Error> 
-    open func stt(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, sourceLanguage: String? = nil, targetLanguage: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiSTTResponse, Error> {
+    open func stt(accountId: Int64, thirdPartyAccountId: String? = nil, sourceLanguage: String? = nil, targetLanguage: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiSTTResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/stt"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/stt"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -901,9 +859,8 @@ open class OrsonAPI {
 
 
     /// Summarize Topics
-    /// - POST /api/{version}/orson/ai/topics
+    /// - POST /orson/ai/topics
     /// - Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
     /// - parameter doc: (query) The text to get topics for. (optional)
@@ -913,14 +870,13 @@ open class OrsonAPI {
     /// - parameter offset: (query) The starting offset into the total result set to start from (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiTopicsResponse, Error> 
-    open func summarizeTopics(version: Double, accountId: Int64, thirdPartyAccountId: String? = nil, doc: String? = nil, file: Data? = nil, url: String? = nil, limit: Int? = nil, offset: Int? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiTopicsResponse, Error> {
+    open func summarizeTopics(accountId: Int64, thirdPartyAccountId: String? = nil, doc: String? = nil, file: Data? = nil, url: String? = nil, limit: Int? = nil, offset: Int? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiTopicsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/topics"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/topics"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -951,9 +907,8 @@ open class OrsonAPI {
 
 
     /// Detect Technical Issues
-    /// - POST /api/{version}/orson/ai/techTune
+    /// - POST /orson/ai/techTune
     /// - Analyses a movie file to detect technical issues, such as too few people in frame.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter numFacesExpected: (query) Number of expected faces 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -961,14 +916,13 @@ open class OrsonAPI {
     /// - parameter url: (query) A recording file to download and analyze (Size limit: 1GB) (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiTechTuneResponse, Error> 
-    open func techTune(version: Double, accountId: Int64, numFacesExpected: Int, thirdPartyAccountId: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiTechTuneResponse, Error> {
+    open func techTune(accountId: Int64, numFacesExpected: Int, thirdPartyAccountId: String? = nil, file: Data? = nil, url: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiTechTuneResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/techTune"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/techTune"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -997,9 +951,8 @@ open class OrsonAPI {
 
 
     /// Text to Speach
-    /// - POST /api/{version}/orson/ai/tts
+    /// - POST /orson/ai/tts
     /// - Creates an audio file for the given text, with the option of language and voice selection.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter text: (query) Text 
     /// - parameter thirdPartyAccountId: (query) A third-party account id that is meaningful to your systems (optional)
@@ -1007,14 +960,13 @@ open class OrsonAPI {
     /// - parameter voice: (query) A language-specific voice to use, or picks the language default if not provided (optional)
     /// - parameter callback: (query) When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional)
     /// - returns: AnyPublisher<OrsonAiTTSResponse, Error> 
-    open func tts(version: Double, accountId: Int64, text: String, thirdPartyAccountId: String? = nil, language: String? = nil, voice: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiTTSResponse, Error> {
+    open func tts(accountId: Int64, text: String, thirdPartyAccountId: String? = nil, language: String? = nil, voice: String? = nil, callback: String? = nil) -> AnyPublisher<OrsonAiTTSResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/orson/ai/tts"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/orson/ai/tts"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

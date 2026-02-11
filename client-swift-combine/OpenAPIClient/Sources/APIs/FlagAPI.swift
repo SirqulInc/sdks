@@ -21,7 +21,7 @@ open class FlagAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class FlagAPI {
 
 
     /// Create Flag
-    /// - POST /api/{version}/flag/create
+    /// - POST /flag/create
     /// - Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-    /// - parameter version: (path)  
     /// - parameter flagableType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
     /// - parameter flagableId: (query) The flagable object id 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -40,14 +39,13 @@ open class FlagAPI {
     /// - parameter latitude: (query) The current location of the user (optional)
     /// - parameter longitude: (query) The current location of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func createFlag(version: Double, flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, flagDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func createFlag(flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, flagDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/flag/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/flag/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -77,9 +75,8 @@ open class FlagAPI {
 
 
     /// Delete Flag
-    /// - POST /api/{version}/flag/delete
+    /// - POST /flag/delete
     /// - Deletes a flag.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter itemBeingFlaggedType: (query) This parameter is deprecated. (optional)
@@ -87,14 +84,13 @@ open class FlagAPI {
     /// - parameter flagableType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (optional)
     /// - parameter flagableId: (query) The flagable object id (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteFlag(version: Double, deviceId: String? = nil, accountId: Int64? = nil, itemBeingFlaggedType: String? = nil, itemBeingFlaggedId: Int64? = nil, flagableType: String? = nil, flagableId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteFlag(deviceId: String? = nil, accountId: Int64? = nil, itemBeingFlaggedType: String? = nil, itemBeingFlaggedId: Int64? = nil, flagableType: String? = nil, flagableId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/flag/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/flag/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -123,9 +119,8 @@ open class FlagAPI {
 
 
     /// Get Flag
-    /// - GET /api/{version}/flag/get
+    /// - GET /flag/get
     /// - Gets the details on whether the user has flagged a particular flagable object.
-    /// - parameter version: (path)  
     /// - parameter flagableType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} 
     /// - parameter flagableId: (query) The flagable object id 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -133,14 +128,13 @@ open class FlagAPI {
     /// - parameter latitude: (query) The current location of the user (optional)
     /// - parameter longitude: (query) The current location of the user (optional)
     /// - returns: AnyPublisher<FlagResponse, Error> 
-    open func getFlag(version: Double, flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<FlagResponse, Error> {
+    open func getFlag(flagableType: String, flagableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<FlagResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/flag/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/flag/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -169,20 +163,18 @@ open class FlagAPI {
 
 
     /// Get Flag Threshold
-    /// - GET /api/{version}/flag/threshold/get
+    /// - GET /flag/threshold/get
     /// - Get the flag threshold value on an object type for a particular application.
-    /// - parameter version: (path)  
     /// - parameter itemBeingFlaggedType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
     /// - parameter appKey: (query) The application key 
     /// - returns: AnyPublisher<CountResponse, Error> 
-    open func getFlagThreshold(version: Double, itemBeingFlaggedType: String, appKey: String) -> AnyPublisher<CountResponse, Error> {
+    open func getFlagThreshold(itemBeingFlaggedType: String, appKey: String) -> AnyPublisher<CountResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/flag/threshold/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/flag/threshold/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -207,23 +199,21 @@ open class FlagAPI {
 
 
     /// Update Flag Threshold
-    /// - POST /api/{version}/flag/threshold/update
+    /// - POST /flag/threshold/update
     /// - Update the flag threshold on an object type for a particular application.
-    /// - parameter version: (path)  
     /// - parameter itemBeingFlaggedType: (query) The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} 
     /// - parameter threshold: (query) The threshold value 
     /// - parameter appKey: (query) The application key 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
     /// - returns: AnyPublisher<CountResponse, Error> 
-    open func updateFlagThreshold(version: Double, itemBeingFlaggedType: String, threshold: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<CountResponse, Error> {
+    open func updateFlagThreshold(itemBeingFlaggedType: String, threshold: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<CountResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/flag/threshold/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/flag/threshold/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

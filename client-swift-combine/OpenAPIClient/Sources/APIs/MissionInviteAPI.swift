@@ -21,7 +21,7 @@ open class MissionInviteAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,23 +29,21 @@ open class MissionInviteAPI {
 
 
     /// Create Mission Invite
-    /// - POST /api/{version}/mission/invite/create
+    /// - POST /mission/invite/create
     /// - Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
     /// - parameter missionId: (query) The mission to find the invite for. (optional)
     /// - parameter joinCode: (query) code to be entered for user to join the mission (optional)
     /// - parameter includeGameData: (query) Include the game level data with the mission. (optional)
     /// - returns: AnyPublisher<MissionResponse, Error> 
-    open func createMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, joinCode: String? = nil, includeGameData: Bool? = nil) -> AnyPublisher<MissionResponse, Error> {
+    open func createMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, joinCode: String? = nil, includeGameData: Bool? = nil) -> AnyPublisher<MissionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/invite/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/invite/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -73,23 +71,21 @@ open class MissionInviteAPI {
 
 
     /// Delete Mission Invite
-    /// - POST /api/{version}/mission/invite/delete
+    /// - POST /mission/invite/delete
     /// - Update the mission invite status to quit.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
     /// - parameter missionId: (query) The mission to find the invite for (missionId or missionInviteId requried). (optional)
     /// - parameter missionInviteId: (query) The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried). (optional)
     /// - parameter includeGameData: (query) Include the game level data with the mission. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/invite/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/invite/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -117,9 +113,8 @@ open class MissionInviteAPI {
 
 
     /// Get Mission Invite
-    /// - GET /api/{version}/mission/invite/get
+    /// - GET /mission/invite/get
     /// - Get the mission invite. An account can only be invited to a mission one time.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
     /// - parameter missionId: (query) The mission to find the invite for (missionId or missionInviteId requried). (optional)
@@ -127,14 +122,13 @@ open class MissionInviteAPI {
     /// - parameter includeGameData: (query) Include the game level data with the mission. (optional)
     /// - parameter includeScores: (query) include the scores with the mission (optional)
     /// - returns: AnyPublisher<MissionResponse, Error> 
-    open func getMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, includeScores: String? = nil) -> AnyPublisher<MissionResponse, Error> {
+    open func getMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, includeGameData: Bool? = nil, includeScores: String? = nil) -> AnyPublisher<MissionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/invite/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/invite/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -163,9 +157,8 @@ open class MissionInviteAPI {
 
 
     /// Search Mission Invites
-    /// - GET /api/{version}/mission/invite/search
+    /// - GET /mission/invite/search
     /// - Get a list of mission invites that the account has.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
     /// - parameter appKey: (query) the app to retrieve the data for, use your application key. (optional)
@@ -180,14 +173,13 @@ open class MissionInviteAPI {
     /// - parameter filterByBillable: (query) filter results by the account&#39;s billable (optional)
     /// - parameter includeGameData: (query) Include the game level data with the mission. (optional)
     /// - returns: AnyPublisher<[MissionResponse], Error> 
-    open func searchMissionInvites(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, missionId: Int64? = nil, status: String? = nil, lastUpdated: Int64? = nil, start: Int? = nil, limit: Int? = nil, keyword: String? = nil, missionTypes: String? = nil, filterByBillable: Bool? = nil, includeGameData: Bool? = nil) -> AnyPublisher<[MissionResponse], Error> {
+    open func searchMissionInvites(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, missionId: Int64? = nil, status: String? = nil, lastUpdated: Int64? = nil, start: Int? = nil, limit: Int? = nil, keyword: String? = nil, missionTypes: String? = nil, filterByBillable: Bool? = nil, includeGameData: Bool? = nil) -> AnyPublisher<[MissionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/invite/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/invite/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -223,9 +215,8 @@ open class MissionInviteAPI {
 
 
     /// Update Mission Invite
-    /// - POST /api/{version}/mission/invite/update
+    /// - POST /mission/invite/update
     /// - Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required). (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
     /// - parameter appKey: (query) the application key (optional)
@@ -238,14 +229,13 @@ open class MissionInviteAPI {
     /// - parameter permissionableId: (query) The id of the content being submitted. (optional)
     /// - parameter includeGameData: (query) Include the game level data with the mission. (optional)
     /// - returns: AnyPublisher<MissionResponse, Error> 
-    open func updateMissionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, status: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, includeGameData: Bool? = nil) -> AnyPublisher<MissionResponse, Error> {
+    open func updateMissionInvite(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, missionInviteId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, status: String? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, includeGameData: Bool? = nil) -> AnyPublisher<MissionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/invite/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/invite/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

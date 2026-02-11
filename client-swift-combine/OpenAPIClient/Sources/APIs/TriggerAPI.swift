@@ -21,7 +21,7 @@ open class TriggerAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -37,9 +37,8 @@ open class TriggerAPI {
     }
 
     /// Create Trigger
-    /// - POST /api/{version}/trigger/create
+    /// - POST /trigger/create
     /// - Create a trigger
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user 
     /// - parameter name: (query) The name of the trigger 
     /// - parameter appKey: (query) The application to target (optional)
@@ -54,14 +53,13 @@ open class TriggerAPI {
     /// - parameter visibility: (query) The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional)
     /// - parameter active: (query) Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to true)
     /// - returns: AnyPublisher<TriggerResponse, Error> 
-    open func createTrigger(version: Double, accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: CreateTriggerVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TriggerResponse, Error> {
+    open func createTrigger(accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: CreateTriggerVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TriggerResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trigger/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trigger/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -97,20 +95,18 @@ open class TriggerAPI {
 
 
     /// Delete Trigger
-    /// - POST /api/{version}/trigger/delete
+    /// - POST /trigger/delete
     /// - Mark a trigger as deleted.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter triggerId: (query) The id of the trigger to delete. 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteTrigger(version: Double, accountId: Int64, triggerId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteTrigger(accountId: Int64, triggerId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trigger/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trigger/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -135,20 +131,18 @@ open class TriggerAPI {
 
 
     /// Get Trigger
-    /// - GET /api/{version}/trigger/get
+    /// - GET /trigger/get
     /// - Get a trigger
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter triggerId: (query) The id of the Trigger to return. 
     /// - returns: AnyPublisher<TriggerResponse, Error> 
-    open func getTrigger(version: Double, accountId: Int64, triggerId: Int64) -> AnyPublisher<TriggerResponse, Error> {
+    open func getTrigger(accountId: Int64, triggerId: Int64) -> AnyPublisher<TriggerResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trigger/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trigger/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -173,9 +167,8 @@ open class TriggerAPI {
 
 
     /// Search Triggers
-    /// - GET /api/{version}/trigger/search
+    /// - GET /trigger/search
     /// - Search for triggers
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter groupingId: (query) Filter results by a grouping identifier defined by the client (optional)
     /// - parameter filter: (query) A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to "MINE")
@@ -189,14 +182,13 @@ open class TriggerAPI {
     /// - parameter limit: (query) Limit the result to some number. (optional, default to 20)
     /// - parameter activeOnly: (query) Determines whether to return only active results (optional, default to true)
     /// - returns: AnyPublisher<[TriggerResponse], Error> 
-    open func searchTriggers(version: Double, accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[TriggerResponse], Error> {
+    open func searchTriggers(accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[TriggerResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trigger/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trigger/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -239,9 +231,8 @@ open class TriggerAPI {
     }
 
     /// Update Trigger
-    /// - POST /api/{version}/trigger/update
+    /// - POST /trigger/update
     /// - Update a trigger
-    /// - parameter version: (path)  
     /// - parameter triggerId: (query) The trigger to update 
     /// - parameter accountId: (query) The logged in user 
     /// - parameter name: (query) The name of the trigger (optional)
@@ -257,14 +248,13 @@ open class TriggerAPI {
     /// - parameter visibility: (query) The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional)
     /// - parameter active: (query) Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional)
     /// - returns: AnyPublisher<TriggerResponse, Error> 
-    open func updateTrigger(version: Double, triggerId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: UpdateTriggerVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TriggerResponse, Error> {
+    open func updateTrigger(triggerId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, conditionalInput: String? = nil, visibility: UpdateTriggerVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TriggerResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trigger/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trigger/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

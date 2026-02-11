@@ -21,7 +21,7 @@ open class AlbumAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -46,9 +46,8 @@ open class AlbumAPI {
     }
 
     /// Create Album
-    /// - POST /api/{version}/album/create
+    /// - POST /album/create
     /// - Create an Album.
-    /// - parameter version: (path)  
     /// - parameter title: (query) the title of the album 
     /// - parameter coverAssetNullable: (query) determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image 
     /// - parameter includeCoverInAssetList: (query) determines whether the cover image should be added to the album asset list 
@@ -96,14 +95,13 @@ open class AlbumAPI {
     /// - parameter linkedObjectType: (query) sets a linked object so that it can be returned as part of the album response (optional)
     /// - parameter linkedObjectId: (query) sets a linked object id so that it can be returned as part of the album response (optional)
     /// - returns: AnyPublisher<SearchResponse, Error> 
-    open func addAlbumCollection(version: Double, title: String, coverAssetNullable: Bool, includeCoverInAssetList: Bool, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, anonymous: Bool, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, media: Data? = nil, mediaURL: String? = nil, assetId: Int64? = nil, attachedMedia: Data? = nil, attachedMediaURL: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: AddAlbumCollectionVisibility? = nil, gameType: String? = nil, appKey: String? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, approvalStatus: AddAlbumCollectionApprovalStatus? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil) -> AnyPublisher<SearchResponse, Error> {
+    open func addAlbumCollection(title: String, coverAssetNullable: Bool, includeCoverInAssetList: Bool, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, anonymous: Bool, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, media: Data? = nil, mediaURL: String? = nil, assetId: Int64? = nil, attachedMedia: Data? = nil, attachedMediaURL: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: AddAlbumCollectionVisibility? = nil, gameType: String? = nil, appKey: String? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, approvalStatus: AddAlbumCollectionApprovalStatus? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil) -> AnyPublisher<SearchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -172,9 +170,8 @@ open class AlbumAPI {
 
 
     /// Add Album Users
-    /// - POST /api/{version}/album/user/add
+    /// - POST /album/user/add
     /// - Add users to an album as participants.
-    /// - parameter version: (path)  
     /// - parameter albumId: (query) the album ID 
     /// - parameter includeFriendGroup: (query) determines whether to include all friends as participants 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -186,14 +183,13 @@ open class AlbumAPI {
     /// - parameter connections: (query) comma separated list of connection IDs (optional)
     /// - parameter connectionGroups: (query) comma separated list of connection group IDs (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func addAlbumUsers(version: Double, albumId: Int64, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connections: String? = nil, connectionGroups: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func addAlbumUsers(albumId: Int64, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connections: String? = nil, connectionGroups: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/user/add"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/user/add"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -235,23 +231,21 @@ open class AlbumAPI {
     }
 
     /// Approve Album
-    /// - POST /api/{version}/album/approve
+    /// - POST /album/approve
     /// - Sets the approval status of an Album.
-    /// - parameter version: (path)  
     /// - parameter albumId: (query) The ID of the album 
     /// - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
     /// - parameter approvalStatus: (query) The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional)
     /// - parameter verified: (query) Sets whether the album should be marked as \&quot;verified\&quot; (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func approveAlbum(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApproveAlbumApprovalStatus? = nil, verified: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func approveAlbum(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApproveAlbumApprovalStatus? = nil, verified: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/approve"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/approve"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -279,9 +273,8 @@ open class AlbumAPI {
 
 
     ///  Get Album
-    /// - GET /api/{version}/album/get
+    /// - GET /album/get
     /// - Get an Album.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) This parameter is deprecated. 
     /// - parameter albumId: (query) the album to look up 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -292,14 +285,13 @@ open class AlbumAPI {
     /// - parameter connectionPreviewSize: (query) returns the first X users/connections. To search on and paginate the remaining connections - please use the \&quot;/permissions/search\&quot; endpoint. (optional)
     /// - parameter audiencePreviewSize: (query) returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional)
     /// - returns: AnyPublisher<AlbumFullResponse, Error> 
-    open func getAlbumCollection(version: Double, returnNulls: Bool, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, likePreviewSize: Int? = nil, assetPreviewSize: Int? = nil, notePreviewSize: Int? = nil, connectionPreviewSize: Int? = nil, audiencePreviewSize: Int? = nil) -> AnyPublisher<AlbumFullResponse, Error> {
+    open func getAlbumCollection(returnNulls: Bool, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, likePreviewSize: Int? = nil, assetPreviewSize: Int? = nil, notePreviewSize: Int? = nil, connectionPreviewSize: Int? = nil, audiencePreviewSize: Int? = nil) -> AnyPublisher<AlbumFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -331,21 +323,19 @@ open class AlbumAPI {
 
 
     /// Leave Album
-    /// - POST /api/{version}/album/user/leave
+    /// - POST /album/user/leave
     /// -  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-    /// - parameter version: (path)  
     /// - parameter albumId: (query) the album ID 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func leaveAlbum(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func leaveAlbum(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/user/leave"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/user/leave"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -371,21 +361,19 @@ open class AlbumAPI {
 
 
     /// Delete Album
-    /// - POST /api/{version}/album/delete
+    /// - POST /album/delete
     /// - Deletes an Album
-    /// - parameter version: (path)  
     /// - parameter albumId: (query) the album ID to delete 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeAlbum(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeAlbum(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -411,9 +399,8 @@ open class AlbumAPI {
 
 
     /// Remove Album Users
-    /// - POST /api/{version}/album/user/delete
+    /// - POST /album/user/delete
     /// - Remove participants of an album.
-    /// - parameter version: (path)  
     /// - parameter albumId: (query) the album ID 
     /// - parameter removeFriendGroup: (query) remove friend group 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -421,14 +408,13 @@ open class AlbumAPI {
     /// - parameter connections: (query) comma separated list of connection IDs (optional)
     /// - parameter connectionGroups: (query) comma separated list of connection group IDs (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeAlbumUsers(version: Double, albumId: Int64, removeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, connections: String? = nil, connectionGroups: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeAlbumUsers(albumId: Int64, removeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, connections: String? = nil, connectionGroups: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/user/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/user/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -457,9 +443,8 @@ open class AlbumAPI {
 
 
     /// Search Albums
-    /// - GET /api/{version}/album/search
+    /// - GET /album/search
     /// - Searches on Albums.
-    /// - parameter version: (path)  
     /// - parameter filter: (query) a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  
     /// - parameter albumTypeId: (query) id of custom albumType 
     /// - parameter subType: (query) filter albums with this album sub type 
@@ -521,14 +506,13 @@ open class AlbumAPI {
     /// - parameter searchExpression: (query) Advanced search expression to be used by the server (optional)
     /// - parameter generateAlbums: (query) If true and results are empty, attempt to generate albums via templates (optional)
     /// - returns: AnyPublisher<[AlbumFullResponse], Error> 
-    open func searchAlbums(version: Double, filter: String, albumTypeId: Int64, subType: String, includeInactive: Bool, sortField: String, descending: Bool, start: Int, limit: Int, range: Double, includeLiked: Bool, includeFavorited: Bool, includePermissions: Bool, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, ownerId: Int64? = nil, albumIds: String? = nil, excludeAlbumIds: String? = nil, mediaId: Int64? = nil, keyword: String? = nil, albumType: String? = nil, limitPerAlbumType: Int? = nil, dateCreated: Int64? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, createdSince: Int64? = nil, createdBefore: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, excludeAudienceIds: String? = nil, includeCompletable: Bool? = nil, includeRating: Bool? = nil, searchMode: String? = nil, stackSearch: Bool? = nil, stackWindowSize: Int? = nil, minStackPerPage: Int? = nil, stackPaginationIdentifier: String? = nil, stackDetails: Bool? = nil, flagCountMinimum: Int64? = nil, removeFlaggedContent: Bool? = nil, verifiedFilter: Bool? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, orderAudienceId: Int64? = nil, ignoreDefaultAppFilter: Bool? = nil, searchExpression: String? = nil, generateAlbums: Bool? = nil) -> AnyPublisher<[AlbumFullResponse], Error> {
+    open func searchAlbums(filter: String, albumTypeId: Int64, subType: String, includeInactive: Bool, sortField: String, descending: Bool, start: Int, limit: Int, range: Double, includeLiked: Bool, includeFavorited: Bool, includePermissions: Bool, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, ownerId: Int64? = nil, albumIds: String? = nil, excludeAlbumIds: String? = nil, mediaId: Int64? = nil, keyword: String? = nil, albumType: String? = nil, limitPerAlbumType: Int? = nil, dateCreated: Int64? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, createdSince: Int64? = nil, createdBefore: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, excludeAudienceIds: String? = nil, includeCompletable: Bool? = nil, includeRating: Bool? = nil, searchMode: String? = nil, stackSearch: Bool? = nil, stackWindowSize: Int? = nil, minStackPerPage: Int? = nil, stackPaginationIdentifier: String? = nil, stackDetails: Bool? = nil, flagCountMinimum: Int64? = nil, removeFlaggedContent: Bool? = nil, verifiedFilter: Bool? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, orderAudienceId: Int64? = nil, ignoreDefaultAppFilter: Bool? = nil, searchExpression: String? = nil, generateAlbums: Bool? = nil) -> AnyPublisher<[AlbumFullResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -619,9 +603,8 @@ open class AlbumAPI {
     }
 
     /// Update Album
-    /// - POST /api/{version}/album/update
+    /// - POST /album/update
     /// - Update an Album.
-    /// - parameter version: (path)  
     /// - parameter albumId: (query) the ID of the album to update 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -668,14 +651,13 @@ open class AlbumAPI {
     /// - parameter linkedObjectId: (query) sets a linked object id so that it can be returned as part of the album response (optional)
     /// - parameter indexNow: (query) determines whether the album should be indexed immediately (optional)
     /// - returns: AnyPublisher<AlbumResponse, Error> 
-    open func updateAlbumCollection(version: Double, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, assetsToRemove: String? = nil, assetId: Int64? = nil, media: Data? = nil, mediaURL: String? = nil, active: Bool? = nil, title: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, publicRead: Bool? = nil, publicWrite: Bool? = nil, publicDelete: Bool? = nil, publicAdd: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: UpdateAlbumCollectionVisibility? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, anonymous: Bool? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, indexNow: Bool? = nil) -> AnyPublisher<AlbumResponse, Error> {
+    open func updateAlbumCollection(albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetsToAdd: String? = nil, assetsToRemove: String? = nil, assetId: Int64? = nil, media: Data? = nil, mediaURL: String? = nil, active: Bool? = nil, title: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, description: String? = nil, albumType: String? = nil, albumTypeId: Int64? = nil, subType: String? = nil, publicRead: Bool? = nil, publicWrite: Bool? = nil, publicDelete: Bool? = nil, publicAdd: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, locationDescription: String? = nil, visibility: UpdateAlbumCollectionVisibility? = nil, cellPhone: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, fullAddress: String? = nil, anonymous: Bool? = nil, metaData: String? = nil, categoryIds: String? = nil, categoryFilterIds: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, includeAllAppUsersAsMembers: Bool? = nil, includeAudiencesAsMembers: Bool? = nil, audienceOperator: String? = nil, linkedObjectType: String? = nil, linkedObjectId: Int64? = nil, indexNow: Bool? = nil) -> AnyPublisher<AlbumResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/album/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/album/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class TaskAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -37,9 +37,8 @@ open class TaskAPI {
     }
 
     /// Create Task
-    /// - POST /api/{version}/task/create
+    /// - POST /task/create
     /// - Create a Task
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the task 
     /// - parameter appKey: (query) The application to target (optional)
@@ -53,14 +52,13 @@ open class TaskAPI {
     /// - parameter visibility: (query) The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional)
     /// - parameter active: (query) Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to true)
     /// - returns: AnyPublisher<TaskResponse, Error> 
-    open func createTask(version: Double, accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: CreateTaskVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TaskResponse, Error> {
+    open func createTask(accountId: Int64, name: String, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: CreateTaskVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TaskResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/task/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/task/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -95,20 +93,18 @@ open class TaskAPI {
 
 
     /// Delete Task
-    /// - POST /api/{version}/task/delete
+    /// - POST /task/delete
     /// - Delete a Task
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter taskId: (query) The id of the Task to delete. 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteTask(version: Double, accountId: Int64, taskId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteTask(accountId: Int64, taskId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/task/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/task/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -133,20 +129,18 @@ open class TaskAPI {
 
 
     /// Get Task
-    /// - GET /api/{version}/task/get
+    /// - GET /task/get
     /// - Get a Task
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter taskId: (query) The id of the Task to return. 
     /// - returns: AnyPublisher<TaskResponse, Error> 
-    open func getTask(version: Double, accountId: Int64, taskId: Int64) -> AnyPublisher<TaskResponse, Error> {
+    open func getTask(accountId: Int64, taskId: Int64) -> AnyPublisher<TaskResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/task/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/task/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -171,9 +165,8 @@ open class TaskAPI {
 
 
     /// Search Tasks
-    /// - GET /api/{version}/task/search
+    /// - GET /task/search
     /// - Search on Tasks
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter groupingId: (query) Filter results by a grouping identifier defined by the client (optional)
     /// - parameter filter: (query) A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to "MINE")
@@ -187,14 +180,13 @@ open class TaskAPI {
     /// - parameter limit: (query) Limit the result to some number. (optional, default to 20)
     /// - parameter activeOnly: (query) Determines whether to return only active results (optional, default to true)
     /// - returns: AnyPublisher<[TaskResponse], Error> 
-    open func searchTasks(version: Double, accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[TaskResponse], Error> {
+    open func searchTasks(accountId: Int64, groupingId: String? = nil, filter: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[TaskResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/task/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/task/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -237,9 +229,8 @@ open class TaskAPI {
     }
 
     /// Update Task
-    /// - POST /api/{version}/task/update
+    /// - POST /task/update
     /// - Update a Task
-    /// - parameter version: (path)  
     /// - parameter taskId: (query) Task Id 
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the task (optional)
@@ -254,14 +245,13 @@ open class TaskAPI {
     /// - parameter visibility: (query) The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional)
     /// - parameter active: (query) Sets whether the Task is active or not (inactive Tasks are not processed) (optional)
     /// - returns: AnyPublisher<TaskResponse, Error> 
-    open func updateTask(version: Double, taskId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: UpdateTaskVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TaskResponse, Error> {
+    open func updateTask(taskId: Int64, accountId: Int64, name: String? = nil, appKey: String? = nil, groupingId: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, visibility: UpdateTaskVisibility? = nil, active: Bool? = nil) -> AnyPublisher<TaskResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/task/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/task/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

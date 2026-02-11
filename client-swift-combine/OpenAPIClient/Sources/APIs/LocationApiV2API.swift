@@ -21,7 +21,7 @@ open class LocationApiV2API {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class LocationApiV2API {
 
 
     /// Create new location
-    /// - POST /api/{version}/location
+    /// - POST /location
     /// - Create a new location from a real object location.
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func createLocationV2(version: Double, body: Location? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func createLocationV2(body: Location? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -64,20 +62,18 @@ open class LocationApiV2API {
 
 
     /// Update an existing location
-    /// - POST /api/{version}/location/{id}
+    /// - POST /location/{id}
     /// - Update an existing location
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the location to update 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateLocationV2(version: Double, id: Int64, body: Location? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateLocationV2(id: Int64, body: Location? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/location/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)

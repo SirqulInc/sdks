@@ -21,7 +21,7 @@ open class ParticipantsAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class ParticipantsAPI {
 
 
     /// Process All Participant Feeds
-    /// - POST /api/{version}/participant/process/all
+    /// - POST /participant/process/all
     /// - Processes all supported participant feeds.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter appKey: (query) The application key used to identify the application (optional)
     /// - parameter useShortNameAsID: (query) Whether to use short name as the participant ID (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func processAllParticipants(version: Double, accountId: Int64, appKey: String? = nil, useShortNameAsID: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func processAllParticipants(accountId: Int64, appKey: String? = nil, useShortNameAsID: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/participant/process/all"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/participant/process/all"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -69,23 +67,21 @@ open class ParticipantsAPI {
 
 
     /// Process Participants Feed
-    /// - POST /api/{version}/participant/process
+    /// - POST /participant/process
     /// - Processes a participant feed or uploaded file for a specific league.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter league: (query) The league identifier to process 
     /// - parameter appKey: (query) The application key used to identify the application (optional)
     /// - parameter useShortNameAsID: (query) Whether to use short name as the participant ID (optional)
     /// - parameter file: (query) Multipart file containing participant feed contents (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func processParticipants(version: Double, accountId: Int64, league: String, appKey: String? = nil, useShortNameAsID: Bool? = nil, file: Data? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func processParticipants(accountId: Int64, league: String, appKey: String? = nil, useShortNameAsID: Bool? = nil, file: Data? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/participant/process"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/participant/process"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

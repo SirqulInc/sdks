@@ -21,7 +21,7 @@ open class PurchaseItemAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -54,9 +54,8 @@ open class PurchaseItemAPI {
     }
 
     /// Create Purchase
-    /// - POST /api/{version}/purchase/create
+    /// - POST /purchase/create
     /// - Creates a purchase item for in app purchases
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key that the purchase can be used in 
     /// - parameter name: (query) The name of the purchase item 
     /// - parameter purchaseType: (query) The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt; 
@@ -78,14 +77,13 @@ open class PurchaseItemAPI {
     /// - parameter points: (query) The number of points to award for completing a mission (optional)
     /// - parameter offerLocationId: (query) The offer location that will get added to the user&#39;s wallet after purchase. (optional)
     /// - returns: AnyPublisher<PurchaseItemFullResponse, Error> 
-    open func createPurchaseItem(version: Double, appKey: String, name: String, purchaseType: CreatePurchaseItemPurchaseType, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: CreatePurchaseItemServiceAction? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil) -> AnyPublisher<PurchaseItemFullResponse, Error> {
+    open func createPurchaseItem(appKey: String, name: String, purchaseType: CreatePurchaseItemPurchaseType, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: CreatePurchaseItemServiceAction? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil) -> AnyPublisher<PurchaseItemFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/purchase/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/purchase/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -128,21 +126,19 @@ open class PurchaseItemAPI {
 
 
     /// Delete Purchase
-    /// - POST /api/{version}/purchase/delete
+    /// - POST /purchase/delete
     /// - Marks the purchase item as deleted
-    /// - parameter version: (path)  
     /// - parameter purchaseItemId: (query) The purchase item id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deletePurchaseItem(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deletePurchaseItem(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/purchase/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/purchase/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -168,21 +164,19 @@ open class PurchaseItemAPI {
 
 
     /// Get Purchase
-    /// - GET /api/{version}/purchase/get
+    /// - GET /purchase/get
     /// - Get detailed information about a purchase item
-    /// - parameter version: (path)  
     /// - parameter purchaseItemId: (query) The purchase item id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<PurchaseItemFullResponse, Error> 
-    open func getPurchaseItem(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<PurchaseItemFullResponse, Error> {
+    open func getPurchaseItem(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<PurchaseItemFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/purchase/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/purchase/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -231,9 +225,8 @@ open class PurchaseItemAPI {
     }
 
     /// Search Purchases
-    /// - GET /api/{version}/purchase/search
+    /// - GET /purchase/search
     /// - Search for purchasable items from the system
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter appKey: (query) The application key to filter results by application (optional)
@@ -247,14 +240,13 @@ open class PurchaseItemAPI {
     /// - parameter limit: (query) The number of records to return (optional, default to 20)
     /// - parameter activeOnly: (query) Return only active results (optional, default to false)
     /// - returns: AnyPublisher<[PurchaseItemResponse], Error> 
-    open func searchPurchaseItems(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, filterByBillable: Bool? = nil, purchaseType: String? = nil, serviceAction: String? = nil, keyword: String? = nil, sortField: SearchPurchaseItemsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[PurchaseItemResponse], Error> {
+    open func searchPurchaseItems(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, filterByBillable: Bool? = nil, purchaseType: String? = nil, serviceAction: String? = nil, keyword: String? = nil, sortField: SearchPurchaseItemsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[PurchaseItemResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/purchase/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/purchase/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -314,9 +306,8 @@ open class PurchaseItemAPI {
     }
 
     /// Update Purchase
-    /// - POST /api/{version}/purchase/update
+    /// - POST /purchase/update
     /// - Updates a purchase item for in app purchases
-    /// - parameter version: (path)  
     /// - parameter purchaseItemId: (query) The purchase item id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -339,14 +330,13 @@ open class PurchaseItemAPI {
     /// - parameter points: (query) The number of points to award for completing a mission (optional)
     /// - parameter offerLocationId: (query) The offer location that will get added to the user&#39;s wallet after purchase. (optional)
     /// - returns: AnyPublisher<PurchaseItemFullResponse, Error> 
-    open func updatePurchaseItem(version: Double, purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseType: UpdatePurchaseItemPurchaseType? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: UpdatePurchaseItemServiceAction? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil) -> AnyPublisher<PurchaseItemFullResponse, Error> {
+    open func updatePurchaseItem(purchaseItemId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, tickets: Int? = nil, price: Float? = nil, purchaseType: UpdatePurchaseItemPurchaseType? = nil, purchaseCode: String? = nil, secretKey: String? = nil, purchaseLimit: Int? = nil, serviceAction: UpdatePurchaseItemServiceAction? = nil, coverAssetId: Int64? = nil, promoAssetId: Int64? = nil, giftable: Bool? = nil, assetable: Bool? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil, offerLocationId: Int64? = nil) -> AnyPublisher<PurchaseItemFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/purchase/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/purchase/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

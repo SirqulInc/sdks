@@ -21,7 +21,7 @@ open class CarrierAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,23 +29,21 @@ open class CarrierAPI {
 
 
     /// Search Carriers
-    /// - GET /api/{version}/carrier/search
+    /// - GET /carrier/search
     /// - Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-    /// - parameter version: (path)  
     /// - parameter keyword: (query) The keyword to search on (optional)
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order (optional, default to false)
     /// - parameter start: (query) The start index for pagination (optional, default to 0)
     /// - parameter limit: (query) The limit for pagination (optional, default to 20)
     /// - parameter activeOnly: (query) Determines whether to return inactive results (optional, default to true)
     /// - returns: AnyPublisher<[CellCarrierResponse], Error> 
-    open func searchCarriers(version: Double, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[CellCarrierResponse], Error> {
+    open func searchCarriers(keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[CellCarrierResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/carrier/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/carrier/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

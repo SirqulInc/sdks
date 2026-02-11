@@ -21,7 +21,7 @@ open class PathingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -36,22 +36,20 @@ open class PathingAPI {
     }
 
     /// Calculate Path
-    /// - GET /api/{version}/pathing/compute
+    /// - GET /pathing/compute
     /// - Calculates the shortest path from point to point on a grid
-    /// - parameter version: (path)  
     /// - parameter data: (query) the data to with start, end point and exclusion points 
     /// - parameter units: (query) the system of measurement for directions: {METRIC, IMPERIAL} 
     /// - parameter reducePath: (query) determines whether to reduce the path to go in diagonal lines 
     /// - parameter directions: (query) determines whether to return text directions 
     /// - returns: AnyPublisher<PathingResponse, Error> 
-    open func computePath(version: Double, data: String, units: ComputePathUnits, reducePath: Bool, directions: Bool) -> AnyPublisher<PathingResponse, Error> {
+    open func computePath(data: String, units: ComputePathUnits, reducePath: Bool, directions: Bool) -> AnyPublisher<PathingResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/pathing/compute"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/pathing/compute"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

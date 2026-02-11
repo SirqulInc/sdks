@@ -21,7 +21,7 @@ open class PackAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -47,9 +47,8 @@ open class PackAPI {
     }
 
     /// Create Pack
-    /// - POST /api/{version}/pack/create
+    /// - POST /pack/create
     /// - Create a pack.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter title: (query) The title of the pack 
     /// - parameter packOrder: (query) The order of the pack 
@@ -75,14 +74,13 @@ open class PackAPI {
     /// - parameter ticketType: (query) The type of ticket to reward, null means default type (optional)
     /// - parameter points: (query) The number of points to award for completing a pack (optional)
     /// - returns: AnyPublisher<PackResponse, Error> 
-    open func createPack(version: Double, accountId: Int64, title: String, packOrder: Int64, price: Int, highest: Bool, allocateTickets: Bool, ticketCount: Int64, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: CreatePackPackType? = nil, sequenceType: CreatePackSequenceType? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<PackResponse, Error> {
+    open func createPack(accountId: Int64, title: String, packOrder: Int64, price: Int, highest: Bool, allocateTickets: Bool, ticketCount: Int64, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: CreatePackPackType? = nil, sequenceType: CreatePackSequenceType? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<PackResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/pack/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/pack/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -129,20 +127,18 @@ open class PackAPI {
 
 
     /// Delete Pack
-    /// - POST /api/{version}/pack/delete
+    /// - POST /pack/delete
     /// - Delete a pack.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter packId: (query) the id of the pack to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deletePack(version: Double, accountId: Int64, packId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deletePack(accountId: Int64, packId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/pack/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/pack/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -167,21 +163,19 @@ open class PackAPI {
 
 
     /// Get Pack
-    /// - GET /api/{version}/pack/get
+    /// - GET /pack/get
     /// - Get a pack.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter packId: (query) The id of the pack to return. 
     /// - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. 
     /// - returns: AnyPublisher<PackResponse, Error> 
-    open func getPack(version: Double, accountId: Int64, packId: Int64, includeGameData: Bool) -> AnyPublisher<PackResponse, Error> {
+    open func getPack(accountId: Int64, packId: Int64, includeGameData: Bool) -> AnyPublisher<PackResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/pack/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/pack/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -227,9 +221,8 @@ open class PackAPI {
     }
 
     /// Search Packs
-    /// - GET /api/{version}/pack/search
+    /// - GET /pack/search
     /// - Search on packs.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter sortField: (query) The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -241,14 +234,13 @@ open class PackAPI {
     /// - parameter includeInactive: (query) Determines whether to include inactive results (optional)
     /// - parameter appKey: (query) The application to filter results on (optional)
     /// - returns: AnyPublisher<[PackResponse], Error> 
-    open func searchPacks(version: Double, accountId: Int64, sortField: SearchPacksSortField, descending: Bool, keyword: String? = nil, packType: SearchPacksPackType? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, appKey: String? = nil) -> AnyPublisher<[PackResponse], Error> {
+    open func searchPacks(accountId: Int64, sortField: SearchPacksSortField, descending: Bool, keyword: String? = nil, packType: SearchPacksPackType? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil, appKey: String? = nil) -> AnyPublisher<[PackResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/pack/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/pack/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -299,9 +291,8 @@ open class PackAPI {
     }
 
     /// Update Pack
-    /// - POST /api/{version}/pack/update
+    /// - POST /pack/update
     /// - Update a pack.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter packId: (query) The id of the pack to update. 
     /// - parameter allocateTickets: (query) Flag to indicate owner should receive tickets for completed packs 
@@ -328,14 +319,13 @@ open class PackAPI {
     /// - parameter ticketType: (query) The type of ticket to reward, null means default type (optional)
     /// - parameter points: (query) The number of points to award for completing a pack (optional)
     /// - returns: AnyPublisher<PackResponse, Error> 
-    open func updatePack(version: Double, accountId: Int64, packId: Int64, allocateTickets: Bool, ticketCount: Int64, title: String? = nil, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: UpdatePackPackType? = nil, packOrder: Int64? = nil, sequenceType: UpdatePackSequenceType? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, price: Int? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, highest: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<PackResponse, Error> {
+    open func updatePack(accountId: Int64, packId: Int64, allocateTickets: Bool, ticketCount: Int64, title: String? = nil, description: String? = nil, searchTags: String? = nil, active: Bool? = nil, gameType: String? = nil, appKey: String? = nil, packType: UpdatePackPackType? = nil, packOrder: Int64? = nil, sequenceType: UpdatePackSequenceType? = nil, backgroundId: Int64? = nil, imageId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, authorOverride: String? = nil, price: Int? = nil, priceType: String? = nil, gameLevelIds: String? = nil, inGame: Bool? = nil, highest: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<PackResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/pack/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/pack/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

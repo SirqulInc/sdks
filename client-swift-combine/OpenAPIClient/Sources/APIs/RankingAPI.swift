@@ -21,7 +21,7 @@ open class RankingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class RankingAPI {
 
 
     /// Search Historical Rankings
-    /// - GET /api/{version}/ranking/historical/search
+    /// - GET /ranking/historical/search
     /// - Get historical leaderboard rankings by time-frame.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) the application key for filtering results by application 
     /// - parameter rankType: (query) the rank type to return 
     /// - parameter startDate: (query) timestamp in milliseconds to filter results with 
@@ -43,14 +42,13 @@ open class RankingAPI {
     /// - parameter start: (query) the start index for pagination (optional, default to 0)
     /// - parameter limit: (query) the limit for pagination (optional, default to 100)
     /// - returns: AnyPublisher<RankFullResponse, Error> 
-    open func getHistoricalRankings(version: Double, appKey: String, rankType: String, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<RankFullResponse, Error> {
+    open func getHistoricalRankings(appKey: String, rankType: String, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<RankFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ranking/historical/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ranking/historical/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -83,9 +81,8 @@ open class RankingAPI {
 
 
     /// Search Rankings
-    /// - GET /api/{version}/ranking/search
+    /// - GET /ranking/search
     /// - Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter gameType: (query) This parameter is deprecated. (optional)
@@ -105,14 +102,13 @@ open class RankingAPI {
     /// - parameter l: (query) This parameter is deprecated. (optional)
     /// - parameter limit: (query) the limit for pagination (optional, default to 100)
     /// - returns: AnyPublisher<RankFullResponse, Error> 
-    open func getRankings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, q: String? = nil, keyword: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, withinAccountIds: String? = nil, returnUserRank: Bool? = nil, albumId: Int64? = nil, audienceId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<RankFullResponse, Error> {
+    open func getRankings(deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, q: String? = nil, keyword: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, withinAccountIds: String? = nil, returnUserRank: Bool? = nil, albumId: Int64? = nil, audienceId: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<RankFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ranking/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ranking/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -153,9 +149,8 @@ open class RankingAPI {
 
 
     /// Get Personal Rankings
-    /// - POST /api/{version}/ranking/personal/ranks
+    /// - POST /ranking/personal/ranks
     /// - Returns the user's ranks for one or more rank types and modes.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (optional)
     /// - parameter appKey: (query) the application key for filtering results by application (required) (optional)
@@ -168,14 +163,13 @@ open class RankingAPI {
     /// - parameter start: (query) the start index for pagination (optional, default to 0)
     /// - parameter limit: (query) the limit for pagination (optional, default to 100)
     /// - returns: AnyPublisher<[String: Any], Error> 
-    open func getUserRank(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, returnUserRank: Bool? = nil, leaderboardMode: String? = nil, sortField: String? = nil, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[String: Any], Error> {
+    open func getUserRank(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, returnUserRank: Bool? = nil, leaderboardMode: String? = nil, sortField: String? = nil, keyword: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[String: Any], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ranking/personal/ranks"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ranking/personal/ranks"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -213,9 +207,8 @@ open class RankingAPI {
 
 
     /// Override User Rank
-    /// - POST /api/{version}/ranking/override
+    /// - POST /ranking/override
     /// - Allows an admin of an application to override a user's scores for a leaderboard.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the logged in user&#39;s account id (must have permissions to manage data for the application) 
     /// - parameter ownerAccountId: (query) the end user&#39;s account id to override 
     /// - parameter appKey: (query) the application key the leaderboard is for 
@@ -239,14 +232,13 @@ open class RankingAPI {
     /// - parameter startDate: (query) the start date to update (optional)
     /// - parameter endDate: (query) the end date to update (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func overrideUserRank(version: Double, accountId: Int64, ownerAccountId: Int64, appKey: String, rankType: String, totalScore: Int64? = nil, totalCount: Int64? = nil, totalTime: Int64? = nil, dailyScore: Int64? = nil, dailyCount: Int64? = nil, dailyTime: Int64? = nil, weeklyScore: Int64? = nil, weeklyCount: Int64? = nil, weeklyTime: Int64? = nil, monthlyScore: Int64? = nil, monthlyCount: Int64? = nil, monthlyTime: Int64? = nil, topScore: Int64? = nil, lowestScore: Int64? = nil, streakCount: Int64? = nil, streakBestCount: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func overrideUserRank(accountId: Int64, ownerAccountId: Int64, appKey: String, rankType: String, totalScore: Int64? = nil, totalCount: Int64? = nil, totalTime: Int64? = nil, dailyScore: Int64? = nil, dailyCount: Int64? = nil, dailyTime: Int64? = nil, weeklyScore: Int64? = nil, weeklyCount: Int64? = nil, weeklyTime: Int64? = nil, monthlyScore: Int64? = nil, monthlyCount: Int64? = nil, monthlyTime: Int64? = nil, topScore: Int64? = nil, lowestScore: Int64? = nil, streakCount: Int64? = nil, streakBestCount: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ranking/override"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ranking/override"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -291,9 +283,8 @@ open class RankingAPI {
 
 
     /// Update Ranking
-    /// - POST /api/{version}/ranking/update
+    /// - POST /ranking/update
     /// - Update the rank value 
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter appKey: (query) the application key for filtering results by application 
     /// - parameter rankType: (query) a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS 
@@ -305,14 +296,13 @@ open class RankingAPI {
     /// - parameter updateGlobal: (query) update the global rankings if true, default is false (optional)
     /// - parameter createLeaderboard: (query) create the leaderboard if it does not exist (default false) (optional, default to false)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateRankings(version: Double, accountId: Int64, appKey: String, rankType: String, increment: Int64? = nil, timeIncrement: Int64? = nil, tag: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, updateGlobal: Bool? = nil, createLeaderboard: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateRankings(accountId: Int64, appKey: String, rankType: String, increment: Int64? = nil, timeIncrement: Int64? = nil, tag: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, updateGlobal: Bool? = nil, createLeaderboard: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ranking/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ranking/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

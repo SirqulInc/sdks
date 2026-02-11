@@ -21,7 +21,7 @@ open class InviteAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class InviteAPI {
 
 
     /// Accept Invite
-    /// - POST /api/{version}/invite/accept
+    /// - POST /invite/accept
     /// - Allows a user to accept an invite. The user could also become the inviter's friend.
-    /// - parameter version: (path)  
     /// - parameter token: (query) the invite token 
     /// - parameter accountId: (query) the accountId of the user who is accepting the invite 
     /// - parameter albumId: (query) the album id associated with this invite (if applicable) (optional)
@@ -47,14 +46,13 @@ open class InviteAPI {
     /// - parameter autoFavoriteOfferLocation: (query) whether to mark the offer location as favorited automatically after invite is accepted (optional, default to false)
     /// - parameter autoFavoriteRetailerLocation: (query) whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)
     /// - returns: AnyPublisher<ConsumerInviteResponse, Error> 
-    open func acceptInvite(version: Double, token: String, accountId: Int64, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, autoFriend: Bool? = nil, autoAttendEvent: Bool? = nil, autoFavoriteOffer: Bool? = nil, autoFavoriteOfferLocation: Bool? = nil, autoFavoriteRetailerLocation: Bool? = nil) -> AnyPublisher<ConsumerInviteResponse, Error> {
+    open func acceptInvite(token: String, accountId: Int64, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil, autoFriend: Bool? = nil, autoAttendEvent: Bool? = nil, autoFavoriteOffer: Bool? = nil, autoFavoriteOfferLocation: Bool? = nil, autoFavoriteRetailerLocation: Bool? = nil) -> AnyPublisher<ConsumerInviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/accept"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/accept"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -91,9 +89,8 @@ open class InviteAPI {
 
 
     /// Invite to Contest
-    /// - POST /api/{version}/invite/albumContest
+    /// - POST /invite/albumContest
     /// - Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter appId: (query) This parameter is deprecated. (optional)
@@ -102,14 +99,13 @@ open class InviteAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func albumContestInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumContestId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
+    open func albumContestInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumContestId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/albumContest"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/albumContest"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -139,9 +135,8 @@ open class InviteAPI {
 
 
     /// Invite to Collection
-    /// - POST /api/{version}/invite/album
+    /// - POST /invite/album
     /// - Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter appId: (query) This parameter is deprecated. (optional)
@@ -150,14 +145,13 @@ open class InviteAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func albumInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
+    open func albumInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, albumId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/album"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/album"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -187,23 +181,21 @@ open class InviteAPI {
 
 
     /// Invite to Event
-    /// - POST /api/{version}/invite/event
+    /// - POST /invite/event
     /// - Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user making the share 
     /// - parameter appKey: (query) the application key 
     /// - parameter listingId: (query) The ID of the event listing 
     /// - parameter receiverAccountIds: (query) the account ID of a Sirqul user they would like to share an event with (optional)
     /// - parameter retailerLocationId: (query) The retailer location id of where the event will take place (optional)
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func eventInvite(version: Double, accountId: Int64, appKey: String, listingId: Int64, receiverAccountIds: String? = nil, retailerLocationId: Int64? = nil) -> AnyPublisher<InviteResponse, Error> {
+    open func eventInvite(accountId: Int64, appKey: String, listingId: Int64, receiverAccountIds: String? = nil, retailerLocationId: Int64? = nil) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/event"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/event"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -231,9 +223,8 @@ open class InviteAPI {
 
 
     /// Invite to Game Level
-    /// - POST /api/{version}/invite/gameLevel
+    /// - POST /invite/gameLevel
     /// - Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter appId: (query) This parameter is deprecated. (optional)
@@ -242,14 +233,13 @@ open class InviteAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func gameInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, gameLevelId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
+    open func gameInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, gameLevelId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/gameLevel"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/gameLevel"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -279,9 +269,8 @@ open class InviteAPI {
 
 
     /// Get Invite
-    /// - GET /api/{version}/invite/get
+    /// - GET /invite/get
     /// - This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Account ID of the user if they are logged in (optional)
     /// - parameter token: (query) the invite token (optional)
     /// - parameter albumId: (query) album id to match the invite against (if applicable) (optional)
@@ -292,14 +281,13 @@ open class InviteAPI {
     /// - parameter retailerLocationId: (query) retailer location id to match the invite against (if applicable) (optional)
     /// - parameter appKey: (query) the application key (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func getInvite(version: Double, accountId: Int64? = nil, token: String? = nil, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func getInvite(accountId: Int64? = nil, token: String? = nil, albumId: Int64? = nil, missionId: Int64? = nil, albumContestId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, retailerLocationId: Int64? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -331,9 +319,8 @@ open class InviteAPI {
 
 
     /// Invite to Mission
-    /// - POST /api/{version}/invite/mission
+    /// - POST /invite/mission
     /// - Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter appId: (query) This parameter is deprecated. (optional)
@@ -342,14 +329,13 @@ open class InviteAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func missionInvite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
+    open func missionInvite(deviceId: String? = nil, accountId: Int64? = nil, appId: Int64? = nil, appKey: String? = nil, missionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/mission"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/mission"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -379,21 +365,19 @@ open class InviteAPI {
 
 
     /// Invite to Offer
-    /// - POST /api/{version}/invite/offer
+    /// - POST /invite/offer
     /// - Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user making the share 
     /// - parameter appKey: (query) the application key 
     /// - parameter offerId: (query) the ID of the offer used to invite to favorite 
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func offerInvite(version: Double, accountId: Int64, appKey: String, offerId: Int64) -> AnyPublisher<InviteResponse, Error> {
+    open func offerInvite(accountId: Int64, appKey: String, offerId: Int64) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/offer"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/offer"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -419,21 +403,19 @@ open class InviteAPI {
 
 
     /// Invite to Offer Location
-    /// - POST /api/{version}/invite/offerLocation
+    /// - POST /invite/offerLocation
     /// - Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user making the share 
     /// - parameter appKey: (query) the application key 
     /// - parameter offerLocationId: (query) the id of the offer location to share 
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func offerLocationInvite(version: Double, accountId: Int64, appKey: String, offerLocationId: Int64) -> AnyPublisher<InviteResponse, Error> {
+    open func offerLocationInvite(accountId: Int64, appKey: String, offerLocationId: Int64) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/offerLocation"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/offerLocation"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -459,22 +441,20 @@ open class InviteAPI {
 
 
     /// Invite to Retailer Location
-    /// - POST /api/{version}/invite/retailerLocation
+    /// - POST /invite/retailerLocation
     /// - Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user making the share 
     /// - parameter appKey: (query) the application key 
     /// - parameter retailerLocationId: (query) The retailer location id of where the event will take place 
     /// - parameter albumId: (query) Optional album id to link with the invite (optional)
     /// - returns: AnyPublisher<InviteResponse, Error> 
-    open func retailerLocationInvite(version: Double, accountId: Int64, appKey: String, retailerLocationId: Int64, albumId: Int64? = nil) -> AnyPublisher<InviteResponse, Error> {
+    open func retailerLocationInvite(accountId: Int64, appKey: String, retailerLocationId: Int64, albumId: Int64? = nil) -> AnyPublisher<InviteResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/invite/retailerLocation"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/invite/retailerLocation"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class ProgramAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class ProgramAPI {
 
 
     /// Create Program
-    /// - POST /api/{version}/program
+    /// - POST /program
     /// - Create a new program
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Program, Error> 
-    open func createProgram(version: Double, body: Program? = nil) -> AnyPublisher<Program, Error> {
+    open func createProgram(body: Program? = nil) -> AnyPublisher<Program, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/program"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/program"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -64,19 +62,17 @@ open class ProgramAPI {
 
 
     /// Delete Program
-    /// - DELETE /api/{version}/program/{id}
+    /// - DELETE /program/{id}
     /// - Delete an existing program
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the program 
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteProgram(version: Double, id: Int64) -> AnyPublisher<Void, Error> {
+    open func deleteProgram(id: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/program/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/program/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -98,19 +94,17 @@ open class ProgramAPI {
 
 
     /// Get Program
-    /// - GET /api/{version}/program/{id}
+    /// - GET /program/{id}
     /// - Get an existing program
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the program 
     /// - returns: AnyPublisher<Program, Error> 
-    open func getProgram(version: Double, id: Int64) -> AnyPublisher<Program, Error> {
+    open func getProgram(id: Int64) -> AnyPublisher<Program, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/program/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/program/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -132,20 +126,18 @@ open class ProgramAPI {
 
 
     /// Update Program
-    /// - POST /api/{version}/program/{id}
+    /// - POST /program/{id}
     /// - Update an existing program
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the program 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Program, Error> 
-    open func postProgram(version: Double, id: Int64, body: Program? = nil) -> AnyPublisher<Program, Error> {
+    open func postProgram(id: Int64, body: Program? = nil) -> AnyPublisher<Program, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/program/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/program/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -169,20 +161,18 @@ open class ProgramAPI {
 
 
     /// Update Program
-    /// - PUT /api/{version}/program/{id}
+    /// - PUT /program/{id}
     /// - Update an existing program
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the program 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Program, Error> 
-    open func putProgram(version: Double, id: Int64, body: Program? = nil) -> AnyPublisher<Program, Error> {
+    open func putProgram(id: Int64, body: Program? = nil) -> AnyPublisher<Program, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/program/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/program/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -206,9 +196,8 @@ open class ProgramAPI {
 
 
     /// Search Programs
-    /// - GET /api/{version}/program
+    /// - GET /program
     /// - Search for programs
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) The start index for pagination 
@@ -216,14 +205,13 @@ open class ProgramAPI {
     /// - parameter activeOnly: (query) Return only active results 
     /// - parameter keyword: (query) The keyword to filter results by (optional)
     /// - returns: AnyPublisher<[Program], Error> 
-    open func searchPrograms(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil) -> AnyPublisher<[Program], Error> {
+    open func searchPrograms(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil) -> AnyPublisher<[Program], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/program"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/program"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

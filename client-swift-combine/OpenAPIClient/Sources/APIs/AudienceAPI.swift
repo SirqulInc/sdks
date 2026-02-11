@@ -21,7 +21,7 @@ open class AudienceAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class AudienceAPI {
 
 
     /// Create Audience
-    /// - POST /api/{version}/audience/create
+    /// - POST /audience/create
     /// - Create a user defined audience.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the audience 
     /// - parameter description: (query) The description of the audience (optional)
@@ -62,14 +61,13 @@ open class AudienceAPI {
     /// - parameter trilaterationTypes: (query) Trilateration types (optional)
     /// - parameter uniqueName: (query) If true, makes sure the audience name is unique (optional)
     /// - returns: AnyPublisher<AudienceResponse, Error> 
-    open func createAudience(version: Double, accountId: Int64, name: String, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, sendSuggestion: Bool? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil) -> AnyPublisher<AudienceResponse, Error> {
+    open func createAudience(accountId: Int64, name: String, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, sendSuggestion: Bool? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil) -> AnyPublisher<AudienceResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -121,20 +119,18 @@ open class AudienceAPI {
 
 
     /// Delete Audience
-    /// - POST /api/{version}/audience/delete
+    /// - POST /audience/delete
     /// - Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter audienceId: (query) The id of the audience to delete. 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteAudience(version: Double, accountId: Int64, audienceId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteAudience(accountId: Int64, audienceId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -159,18 +155,16 @@ open class AudienceAPI {
 
 
     /// Get Age Groups
-    /// - GET /api/{version}/audience/ageGroups
+    /// - GET /audience/ageGroups
     /// - Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-    /// - parameter version: (path)  
     /// - returns: AnyPublisher<[AgeGroupResponse], Error> 
-    open func getAgeGroups(version: Double) -> AnyPublisher<[AgeGroupResponse], Error> {
+    open func getAgeGroups() -> AnyPublisher<[AgeGroupResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/ageGroups"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/ageGroups"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -191,9 +185,8 @@ open class AudienceAPI {
 
 
     /// Get Audience
-    /// - GET /api/{version}/audience/get
+    /// - GET /audience/get
     /// - Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter audienceId: (query) The id of the audience to return. 
     /// - parameter appKey: (query) The application key (optional). If provided, results may be scoped to this application. (optional)
@@ -201,14 +194,13 @@ open class AudienceAPI {
     /// - parameter returnAlbumCount: (query) (boolean) set to true to include the albumCount associated with current audience of the current app (optional, default to false)
     /// - parameter albumTypesForCount: (query) (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)
     /// - returns: AnyPublisher<AudienceResponse, Error> 
-    open func getAudience(version: Double, accountId: Int64, audienceId: Int64, appKey: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil) -> AnyPublisher<AudienceResponse, Error> {
+    open func getAudience(accountId: Int64, audienceId: Int64, appKey: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil) -> AnyPublisher<AudienceResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -254,9 +246,8 @@ open class AudienceAPI {
     }
 
     /// Search Audiences
-    /// - GET /api/{version}/audience/search
+    /// - GET /audience/search
     /// - Get the list audiences owned by the account
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. (optional)
     /// - parameter albumIds: (query) Comma separated list of album IDs to filter results with (optional)
     /// - parameter keyword: (query) The keyword used to search (optional)
@@ -277,14 +268,13 @@ open class AudienceAPI {
     /// - parameter returnAlbumCount: (query) (boolean) set to true to include the albumCount associated with current audience of the current app (optional, default to false)
     /// - parameter albumTypesForCount: (query) (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional)
     /// - returns: AnyPublisher<[SearchResponse], Error> 
-    open func getAudienceList(version: Double, accountId: Int64? = nil, albumIds: String? = nil, keyword: String? = nil, keywordFields: String? = nil, sortField: GetAudienceListSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, sendSuggestion: Bool? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, appKey: String? = nil, returnGlobal: Bool? = nil, exactKeyword: Bool? = nil, audienceType: String? = nil, audienceTypes: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil) -> AnyPublisher<[SearchResponse], Error> {
+    open func getAudienceList(accountId: Int64? = nil, albumIds: String? = nil, keyword: String? = nil, keywordFields: String? = nil, sortField: GetAudienceListSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, sendSuggestion: Bool? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, appKey: String? = nil, returnGlobal: Bool? = nil, exactKeyword: Bool? = nil, audienceType: String? = nil, audienceTypes: String? = nil, returnAccountCount: Bool? = nil, returnAlbumCount: Bool? = nil, albumTypesForCount: String? = nil) -> AnyPublisher<[SearchResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -326,19 +316,17 @@ open class AudienceAPI {
 
 
     /// Get Devices
-    /// - GET /api/{version}/audience/devices
+    /// - GET /audience/devices
     /// - Gets the list of available devices that can be selected by consumers and retailers.
-    /// - parameter version: (path)  
     /// - parameter includeInactive: (query) If true return inactive record as well. default is false. 
     /// - returns: AnyPublisher<[AudienceDeviceResponse], Error> 
-    open func getDevices(version: Double, includeInactive: Bool) -> AnyPublisher<[AudienceDeviceResponse], Error> {
+    open func getDevices(includeInactive: Bool) -> AnyPublisher<[AudienceDeviceResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/devices"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/devices"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -362,18 +350,16 @@ open class AudienceAPI {
 
 
     /// Get Experiences
-    /// - GET /api/{version}/audience/experiences
+    /// - GET /audience/experiences
     /// - Gets the list of available experiences that can be selected by consumers and retailers.
-    /// - parameter version: (path)  
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func getExperiences(version: Double) -> AnyPublisher<SirqulResponse, Error> {
+    open func getExperiences() -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/experiences"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/experiences"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -394,20 +380,18 @@ open class AudienceAPI {
 
 
     /// Get GroupedAudiences
-    /// - GET /api/{version}/audience/grouped/get
+    /// - GET /audience/grouped/get
     /// - Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter audienceGroupingId: (query) The audience grouping id to return. 
     /// - returns: AnyPublisher<AudienceResponse, Error> 
-    open func getGroupedAudiences(version: Double, accountId: Int64, audienceGroupingId: String) -> AnyPublisher<AudienceResponse, Error> {
+    open func getGroupedAudiences(accountId: Int64, audienceGroupingId: String) -> AnyPublisher<AudienceResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/grouped/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/grouped/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -432,21 +416,19 @@ open class AudienceAPI {
 
 
     /// List Suggestions by Audience
-    /// - POST /api/{version}/audience/suggestion/list
+    /// - POST /audience/suggestion/list
     /// - List either Missions or Offers that the user matches the assigned audience.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account to match offers for. 
     /// - parameter limit: (query) the limit of the index 
     /// - parameter suggestionType: (query) the type of suggestion 
     /// - returns: AnyPublisher<OfferListResponse, Error> 
-    open func listByAccount(version: Double, accountId: Int64, limit: Int, suggestionType: String) -> AnyPublisher<OfferListResponse, Error> {
+    open func listByAccount(accountId: Int64, limit: Int, suggestionType: String) -> AnyPublisher<OfferListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/suggestion/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/suggestion/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -472,9 +454,8 @@ open class AudienceAPI {
 
 
     /// List Offers by Audience
-    /// - GET /api/{version}/audience/suggestion/offersByAudience
+    /// - GET /audience/suggestion/offersByAudience
     /// - Get a list of offer locations based on audience information provided.
-    /// - parameter version: (path)  
     /// - parameter limit: (query) this is the limit of the index 
     /// - parameter gender: (query) this is the gender to list offers by (optional)
     /// - parameter age: (query) this is the age to list offers by (optional)
@@ -482,14 +463,13 @@ open class AudienceAPI {
     /// - parameter latitude: (query) this is the latitude to list offers by (optional)
     /// - parameter longitude: (query) this is the longitude to list offers by (optional)
     /// - returns: AnyPublisher<OfferListResponse, Error> 
-    open func listByAudience(version: Double, limit: Int, gender: String? = nil, age: Int? = nil, categoryIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<OfferListResponse, Error> {
+    open func listByAudience(limit: Int, gender: String? = nil, age: Int? = nil, categoryIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<OfferListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/suggestion/offersByAudience"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/suggestion/offersByAudience"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -518,21 +498,19 @@ open class AudienceAPI {
 
 
     /// List Sent Suggestions 
-    /// - GET /api/{version}/audience/suggestion/latest
+    /// - GET /audience/suggestion/latest
     /// - Return list of recent trigger suggestions that have been sent to the user.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account to match offers for. 
     /// - parameter timeframe: (query) The timeframe in seconds of the latest suggestions 
     /// - parameter suggestionType: (query) The type of trigger suggestions to return 
     /// - returns: AnyPublisher<OfferListResponse, Error> 
-    open func listLastestByAccount(version: Double, accountId: Int64, timeframe: Int, suggestionType: String) -> AnyPublisher<OfferListResponse, Error> {
+    open func listLastestByAccount(accountId: Int64, timeframe: Int, suggestionType: String) -> AnyPublisher<OfferListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/suggestion/latest"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/suggestion/latest"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -558,21 +536,19 @@ open class AudienceAPI {
 
 
     /// Send Suggestions
-    /// - POST /api/{version}/audience/suggestion/send
+    /// - POST /audience/suggestion/send
     /// - Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account to match offers for. 
     /// - parameter latitude: (query) the latitude 
     /// - parameter longitude: (query) the longitude 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func sendByAccount(version: Double, accountId: Int64, latitude: Double, longitude: Double) -> AnyPublisher<SirqulResponse, Error> {
+    open func sendByAccount(accountId: Int64, latitude: Double, longitude: Double) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/suggestion/send"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/suggestion/send"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -598,9 +574,8 @@ open class AudienceAPI {
 
 
     /// Update Audience
-    /// - POST /api/{version}/audience/update
+    /// - POST /audience/update
     /// - Update a user defined audience.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter audienceId: (query) The id of the audience to update. 
     /// - parameter name: (query) The name of the audience (optional)
@@ -633,14 +608,13 @@ open class AudienceAPI {
     /// - parameter trilaterationTypes: (query) Trilateration types (optional)
     /// - parameter uniqueName: (query) If true, makes sure the audience name is unique (optional)
     /// - returns: AnyPublisher<AudienceResponse, Error> 
-    open func updateAudience(version: Double, accountId: Int64, audienceId: Int64, name: String? = nil, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, active: Bool? = nil, sendSuggestion: Bool? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil) -> AnyPublisher<AudienceResponse, Error> {
+    open func updateAudience(accountId: Int64, audienceId: Int64, name: String? = nil, description: String? = nil, searchTags: String? = nil, gender: String? = nil, ageGroups: String? = nil, categoryIds: String? = nil, applicationIds: String? = nil, gameExperienceLevel: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil, active: Bool? = nil, sendSuggestion: Bool? = nil, startTimeOffset: Int? = nil, endTimeOffset: Int? = nil, associateDescription: String? = nil, associateType: String? = nil, associateId: Int64? = nil, groupingId: String? = nil, metaData: String? = nil, visibility: String? = nil, audienceType: String? = nil, useOrder: Bool? = nil, cohortRegionsData: String? = nil, appKey: String? = nil, trilaterationTypes: String? = nil, uniqueName: Bool? = nil) -> AnyPublisher<AudienceResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/audience/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/audience/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

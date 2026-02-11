@@ -21,7 +21,7 @@ open class LocationAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,23 +29,21 @@ open class LocationAPI {
 
 
     /// Create Trilateration Data with File
-    /// - POST /api/{version}/location/trilaterate/cache
+    /// - POST /location/trilaterate/cache
     /// - Creates trilateration samples for a source device (i.e. a router).
-    /// - parameter version: (path)  
     /// - parameter udid: (query) The unique identifier of the source device 
     /// - parameter sourceTime: (query) The current timestamp of the source device (optional)
     /// - parameter minimumSampleSize: (query) the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional)
     /// - parameter data: (query) The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;:\&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;: \&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;  (optional)
     /// - parameter dataFile: (query) Binary file containing data (multipart upload) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func cacheTrilaterationData(version: Double, udid: String, sourceTime: Int64? = nil, minimumSampleSize: Int? = nil, data: String? = nil, dataFile: Data? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func cacheTrilaterationData(udid: String, sourceTime: Int64? = nil, minimumSampleSize: Int? = nil, data: String? = nil, dataFile: Data? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/trilaterate/cache"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location/trilaterate/cache"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -73,19 +71,17 @@ open class LocationAPI {
 
 
     /// Create Trilateration Data with Rest
-    /// - POST /api/{version}/location/trilaterate/cache/submit
+    /// - POST /location/trilaterate/cache/submit
     /// - Creates trilateration samples for a source device (i.e. a router).
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func cacheTrilaterationDataGzip(version: Double, body: TrilatCacheRequest? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func cacheTrilaterationDataGzip(body: TrilatCacheRequest? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/trilaterate/cache/submit"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location/trilaterate/cache/submit"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -108,19 +104,17 @@ open class LocationAPI {
 
 
     /// Get Location by IP
-    /// - GET /api/{version}/location/ip
+    /// - GET /location/ip
     /// - Get location information based on an IP address.
-    /// - parameter version: (path)  
     /// - parameter ip: (query) the ip address of the client device (optional)
     /// - returns: AnyPublisher<CoordsResponse, Error> 
-    open func getLocationByIp(version: Double, ip: String? = nil) -> AnyPublisher<CoordsResponse, Error> {
+    open func getLocationByIp(ip: String? = nil) -> AnyPublisher<CoordsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/ip"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location/ip"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -144,23 +138,21 @@ open class LocationAPI {
 
 
     /// Get Location by Trilateration
-    /// - GET /api/{version}/account/location/trilaterate
+    /// - GET /account/location/trilaterate
     /// - Send in device data and calculate a position based on signal strengths.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account making the request, if provided the last know location will be updated (optional)
     /// - parameter latitude: (query) The known GPS latitude to compare to the calculated version (optional)
     /// - parameter longitude: (query) The known GPS longitude to compare to the calculated version (optional)
     /// - parameter data: (query) The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;  (optional)
     /// - parameter responseFilters: (query) Optional response filters (not used currently) (optional)
     /// - returns: AnyPublisher<GeoPointResponse, Error> 
-    open func getLocationByTrilateration(version: Double, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, data: String? = nil, responseFilters: String? = nil) -> AnyPublisher<GeoPointResponse, Error> {
+    open func getLocationByTrilateration(accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, data: String? = nil, responseFilters: String? = nil) -> AnyPublisher<GeoPointResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/location/trilaterate"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/location/trilaterate"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -188,9 +180,8 @@ open class LocationAPI {
 
 
     /// Search Regions or Postal Codes
-    /// - GET /api/{version}/location/search
+    /// - GET /location/search
     /// - Searches geographic locations by proximity via address or keyword.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (optional)
     /// - parameter accountId: (query) the account id (optional)
     /// - parameter currentlatitude: (query) This parameter is deprecated. (optional)
@@ -211,14 +202,13 @@ open class LocationAPI {
     /// - parameter l: (query) This parameter is deprecated. (optional)
     /// - parameter limit: (query) the limit for pagination (optional, default to 20)
     /// - returns: AnyPublisher<LocationSearchResponse, Error> 
-    open func getLocations(version: Double, deviceId: String? = nil, accountId: Int64? = nil, currentlatitude: Double? = nil, currentlongitude: Double? = nil, currentLatitude: Double? = nil, currentLongitude: Double? = nil, query: String? = nil, zipcode: String? = nil, zipCode: String? = nil, selectedMaplatitude: Double? = nil, selectedMaplongitude: Double? = nil, selectedMapLatitude: Double? = nil, selectedMapLongitude: Double? = nil, searchRange: Double? = nil, useGeocode: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<LocationSearchResponse, Error> {
+    open func getLocations(deviceId: String? = nil, accountId: Int64? = nil, currentlatitude: Double? = nil, currentlongitude: Double? = nil, currentLatitude: Double? = nil, currentLongitude: Double? = nil, query: String? = nil, zipcode: String? = nil, zipCode: String? = nil, selectedMaplatitude: Double? = nil, selectedMaplongitude: Double? = nil, selectedMapLatitude: Double? = nil, selectedMapLongitude: Double? = nil, searchRange: Double? = nil, useGeocode: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<LocationSearchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

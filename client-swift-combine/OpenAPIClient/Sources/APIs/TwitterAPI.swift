@@ -21,7 +21,7 @@ open class TwitterAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class TwitterAPI {
 
 
     /// Authorize Twitter
-    /// - POST /api/{version}/twitter/authorize
+    /// - POST /twitter/authorize
     /// - Makes an authorization call to twitter for a user to login and allow any app permissions.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) the application key 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func authorizeTwitter(version: Double, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func authorizeTwitter(appKey: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/twitter/authorize"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/twitter/authorize"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -65,9 +63,8 @@ open class TwitterAPI {
 
 
     /// Login Twitter
-    /// - POST /api/{version}/twitter/login
+    /// - POST /twitter/login
     /// - Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-    /// - parameter version: (path)  
     /// - parameter accessToken: (query) The access token 
     /// - parameter accessTokenSecret: (query) The secret access token 
     /// - parameter appKey: (query) The application key 
@@ -76,14 +73,13 @@ open class TwitterAPI {
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func loginTwitter(version: Double, accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func loginTwitter(accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/twitter/login"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/twitter/login"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

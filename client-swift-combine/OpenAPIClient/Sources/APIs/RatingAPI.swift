@@ -21,7 +21,7 @@ open class RatingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class RatingAPI {
 
 
     /// Create Rating
-    /// - POST /api/{version}/rating/create
+    /// - POST /rating/create
     /// - This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-    /// - parameter version: (path)  
     /// - parameter ratableType: (query) The ratable object type {RETAILER_LOCATION} 
     /// - parameter ratableId: (query) The id of the ratable object 
     /// - parameter ratingValue: (query) The integer value of 0-100 
@@ -44,14 +43,13 @@ open class RatingAPI {
     /// - parameter latitude: (query) The current location of the user (optional)
     /// - parameter longitude: (query) The current location of the user (optional)
     /// - returns: AnyPublisher<RatingResponse, Error> 
-    open func createRating(version: Double, ratableType: String, ratableId: Int64, ratingValue: Int, deviceId: String? = nil, accountId: Int64? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<RatingResponse, Error> {
+    open func createRating(ratableType: String, ratableId: Int64, ratingValue: Int, deviceId: String? = nil, accountId: Int64? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<RatingResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/rating/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/rating/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -85,21 +83,19 @@ open class RatingAPI {
 
 
     /// Delete Rating
-    /// - POST /api/{version}/rating/delete
+    /// - POST /rating/delete
     /// - Sets a rating as deleted.
-    /// - parameter version: (path)  
     /// - parameter ratingId: (query) The ID of the rating to delete 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteRating(version: Double, ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteRating(ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/rating/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/rating/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -154,9 +150,8 @@ open class RatingAPI {
     }
 
     /// Search Location Rating Indexes
-    /// - GET /api/{version}/location/rating/index/search
+    /// - GET /location/rating/index/search
     /// - Search for retailer locations by averages near you.
-    /// - parameter version: (path)  
     /// - parameter categoryIds: (query) Comma separated list of category ids to filter the results by (optional)
     /// - parameter keyword: (query) The keyword used to search (optional)
     /// - parameter locationType: (query) The type of location to filter the results by (optional)
@@ -175,14 +170,13 @@ open class RatingAPI {
     /// - parameter returnCategories: (query) whether to return the categories or not (optional)
     /// - parameter returnFilters: (query) whether to return the filters or not (optional)
     /// - returns: AnyPublisher<[RatingIndexResponse], Error> 
-    open func searchLocationRatingIndexes(version: Double, categoryIds: String? = nil, keyword: String? = nil, locationType: String? = nil, sortField: SearchLocationRatingIndexesSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, returnOverallRating: Bool? = nil, distanceUnit: SearchLocationRatingIndexesDistanceUnit? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil) -> AnyPublisher<[RatingIndexResponse], Error> {
+    open func searchLocationRatingIndexes(categoryIds: String? = nil, keyword: String? = nil, locationType: String? = nil, sortField: SearchLocationRatingIndexesSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, returnOverallRating: Bool? = nil, distanceUnit: SearchLocationRatingIndexesDistanceUnit? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil) -> AnyPublisher<[RatingIndexResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/rating/index/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location/rating/index/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -287,9 +281,8 @@ open class RatingAPI {
     }
 
     /// Search Rating Indexes
-    /// - GET /api/{version}/rating/index/search
+    /// - GET /rating/index/search
     /// - Search for ratable items by averages.
-    /// - parameter version: (path)  
     /// - parameter ratableType: (query) Filter results by a ratable type {RETAILER_LOCATION} 
     /// - parameter ratableIds: (query) Comma separated list of ratable ids to filter the resuts by (optional)
     /// - parameter categoryIds: (query) Comma separated list of category ids to filter the results by (optional)
@@ -304,14 +297,13 @@ open class RatingAPI {
     /// - parameter returnRatable: (query) Determines whether to return the ratable object in the response (optional)
     /// - parameter returnOverallRating: (query) Determines whether to return the overall rating record instead (optional)
     /// - returns: AnyPublisher<[RatingIndexResponse], Error> 
-    open func searchRatingIndexes(version: Double, ratableType: SearchRatingIndexesRatableType, ratableIds: String? = nil, categoryIds: String? = nil, secondaryType: String? = nil, keyword: String? = nil, sortField: SearchRatingIndexesSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, returnRatable: Bool? = nil, returnOverallRating: Bool? = nil) -> AnyPublisher<[RatingIndexResponse], Error> {
+    open func searchRatingIndexes(ratableType: SearchRatingIndexesRatableType, ratableIds: String? = nil, categoryIds: String? = nil, secondaryType: String? = nil, keyword: String? = nil, sortField: SearchRatingIndexesSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, returnRatable: Bool? = nil, returnOverallRating: Bool? = nil) -> AnyPublisher<[RatingIndexResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/rating/index/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/rating/index/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -367,9 +359,8 @@ open class RatingAPI {
     }
 
     /// Search Ratings
-    /// - GET /api/{version}/rating/search
+    /// - GET /rating/search
     /// - Search for ratings on a ratable object.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter filterAccountId: (query) Filter results for a particular account (optional)
@@ -382,14 +373,13 @@ open class RatingAPI {
     /// - parameter start: (query) The record to begin the return set on (optional)
     /// - parameter limit: (query) The number of records to return (optional)
     /// - returns: AnyPublisher<[RatingResponse], Error> 
-    open func searchRatings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, ratableType: String? = nil, ratableId: Int64? = nil, categoryIds: String? = nil, keyword: String? = nil, sortField: SearchRatingsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[RatingResponse], Error> {
+    open func searchRatings(deviceId: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, ratableType: String? = nil, ratableId: Int64? = nil, categoryIds: String? = nil, keyword: String? = nil, sortField: SearchRatingsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[RatingResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/rating/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/rating/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -423,9 +413,8 @@ open class RatingAPI {
 
 
     /// Update Rating
-    /// - POST /api/{version}/rating/update
+    /// - POST /rating/update
     /// - Update an existing rating. Only the creator of the rating have permission to update.
-    /// - parameter version: (path)  
     /// - parameter ratingId: (query) The id of the rating (Note: this is not the ratable object id) 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
     /// - parameter accountId: (query) The unique accountId that made the request (either deviceId or accountId must be used) (optional)
@@ -437,14 +426,13 @@ open class RatingAPI {
     /// - parameter latitude: (query) The current location of the user (optional)
     /// - parameter longitude: (query) The current location of the user (optional)
     /// - returns: AnyPublisher<RatingResponse, Error> 
-    open func updateRating(version: Double, ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, ratingValue: Int? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<RatingResponse, Error> {
+    open func updateRating(ratingId: Int64, deviceId: String? = nil, accountId: Int64? = nil, ratingValue: Int? = nil, categoryId: Int64? = nil, display: String? = nil, description: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<RatingResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/rating/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/rating/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

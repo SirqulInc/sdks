@@ -21,7 +21,7 @@ open class LikeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class LikeAPI {
 
 
     /// Create Like
-    /// - POST /api/{version}/like
+    /// - POST /like
     /// - Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-    /// - parameter version: (path)  
     /// - parameter likableType: (query) The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
     /// - parameter likableId: (query) The id of the likable object 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -45,14 +44,13 @@ open class LikeAPI {
     /// - parameter latitude: (query) The current location of the user (optional)
     /// - parameter longitude: (query) The current location of the user (optional)
     /// - returns: AnyPublisher<LikableResponse, Error> 
-    open func registerLike(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, like: Bool? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<LikableResponse, Error> {
+    open func registerLike(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, like: Bool? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<LikableResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/like"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/like"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -87,9 +85,8 @@ open class LikeAPI {
 
 
     /// Delete Like
-    /// - POST /api/{version}/like/delete
+    /// - POST /like/delete
     /// - Removes a like. This will make the user \"neutral\".
-    /// - parameter version: (path)  
     /// - parameter likableType: (query) The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
     /// - parameter likableId: (query) The id of the likable object 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -97,14 +94,13 @@ open class LikeAPI {
     /// - parameter latitude: (query) The current location of the user (optional)
     /// - parameter longitude: (query) The current location of the user (optional)
     /// - returns: AnyPublisher<LikableResponse, Error> 
-    open func removeLike(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<LikableResponse, Error> {
+    open func removeLike(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<LikableResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/like/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/like/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -133,9 +129,8 @@ open class LikeAPI {
 
 
     /// Search Likes
-    /// - GET /api/{version}/like/search
+    /// - GET /like/search
     /// - Search for likes on a likable object.
-    /// - parameter version: (path)  
     /// - parameter likableType: (query) The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} 
     /// - parameter likableId: (query) The id of the likable object 
     /// - parameter deviceId: (query) The unique device identifier that made the request (either deviceId or accountId must be used) (optional)
@@ -148,14 +143,13 @@ open class LikeAPI {
     /// - parameter start: (query) the start index for pagination (optional, default to 0)
     /// - parameter limit: (query) the limit for pagination (optional, default to 20)
     /// - returns: AnyPublisher<SearchResponse, Error> 
-    open func searchLikes(version: Double, likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<SearchResponse, Error> {
+    open func searchLikes(likableType: String, likableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<SearchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/like/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/like/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

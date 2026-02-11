@@ -21,7 +21,7 @@ open class TournamentAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -56,9 +56,8 @@ open class TournamentAPI {
     }
 
     /// Create Tournament
-    /// - POST /api/{version}/tournament/create
+    /// - POST /tournament/create
     /// - Create a tournament.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) The appKey the tournament is created for. 
     /// - parameter title: (query) The title of the tournament 
@@ -95,14 +94,13 @@ open class TournamentAPI {
     /// - parameter winnerTag: (query) This sets what analytic tag is used when a winner is determined (optional)
     /// - parameter tieTag: (query) This sets what analytic tag is used when a tie has occurred (optional)
     /// - returns: AnyPublisher<TournamentResponse, Error> 
-    open func createTournament(version: Double, accountId: Int64, appKey: String, title: String, costToPlay: Int, startDate: Int64, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: CreateTournamentSplitReward? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, missionType: CreateTournamentMissionType? = nil, visibility: CreateTournamentVisibility? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil) -> AnyPublisher<TournamentResponse, Error> {
+    open func createTournament(accountId: Int64, appKey: String, title: String, costToPlay: Int, startDate: Int64, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: CreateTournamentSplitReward? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, missionType: CreateTournamentMissionType? = nil, visibility: CreateTournamentVisibility? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil) -> AnyPublisher<TournamentResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -160,20 +158,18 @@ open class TournamentAPI {
 
 
     /// Delete Tournament
-    /// - POST /api/{version}/tournament/delete
+    /// - POST /tournament/delete
     /// - Delete a tournament.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter missionId: (query) the id of the mission to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteTournament(version: Double, accountId: Int64, missionId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteTournament(accountId: Int64, missionId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -205,23 +201,21 @@ open class TournamentAPI {
     }
 
     /// Get Tournament
-    /// - GET /api/{version}/tournament/get
+    /// - GET /tournament/get
     /// - Get a tournament.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The id of the logged in user 
     /// - parameter missionId: (query) The id of the mission to return (either missionId or joinCode is required) (optional)
     /// - parameter joinCode: (query) Optional identifier for getting the tournament (either missionId or joinCode is required) (optional)
     /// - parameter includeScores: (query) Determines which type of scores are returned. Possible values include: ALL, MINE (optional)
     /// - parameter objectPreviewSize: (query) Determines the max number of game objects that will get returned for each game level response (optional, default to 50)
     /// - returns: AnyPublisher<TournamentResponse, Error> 
-    open func getTournament(version: Double, accountId: Int64, missionId: Int64? = nil, joinCode: String? = nil, includeScores: GetTournamentIncludeScores? = nil, objectPreviewSize: Int? = nil) -> AnyPublisher<TournamentResponse, Error> {
+    open func getTournament(accountId: Int64, missionId: Int64? = nil, joinCode: String? = nil, includeScores: GetTournamentIncludeScores? = nil, objectPreviewSize: Int? = nil) -> AnyPublisher<TournamentResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -256,9 +250,8 @@ open class TournamentAPI {
     }
 
     /// Search Tournament Objects
-    /// - GET /api/{version}/tournament/object/search
+    /// - GET /tournament/object/search
     /// - Search on game objects of tournaments
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID 
     /// - parameter gameLevelId: (query) the game level id to filter results by 
     /// - parameter sortField: (query) the field to sort by (optional, default to .playerScoreCount)
@@ -266,14 +259,13 @@ open class TournamentAPI {
     /// - parameter start: (query) the start index for pagination (optional, default to 0)
     /// - parameter limit: (query) the limit for pagination (optional, default to 20)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func searchObjects(version: Double, accountId: Int64, gameLevelId: Int64, sortField: SearchObjectsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func searchObjects(accountId: Int64, gameLevelId: Int64, sortField: SearchObjectsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/object/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/object/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -309,9 +301,8 @@ open class TournamentAPI {
     }
 
     /// Search Tournament Rounds
-    /// - GET /api/{version}/tournament/round/search
+    /// - GET /tournament/round/search
     /// - Search for the user's tournament games.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID 
     /// - parameter appKey: (query) the application key 
     /// - parameter status: (query) comma separated list of statuses to filter results by (optional, default to "ACCEPTED,ACTIVE")
@@ -321,14 +312,13 @@ open class TournamentAPI {
     /// - parameter start: (query) the start index for pagination (optional, default to 0)
     /// - parameter limit: (query) the limit for pagination (optional, default to 20)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func searchRounds(version: Double, accountId: Int64, appKey: String, status: String? = nil, missionType: SearchRoundsMissionType? = nil, currentOnly: Bool? = nil, visibilities: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func searchRounds(accountId: Int64, appKey: String, status: String? = nil, missionType: SearchRoundsMissionType? = nil, currentOnly: Bool? = nil, visibilities: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/round/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/round/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -387,9 +377,8 @@ open class TournamentAPI {
     }
 
     /// Search Tournaments
-    /// - GET /api/{version}/tournament/search
+    /// - GET /tournament/search
     /// - Search for tournaments
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) The application key 
     /// - parameter keyword: (query) the keyword to search tournament on (optional)
@@ -403,14 +392,13 @@ open class TournamentAPI {
     /// - parameter start: (query) Start the result set at some index. (optional, default to 0)
     /// - parameter limit: (query) Limit the result to some number (optional, default to 20)
     /// - returns: AnyPublisher<MissionShortResponse, Error> 
-    open func searchTournaments(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, subType: String? = nil, includeInactive: Bool? = nil, missionTypes: String? = nil, filter: SearchTournamentsFilter? = nil, sortField: SearchTournamentsSortField? = nil, descending: Bool? = nil, visibility: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<MissionShortResponse, Error> {
+    open func searchTournaments(accountId: Int64, appKey: String, keyword: String? = nil, subType: String? = nil, includeInactive: Bool? = nil, missionTypes: String? = nil, filter: SearchTournamentsFilter? = nil, sortField: SearchTournamentsSortField? = nil, descending: Bool? = nil, visibility: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<MissionShortResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -445,9 +433,8 @@ open class TournamentAPI {
 
 
     /// Submit Tournament Score
-    /// - POST /api/{version}/tournament/score
+    /// - POST /tournament/score
     /// - Submit an array of scores for a tournament match. 
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user account ID. 
     /// - parameter appKey: (query) The application key. 
     /// - parameter missionId: (query) The missionId to score for 
@@ -456,14 +443,13 @@ open class TournamentAPI {
     /// - parameter scores: (query) a JSON Array of scores to submit for a tournament match &#x60;&#x60;&#x60;json [   {     \&quot;accountId\&quot;: 2,     \&quot;points\&quot;: 3   },   {     \&quot;accountId\&quot;: 1777662,     \&quot;points\&quot;: 7   } ] &#x60;&#x60;&#x60;  
     /// - parameter gameLevelId: (query) The gameLevelId to score for (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func submitTournamentScore(version: Double, accountId: Int64, appKey: String, missionId: Int64, gameId: Int64, packId: Int64, scores: String, gameLevelId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func submitTournamentScore(accountId: Int64, appKey: String, missionId: Int64, gameId: Int64, packId: Int64, scores: String, gameLevelId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/score"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/score"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -493,9 +479,8 @@ open class TournamentAPI {
 
 
     /// Submit a vote for a multi-stage album tournament.
-    /// - POST /api/{version}/tournament/vote
+    /// - POST /tournament/vote
     /// - Submit a vote for a multi-stage album tournament.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) The application to target 
     /// - parameter missionId: (query) The tournament&#39;s primary id 
@@ -503,14 +488,13 @@ open class TournamentAPI {
     /// - parameter deviceId: (query) The unique id of the device making the request (optional) (optional)
     /// - parameter checkIfDeviceAlreadyVoted: (query) When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func submitTournamentVote(version: Double, accountId: Int64, appKey: String, missionId: Int64, gameObjectId: Int64, deviceId: String? = nil, checkIfDeviceAlreadyVoted: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func submitTournamentVote(accountId: Int64, appKey: String, missionId: Int64, gameObjectId: Int64, deviceId: String? = nil, checkIfDeviceAlreadyVoted: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/vote"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/vote"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -539,22 +523,20 @@ open class TournamentAPI {
 
 
     /// Substitute Tournament Player
-    /// - POST /api/{version}/tournament/substitute
+    /// - POST /tournament/substitute
     /// - Service to replace the user's opponent in the current level - pack - mission with an AI account.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter missionId: (query) the id of the mission 
     /// - parameter packId: (query) the id of the pack 
     /// - parameter gameLevelId: (query) the id of the game level 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func substituteTournamentPlayer(version: Double, accountId: Int64, missionId: Int64, packId: Int64, gameLevelId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func substituteTournamentPlayer(accountId: Int64, missionId: Int64, packId: Int64, gameLevelId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/substitute"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/substitute"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -600,9 +582,8 @@ open class TournamentAPI {
     }
 
     /// Update Tournament
-    /// - POST /api/{version}/tournament/update
+    /// - POST /tournament/update
     /// - Update a tournament.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter missionId: (query) The mission/tournament to update 
     /// - parameter title: (query) The title of the tournament (optional)
@@ -638,14 +619,13 @@ open class TournamentAPI {
     /// - parameter winnerTag: (query) This sets what analytic tag is used when a winner is determined (optional)
     /// - parameter tieTag: (query) This sets what analytic tag is used when a winner is determined (optional)
     /// - returns: AnyPublisher<TournamentResponse, Error> 
-    open func updateTournament(version: Double, accountId: Int64, missionId: Int64, title: String? = nil, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlay: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, startDate: Int64? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: UpdateTournamentSplitReward? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, visibility: UpdateTournamentVisibility? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil) -> AnyPublisher<TournamentResponse, Error> {
+    open func updateTournament(accountId: Int64, missionId: Int64, title: String? = nil, subType: String? = nil, imageAssetId: Int64? = nil, secondsBetweenLevels: Int? = nil, secondsForTieBreaker: Int? = nil, secondsBetweenPacks: Int? = nil, maximumLevelLength: Int? = nil, costToPlay: Int? = nil, costToPlayType: String? = nil, minimumToPlay: Int? = nil, startingLimit: Int? = nil, availableLimit: Int? = nil, description: String? = nil, metaData: String? = nil, startDate: Int64? = nil, audienceIds: String? = nil, active: Bool? = nil, enableBuyBack: Bool? = nil, offerIds: String? = nil, offerAssetId: Int64? = nil, fixedReward: Bool? = nil, splitReward: UpdateTournamentSplitReward? = nil, allocateTickets: Bool? = nil, tournamentData: String? = nil, visibility: UpdateTournamentVisibility? = nil, preliminaryGroups: Int? = nil, preliminaryGroupAdvancements: String? = nil, enableMultipleEntries: Bool? = nil, enableMultipleVotes: Bool? = nil, featured: Bool? = nil, winnerTag: String? = nil, tieTag: String? = nil) -> AnyPublisher<TournamentResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tournament/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tournament/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

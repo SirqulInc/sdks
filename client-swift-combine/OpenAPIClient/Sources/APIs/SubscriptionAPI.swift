@@ -21,7 +21,7 @@ open class SubscriptionAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class SubscriptionAPI {
 
 
     /// Create Subscription
-    /// - POST /api/{version}/subscription/create
+    /// - POST /subscription/create
     /// - Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the create, must be the responsible manager 
     /// - parameter planId: (query) The plan to subscribe to, if null use default plan (optional)
     /// - parameter promoCode: (query) Set a promo code for a discount. (optional)
     /// - returns: AnyPublisher<SubscriptionResponse, Error> 
-    open func createSubscription(version: Double, accountId: Int64, planId: Int64? = nil, promoCode: String? = nil) -> AnyPublisher<SubscriptionResponse, Error> {
+    open func createSubscription(accountId: Int64, planId: Int64? = nil, promoCode: String? = nil) -> AnyPublisher<SubscriptionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/subscription/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/subscription/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -69,19 +67,17 @@ open class SubscriptionAPI {
 
 
     /// Delete Subscription
-    /// - POST /api/{version}/subscription/delete
+    /// - POST /subscription/delete
     /// - Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the delete, must be the responsible manager 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteSubscription(version: Double, accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteSubscription(accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/subscription/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/subscription/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -105,19 +101,17 @@ open class SubscriptionAPI {
 
 
     /// Get Subscription
-    /// - GET /api/{version}/subscription/get
+    /// - GET /subscription/get
     /// - Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the lookup 
     /// - returns: AnyPublisher<SubscriptionResponse, Error> 
-    open func getSubscription(version: Double, accountId: Int64) -> AnyPublisher<SubscriptionResponse, Error> {
+    open func getSubscription(accountId: Int64) -> AnyPublisher<SubscriptionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/subscription/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/subscription/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -141,19 +135,17 @@ open class SubscriptionAPI {
 
 
     /// Get Subscription Plan
-    /// - GET /api/{version}/subscription/plan/get
+    /// - GET /subscription/plan/get
     /// - Get the matched subscription plan
-    /// - parameter version: (path)  
     /// - parameter planId: (query) The ID of the plan to get 
     /// - returns: AnyPublisher<SubscriptionPlanResponse, Error> 
-    open func getSubscriptionPlan(version: Double, planId: Int64) -> AnyPublisher<SubscriptionPlanResponse, Error> {
+    open func getSubscriptionPlan(planId: Int64) -> AnyPublisher<SubscriptionPlanResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/subscription/plan/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/subscription/plan/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -177,20 +169,18 @@ open class SubscriptionAPI {
 
 
     /// List Subscription Plans
-    /// - GET /api/{version}/subscription/plan/list
+    /// - GET /subscription/plan/list
     /// - Get the matched subscription plan
-    /// - parameter version: (path)  
     /// - parameter visible: (query) Include visible only (true), hidden only (false), or all (null) (optional)
     /// - parameter role: (query) The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional)
     /// - returns: AnyPublisher<[SubscriptionPlanResponse], Error> 
-    open func getSubscriptionPlans(version: Double, visible: Bool? = nil, role: String? = nil) -> AnyPublisher<[SubscriptionPlanResponse], Error> {
+    open func getSubscriptionPlans(visible: Bool? = nil, role: String? = nil) -> AnyPublisher<[SubscriptionPlanResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/subscription/plan/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/subscription/plan/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -215,22 +205,20 @@ open class SubscriptionAPI {
 
 
     /// Get Subscription Usage
-    /// - GET /api/{version}/subscription/usage/get
+    /// - GET /subscription/usage/get
     /// - Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the lookup 
     /// - parameter applicationId: (query) Get for just 1 application instead of the BillableEntity (optional)
     /// - parameter start: (query) The start time frame (optional)
     /// - parameter end: (query) The end time frame (optional)
     /// - returns: AnyPublisher<ApplicationUsageResponse, Error> 
-    open func getSubscriptionUsage(version: Double, accountId: Int64, applicationId: Int64? = nil, start: Int64? = nil, end: Int64? = nil) -> AnyPublisher<ApplicationUsageResponse, Error> {
+    open func getSubscriptionUsage(accountId: Int64, applicationId: Int64? = nil, start: Int64? = nil, end: Int64? = nil) -> AnyPublisher<ApplicationUsageResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/subscription/usage/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/subscription/usage/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -257,22 +245,20 @@ open class SubscriptionAPI {
 
 
     /// Update Subscription
-    /// - POST /api/{version}/subscription/update
+    /// - POST /subscription/update
     /// - Updates the subscription for the billable entity for an account
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the update, must be the responsible manager 
     /// - parameter planId: (query) The plan to subscribe to (optional)
     /// - parameter promoCode: (query) Set a promo code for a discount. (optional)
     /// - parameter active: (query) Set active status (optional)
     /// - returns: AnyPublisher<SubscriptionResponse, Error> 
-    open func updateSubscription(version: Double, accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, active: Bool? = nil) -> AnyPublisher<SubscriptionResponse, Error> {
+    open func updateSubscription(accountId: Int64, planId: Int64? = nil, promoCode: String? = nil, active: Bool? = nil) -> AnyPublisher<SubscriptionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/subscription/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/subscription/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

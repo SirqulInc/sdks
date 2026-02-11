@@ -21,7 +21,7 @@ open class ApplicationConfigAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class ApplicationConfigAPI {
 
 
     /// Create AppConfig
-    /// - POST /api/{version}/appconfig/create
+    /// - POST /appconfig/create
     /// - Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user 
     /// - parameter appKey: (query) The application key that the newly created applicationConfig will be associated to 
     /// - parameter configVersion: (query) The application configuration, has to be unique within the application 
@@ -40,14 +39,13 @@ open class ApplicationConfigAPI {
     /// - parameter retailerLocationId: (query) The retailer location id for retailer location specific configurations (optional)
     /// - parameter udid: (query) The device udid for device specific configurations (optional)
     /// - returns: AnyPublisher<ApplicationConfigResponse, Error> 
-    open func createApplicationConfig(version: Double, accountId: Int64, appKey: String, configVersion: String, assetId: Int64, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil) -> AnyPublisher<ApplicationConfigResponse, Error> {
+    open func createApplicationConfig(accountId: Int64, appKey: String, configVersion: String, assetId: Int64, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil) -> AnyPublisher<ApplicationConfigResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/appconfig/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/appconfig/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -77,20 +75,18 @@ open class ApplicationConfigAPI {
 
 
     /// Delete AppConfig
-    /// - POST /api/{version}/appconfig/delete
+    /// - POST /appconfig/delete
     /// - Mark the application configuration for deletion.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user 
     /// - parameter configId: (query) The config ID of the application configuration to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteApplicationConfig(version: Double, accountId: Int64, configId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteApplicationConfig(accountId: Int64, configId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/appconfig/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/appconfig/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -115,20 +111,18 @@ open class ApplicationConfigAPI {
 
 
     /// Get AppConfig
-    /// - GET /api/{version}/appconfig/get
+    /// - GET /appconfig/get
     /// - Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user 
     /// - parameter configId: (query) The config ID of the application configuration 
     /// - returns: AnyPublisher<ApplicationConfigResponse, Error> 
-    open func getApplicationConfig(version: Double, accountId: Int64, configId: Int64) -> AnyPublisher<ApplicationConfigResponse, Error> {
+    open func getApplicationConfig(accountId: Int64, configId: Int64) -> AnyPublisher<ApplicationConfigResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/appconfig/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/appconfig/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -153,9 +147,8 @@ open class ApplicationConfigAPI {
 
 
     /// Get AppConfig by Version
-    /// - GET /api/{version}/appconfig/getbyversion
+    /// - GET /appconfig/getbyversion
     /// - Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key 
     /// - parameter configVersion: (query) The version of the application configuration 
     /// - parameter retailerId: (query) Only returns the config that matches the given retailer (optional)
@@ -163,14 +156,13 @@ open class ApplicationConfigAPI {
     /// - parameter udid: (query) Only returns only returns the config that matches the given device udid (optional)
     /// - parameter allowOlderVersions: (query) Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)
     /// - returns: AnyPublisher<ApplicationConfigResponse, Error> 
-    open func getApplicationConfigByConfigVersion(version: Double, appKey: String, configVersion: String, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, allowOlderVersions: Bool? = nil) -> AnyPublisher<ApplicationConfigResponse, Error> {
+    open func getApplicationConfigByConfigVersion(appKey: String, configVersion: String, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, allowOlderVersions: Bool? = nil) -> AnyPublisher<ApplicationConfigResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/appconfig/getbyversion"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/appconfig/getbyversion"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -199,9 +191,8 @@ open class ApplicationConfigAPI {
 
 
     /// Search AppConfigs
-    /// - GET /api/{version}/appconfig/search
+    /// - GET /appconfig/search
     /// - Gets all versions of application configurations in a particular app by the given appKey.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user 
     /// - parameter appKey: (query) The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional)
     /// - parameter retailerId: (query) Only returns the configs that matches the given retailer (optional)
@@ -213,14 +204,13 @@ open class ApplicationConfigAPI {
     /// - parameter start: (query) The start index for pagination (optional, default to 0)
     /// - parameter limit: (query) The limit for pagination (There is a hard limit of 100) (optional, default to 20)
     /// - returns: AnyPublisher<[ApplicationConfigResponse], Error> 
-    open func searchApplicationConfig(version: Double, accountId: Int64, appKey: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, configVersion: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[ApplicationConfigResponse], Error> {
+    open func searchApplicationConfig(accountId: Int64, appKey: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil, configVersion: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[ApplicationConfigResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/appconfig/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/appconfig/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -253,9 +243,8 @@ open class ApplicationConfigAPI {
 
 
     /// Update AppConfig
-    /// - POST /api/{version}/appconfig/update
+    /// - POST /appconfig/update
     /// - pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user 
     /// - parameter configId: (query) The config ID of the application configuration to update 
     /// - parameter appKey: (query) The application key that the updated applicationConfig will be associated to (optional)
@@ -265,14 +254,13 @@ open class ApplicationConfigAPI {
     /// - parameter retailerLocationId: (query) The retailer location id for retailer location specific configurations (optional)
     /// - parameter udid: (query) The device udid for device specific configurations (optional)
     /// - returns: AnyPublisher<ApplicationConfigResponse, Error> 
-    open func updateApplicationConfig(version: Double, accountId: Int64, configId: Int64, appKey: String? = nil, configVersion: String? = nil, assetId: Int64? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil) -> AnyPublisher<ApplicationConfigResponse, Error> {
+    open func updateApplicationConfig(accountId: Int64, configId: Int64, appKey: String? = nil, configVersion: String? = nil, assetId: Int64? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, udid: String? = nil) -> AnyPublisher<ApplicationConfigResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/appconfig/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/appconfig/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

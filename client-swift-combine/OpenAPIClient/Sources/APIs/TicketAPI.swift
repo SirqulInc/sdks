@@ -21,7 +21,7 @@ open class TicketAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,23 +29,21 @@ open class TicketAPI {
 
 
     /// Get Ticket Count
-    /// - GET /api/{version}/ticket/count
+    /// - GET /ticket/count
     /// - Gets the ticket count.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the id of the device that owns the tickets (optional)
     /// - parameter accountId: (query) the id of the account that owns the tickets (optional)
     /// - parameter gameType: (query) this is deprecated. (optional)
     /// - parameter appKey: (query) the applicationkey (optional)
     /// - parameter ticketType: (query) the type of ticket (optional)
     /// - returns: AnyPublisher<CountResponse, Error> 
-    open func getTicketCount(version: Double, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, ticketType: String? = nil) -> AnyPublisher<CountResponse, Error> {
+    open func getTicketCount(deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, ticketType: String? = nil) -> AnyPublisher<CountResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ticket/count"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ticket/count"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -73,9 +71,8 @@ open class TicketAPI {
 
 
     /// Get Ticket List
-    /// - GET /api/{version}/ticket/getList
+    /// - GET /ticket/getList
     /// - Gets the list of tickets.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the id of the device that owns the tickets (optional)
     /// - parameter accountId: (query) the id of the account that owns the tickets (optional)
     /// - parameter ticketObjectType: (query) comma separated list of TicketObjectType (optional)
@@ -86,14 +83,13 @@ open class TicketAPI {
     /// - parameter gameType: (query)  (optional)
     /// - parameter appKey: (query) the application key (optional)
     /// - returns: AnyPublisher<TicketListResponse, Error> 
-    open func getTicketList(version: Double, deviceId: String? = nil, accountId: Int64? = nil, ticketObjectType: String? = nil, actionType: String? = nil, ticketIds: String? = nil, objectIds: String? = nil, receiptTokens: String? = nil, gameType: String? = nil, appKey: String? = nil) -> AnyPublisher<TicketListResponse, Error> {
+    open func getTicketList(deviceId: String? = nil, accountId: Int64? = nil, ticketObjectType: String? = nil, actionType: String? = nil, ticketIds: String? = nil, objectIds: String? = nil, receiptTokens: String? = nil, gameType: String? = nil, appKey: String? = nil) -> AnyPublisher<TicketListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ticket/getList"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ticket/getList"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -125,9 +121,8 @@ open class TicketAPI {
 
 
     /// Gift Tickets
-    /// - POST /api/{version}/purchase/gift
+    /// - POST /purchase/gift
     /// - Gift tickets to another user.
-    /// - parameter version: (path)  
     /// - parameter receiverAccountId: (query) the id of the account receiving the tickets 
     /// - parameter ticketId: (query) the id of the tickets 
     /// - parameter deviceId: (query) the id of the device (optional)
@@ -137,14 +132,13 @@ open class TicketAPI {
     /// - parameter gameType: (query) the type of game associated with the tickets (optional)
     /// - parameter appKey: (query) the application key (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func giftPurchase(version: Double, receiverAccountId: Int64, ticketId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetId: Int64? = nil, customMessage: String? = nil, gameType: String? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func giftPurchase(receiverAccountId: Int64, ticketId: Int64, deviceId: String? = nil, accountId: Int64? = nil, assetId: Int64? = nil, customMessage: String? = nil, gameType: String? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/purchase/gift"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/purchase/gift"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -175,9 +169,8 @@ open class TicketAPI {
 
 
     /// Save Ticket
-    /// - POST /api/{version}/ticket/save
+    /// - POST /ticket/save
     /// - Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-    /// - parameter version: (path)  
     /// - parameter actionType: (query) the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER 
     /// - parameter ticketObjectType: (query) the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM 
     /// - parameter returnNulls: (query) whether to return nulls or not (optional)
@@ -197,14 +190,13 @@ open class TicketAPI {
     /// - parameter includeProfileResponse: (query) if returnProfileResponse is false, will return an AppResponse with profile data if true (optional)
     /// - parameter appVersion: (query) the application version (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func saveTicket(version: Double, actionType: String, ticketObjectType: String, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, receiptData: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func saveTicket(actionType: String, ticketObjectType: String, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, receiptData: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ticket/save"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ticket/save"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -245,9 +237,8 @@ open class TicketAPI {
 
 
     /// Save Ticket with Reciept
-    /// - POST /api/{version}/ticket/save/fileUpload
+    /// - POST /ticket/save/fileUpload
     /// - Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-    /// - parameter version: (path)  
     /// - parameter actionType: (query) the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } 
     /// - parameter ticketObjectType: (query) the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} 
     /// - parameter receiptData: (query) the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format. 
@@ -267,14 +258,13 @@ open class TicketAPI {
     /// - parameter includeProfileResponse: (query) if returnProfileResponse is false, will return an AppResponse with profile data if true (optional)
     /// - parameter appVersion: (query) the application version (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func saveTicketViaFileUpload(version: Double, actionType: String, ticketObjectType: String, receiptData: Data, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func saveTicketViaFileUpload(actionType: String, ticketObjectType: String, receiptData: Data, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, objectId: Int64? = nil, purchaseCode: String? = nil, receiptToken: String? = nil, count: Int64? = nil, ticketType: String? = nil, purchaseProvider: String? = nil, purchaseType: String? = nil, returnProfileResponse: Bool? = nil, includeProfileResponse: Bool? = nil, appVersion: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ticket/save/fileUpload"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ticket/save/fileUpload"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -315,18 +305,16 @@ open class TicketAPI {
 
 
     /// Get Ticket Offers
-    /// - GET /api/{version}/ticket/ticketoffers
+    /// - GET /ticket/ticketoffers
     /// - Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-    /// - parameter version: (path)  
     /// - returns: AnyPublisher<TicketOfferResponse, Error> 
-    open func ticketOffers(version: Double) -> AnyPublisher<TicketOfferResponse, Error> {
+    open func ticketOffers() -> AnyPublisher<TicketOfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ticket/ticketoffers"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ticket/ticketoffers"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {

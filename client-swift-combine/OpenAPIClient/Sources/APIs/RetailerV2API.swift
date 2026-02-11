@@ -21,7 +21,7 @@ open class RetailerV2API {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class RetailerV2API {
 
 
     /// Get Retailer
-    /// - GET /api/{version}/retailer
+    /// - GET /retailer
     /// - Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-    /// - parameter version: (path)  
     /// - parameter retailerId: (query) the id of the retailer 
     /// - parameter activeOnly: (query) whether to return results that are active only or all 
     /// - parameter keyword: (query) the keyword to search on to get retailer (optional)
@@ -39,14 +38,13 @@ open class RetailerV2API {
     /// - parameter start: (query) the start of the index and/or pagination (optional, default to 0)
     /// - parameter limit: (query) the limit of the index and/or pagination (optional, default to 20)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func getRetaokiler(version: Double, retailerId: Int64, activeOnly: Bool, keyword: String? = nil, sortField: String? = nil, start: Int64? = nil, limit: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func getRetaokiler(retailerId: Int64, activeOnly: Bool, keyword: String? = nil, sortField: String? = nil, start: Int64? = nil, limit: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

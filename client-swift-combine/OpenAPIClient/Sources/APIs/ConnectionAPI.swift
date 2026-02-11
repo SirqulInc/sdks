@@ -21,7 +21,7 @@ open class ConnectionAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class ConnectionAPI {
 
 
     /// Add Connection
-    /// - POST /api/{version}/consumer/connection/group/addConnection
+    /// - POST /consumer/connection/group/addConnection
     /// - Adds a connection to a group.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) whether to return nulls or not 
     /// - parameter groupId: (query) the group id 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -42,14 +41,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func addConnectionToGroup(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func addConnectionToGroup(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/group/addConnection"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/group/addConnection"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -81,9 +79,8 @@ open class ConnectionAPI {
 
 
     /// Add Connections
-    /// - POST /api/{version}/connection/group/addConnections
+    /// - POST /connection/group/addConnections
     /// - Adds a list of connections to a group.
-    /// - parameter version: (path)  
     /// - parameter connectionGroupId: (query) the connection group ID 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -92,14 +89,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func addConnectionsToGroup(version: Double, connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func addConnectionsToGroup(connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/connection/group/addConnections"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/connection/group/addConnections"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -129,9 +125,8 @@ open class ConnectionAPI {
 
 
     /// Add Connection Groups
-    /// - POST /api/{version}/consumer/connection/group/addSubGroup
+    /// - POST /consumer/connection/group/addSubGroup
     /// - Add sub groups to a group.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) whether to return nulls or not 
     /// - parameter groupId: (query) the parent group id 
     /// - parameter subGroupIds: (query) comma separated list of group IDs to add to the parent group 
@@ -140,14 +135,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<ConnectionGroupResponse, Error> 
-    open func addSubGroups(version: Double, returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ConnectionGroupResponse, Error> {
+    open func addSubGroups(returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ConnectionGroupResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/group/addSubGroup"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/group/addSubGroup"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -177,9 +171,8 @@ open class ConnectionAPI {
 
 
     /// Create or Update Connection
-    /// - POST /api/{version}/consumer/connection/add
+    /// - POST /consumer/connection/add
     /// - Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter connectionId: (query) the connection id for editing (optional)
@@ -195,14 +188,13 @@ open class ConnectionAPI {
     /// - parameter isFollowing: (query) determines whether the user is following this account (optional)
     /// - parameter connectionResponse: (query) whether to return the connection response or not (optional)
     /// - returns: AnyPublisher<ConnectionResponse, Error> 
-    open func createOrUpdateConnection(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, groupId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, isTrusted: Bool? = nil, ignoreFriendRequest: Bool? = nil, isContact: Bool? = nil, isBlocked: Bool? = nil, isFollowing: Bool? = nil, connectionResponse: Bool? = nil) -> AnyPublisher<ConnectionResponse, Error> {
+    open func createOrUpdateConnection(deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, groupId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, isTrusted: Bool? = nil, ignoreFriendRequest: Bool? = nil, isContact: Bool? = nil, isBlocked: Bool? = nil, isFollowing: Bool? = nil, connectionResponse: Bool? = nil) -> AnyPublisher<ConnectionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/add"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/add"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -239,9 +231,8 @@ open class ConnectionAPI {
 
 
     /// Create or Update Connection Group
-    /// - POST /api/{version}/consumer/connection/group
+    /// - POST /consumer/connection/group
     /// - Creates a new private group.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) whether to return nulls or not 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -257,14 +248,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the latitude of the group (optional)
     /// - parameter longitude: (query) the longitude of the group (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func createOrUpdateGroup(version: Double, returnNulls: Bool, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, groupId: Int64? = nil, assetId: Int64? = nil, connections: String? = nil, description: String? = nil, canViewProfileInfo: Bool? = nil, canViewGameInfo: Bool? = nil, canViewFriendInfo: Bool? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func createOrUpdateGroup(returnNulls: Bool, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, groupId: Int64? = nil, assetId: Int64? = nil, connections: String? = nil, description: String? = nil, canViewProfileInfo: Bool? = nil, canViewGameInfo: Bool? = nil, canViewFriendInfo: Bool? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/group"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/group"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -301,21 +291,19 @@ open class ConnectionAPI {
 
 
     /// Accept Follow Request
-    /// - POST /api/{version}/consumer/follow/accept
+    /// - POST /consumer/follow/accept
     /// - Accept someone's follow request.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter connectionAccountId: (query) the account ID of the user who initiated the follow 
     /// - parameter appKey: (query) the application key for sending notifications 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func followAccept(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func followAccept(accountId: Int64, connectionAccountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/follow/accept"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/follow/accept"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -341,21 +329,19 @@ open class ConnectionAPI {
 
 
     /// Reject Follow Request
-    /// - POST /api/{version}/consumer/follow/reject
+    /// - POST /consumer/follow/reject
     /// - Reject someone's follow request or remove them as a follower.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter connectionAccountId: (query) the account ID of the user who initiated the follow 
     /// - parameter appKey: (query) the application key for sending notifications 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func followReject(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func followReject(accountId: Int64, connectionAccountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/follow/reject"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/follow/reject"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -381,21 +367,19 @@ open class ConnectionAPI {
 
 
     /// Remove Follower / Unfollow
-    /// - POST /api/{version}/consumer/follow/remove
+    /// - POST /consumer/follow/remove
     /// - Unfollow someone you are following or remove them as a follower.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter connectionAccountId: (query) the account ID of the user who you want to unfollow 
     /// - parameter appKey: (query) the application key for sending notifications 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func followRemove(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func followRemove(accountId: Int64, connectionAccountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/follow/remove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/follow/remove"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -421,22 +405,20 @@ open class ConnectionAPI {
 
 
     /// Send Follow Request
-    /// - POST /api/{version}/consumer/follow/request
+    /// - POST /consumer/follow/request
     /// - Send a request to follow someone.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter connectionAccountId: (query) the account ID of the user who you want to follow 
     /// - parameter appKey: (query) the application key for sending notifications 
     /// - parameter approvalNeeded: (query) determines if the other user needs to confirm the follow request (optional, default to true)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func followRequest(version: Double, accountId: Int64, connectionAccountId: Int64, appKey: String, approvalNeeded: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func followRequest(accountId: Int64, connectionAccountId: Int64, appKey: String, approvalNeeded: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/follow/request"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/follow/request"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -463,9 +445,8 @@ open class ConnectionAPI {
 
 
     /// Accept Friend
-    /// - POST /api/{version}/consumer/friend/accept
+    /// - POST /consumer/friend/accept
     /// - Accept a friend request and optionally sends a notification.
-    /// - parameter version: (path)  
     /// - parameter friendAccountId: (query) the friend&#39;s account id 
     /// - parameter notifyFriend: (query) determines whether to send a notification to the afflicting party 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -474,14 +455,13 @@ open class ConnectionAPI {
     /// - parameter appKey: (query) the application key (optional)
     /// - parameter notificationMessage: (query) optional message to send in a notification (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func friendAccept(version: Double, friendAccountId: Int64, notifyFriend: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func friendAccept(friendAccountId: Int64, notifyFriend: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/friend/accept"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/friend/accept"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -511,9 +491,8 @@ open class ConnectionAPI {
 
 
     /// Decline Friend
-    /// - POST /api/{version}/consumer/friend/reject
+    /// - POST /consumer/friend/reject
     /// - Request a friend request and optionally sends a notification.
-    /// - parameter version: (path)  
     /// - parameter friendAccountId: (query) the friend&#39;s account id 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -522,14 +501,13 @@ open class ConnectionAPI {
     /// - parameter notifyFriend: (query) determines whether to send a notification to the afflicting party (optional)
     /// - parameter notificationMessage: (query) optional message to send in a notification (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func friendReject(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notifyFriend: Bool? = nil, notificationMessage: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func friendReject(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notifyFriend: Bool? = nil, notificationMessage: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/friend/reject"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/friend/reject"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -559,23 +537,21 @@ open class ConnectionAPI {
 
 
     /// Delete Friend
-    /// - POST /api/{version}/consumer/friend/remove
+    /// - POST /consumer/friend/remove
     /// - Removes a friend from the user's friends list.
-    /// - parameter version: (path)  
     /// - parameter friendAccountId: (query) the account ID of the friend to remove 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter notifyFriend: (query) optionally notifies the connection that they have been removed as a friend (optional)
     /// - parameter removeFromGroups: (query) optionally removes the connection from the user&#39;s groups (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func friendRemove(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, notifyFriend: Bool? = nil, removeFromGroups: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func friendRemove(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, notifyFriend: Bool? = nil, removeFromGroups: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/friend/remove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/friend/remove"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -603,9 +579,8 @@ open class ConnectionAPI {
 
 
     /// Request Friend
-    /// - POST /api/{version}/consumer/friend/request
+    /// - POST /consumer/friend/request
     /// - Sends a friend request notification to another user.
-    /// - parameter version: (path)  
     /// - parameter friendAccountId: (query) the friend&#39;s account id 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -613,14 +588,13 @@ open class ConnectionAPI {
     /// - parameter appKey: (query) the application key (optional)
     /// - parameter notificationMessage: (query) optional message to send in a notification (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func friendRequest(version: Double, friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func friendRequest(friendAccountId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, notificationMessage: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/friend/request"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/friend/request"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -649,20 +623,18 @@ open class ConnectionAPI {
 
 
     /// Get Sent Friend Requests
-    /// - GET /api/{version}/consumer/connection/getRequested
+    /// - GET /consumer/connection/getRequested
     /// - Gets the connection sent friend requests.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the ID of the device (optional)
     /// - parameter accountId: (query) the id of the account (optional)
     /// - returns: AnyPublisher<ConnectionListResponse, Error> 
-    open func getConnectionSentFriendRequests(version: Double, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<ConnectionListResponse, Error> {
+    open func getConnectionSentFriendRequests(deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<ConnectionListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/getRequested"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/getRequested"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -687,9 +659,8 @@ open class ConnectionAPI {
 
 
     /// Search Connections
-    /// - GET /api/{version}/consumer/connection/get
+    /// - GET /consumer/connection/get
     /// - Gets the connections.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) whether to return nulls or not 
     /// - parameter filter: (query) a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) 
     /// - parameter sortField: (query) sorts the response list by ConnectionApiMap 
@@ -706,14 +677,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<ConnectionListResponse, Error> 
-    open func getConnections(version: Double, returnNulls: Bool, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ConnectionListResponse, Error> {
+    open func getConnections(returnNulls: Bool, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ConnectionListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -751,8 +721,7 @@ open class ConnectionAPI {
 
 
     /// Get Connection Group
-    /// - GET /api/{version}/consumer/connection/group/details/get
-    /// - parameter version: (path)  
+    /// - GET /consumer/connection/group/details/get
     /// - parameter combineConnections: (query) whether to combine connections or not 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -760,14 +729,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<ConnectionGroupResponse, Error> 
-    open func getGroupDetails(version: Double, combineConnections: Bool, deviceId: String? = nil, accountId: Int64? = nil, groupId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ConnectionGroupResponse, Error> {
+    open func getGroupDetails(combineConnections: Bool, deviceId: String? = nil, accountId: Int64? = nil, groupId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ConnectionGroupResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/group/details/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/group/details/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -812,9 +780,8 @@ open class ConnectionAPI {
     }
 
     /// Search Connection Groups
-    /// - GET /api/{version}/connection/group/search
+    /// - GET /connection/group/search
     /// - Gets a user's private groups and default groups.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) the field to sort by 
     /// - parameter descending: (query) whether to return results in descending or ascending order 
     /// - parameter activeOnly: (query) to search on active only or not 
@@ -826,14 +793,13 @@ open class ConnectionAPI {
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - parameter keyword: (query) keyword search string (optional)
     /// - returns: AnyPublisher<[ConnectionInfoResponse], Error> 
-    open func groupSearch(version: Double, sortField: GroupSearchSortField, descending: Bool, activeOnly: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil) -> AnyPublisher<[ConnectionInfoResponse], Error> {
+    open func groupSearch(sortField: GroupSearchSortField, descending: Bool, activeOnly: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil) -> AnyPublisher<[ConnectionInfoResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/connection/group/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/connection/group/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -866,9 +832,8 @@ open class ConnectionAPI {
 
 
     /// Delete Connection
-    /// - POST /api/{version}/consumer/connection/group/removeConnection
+    /// - POST /consumer/connection/group/removeConnection
     /// - Removes the connection from group.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) whether to return nulls or not 
     /// - parameter groupId: (query) the group id 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -879,14 +844,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeConnectionFromGroup(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeConnectionFromGroup(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionId: Int64? = nil, connectionAccountId: Int64? = nil, pendingId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/group/removeConnection"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/group/removeConnection"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -918,9 +882,8 @@ open class ConnectionAPI {
 
 
     /// Remove Connections
-    /// - POST /api/{version}/connection/group/removeConnections
+    /// - POST /connection/group/removeConnections
     /// - Remove a list of connections from a group.
-    /// - parameter version: (path)  
     /// - parameter connectionGroupId: (query) connection group id 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -929,14 +892,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeConnectionsFromGroup(version: Double, connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeConnectionsFromGroup(connectionGroupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/connection/group/removeConnections"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/connection/group/removeConnections"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -966,9 +928,8 @@ open class ConnectionAPI {
 
 
     /// Delete Connection Group
-    /// - POST /api/{version}/consumer/connection/group/remove
+    /// - POST /consumer/connection/group/remove
     /// - Remove a user's group.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) whether to return nulls or not 
     /// - parameter groupId: (query) the group id 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -976,14 +937,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeGroup(version: Double, returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeGroup(returnNulls: Bool, groupId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/group/remove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/group/remove"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1012,9 +972,8 @@ open class ConnectionAPI {
 
 
     /// Remove Connection Groups
-    /// - POST /api/{version}/consumer/connection/group/removeSubGroup
+    /// - POST /consumer/connection/group/removeSubGroup
     /// - Remove sub groups from a group
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) whether to return nulls or not 
     /// - parameter groupId: (query) the parent group id 
     /// - parameter subGroupIds: (query) comma separated list of group IDs to remove from the parent group 
@@ -1023,14 +982,13 @@ open class ConnectionAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeSubGroups(version: Double, returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeSubGroups(returnNulls: Bool, groupId: Int64, subGroupIds: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/connection/group/removeSubGroup"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/connection/group/removeSubGroup"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1060,9 +1018,8 @@ open class ConnectionAPI {
 
 
     /// Search Possible Connections
-    /// - GET /api/{version}/connection/search
+    /// - GET /connection/search
     /// - Search for accounts that the user may not have a connection with.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) return all json attributes if true. defualt is true. 
     /// - parameter start: (query) start index of the pagination 
     /// - parameter limit: (query) limit of the pagination 
@@ -1079,14 +1036,13 @@ open class ConnectionAPI {
     /// - parameter sortField: (query) the field to sort on (optional)
     /// - parameter hasLocation: (query) whether the search has location or not (optional)
     /// - returns: AnyPublisher<ConnectionListResponse, Error> 
-    open func searchConnections(version: Double, returnNulls: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, gameType: String? = nil, appKey: String? = nil, i: Int? = nil, l: Int? = nil, sortField: String? = nil, hasLocation: Bool? = nil) -> AnyPublisher<ConnectionListResponse, Error> {
+    open func searchConnections(returnNulls: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, gameType: String? = nil, appKey: String? = nil, i: Int? = nil, l: Int? = nil, sortField: String? = nil, hasLocation: Bool? = nil) -> AnyPublisher<ConnectionListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/connection/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/connection/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class ShipmentAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class ShipmentAPI {
 
 
     /// Cancel Shipment
-    /// - POST /api/{version}/shipment/{id}/cancel
+    /// - POST /shipment/{id}/cancel
     /// - Remove shipment from route
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the shipment to cancel 
     /// - returns: AnyPublisher<Void, Error> 
-    open func cancelShipment(version: Double, id: Int64) -> AnyPublisher<Void, Error> {
+    open func cancelShipment(id: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/{id}/cancel"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/{id}/cancel"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -63,19 +61,17 @@ open class ShipmentAPI {
 
 
     /// Create Shipment
-    /// - POST /api/{version}/shipment
+    /// - POST /shipment
     /// - Create new shipment
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Shipment, Error> 
-    open func createShipment(version: Double, body: Shipment? = nil) -> AnyPublisher<Shipment, Error> {
+    open func createShipment(body: Shipment? = nil) -> AnyPublisher<Shipment, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/shipment"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -98,19 +94,17 @@ open class ShipmentAPI {
 
 
     /// Delete Shipment
-    /// - DELETE /api/{version}/shipment/{id}
+    /// - DELETE /shipment/{id}
     /// - Delete an existing shipment
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the shipment to delete 
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteShipment(version: Double, id: Int64) -> AnyPublisher<Void, Error> {
+    open func deleteShipment(id: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -132,19 +126,17 @@ open class ShipmentAPI {
 
 
     /// Get Shipment
-    /// - GET /api/{version}/shipment/{id}
+    /// - GET /shipment/{id}
     /// - Get an existing shipment
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the shipment to get 
     /// - returns: AnyPublisher<Shipment, Error> 
-    open func getShipment(version: Double, id: Int64) -> AnyPublisher<Shipment, Error> {
+    open func getShipment(id: Int64) -> AnyPublisher<Shipment, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -166,9 +158,8 @@ open class ShipmentAPI {
 
 
     /// Search Shipments
-    /// - GET /api/{version}/shipment
+    /// - GET /shipment
     /// - Search for shipments
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) The start index for pagination 
@@ -178,14 +169,13 @@ open class ShipmentAPI {
     /// - parameter riderId: (query) The rider associate to this shipment (optional)
     /// - parameter routeId: (query) The route associate to this shipment (optional)
     /// - returns: AnyPublisher<[Shipment], Error> 
-    open func searchShipments(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, ownerId: Int64? = nil, riderId: Int64? = nil, routeId: Int64? = nil) -> AnyPublisher<[Shipment], Error> {
+    open func searchShipments(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, ownerId: Int64? = nil, riderId: Int64? = nil, routeId: Int64? = nil) -> AnyPublisher<[Shipment], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/shipment"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -216,20 +206,18 @@ open class ShipmentAPI {
 
 
     /// Update Shipment
-    /// - PUT /api/{version}/shipment/{id}
+    /// - PUT /shipment/{id}
     /// - Update an existing shipment
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the shipment to update 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Shipment, Error> 
-    open func updateShipment(version: Double, id: Int64, body: Shipment? = nil) -> AnyPublisher<Shipment, Error> {
+    open func updateShipment(id: Int64, body: Shipment? = nil) -> AnyPublisher<Shipment, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -253,20 +241,18 @@ open class ShipmentAPI {
 
 
     /// Uupdate Shipment Status
-    /// - POST /api/{version}/shipment/{id}/status
+    /// - POST /shipment/{id}/status
     /// - Update status of an existing shipment
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the shipment to update status 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateShipmentStatus(version: Double, id: Int64, body: [String: Bool]? = nil) -> AnyPublisher<Void, Error> {
+    open func updateShipmentStatus(id: Int64, body: [String: Bool]? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/{id}/status"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/{id}/status"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)

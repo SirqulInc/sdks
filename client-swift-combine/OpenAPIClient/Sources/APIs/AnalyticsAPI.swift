@@ -21,7 +21,7 @@ open class AnalyticsAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class AnalyticsAPI {
 
 
     /// Get User Activity
-    /// - GET /api/{version}/analytics/useractivity
+    /// - GET /analytics/useractivity
     /// - Get an activity feed by user.
-    /// - parameter version: (path)  
     /// - parameter start: (query) The start of the pagination 
     /// - parameter limit: (query) The limit of the pagination 
     /// - parameter accountId: (query) the account id of the user 
     /// - returns: AnyPublisher<[UserActivityResponse], Error> 
-    open func activities(version: Double, start: Int, limit: Int, accountId: Int64) -> AnyPublisher<[UserActivityResponse], Error> {
+    open func activities(start: Int, limit: Int, accountId: Int64) -> AnyPublisher<[UserActivityResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/analytics/useractivity"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/analytics/useractivity"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -238,9 +236,8 @@ open class AnalyticsAPI {
     }
 
     /// Get Aggregated Filtered Usage
-    /// - GET /api/{version}/analytics/aggregatedFilteredUsage
+    /// - GET /analytics/aggregatedFilteredUsage
     /// - Query analytics to get data used for nested graphs and charts
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter applicationId: (query) This parameter is deprecated. (optional)
@@ -273,14 +270,13 @@ open class AnalyticsAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<ChartData, Error> 
-    open func aggregatedFilteredUsage(version: Double, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, groupByRoot: AggregatedFilteredUsageGroupByRoot? = nil, groupBy: AggregatedFilteredUsageGroupBy? = nil, distinctCount: AggregatedFilteredUsageDistinctCount? = nil, sortField: AggregatedFilteredUsageSortField? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: AggregatedFilteredUsageResponseFormat? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ChartData, Error> {
+    open func aggregatedFilteredUsage(deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, groupByRoot: AggregatedFilteredUsageGroupByRoot? = nil, groupBy: AggregatedFilteredUsageGroupBy? = nil, distinctCount: AggregatedFilteredUsageDistinctCount? = nil, sortField: AggregatedFilteredUsageSortField? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: AggregatedFilteredUsageResponseFormat? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ChartData, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/analytics/aggregatedFilteredUsage"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/analytics/aggregatedFilteredUsage"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -503,9 +499,8 @@ open class AnalyticsAPI {
     }
 
     /// Get Filtered Usage
-    /// - GET /api/{version}/analytics/filteredUsage
+    /// - GET /analytics/filteredUsage
     /// - Query analytics to get data used for graphs and charts
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter applicationId: (query) This parameter is deprecated. (optional)
@@ -546,14 +541,13 @@ open class AnalyticsAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<ChartData, Error> 
-    open func filteredUsage(version: Double, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, customId: Int64? = nil, customType: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, customMessage: String? = nil, customMessage2: String? = nil, groupBy: FilteredUsageGroupBy? = nil, distinctCount: FilteredUsageDistinctCount? = nil, sumColumn: FilteredUsageSumColumn? = nil, sortField: FilteredUsageSortField? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: FilteredUsageResponseFormat? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ChartData, Error> {
+    open func filteredUsage(deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, deviceType: String? = nil, device: String? = nil, deviceOS: String? = nil, gender: String? = nil, ageGroup: String? = nil, country: String? = nil, state: String? = nil, city: String? = nil, zip: String? = nil, model: String? = nil, tag: String? = nil, userAccountId: Int64? = nil, userAccountDisplay: String? = nil, userAccountUsername: String? = nil, customId: Int64? = nil, customType: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil, customMessage: String? = nil, customMessage2: String? = nil, groupBy: FilteredUsageGroupBy? = nil, distinctCount: FilteredUsageDistinctCount? = nil, sumColumn: FilteredUsageSumColumn? = nil, sortField: FilteredUsageSortField? = nil, descending: Bool? = nil, hideUnknown: Bool? = nil, responseFormat: FilteredUsageResponseFormat? = nil, l: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ChartData, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/analytics/filteredUsage"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/analytics/filteredUsage"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -615,9 +609,8 @@ open class AnalyticsAPI {
 
 
     /// Create Usage Record
-    /// - POST /api/{version}/analytics/usage
+    /// - POST /analytics/usage
     /// - Record an analytic record for a known state within the application.
-    /// - parameter version: (path)  
     /// - parameter tag: (query) The tag to apply: the name of the action or thing being logged. 
     /// - parameter deviceId: (query) The client deviceID (optional)
     /// - parameter accountId: (query) The logged in user ID (optional)
@@ -650,14 +643,13 @@ open class AnalyticsAPI {
     /// - parameter customLong: (query) a custom long value for the usage record (optional)
     /// - parameter customLong2: (query) a custom long value for the usage record (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func usage(version: Double, tag: String, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, device: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, latitude: Double? = nil, longitude: Double? = nil, customId: Int64? = nil, customType: String? = nil, achievementIncrement: Int64? = nil, city: String? = nil, state: String? = nil, country: String? = nil, zip: String? = nil, locationDescription: String? = nil, clientTime: Int64? = nil, errorMessage: String? = nil, ip: String? = nil, userAgent: String? = nil, backgroundEvent: Bool? = nil, customMessage: String? = nil, customMessage2: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func usage(tag: String, deviceId: String? = nil, accountId: Int64? = nil, applicationId: Int64? = nil, appKey: String? = nil, appVersion: String? = nil, device: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, latitude: Double? = nil, longitude: Double? = nil, customId: Int64? = nil, customType: String? = nil, achievementIncrement: Int64? = nil, city: String? = nil, state: String? = nil, country: String? = nil, zip: String? = nil, locationDescription: String? = nil, clientTime: Int64? = nil, errorMessage: String? = nil, ip: String? = nil, userAgent: String? = nil, backgroundEvent: Bool? = nil, customMessage: String? = nil, customMessage2: String? = nil, customValue: Double? = nil, customValue2: Double? = nil, customLong: Int64? = nil, customLong2: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/analytics/usage"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/analytics/usage"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -711,9 +703,8 @@ open class AnalyticsAPI {
 
 
     /// Create Multiple Usage Records
-    /// - POST /api/{version}/analytics/usage/batch
+    /// - POST /analytics/usage/batch
     /// - Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key unique to each application. 
     /// - parameter device: (query) The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) 
     /// - parameter data: (query) The analytic data AnalyticListResponse 
@@ -726,14 +717,13 @@ open class AnalyticsAPI {
     /// - parameter updateRanking: (query) Will create a leaderboard if one does not exist for the \&quot;tag\&quot; yet (optional)
     /// - parameter returnSummaryResponse: (query) Returns a summary response of the achievements that have been completed due to the analytics (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func usageBatch(version: Double, appKey: String, device: String, data: String, deviceId: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, updateRanking: Bool? = nil, returnSummaryResponse: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func usageBatch(appKey: String, device: String, data: String, deviceId: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, deviceType: String? = nil, deviceOS: String? = nil, model: String? = nil, updateRanking: Bool? = nil, returnSummaryResponse: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/analytics/usage/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/analytics/usage/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

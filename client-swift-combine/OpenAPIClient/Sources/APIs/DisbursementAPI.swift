@@ -21,7 +21,7 @@ open class DisbursementAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class DisbursementAPI {
 
 
     /// Check Disbursements
-    /// - GET /api/{version}/disbursement/check
+    /// - GET /disbursement/check
     /// - Checks the status of a captured disbrusement to see if it has been settled.
-    /// - parameter version: (path)  
     /// - parameter disbursementId: (query) the ID of the disbursement being checked on 
     /// - returns: AnyPublisher<DisbursementResponse, Error> 
-    open func checkDisbursements(version: Double, disbursementId: Int64) -> AnyPublisher<DisbursementResponse, Error> {
+    open func checkDisbursements(disbursementId: Int64) -> AnyPublisher<DisbursementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/disbursement/check"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/disbursement/check"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -73,9 +71,8 @@ open class DisbursementAPI {
     }
 
     /// Create Disbursement
-    /// - POST /api/{version}/disbursement/create
+    /// - POST /disbursement/create
     /// - Creates a Disbursement for sending money to a retailer
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the ID of the logging in user (must be an EXECUTIVE account) 
     /// - parameter receiverAccountId: (query) the ID of the account receiving the disbursement 
     /// - parameter originalSenderAccountId: (query) the ID of the original sender account 
@@ -87,14 +84,13 @@ open class DisbursementAPI {
     /// - parameter externalId: (query) external ID, which can be used as a way to reference the disbursement (optional)
     /// - parameter introspectionParams: (query) This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)
     /// - returns: AnyPublisher<DisbursementResponse, Error> 
-    open func createDisbursement(version: Double, accountId: Int64, receiverAccountId: Int64, originalSenderAccountId: Int64, amount: Double, provider: CreateDisbursementProvider, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, introspectionParams: String? = nil) -> AnyPublisher<DisbursementResponse, Error> {
+    open func createDisbursement(accountId: Int64, receiverAccountId: Int64, originalSenderAccountId: Int64, amount: Double, provider: CreateDisbursementProvider, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, introspectionParams: String? = nil) -> AnyPublisher<DisbursementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/disbursement/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/disbursement/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -127,20 +123,18 @@ open class DisbursementAPI {
 
 
     /// Get Disbursement
-    /// - GET /api/{version}/disbursement/get
+    /// - GET /disbursement/get
     /// - Get Disbursement details
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter disbursementId: (query) the id of the disbursement 
     /// - returns: AnyPublisher<DisbursementResponse, Error> 
-    open func getDisbursement(version: Double, accountId: Int64, disbursementId: Int64) -> AnyPublisher<DisbursementResponse, Error> {
+    open func getDisbursement(accountId: Int64, disbursementId: Int64) -> AnyPublisher<DisbursementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/disbursement/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/disbursement/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -165,9 +159,8 @@ open class DisbursementAPI {
 
 
     /// Search Disbursements
-    /// - GET /api/{version}/disbursement/search
+    /// - GET /disbursement/search
     /// - Search Disbursements
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter receiverAccountId: (query) filter results by the id of the account receiving the disbursement (optional)
     /// - parameter statuses: (query) comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional)
@@ -179,14 +172,13 @@ open class DisbursementAPI {
     /// - parameter activeOnly: (query) search on disbursements that are active only (optional, default to false)
     /// - parameter externalId: (query) search results by this external ID (that can be used to reference the disbursement) (optional)
     /// - returns: AnyPublisher<[DisbursementResponse], Error> 
-    open func searchDisbursements(version: Double, accountId: Int64, receiverAccountId: Int64? = nil, statuses: String? = nil, providers: String? = nil, beforeDate: Int64? = nil, afterDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, externalId: String? = nil) -> AnyPublisher<[DisbursementResponse], Error> {
+    open func searchDisbursements(accountId: Int64, receiverAccountId: Int64? = nil, statuses: String? = nil, providers: String? = nil, beforeDate: Int64? = nil, afterDate: Int64? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, externalId: String? = nil) -> AnyPublisher<[DisbursementResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/disbursement/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/disbursement/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -227,9 +219,8 @@ open class DisbursementAPI {
     }
 
     /// Update Disbursement
-    /// - POST /api/{version}/disbursement/update
+    /// - POST /disbursement/update
     /// - Update Disbursement
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter disbursementId: (query) the id of the disbursement being updated 
     /// - parameter amount: (query) the disbursement dollar amount being updated (optional)
@@ -241,14 +232,13 @@ open class DisbursementAPI {
     /// - parameter retry: (query) determines whether to try sending the disbursement again in the case of a previous failure (optional)
     /// - parameter introspectionParams: (query) for specifying parameters to make an http callback request for validating that the disbursement is valid (optional)
     /// - returns: AnyPublisher<DisbursementResponse, Error> 
-    open func updateDisbursement(version: Double, accountId: Int64, disbursementId: Int64, amount: Double? = nil, provider: UpdateDisbursementProvider? = nil, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, retry: Bool? = nil, introspectionParams: String? = nil) -> AnyPublisher<DisbursementResponse, Error> {
+    open func updateDisbursement(accountId: Int64, disbursementId: Int64, amount: Double? = nil, provider: UpdateDisbursementProvider? = nil, scheduledDate: Int64? = nil, title: String? = nil, comment: String? = nil, externalId: String? = nil, retry: Bool? = nil, introspectionParams: String? = nil) -> AnyPublisher<DisbursementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/disbursement/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/disbursement/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class CreativeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,20 +29,18 @@ open class CreativeAPI {
 
 
     /// Add Preview
-    /// - POST /api/{version}/creative/addpreview
+    /// - POST /creative/addpreview
     /// - Enable this ad for preview for this account.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account 
     /// - parameter creativeId: (query) The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func addPreview(version: Double, accountId: Int64, creativeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func addPreview(accountId: Int64, creativeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/creative/addpreview"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/creative/addpreview"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -67,9 +65,8 @@ open class CreativeAPI {
 
 
     /// Find Missions
-    /// - GET /api/{version}/ads/find
+    /// - GET /ads/find
     /// - Get a set of ad filtered by the parameters provided.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. 
     /// - parameter randomize: (query) return a random set of results, default is true. If false returns in nature order. 
     /// - parameter targetedAdsOnly: (query) return only ads targets to the specific app, no global ads. 
@@ -87,14 +84,13 @@ open class CreativeAPI {
     /// - parameter allocatesTickets: (query) If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both. (optional)
     /// - parameter missionIds: (query) return only ads from the specified campaigns. (optional)
     /// - returns: AnyPublisher<[MissionResponse], Error> 
-    open func adsFind(version: Double, appKey: String, randomize: Bool, targetedAdsOnly: Bool, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, missionIds: String? = nil) -> AnyPublisher<[MissionResponse], Error> {
+    open func adsFind(appKey: String, randomize: Bool, targetedAdsOnly: Bool, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, missionIds: String? = nil) -> AnyPublisher<[MissionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/ads/find"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/ads/find"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -133,9 +129,8 @@ open class CreativeAPI {
 
 
     /// Create Creative
-    /// - POST /api/{version}/creative/create
+    /// - POST /creative/create
     /// - Create a creative
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the level. 
     /// - parameter active: (query) If true set the game level as active. Default is false. 
@@ -152,14 +147,13 @@ open class CreativeAPI {
     /// - parameter missionId: (query) Assign the creative to a campaign for timing and audience matching. (optional)
     /// - parameter offerId: (query) the id of the offer (optional)
     /// - returns: AnyPublisher<CreativeResponse, Error> 
-    open func createCreative(version: Double, accountId: Int64, name: String, active: Bool, waitForAsset: Bool, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, offerId: Int64? = nil) -> AnyPublisher<CreativeResponse, Error> {
+    open func createCreative(accountId: Int64, name: String, active: Bool, waitForAsset: Bool, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil, offerId: Int64? = nil) -> AnyPublisher<CreativeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/creative/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/creative/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -197,20 +191,18 @@ open class CreativeAPI {
 
 
     /// Delete Creative
-    /// - POST /api/{version}/creative/delete
+    /// - POST /creative/delete
     /// - Delete a creative
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter creativeId: (query) the id of the creative to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteCreative(version: Double, accountId: Int64, creativeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteCreative(accountId: Int64, creativeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/creative/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/creative/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -235,20 +227,18 @@ open class CreativeAPI {
 
 
     /// Get Creative
-    /// - GET /api/{version}/creative/get
+    /// - GET /creative/get
     /// - Get a creative
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter creativeId: (query) the ID of the creative to get 
     /// - returns: AnyPublisher<CreativeResponse, Error> 
-    open func getCreative(version: Double, accountId: Int64, creativeId: Int64) -> AnyPublisher<CreativeResponse, Error> {
+    open func getCreative(accountId: Int64, creativeId: Int64) -> AnyPublisher<CreativeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/creative/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/creative/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -273,9 +263,8 @@ open class CreativeAPI {
 
 
     /// Search Creatives
-    /// - GET /api/{version}/creative/search
+    /// - GET /creative/search
     /// - Get a list of levels for an application, just those the account has permissions to view.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) the application key 
     /// - parameter start: (query) Start the result set at some index. 
@@ -283,14 +272,13 @@ open class CreativeAPI {
     /// - parameter missionId: (query) Creatives contained in the provided mission. (optional)
     /// - parameter keyword: (query) Match the keyword to the owner name or level name. (optional)
     /// - returns: AnyPublisher<[CreativeResponse], Error> 
-    open func getCreativesByApplication(version: Double, accountId: Int64, appKey: String, start: Int, limit: Int, missionId: Int64? = nil, keyword: String? = nil) -> AnyPublisher<[CreativeResponse], Error> {
+    open func getCreativesByApplication(accountId: Int64, appKey: String, start: Int, limit: Int, missionId: Int64? = nil, keyword: String? = nil) -> AnyPublisher<[CreativeResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/creative/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/creative/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -319,20 +307,18 @@ open class CreativeAPI {
 
 
     /// Remove Preview
-    /// - POST /api/{version}/creative/removepreview
+    /// - POST /creative/removepreview
     /// - Remove this ad for preview for this account.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the ID of the logged in user 
     /// - parameter creativeId: (query) the ID of the creative to remove preview 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removePreview(version: Double, accountId: Int64, creativeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func removePreview(accountId: Int64, creativeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/creative/removepreview"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/creative/removepreview"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -357,9 +343,8 @@ open class CreativeAPI {
 
 
     /// Update Creative
-    /// - POST /api/{version}/creative/update
+    /// - POST /creative/update
     /// - Update a creative
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter creativeId: (query) the creative Id to upate. 
     /// - parameter name: (query) The name of the level. (optional)
@@ -375,14 +360,13 @@ open class CreativeAPI {
     /// - parameter appVersion: (query) The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives. (optional)
     /// - parameter missionId: (query) Assign the creative to a campaign for timing and audience matching. (optional)
     /// - returns: AnyPublisher<CreativeResponse, Error> 
-    open func updateCreative(version: Double, accountId: Int64, creativeId: Int64, name: String? = nil, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, active: Bool? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil) -> AnyPublisher<CreativeResponse, Error> {
+    open func updateCreative(accountId: Int64, creativeId: Int64, name: String? = nil, description: String? = nil, assetImageId: Int64? = nil, action: String? = nil, data: String? = nil, suffix: String? = nil, type: String? = nil, balance: Double? = nil, active: Bool? = nil, referenceId: Int64? = nil, appVersion: String? = nil, missionId: Int64? = nil) -> AnyPublisher<CreativeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/creative/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/creative/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

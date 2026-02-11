@@ -21,7 +21,7 @@ open class ScheduledNotificationAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -37,9 +37,8 @@ open class ScheduledNotificationAPI {
     }
 
     /// Create Scheduled Notification
-    /// - POST /api/{version}/notification/schedule/create
+    /// - POST /notification/schedule/create
     /// - This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the scheduled notification 
     /// - parameter type: (query) The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages 
@@ -75,14 +74,13 @@ open class ScheduledNotificationAPI {
     /// - parameter deepLinkURI: (query) The payload deep link URI that can be used by the client app to direct users to a screen in the app (optional)
     /// - parameter sendToAll: (query) Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)
     /// - returns: AnyPublisher<ScheduledNotificationFullResponse, Error> 
-    open func createScheduledNotification(version: Double, accountId: Int64, name: String, type: String, message: String, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, appKey: String? = nil, groupingId: String? = nil, connectionGroupIds: String? = nil, connectionAccountIds: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, albumIds: String? = nil, reportId: Int64? = nil, reportParams: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, cronType: String? = nil, metaData: String? = nil, conditionalInput: String? = nil, templateType: String? = nil, visibility: CreateScheduledNotificationVisibility? = nil, active: Bool? = nil, sendNow: Bool? = nil, eventType: String? = nil, deepLinkURI: String? = nil, sendToAll: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
+    open func createScheduledNotification(accountId: Int64, name: String, type: String, message: String, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, appKey: String? = nil, groupingId: String? = nil, connectionGroupIds: String? = nil, connectionAccountIds: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, albumIds: String? = nil, reportId: Int64? = nil, reportParams: String? = nil, endpointURL: String? = nil, payload: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, cronType: String? = nil, metaData: String? = nil, conditionalInput: String? = nil, templateType: String? = nil, visibility: CreateScheduledNotificationVisibility? = nil, active: Bool? = nil, sendNow: Bool? = nil, eventType: String? = nil, deepLinkURI: String? = nil, sendToAll: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/schedule/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/schedule/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -139,21 +137,19 @@ open class ScheduledNotificationAPI {
 
 
     /// Delete Scheduled Notification
-    /// - POST /api/{version}/notification/schedule/delete
+    /// - POST /notification/schedule/delete
     /// - This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter scheduledNotificationId: (query) the id of the scheduled notification to delete 
     /// - parameter deleteByGroupingId: (query) If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional)
     /// - returns: AnyPublisher<ScheduledNotificationFullResponse, Error> 
-    open func deleteScheduledNotification(version: Double, accountId: Int64, scheduledNotificationId: Int64, deleteByGroupingId: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
+    open func deleteScheduledNotification(accountId: Int64, scheduledNotificationId: Int64, deleteByGroupingId: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/schedule/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/schedule/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -179,20 +175,18 @@ open class ScheduledNotificationAPI {
 
 
     /// Get Scheduled Notification
-    /// - GET /api/{version}/notification/schedule/get
+    /// - GET /notification/schedule/get
     /// - Get a ScheduledNotification
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account logged in 
     /// - parameter scheduledNotificationId: (query) the id of the scheduled notification to get 
     /// - returns: AnyPublisher<ScheduledNotificationFullResponse, Error> 
-    open func getScheduledNotification(version: Double, accountId: Int64, scheduledNotificationId: Int64) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
+    open func getScheduledNotification(accountId: Int64, scheduledNotificationId: Int64) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/schedule/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/schedule/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -217,9 +211,8 @@ open class ScheduledNotificationAPI {
 
 
     /// Generate Schedule Notifications
-    /// - POST /api/{version}/notification/schedule/generate
+    /// - POST /notification/schedule/generate
     /// - Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) The application to target 
     /// - parameter reportName: (query) The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail 
@@ -229,14 +222,13 @@ open class ScheduledNotificationAPI {
     /// - parameter reportParams: (query) The parameters of the report used to identify events in a json structure, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;: \&quot;value\&quot;,   \&quot;number\&quot;: 3.345,   \&quot;date\&quot;: \&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60;  (optional)
     /// - parameter type: (query) The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func scheduleNotificationListings(version: Double, accountId: Int64, appKey: String, reportName: String, message: String, offset: Int, recipientReportId: Int64, reportParams: String? = nil, type: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func scheduleNotificationListings(accountId: Int64, appKey: String, reportName: String, message: String, offset: Int, recipientReportId: Int64, reportParams: String? = nil, type: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/schedule/generate"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/schedule/generate"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -267,9 +259,8 @@ open class ScheduledNotificationAPI {
 
 
     /// Search Scheduled Notifications
-    /// - GET /api/{version}/notification/schedule/search
+    /// - GET /notification/schedule/search
     /// - This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter groupingId: (query) Filter results by a grouping identifier defined by the client (optional)
     /// - parameter audienceId: (query) Filter results by audience (optional)
@@ -291,14 +282,13 @@ open class ScheduledNotificationAPI {
     /// - parameter groupByGroupingId: (query) Determines whether to group results with the same groupingId together. (optional)
     /// - parameter returnAudienceAccountCount: (query) If true, include audience account counts in the response (optional)
     /// - returns: AnyPublisher<ScheduledNotificationFullResponse, Error> 
-    open func searchScheduledNotifications(version: Double, accountId: Int64, groupingId: String? = nil, audienceId: Int64? = nil, filter: String? = nil, types: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, returnAudienceAccountCount: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
+    open func searchScheduledNotifications(accountId: Int64, groupingId: String? = nil, audienceId: Int64? = nil, filter: String? = nil, types: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, statuses: String? = nil, templateTypes: String? = nil, appKey: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, groupByGroupingId: Bool? = nil, returnAudienceAccountCount: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/schedule/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/schedule/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -349,9 +339,8 @@ open class ScheduledNotificationAPI {
     }
 
     /// Update Scheduled Notification
-    /// - POST /api/{version}/notification/schedule/update
+    /// - POST /notification/schedule/update
     /// - This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-    /// - parameter version: (path)  
     /// - parameter scheduledNotificationId: (query) The id of scheduled notification to update 
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the scheduled notification (optional)
@@ -391,14 +380,13 @@ open class ScheduledNotificationAPI {
     /// - parameter deepLinkURI: (query) The payload deep link URI that can be used by the client app to direct users to a screen in the app (optional)
     /// - parameter sendToAll: (query) Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional)
     /// - returns: AnyPublisher<ScheduledNotificationFullResponse, Error> 
-    open func updateScheduledNotification(version: Double, scheduledNotificationId: Int64, accountId: Int64, name: String? = nil, type: String? = nil, message: String? = nil, payload: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, appKey: String? = nil, groupingId: String? = nil, connectionGroupIds: String? = nil, connectionAccountIds: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, albumIds: String? = nil, reportId: Int64? = nil, reportParams: String? = nil, endpointURL: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, cronType: String? = nil, metaData: String? = nil, conditionalInput: String? = nil, templateType: String? = nil, visibility: UpdateScheduledNotificationVisibility? = nil, active: Bool? = nil, errorMessage: String? = nil, status: String? = nil, updateByGroupingId: Bool? = nil, sendNow: Bool? = nil, eventType: String? = nil, deepLinkURI: String? = nil, sendToAll: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
+    open func updateScheduledNotification(scheduledNotificationId: Int64, accountId: Int64, name: String? = nil, type: String? = nil, message: String? = nil, payload: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, appKey: String? = nil, groupingId: String? = nil, connectionGroupIds: String? = nil, connectionAccountIds: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, albumIds: String? = nil, reportId: Int64? = nil, reportParams: String? = nil, endpointURL: String? = nil, scheduledDate: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, cronExpression: String? = nil, cronType: String? = nil, metaData: String? = nil, conditionalInput: String? = nil, templateType: String? = nil, visibility: UpdateScheduledNotificationVisibility? = nil, active: Bool? = nil, errorMessage: String? = nil, status: String? = nil, updateByGroupingId: Bool? = nil, sendNow: Bool? = nil, eventType: String? = nil, deepLinkURI: String? = nil, sendToAll: Bool? = nil) -> AnyPublisher<ScheduledNotificationFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/schedule/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/schedule/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

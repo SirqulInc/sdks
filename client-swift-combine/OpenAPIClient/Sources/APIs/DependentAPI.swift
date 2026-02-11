@@ -21,7 +21,7 @@ open class DependentAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,20 +29,18 @@ open class DependentAPI {
 
 
     /// Create Dependent
-    /// - PUT /api/{version}/cargo/dependent/{accountId}
+    /// - PUT /cargo/dependent/{accountId}
     /// - Create dependent of the account
-    /// - parameter version: (path)  
     /// - parameter accountId: (path) the id of the parent account to create a dependent for 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func create(version: Double, accountId: Int64, body: Account? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func create(accountId: Int64, body: Account? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/dependent/{accountId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/cargo/dependent/{accountId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{accountId}", with: "\(accountId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -66,19 +64,17 @@ open class DependentAPI {
 
 
     /// Get dependent list of an account
-    /// - GET /api/{version}/cargo/dependent/{accountId}
+    /// - GET /cargo/dependent/{accountId}
     /// - Get the dependent list of an account
-    /// - parameter version: (path)  
     /// - parameter accountId: (path) the id of the parent account to get a list of dependents 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func getDependents(version: Double, accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func getDependents(accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/dependent/{accountId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/cargo/dependent/{accountId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{accountId}", with: "\(accountId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -100,20 +96,18 @@ open class DependentAPI {
 
 
     /// Delete Dependent
-    /// - DELETE /api/{version}/cargo/dependent/{accountId}
+    /// - DELETE /cargo/dependent/{accountId}
     /// - Delete the Dependent
-    /// - parameter version: (path)  
     /// - parameter accountId: (path) the id of the parent account tied to the dependent 
     /// - parameter dependentId: (path) the id of the dependent to delete 
     /// - returns: AnyPublisher<Void, Error> 
-    open func removeDependent(version: Double, accountId: Int64, dependentId: Int64) -> AnyPublisher<Void, Error> {
+    open func removeDependent(accountId: Int64, dependentId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/dependent/{accountId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/cargo/dependent/{accountId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{accountId}", with: "\(accountId)")
                 localVarPath = localVarPath.replacingOccurrences(of: "{dependentId}", with: "\(dependentId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)

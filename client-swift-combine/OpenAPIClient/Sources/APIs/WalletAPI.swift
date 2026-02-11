@@ -21,7 +21,7 @@ open class WalletAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class WalletAPI {
 
 
     /// Create Wallet Offers
-    /// - POST /api/{version}/wallet/create
+    /// - POST /wallet/create
     /// - Adds offers to the wallet
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter offerId: (query) The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -44,14 +43,13 @@ open class WalletAPI {
     /// - parameter appKey: (query) The application requesting the purchase, required when currencyType is TICKETS (optional)
     /// - parameter status: (query) Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional)
     /// - returns: AnyPublisher<[OfferTransactionResponse], Error> 
-    open func createOfferTransaction(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, status: Int? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
+    open func createOfferTransaction(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil, status: Int? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/wallet/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/wallet/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -85,21 +83,19 @@ open class WalletAPI {
 
 
     /// Delete Wallet Offer
-    /// - POST /api/{version}/wallet/delete
+    /// - POST /wallet/delete
     /// - Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-    /// - parameter version: (path)  
     /// - parameter transactionId: (query) The offer transaction id to remove 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteOfferTransaction(version: Double, transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteOfferTransaction(transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/wallet/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/wallet/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -125,8 +121,7 @@ open class WalletAPI {
 
 
     /// Get Wallet Offer
-    /// - GET /api/{version}/wallet/get
-    /// - parameter version: (path)  
+    /// - GET /wallet/get
     /// - parameter transactionId: (query) The offer transaction id to get details of 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -135,14 +130,13 @@ open class WalletAPI {
     /// - parameter longitude: (query) The latitude location of the user (optional)
     /// - parameter returnFullResponse: (query) Determines whether to return a detailed version of the response (optional, default to true)
     /// - returns: AnyPublisher<OfferTransactionResponse, Error> 
-    open func getOfferTransaction(version: Double, transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeMission: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, returnFullResponse: Bool? = nil) -> AnyPublisher<OfferTransactionResponse, Error> {
+    open func getOfferTransaction(transactionId: Int64, deviceId: String? = nil, accountId: Int64? = nil, includeMission: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, returnFullResponse: Bool? = nil) -> AnyPublisher<OfferTransactionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/wallet/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/wallet/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -172,9 +166,8 @@ open class WalletAPI {
 
 
     /// Preview Wallet Offers
-    /// - POST /api/{version}/wallet/preview
+    /// - POST /wallet/preview
     /// - Preview the final cost of a transaction without charging the user
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter offerId: (query) The id of the offer being added (offerId or offeLocationId required) (optional)
@@ -186,14 +179,13 @@ open class WalletAPI {
     /// - parameter metaData: (query) External custom client defined data (optional)
     /// - parameter appKey: (query) The application requesting the purchase, required when currencyType is TICKETS (optional)
     /// - returns: AnyPublisher<[OfferTransactionResponse], Error> 
-    open func previewOfferTransaction(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
+    open func previewOfferTransaction(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, offerCart: String? = nil, promoCode: String? = nil, currencyType: String? = nil, usePoints: Bool? = nil, metaData: String? = nil, appKey: String? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/wallet/preview"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/wallet/preview"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -267,9 +259,8 @@ open class WalletAPI {
     }
 
     /// Search Wallet Offers
-    /// - GET /api/{version}/wallet/search
+    /// - GET /wallet/search
     /// - Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter keyword: (query) The keyword to search for (optional)
@@ -312,14 +303,13 @@ open class WalletAPI {
     /// - parameter recurringExpirationSince: (query) Filter results by the recurring billing expiration date (optional)
     /// - parameter recurringExpirationBefore: (query) Filter results by the recurring billing expiration date (optional)
     /// - returns: AnyPublisher<[OfferTransactionResponse], Error> 
-    open func searchOfferTransactions(version: Double, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerIds: String? = nil, retailerLocationId: Int64? = nil, retailerLocationIds: String? = nil, excludeRetailerLocationIds: String? = nil, offerId: Int64? = nil, offerIds: String? = nil, offerLocationId: Int64? = nil, offerLocationIds: String? = nil, offerType: SearchOfferTransactionsOfferType? = nil, offerTypes: String? = nil, specialOfferType: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, sortField: SearchOfferTransactionsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, filterByParentOffer: Bool? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, redeemed: Bool? = nil, statuses: String? = nil, reservationsOnly: Bool? = nil, activeOnly: Bool? = nil, returnFullResponse: Bool? = nil, recurringStartedSince: Int64? = nil, recurringStartedBefore: Int64? = nil, recurringExpirationSince: Int64? = nil, recurringExpirationBefore: Int64? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
+    open func searchOfferTransactions(deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerIds: String? = nil, retailerLocationId: Int64? = nil, retailerLocationIds: String? = nil, excludeRetailerLocationIds: String? = nil, offerId: Int64? = nil, offerIds: String? = nil, offerLocationId: Int64? = nil, offerLocationIds: String? = nil, offerType: SearchOfferTransactionsOfferType? = nil, offerTypes: String? = nil, specialOfferType: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, sortField: SearchOfferTransactionsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, latitude: Double? = nil, longitude: Double? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, filterByParentOffer: Bool? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil, redeemed: Bool? = nil, statuses: String? = nil, reservationsOnly: Bool? = nil, activeOnly: Bool? = nil, returnFullResponse: Bool? = nil, recurringStartedSince: Int64? = nil, recurringStartedBefore: Int64? = nil, recurringExpirationSince: Int64? = nil, recurringExpirationBefore: Int64? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/wallet/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/wallet/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -383,9 +373,8 @@ open class WalletAPI {
 
 
     /// Update Wallet Offer
-    /// - POST /api/{version}/wallet/update
+    /// - POST /wallet/update
     /// - Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-    /// - parameter version: (path)  
     /// - parameter transactionId: (query) The offer transaction id to remove 
     /// - parameter status: (query) The status value to change to (0 or 1) 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -400,14 +389,13 @@ open class WalletAPI {
     /// - parameter returnFullResponse: (query) Determines whether to return a detailed version of the response (optional, default to false)
     /// - parameter exceptionMembershipOfferIds: (query) Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional)
     /// - returns: AnyPublisher<OfferTransactionResponse, Error> 
-    open func updateOfferTransaction(version: Double, transactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, currencyType: String? = nil, usePoints: Bool? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, exceptionMembershipOfferIds: String? = nil) -> AnyPublisher<OfferTransactionResponse, Error> {
+    open func updateOfferTransaction(transactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil, currencyType: String? = nil, usePoints: Bool? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, metaData: String? = nil, returnFullResponse: Bool? = nil, exceptionMembershipOfferIds: String? = nil) -> AnyPublisher<OfferTransactionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/wallet/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/wallet/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

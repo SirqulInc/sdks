@@ -21,7 +21,7 @@ open class CSVImportAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -38,22 +38,20 @@ open class CSVImportAPI {
     }
 
     /// Detail Status
-    /// - GET /api/{version}/csvimport/batch/status/details
-    /// - parameter version: (path)  
+    /// - GET /csvimport/batch/status/details
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter batchId: (query) the id of the batch 
     /// - parameter responseGroup: (query) The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL 
     /// - parameter start: (query) the start of the pagination 
     /// - parameter limit: (query) the limit of the pagination 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func getStatusCSV(version: Double, accountId: Int64, batchId: Int64, responseGroup: GetStatusCSVResponseGroup, start: Int64, limit: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func getStatusCSV(accountId: Int64, batchId: Int64, responseGroup: GetStatusCSVResponseGroup, start: Int64, limit: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/csvimport/batch/status/details"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/csvimport/batch/status/details"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -81,21 +79,19 @@ open class CSVImportAPI {
 
 
     /// Search Status
-    /// - GET /api/{version}/csvimport/batch/list
+    /// - GET /csvimport/batch/list
     /// - Retrieves batches for a user.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account 
     /// - parameter start: (query) the start of the pagination 
     /// - parameter limit: (query) the limit of the pagination 
     /// - returns: AnyPublisher<CsvImportResponse, Error> 
-    open func listStatusCSV(version: Double, accountId: Int64, start: Int, limit: Int) -> AnyPublisher<CsvImportResponse, Error> {
+    open func listStatusCSV(accountId: Int64, start: Int, limit: Int) -> AnyPublisher<CsvImportResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/csvimport/batch/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/csvimport/batch/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -121,20 +117,18 @@ open class CSVImportAPI {
 
 
     /// Batch Status
-    /// - GET /api/{version}/csvimport/batch/status
+    /// - GET /csvimport/batch/status
     /// - Checks status of batch upload.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account 
     /// - parameter batchId: (query) the id of the batch to get its status 
     /// - returns: AnyPublisher<CsvImportResponse, Error> 
-    open func statusCSV(version: Double, accountId: Int64, batchId: Int64) -> AnyPublisher<CsvImportResponse, Error> {
+    open func statusCSV(accountId: Int64, batchId: Int64) -> AnyPublisher<CsvImportResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/csvimport/batch/status"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/csvimport/batch/status"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -178,23 +172,21 @@ open class CSVImportAPI {
     }
 
     /// Upload CSV
-    /// - POST /api/{version}/csvimport/upload
+    /// - POST /csvimport/upload
     /// - Uploads a CSV import file.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account 
     /// - parameter uploadType: (query) the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS 
     /// - parameter importFile: (query) the import file to reference 
     /// - parameter fileFormat: (query) the format of the file 
     /// - parameter appKey: (query) the application key (optional)
     /// - returns: AnyPublisher<CsvImportResponse, Error> 
-    open func uploadCSV(version: Double, accountId: Int64, uploadType: UploadCSVUploadType, importFile: Data, fileFormat: UploadCSVFileFormat, appKey: String? = nil) -> AnyPublisher<CsvImportResponse, Error> {
+    open func uploadCSV(accountId: Int64, uploadType: UploadCSVUploadType, importFile: Data, fileFormat: UploadCSVFileFormat, appKey: String? = nil) -> AnyPublisher<CsvImportResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/csvimport/upload"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/csvimport/upload"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

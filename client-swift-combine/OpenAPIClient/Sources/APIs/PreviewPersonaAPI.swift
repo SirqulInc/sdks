@@ -21,7 +21,7 @@ open class PreviewPersonaAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class PreviewPersonaAPI {
 
 
     /// Create Persona
-    /// - POST /api/{version}/persona/create
+    /// - POST /persona/create
     /// - Creates a new persona. If the given params are null those attributes will be override by null.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user 
     /// - parameter title: (query) the title of the persona 
     /// - parameter previewAccounts: (query) the accounts that are able to preview from this persona (optional)
@@ -42,14 +41,13 @@ open class PreviewPersonaAPI {
     /// - parameter latitude: (query) the specified latitude of the persona (optional)
     /// - parameter longitude: (query) the specified longitude of the persona (optional)
     /// - returns: AnyPublisher<PreviewPersonaResponse, Error> 
-    open func createPersona(version: Double, accountId: Int64, title: String, previewAccounts: String? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PreviewPersonaResponse, Error> {
+    open func createPersona(accountId: Int64, title: String, previewAccounts: String? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PreviewPersonaResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/persona/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/persona/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -81,20 +79,18 @@ open class PreviewPersonaAPI {
 
 
     /// Delete Persona
-    /// - POST /api/{version}/persona/delete
+    /// - POST /persona/delete
     /// - Mark the persona for deletion.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter personaId: (query) the id of the persona to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deletePersona(version: Double, accountId: Int64, personaId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deletePersona(accountId: Int64, personaId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/persona/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/persona/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -119,20 +115,18 @@ open class PreviewPersonaAPI {
 
 
     /// Get Persona
-    /// - GET /api/{version}/persona/get
+    /// - GET /persona/get
     /// - Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user 
     /// - parameter personaId: (query) the persona ID of the persona 
     /// - returns: AnyPublisher<PreviewPersonaResponse, Error> 
-    open func getPersonaList(version: Double, accountId: Int64, personaId: Int64) -> AnyPublisher<PreviewPersonaResponse, Error> {
+    open func getPersonaList(accountId: Int64, personaId: Int64) -> AnyPublisher<PreviewPersonaResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/persona/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/persona/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -157,21 +151,19 @@ open class PreviewPersonaAPI {
 
 
     /// Search Personas
-    /// - GET /api/{version}/persona/search
+    /// - GET /persona/search
     /// - Search for persona that the account owns by the given account ID.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user 
     /// - parameter start: (query) the start index for pagination 
     /// - parameter limit: (query) the limit for pagination (There is a hard limit of 100) 
     /// - returns: AnyPublisher<PreviewPersonaResponse, Error> 
-    open func searchPersona(version: Double, accountId: Int64, start: Int, limit: Int) -> AnyPublisher<PreviewPersonaResponse, Error> {
+    open func searchPersona(accountId: Int64, start: Int, limit: Int) -> AnyPublisher<PreviewPersonaResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/persona/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/persona/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -197,9 +189,8 @@ open class PreviewPersonaAPI {
 
 
     /// Update Persona
-    /// - POST /api/{version}/persona/update
+    /// - POST /persona/update
     /// - Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user 
     /// - parameter personaId: (query) the persona ID of the persona to update 
     /// - parameter title: (query) the title of the persona (optional)
@@ -212,14 +203,13 @@ open class PreviewPersonaAPI {
     /// - parameter latitude: (query) the specified latitude of the persona (optional)
     /// - parameter longitude: (query) the specified longitude of the persona (optional)
     /// - returns: AnyPublisher<PreviewPersonaResponse, Error> 
-    open func updatePersona(version: Double, accountId: Int64, personaId: Int64, title: String? = nil, previewAccounts: String? = nil, active: Bool? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PreviewPersonaResponse, Error> {
+    open func updatePersona(accountId: Int64, personaId: Int64, title: String? = nil, previewAccounts: String? = nil, active: Bool? = nil, date: Int64? = nil, age: Int? = nil, gender: String? = nil, gameExperienceLevel: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PreviewPersonaResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/persona/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/persona/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

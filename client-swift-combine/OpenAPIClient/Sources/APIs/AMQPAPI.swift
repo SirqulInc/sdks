@@ -21,7 +21,7 @@ open class AMQPAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class AMQPAPI {
 
 
     /// Create Consumer
-    /// - POST /api/{version}/queue/consumer/create
+    /// - POST /queue/consumer/create
     /// - Create a connection to an existing amqp queue and register as a consumer.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
     /// - parameter name: (query) The name of the queue to connect to 
     /// - parameter hostname: (query) The hostname of the server the queue is hosted on 
@@ -47,14 +46,13 @@ open class AMQPAPI {
     /// - parameter workers: (query) The number of workers to generate  (optional, default to 1)
     /// - parameter useSSL: (query) Use SSL (optional)
     /// - returns: AnyPublisher<QueueResponse, Error> 
-    open func consumerCreate(version: Double, appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, port: Int? = nil, virtualHost: String? = nil, exchanger: String? = nil, exchangerType: String? = nil, workers: Int? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
+    open func consumerCreate(appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, port: Int? = nil, virtualHost: String? = nil, exchanger: String? = nil, exchangerType: String? = nil, workers: Int? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/consumer/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/consumer/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -91,9 +89,8 @@ open class AMQPAPI {
 
 
     /// Update Consumer
-    /// - POST /api/{version}/queue/consumer/update
+    /// - POST /queue/consumer/update
     /// - Update an existing amqp queue's data mapping.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. 
     /// - parameter queueId: (query) The queue to update 
     /// - parameter dataMapping: (query) The data mapping information in the format of AMQPRequest 
@@ -101,14 +98,13 @@ open class AMQPAPI {
     /// - parameter accountId: (query) The logged in user ID (optional)
     /// - parameter useSSL: (query) Use SSL (optional)
     /// - returns: AnyPublisher<QueueResponse, Error> 
-    open func consumerUpdate(version: Double, appKey: String, queueId: Int64, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
+    open func consumerUpdate(appKey: String, queueId: Int64, dataMapping: String, deviceId: String? = nil, accountId: Int64? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/consumer/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/consumer/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -137,9 +133,8 @@ open class AMQPAPI {
 
 
     /// Create Queue
-    /// - POST /api/{version}/queue/create
+    /// - POST /queue/create
     /// - Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key unique to each application. 
     /// - parameter name: (query) The name of the queue to create 
     /// - parameter deviceId: (query) The client deviceID (optional)
@@ -153,14 +148,13 @@ open class AMQPAPI {
     /// - parameter virtualHost: (query) The virtual host defined on the server to queue (optional)
     /// - parameter useSSL: (query) Use SSL (optional)
     /// - returns: AnyPublisher<QueueResponse, Error> 
-    open func queueCreate(version: Double, appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
+    open func queueCreate(appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -195,21 +189,19 @@ open class AMQPAPI {
 
 
     /// Delete Queue
-    /// - POST /api/{version}/queue/delete
+    /// - POST /queue/delete
     /// - Delete the stored queue record and close any active connections to the AMQP servers.
-    /// - parameter version: (path)  
     /// - parameter queueId: (query) The id of the queue to find 
     /// - parameter deviceId: (query) The client device ID (optional)
     /// - parameter accountId: (query) The logged in user ID (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func queueDelete(version: Double, queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func queueDelete(queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -235,9 +227,8 @@ open class AMQPAPI {
 
 
     /// Get Queue
-    /// - GET /api/{version}/queue/get
+    /// - GET /queue/get
     /// - Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The client device ID (optional)
     /// - parameter accountId: (query) The logged in user ID (optional)
     /// - parameter queueId: (query) The id of the queue to find (optional)
@@ -246,14 +237,13 @@ open class AMQPAPI {
     /// - parameter hostname: (query) The hostname of the queue to find (optional)
     /// - parameter virtualHost: (query) The virtual host of the queue to find (optional)
     /// - returns: AnyPublisher<QueueResponse, Error> 
-    open func queueGet(version: Double, deviceId: String? = nil, accountId: Int64? = nil, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil) -> AnyPublisher<QueueResponse, Error> {
+    open func queueGet(deviceId: String? = nil, accountId: Int64? = nil, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil) -> AnyPublisher<QueueResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -283,9 +273,8 @@ open class AMQPAPI {
 
 
     /// Publish Queue
-    /// - POST /api/{version}/queue/publish
+    /// - POST /queue/publish
     /// - Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-    /// - parameter version: (path)  
     /// - parameter message: (query) The payload to send to the queue 
     /// - parameter queueId: (query) The id of the queue to publish to (optional)
     /// - parameter appKey: (query) The application key the queue was assigned to (optional)
@@ -293,14 +282,13 @@ open class AMQPAPI {
     /// - parameter hostname: (query) The hostname of the server the queue is hosted on (optional)
     /// - parameter virtualHost: (query) The virtual host defined on the server to queue (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func queuePublish(version: Double, message: String, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func queuePublish(message: String, queueId: Int64? = nil, appKey: String? = nil, name: String? = nil, hostname: String? = nil, virtualHost: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/publish"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/publish"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -329,9 +317,8 @@ open class AMQPAPI {
 
 
     /// Search Queue
-    /// - GET /api/{version}/queue/search
+    /// - GET /queue/search
     /// - Get the queues setup for the BillableEntity's applications.
-    /// - parameter version: (path)  
     /// - parameter queueId: (query) The id of the queue to find (optional)
     /// - parameter deviceId: (query) The client device ID (optional)
     /// - parameter accountId: (query) The logged in user ID (optional)
@@ -339,14 +326,13 @@ open class AMQPAPI {
     /// - parameter start: (query) Start of the index (optional, default to 0)
     /// - parameter limit: (query) Limit of the index (optional, default to 10)
     /// - returns: AnyPublisher<QueueResponse, Error> 
-    open func queueSearch(version: Double, queueId: Int64? = nil, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<QueueResponse, Error> {
+    open func queueSearch(queueId: Int64? = nil, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<QueueResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -375,9 +361,8 @@ open class AMQPAPI {
 
 
     /// Update Queue
-    /// - POST /api/{version}/queue/update
+    /// - POST /queue/update
     /// - Update the basic AMQP queue.
-    /// - parameter version: (path)  
     /// - parameter queueId: (query) The id of the queue to update 
     /// - parameter deviceId: (query) The client deviceID (optional)
     /// - parameter accountId: (query) The logged in user ID (optional)
@@ -391,14 +376,13 @@ open class AMQPAPI {
     /// - parameter virtualHost: (query) The virtual host defined on the server to queue (optional)
     /// - parameter useSSL: (query) the SSL to use (optional)
     /// - returns: AnyPublisher<QueueResponse, Error> 
-    open func queueUpdate(version: Double, queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
+    open func queueUpdate(queueId: Int64, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, workers: Int? = nil, analyticTags: String? = nil, hostname: String? = nil, port: Int? = nil, username: String? = nil, password: String? = nil, virtualHost: String? = nil, useSSL: Bool? = nil) -> AnyPublisher<QueueResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/queue/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/queue/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

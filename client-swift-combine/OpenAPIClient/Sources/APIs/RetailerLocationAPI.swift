@@ -21,7 +21,7 @@ open class RetailerLocationAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class RetailerLocationAPI {
 
 
     /// Create Retailer Location (Consumer)
-    /// - POST /api/{version}/location/create
+    /// - POST /location/create
     /// - Creates a location record for an application that can support crowd sourced locations.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) the application key 
     /// - parameter name: (query) The name of the retailer location 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -62,14 +61,13 @@ open class RetailerLocationAPI {
     /// - parameter latitude: (query) The latitude to center the search on (optional)
     /// - parameter longitude: (query) The longitude to center the search on (optional)
     /// - returns: AnyPublisher<RetailerLocationResponse, Error> 
-    open func createRetailerLocationConsumer(version: Double, appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, tags: String? = nil, logoAssetId: Int64? = nil, picture1AssetId: Int64? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, metaData: String? = nil, publicLocation: Bool? = nil, active: Bool? = nil, locationType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
+    open func createRetailerLocationConsumer(appKey: String, name: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, tags: String? = nil, logoAssetId: Int64? = nil, picture1AssetId: Int64? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, metaData: String? = nil, publicLocation: Bool? = nil, active: Bool? = nil, locationType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -130,9 +128,8 @@ open class RetailerLocationAPI {
     }
 
     /// Create Retailer Location
-    /// - POST /api/{version}/retailer/location/create
+    /// - POST /retailer/location/create
     /// - Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-    /// - parameter version: (path)  
     /// - parameter retailerId: (query) The ID of the retailer 
     /// - parameter name: (query) The name of the retailer location 
     /// - parameter streetAddress: (query) The street address of the retailer location 
@@ -173,14 +170,13 @@ open class RetailerLocationAPI {
     /// - parameter responseFormat: (query) The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)
     /// - parameter responseIncludes: (query) Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional)
     /// - returns: AnyPublisher<RetailerLocationResponse, Error> 
-    open func createRetailerLocations(version: Double, retailerId: Int64, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress2: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: Data? = nil, logoAssetId: Int64? = nil, picture1: Data? = nil, picture1AssetId: Int64? = nil, picture2: Data? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: CreateRetailerLocationsResponseFormat? = nil, responseIncludes: String? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
+    open func createRetailerLocations(retailerId: Int64, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: String? = nil, accountId: Int64? = nil, streetAddress2: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: Data? = nil, logoAssetId: Int64? = nil, picture1: Data? = nil, picture1AssetId: Int64? = nil, picture2: Data? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: CreateRetailerLocationsResponseFormat? = nil, responseIncludes: String? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/location/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/location/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -242,21 +238,19 @@ open class RetailerLocationAPI {
 
 
     /// Delete Retailer Location
-    /// - POST /api/{version}/retailer/location/delete
+    /// - POST /retailer/location/delete
     /// - Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (optional)
     /// - parameter accountId: (query) the id of the logged in user (optional)
     /// - parameter retailerLocationId: (query) the id of the retailer location to delete (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteRetailerLocation(version: Double, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteRetailerLocation(deviceId: String? = nil, accountId: Int64? = nil, retailerLocationId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/location/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/location/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -282,22 +276,20 @@ open class RetailerLocationAPI {
 
 
     /// Get Retailer Location
-    /// - GET /api/{version}/retailer/location/get
+    /// - GET /retailer/location/get
     /// - Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-    /// - parameter version: (path)  
     /// - parameter retailerLocationId: (query) The ID of the retailer location 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter retailerLocationToken: (query) the unique token of the retailer location (optional)
     /// - returns: AnyPublisher<RetailerLocationResponse, Error> 
-    open func getRetailerLocation(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationToken: String? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
+    open func getRetailerLocation(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, retailerLocationToken: String? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/location/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/location/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -324,21 +316,19 @@ open class RetailerLocationAPI {
 
 
     /// Get Retailer Location (Consumer)
-    /// - GET /api/{version}/location/get
+    /// - GET /location/get
     /// - Gets the details of a retailer location as a consumer.
-    /// - parameter version: (path)  
     /// - parameter retailerLocationId: (query) The retailer location id 
     /// - parameter deviceId: (query) The device id for returning account information (i.e. favorites) (optional)
     /// - parameter accountId: (query) The account id for returning account information (i.e. favorites) (optional)
     /// - returns: AnyPublisher<RetailerLocationResponse, Error> 
-    open func getRetailerLocationConsumer(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
+    open func getRetailerLocationConsumer(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/location/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/location/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -371,9 +361,8 @@ open class RetailerLocationAPI {
     }
 
     /// Distance Search Retailer Locations (Indexed)
-    /// - GET /api/{version}/retailer/location/idistancesearch
+    /// - GET /retailer/location/idistancesearch
     /// - Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-    /// - parameter version: (path)  
     /// - parameter latitude: (query) The latitude to center the search on 
     /// - parameter longitude: (query) The longitude to center the search on 
     /// - parameter searchRange: (query) The search range in the distanceUnit specified; default is MILES. 
@@ -409,14 +398,13 @@ open class RetailerLocationAPI {
     /// - parameter includeLiked: (query) Include liked flag in response (optional)
     /// - parameter includeRating: (query) Include rating info in response (optional)
     /// - returns: AnyPublisher<[RetailerLocationResponse], Error> 
-    open func indexedRetailerLocationDistanceSearch(version: Double, latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Int64? = nil, address: String? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, distanceUnit: IndexedRetailerLocationDistanceSearchDistanceUnit? = nil, returnFavorited: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil) -> AnyPublisher<[RetailerLocationResponse], Error> {
+    open func indexedRetailerLocationDistanceSearch(latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Int64? = nil, address: String? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, distanceUnit: IndexedRetailerLocationDistanceSearchDistanceUnit? = nil, returnFavorited: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil) -> AnyPublisher<[RetailerLocationResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/location/idistancesearch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/location/idistancesearch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -473,9 +461,8 @@ open class RetailerLocationAPI {
 
 
     /// Keyword Search Retailer Locations (Indexed)
-    /// - GET /api/{version}/retailer/location/isearch
+    /// - GET /retailer/location/isearch
     /// - Retailer location (faster) indexed search. This searches all retailer locations.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (optional)
     /// - parameter start: (query) The start index for pagination (optional)
     /// - parameter limit: (query) The limit for pagination (optional)
@@ -505,14 +492,13 @@ open class RetailerLocationAPI {
     /// - parameter includeLiked: (query) Include liked flag in response (optional)
     /// - parameter includeRating: (query) Include rating info in response (optional)
     /// - returns: AnyPublisher<[RetailerLocationResponse], Error> 
-    open func indexedRetailerLocationSearch(version: Double, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil) -> AnyPublisher<[RetailerLocationResponse], Error> {
+    open func indexedRetailerLocationSearch(accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, hasOffers: Bool? = nil, categories: String? = nil, filters: String? = nil, audiences: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, tags: String? = nil, locationType: String? = nil, sortField: String? = nil, descending: Bool? = nil, q: String? = nil, keyword: String? = nil, keywordOperator: String? = nil, searchExpression: String? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, returnExternalCategoryData: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil) -> AnyPublisher<[RetailerLocationResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/location/isearch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/location/isearch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -585,9 +571,8 @@ open class RetailerLocationAPI {
     }
 
     /// Search Retailer Locations (Owned)
-    /// - GET /api/{version}/retailer/location/search
+    /// - GET /retailer/location/search
     /// - Searches on retailer locations that the account has access to.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter q: (query) This parameter is deprecated. (optional)
@@ -614,14 +599,13 @@ open class RetailerLocationAPI {
     /// - parameter includeLiked: (query) Include liked flag in response (optional)
     /// - parameter includeRating: (query) Include rating info in response (optional)
     /// - returns: AnyPublisher<[RetailerLocationResponse], Error> 
-    open func searchRetailerLocations(version: Double, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, locationType: String? = nil, sortField: SearchRetailerLocationsSortField? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, showPublicLocations: Bool? = nil, activeOnly: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil) -> AnyPublisher<[RetailerLocationResponse], Error> {
+    open func searchRetailerLocations(deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, locationType: String? = nil, sortField: SearchRetailerLocationsSortField? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, showPublicLocations: Bool? = nil, activeOnly: Bool? = nil, returnRetailer: Bool? = nil, returnAssets: Bool? = nil, returnOffers: Bool? = nil, returnCategories: Bool? = nil, returnFilters: Bool? = nil, returnAudiences: Bool? = nil, returnQrCode: Bool? = nil, includeFavorite: Bool? = nil, includeLiked: Bool? = nil, includeRating: Bool? = nil) -> AnyPublisher<[RetailerLocationResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/location/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/location/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -678,9 +662,8 @@ open class RetailerLocationAPI {
     }
 
     /// Update Retailer Location
-    /// - POST /api/{version}/retailer/location/update
+    /// - POST /retailer/location/update
     /// - Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-    /// - parameter version: (path)  
     /// - parameter retailerLocationId: (query) The ID of the retailer location 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -723,14 +706,13 @@ open class RetailerLocationAPI {
     /// - parameter responseFormat: (query) The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional)
     /// - parameter tags: (query) Custom string field for doing full-text searches (optional)
     /// - returns: AnyPublisher<RetailerLocationResponse, Error> 
-    open func updateRetailerLocations(version: Double, retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: Data? = nil, logoAssetId: Int64? = nil, picture1: Data? = nil, picture1AssetId: Int64? = nil, picture2: Data? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, metaData: String? = nil, paymentProvider: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: UpdateRetailerLocationsResponseFormat? = nil, tags: String? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
+    open func updateRetailerLocations(retailerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, businessPhone: String? = nil, businessPhoneExt: String? = nil, website: String? = nil, email: String? = nil, internalId: String? = nil, detailsHeader: String? = nil, detailsBody: String? = nil, hours: String? = nil, logo: Data? = nil, logoAssetId: Int64? = nil, picture1: Data? = nil, picture1AssetId: Int64? = nil, picture2: Data? = nil, picture2AssetId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, building: String? = nil, googlePlaceId: String? = nil, yelpId: String? = nil, metaData: String? = nil, paymentProvider: String? = nil, active: Bool? = nil, publicLocation: Bool? = nil, locationType: String? = nil, audienceIds: String? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, responseFormat: UpdateRetailerLocationsResponseFormat? = nil, tags: String? = nil) -> AnyPublisher<RetailerLocationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/location/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/location/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

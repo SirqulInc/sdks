@@ -21,7 +21,7 @@ open class GameAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class GameAPI {
 
 
     /// Create a Game
-    /// - POST /api/{version}/game/create
+    /// - POST /game/create
     /// - Create a Game.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. (optional)
     /// - parameter appKey: (query) The game application key to save the level for. (optional)
     /// - parameter title: (query) Title of the game. (optional)
@@ -40,14 +39,13 @@ open class GameAPI {
     /// - parameter packIds: (query) comma separated String of pack Ids that will associate with the game. (optional)
     /// - parameter includeGameData: (query) Show more details in response. (optional)
     /// - returns: AnyPublisher<GameResponse, Error> 
-    open func createGame(version: Double, accountId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
+    open func createGame(accountId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -77,20 +75,18 @@ open class GameAPI {
 
 
     /// Delete a Game
-    /// - POST /api/{version}/game/delete
+    /// - POST /game/delete
     /// - Delete a game.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter gameId: (query) the updating game&#39;s id. 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteGame(version: Double, accountId: Int64, gameId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteGame(accountId: Int64, gameId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -115,21 +111,19 @@ open class GameAPI {
 
 
     /// Get a Game by id
-    /// - GET /api/{version}/game/get
+    /// - GET /game/get
     /// - Get a Game by id.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter gameId: (query) the updating game&#39;s id. 
     /// - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. (optional)
     /// - returns: AnyPublisher<GameResponse, Error> 
-    open func getGame(version: Double, accountId: Int64, gameId: Int64, includeGameData: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
+    open func getGame(accountId: Int64, gameId: Int64, includeGameData: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -155,9 +149,8 @@ open class GameAPI {
 
 
     /// Search a Game
-    /// - GET /api/{version}/game/search
+    /// - GET /game/search
     /// - Get a list of games for an application, just those the account has permissions to view.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) the application key 
     /// - parameter start: (query) Start the result set at some index. 
@@ -167,14 +160,13 @@ open class GameAPI {
     /// - parameter includeGameData: (query) more details in response (optional)
     /// - parameter includeInactive: (query) more details in response (optional)
     /// - returns: AnyPublisher<GameResponse, Error> 
-    open func searchGames(version: Double, accountId: Int64, appKey: String, start: Int, limit: Int, keyword: String? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
+    open func searchGames(accountId: Int64, appKey: String, start: Int, limit: Int, keyword: String? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, includeInactive: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -205,9 +197,8 @@ open class GameAPI {
 
 
     /// Update a Game
-    /// - POST /api/{version}/game/update
+    /// - POST /game/update
     /// - Update a Game
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. (optional)
     /// - parameter gameId: (query) the updating game&#39;s id (optional)
     /// - parameter appKey: (query) The game application key to save the level for. (optional)
@@ -217,14 +208,13 @@ open class GameAPI {
     /// - parameter packIds: (query) comma separated String of pack Ids that will associate with the game. (optional)
     /// - parameter includeGameData: (query) show more details in response. (optional)
     /// - returns: AnyPublisher<GameResponse, Error> 
-    open func updateGame(version: Double, accountId: Int64? = nil, gameId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
+    open func updateGame(accountId: Int64? = nil, gameId: Int64? = nil, appKey: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil, packIds: String? = nil, includeGameData: Bool? = nil) -> AnyPublisher<GameResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

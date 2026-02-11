@@ -21,7 +21,7 @@ open class PostalCodeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class PostalCodeAPI {
 
 
     /// Create Postal Code
-    /// - POST /api/{version}/postalCode/create
+    /// - POST /postalCode/create
     /// - Create a Postal Code
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter code: (query) the postal code 
     /// - parameter latitude: (query) the latitude of the postal code 
@@ -40,14 +39,13 @@ open class PostalCodeAPI {
     /// - parameter city: (query) the city that the postal code is located (optional)
     /// - parameter active: (query) whether the postal code created should be active or inactive (optional)
     /// - returns: AnyPublisher<PostalCodeResponse, Error> 
-    open func createPostalCode(version: Double, accountId: Int64, code: String, latitude: Double, longitude: Double, stateCode: String? = nil, city: String? = nil, active: Bool? = nil) -> AnyPublisher<PostalCodeResponse, Error> {
+    open func createPostalCode(accountId: Int64, code: String, latitude: Double, longitude: Double, stateCode: String? = nil, city: String? = nil, active: Bool? = nil) -> AnyPublisher<PostalCodeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/postalCode/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/postalCode/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -77,20 +75,18 @@ open class PostalCodeAPI {
 
 
     /// Delete Postal Code
-    /// - POST /api/{version}/postalCode/delete
+    /// - POST /postalCode/delete
     /// - Delete a Postal Code
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter postalCodeId: (query) the id of the postal code to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deletePostalCode(version: Double, accountId: Int64, postalCodeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deletePostalCode(accountId: Int64, postalCodeId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/postalCode/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/postalCode/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -115,19 +111,17 @@ open class PostalCodeAPI {
 
 
     /// Get Postal Code
-    /// - GET /api/{version}/postalCode/get
+    /// - GET /postalCode/get
     /// - Get a Postal Code
-    /// - parameter version: (path)  
     /// - parameter postalCodeId: (query) the id of the postal code to get 
     /// - returns: AnyPublisher<PostalCodeResponse, Error> 
-    open func getPostalCode(version: Double, postalCodeId: Int64) -> AnyPublisher<PostalCodeResponse, Error> {
+    open func getPostalCode(postalCodeId: Int64) -> AnyPublisher<PostalCodeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/postalCode/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/postalCode/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -151,9 +145,8 @@ open class PostalCodeAPI {
 
 
     /// Search Postal Codes
-    /// - GET /api/{version}/postalCode/search
+    /// - GET /postalCode/search
     /// - Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) the field to sort the results on 
     /// - parameter descending: (query) whether to order results in ascending or descending order 
     /// - parameter latitude: (query) the latitude of the postal code to search on (optional)
@@ -163,14 +156,13 @@ open class PostalCodeAPI {
     /// - parameter start: (query) the start of the index and/or pagination (optional)
     /// - parameter limit: (query) the limit of the index and/or pagination (optional)
     /// - returns: AnyPublisher<[PostalCodeResponse], Error> 
-    open func getPostalCodes(version: Double, sortField: String, descending: Bool, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, miles: Double? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[PostalCodeResponse], Error> {
+    open func getPostalCodes(sortField: String, descending: Bool, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, miles: Double? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[PostalCodeResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/postalCode/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/postalCode/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -201,9 +193,8 @@ open class PostalCodeAPI {
 
 
     /// Update Postal Code
-    /// - POST /api/{version}/postalCode/update
+    /// - POST /postalCode/update
     /// - Update a Postal Code
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter postalCodeId: (query) the id of the postal code to update 
     /// - parameter code: (query) the postal code to update (optional)
@@ -213,14 +204,13 @@ open class PostalCodeAPI {
     /// - parameter city: (query) the city where the postal code is located (optional)
     /// - parameter active: (query) whether the postal code is active or inactive (optional)
     /// - returns: AnyPublisher<PostalCodeResponse, Error> 
-    open func updatePostalCode(version: Double, accountId: Int64, postalCodeId: Int64, code: String? = nil, latitude: Double? = nil, longitude: Double? = nil, stateCode: String? = nil, city: String? = nil, active: Bool? = nil) -> AnyPublisher<PostalCodeResponse, Error> {
+    open func updatePostalCode(accountId: Int64, postalCodeId: Int64, code: String? = nil, latitude: Double? = nil, longitude: Double? = nil, stateCode: String? = nil, city: String? = nil, active: Bool? = nil) -> AnyPublisher<PostalCodeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/postalCode/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/postalCode/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

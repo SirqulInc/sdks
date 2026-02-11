@@ -21,7 +21,7 @@ open class MissionAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class MissionAPI {
 
 
     /// Create Mission
-    /// - POST /api/{version}/mission/create
+    /// - POST /mission/create
     /// - Create a user defined mission.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter title: (query) The title of the mission 
     /// - parameter description: (query) The description of the mission (optional)
@@ -59,14 +58,13 @@ open class MissionAPI {
     /// - parameter locations: (query) List of lat/long pairs for mission locations (optional)
     /// - parameter radius: (query) Comma separated list of radii for locations (optional)
     /// - returns: AnyPublisher<MissionResponse, Error> 
-    open func createMission(version: Double, accountId: Int64, title: String, description: String? = nil, subType: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, missionTask: String? = nil, formatType: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, metaData: String? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil) -> AnyPublisher<MissionResponse, Error> {
+    open func createMission(accountId: Int64, title: String, description: String? = nil, subType: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, missionTask: String? = nil, formatType: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, metaData: String? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil) -> AnyPublisher<MissionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -115,20 +113,18 @@ open class MissionAPI {
 
 
     /// Delete Mission
-    /// - POST /api/{version}/mission/delete
+    /// - POST /mission/delete
     /// - Delete a mission.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter missionId: (query) the id of the mission to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteMission(version: Double, accountId: Int64, missionId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteMission(accountId: Int64, missionId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -153,9 +149,8 @@ open class MissionAPI {
 
 
     /// Find Missions
-    /// - GET /api/{version}/mission/find
+    /// - GET /mission/find
     /// - Get a set of ad filtered by the parameters provided.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. 
     /// - parameter suffix: (query) The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional)
     /// - parameter type: (query) The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional)
@@ -176,14 +171,13 @@ open class MissionAPI {
     /// - parameter missionIds: (query) return only ads from the specified campaigns. (optional)
     /// - parameter audienceOperator: (query) will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional)
     /// - returns: AnyPublisher<MissionResponse, Error> 
-    open func findMissions(version: Double, appKey: String, suffix: String? = nil, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, randomize: Bool? = nil, targetedAdsOnly: Bool? = nil, missionIds: String? = nil, audienceOperator: String? = nil) -> AnyPublisher<MissionResponse, Error> {
+    open func findMissions(appKey: String, suffix: String? = nil, type: String? = nil, accountId: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil, device: String? = nil, deviceIdentifier: Int64? = nil, deviceVersion: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, allocatesTickets: Bool? = nil, randomize: Bool? = nil, targetedAdsOnly: Bool? = nil, missionIds: String? = nil, audienceOperator: String? = nil) -> AnyPublisher<MissionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/find"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/find"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -225,21 +219,19 @@ open class MissionAPI {
 
 
     /// Get Mission
-    /// - GET /api/{version}/mission/get
+    /// - GET /mission/get
     /// - Get a mission.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter missionId: (query) The id of the mission to return. 
     /// - parameter returnCreative: (query) Return creatives associated with the mission when true (optional)
     /// - returns: AnyPublisher<MissionResponse, Error> 
-    open func getMission(version: Double, accountId: Int64, missionId: Int64, returnCreative: Bool? = nil) -> AnyPublisher<MissionResponse, Error> {
+    open func getMission(accountId: Int64, missionId: Int64, returnCreative: Bool? = nil) -> AnyPublisher<MissionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -287,9 +279,8 @@ open class MissionAPI {
     }
 
     /// Import Mission
-    /// - POST /api/{version}/mission/import
+    /// - POST /mission/import
     /// - Create a mission using a source item such as an offer location.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter latitude: (query) The current location of the requesting device 
     /// - parameter longitude: (query) The current location of the requesting device 
@@ -299,14 +290,13 @@ open class MissionAPI {
     /// - parameter limit: (query) The total number of records to return. Default is 20. (optional)
     /// - parameter adSize: (query) the size of the ad (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func importMission(version: Double, accountId: Int64, latitude: Double, longitude: Double, appKey: String, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, adSize: ImportMissionAdSize? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func importMission(accountId: Int64, latitude: Double, longitude: Double, appKey: String, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, adSize: ImportMissionAdSize? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/import"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/import"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -337,21 +327,19 @@ open class MissionAPI {
 
 
     /// Search Mission Formats
-    /// - GET /api/{version}/mission/format/search
+    /// - GET /mission/format/search
     /// - Searches on pre-defined mission formats
-    /// - parameter version: (path)  
     /// - parameter start: (query) The starting index in the result set to return. Default is 0. 
     /// - parameter limit: (query) The total number of records to return. Default is 20. 
     /// - parameter activeOnly: (query) Determines whether to return only active results. Default is false. 
     /// - returns: AnyPublisher<[MissionFormatResponse], Error> 
-    open func searchMissionFormats(version: Double, start: Int, limit: Int, activeOnly: Bool) -> AnyPublisher<[MissionFormatResponse], Error> {
+    open func searchMissionFormats(start: Int, limit: Int, activeOnly: Bool) -> AnyPublisher<[MissionFormatResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/format/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/format/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -377,9 +365,8 @@ open class MissionAPI {
 
 
     /// Search Missions
-    /// - GET /api/{version}/mission/search
+    /// - GET /mission/search
     /// - Get the list missions available to the account.  
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter keyword: (query) Filter by keyword (optional)
     /// - parameter subType: (query) Custom string client apps can use for searching/filtering missions (optional)
@@ -392,14 +379,13 @@ open class MissionAPI {
     /// - parameter sortField: (query) The field to sort the search on (for example TITLE) (optional)
     /// - parameter descending: (query) Whether to sort in descending order (default true) (optional)
     /// - returns: AnyPublisher<[MissionResponse], Error> 
-    open func searchMissions(version: Double, accountId: Int64, keyword: String? = nil, subType: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil) -> AnyPublisher<[MissionResponse], Error> {
+    open func searchMissions(accountId: Int64, keyword: String? = nil, subType: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil) -> AnyPublisher<[MissionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -433,9 +419,8 @@ open class MissionAPI {
 
 
     /// Search Missions by Billable Entity
-    /// - GET /api/{version}/mission/searchByBillableEntity
+    /// - GET /mission/searchByBillableEntity
     /// - Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter keyword: (query) Filter by keyword (optional)
     /// - parameter start: (query) The index into the record set to start with. Default is 0. (optional)
@@ -447,14 +432,13 @@ open class MissionAPI {
     /// - parameter sortField: (query) The field to sort the search on (for example TITLE) (optional)
     /// - parameter descending: (query) Whether to sort in descending order (default true) (optional)
     /// - returns: AnyPublisher<[MissionResponse], Error> 
-    open func searchMissionsByBillableEntity(version: Double, accountId: Int64, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil) -> AnyPublisher<[MissionResponse], Error> {
+    open func searchMissionsByBillableEntity(accountId: Int64, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, includeGameData: Bool? = nil, includeAudiences: Bool? = nil, includeInactive: Bool? = nil, suffix: String? = nil, sortField: String? = nil, descending: Bool? = nil) -> AnyPublisher<[MissionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/searchByBillableEntity"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/searchByBillableEntity"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -487,9 +471,8 @@ open class MissionAPI {
 
 
     /// Update Mission
-    /// - POST /api/{version}/mission/update
+    /// - POST /mission/update
     /// - Update a mission.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter missionId: (query) The id of the mission to update. 
     /// - parameter title: (query) The title of the mission (optional)
@@ -516,14 +499,13 @@ open class MissionAPI {
     /// - parameter locations: (query) List of lat/long pairs for mission locations (optional)
     /// - parameter radius: (query) Comma separated list of radii for locations (optional)
     /// - returns: AnyPublisher<MissionResponse, Error> 
-    open func updateMission(version: Double, accountId: Int64, missionId: Int64, title: String? = nil, description: String? = nil, subType: String? = nil, metaData: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil) -> AnyPublisher<MissionResponse, Error> {
+    open func updateMission(accountId: Int64, missionId: Int64, title: String? = nil, description: String? = nil, subType: String? = nil, metaData: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, active: Bool? = nil, gameLevelIds: String? = nil, creativeIds: String? = nil, audienceIds: String? = nil, offerId: Int64? = nil, balance: Double? = nil, advancedReporting: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, applicationIds: String? = nil, devices: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, locations: String? = nil, radius: String? = nil) -> AnyPublisher<MissionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/mission/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/mission/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

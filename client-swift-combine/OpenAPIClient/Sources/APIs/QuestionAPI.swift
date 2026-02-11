@@ -21,7 +21,7 @@ open class QuestionAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class QuestionAPI {
 
 
     /// Create Question
-    /// - POST /api/{version}/game/question/create
+    /// - POST /game/question/create
     /// - Create a question and related answers by the given params.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter question: (query) the text of the question 
     /// - parameter answers: (query) &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;  
@@ -44,14 +43,13 @@ open class QuestionAPI {
     /// - parameter ticketType: (query) The type of ticket to reward, null means default type (optional)
     /// - parameter points: (query) The number of points to award for completing a mission (optional)
     /// - returns: AnyPublisher<QuestionResponse, Error> 
-    open func createQuestion(version: Double, accountId: Int64, question: String, answers: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<QuestionResponse, Error> {
+    open func createQuestion(accountId: Int64, question: String, answers: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<QuestionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/question/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/question/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -85,20 +83,18 @@ open class QuestionAPI {
 
 
     /// Delete Question
-    /// - POST /api/{version}/game/question/delete
+    /// - POST /game/question/delete
     /// - Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-    /// - parameter version: (path)  
     /// - parameter questionId: (query) the id of the question to delete 
     /// - parameter accountId: (query) the id of the account that can execute this request 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteQuestion(version: Double, questionId: Int64, accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteQuestion(questionId: Int64, accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/question/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/question/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -123,20 +119,18 @@ open class QuestionAPI {
 
 
     /// Get Question
-    /// - GET /api/{version}/game/question/get
+    /// - GET /game/question/get
     /// - Get a question by the given id.
-    /// - parameter version: (path)  
     /// - parameter questionId: (query) the id of the question to get 
     /// - parameter accountId: (query) the id of the account that can make this request 
     /// - returns: AnyPublisher<QuestionResponse, Error> 
-    open func getQuestion(version: Double, questionId: Int64, accountId: Int64) -> AnyPublisher<QuestionResponse, Error> {
+    open func getQuestion(questionId: Int64, accountId: Int64) -> AnyPublisher<QuestionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/question/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/question/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -161,9 +155,8 @@ open class QuestionAPI {
 
 
     /// Search Questions
-    /// - GET /api/{version}/game/question/search
+    /// - GET /game/question/search
     /// - Search for questions by the given params.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter sortField: (query) The column to sort the search on 
     /// - parameter descending: (query) The order to return the search results 
@@ -172,14 +165,13 @@ open class QuestionAPI {
     /// - parameter limit: (query) The number of records to return. 
     /// - parameter keyword: (query) The keyword for searching questions with matching tags or question text. (optional)
     /// - returns: AnyPublisher<[QuestionResponse], Error> 
-    open func searchQuestions(version: Double, accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil) -> AnyPublisher<[QuestionResponse], Error> {
+    open func searchQuestions(accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil) -> AnyPublisher<[QuestionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/question/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/question/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -209,9 +201,8 @@ open class QuestionAPI {
 
 
     /// Update Question
-    /// - POST /api/{version}/game/question/update
+    /// - POST /game/question/update
     /// - Update a question and related answers.
-    /// - parameter version: (path)  
     /// - parameter questionId: (query) The id of the question to update. 
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter ticketCount: (query) The number of tickets to reward 
@@ -225,14 +216,13 @@ open class QuestionAPI {
     /// - parameter ticketType: (query) The type of ticket to reward, null means default type (optional)
     /// - parameter points: (query) The number of points to award for completing a mission (optional)
     /// - returns: AnyPublisher<QuestionResponse, Error> 
-    open func updateQuestion(version: Double, questionId: Int64, accountId: Int64, ticketCount: Int64, question: String? = nil, answers: String? = nil, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<QuestionResponse, Error> {
+    open func updateQuestion(questionId: Int64, accountId: Int64, ticketCount: Int64, question: String? = nil, answers: String? = nil, tags: String? = nil, videoURL: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<QuestionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/question/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/question/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

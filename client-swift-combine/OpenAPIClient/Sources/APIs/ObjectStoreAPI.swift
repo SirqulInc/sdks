@@ -21,7 +21,7 @@ open class ObjectStoreAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,23 +29,21 @@ open class ObjectStoreAPI {
 
 
     /// Create Field
-    /// - POST /api/{version}/object/field/add
+    /// - POST /object/field/add
     /// - Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter appKey: (query) The application key for updating an existing application 
     /// - parameter objectName: (query) The name of the object to add the field to 
     /// - parameter fieldName: (query) field name The name of the field to add. 
     /// - parameter fieldType: (query) field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY 
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func addField(version: Double, accountId: Int64, appKey: String, objectName: String, fieldName: String, fieldType: String) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func addField(accountId: Int64, appKey: String, objectName: String, fieldName: String, fieldType: String) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/field/add"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/object/field/add"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -73,21 +71,19 @@ open class ObjectStoreAPI {
 
 
     /// Create Data
-    /// - POST /api/{version}/object/data/{objectName}
+    /// - POST /object/data/{objectName}
     /// - Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-    /// - parameter version: (path)  
     /// - parameter objectName: (path) the name of the object to create data for 
     /// - parameter accountId: (query) the account id (optional)
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func createData(version: Double, objectName: String, accountId: Int64? = nil, body: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func createData(objectName: String, accountId: Int64? = nil, body: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/data/{objectName}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/object/data/{objectName}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectName}", with: objectName)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -114,21 +110,19 @@ open class ObjectStoreAPI {
 
 
     /// Create Object
-    /// - POST /api/{version}/object/create
+    /// - POST /object/create
     /// - Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter appKey: (query) The application key for updating an existing application 
     /// - parameter objectName: (query) The name of the object to create 
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func createObject(version: Double, accountId: Int64, appKey: String, objectName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func createObject(accountId: Int64, appKey: String, objectName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/object/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -154,21 +148,19 @@ open class ObjectStoreAPI {
 
 
     /// Delete Data
-    /// - DELETE /api/{version}/object/data/{objectName}/{objectId}
+    /// - DELETE /object/data/{objectName}/{objectId}
     /// - Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-    /// - parameter version: (path)  
     /// - parameter objectName: (path) The name of the object to search upon 
     /// - parameter objectId: (path) objectId The id of the record to return 
     /// - parameter accountId: (query) The account id of the logged in user (optional)
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func deleteData(version: Double, objectName: String, objectId: String, accountId: Int64? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func deleteData(objectName: String, objectId: String, accountId: Int64? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/data/{objectName}/{objectId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/object/data/{objectName}/{objectId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectName}", with: objectName)
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectId}", with: objectId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
@@ -194,22 +186,20 @@ open class ObjectStoreAPI {
 
 
     /// Delete Field
-    /// - POST /api/{version}/object/field/delete
+    /// - POST /object/field/delete
     /// - Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter appKey: (query) The application key for updating an existing application 
     /// - parameter objectName: (query) The name of the object to remove the field from 
     /// - parameter fieldName: (query) field name The name of the field to remove. 
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func deleteField(version: Double, accountId: Int64, appKey: String, objectName: String, fieldName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func deleteField(accountId: Int64, appKey: String, objectName: String, fieldName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/field/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/object/field/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -236,21 +226,19 @@ open class ObjectStoreAPI {
 
 
     /// Delete Object
-    /// - POST /api/{version}/object/delete
+    /// - POST /object/delete
     /// - Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter appKey: (query) the application key 
     /// - parameter objectName: (query) the name of the object to delete 
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func deleteObject(version: Double, accountId: Int64, appKey: String, objectName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func deleteObject(accountId: Int64, appKey: String, objectName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/object/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -276,22 +264,20 @@ open class ObjectStoreAPI {
 
 
     /// Get Data
-    /// - GET /api/{version}/object/data/{objectName}/{objectId}
+    /// - GET /object/data/{objectName}/{objectId}
     /// - Get a specific record from a specified object.
-    /// - parameter version: (path)  
     /// - parameter objectName: (path) The name of the object to search upon 
     /// - parameter objectId: (path) objectId The id of the record to return 
     /// - parameter accountId: (query) The account id of the logged in user (optional)
     /// - parameter include: (query)  (optional)
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func getData(version: Double, objectName: String, objectId: String, accountId: Int64? = nil, include: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func getData(objectName: String, objectId: String, accountId: Int64? = nil, include: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/data/{objectName}/{objectId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/object/data/{objectName}/{objectId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectName}", with: objectName)
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectId}", with: objectId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
@@ -318,21 +304,19 @@ open class ObjectStoreAPI {
 
 
     /// Get Object
-    /// - GET /api/{version}/object/get
+    /// - GET /object/get
     /// - Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter appKey: (query) The application key for updating an existing application 
     /// - parameter objectName: (query) The name of the object to get the definition for 
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func getObject(version: Double, accountId: Int64, appKey: String, objectName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func getObject(accountId: Int64, appKey: String, objectName: String) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/object/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -358,9 +342,8 @@ open class ObjectStoreAPI {
 
 
     /// Search Data
-    /// - GET /api/{version}/object/data/{objectName}
+    /// - GET /object/data/{objectName}
     /// - Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-    /// - parameter version: (path)  
     /// - parameter objectName: (path) The name of the object to search upon 
     /// - parameter count: (query) If true just return the record count of the search. False (default) will return the actual records 
     /// - parameter start: (query) The start of the pagination 
@@ -370,14 +353,13 @@ open class ObjectStoreAPI {
     /// - parameter order: (query) The order of results; comma seperated list of field names. Illegal field names will be ignored. Direction by defualt is ascending. Prepend a minus to the field name to make that field descending. (optional)
     /// - parameter include: (query)  (optional)
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func searchData(version: Double, objectName: String, count: Bool, start: Int64, limit: Int64, accountId: Int64? = nil, criteria: String? = nil, order: String? = nil, include: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func searchData(objectName: String, count: Bool, start: Int64, limit: Int64, accountId: Int64? = nil, criteria: String? = nil, order: String? = nil, include: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/data/{objectName}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/object/data/{objectName}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectName}", with: objectName)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -408,23 +390,21 @@ open class ObjectStoreAPI {
 
 
     /// Search Objects
-    /// - GET /api/{version}/object/search
+    /// - GET /object/search
     /// - Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter appKey: (query) The application key for updating an existing application 
     /// - parameter start: (query) The start of the pagination 
     /// - parameter limit: (query) The limit of the pagination 
     /// - parameter keyword: (query) The name of the object(s) to search for, can be a partial match (optional)
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func searchObject(version: Double, accountId: Int64, appKey: String, start: Int64, limit: Int64, keyword: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func searchObject(accountId: Int64, appKey: String, start: Int64, limit: Int64, keyword: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/object/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -452,22 +432,20 @@ open class ObjectStoreAPI {
 
 
     /// Update Data
-    /// - PUT /api/{version}/object/data/{objectName}/{objectId}
+    /// - PUT /object/data/{objectName}/{objectId}
     /// - Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-    /// - parameter version: (path)  
     /// - parameter objectName: (path) The name of the object to search upon 
     /// - parameter objectId: (path) objectId The id of the record to return 
     /// - parameter accountId: (query) The account id of the logged in user (optional)
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ObjectStoreResponse, Error> 
-    open func updateData(version: Double, objectName: String, objectId: String, accountId: Int64? = nil, body: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
+    open func updateData(objectName: String, objectId: String, accountId: Int64? = nil, body: String? = nil) -> AnyPublisher<ObjectStoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/object/data/{objectName}/{objectId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/object/data/{objectName}/{objectId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectName}", with: objectName)
                 localVarPath = localVarPath.replacingOccurrences(of: "{objectId}", with: objectId)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)

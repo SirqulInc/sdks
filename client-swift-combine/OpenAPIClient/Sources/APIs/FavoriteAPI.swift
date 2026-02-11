@@ -21,7 +21,7 @@ open class FavoriteAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class FavoriteAPI {
 
 
     /// Create Favorite
-    /// - POST /api/{version}/favorite/create
+    /// - POST /favorite/create
     /// - Adds an offer, offer location, retailer location, or category to your favorites.
-    /// - parameter version: (path)  
     /// - parameter favoritableId: (query) The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} 
     /// - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} 
     /// - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
@@ -39,14 +38,13 @@ open class FavoriteAPI {
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<WrappedResponse, Error> 
-    open func addFavorite(version: Double, favoritableId: Int64, favoritableType: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<WrappedResponse, Error> {
+    open func addFavorite(favoritableId: Int64, favoritableType: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<WrappedResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/favorite/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/favorite/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -75,23 +73,21 @@ open class FavoriteAPI {
 
 
     /// Delete Favorite
-    /// - POST /api/{version}/favorite/delete
+    /// - POST /favorite/delete
     /// - Removes a favorited item from the user's favorites list.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
     /// - parameter favoriteId: (query) The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional)
     /// - parameter favoritableId: (query) The ID of the object to un-favorite {offerId, offerLocationId, retailerLocationId, categoryId} (this is required if favoriteId is NOT passed in) (optional)
     /// - parameter favoritableType: (query) The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteFavorite(version: Double, deviceId: String? = nil, accountId: Int64? = nil, favoriteId: Int64? = nil, favoritableId: Int64? = nil, favoritableType: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteFavorite(deviceId: String? = nil, accountId: Int64? = nil, favoriteId: Int64? = nil, favoritableId: Int64? = nil, favoritableType: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/favorite/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/favorite/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -119,23 +115,21 @@ open class FavoriteAPI {
 
 
     /// Get Favorite
-    /// - GET /api/{version}/favorite/get
+    /// - GET /favorite/get
     /// - Retrieves a single favorited item.
-    /// - parameter version: (path)  
     /// - parameter favoriteId: (query) The ID of the favorite reference record 
     /// - parameter deviceId: (query) The unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<WrappedResponse, Error> 
-    open func getFavorite(version: Double, favoriteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<WrappedResponse, Error> {
+    open func getFavorite(favoriteId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<WrappedResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/favorite/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/favorite/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -175,9 +169,8 @@ open class FavoriteAPI {
     }
 
     /// Search Favorites
-    /// - GET /api/{version}/favorite/search
+    /// - GET /favorite/search
     /// - Searches on the user's favorites.
-    /// - parameter version: (path)  
     /// - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
     /// - parameter sortField: (query) Determines what to sort the results by {CREATED, UPDATED, DISPLAY} 
     /// - parameter descending: (query) Determines whether the results are in descending order 
@@ -193,14 +186,13 @@ open class FavoriteAPI {
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<SearchResponse, Error> 
-    open func searchFavorites(version: Double, favoritableType: String, sortField: SearchFavoritesSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, returnFullResponse: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, secondaryType: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SearchResponse, Error> {
+    open func searchFavorites(favoritableType: String, sortField: SearchFavoritesSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, returnFullResponse: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, secondaryType: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SearchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/favorite/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/favorite/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -237,9 +229,8 @@ open class FavoriteAPI {
 
 
     /// Who has Favorited
-    /// - GET /api/{version}/favorite/whois
+    /// - GET /favorite/whois
     /// - Searches for everyone that has favorited an item
-    /// - parameter version: (path)  
     /// - parameter favoritableId: (query) The ID of the favoritableType to search on 
     /// - parameter favoritableType: (query) The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} 
     /// - parameter start: (query) The start index for pagination 
@@ -250,14 +241,13 @@ open class FavoriteAPI {
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - parameter keyword: (query) The keyword to limit that account list (optional)
     /// - returns: AnyPublisher<[AccountResponse], Error> 
-    open func whoHasFavorited(version: Double, favoritableId: Int64, favoritableType: String, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil) -> AnyPublisher<[AccountResponse], Error> {
+    open func whoHasFavorited(favoritableId: Int64, favoritableType: String, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil) -> AnyPublisher<[AccountResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/favorite/whois"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/favorite/whois"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

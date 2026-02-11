@@ -21,7 +21,7 @@ open class TerritoryAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class TerritoryAPI {
 
 
     /// Create Territory
-    /// - POST /api/{version}/territory/create
+    /// - POST /territory/create
     /// - Creates a territory.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the territory 
     /// - parameter active: (query) If true set the game level as active. Default is true. (optional)
     /// - returns: AnyPublisher<TerritoryResponse, Error> 
-    open func createTerritory(version: Double, accountId: Int64, name: String, active: Bool? = nil) -> AnyPublisher<TerritoryResponse, Error> {
+    open func createTerritory(accountId: Int64, name: String, active: Bool? = nil) -> AnyPublisher<TerritoryResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/territory/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/territory/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -69,20 +67,18 @@ open class TerritoryAPI {
 
 
     /// Delete Territory
-    /// - POST /api/{version}/territory/delete
+    /// - POST /territory/delete
     /// - Deletes a territory.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter territoryId: (query) the id of the territory to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteTerritory(version: Double, accountId: Int64, territoryId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteTerritory(accountId: Int64, territoryId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/territory/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/territory/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -107,19 +103,17 @@ open class TerritoryAPI {
 
 
     /// Get Territory
-    /// - GET /api/{version}/territory/get
+    /// - GET /territory/get
     /// - Get a territory.
-    /// - parameter version: (path)  
     /// - parameter territoryId: (query) the id of the territory to get 
     /// - returns: AnyPublisher<TerritoryResponse, Error> 
-    open func getTerritory(version: Double, territoryId: Int64) -> AnyPublisher<TerritoryResponse, Error> {
+    open func getTerritory(territoryId: Int64) -> AnyPublisher<TerritoryResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/territory/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/territory/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -152,23 +146,21 @@ open class TerritoryAPI {
     }
 
     /// Search Territories
-    /// - GET /api/{version}/territory/search
+    /// - GET /territory/search
     /// - Searches on territories.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME 
     /// - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
     /// - parameter keyword: (query) Return results that match this keyword. (optional)
     /// - parameter start: (query) The start index for pagination (optional)
     /// - parameter limit: (query) The limit for pagination (optional)
     /// - returns: AnyPublisher<[TerritoryResponse], Error> 
-    open func searchTerritories(version: Double, sortField: SearchTerritoriesSortField, descending: Bool, keyword: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[TerritoryResponse], Error> {
+    open func searchTerritories(sortField: SearchTerritoriesSortField, descending: Bool, keyword: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[TerritoryResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/territory/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/territory/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -196,22 +188,20 @@ open class TerritoryAPI {
 
 
     /// Update Territory
-    /// - POST /api/{version}/territory/update
+    /// - POST /territory/update
     /// - Updates a territory.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter territoryId: (query) the id of the territory to update 
     /// - parameter name: (query) The name of the territory (optional)
     /// - parameter active: (query) If true set the game level as active. (optional)
     /// - returns: AnyPublisher<TerritoryResponse, Error> 
-    open func updateTerritory(version: Double, accountId: Int64, territoryId: Int64, name: String? = nil, active: Bool? = nil) -> AnyPublisher<TerritoryResponse, Error> {
+    open func updateTerritory(accountId: Int64, territoryId: Int64, name: String? = nil, active: Bool? = nil) -> AnyPublisher<TerritoryResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/territory/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/territory/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

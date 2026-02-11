@@ -21,7 +21,7 @@ open class ThemeDescriptorAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -37,9 +37,8 @@ open class ThemeDescriptorAPI {
     }
 
     /// Create/Update Theme
-    /// - POST /api/{version}/consumer/theme
+    /// - POST /consumer/theme
     /// - Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-    /// - parameter version: (path)  
     /// - parameter publicRead: (query) determines whether the theme&#39;s participants have read permissions 
     /// - parameter publicWrite: (query) determines whether the theme&#39;s participants have write permissions 
     /// - parameter publicDelete: (query) determines whether the theme&#39;s participants have delete permissions 
@@ -68,14 +67,13 @@ open class ThemeDescriptorAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<ThemeDescriptorResponse, Error> 
-    open func addOrUpdateThemeDescriptor(version: Double, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: AddOrUpdateThemeDescriptorVisibility, includeFriendGroup: Bool, completeWithDefaultValues: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, themeDescriptorId: Int64? = nil, title: String? = nil, description: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, appVersion: String? = nil, colorValueJson: String? = nil, stringReplacerJson: String? = nil, customJsonObjects: String? = nil, iconImage: Data? = nil, sceneAtlasImage: Data? = nil, bgImage: Data? = nil, bgSound: Data? = nil, musicSelection: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ThemeDescriptorResponse, Error> {
+    open func addOrUpdateThemeDescriptor(publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: AddOrUpdateThemeDescriptorVisibility, includeFriendGroup: Bool, completeWithDefaultValues: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, themeDescriptorId: Int64? = nil, title: String? = nil, description: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, appVersion: String? = nil, colorValueJson: String? = nil, stringReplacerJson: String? = nil, customJsonObjects: String? = nil, iconImage: Data? = nil, sceneAtlasImage: Data? = nil, bgImage: Data? = nil, bgSound: Data? = nil, musicSelection: String? = nil, locationDescription: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ThemeDescriptorResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/theme"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/theme"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -125,9 +123,8 @@ open class ThemeDescriptorAPI {
 
 
     /// Get Theme
-    /// - GET /api/{version}/consumer/theme/get
+    /// - GET /consumer/theme/get
     /// - Gets a theme.
-    /// - parameter version: (path)  
     /// - parameter themeDescriptorId: (query) the theme id 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -135,14 +132,13 @@ open class ThemeDescriptorAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<PurchaseItemListResponse, Error> 
-    open func getThemeDescriptor(version: Double, themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PurchaseItemListResponse, Error> {
+    open func getThemeDescriptor(themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PurchaseItemListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/theme/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/theme/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -171,9 +167,8 @@ open class ThemeDescriptorAPI {
 
 
     /// Search Themes
-    /// - GET /api/{version}/consumer/theme/search
+    /// - GET /consumer/theme/search
     /// - Searches for themes.
-    /// - parameter version: (path)  
     /// - parameter filter: (query) a comma separated list of Ownership 
     /// - parameter sortField: (query) the field to sort by. See ThemeDescriptorApiMap 
     /// - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -193,14 +188,13 @@ open class ThemeDescriptorAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<PurchaseItemListResponse, Error> 
-    open func getThemeDescriptors(version: Double, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PurchaseItemListResponse, Error> {
+    open func getThemeDescriptors(filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, appVersion: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<PurchaseItemListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/theme/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/theme/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -241,9 +235,8 @@ open class ThemeDescriptorAPI {
 
 
     /// Delete Theme
-    /// - POST /api/{version}/consumer/theme/remove
+    /// - POST /consumer/theme/remove
     /// - Removes a theme.
-    /// - parameter version: (path)  
     /// - parameter themeDescriptorId: (query) the theme id to remove 
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -251,14 +244,13 @@ open class ThemeDescriptorAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeThemeDescriptor(version: Double, themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeThemeDescriptor(themeDescriptorId: Int64, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/theme/remove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/theme/remove"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

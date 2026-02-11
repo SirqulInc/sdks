@@ -21,7 +21,7 @@ open class ListingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class ListingAPI {
 
 
     /// Create Listing
-    /// - POST /api/{version}/listing/create
+    /// - POST /listing/create
     /// - Creates a listing.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user&#39;s account ID 
     /// - parameter name: (query) the name of the listing 
     /// - parameter filterIds: (query) comma separated list of filter IDs (optional)
@@ -47,14 +46,13 @@ open class ListingAPI {
     /// - parameter active: (query) Sets the active flag (optional)
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - returns: AnyPublisher<ListingFullResponse, Error> 
-    open func createListing(version: Double, accountId: Int64, name: String, filterIds: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<ListingFullResponse, Error> {
+    open func createListing(accountId: Int64, name: String, filterIds: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<ListingFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/listing/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/listing/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -91,20 +89,18 @@ open class ListingAPI {
 
 
     /// Delete Listing
-    /// - POST /api/{version}/listing/delete
+    /// - POST /listing/delete
     /// - Delete a listing.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter listingId: (query) the id of the listing to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteListing(version: Double, accountId: Int64, listingId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteListing(accountId: Int64, listingId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/listing/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/listing/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -129,19 +125,17 @@ open class ListingAPI {
 
 
     /// Get Listing
-    /// - GET /api/{version}/listing/get
+    /// - GET /listing/get
     /// - Get a listing by id.
-    /// - parameter version: (path)  
     /// - parameter listingId: (query) the id of the listing to get 
     /// - returns: AnyPublisher<ListingFullResponse, Error> 
-    open func getListing(version: Double, listingId: Int64) -> AnyPublisher<ListingFullResponse, Error> {
+    open func getListing(listingId: Int64) -> AnyPublisher<ListingFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/listing/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/listing/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -165,9 +159,8 @@ open class ListingAPI {
 
 
     /// Search Listings
-    /// - GET /api/{version}/listing/search
+    /// - GET /listing/search
     /// - Search for event listings from the start time to end time
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user (optional)
     /// - parameter keyword: (query) search the event name and description for this keyword (optional)
     /// - parameter start: (query) the record to begin the return set on (optional, default to 0)
@@ -184,14 +177,13 @@ open class ListingAPI {
     /// - parameter externalId2: (query) secondary external identifier used by a third party (optional)
     /// - parameter externalGroupId: (query) external group identifier used by a third party (optional)
     /// - returns: AnyPublisher<[ListingResponse], Error> 
-    open func searchListing(version: Double, accountId: Int64? = nil, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, startDate: Int64? = nil, endDate: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, useListingOrderIds: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil) -> AnyPublisher<[ListingResponse], Error> {
+    open func searchListing(accountId: Int64? = nil, keyword: String? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, startDate: Int64? = nil, endDate: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, useListingOrderIds: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil) -> AnyPublisher<[ListingResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/listing/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/listing/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -229,23 +221,21 @@ open class ListingAPI {
 
 
     /// Summary Listing
-    /// - GET /api/{version}/listing/summary
+    /// - GET /listing/summary
     /// - Search for a list of summary listings from the start time up to 8 days out.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user (optional)
     /// - parameter startDate: (query) the start date to search from (optional)
     /// - parameter categoryIds: (query) the list of categories to search on (optional)
     /// - parameter daysToInclude: (query) how far out to search, in days (optional, default to 15)
     /// - parameter useListingOrderIds: (query) determines whether to use configured listing order ids (optional, default to true)
     /// - returns: AnyPublisher<[ListingGroupResponse], Error> 
-    open func summaryListing(version: Double, accountId: Int64? = nil, startDate: Int64? = nil, categoryIds: String? = nil, daysToInclude: Int? = nil, useListingOrderIds: Bool? = nil) -> AnyPublisher<[ListingGroupResponse], Error> {
+    open func summaryListing(accountId: Int64? = nil, startDate: Int64? = nil, categoryIds: String? = nil, daysToInclude: Int? = nil, useListingOrderIds: Bool? = nil) -> AnyPublisher<[ListingGroupResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/listing/summary"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/listing/summary"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -273,9 +263,8 @@ open class ListingAPI {
 
 
     /// Update Listing
-    /// - POST /api/{version}/listing/update
+    /// - POST /listing/update
     /// - Updates a listing.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user&#39;s account ID 
     /// - parameter listingId: (query) the listing to update 
     /// - parameter filterIds: (query) comma separated list of filter IDs (optional)
@@ -292,14 +281,13 @@ open class ListingAPI {
     /// - parameter active: (query) Sets the active flag (optional)
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - returns: AnyPublisher<ListingFullResponse, Error> 
-    open func updateListing(version: Double, accountId: Int64, listingId: Int64, filterIds: String? = nil, name: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<ListingFullResponse, Error> {
+    open func updateListing(accountId: Int64, listingId: Int64, filterIds: String? = nil, name: String? = nil, description: String? = nil, start: Int64? = nil, end: Int64? = nil, locationName: String? = nil, locationDescription: String? = nil, isPrivate: Bool? = nil, externalId: String? = nil, externalId2: String? = nil, externalGroupId: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<ListingFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/listing/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/listing/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class TrackingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class TrackingAPI {
 
 
     /// Create Batch Tracking
-    /// - POST /api/{version}/tracking/batch/create
+    /// - POST /tracking/batch/create
     /// - Batch create tracking legs
-    /// - parameter version: (path)  
     /// - parameter data: (query) JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -40,14 +39,13 @@ open class TrackingAPI {
     /// - parameter defaultTag: (query) The default tag to apply to incoming legs when no tag is provided (optional, default to "PASSIVE")
     /// - parameter slaveUID: (query)  (optional)
     /// - returns: AnyPublisher<[Leg], Error> 
-    open func batchSaveTracking(version: Double, data: String, deviceId: String? = nil, accountId: Int64? = nil, generateAccounts: Bool? = nil, updateAccountLocations: Bool? = nil, defaultTag: String? = nil, slaveUID: String? = nil) -> AnyPublisher<[Leg], Error> {
+    open func batchSaveTracking(data: String, deviceId: String? = nil, accountId: Int64? = nil, generateAccounts: Bool? = nil, updateAccountLocations: Bool? = nil, defaultTag: String? = nil, slaveUID: String? = nil) -> AnyPublisher<[Leg], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/batch/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/batch/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -92,9 +90,8 @@ open class TrackingAPI {
     }
 
     /// Get Predicted Locations
-    /// - GET /api/{version}/tracking/predicted/get
+    /// - GET /tracking/predicted/get
     /// - Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the customer 
     /// - parameter latitude: (query) latitude to return a more likely result set based on the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -105,14 +102,13 @@ open class TrackingAPI {
     /// - parameter searchRange: (query) Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (optional, default to 0)
     /// - parameter sortOrder: (query) The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to .matches)
     /// - returns: AnyPublisher<PredictedLocationResponse, Error> 
-    open func getPredictedLocations(version: Double, accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, threshold: Int64? = nil, distanceUnit: GetPredictedLocationsDistanceUnit? = nil, searchRange: Double? = nil, sortOrder: GetPredictedLocationsSortOrder? = nil) -> AnyPublisher<PredictedLocationResponse, Error> {
+    open func getPredictedLocations(accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, threshold: Int64? = nil, distanceUnit: GetPredictedLocationsDistanceUnit? = nil, searchRange: Double? = nil, sortOrder: GetPredictedLocationsSortOrder? = nil) -> AnyPublisher<PredictedLocationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/predicted/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/predicted/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -144,21 +140,19 @@ open class TrackingAPI {
 
 
     /// Get Tracking Path
-    /// - GET /api/{version}/tracking/path/get
+    /// - GET /tracking/path/get
     /// - Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the customer 
     /// - parameter startStepId: (query) The stepId to begin from 
     /// - parameter endStepId: (query) The stepId to end with 
     /// - returns: AnyPublisher<[StepResponse], Error> 
-    open func getPredictedPath(version: Double, accountId: Int64, startStepId: Int64, endStepId: Int64) -> AnyPublisher<[StepResponse], Error> {
+    open func getPredictedPath(accountId: Int64, startStepId: Int64, endStepId: Int64) -> AnyPublisher<[StepResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/path/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/path/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -191,9 +185,8 @@ open class TrackingAPI {
     }
 
     /// Search Preferred Locations
-    /// - GET /api/{version}/tracking/preferred/search
+    /// - GET /tracking/preferred/search
     /// - Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the customer 
     /// - parameter latitude: (query) latitude to return a more likely result set based on the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude to return a more likely result set based on the user&#39;s current location (optional)
@@ -206,14 +199,13 @@ open class TrackingAPI {
     /// - parameter searchRange: (query) Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (optional, default to 0)
     /// - parameter distanceUnit: (query) Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to .miles)
     /// - returns: AnyPublisher<[PreferredLocationResponse], Error> 
-    open func getPreferredLocations(version: Double, accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, distanceUnit: GetPreferredLocationsDistanceUnit? = nil) -> AnyPublisher<[PreferredLocationResponse], Error> {
+    open func getPreferredLocations(accountId: Int64, latitude: Double? = nil, longitude: Double? = nil, dateCheck: Int64? = nil, hourCheck: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchRange: Double? = nil, distanceUnit: GetPreferredLocationsDistanceUnit? = nil) -> AnyPublisher<[PreferredLocationResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/preferred/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/preferred/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -247,9 +239,8 @@ open class TrackingAPI {
 
 
     /// Search Tracking
-    /// - GET /api/{version}/tracking/search
+    /// - GET /tracking/search
     /// - Retrieve tracking data to be able to show where a user has been.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter ownerId: (query) the account id of the person the user wants to tracking data for (optional)
@@ -259,14 +250,13 @@ open class TrackingAPI {
     /// - parameter tags: (query) filter results by tag (optional)
     /// - parameter getLastPoint: (query) gets the last known location of the user (optional, default to false)
     /// - returns: AnyPublisher<[LegResponse], Error> 
-    open func getTrackingLegs(version: Double, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, getLastPoint: Bool? = nil) -> AnyPublisher<[LegResponse], Error> {
+    open func getTrackingLegs(deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, getLastPoint: Bool? = nil) -> AnyPublisher<[LegResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -297,9 +287,8 @@ open class TrackingAPI {
 
 
     /// Create Tracking Leg
-    /// - POST /api/{version}/tracking/leg/create
+    /// - POST /tracking/leg/create
     /// - Send tracking points to be able to generate pathing data
-    /// - parameter version: (path)  
     /// - parameter startLat: (query) the latitude of the first point 
     /// - parameter startLng: (query) the longitude of the first point 
     /// - parameter startDate: (query) the start date (in UTC milliseconds) of the first point 
@@ -313,14 +302,13 @@ open class TrackingAPI {
     /// - parameter steps: (query) JSON array of tracking vectors used for smoother pathing data. If null then the leg data will be used to generate a single step, if an empty array then no steps will be generated. &#x60;&#x60;&#x60;json [{   \&quot;distance\&quot;: \&quot;0.03\&quot;,   \&quot;duration\&quot;: \&quot;5000\&quot;,   \&quot;startLat\&quot;: \&quot;47.614603\&quot;,   \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endLat\&quot;: \&quot;47.614941\&quot;,   \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,   \&quot;endDate\&quot;: \&quot;1361924015000\&quot; }] &#x60;&#x60;&#x60;  (optional)
     /// - parameter tags: (query) name the leg for searching (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func saveTrackingLeg(version: Double, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, steps: String? = nil, tags: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func saveTrackingLeg(startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil, steps: String? = nil, tags: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/leg/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/leg/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -355,9 +343,8 @@ open class TrackingAPI {
 
 
     /// Create Tracking Step
-    /// - POST /api/{version}/tracking/step/create
+    /// - POST /tracking/step/create
     /// - Send tracking points to be able to generate pathing data
-    /// - parameter version: (path)  
     /// - parameter legId: (query) the leg to add the step to 
     /// - parameter startLat: (query) the latitude of the first point 
     /// - parameter startLng: (query) the longitude of the first point 
@@ -370,14 +357,13 @@ open class TrackingAPI {
     /// - parameter distance: (query) the total distance (optional)
     /// - parameter duration: (query) the total duration (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func saveTrackingStep(version: Double, legId: Int64, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func saveTrackingStep(legId: Int64, startLat: Double, startLng: Double, startDate: Int64, endLat: Double, endLng: Double, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, distance: Double? = nil, duration: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/step/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/step/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -411,9 +397,8 @@ open class TrackingAPI {
 
 
     /// List Tracking
-    /// - GET /api/{version}/tracking/list
+    /// - GET /tracking/list
     /// - Search for all accounts that have tracking legs data by the given constraints.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter keyword: (query) Used for LIKE search of first or last name on the acocunt (optional)
     /// - parameter startDate: (query) Range to begin in UTC milliseconds (optional)
@@ -429,14 +414,13 @@ open class TrackingAPI {
     /// - parameter limit: (query) The total number of records to return. Default is 20. (optional, default to 20)
     /// - parameter activeOnly: (query) Determines whether to return only active results. Default is false. (optional, default to false)
     /// - returns: AnyPublisher<[AccountMiniResponse], Error> 
-    open func searchAccountsWithTrackingLegs(version: Double, accountId: Int64, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, audienceIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[AccountMiniResponse], Error> {
+    open func searchAccountsWithTrackingLegs(accountId: Int64, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, audienceIds: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[AccountMiniResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -473,9 +457,8 @@ open class TrackingAPI {
 
 
     /// Search Tracking (Billable)
-    /// - GET /api/{version}/tracking/searchByBillable
+    /// - GET /tracking/searchByBillable
     /// - Retrieve tracking data for billable/account scoped queries.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id to search tracking for 
     /// - parameter appKey: (query) The application key 
     /// - parameter trackingDeviceId: (query) The id of the tracking device (optional)
@@ -485,14 +468,13 @@ open class TrackingAPI {
     /// - parameter start: (query) The start index for pagination (optional, default to 0)
     /// - parameter limit: (query) The limit for pagination (optional, default to 100)
     /// - returns: AnyPublisher<[LegResponse], Error> 
-    open func searchTrackingLegs(version: Double, accountId: Int64, appKey: String, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[LegResponse], Error> {
+    open func searchTrackingLegs(accountId: Int64, appKey: String, trackingDeviceId: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, tags: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[LegResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/tracking/searchByBillable"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/tracking/searchByBillable"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

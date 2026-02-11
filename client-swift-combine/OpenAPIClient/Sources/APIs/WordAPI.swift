@@ -21,7 +21,7 @@ open class WordAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class WordAPI {
 
 
     /// Create Word
-    /// - POST /api/{version}/game/word/create
+    /// - POST /game/word/create
     /// - Create a word by the given params.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter word: (query) The text of the word. 
     /// - parameter definition: (query) The definition of the word. 
@@ -42,14 +41,13 @@ open class WordAPI {
     /// - parameter ticketType: (query) The type of ticket to reward, null means default type (optional)
     /// - parameter points: (query) The number of points to award for completing a mission (optional)
     /// - returns: AnyPublisher<WordzWordResponse, Error> 
-    open func createWord(version: Double, accountId: Int64, word: String, definition: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<WordzWordResponse, Error> {
+    open func createWord(accountId: Int64, word: String, definition: String, active: Bool, allocateTickets: Bool, ticketCount: Int64, assetId: Int64? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<WordzWordResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/word/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/word/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -81,20 +79,18 @@ open class WordAPI {
 
 
     /// Delete Word
-    /// - DELETE /api/{version}/game/word/delete
+    /// - DELETE /game/word/delete
     /// - Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-    /// - parameter version: (path)  
     /// - parameter wordId: (query) The id of the word to delete. 
     /// - parameter accountId: (query) The account vor validating permission 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteWord(version: Double, wordId: Int64, accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteWord(wordId: Int64, accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/word/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/word/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -119,20 +115,18 @@ open class WordAPI {
 
 
     /// Get Word
-    /// - GET /api/{version}/game/word/get
+    /// - GET /game/word/get
     /// - Get a word by the given id.
-    /// - parameter version: (path)  
     /// - parameter wordId: (query) The id of the word to get. 
     /// - parameter accountId: (query) The logged in user. 
     /// - returns: AnyPublisher<WordzWordResponse, Error> 
-    open func getWord(version: Double, wordId: Int64, accountId: Int64) -> AnyPublisher<WordzWordResponse, Error> {
+    open func getWord(wordId: Int64, accountId: Int64) -> AnyPublisher<WordzWordResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/word/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/word/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -157,9 +151,8 @@ open class WordAPI {
 
 
     /// Search Words
-    /// - GET /api/{version}/game/word/search
+    /// - GET /game/word/search
     /// - Search for words by the given params.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter sortField: (query) The column to sort the search on 
     /// - parameter descending: (query) The order to return the search results 
@@ -168,14 +161,13 @@ open class WordAPI {
     /// - parameter limit: (query) The number of records to return. 
     /// - parameter keyword: (query) The keyword for searching words with matching definition or word text. (optional)
     /// - returns: AnyPublisher<[WordzWordResponse], Error> 
-    open func getWords(version: Double, accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil) -> AnyPublisher<[WordzWordResponse], Error> {
+    open func getWords(accountId: Int64, sortField: String, descending: Bool, activeOnly: Bool, start: Int, limit: Int, keyword: String? = nil) -> AnyPublisher<[WordzWordResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/word/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/word/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -205,9 +197,8 @@ open class WordAPI {
 
 
     /// Update Word
-    /// - POST /api/{version}/game/word/update
+    /// - POST /game/word/update
     /// - Update a word by the given params.
-    /// - parameter version: (path)  
     /// - parameter wordId: (query) The id of the word to update. 
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter ticketCount: (query) The number of tickets to reward 
@@ -219,14 +210,13 @@ open class WordAPI {
     /// - parameter ticketType: (query) The type of ticket to reward, null means default type (optional)
     /// - parameter points: (query) The number of points to award for completing a mission (optional)
     /// - returns: AnyPublisher<WordzWordResponse, Error> 
-    open func updateWord(version: Double, wordId: Int64, accountId: Int64, ticketCount: Int64, wordText: String? = nil, definition: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<WordzWordResponse, Error> {
+    open func updateWord(wordId: Int64, accountId: Int64, ticketCount: Int64, wordText: String? = nil, definition: String? = nil, assetId: Int64? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketType: String? = nil, points: Int64? = nil) -> AnyPublisher<WordzWordResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/game/word/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/game/word/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class OptimizeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class OptimizeAPI {
 
 
     /// Get Optimization Result
-    /// - GET /api/{version}/optimize/result/{batchID}
+    /// - GET /optimize/result/{batchID}
     /// - Get the results of the import batch.
-    /// - parameter version: (path)  
     /// - parameter batchID: (path) The batchID for getting the import status of. 
     /// - parameter start: (query) The start index for pagination 
     /// - parameter limit: (query) The limit for pagination 
     /// - returns: AnyPublisher<[String: ShipmentOrder], Error> 
-    open func getOptimizationResult(version: Double, batchID: String, start: Int, limit: Int) -> AnyPublisher<[String: ShipmentOrder], Error> {
+    open func getOptimizationResult(batchID: String, start: Int, limit: Int) -> AnyPublisher<[String: ShipmentOrder], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/optimize/result/{batchID}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/optimize/result/{batchID}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{batchID}", with: batchID)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -69,19 +67,17 @@ open class OptimizeAPI {
 
 
     /// Request Optimization
-    /// - POST /api/{version}/optimize/request
+    /// - POST /optimize/request
     /// - Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ImportStatuses, Error> 
-    open func requestOptimization(version: Double, body: Orders? = nil) -> AnyPublisher<ImportStatuses, Error> {
+    open func requestOptimization(body: Orders? = nil) -> AnyPublisher<ImportStatuses, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/optimize/request"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/optimize/request"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {

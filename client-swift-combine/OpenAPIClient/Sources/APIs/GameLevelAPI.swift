@@ -21,7 +21,7 @@ open class GameLevelAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class GameLevelAPI {
 
 
     /// Create Game Level
-    /// - POST /api/{version}/level/create
+    /// - POST /level/create
     /// - Create a game level. Currently does NOT support game objects.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter name: (query) The name of the level. 
     /// - parameter gameData: (query) The game level data: xml, json, or other text based format. 
@@ -59,14 +58,13 @@ open class GameLevelAPI {
     /// - parameter offerId: (query) id of the offer (optional)
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - returns: AnyPublisher<GameLevelResponse, Error> 
-    open func createGameLevel(version: Double, accountId: Int64, name: String, gameData: String, gameDataSuffix: String, appKey: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil) -> AnyPublisher<GameLevelResponse, Error> {
+    open func createGameLevel(accountId: Int64, name: String, gameData: String, gameDataSuffix: String, appKey: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil) -> AnyPublisher<GameLevelResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -115,20 +113,18 @@ open class GameLevelAPI {
 
 
     /// Delete Game Level
-    /// - POST /api/{version}/level/delete
+    /// - POST /level/delete
     /// - Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter levelId: (query) The id of the level to return. 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteGameLevel(version: Double, accountId: Int64, levelId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteGameLevel(accountId: Int64, levelId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -153,21 +149,19 @@ open class GameLevelAPI {
 
 
     /// Get Game Level
-    /// - GET /api/{version}/level/get
+    /// - GET /level/get
     /// - Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter levelId: (query) The id of the level to return. 
     /// - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. (optional)
     /// - returns: AnyPublisher<GameLevelResponse, Error> 
-    open func getGameLevel(version: Double, accountId: Int64, levelId: Int64, includeGameData: Bool? = nil) -> AnyPublisher<GameLevelResponse, Error> {
+    open func getGameLevel(accountId: Int64, levelId: Int64, includeGameData: Bool? = nil) -> AnyPublisher<GameLevelResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -193,9 +187,8 @@ open class GameLevelAPI {
 
 
     /// Search Game Levels
-    /// - GET /api/{version}/level/search
+    /// - GET /level/search
     /// - Get a list of levels for an application, just those the account has permissions to view.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) the application key 
     /// - parameter keyword: (query) Match the keyword to the owner name or level name. (optional)
@@ -207,14 +200,13 @@ open class GameLevelAPI {
     /// - parameter includeGameData: (query) If true include the game level data, otherwise don&#39;t. default is false. (optional)
     /// - parameter filters: (query)  (optional)
     /// - returns: AnyPublisher<GameLevelListResponse, Error> 
-    open func getGameLevelsByApplication(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, filters: String? = nil) -> AnyPublisher<GameLevelListResponse, Error> {
+    open func getGameLevelsByApplication(accountId: Int64, appKey: String, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, appVersion: String? = nil, includeGameData: Bool? = nil, filters: String? = nil) -> AnyPublisher<GameLevelListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -274,9 +266,8 @@ open class GameLevelAPI {
     }
 
     /// Search Game Level by Billable Entity
-    /// - GET /api/{version}/level/searchByBillableEntity
+    /// - GET /level/searchByBillableEntity
     /// - Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter appKey: (query) the application key (optional)
     /// - parameter keyword: (query) The keyword used to search (optional)
@@ -286,14 +277,13 @@ open class GameLevelAPI {
     /// - parameter start: (query) The record to begin the return set on (optional)
     /// - parameter limit: (query) The number of records to return (optional)
     /// - returns: AnyPublisher<GameLevelResponse, Error> 
-    open func getGameLevelsByBillableEntity(version: Double, accountId: Int64, appKey: String? = nil, keyword: String? = nil, sortField: GetGameLevelsByBillableEntitySortField? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, start: Int64? = nil, limit: Int64? = nil) -> AnyPublisher<GameLevelResponse, Error> {
+    open func getGameLevelsByBillableEntity(accountId: Int64, appKey: String? = nil, keyword: String? = nil, sortField: GetGameLevelsByBillableEntitySortField? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, start: Int64? = nil, limit: Int64? = nil) -> AnyPublisher<GameLevelResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/searchByBillableEntity"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/searchByBillableEntity"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -324,20 +314,18 @@ open class GameLevelAPI {
 
 
     /// Get Level Questions
-    /// - GET /api/{version}/level/questions/get
+    /// - GET /level/questions/get
     /// - Get questions within a level.
-    /// - parameter version: (path)  
     /// - parameter levelId: (query) the id of the level to get questions from 
     /// - parameter accountId: (query) the id of the logged in user 
     /// - returns: AnyPublisher<QuestionResponse, Error> 
-    open func getQuestionsInLevel(version: Double, levelId: Int64, accountId: Int64) -> AnyPublisher<QuestionResponse, Error> {
+    open func getQuestionsInLevel(levelId: Int64, accountId: Int64) -> AnyPublisher<QuestionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/questions/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/questions/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -362,20 +350,18 @@ open class GameLevelAPI {
 
 
     /// Get Level Words
-    /// - GET /api/{version}/level/words/get
+    /// - GET /level/words/get
     /// - Get words within a level.
-    /// - parameter version: (path)  
     /// - parameter levelId: (query) the id of the level to get words for 
     /// - parameter accountId: (query) the id of the logged in user 
     /// - returns: AnyPublisher<WordzWordResponse, Error> 
-    open func getWordsInLevel(version: Double, levelId: Int64, accountId: Int64) -> AnyPublisher<WordzWordResponse, Error> {
+    open func getWordsInLevel(levelId: Int64, accountId: Int64) -> AnyPublisher<WordzWordResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/words/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/words/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -400,9 +386,8 @@ open class GameLevelAPI {
 
 
     /// Update Game Level
-    /// - POST /api/{version}/level/update
+    /// - POST /level/update
     /// - Update a game level. Currently does NOT support game objects.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter levelId: (query) If update then include the level Id. 
     /// - parameter appKey: (query) The game application key to save the level for. (optional)
@@ -431,14 +416,13 @@ open class GameLevelAPI {
     /// - parameter offerId: (query)  (optional)
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - returns: AnyPublisher<GameLevelResponse, Error> 
-    open func updateGameLevel(version: Double, accountId: Int64, levelId: Int64, appKey: String? = nil, name: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, gameData: String? = nil, gameDataSuffix: String? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil) -> AnyPublisher<GameLevelResponse, Error> {
+    open func updateGameLevel(accountId: Int64, levelId: Int64, appKey: String? = nil, name: String? = nil, description: String? = nil, difficulty: String? = nil, appVersion: String? = nil, assetImageId: Int64? = nil, assetIconId: Int64? = nil, gameData: String? = nil, gameDataSuffix: String? = nil, visibility: String? = nil, friendGroup: Bool? = nil, connectionIds: String? = nil, connectionGroupIds: String? = nil, balance: Double? = nil, active: Bool? = nil, allocateTickets: Bool? = nil, ticketCount: Int64? = nil, ticketType: String? = nil, points: Int64? = nil, tutorialTitle: String? = nil, tutorialMessage: String? = nil, tutorialAlignment: String? = nil, tutorialImageAssetId: Int64? = nil, offerId: Int64? = nil, metaData: String? = nil) -> AnyPublisher<GameLevelResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -488,21 +472,19 @@ open class GameLevelAPI {
 
 
     /// Update Level Questions
-    /// - POST /api/{version}/level/questions/update
+    /// - POST /level/questions/update
     /// - Updates a level with question game objects.
-    /// - parameter version: (path)  
     /// - parameter levelId: (query) the id of the level to update questions on 
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter questionIds: (query) the IDs of the questions to update 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateQuestionsInLevel(version: Double, levelId: Int64, accountId: Int64, questionIds: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateQuestionsInLevel(levelId: Int64, accountId: Int64, questionIds: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/questions/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/questions/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -528,21 +510,19 @@ open class GameLevelAPI {
 
 
     /// Update Level Words
-    /// - POST /api/{version}/level/words/update
+    /// - POST /level/words/update
     /// - Updates a level with word game objects.
-    /// - parameter version: (path)  
     /// - parameter levelId: (query) the id of the level to update words for 
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter wordIds: (query) the ids of the words to update for the level 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateWordsInLevel(version: Double, levelId: Int64, accountId: Int64, wordIds: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateWordsInLevel(levelId: Int64, accountId: Int64, wordIds: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/level/words/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/level/words/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class SecureAppAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -73,9 +73,8 @@ open class SecureAppAPI {
     }
 
     /// Create Secure Application
-    /// - POST /api/{version}/secure/application/create
+    /// - POST /secure/application/create
     /// - Create a secure application record.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The unique id of the user making the request 
     /// - parameter appKey: (query) The application to secure 
     /// - parameter keyCert: (query)  
@@ -87,14 +86,13 @@ open class SecureAppAPI {
     /// - parameter biometricPosition: (query) The position for the biometric file uploaded (optional, default to .unknown)
     /// - parameter biometricPosition2: (query) The position for each the biometric2 file uploaded (optional, default to .unknown)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func createSecureApplication(version: Double, accountId: Int64, appKey: String, keyCert: Data, trustStore: Data, username: String, password: String, active: Bool? = nil, biometricType: CreateSecureApplicationBiometricType? = nil, biometricPosition: CreateSecureApplicationBiometricPosition? = nil, biometricPosition2: CreateSecureApplicationBiometricPosition2? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func createSecureApplication(accountId: Int64, appKey: String, keyCert: Data, trustStore: Data, username: String, password: String, active: Bool? = nil, biometricType: CreateSecureApplicationBiometricType? = nil, biometricPosition: CreateSecureApplicationBiometricPosition? = nil, biometricPosition2: CreateSecureApplicationBiometricPosition2? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/secure/application/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/secure/application/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -127,20 +125,18 @@ open class SecureAppAPI {
 
 
     /// Delete Secure Application
-    /// - POST /api/{version}/secure/application/delete
+    /// - POST /secure/application/delete
     /// - Delete a secure application record.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The unique id of the user making the request 
     /// - parameter appKey: (query) The application to secure 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteSecureApplication(version: Double, accountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteSecureApplication(accountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/secure/application/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/secure/application/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -165,9 +161,8 @@ open class SecureAppAPI {
 
 
     /// Login Clear
-    /// - POST /api/{version}/secure/login
+    /// - POST /secure/login
     /// - Login via Clear.me. Creates a new account if logging in for the first time.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application making the request, defines what type and position is required to make a secure login the request. 
     /// - parameter biometricFile: (query) The data file used to perform authentication 
     /// - parameter deviceId: (query) The unique id of the device making the request (optional)
@@ -178,14 +173,13 @@ open class SecureAppAPI {
     /// - parameter latitude: (query) Used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) Used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func loginSecure(version: Double, appKey: String, biometricFile: Data, deviceId: String? = nil, biometricFile2: Data? = nil, ageRestriction: Int? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func loginSecure(appKey: String, biometricFile: Data, deviceId: String? = nil, biometricFile2: Data? = nil, ageRestriction: Int? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/secure/login"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/secure/login"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -217,19 +211,17 @@ open class SecureAppAPI {
 
 
     /// Purchase Clear
-    /// - POST /api/{version}/secure/purchase
+    /// - POST /secure/purchase
     /// - Purchase via Clear.me. Creates a new account if purchasing for the first time.
-    /// - parameter version: (path)  
     /// - parameter body: (body) The payment request object 
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func purchaseSecure(version: Double, body: PaymentRequest) -> AnyPublisher<ProfileResponse, Error> {
+    open func purchaseSecure(body: PaymentRequest) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/secure/purchase"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/secure/purchase"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -252,20 +244,18 @@ open class SecureAppAPI {
 
 
     /// Rest Secure Application
-    /// - POST /api/{version}/secure/application/reset
+    /// - POST /secure/application/reset
     /// - Reset a secure application client.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The unique id of the user making the request 
     /// - parameter appKey: (query) The application to secure 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func resetSecure(version: Double, accountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func resetSecure(accountId: Int64, appKey: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/secure/application/reset"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/secure/application/reset"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -334,9 +324,8 @@ open class SecureAppAPI {
     }
 
     /// Update Secure Application
-    /// - POST /api/{version}/secure/application/update
+    /// - POST /secure/application/update
     /// - Update a secure application record.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The unique id of the user making the request 
     /// - parameter appKey: (query) The application to secure 
     /// - parameter active: (query)  (optional)
@@ -348,14 +337,13 @@ open class SecureAppAPI {
     /// - parameter biometricPosition: (query) The position for the biometric file uploaded (optional)
     /// - parameter biometricPosition2: (query) The position for each the biometric2 file uploaded (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateSecureApplication(version: Double, accountId: Int64, appKey: String, active: Bool? = nil, keyCert: Data? = nil, trustStore: Data? = nil, username: String? = nil, password: String? = nil, biometricType: UpdateSecureApplicationBiometricType? = nil, biometricPosition: UpdateSecureApplicationBiometricPosition? = nil, biometricPosition2: UpdateSecureApplicationBiometricPosition2? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateSecureApplication(accountId: Int64, appKey: String, active: Bool? = nil, keyCert: Data? = nil, trustStore: Data? = nil, username: String? = nil, password: String? = nil, biometricType: UpdateSecureApplicationBiometricType? = nil, biometricPosition: UpdateSecureApplicationBiometricPosition? = nil, biometricPosition2: UpdateSecureApplicationBiometricPosition2? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/secure/application/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/secure/application/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class OpenAIAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class OpenAIAPI {
 
 
     /// Generate images with OpenAI
-    /// - POST /api/{version}/openai/v1/images/generations
+    /// - POST /openai/v1/images/generations
     /// - Generate images with OpenAI.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter postBody: (query) Post Body Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<WrappedProxyItemResponse, Error> 
-    open func imageGeneration(version: Double, accountId: Int64, postBody: String, returnRawResponse: Bool? = nil) -> AnyPublisher<WrappedProxyItemResponse, Error> {
+    open func imageGeneration(accountId: Int64, postBody: String, returnRawResponse: Bool? = nil) -> AnyPublisher<WrappedProxyItemResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/openai/v1/images/generations"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/openai/v1/images/generations"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

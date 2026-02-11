@@ -21,7 +21,7 @@ open class WorkflowAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,23 +29,21 @@ open class WorkflowAPI {
 
 
     /// Run Workflow
-    /// - POST /api/{version}/workflow/run
+    /// - POST /workflow/run
     /// - Runs a published executable workflow
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account ID of the user 
     /// - parameter workflowId: (query) the workflow to run 
     /// - parameter skuId: (query) this runs a particular sku on the workflow (optional)
     /// - parameter versionCode: (query) this runs a particular sku version on the workflow (optional)
     /// - parameter parameters: (query) Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func runWorkflow(version: Double, accountId: Int64, workflowId: Int64, skuId: Int64? = nil, versionCode: Int? = nil, parameters: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func runWorkflow(accountId: Int64, workflowId: Int64, skuId: Int64? = nil, versionCode: Int? = nil, parameters: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/workflow/run"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/workflow/run"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

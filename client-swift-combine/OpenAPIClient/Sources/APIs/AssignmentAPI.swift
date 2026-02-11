@@ -21,7 +21,7 @@ open class AssignmentAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,20 +29,18 @@ open class AssignmentAPI {
 
 
     /// Search Assignment Assignees
-    /// - GET /api/{version}/assignment/assignee/search
+    /// - GET /assignment/assignee/search
     /// - Search for avaiable users for creating or updating assignment.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id sending the request 
     /// - parameter keyword: (query) The keyword to filter the returned results (optional)
     /// - returns: AnyPublisher<[AccountMiniResponse], Error> 
-    open func assigmentAssigneeAccountSearch(version: Double, accountId: Int64, keyword: String? = nil) -> AnyPublisher<[AccountMiniResponse], Error> {
+    open func assigmentAssigneeAccountSearch(accountId: Int64, keyword: String? = nil) -> AnyPublisher<[AccountMiniResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/assignee/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/assignee/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -67,9 +65,8 @@ open class AssignmentAPI {
 
 
     /// Create Assignment
-    /// - POST /api/{version}/assignment/create
+    /// - POST /assignment/create
     /// - Create an assignment.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter name: (query) the name for the assignment 
     /// - parameter assigneeAccountId: (query) the account id to assign to 
@@ -78,14 +75,13 @@ open class AssignmentAPI {
     /// - parameter tags: (query) the tags (optional)
     /// - parameter active: (query) determines whether the assignment is active or inactive (optional)
     /// - returns: AnyPublisher<AssignmentResponse, Error> 
-    open func assignmentCreate(version: Double, accountId: Int64, name: String, assigneeAccountId: Int64, description: String? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentResponse, Error> {
+    open func assignmentCreate(accountId: Int64, name: String, assigneeAccountId: Int64, description: String? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -115,20 +111,18 @@ open class AssignmentAPI {
 
 
     /// Delete Assignment
-    /// - POST /api/{version}/assignment/delete
+    /// - POST /assignment/delete
     /// - Delete an assignment.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter assignmentId: (query) the assignment id 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func assignmentDelete(version: Double, accountId: Int64, assignmentId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func assignmentDelete(accountId: Int64, assignmentId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -153,20 +147,18 @@ open class AssignmentAPI {
 
 
     /// Get Assignment
-    /// - GET /api/{version}/assignment/get
+    /// - GET /assignment/get
     /// - Get the details of an assignment.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter assignmentId: (query) the assignment id 
     /// - returns: AnyPublisher<AssignmentResponse, Error> 
-    open func assignmentGet(version: Double, accountId: Int64, assignmentId: Int64) -> AnyPublisher<AssignmentResponse, Error> {
+    open func assignmentGet(accountId: Int64, assignmentId: Int64) -> AnyPublisher<AssignmentResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -218,9 +210,8 @@ open class AssignmentAPI {
     }
 
     /// Search Assignments
-    /// - GET /api/{version}/assignment/search
+    /// - GET /assignment/search
     /// - Search for assignments by the given parameters.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account sending the request 
     /// - parameter sortField: (query) sort by table field 
     /// - parameter descending: (query) return results in descending order or not 
@@ -233,14 +224,13 @@ open class AssignmentAPI {
     /// - parameter currentStatusType: (query) filter results by assignment status (optional)
     /// - parameter keyword: (query) filter results by keyword search that matches the assignee, creator, or retailer location name (optional)
     /// - returns: AnyPublisher<[AssignmentResponse], Error> 
-    open func assignmentSearch(version: Double, accountId: Int64, sortField: AssignmentSearchSortField, descending: Bool, activeOnly: Bool, start: Int, limit: Int, creatorAccountId: Int64? = nil, assigneeAccountIds: String? = nil, retailerLocationIds: String? = nil, currentStatusType: AssignmentSearchCurrentStatusType? = nil, keyword: String? = nil) -> AnyPublisher<[AssignmentResponse], Error> {
+    open func assignmentSearch(accountId: Int64, sortField: AssignmentSearchSortField, descending: Bool, activeOnly: Bool, start: Int, limit: Int, creatorAccountId: Int64? = nil, assigneeAccountIds: String? = nil, retailerLocationIds: String? = nil, currentStatusType: AssignmentSearchCurrentStatusType? = nil, keyword: String? = nil) -> AnyPublisher<[AssignmentResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -320,9 +310,8 @@ open class AssignmentAPI {
     }
 
     /// Create Assignment Status
-    /// - POST /api/{version}/assignment/status/create
+    /// - POST /assignment/status/create
     /// - Create an assignment status.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter assignmentId: (query) the assignment id 
     /// - parameter scheduledNotificationId: (query) the scheduled notification id for reminders (optional)
@@ -335,14 +324,13 @@ open class AssignmentAPI {
     /// - parameter followUp: (query) the date to follow up by (optional)
     /// - parameter active: (query) determines whether the assignment status is active or inactive (optional)
     /// - returns: AnyPublisher<AssignmentStatusResponse, Error> 
-    open func assignmentStatusCreate(version: Double, accountId: Int64, assignmentId: Int64, scheduledNotificationId: Int64? = nil, toDo: AssignmentStatusCreateToDo? = nil, connection: AssignmentStatusCreateConnection? = nil, method: AssignmentStatusCreateMethod? = nil, status: AssignmentStatusCreateStatus? = nil, closure: AssignmentStatusCreateClosure? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentStatusResponse, Error> {
+    open func assignmentStatusCreate(accountId: Int64, assignmentId: Int64, scheduledNotificationId: Int64? = nil, toDo: AssignmentStatusCreateToDo? = nil, connection: AssignmentStatusCreateConnection? = nil, method: AssignmentStatusCreateMethod? = nil, status: AssignmentStatusCreateStatus? = nil, closure: AssignmentStatusCreateClosure? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentStatusResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/status/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/status/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -376,20 +364,18 @@ open class AssignmentAPI {
 
 
     /// Deletes Assignment Status
-    /// - POST /api/{version}/assignment/status/delete
+    /// - POST /assignment/status/delete
     /// - Deletes an assignment status.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter assignmentStatusId: (query) the assignment status id 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func assignmentStatusDelete(version: Double, accountId: Int64, assignmentStatusId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func assignmentStatusDelete(accountId: Int64, assignmentStatusId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/status/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/status/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -414,20 +400,18 @@ open class AssignmentAPI {
 
 
     /// Get Assignment Status
-    /// - GET /api/{version}/assignment/status/get
+    /// - GET /assignment/status/get
     /// - Get an assignment status.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter assignmentStatusId: (query) the assignment status id 
     /// - returns: AnyPublisher<AssignmentStatusResponse, Error> 
-    open func assignmentStatusGet(version: Double, accountId: Int64, assignmentStatusId: Int64) -> AnyPublisher<AssignmentStatusResponse, Error> {
+    open func assignmentStatusGet(accountId: Int64, assignmentStatusId: Int64) -> AnyPublisher<AssignmentStatusResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/status/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/status/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -487,9 +471,8 @@ open class AssignmentAPI {
     }
 
     /// Search Assignment Statuses
-    /// - GET /api/{version}/assignment/status/search
+    /// - GET /assignment/status/search
     /// - Search on assignment statuses.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter sortField: (query) the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP 
     /// - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -503,14 +486,13 @@ open class AssignmentAPI {
     /// - parameter statusType: (query) filter results by the status type (optional)
     /// - parameter keyword: (query) filter results by keyword search (optional)
     /// - returns: AnyPublisher<[AssignmentStatusResponse], Error> 
-    open func assignmentStatusSearch(version: Double, accountId: Int64, sortField: AssignmentStatusSearchSortField, descending: Bool, activeOnly: Bool, start: Int, limit: Int, assignmentId: Int64? = nil, creatorAccountId: Int64? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, statusType: AssignmentStatusSearchStatusType? = nil, keyword: String? = nil) -> AnyPublisher<[AssignmentStatusResponse], Error> {
+    open func assignmentStatusSearch(accountId: Int64, sortField: AssignmentStatusSearchSortField, descending: Bool, activeOnly: Bool, start: Int, limit: Int, assignmentId: Int64? = nil, creatorAccountId: Int64? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, statusType: AssignmentStatusSearchStatusType? = nil, keyword: String? = nil) -> AnyPublisher<[AssignmentStatusResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/status/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/status/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -591,9 +573,8 @@ open class AssignmentAPI {
     }
 
     /// Update Assignment Status
-    /// - POST /api/{version}/assignment/status/update
+    /// - POST /assignment/status/update
     /// - Updates an assignment status.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter assignmentStatusId: (query) the assignment status id 
     /// - parameter scheduledNotificationId: (query) the scheduled notification id for reminders (optional)
@@ -606,14 +587,13 @@ open class AssignmentAPI {
     /// - parameter followUp: (query) the date to follow up by (optional)
     /// - parameter active: (query) determines whether the assignment status is active or inactive (optional)
     /// - returns: AnyPublisher<AssignmentStatusResponse, Error> 
-    open func assignmentStatusUpdate(version: Double, accountId: Int64, assignmentStatusId: Int64, scheduledNotificationId: Int64? = nil, toDo: AssignmentStatusUpdateToDo? = nil, connection: AssignmentStatusUpdateConnection? = nil, method: AssignmentStatusUpdateMethod? = nil, status: AssignmentStatusUpdateStatus? = nil, closure: AssignmentStatusUpdateClosure? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentStatusResponse, Error> {
+    open func assignmentStatusUpdate(accountId: Int64, assignmentStatusId: Int64, scheduledNotificationId: Int64? = nil, toDo: AssignmentStatusUpdateToDo? = nil, connection: AssignmentStatusUpdateConnection? = nil, method: AssignmentStatusUpdateMethod? = nil, status: AssignmentStatusUpdateStatus? = nil, closure: AssignmentStatusUpdateClosure? = nil, message: String? = nil, followUp: Int64? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentStatusResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/status/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/status/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -647,9 +627,8 @@ open class AssignmentAPI {
 
 
     /// Update Assignment
-    /// - POST /api/{version}/assignment/update
+    /// - POST /assignment/update
     /// - Updates an assignment.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the user account id 
     /// - parameter assignmentId: (query) the assignment id 
     /// - parameter name: (query) the name of the assignment (optional)
@@ -659,14 +638,13 @@ open class AssignmentAPI {
     /// - parameter tags: (query) the tags (optional)
     /// - parameter active: (query) determines whether the assignment is active or inactive (optional)
     /// - returns: AnyPublisher<AssignmentResponse, Error> 
-    open func assignmentUpdate(version: Double, accountId: Int64, assignmentId: Int64, name: String? = nil, description: String? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentResponse, Error> {
+    open func assignmentUpdate(accountId: Int64, assignmentId: Int64, name: String? = nil, description: String? = nil, assigneeAccountId: Int64? = nil, retailerLocationId: Int64? = nil, tags: String? = nil, active: Bool? = nil) -> AnyPublisher<AssignmentResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/assignment/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/assignment/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

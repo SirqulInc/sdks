@@ -21,7 +21,7 @@ open class StopAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class StopAPI {
 
 
     /// Get Stop
-    /// - GET /api/{version}/stop/{id}
+    /// - GET /stop/{id}
     /// - Get an existing stop
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the stop to get 
     /// - returns: AnyPublisher<Stop, Error> 
-    open func getStop(version: Double, id: Int64) -> AnyPublisher<Stop, Error> {
+    open func getStop(id: Int64) -> AnyPublisher<Stop, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/stop/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/stop/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -63,20 +61,18 @@ open class StopAPI {
 
 
     /// Update Stop
-    /// - PUT /api/{version}/stop/{id}
+    /// - PUT /stop/{id}
     /// - Update an existing stop
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the stop to update 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Stop, Error> 
-    open func updateStop(version: Double, id: Int64, body: Stop? = nil) -> AnyPublisher<Stop, Error> {
+    open func updateStop(id: Int64, body: Stop? = nil) -> AnyPublisher<Stop, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/stop/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/stop/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)

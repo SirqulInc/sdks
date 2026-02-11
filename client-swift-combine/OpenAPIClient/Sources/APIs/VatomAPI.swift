@@ -21,7 +21,7 @@ open class VatomAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class VatomAPI {
 
 
     /// Create following
-    /// - POST /api/{version}/vatom/me/rels/following/create
+    /// - POST /vatom/me/rels/following/create
     /// - Create following.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func createFollowing(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func createFollowing(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/rels/following/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/rels/following/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -69,22 +67,20 @@ open class VatomAPI {
 
 
     /// Create Vatom Space
-    /// - POST /api/{version}/vatom/b/spaces/create
+    /// - POST /vatom/b/spaces/create
     /// - Create a Vatom space.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func createSpace(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func createSpace(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/spaces/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/spaces/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -111,22 +107,20 @@ open class VatomAPI {
 
 
     /// Create Vatom Event
-    /// - POST /api/{version}/vatom/b/events/create
+    /// - POST /vatom/b/events/create
     /// - Create a Vatom event.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func createVatomEvent(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func createVatomEvent(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/events/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/events/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -153,21 +147,19 @@ open class VatomAPI {
 
 
     /// Delete following
-    /// - POST /api/{version}/vatom/me/rels/following/delete
+    /// - POST /vatom/me/rels/following/delete
     /// - Delete following.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomRelsKey: (query) Vatom Rels Key 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteFollowing(version: Double, accountId: Int64, vatomRelsKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func deleteFollowing(accountId: Int64, vatomRelsKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/rels/following/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/rels/following/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -193,22 +185,20 @@ open class VatomAPI {
 
 
     /// Reset All Points Balance
-    /// - POST /api/{version}/vatom/b/campaign/points/delete
+    /// - POST /vatom/b/campaign/points/delete
     /// - Reset All Points Balance.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func deletePointsBalance(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func deletePointsBalance(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign/points/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign/points/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -235,22 +225,20 @@ open class VatomAPI {
 
 
     /// Delete Vatom Space
-    /// - POST /api/{version}/vatom/b/spaces/delete
+    /// - POST /vatom/b/spaces/delete
     /// - Delete a Vatom space.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomSpaceId: (query) Vatom Space Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteSpace(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func deleteSpace(accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/spaces/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/spaces/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -277,22 +265,20 @@ open class VatomAPI {
 
 
     /// Delete Vatom Event
-    /// - POST /api/{version}/vatom/b/events/delete
+    /// - POST /vatom/b/events/delete
     /// - Delete a Vatom event.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomEventId: (query) Vatom Event Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteVatomEvent(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func deleteVatomEvent(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/events/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/events/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -319,21 +305,19 @@ open class VatomAPI {
 
 
     /// Delete Vatom NFT
-    /// - POST /api/{version}/vatom/vatoms/delete
+    /// - POST /vatom/vatoms/delete
     /// - Delete Vatom NFT
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomId: (query) Vatom NFT Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteVatomNFT(version: Double, accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func deleteVatomNFT(accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/vatoms/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/vatoms/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -359,22 +343,20 @@ open class VatomAPI {
 
 
     /// Execute Action on NFT
-    /// - POST /api/{version}/vatom/vatoms/execute-action
+    /// - POST /vatom/vatoms/execute-action
     /// - Execute Action on NFT.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomId: (query) Vatom NFT Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func executeActionOnNFT(version: Double, accountId: Int64, vatomId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func executeActionOnNFT(accountId: Int64, vatomId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/vatoms/execute-action"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/vatoms/execute-action"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -401,21 +383,19 @@ open class VatomAPI {
 
 
     /// Search Vatom Geo Map
-    /// - GET /api/{version}/vatom/vatoms/geo-map/search
+    /// - GET /vatom/vatoms/geo-map/search
     /// - Search Vatom Geo Map
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func geomapSearch(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func geomapSearch(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/vatoms/geo-map/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/vatoms/geo-map/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -441,21 +421,19 @@ open class VatomAPI {
 
 
     /// Get Vatom Business Behaviors
-    /// - GET /api/{version}/vatom/b/behaviors
+    /// - GET /vatom/b/behaviors
     /// - Gets the behaviors of a business.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getBusinessBehaviors(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getBusinessBehaviors(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/behaviors"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/behaviors"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -481,21 +459,19 @@ open class VatomAPI {
 
 
     /// Get the coins for a Business
-    /// - GET /api/{version}/vatom/b/coins/get
+    /// - GET /vatom/b/coins/get
     /// - Get the coins for a Businesss.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getBusinessCoinsBalance(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getBusinessCoinsBalance(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/coins/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/coins/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -521,20 +497,18 @@ open class VatomAPI {
 
 
     /// Get the user business ids
-    /// - GET /api/{version}/vatom/me/businesses
+    /// - GET /vatom/me/businesses
     /// - Get the business ids the logged in user has access to.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getBusinessIds(version: Double, accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getBusinessIds(accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/businesses"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/businesses"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -559,22 +533,20 @@ open class VatomAPI {
 
 
     /// Get Vatom Business Info
-    /// - GET /api/{version}/vatom/b/get
+    /// - GET /vatom/b/get
     /// - Gets the business info tied to this account.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getBusinessInfo(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getBusinessInfo(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -601,21 +573,19 @@ open class VatomAPI {
 
 
     /// Get Vatom Business Users
-    /// - GET /api/{version}/vatom/b/users
+    /// - GET /vatom/b/users
     /// - Gets the users of a business.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getBusinessUsers(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getBusinessUsers(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/users"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/users"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -641,22 +611,20 @@ open class VatomAPI {
 
 
     /// Get Campaign Group Entities
-    /// - GET /api/{version}/vatom/b/campaign-groups/entities
+    /// - GET /vatom/b/campaign-groups/entities
     /// - Get campaign group entities.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getCampaignGroupEntities(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getCampaignGroupEntities(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign-groups/entities"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign-groups/entities"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -683,22 +651,20 @@ open class VatomAPI {
 
 
     /// Get Campaign Group Rules
-    /// - GET /api/{version}/vatom/b/campaign-groups/rules
+    /// - GET /vatom/b/campaign-groups/rules
     /// - Get campaign group rules.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getCampaignGroupRules(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getCampaignGroupRules(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign-groups/rules"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign-groups/rules"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -725,22 +691,20 @@ open class VatomAPI {
 
 
     /// Get Campaign Group Stats
-    /// - GET /api/{version}/vatom/b/campaign-groups/stats
+    /// - GET /vatom/b/campaign-groups/stats
     /// - Get campaign group stats.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getCampaignGroupStats(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getCampaignGroupStats(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign-groups/stats"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign-groups/stats"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -767,22 +731,20 @@ open class VatomAPI {
 
 
     /// Get Campaign Info
-    /// - GET /api/{version}/vatom/b/campaign-groups/get
+    /// - GET /vatom/b/campaign-groups/get
     /// - Gets the info on a campaign.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getCampaignInfo(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getCampaignInfo(accountId: Int64, appKey: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign-groups/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign-groups/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -809,22 +771,20 @@ open class VatomAPI {
 
 
     /// Get Vatom Event Guest List
-    /// - GET /api/{version}/vatom/b/events/guests/get
+    /// - GET /vatom/b/events/guests/get
     /// - Gets the guest list of an event.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomEventId: (query) Vatom Event Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getEventGuestList(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getEventGuestList(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/events/guests/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/events/guests/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -851,21 +811,19 @@ open class VatomAPI {
 
 
     /// Get Vatom User's Inventory
-    /// - GET /api/{version}/vatom/me/inventory
+    /// - GET /vatom/me/inventory
     /// - Gets the logged in user's Vatom Inventory.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getInventory(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getInventory(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/inventory"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/inventory"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -891,20 +849,18 @@ open class VatomAPI {
 
 
     /// Get following
-    /// - GET /api/{version}/vatom/me/rels/following
+    /// - GET /vatom/me/rels/following
     /// - Get following.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getMyFollowing(version: Double, accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getMyFollowing(accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/rels/following"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/rels/following"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -929,22 +885,20 @@ open class VatomAPI {
 
 
     /// Get Points Balance
-    /// - GET /api/{version}/vatom/u/campaign/points/get
+    /// - GET /vatom/u/campaign/points/get
     /// - Gets the points balance of a Vatom user.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getPointsBalance(version: Double, accountId: Int64, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getPointsBalance(accountId: Int64, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/u/campaign/points/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/u/campaign/points/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -971,23 +925,21 @@ open class VatomAPI {
 
 
     /// Get Points Balance as Business
-    /// - GET /api/{version}/vatom/b/campaign/u/points/get
+    /// - GET /vatom/b/campaign/u/points/get
     /// - Gets the points balance of a Vatom user.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getPointsBalanceAsBusiness(version: Double, accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getPointsBalanceAsBusiness(accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign/u/points/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign/u/points/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1015,22 +967,20 @@ open class VatomAPI {
 
 
     /// Get Vatom Space
-    /// - GET /api/{version}/vatom/b/spaces/get
+    /// - GET /vatom/b/spaces/get
     /// - Gets the details of a space.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomSpaceId: (query) Vatom Space Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getSpace(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getSpace(accountId: Int64, appKey: String, vatomSpaceId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/spaces/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/spaces/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1057,22 +1007,20 @@ open class VatomAPI {
 
 
     /// Get the coins for a user (as a Business)
-    /// - GET /api/{version}/vatom/b/users/coins/get
+    /// - GET /vatom/b/users/coins/get
     /// - Get the coins for a user (as a Business).
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getUserCoinsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getUserCoinsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/users/coins/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/users/coins/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1099,22 +1047,20 @@ open class VatomAPI {
 
 
     /// Gets the coins balance for a Vatom User
-    /// - GET /api/{version}/vatom/u/coins/get
+    /// - GET /vatom/u/coins/get
     /// - Gets the coins balance for a Vatom User.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getUserCoinsBalance(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getUserCoinsBalance(accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/u/coins/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/u/coins/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1141,21 +1087,19 @@ open class VatomAPI {
 
 
     /// Get user followers
-    /// - GET /api/{version}/vatom/users/rels/followers
+    /// - GET /vatom/users/rels/followers
     /// - Get user followers.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getUserFollowers(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getUserFollowers(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/users/rels/followers"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/users/rels/followers"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1181,21 +1125,19 @@ open class VatomAPI {
 
 
     /// Get user following
-    /// - GET /api/{version}/vatom/users/rels/following
+    /// - GET /vatom/users/rels/following
     /// - Get user following.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getUserFollowing(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getUserFollowing(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/users/rels/following"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/users/rels/following"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1221,21 +1163,19 @@ open class VatomAPI {
 
 
     /// Get User Info
-    /// - GET /api/{version}/vatom/user/get
+    /// - GET /vatom/user/get
     /// - Get a User's Info.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getUserInfo(version: Double, accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getUserInfo(accountId: Int64, vatomUserId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/user/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/user/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1261,20 +1201,18 @@ open class VatomAPI {
 
 
     /// Get Vatom User Profile
-    /// - GET /api/{version}/vatom/me/get
+    /// - GET /vatom/me/get
     /// - Gets the logged in user's profile in Vatom.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getUserProfile(version: Double, accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getUserProfile(accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1299,22 +1237,20 @@ open class VatomAPI {
 
 
     /// Get Vatom Event
-    /// - GET /api/{version}/vatom/b/events/get
+    /// - GET /vatom/b/events/get
     /// - Gets the details of a event.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomEventId: (query) Vatom Event Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getVatomEvent(version: Double, accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getVatomEvent(accountId: Int64, appKey: String, vatomEventId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/events/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/events/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1341,21 +1277,19 @@ open class VatomAPI {
 
 
     /// Get Vatom NFT Details
-    /// - GET /api/{version}/vatom/vatoms/get
+    /// - GET /vatom/vatoms/get
     /// - Get Vatom NFT Details
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomId: (query) Vatom NFT Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getVatomNFT(version: Double, accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getVatomNFT(accountId: Int64, vatomId: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/vatoms/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/vatoms/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1381,22 +1315,20 @@ open class VatomAPI {
 
 
     /// List Vatom Communities
-    /// - GET /api/{version}/vatom/b/communities/search
+    /// - GET /vatom/b/communities/search
     /// - Gets the communities tied to a business.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func listCommunities(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func listCommunities(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/communities/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/communities/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1423,22 +1355,20 @@ open class VatomAPI {
 
 
     /// List Vatom Events
-    /// - GET /api/{version}/vatom/b/events/search
+    /// - GET /vatom/b/events/search
     /// - Gets the events tied to a business.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func listEvents(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func listEvents(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/events/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/events/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1465,22 +1395,20 @@ open class VatomAPI {
 
 
     /// List Vatom Spaces
-    /// - GET /api/{version}/vatom/b/spaces/search
+    /// - GET /vatom/b/spaces/search
     /// - Gets the spaces tied to a business.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func listSpaces(version: Double, accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func listSpaces(accountId: Int64, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/spaces/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/spaces/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1507,22 +1435,20 @@ open class VatomAPI {
 
 
     /// List Coin Transactions for a Vatom User
-    /// - GET /api/{version}/vatom/u/coins/txns/search
+    /// - GET /vatom/u/coins/txns/search
     /// - Gets the logged in user's Vatom coin transactions.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func listUserCoinTransactions(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func listUserCoinTransactions(accountId: Int64, vatomUserId: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/u/coins/txns/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/u/coins/txns/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1549,23 +1475,21 @@ open class VatomAPI {
 
 
     /// List coin transactions for a user (as a Business)
-    /// - GET /api/{version}/vatom/b/users/coins/txns/search
+    /// - GET /vatom/b/users/coins/txns/search
     /// - List coin transactions for a user (as a Business).
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func listUserCoinTransactionsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func listUserCoinTransactionsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/users/coins/txns/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/users/coins/txns/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1593,23 +1517,21 @@ open class VatomAPI {
 
 
     /// Perform Action on NFT
-    /// - POST /api/{version}/vatom/me/vatoms/actions
+    /// - POST /vatom/me/vatoms/actions
     /// - Perform Action on NFT.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomId: (query) Vatom NFT Id 
     /// - parameter vatomAction: (query) Vatom Action 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func performActionOnNFT(version: Double, accountId: Int64, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func performActionOnNFT(accountId: Int64, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/vatoms/actions"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/vatoms/actions"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1637,22 +1559,20 @@ open class VatomAPI {
 
 
     /// Redeem NFT
-    /// - POST /api/{version}/vatom/b/redemptions
+    /// - POST /vatom/b/redemptions
     /// - Redeem an NFT.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func redeemNFT(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func redeemNFT(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/redemptions"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/redemptions"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1679,23 +1599,21 @@ open class VatomAPI {
 
 
     /// Redeem the coins for a user (as a Business)
-    /// - POST /api/{version}/vatom/b/users/coins/redeem
+    /// - POST /vatom/b/users/coins/redeem
     /// - Redeem the coins for a user (as a Business).
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func redeemUserCoinsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func redeemUserCoinsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/users/coins/redeem"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/users/coins/redeem"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1723,21 +1641,19 @@ open class VatomAPI {
 
 
     /// Search for Vatom Businesses
-    /// - GET /api/{version}/vatom/b/search
+    /// - GET /vatom/b/search
     /// - Searches for Vatom businesses.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func searchBusinesses(version: Double, accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func searchBusinesses(accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1763,21 +1679,19 @@ open class VatomAPI {
 
 
     /// Search Campaign Groups
-    /// - GET /api/{version}/vatom/b/campaign-groups/search
+    /// - GET /vatom/b/campaign-groups/search
     /// - Search campaign groups.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func searchCampaignGroups(version: Double, accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func searchCampaignGroups(accountId: Int64, appKey: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign-groups/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign-groups/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1803,20 +1717,18 @@ open class VatomAPI {
 
 
     /// Search User Identities
-    /// - GET /api/{version}/vatom/me/identities/search
+    /// - GET /vatom/me/identities/search
     /// - Search User Identities.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func searchIdentities(version: Double, accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func searchIdentities(accountId: Int64, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/identities/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/identities/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1841,21 +1753,19 @@ open class VatomAPI {
 
 
     /// Search Vatom User's Inventory
-    /// - GET /api/{version}/vatom/user-inventory/search
+    /// - GET /vatom/user-inventory/search
     /// - Searches the logged in user's Vatom Inventory.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomParameters: (query) Vatom Parameters (optional)
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func searchInventory(version: Double, accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func searchInventory(accountId: Int64, vatomParameters: String? = nil, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/user-inventory/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/user-inventory/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1881,23 +1791,21 @@ open class VatomAPI {
 
 
     /// Send NFT
-    /// - POST /api/{version}/vatom/b/campaigns/send
+    /// - POST /vatom/b/campaigns/send
     /// - Send an NFT.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomCampaignId: (query) Vatom Campaign Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func sendNFT(version: Double, accountId: Int64, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func sendNFT(accountId: Int64, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaigns/send"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaigns/send"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1925,9 +1833,8 @@ open class VatomAPI {
 
 
     /// Set Points Balance as Business
-    /// - POST /api/{version}/vatom/b/campaign/u/points/update
+    /// - POST /vatom/b/campaign/u/points/update
     /// - Sets the points balance of a Vatom user.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomUserId: (query) Vatom User Id 
@@ -1935,14 +1842,13 @@ open class VatomAPI {
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func setPointsBalanceAsBusiness(version: Double, accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func setPointsBalanceAsBusiness(accountId: Int64, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/campaign/u/points/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/campaign/u/points/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1971,22 +1877,20 @@ open class VatomAPI {
 
 
     /// Transfer coins from Vatom Users
-    /// - POST /api/{version}/vatom/u/coins/transfer
+    /// - POST /vatom/u/coins/transfer
     /// - Transfer coins from Vatom Users.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func transferUserCoins(version: Double, accountId: Int64, vatomUserId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func transferUserCoins(accountId: Int64, vatomUserId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/u/coins/transfer"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/u/coins/transfer"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -2013,22 +1917,20 @@ open class VatomAPI {
 
 
     /// Fund coins for a Business
-    /// - POST /api/{version}/vatom/b/coins/update
+    /// - POST /vatom/b/coins/update
     /// - Fund/update coins for a Businesss.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateBusinessCoins(version: Double, accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func updateBusinessCoins(accountId: Int64, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/coins/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/coins/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -2055,23 +1957,21 @@ open class VatomAPI {
 
 
     /// Update Vatom Event Guest List
-    /// - POST /api/{version}/vatom/b/events/guests/update
+    /// - POST /vatom/b/events/guests/update
     /// - Update the guest list of an event.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomEventId: (query) Vatom Event Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateEventGuestList(version: Double, accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func updateEventGuestList(accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/events/guests/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/events/guests/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -2099,23 +1999,21 @@ open class VatomAPI {
 
 
     /// Update Vatom Space
-    /// - POST /api/{version}/vatom/b/spaces/update
+    /// - POST /vatom/b/spaces/update
     /// - Update a Vatom space.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomSpaceId: (query) Vatom Space Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateSpace(version: Double, accountId: Int64, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func updateSpace(accountId: Int64, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/spaces/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/spaces/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -2143,23 +2041,21 @@ open class VatomAPI {
 
 
     /// Update the coins for a user (as a Business)
-    /// - POST /api/{version}/vatom/b/users/coins/update
+    /// - POST /vatom/b/users/coins/update
     /// - Update the coins for a user (as a Business).
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomUserId: (query) Vatom User Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateUserCoinsAsBusiness(version: Double, accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func updateUserCoinsAsBusiness(accountId: Int64, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/users/coins/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/users/coins/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -2187,21 +2083,19 @@ open class VatomAPI {
 
 
     /// Update Vatom User Profile
-    /// - POST /api/{version}/vatom/me/update
+    /// - POST /vatom/me/update
     /// - Gets the logged in user's profile in Vatom.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateUserProfile(version: Double, accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func updateUserProfile(accountId: Int64, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/me/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/me/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -2227,23 +2121,21 @@ open class VatomAPI {
 
 
     /// Update Vatom Event
-    /// - POST /api/{version}/vatom/b/events/update
+    /// - POST /vatom/b/events/update
     /// - Update a Vatom event.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Sirqul Account Id 
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter vatomEventId: (query) Vatom Event Id 
     /// - parameter vatomParameters: (query) Vatom Parameters 
     /// - parameter returnRawResponse: (query) Return raw response (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateVatomEvent(version: Double, accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func updateVatomEvent(accountId: Int64, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vatom/b/events/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vatom/b/events/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

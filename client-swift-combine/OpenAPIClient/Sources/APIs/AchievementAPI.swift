@@ -21,7 +21,7 @@ open class AchievementAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class AchievementAPI {
 
 
     /// Searches an Achievement Tier
-    /// - POST /api/{version}/achievement/tier/search
+    /// - POST /achievement/tier/search
     /// - Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter appKey: (query) the application key (optional)
@@ -44,14 +43,13 @@ open class AchievementAPI {
     /// - parameter start: (query) The start of the index for pagination (optional)
     /// - parameter limit: (query) the limit for pagination (has a hard limit of 1000) (optional)
     /// - returns: AnyPublisher<AchievementTierResponse, Error> 
-    open func apiVersionAchievementTierSearchPost(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: Int64? = nil, rankType: String? = nil, sortField: String? = nil, descending: Bool? = nil, descendingGoal: Bool? = nil, start: Int64? = nil, limit: Int64? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
+    open func achievementTierSearchPost(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: Int64? = nil, rankType: String? = nil, sortField: String? = nil, descending: Bool? = nil, descendingGoal: Bool? = nil, start: Int64? = nil, limit: Int64? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/tier/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/tier/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -85,9 +83,8 @@ open class AchievementAPI {
 
 
     /// Create Achievement
-    /// - POST /api/{version}/achievement/create
+    /// - POST /achievement/create
     /// - Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) the application key the achievement is for 
     /// - parameter title: (query) the title of the achievement (255 character limit) 
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
@@ -102,14 +99,13 @@ open class AchievementAPI {
     /// - parameter active: (query) achievement is active or inactive (optional)
     /// - parameter triggerDefinition: (query) if provided will define what triggers to run after a tier is completed (optional)
     /// - returns: AnyPublisher<AchievementResponse, Error> 
-    open func createAchievement(version: Double, appKey: String, title: String, deviceId: String? = nil, accountId: Int64? = nil, analyticsTag: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, maxIncrement: Int? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil) -> AnyPublisher<AchievementResponse, Error> {
+    open func createAchievement(appKey: String, title: String, deviceId: String? = nil, accountId: Int64? = nil, analyticsTag: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, maxIncrement: Int? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil) -> AnyPublisher<AchievementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -145,9 +141,8 @@ open class AchievementAPI {
 
 
     /// Create Achievement Tier
-    /// - POST /api/{version}/achievement/tier/create
+    /// - POST /achievement/tier/create
     /// - Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    /// - parameter version: (path)  
     /// - parameter achievementId: (query) the achievement id for adding a new tier 
     /// - parameter scoreAllInstances: (query) score all instances 
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
@@ -163,14 +158,13 @@ open class AchievementAPI {
     /// - parameter gameLevelId: (query) The ID of the game level to associate with the achievement (optional)
     /// - parameter gameObjectId: (query) The ID of the game object to associate with the achievement (optional)
     /// - returns: AnyPublisher<AchievementTierResponse, Error> 
-    open func createAchievementTier(version: Double, achievementId: Int64, scoreAllInstances: Bool, deviceId: String? = nil, accountId: Int64? = nil, icon: Data? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
+    open func createAchievementTier(achievementId: Int64, scoreAllInstances: Bool, deviceId: String? = nil, accountId: Int64? = nil, icon: Data? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/tier/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/tier/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -207,20 +201,18 @@ open class AchievementAPI {
 
 
     /// Delete Achievement
-    /// - POST /api/{version}/achievement/delete
+    /// - POST /achievement/delete
     /// - Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-    /// - parameter version: (path)  
     /// - parameter achievementId: (query) The ID of the achievement 
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteAchievement(version: Double, achievementId: Int64, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteAchievement(achievementId: Int64, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -245,20 +237,18 @@ open class AchievementAPI {
 
 
     /// Delete Achievement Tier
-    /// - POST /api/{version}/achievement/tier/delete
+    /// - POST /achievement/tier/delete
     /// - Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-    /// - parameter version: (path)  
     /// - parameter achievementTierId: (query) the achievement id for deletion 
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required). (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteAchievementTier(version: Double, achievementTierId: Int64, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteAchievementTier(achievementTierId: Int64, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/tier/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/tier/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -283,22 +273,20 @@ open class AchievementAPI {
 
 
     /// Get Achievement
-    /// - GET /api/{version}/achievement/get
+    /// - GET /achievement/get
     /// - Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    /// - parameter version: (path)  
     /// - parameter achievementId: (query) The ID of the achievement 
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter achievementType: (query) achievementType (optional)
     /// - returns: AnyPublisher<AchievementTierResponse, Error> 
-    open func getAchievement(version: Double, achievementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, achievementType: String? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
+    open func getAchievement(achievementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, achievementType: String? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -325,20 +313,18 @@ open class AchievementAPI {
 
 
     /// Gets an achievement tier
-    /// - POST /api/{version}/achievement/tier/get
+    /// - POST /achievement/tier/get
     /// - Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) 
     /// - parameter achievementTierId: (query) the achievement tier id that is being retrieved 
     /// - returns: AnyPublisher<AchievementTierResponse, Error> 
-    open func getAchievementTier(version: Double, accountId: Int64, achievementTierId: Int64) -> AnyPublisher<AchievementTierResponse, Error> {
+    open func getAchievementTier(accountId: Int64, achievementTierId: Int64) -> AnyPublisher<AchievementTierResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/tier/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/tier/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -363,9 +349,8 @@ open class AchievementAPI {
 
 
     /// Get Achievement Progress
-    /// - GET /api/{version}/achievement/progress/get
+    /// - GET /achievement/progress/get
     /// - Gets a list of user achievements.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) determines whether to return null fields in the response 
     /// - parameter appKey: (query) the application key for filtering results by application 
     /// - parameter includeUndiscovered: (query) determines whether to return achievements that the user has not discovered yet 
@@ -378,14 +363,13 @@ open class AchievementAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<[AchievementProgressResponse], Error> 
-    open func getUserAchievements(version: Double, returnNulls: Bool, appKey: String, includeUndiscovered: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, rankType: String? = nil, achievementType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<[AchievementProgressResponse], Error> {
+    open func getUserAchievements(returnNulls: Bool, appKey: String, includeUndiscovered: Bool, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, rankType: String? = nil, achievementType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<[AchievementProgressResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/progress/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/progress/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -419,19 +403,17 @@ open class AchievementAPI {
 
 
     /// List Achievement Tags
-    /// - GET /api/{version}/achievement/tag/list
+    /// - GET /achievement/tag/list
     /// - List achievement tags by application
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) filter results by application key (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func listAchievementTags(version: Double, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func listAchievementTags(appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/tag/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/tag/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -471,9 +453,8 @@ open class AchievementAPI {
     }
 
     /// List Achievements
-    /// - GET /api/{version}/achievement/list
+    /// - GET /achievement/list
     /// - List achievements by billable.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) the field to sort by. See AchievementApiMap 
     /// - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) the start index for pagination 
@@ -486,14 +467,13 @@ open class AchievementAPI {
     /// - parameter achievementType: (query) filter results by the achievementType (these are exact case sensitive matches) (optional)
     /// - parameter rankType: (query) filter results by the rankType (these are exact case sensitive matches) (optional)
     /// - returns: AnyPublisher<[AchievementShortResponse], Error> 
-    open func listAchievements(version: Double, sortField: ListAchievementsSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil) -> AnyPublisher<[AchievementShortResponse], Error> {
+    open func listAchievements(sortField: ListAchievementsSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil) -> AnyPublisher<[AchievementShortResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -543,9 +523,8 @@ open class AchievementAPI {
     }
 
     /// Search Achievements
-    /// - GET /api/{version}/achievement/search
+    /// - GET /achievement/search
     /// - Searches achievements by application for consumers.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) the application key 
     /// - parameter sortField: (query) the field to sort by. See AchievementApiMap 
     /// - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -559,14 +538,13 @@ open class AchievementAPI {
     /// - parameter achievementType: (query) filter results by the achievementType (these are exact case sensitive matches) (optional)
     /// - parameter rankType: (query) filter results by the rankType (these are exact case sensitive matches) (optional)
     /// - returns: AnyPublisher<[AchievementShortResponse], Error> 
-    open func searchAchievements(version: Double, appKey: String, sortField: SearchAchievementsSortField, descending: Bool, includeTiers: Bool, includeInactiveTiers: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil) -> AnyPublisher<[AchievementShortResponse], Error> {
+    open func searchAchievements(appKey: String, sortField: SearchAchievementsSortField, descending: Bool, includeTiers: Bool, includeInactiveTiers: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, achievementType: String? = nil, rankType: String? = nil) -> AnyPublisher<[AchievementShortResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -601,9 +579,8 @@ open class AchievementAPI {
 
 
     /// Update Achievement
-    /// - POST /api/{version}/achievement/update
+    /// - POST /achievement/update
     /// - Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter achievementId: (query) the achievement ID for updating an existing achievement (optional)
@@ -620,14 +597,13 @@ open class AchievementAPI {
     /// - parameter active: (query) if it&#39;s active or inactive (optional)
     /// - parameter triggerDefinition: (query) if provided will define what triggers to run after a tier is completed (optional)
     /// - returns: AnyPublisher<AchievementResponse, Error> 
-    open func updateAchievement(version: Double, deviceId: String? = nil, accountId: Int64? = nil, achievementId: Int64? = nil, analyticsTag: String? = nil, title: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, nullMinIncrement: Bool? = nil, maxIncrement: Int? = nil, nullMaxIncrement: Bool? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil) -> AnyPublisher<AchievementResponse, Error> {
+    open func updateAchievement(deviceId: String? = nil, accountId: Int64? = nil, achievementId: Int64? = nil, analyticsTag: String? = nil, title: String? = nil, description: String? = nil, rankType: String? = nil, rankIncrement: Int? = nil, minIncrement: Int? = nil, nullMinIncrement: Bool? = nil, maxIncrement: Int? = nil, nullMaxIncrement: Bool? = nil, validate: Bool? = nil, active: Bool? = nil, triggerDefinition: String? = nil) -> AnyPublisher<AchievementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -665,9 +641,8 @@ open class AchievementAPI {
 
 
     /// Update Achievement Tier
-    /// - POST /api/{version}/achievement/tier/update
+    /// - POST /achievement/tier/update
     /// - Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    /// - parameter version: (path)  
     /// - parameter achievementTierId: (query) the achievement tier id for updating 
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -683,14 +658,13 @@ open class AchievementAPI {
     /// - parameter gameObjectId: (query) The ID of the game object to associate with the achievement (optional)
     /// - parameter scoreAllInstances: (query) score all instances (optional)
     /// - returns: AnyPublisher<AchievementTierResponse, Error> 
-    open func updateAchievementTier(version: Double, achievementTierId: Int64, deviceId: String? = nil, accountId: Int64? = nil, icon: Data? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreAllInstances: Bool? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
+    open func updateAchievementTier(achievementTierId: Int64, deviceId: String? = nil, accountId: Int64? = nil, icon: Data? = nil, iconAssetId: Int64? = nil, title: String? = nil, description: String? = nil, goalCount: Int64? = nil, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreAllInstances: Bool? = nil) -> AnyPublisher<AchievementTierResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/tier/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/tier/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -727,9 +701,8 @@ open class AchievementAPI {
 
 
     /// Update Achievement Progress
-    /// - POST /api/{version}/achievement/progress/update
+    /// - POST /achievement/progress/update
     /// - Update user achievement progress.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter achievementId: (query) the achievement id (achievementId or tag required) (optional)
     /// - parameter tag: (query) the analytic tag to identify an achievement (achievementId or tag required) (optional)
@@ -739,14 +712,13 @@ open class AchievementAPI {
     /// - parameter endDate: (query) a custom end date that the client can set (not yet used in server logic) (optional)
     /// - parameter returnProgress: (query) determines whether to return the achievement progress response (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateUserAchievement(version: Double, accountId: Int64, achievementId: Int64? = nil, tag: String? = nil, customId: Int64? = nil, increment: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, returnProgress: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateUserAchievement(accountId: Int64, achievementId: Int64? = nil, tag: String? = nil, customId: Int64? = nil, increment: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, returnProgress: Bool? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/achievement/progress/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/achievement/progress/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

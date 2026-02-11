@@ -21,7 +21,7 @@ open class ServiceHubAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class ServiceHubAPI {
 
 
     /// Create Service Hub
-    /// - POST /api/{version}/hub
+    /// - POST /hub
     /// - Create new service hub
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ServiceHub, Error> 
-    open func createServiceHub(version: Double, body: ServiceHub? = nil) -> AnyPublisher<ServiceHub, Error> {
+    open func createServiceHub(body: ServiceHub? = nil) -> AnyPublisher<ServiceHub, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/hub"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/hub"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -64,19 +62,17 @@ open class ServiceHubAPI {
 
 
     /// Delete Service Hub
-    /// - DELETE /api/{version}/hub/{id}
+    /// - DELETE /hub/{id}
     /// - Delete an existing service hub
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the service hub to delete 
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteServiceHub(version: Double, id: Int64) -> AnyPublisher<Void, Error> {
+    open func deleteServiceHub(id: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/hub/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/hub/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -98,19 +94,17 @@ open class ServiceHubAPI {
 
 
     /// Get Service Hub
-    /// - GET /api/{version}/hub/{id}
+    /// - GET /hub/{id}
     /// - Get an existing service hub
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the service hub to get 
     /// - returns: AnyPublisher<[String: Any], Error> 
-    open func getServiceHub(version: Double, id: Int64) -> AnyPublisher<[String: Any], Error> {
+    open func getServiceHub(id: Int64) -> AnyPublisher<[String: Any], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/hub/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/hub/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -136,20 +130,18 @@ open class ServiceHubAPI {
 
 
     /// Update Service Hub
-    /// - POST /api/{version}/hub/{id}
+    /// - POST /hub/{id}
     /// - Update an existing service hub
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the service hub 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ServiceHub, Error> 
-    open func postServiceHub(version: Double, id: Int64, body: ServiceHub? = nil) -> AnyPublisher<ServiceHub, Error> {
+    open func postServiceHub(id: Int64, body: ServiceHub? = nil) -> AnyPublisher<ServiceHub, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/hub/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/hub/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -173,20 +165,18 @@ open class ServiceHubAPI {
 
 
     /// Update Service Hub
-    /// - PUT /api/{version}/hub/{id}
+    /// - PUT /hub/{id}
     /// - Update an existing service hub
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the service hub 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ServiceHub, Error> 
-    open func putServiceHub(version: Double, id: Int64, body: ServiceHub? = nil) -> AnyPublisher<ServiceHub, Error> {
+    open func putServiceHub(id: Int64, body: ServiceHub? = nil) -> AnyPublisher<ServiceHub, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/hub/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/hub/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -210,9 +200,8 @@ open class ServiceHubAPI {
 
 
     /// Search Service Hubs
-    /// - GET /api/{version}/hub
+    /// - GET /hub
     /// - Search for service hubs.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) The start index for pagination 
@@ -221,14 +210,13 @@ open class ServiceHubAPI {
     /// - parameter keyword: (query) The keyword to search for (optional)
     /// - parameter retailerId: (query) The retailer belongs to (optional)
     /// - returns: AnyPublisher<[ServiceHub], Error> 
-    open func searchServiceHubs(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, retailerId: Int64? = nil) -> AnyPublisher<[ServiceHub], Error> {
+    open func searchServiceHubs(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, keyword: String? = nil, retailerId: Int64? = nil) -> AnyPublisher<[ServiceHub], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/hub"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/hub"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

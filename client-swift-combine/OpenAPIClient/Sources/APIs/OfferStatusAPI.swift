@@ -21,7 +21,7 @@ open class OfferStatusAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class OfferStatusAPI {
 
 
     /// Create Offer Status
-    /// - POST /api/{version}/offer/status/create
+    /// - POST /offer/status/create
     /// - Create an offer status record
-    /// - parameter version: (path)  
     /// - parameter name: (query) The name of the status 
     /// - parameter code: (query) The status code, must be unique  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -43,14 +42,13 @@ open class OfferStatusAPI {
     /// - parameter active: (query) The active status (optional, default to true)
     /// - parameter applicationIds: (query) The applications to associate the status with, if null then for all. (optional)
     /// - returns: AnyPublisher<OfferTransactionStatusResponse, Error> 
-    open func createOfferTransactionStatus(version: Double, name: String, code: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, description: String? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil) -> AnyPublisher<OfferTransactionStatusResponse, Error> {
+    open func createOfferTransactionStatus(name: String, code: Int, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, description: String? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil) -> AnyPublisher<OfferTransactionStatusResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/status/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/status/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -83,23 +81,21 @@ open class OfferStatusAPI {
 
 
     /// Delete Offer Status
-    /// - POST /api/{version}/offer/status/delete
+    /// - POST /offer/status/delete
     /// - Mark an offer status record as deleted
-    /// - parameter version: (path)  
     /// - parameter statusId: (query) The id of the record to delete 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) Used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) Used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteOfferTransactionStatus(version: Double, statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteOfferTransactionStatus(statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/status/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/status/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -127,23 +123,21 @@ open class OfferStatusAPI {
 
 
     /// Get Offer Status
-    /// - GET /api/{version}/offer/status/get
+    /// - GET /offer/status/get
     /// - Get an offer status record
-    /// - parameter version: (path)  
     /// - parameter statusId: (query) The id of the record to get  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) Used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) Used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<OfferTransactionStatusResponse, Error> 
-    open func getOfferTransactionStatus(version: Double, statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<OfferTransactionStatusResponse, Error> {
+    open func getOfferTransactionStatus(statusId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<OfferTransactionStatusResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/status/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/status/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -186,9 +180,8 @@ open class OfferStatusAPI {
     }
 
     /// Search Offer Status
-    /// - GET /api/{version}/offer/status/search
+    /// - GET /offer/status/search
     /// - Search for the available offer statuses
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) Used to update the user&#39;s current location (optional)
@@ -202,14 +195,13 @@ open class OfferStatusAPI {
     /// - parameter limit: (query) The limit for pagination (optional, default to 20)
     /// - parameter includeInactive: (query) If true include inactive items (optional, default to false)
     /// - returns: AnyPublisher<[OfferTransactionStatusResponse], Error> 
-    open func searchOfferTransactionStatuses(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, role: String? = nil, appKey: String? = nil, sortField: SearchOfferTransactionStatusesSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, includeInactive: Bool? = nil) -> AnyPublisher<[OfferTransactionStatusResponse], Error> {
+    open func searchOfferTransactionStatuses(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, keyword: String? = nil, role: String? = nil, appKey: String? = nil, sortField: SearchOfferTransactionStatusesSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, includeInactive: Bool? = nil) -> AnyPublisher<[OfferTransactionStatusResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/status/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/status/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -244,9 +236,8 @@ open class OfferStatusAPI {
 
 
     /// Update Offer Status
-    /// - POST /api/{version}/offer/status/update
+    /// - POST /offer/status/update
     /// - Update an offer status record
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) Used to update the user&#39;s current location (optional)
@@ -259,14 +250,13 @@ open class OfferStatusAPI {
     /// - parameter active: (query) The active status (optional)
     /// - parameter applicationIds: (query) The applications to associate the status with, if null then for all. (optional)
     /// - returns: AnyPublisher<OfferTransactionStatusResponse, Error> 
-    open func updateOfferTransactionStatus(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, statusId: Int64? = nil, name: String? = nil, description: String? = nil, code: Int? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil) -> AnyPublisher<OfferTransactionStatusResponse, Error> {
+    open func updateOfferTransactionStatus(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, statusId: Int64? = nil, name: String? = nil, description: String? = nil, code: Int? = nil, role: String? = nil, active: Bool? = nil, applicationIds: String? = nil) -> AnyPublisher<OfferTransactionStatusResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/status/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/status/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

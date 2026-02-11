@@ -21,7 +21,7 @@ open class ContestAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -37,9 +37,8 @@ open class ContestAPI {
     }
 
     /// Create or Update Contest
-    /// - POST /api/{version}/consumer/album/contest
+    /// - POST /consumer/album/contest
     /// - Creates or updates a contest.
-    /// - parameter version: (path)  
     /// - parameter publicRead: (query) determines whether the contest&#39;s participants has read permissions 
     /// - parameter publicWrite: (query) determines whether the contest&#39;s participants has write permissions 
     /// - parameter publicDelete: (query) determines whether the contest&#39;s participants has delete permissions 
@@ -66,14 +65,13 @@ open class ContestAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<AlbumContestResponse, Error> 
-    open func addOrUpdateAlbumContest(version: Double, publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: AddOrUpdateAlbumContestVisibility, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, contestType: String? = nil, albumContestId: Int64? = nil, title: String? = nil, description: String? = nil, albumId1: Int64? = nil, removeAlbum1: Bool? = nil, albumId2: Int64? = nil, removeAlbum2: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, locationDescription: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestResponse, Error> {
+    open func addOrUpdateAlbumContest(publicRead: Bool, publicWrite: Bool, publicDelete: Bool, publicAdd: Bool, visibility: AddOrUpdateAlbumContestVisibility, includeFriendGroup: Bool, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, contestType: String? = nil, albumContestId: Int64? = nil, title: String? = nil, description: String? = nil, albumId1: Int64? = nil, removeAlbum1: Bool? = nil, albumId2: Int64? = nil, removeAlbum2: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, locationDescription: String? = nil, connectionIdsToAdd: String? = nil, connectionGroupIdsToAdd: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/album/contest"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/album/contest"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -130,22 +128,20 @@ open class ContestAPI {
     }
 
     /// Approve Contest
-    /// - POST /api/{version}/consumer/album/contest/approve
+    /// - POST /consumer/album/contest/approve
     /// - Sets the approval status of a contest.
-    /// - parameter version: (path)  
     /// - parameter albumContestId: (query) The ID of the album contest 
     /// - parameter approvalStatus: (query) The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} 
     /// - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func approveAlbumContest(version: Double, albumContestId: Int64, approvalStatus: ApproveAlbumContestApprovalStatus, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func approveAlbumContest(albumContestId: Int64, approvalStatus: ApproveAlbumContestApprovalStatus, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/album/contest/approve"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/album/contest/approve"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -172,23 +168,21 @@ open class ContestAPI {
 
 
     /// Delete Contest
-    /// - POST /api/{version}/consumer/album/contest/remove
+    /// - POST /consumer/album/contest/remove
     /// - Deletes a contest.
-    /// - parameter version: (path)  
     /// - parameter albumContestId: (query) the album contest ID 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteContest(version: Double, albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteContest(albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/album/contest/remove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/album/contest/remove"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -216,23 +210,21 @@ open class ContestAPI {
 
 
     /// Get Contest
-    /// - GET /api/{version}/consumer/album/contest/get
+    /// - GET /consumer/album/contest/get
     /// - Gets the contest object including the likes and notes
-    /// - parameter version: (path)  
     /// - parameter albumContestId: (query) the album contest ID 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<AlbumContestResponse, Error> 
-    open func getAlbumContest(version: Double, albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestResponse, Error> {
+    open func getAlbumContest(albumContestId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/album/contest/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/album/contest/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -260,9 +252,8 @@ open class ContestAPI {
 
 
     /// Search Contests
-    /// - GET /api/{version}/consumer/album/contest/search
+    /// - GET /consumer/album/contest/search
     /// - Searches on contests.
-    /// - parameter version: (path)  
     /// - parameter filter: (query) a comma separated list of Ownership 
     /// - parameter sortField: (query) the field to sort by. See AlbumContestApiMap 
     /// - parameter descending: (query) determines whether the sorted list is in descending or ascending order 
@@ -283,14 +274,13 @@ open class ContestAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<AlbumContestListResponse, Error> 
-    open func getAlbumContests(version: Double, filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, appType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestListResponse, Error> {
+    open func getAlbumContests(filter: String, sortField: String, descending: Bool, start: Int, limit: Int, deviceId: String? = nil, accountId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, appType: String? = nil, contestType: String? = nil, ownerId: Int64? = nil, q: String? = nil, keyword: String? = nil, i: Int? = nil, l: Int? = nil, dateCreated: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/album/contest/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/album/contest/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -332,9 +322,8 @@ open class ContestAPI {
 
 
     /// Vote on Contest
-    /// - POST /api/{version}/consumer/album/contest/vote
+    /// - POST /consumer/album/contest/vote
     /// - Vote on a collection in a contest.
-    /// - parameter version: (path)  
     /// - parameter albumContestId: (query) the album contest ID 
     /// - parameter albumId: (query) the ID of the album to vote on 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
@@ -343,14 +332,13 @@ open class ContestAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<AlbumContestResponse, Error> 
-    open func voteOnAlbumContest(version: Double, albumContestId: Int64, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, contestType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestResponse, Error> {
+    open func voteOnAlbumContest(albumContestId: Int64, albumId: Int64, deviceId: String? = nil, accountId: Int64? = nil, contestType: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AlbumContestResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/album/contest/vote"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/album/contest/vote"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

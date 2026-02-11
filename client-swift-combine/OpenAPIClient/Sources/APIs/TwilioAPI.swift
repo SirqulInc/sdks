@@ -21,7 +21,7 @@ open class TwilioAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,22 +29,20 @@ open class TwilioAPI {
 
 
     /// Buy Offer by SMS
-    /// - POST /api/{version}/sms/buyoffer/{appKey}
+    /// - POST /sms/buyoffer/{appKey}
     /// - Recieve an SMS payload from Twillio to purchase an offer.
-    /// - parameter version: (path)  
     /// - parameter appKey: (path) the application key 
     /// - parameter body: (query) the message of the text 
     /// - parameter from: (query) the sender of the sms 
     /// - parameter currencyType: (query) the type of currency 
     /// - returns: AnyPublisher<TwiMLResponse, Error> 
-    open func smsBuyOffer(version: Double, appKey: String, body: String, from: String, currencyType: String) -> AnyPublisher<TwiMLResponse, Error> {
+    open func smsBuyOffer(appKey: String, body: String, from: String, currencyType: String) -> AnyPublisher<TwiMLResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/sms/buyoffer/{appKey}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/sms/buyoffer/{appKey}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{appKey}", with: appKey)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)

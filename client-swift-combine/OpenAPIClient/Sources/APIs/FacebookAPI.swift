@@ -21,7 +21,7 @@ open class FacebookAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,22 +29,20 @@ open class FacebookAPI {
 
 
     /// Get Facebook Token
-    /// - GET /api/{version}/facebook/getfbtoken
+    /// - GET /facebook/getfbtoken
     /// - Gets a user's Facebook token.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<TokenResponse, Error> 
-    open func getToken(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<TokenResponse, Error> {
+    open func getToken(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<TokenResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/facebook/getfbtoken"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/facebook/getfbtoken"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -71,9 +69,8 @@ open class FacebookAPI {
 
 
     /// Post to Facebook
-    /// - POST /api/{version}/facebook/graph
+    /// - POST /facebook/graph
     /// - Make Facebook posts on behalf of the user.
-    /// - parameter version: (path)  
     /// - parameter event: (query) the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} 
     /// - parameter deviceId: (query) a unique id given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -85,14 +82,13 @@ open class FacebookAPI {
     /// - parameter latitude: (query) used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func graphInterface(version: Double, event: String, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, assetId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func graphInterface(event: String, deviceId: String? = nil, accountId: Int64? = nil, permissionableType: String? = nil, permissionableId: Int64? = nil, assetId: Int64? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/facebook/graph"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/facebook/graph"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

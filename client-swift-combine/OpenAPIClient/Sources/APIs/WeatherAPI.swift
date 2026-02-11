@@ -21,7 +21,7 @@ open class WeatherAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,22 +29,20 @@ open class WeatherAPI {
 
 
     /// Search Weather
-    /// - GET /api/{version}/weather/search
+    /// - GET /weather/search
     /// - Search the weather forcast for the next 5 days
-    /// - parameter version: (path)  
     /// - parameter regionId: (query) Region Id (optional)
     /// - parameter latitude: (query) Latitude (optional)
     /// - parameter longitude: (query) Longitude (optional)
     /// - parameter timezoneOffset: (query) Timezone Offset (optional, default to -6)
     /// - returns: AnyPublisher<WeatherResponse, Error> 
-    open func searchWeather(version: Double, regionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, timezoneOffset: Int64? = nil) -> AnyPublisher<WeatherResponse, Error> {
+    open func searchWeather(regionId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, timezoneOffset: Int64? = nil) -> AnyPublisher<WeatherResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/weather/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/weather/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

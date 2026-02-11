@@ -21,7 +21,7 @@ open class RegionAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -37,9 +37,8 @@ open class RegionAPI {
     }
 
     /// Create Region
-    /// - POST /api/{version}/region/create
+    /// - POST /region/create
     /// - Create a region.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The id of the account sending the request 
     /// - parameter regionClass: (query) RegionClass of this region 
     /// - parameter shortName: (query) Short name of the region. This is optimized for search 
@@ -62,14 +61,13 @@ open class RegionAPI {
     /// - parameter root: (query) If this is a root region or not. If true means this region has no parent regions (optional)
     /// - parameter active: (query) Active or inactive status of the region (optional)
     /// - returns: AnyPublisher<RegionResponse, Error> 
-    open func createRegion(version: Double, accountId: Int64, regionClass: String, shortName: String, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: CreateRegionVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil) -> AnyPublisher<RegionResponse, Error> {
+    open func createRegion(accountId: Int64, regionClass: String, shortName: String, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: CreateRegionVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil) -> AnyPublisher<RegionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/region/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/region/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -113,20 +111,18 @@ open class RegionAPI {
 
 
     /// Delete Region
-    /// - POST /api/{version}/region/delete
+    /// - POST /region/delete
     /// - Delete a region.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account logged in 
     /// - parameter regionId: (query) the id of the region 
     /// - returns: AnyPublisher<RegionResponse, Error> 
-    open func deleteRegion(version: Double, accountId: Int64, regionId: Int64) -> AnyPublisher<RegionResponse, Error> {
+    open func deleteRegion(accountId: Int64, regionId: Int64) -> AnyPublisher<RegionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/region/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/region/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -151,20 +147,18 @@ open class RegionAPI {
 
 
     /// Get Region
-    /// - GET /api/{version}/region/get
+    /// - GET /region/get
     /// - Get a region.
-    /// - parameter version: (path)  
     /// - parameter regionId: (query) the id of the region to get 
     /// - parameter accountId: (query) the id of the logged in user (optional)
     /// - returns: AnyPublisher<RegionResponse, Error> 
-    open func getRegion(version: Double, regionId: Int64, accountId: Int64? = nil) -> AnyPublisher<RegionResponse, Error> {
+    open func getRegion(regionId: Int64, accountId: Int64? = nil) -> AnyPublisher<RegionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/region/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/region/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -228,9 +222,8 @@ open class RegionAPI {
     }
 
     /// Search Regions
-    /// - GET /api/{version}/region/search
+    /// - GET /region/search
     /// - Get the list of regions.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the owner account id of the region to be created (optional)
     /// - parameter query: (query) This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional)
     /// - parameter keyword: (query) the keyword to filter results on (optional)
@@ -254,14 +247,13 @@ open class RegionAPI {
     /// - parameter start: (query) the start index for pagination (optional)
     /// - parameter limit: (query) the limit for pagination (optional)
     /// - returns: AnyPublisher<[RegionResponse], Error> 
-    open func searchRegions(version: Double, accountId: Int64? = nil, query: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, regionClass: SearchRegionsRegionClass? = nil, visibility: SearchRegionsVisibility? = nil, searchMode: SearchRegionsSearchMode? = nil, sortField: SearchRegionsSortField? = nil, descending: Bool? = nil, includeParent: Bool? = nil, includeChildren: Bool? = nil, includePostalCodes: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, versionCode: Int? = nil, activeOnly: Bool? = nil, showDeleted: Bool? = nil, lastUpdatedSince: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[RegionResponse], Error> {
+    open func searchRegions(accountId: Int64? = nil, query: String? = nil, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, range: Double? = nil, regionClass: SearchRegionsRegionClass? = nil, visibility: SearchRegionsVisibility? = nil, searchMode: SearchRegionsSearchMode? = nil, sortField: SearchRegionsSortField? = nil, descending: Bool? = nil, includeParent: Bool? = nil, includeChildren: Bool? = nil, includePostalCodes: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, versionCode: Int? = nil, activeOnly: Bool? = nil, showDeleted: Bool? = nil, lastUpdatedSince: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[RegionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/region/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/region/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -314,9 +306,8 @@ open class RegionAPI {
     }
 
     /// Update Region
-    /// - POST /api/{version}/region/update
+    /// - POST /region/update
     /// - Update a region.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The id of the account sending the request 
     /// - parameter regionId: (query) The id of the region to be updated 
     /// - parameter regionClass: (query) RegionClass of this region (optional)
@@ -341,14 +332,13 @@ open class RegionAPI {
     /// - parameter active: (query) Active or inactive status of the region (optional)
     /// - parameter clearLists: (query) If true clear the children and postal code lists before add new ones, otherwise just append. (optional)
     /// - returns: AnyPublisher<RegionResponse, Error> 
-    open func updateRegion(version: Double, accountId: Int64, regionId: Int64, regionClass: String? = nil, shortName: String? = nil, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: UpdateRegionVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, clearLists: Bool? = nil) -> AnyPublisher<RegionResponse, Error> {
+    open func updateRegion(accountId: Int64, regionId: Int64, regionClass: String? = nil, shortName: String? = nil, fullName: String? = nil, parentIds: String? = nil, childrenIds: String? = nil, postalCodeIds: String? = nil, locations: String? = nil, retailerLocationId: Int64? = nil, visibility: UpdateRegionVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int64? = nil, end: Int64? = nil, polygon: String? = nil, metaData: String? = nil, latitude: Double? = nil, longitude: Double? = nil, versionCode: Int? = nil, root: Bool? = nil, active: Bool? = nil, clearLists: Bool? = nil) -> AnyPublisher<RegionResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/region/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/region/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

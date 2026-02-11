@@ -21,7 +21,7 @@ open class ActivityAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class ActivityAPI {
 
 
     /// Create an entity reference.
-    /// - POST /api/{version}/entity/reference
+    /// - POST /entity/reference
     /// - Creates a reference for an entity for syncing data between servers.
-    /// - parameter version: (path)  
     /// - parameter body: (body) The entity reference object 
     /// - returns: AnyPublisher<ActivityResponse, Error> 
-    open func createEntityReference(version: Double, body: EntityReference) -> AnyPublisher<ActivityResponse, Error> {
+    open func createEntityReference(body: EntityReference) -> AnyPublisher<ActivityResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/entity/reference"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/entity/reference"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {

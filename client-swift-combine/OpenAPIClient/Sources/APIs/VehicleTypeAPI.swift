@@ -21,7 +21,7 @@ open class VehicleTypeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,20 +29,18 @@ open class VehicleTypeAPI {
 
 
     /// Create Vehicle Type
-    /// - POST /api/{version}/vehicle/type
+    /// - POST /vehicle/type
     /// - Create a new vehicle type
-    /// - parameter version: (path)  
     /// - parameter vehicleType: (query) A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<VehicleType, Error> 
-    open func createVehicleType(version: Double, vehicleType: String, body: VehicleType? = nil) -> AnyPublisher<VehicleType, Error> {
+    open func createVehicleType(vehicleType: String, body: VehicleType? = nil) -> AnyPublisher<VehicleType, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vehicle/type"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vehicle/type"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -68,19 +66,17 @@ open class VehicleTypeAPI {
 
 
     /// Delete Vehicle Type
-    /// - DELETE /api/{version}/vehicle/type/{vehicleTypeId}
+    /// - DELETE /vehicle/type/{vehicleTypeId}
     /// - Delete a vehicle type
-    /// - parameter version: (path)  
     /// - parameter vehicleTypeId: (path) The id of the requested vehicle type 
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteVehicleType(version: Double, vehicleTypeId: Int64) -> AnyPublisher<Void, Error> {
+    open func deleteVehicleType(vehicleTypeId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/vehicle/type/{vehicleTypeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{vehicleTypeId}", with: "\(vehicleTypeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -102,19 +98,17 @@ open class VehicleTypeAPI {
 
 
     /// Get Vehicle Type
-    /// - GET /api/{version}/vehicle/type/{vehicleTypeId}
+    /// - GET /vehicle/type/{vehicleTypeId}
     /// - Get a vehicle type
-    /// - parameter version: (path)  
     /// - parameter vehicleTypeId: (path) The id of the requested vehicle type 
     /// - returns: AnyPublisher<VehicleType, Error> 
-    open func getVehicleType(version: Double, vehicleTypeId: Int64) -> AnyPublisher<VehicleType, Error> {
+    open func getVehicleType(vehicleTypeId: Int64) -> AnyPublisher<VehicleType, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/vehicle/type/{vehicleTypeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{vehicleTypeId}", with: "\(vehicleTypeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -136,9 +130,8 @@ open class VehicleTypeAPI {
 
 
     /// Search Vehicle Type
-    /// - GET /api/{version}/vehicle/type
+    /// - GET /vehicle/type
     /// - Search for types of vehicles
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) The start index for pagination 
@@ -147,14 +140,13 @@ open class VehicleTypeAPI {
     /// - parameter retailerId: (query) Filter by retailer (optional)
     /// - parameter hubId: (query) Filter by service hub (optional)
     /// - returns: AnyPublisher<[VehicleType], Error> 
-    open func searchVehicleTypes(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil) -> AnyPublisher<[VehicleType], Error> {
+    open func searchVehicleTypes(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil) -> AnyPublisher<[VehicleType], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vehicle/type"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/vehicle/type"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -184,21 +176,19 @@ open class VehicleTypeAPI {
 
 
     /// Update Vehicle Type
-    /// - PUT /api/{version}/vehicle/type/{vehicleTypeId}
+    /// - PUT /vehicle/type/{vehicleTypeId}
     /// - Update a vehicle type
-    /// - parameter version: (path)  
     /// - parameter vehicleTypeId: (path) The id of the vehicle type to update 
     /// - parameter vehicleType: (query) The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<VehicleType, Error> 
-    open func updateVehicleType(version: Double, vehicleTypeId: Int64, vehicleType: String, body: VehicleType? = nil) -> AnyPublisher<VehicleType, Error> {
+    open func updateVehicleType(vehicleTypeId: Int64, vehicleType: String, body: VehicleType? = nil) -> AnyPublisher<VehicleType, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/vehicle/type/{vehicleTypeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/vehicle/type/{vehicleTypeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{vehicleTypeId}", with: "\(vehicleTypeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)

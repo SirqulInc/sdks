@@ -21,7 +21,7 @@ open class UserPermissionsAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -41,9 +41,8 @@ open class UserPermissionsAPI {
     }
 
     /// Add User
-    /// - POST /api/{version}/consumer/permissions/add
+    /// - POST /consumer/permissions/add
     /// - Adds a user to a permissionable object.
-    /// - parameter version: (path)  
     /// - parameter permissionableType: (query) the permissionable type of the object 
     /// - parameter permissionableId: (query) the id of the permissionable object 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -62,14 +61,13 @@ open class UserPermissionsAPI {
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - parameter audienceIds: (query) comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func addUsersToPermissionable(version: Double, permissionableType: AddUsersToPermissionablePermissionableType, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, pending: Bool? = nil, admin: Bool? = nil, includeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func addUsersToPermissionable(permissionableType: AddUsersToPermissionablePermissionableType, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, read: Bool? = nil, write: Bool? = nil, delete: Bool? = nil, add: Bool? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, pending: Bool? = nil, admin: Bool? = nil, includeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/permissions/add"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/permissions/add"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -130,23 +128,21 @@ open class UserPermissionsAPI {
     }
 
     /// Approve Permissionable
-    /// - POST /api/{version}/permissionable/approve
+    /// - POST /permissionable/approve
     /// - Sets the approval status of a permissionable object.
-    /// - parameter version: (path)  
     /// - parameter permissionableType: (query) The permissionable type of the object 
     /// - parameter permissionableId: (query) The id of the permissionable object 
     /// - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
     /// - parameter approvalStatus: (query) The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to .approved)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func approvePermissionable(version: Double, permissionableType: ApprovePermissionablePermissionableType, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovePermissionableApprovalStatus? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func approvePermissionable(permissionableType: ApprovePermissionablePermissionableType, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, approvalStatus: ApprovePermissionableApprovalStatus? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/permissionable/approve"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/permissionable/approve"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -174,9 +170,8 @@ open class UserPermissionsAPI {
 
 
     /// Leave
-    /// - POST /api/{version}/consumer/permissions/leave
+    /// - POST /consumer/permissions/leave
     /// - Used when the user wants to leave from someone else's permissionable object
-    /// - parameter version: (path)  
     /// - parameter permissionableType: (query) the permissionable type PermissionableType 
     /// - parameter permissionableId: (query) the id of the permissionable object 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -184,14 +179,13 @@ open class UserPermissionsAPI {
     /// - parameter latitude: (query) the current latitude of the user (optional)
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func leaveFromPermissionable(version: Double, permissionableType: String, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func leaveFromPermissionable(permissionableType: String, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/permissions/leave"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/permissions/leave"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -232,9 +226,8 @@ open class UserPermissionsAPI {
     }
 
     /// Remove User
-    /// - POST /api/{version}/consumer/permissions/remove
+    /// - POST /consumer/permissions/remove
     /// - Used to remove someone (assuming they have permission) from a permissionable object
-    /// - parameter version: (path)  
     /// - parameter permissionableType: (query) the permissionable type of the object 
     /// - parameter permissionableId: (query) the id of the permissionable object 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
@@ -247,14 +240,13 @@ open class UserPermissionsAPI {
     /// - parameter longitude: (query) the current longitude of the user (optional)
     /// - parameter audienceIds: (query) comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeUsersFromPermissionable(version: Double, permissionableType: RemoveUsersFromPermissionablePermissionableType, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, removeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeUsersFromPermissionable(permissionableType: RemoveUsersFromPermissionablePermissionableType, permissionableId: Int64, deviceId: String? = nil, accountId: Int64? = nil, connectionIds: String? = nil, connectionAccountIds: String? = nil, connectionGroupIds: String? = nil, removeFriendGroup: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, audienceIds: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/permissions/remove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/permissions/remove"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -300,9 +292,8 @@ open class UserPermissionsAPI {
     }
 
     /// Search Permissionables
-    /// - GET /api/{version}/permissions/search
+    /// - GET /permissions/search
     /// - Search on UserPermissions
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account ID of the user (deviceId or accountId required) (optional)
     /// - parameter connectionAccountId: (query) Filter results for a specific user account (optional)
@@ -317,14 +308,13 @@ open class UserPermissionsAPI {
     /// - parameter start: (query) the start index for pagination (optional, default to 0)
     /// - parameter limit: (query) the limit for pagination (optional, default to 20)
     /// - returns: AnyPublisher<[UserPermissionsResponse], Error> 
-    open func searchPermissionables(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: SearchPermissionablesPermissionableType? = nil, permissionableId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[UserPermissionsResponse], Error> {
+    open func searchPermissionables(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: SearchPermissionablesPermissionableType? = nil, permissionableId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[UserPermissionsResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/permissions/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/permissions/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -372,9 +362,8 @@ open class UserPermissionsAPI {
     }
 
     /// Search Permissionables by Distnace
-    /// - GET /api/{version}/permissions/distancesearch
+    /// - GET /permissions/distancesearch
     /// - Search on UserPermissions by distance
-    /// - parameter version: (path)  
     /// - parameter latitude: (query) The latitude of the current account 
     /// - parameter longitude: (query) The longitude of the current account 
     /// - parameter deviceId: (query) A unique ID given by the device (deviceId or accountId required) (optional)
@@ -390,14 +379,13 @@ open class UserPermissionsAPI {
     /// - parameter start: (query) The start index for pagination (optional, default to 0)
     /// - parameter limit: (query) The limit for pagination (optional, default to 20)
     /// - returns: AnyPublisher<[UserPermissionsResponse], Error> 
-    open func searchPermissionablesFollowingDistance(version: Double, latitude: Double, longitude: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: SearchPermissionablesFollowingDistancePermissionableType? = nil, permissionableId: Int64? = nil, searchRange: Double? = nil, keyword: String? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[UserPermissionsResponse], Error> {
+    open func searchPermissionablesFollowingDistance(latitude: Double, longitude: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, connectionAccountIds: String? = nil, permissionableType: SearchPermissionablesFollowingDistancePermissionableType? = nil, permissionableId: Int64? = nil, searchRange: Double? = nil, keyword: String? = nil, pending: Bool? = nil, admin: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[UserPermissionsResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/permissions/distancesearch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/permissions/distancesearch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

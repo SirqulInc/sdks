@@ -21,7 +21,7 @@ open class OfferAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,21 +29,19 @@ open class OfferAPI {
 
 
     /// Update Offer Locations
-    /// - POST /api/{version}/retailer/offer/location/batchUpdate
+    /// - POST /retailer/offer/location/batchUpdate
     /// - Batch update offer locations.
-    /// - parameter version: (path)  
     /// - parameter data: (query) JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func batchUpdateOfferLocations(version: Double, data: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func batchUpdateOfferLocations(data: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/location/batchUpdate"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/location/batchUpdate"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -190,9 +188,8 @@ open class OfferAPI {
     }
 
     /// Create Offer
-    /// - POST /api/{version}/retailer/offer/create
+    /// - POST /retailer/offer/create
     /// - Create an offer and assign it to the provided retailer locations.
-    /// - parameter version: (path)  
     /// - parameter includeOfferLocations: (query) If true return all the offer locations associated with the offer 
     /// - parameter title: (query) The title (255 char limit) 
     /// - parameter barcodeType: (query) The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} 
@@ -280,14 +277,13 @@ open class OfferAPI {
     /// - parameter availability: (query)  (optional)
     /// - parameter availabilitySummary: (query)  (optional)
     /// - returns: AnyPublisher<RetailerOfferResponse, Error> 
-    open func createOffer(version: Double, includeOfferLocations: Bool, title: String, barcodeType: CreateOfferBarcodeType, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, offerType: CreateOfferOfferType, specialOfferType: CreateOfferSpecialOfferType, offerVisibility: CreateOfferOfferVisibility, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, tags: String? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: CreateOfferProductType? = nil, conditionType: CreateOfferConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: CreateOfferUnit? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: CreateOfferMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<RetailerOfferResponse, Error> {
+    open func createOffer(includeOfferLocations: Bool, title: String, barcodeType: CreateOfferBarcodeType, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, offerType: CreateOfferOfferType, specialOfferType: CreateOfferSpecialOfferType, offerVisibility: CreateOfferOfferVisibility, active: Bool, deviceId: String? = nil, accountId: Int64? = nil, tags: String? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: CreateOfferProductType? = nil, conditionType: CreateOfferConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: CreateOfferUnit? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: CreateOfferMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<RetailerOfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -396,21 +392,19 @@ open class OfferAPI {
 
 
     /// Delete Offer
-    /// - POST /api/{version}/retailer/offer/delete
+    /// - POST /retailer/offer/delete
     /// - Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-    /// - parameter version: (path)  
     /// - parameter offerId: (query) The ID of the offer to be deleted 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account used to perform the delete, must have rights to edit the offer. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteOffer(version: Double, offerId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteOffer(offerId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -436,21 +430,19 @@ open class OfferAPI {
 
 
     /// Delete Offer Location
-    /// - POST /api/{version}/retailer/offer/location/delete
+    /// - POST /retailer/offer/location/delete
     /// - Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-    /// - parameter version: (path)  
     /// - parameter offerLocationId: (query) The ID of the offer location to be deleted 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account used to perform the delete, must have rights to edit the offer location. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteOfferLocation(version: Double, offerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteOfferLocation(offerLocationId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/location/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/location/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -476,22 +468,20 @@ open class OfferAPI {
 
 
     /// Get Offer
-    /// - GET /api/{version}/retailer/offer/get
+    /// - GET /retailer/offer/get
     /// - Gets the details of an offer that the user has access to.
-    /// - parameter version: (path)  
     /// - parameter offerId: (query) The id of the offer 
     /// - parameter includeOfferLocations: (query)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<RetailerOfferResponse, Error> 
-    open func getOffer(version: Double, offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<RetailerOfferResponse, Error> {
+    open func getOffer(offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<RetailerOfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -518,9 +508,8 @@ open class OfferAPI {
 
 
     /// Get Offer
-    /// - GET /api/{version}/offer/get
+    /// - GET /offer/get
     /// - Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id for returning account information (i.e. favorites) (optional)
     /// - parameter accountId: (query) The account id for returning account information (i.e. favorites) (optional)
     /// - parameter offerId: (query) The offer id (either offeLocationId or offerId must be provided) (optional)
@@ -532,14 +521,13 @@ open class OfferAPI {
     /// - parameter includeRetailerLocations: (query) Determines whether to return the retailer location info for each offer location response (includeOfferLocations must also be true for this to work) (optional, default to false)
     /// - parameter includeChildOffers: (query) Determines whether to include child offers in the response (optional, default to false)
     /// - returns: AnyPublisher<OfferResponse, Error> 
-    open func getOfferDetails(version: Double, deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, distance: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, includeOfferLocations: Bool? = nil, includeRetailerLocations: Bool? = nil, includeChildOffers: Bool? = nil) -> AnyPublisher<OfferResponse, Error> {
+    open func getOfferDetails(deviceId: String? = nil, accountId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, distance: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, includeOfferLocations: Bool? = nil, includeRetailerLocations: Bool? = nil, includeChildOffers: Bool? = nil) -> AnyPublisher<OfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -579,22 +567,20 @@ open class OfferAPI {
     }
 
     /// Get Offers (Counts)
-    /// - GET /api/{version}/offer/lists/count
+    /// - GET /offer/lists/count
     /// - Gets the offer list counts.
-    /// - parameter version: (path)  
     /// - parameter latitude: (query) The latitude of where the search will center at 
     /// - parameter longitude: (query) The longitude of where the search will center at 
     /// - parameter searchRange: (query) The range of the search (optional, default to 5)
     /// - parameter distanceUnit: (query) The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to .miles)
     /// - returns: AnyPublisher<ListCountResponse, Error> 
-    open func getOfferListCounts(version: Double, latitude: Double, longitude: Double, searchRange: Double? = nil, distanceUnit: GetOfferListCountsDistanceUnit? = nil) -> AnyPublisher<ListCountResponse, Error> {
+    open func getOfferListCounts(latitude: Double, longitude: Double, searchRange: Double? = nil, distanceUnit: GetOfferListCountsDistanceUnit? = nil) -> AnyPublisher<ListCountResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/lists/count"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/lists/count"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -621,20 +607,18 @@ open class OfferAPI {
 
 
     /// Get Offer Location
-    /// - GET /api/{version}/offer/location/get
+    /// - GET /offer/location/get
     /// - Gets the offer location by offer location id or udid (of a device)
-    /// - parameter version: (path)  
     /// - parameter offerLocationId: (query) the id of the offer location to get (optional)
     /// - parameter udid: (query) the UDID of the device (optional)
     /// - returns: AnyPublisher<OfferShortResponse, Error> 
-    open func getOfferLocation(version: Double, offerLocationId: Int64? = nil, udid: String? = nil) -> AnyPublisher<OfferShortResponse, Error> {
+    open func getOfferLocation(offerLocationId: Int64? = nil, udid: String? = nil) -> AnyPublisher<OfferShortResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/location/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/location/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -716,9 +700,8 @@ open class OfferAPI {
     }
 
     /// Search Offer Locations
-    /// - GET /api/{version}/retailer/offer/location/search
+    /// - GET /retailer/offer/location/search
     /// - Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
     /// - parameter descending: (query) The order to return the results. Default is false, which will return the results in ascending order. 
     /// - parameter start: (query) The index into the record set to start with. Default is 0. 
@@ -740,14 +723,13 @@ open class OfferAPI {
     /// - parameter needsNotificationSent: (query)  (optional)
     /// - parameter lastNotificationSent: (query)  (optional)
     /// - returns: AnyPublisher<[OfferShortResponse], Error> 
-    open func getOfferLocationsForRetailers(version: Double, sortField: GetOfferLocationsForRetailersSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includeRetailerLocation: Bool, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerType: GetOfferLocationsForRetailersOfferType? = nil, specialOfferType: GetOfferLocationsForRetailersSpecialOfferType? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: GetOfferLocationsForRetailersDeviceStatus? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil) -> AnyPublisher<[OfferShortResponse], Error> {
+    open func getOfferLocationsForRetailers(sortField: GetOfferLocationsForRetailersSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includeRetailerLocation: Bool, deviceId: String? = nil, accountId: Int64? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerType: GetOfferLocationsForRetailersOfferType? = nil, specialOfferType: GetOfferLocationsForRetailersSpecialOfferType? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: GetOfferLocationsForRetailersDeviceStatus? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil) -> AnyPublisher<[OfferShortResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/location/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/location/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -879,9 +861,8 @@ open class OfferAPI {
     }
 
     /// Search Offers
-    /// - GET /api/{version}/retailer/offer/search
+    /// - GET /retailer/offer/search
     /// - Searches on offers that the account has access to.
-    /// - parameter version: (path)  
     /// - parameter offerVisibility: (query)  
     /// - parameter sortField: (query) The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY 
     /// - parameter descending: (query) The order to return the search results 
@@ -914,14 +895,13 @@ open class OfferAPI {
     /// - parameter needsNotificationSent: (query)  (optional)
     /// - parameter lastNotificationSent: (query)  (optional)
     /// - returns: AnyPublisher<[OfferResponse], Error> 
-    open func getOffersForRetailers(version: Double, offerVisibility: GetOffersForRetailersOfferVisibility, sortField: GetOffersForRetailersSortField, descending: Bool, start: Int, limit: Int, availableOnly: Bool, activeOnly: Bool, includeCategories: Bool, includeFilters: Bool, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, couponType: GetOffersForRetailersCouponType? = nil, offerType: GetOffersForRetailersOfferType? = nil, offerTypes: String? = nil, specialOfferType: GetOffersForRetailersSpecialOfferType? = nil, i: Int? = nil, l: Int? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: GetOffersForRetailersDeviceStatus? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil) -> AnyPublisher<[OfferResponse], Error> {
+    open func getOffersForRetailers(offerVisibility: GetOffersForRetailersOfferVisibility, sortField: GetOffersForRetailersSortField, descending: Bool, start: Int, limit: Int, availableOnly: Bool, activeOnly: Bool, includeCategories: Bool, includeFilters: Bool, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, categoryIds: String? = nil, filterIds: String? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, couponType: GetOffersForRetailersCouponType? = nil, offerType: GetOffersForRetailersOfferType? = nil, offerTypes: String? = nil, specialOfferType: GetOffersForRetailersSpecialOfferType? = nil, i: Int? = nil, l: Int? = nil, barcodeType: String? = nil, barcodeEntry: String? = nil, isbn: String? = nil, asin: String? = nil, deviceStatus: GetOffersForRetailersDeviceStatus? = nil, needsNotificationSent: Bool? = nil, lastNotificationSent: Int64? = nil) -> AnyPublisher<[OfferResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -975,23 +955,21 @@ open class OfferAPI {
 
 
     /// Update Offer Transaction
-    /// - POST /api/{version}/retailer/offer/transaction/update
+    /// - POST /retailer/offer/transaction/update
     /// - Redeems an offer.
-    /// - parameter version: (path)  
     /// - parameter offerTransactionId: (query) the OfferTransaction ID of the transaction being redeemed 
     /// - parameter status: (query) the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter offerLocationId: (query) the OfferLocation ID where the offer is being redeemed (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func redeemOfferTransaction(version: Double, offerTransactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func redeemOfferTransaction(offerTransactionId: Int64, status: Int, deviceId: String? = nil, accountId: Int64? = nil, offerLocationId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/transaction/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/transaction/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1084,9 +1062,8 @@ open class OfferAPI {
     }
 
     /// Search Offer Transactions
-    /// - GET /api/{version}/retailer/offer/transaction/search
+    /// - GET /retailer/offer/transaction/search
     /// - Searches on offer transactions for offers that the account has access to.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} 
     /// - parameter descending: (query) Determines whether the results are in descending order 
     /// - parameter start: (query) The start index for pagination 
@@ -1112,14 +1089,13 @@ open class OfferAPI {
     /// - parameter i: (query) This parameter is deprecated. (optional)
     /// - parameter l: (query) This parameter is deprecated. (optional)
     /// - returns: AnyPublisher<[OfferTransactionResponse], Error> 
-    open func searchOfferTransactionsForRetailers(version: Double, sortField: SearchOfferTransactionsForRetailersSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, redeemed: Bool? = nil, reservationsOnly: Bool? = nil, couponType: SearchOfferTransactionsForRetailersCouponType? = nil, offerType: SearchOfferTransactionsForRetailersOfferType? = nil, specialOfferType: SearchOfferTransactionsForRetailersSpecialOfferType? = nil, customerAccountIds: String? = nil, categoryIds: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, i: Int? = nil, l: Int? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
+    open func searchOfferTransactionsForRetailers(sortField: SearchOfferTransactionsForRetailersSortField, descending: Bool, start: Int, limit: Int, activeOnly: Bool, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, redeemed: Bool? = nil, reservationsOnly: Bool? = nil, couponType: SearchOfferTransactionsForRetailersCouponType? = nil, offerType: SearchOfferTransactionsForRetailersOfferType? = nil, specialOfferType: SearchOfferTransactionsForRetailersSpecialOfferType? = nil, customerAccountIds: String? = nil, categoryIds: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, i: Int? = nil, l: Int? = nil) -> AnyPublisher<[OfferTransactionResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/transaction/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/transaction/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1206,9 +1182,8 @@ open class OfferAPI {
     }
 
     /// Search Offers
-    /// - GET /api/{version}/offer/lists
+    /// - GET /offer/lists
     /// - Searches for offers as a consumer.
-    /// - parameter version: (path)  
     /// - parameter latitude: (query) The latitude of where the search will center at 
     /// - parameter longitude: (query) The longitude of where the search will center at 
     /// - parameter recommendationType: (query) The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available 
@@ -1241,14 +1216,13 @@ open class OfferAPI {
     /// - parameter searchExpression: (query)  (optional)
     /// - parameter groupBy: (query) groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional)
     /// - returns: AnyPublisher<OfferListResponse, Error> 
-    open func searchOffersForConsumer(version: Double, latitude: Double, longitude: Double, recommendationType: SearchOffersForConsumerRecommendationType, locationId: Int64, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: SearchOffersForConsumerDistanceUnit, appKey: String? = nil, deviceId: String? = nil, accountId: Int64? = nil, searchRange: Double? = nil, tags: String? = nil, supportedPostalCodes: String? = nil, keyword: String? = nil, categories: String? = nil, filters: String? = nil, offerTypes: String? = nil, type: String? = nil, sortField: String? = nil, recommendOfferIds: String? = nil, retailerLocationIds: String? = nil, offerId: Int64? = nil, includeMission: Bool? = nil, includeCategories: Bool? = nil, includeFilters: Bool? = nil, includeExpired: Bool? = nil, includeFavorite: Bool? = nil, closestOfferOnly: Bool? = nil, searchExpression: String? = nil, groupBy: SearchOffersForConsumerGroupBy? = nil) -> AnyPublisher<OfferListResponse, Error> {
+    open func searchOffersForConsumer(latitude: Double, longitude: Double, recommendationType: SearchOffersForConsumerRecommendationType, locationId: Int64, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: SearchOffersForConsumerDistanceUnit, appKey: String? = nil, deviceId: String? = nil, accountId: Int64? = nil, searchRange: Double? = nil, tags: String? = nil, supportedPostalCodes: String? = nil, keyword: String? = nil, categories: String? = nil, filters: String? = nil, offerTypes: String? = nil, type: String? = nil, sortField: String? = nil, recommendOfferIds: String? = nil, retailerLocationIds: String? = nil, offerId: Int64? = nil, includeMission: Bool? = nil, includeCategories: Bool? = nil, includeFilters: Bool? = nil, includeExpired: Bool? = nil, includeFavorite: Bool? = nil, closestOfferOnly: Bool? = nil, searchExpression: String? = nil, groupBy: SearchOffersForConsumerGroupBy? = nil) -> AnyPublisher<OfferListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/lists"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/lists"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1302,20 +1276,18 @@ open class OfferAPI {
 
 
     /// Get Offers (Top)
-    /// - GET /api/{version}/offer/top
+    /// - GET /offer/top
     /// - Gets the top active offers.
-    /// - parameter version: (path)  
     /// - parameter start: (query) The index into the record set to start with. Default is 0. (optional, default to 0)
     /// - parameter limit: (query) The total number of record to return. Default id 20. (optional, default to 20)
     /// - returns: AnyPublisher<OfferListResponse, Error> 
-    open func topOfferTransactions(version: Double, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<OfferListResponse, Error> {
+    open func topOfferTransactions(start: Int? = nil, limit: Int? = nil) -> AnyPublisher<OfferListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/offer/top"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/offer/top"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1461,9 +1433,8 @@ open class OfferAPI {
     }
 
     /// Update Offer
-    /// - POST /api/{version}/retailer/offer/update
+    /// - POST /retailer/offer/update
     /// - Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-    /// - parameter version: (path)  
     /// - parameter offerId: (query) The offer to update 
     /// - parameter includeOfferLocations: (query) If true return all the offer locations associated with the offer 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -1552,14 +1523,13 @@ open class OfferAPI {
     /// - parameter availability: (query)  (optional)
     /// - parameter availabilitySummary: (query)  (optional)
     /// - returns: AnyPublisher<RetailerOfferResponse, Error> 
-    open func updateOffer(version: Double, offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, tags: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: UpdateOfferBarcodeType? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, offerType: UpdateOfferOfferType? = nil, specialOfferType: UpdateOfferSpecialOfferType? = nil, offerVisibility: UpdateOfferOfferVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: UpdateOfferProductType? = nil, conditionType: UpdateOfferConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: UpdateOfferUnit? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: UpdateOfferMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<RetailerOfferResponse, Error> {
+    open func updateOffer(offerId: Int64, includeOfferLocations: Bool, deviceId: String? = nil, accountId: Int64? = nil, parentOfferId: Int64? = nil, retailerLocationIds: String? = nil, offerLocations: String? = nil, tags: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: UpdateOfferBarcodeType? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, externalId: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, offerType: UpdateOfferOfferType? = nil, specialOfferType: UpdateOfferSpecialOfferType? = nil, offerVisibility: UpdateOfferOfferVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, brand: String? = nil, productType: UpdateOfferProductType? = nil, conditionType: UpdateOfferConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, department: String? = nil, features: String? = nil, minimumPrice: Double? = nil, width: Double? = nil, height: Double? = nil, depth: Double? = nil, weight: Double? = nil, unit: UpdateOfferUnit? = nil, studio: String? = nil, parentalRating: String? = nil, publishDate: Int64? = nil, availabilityDate: Int64? = nil, sizeId: Int64? = nil, listingId: Int64? = nil, mediaType: UpdateOfferMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, rebootTimeHour: Int? = nil, rebootTimeMinute: Int? = nil, idleTimeoutInSecond: Int? = nil, serialNumber: String? = nil, udid: String? = nil, deviceType: String? = nil, devicePower: Double? = nil, deviceInterference: Double? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<RetailerOfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1669,22 +1639,20 @@ open class OfferAPI {
 
 
     /// Activate Offer
-    /// - POST /api/{version}/retailer/offer/status
+    /// - POST /retailer/offer/status
     /// - Sets the activated date on offers. This will make offers visible for consumers.
-    /// - parameter version: (path)  
     /// - parameter offerIds: (query) Comma separated list of offer ids 
     /// - parameter active: (query) Determines whether to make the offer active as well 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account used to perform the activation, must have rights to edit the offer. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateOfferStatus(version: Double, offerIds: String, active: Bool, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateOfferStatus(offerIds: String, active: Bool, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/retailer/offer/status"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/retailer/offer/status"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class LeaderboardAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class LeaderboardAPI {
 
 
     /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    /// - POST /api/{version}/leaderboard/create
+    /// - POST /leaderboard/create
     /// - Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user creating the leaderboard. (optional)
     /// - parameter appKey: (query) The application key (optional)
     /// - parameter rankType: (query) a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional)
@@ -46,14 +45,13 @@ open class LeaderboardAPI {
     /// - parameter description: (query) leaderboard&#39;s description (optional)
     /// - parameter metaData: (query) custom meta data for the leaderboard (optional)
     /// - returns: AnyPublisher<LeaderboardResponse, Error> 
-    open func createLeaderboard(version: Double, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, iconMedia: Data? = nil, iconAssetId: Int64? = nil, bannerMedia: Data? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, sortField: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
+    open func createLeaderboard(accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, iconMedia: Data? = nil, iconAssetId: Int64? = nil, bannerMedia: Data? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, sortField: String? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/leaderboard/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/leaderboard/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -89,20 +87,18 @@ open class LeaderboardAPI {
 
 
     /// Delete the Leader Board
-    /// - POST /api/{version}/leaderboard/delete
+    /// - POST /leaderboard/delete
     /// - Removes a leader board id.
-    /// - parameter version: (path)  
     /// - parameter leaderboardId: (query) The leaderboard id to delete. 
     /// - parameter accountId: (query) The account id of the user making the request. (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteLeaderboard(version: Double, leaderboardId: Int64, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteLeaderboard(leaderboardId: Int64, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/leaderboard/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/leaderboard/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -127,21 +123,19 @@ open class LeaderboardAPI {
 
 
     /// Read a leaderboard by id and retrieve the matching ranking list
-    /// - GET /api/{version}/leaderboard/get
+    /// - GET /leaderboard/get
     /// - Read a leaderboard by id and retrieve the matching ranking list
-    /// - parameter version: (path)  
     /// - parameter leaderboardId: (query) The leaderboard id. 
     /// - parameter accountId: (query) A valid account. (optional)
     /// - parameter includeFullRankingList: (query) set to true if need to return the leaderboard&#39;s full ranking list (optional)
     /// - returns: AnyPublisher<LeaderboardResponse, Error> 
-    open func getLeaderboard(version: Double, leaderboardId: Int64, accountId: Int64? = nil, includeFullRankingList: Bool? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
+    open func getLeaderboard(leaderboardId: Int64, accountId: Int64? = nil, includeFullRankingList: Bool? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/leaderboard/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/leaderboard/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -167,9 +161,8 @@ open class LeaderboardAPI {
 
 
     /// Search leaderboard and retrieve the matching ranking list
-    /// - GET /api/{version}/leaderboard/search
+    /// - GET /leaderboard/search
     /// - Search leaderboard and retrieve the matching ranking list
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user requesting the search. (optional)
     /// - parameter appKey: (query) The application key. (optional)
     /// - parameter globalOnly: (query) only include global leaderboards (this overrides the appKey filter) (optional)
@@ -183,14 +176,13 @@ open class LeaderboardAPI {
     /// - parameter start: (query) Start the result set at some index. (optional)
     /// - parameter limit: (query) Limit the result to some number. (optional)
     /// - returns: AnyPublisher<LeaderboardResponse, Error> 
-    open func searchLeaderboards(version: Double, accountId: Int64? = nil, appKey: String? = nil, globalOnly: Bool? = nil, keyword: String? = nil, leaderboardIds: String? = nil, rankTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, includeInactive: Bool? = nil, includeAppResponse: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
+    open func searchLeaderboards(accountId: Int64? = nil, appKey: String? = nil, globalOnly: Bool? = nil, keyword: String? = nil, leaderboardIds: String? = nil, rankTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, includeInactive: Bool? = nil, includeAppResponse: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/leaderboard/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/leaderboard/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -225,9 +217,8 @@ open class LeaderboardAPI {
 
 
     /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    /// - POST /api/{version}/leaderboard/update
+    /// - POST /leaderboard/update
     /// - Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    /// - parameter version: (path)  
     /// - parameter leaderboardId: (query) The leaderboard id to update. 
     /// - parameter accountId: (query) The account id of the user updating the leaderboard. (optional)
     /// - parameter appKey: (query) The application key (optional)
@@ -244,14 +235,13 @@ open class LeaderboardAPI {
     /// - parameter description: (query) leaderboard&#39;s description (optional)
     /// - parameter metaData: (query) custom meta data for the leaderboard (optional)
     /// - returns: AnyPublisher<LeaderboardResponse, Error> 
-    open func updateLeaderboard(version: Double, leaderboardId: Int64, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, sortField: String? = nil, iconMedia: Data? = nil, iconAssetId: Int64? = nil, bannerMedia: Data? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, active: Bool? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
+    open func updateLeaderboard(leaderboardId: Int64, accountId: Int64? = nil, appKey: String? = nil, rankType: String? = nil, leaderboardMode: String? = nil, sortField: String? = nil, iconMedia: Data? = nil, iconAssetId: Int64? = nil, bannerMedia: Data? = nil, bannerAssetId: Int64? = nil, limitation: Int? = nil, active: Bool? = nil, title: String? = nil, description: String? = nil, metaData: String? = nil) -> AnyPublisher<LeaderboardResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/leaderboard/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/leaderboard/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

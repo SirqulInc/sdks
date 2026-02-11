@@ -21,7 +21,7 @@ open class ScoreAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class ScoreAPI {
 
 
     /// Create Score
-    /// - POST /api/{version}/score/create
+    /// - POST /score/create
     /// - Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) The game application key to save the score for. 
     /// - parameter points: (query) The score 
@@ -43,14 +42,13 @@ open class ScoreAPI {
     /// - parameter timeTaken: (query) The time taken to complete task (optional)
     /// - parameter highest: (query)  (optional)
     /// - returns: AnyPublisher<ScoreResponse, Error> 
-    open func createScore(version: Double, accountId: Int64, appKey: String, points: Int, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, timeTaken: Int? = nil, highest: Bool? = nil) -> AnyPublisher<ScoreResponse, Error> {
+    open func createScore(accountId: Int64, appKey: String, points: Int, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, timeTaken: Int? = nil, highest: Bool? = nil) -> AnyPublisher<ScoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/score/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/score/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -83,9 +81,8 @@ open class ScoreAPI {
 
 
     /// Get Score
-    /// - GET /api/{version}/score/get
+    /// - GET /score/get
     /// - Get the high score for an item.  Pass in the full path IDs for the score.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) The game application key to get the level for. 
     /// - parameter missionId: (query) The missionId to score for, null if not playing mission. (optional)
@@ -96,14 +93,13 @@ open class ScoreAPI {
     /// - parameter scoreObjectType: (query) The object type to filter scores by (TicketObjectType) (optional)
     /// - parameter scoreStatus: (query) The status of the score to filter (ScoreStatus) (optional)
     /// - returns: AnyPublisher<ScoreResponse, Error> 
-    open func getScore(version: Double, accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreObjectType: String? = nil, scoreStatus: String? = nil) -> AnyPublisher<ScoreResponse, Error> {
+    open func getScore(accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil, scoreObjectType: String? = nil, scoreStatus: String? = nil) -> AnyPublisher<ScoreResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/score/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/score/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -135,9 +131,8 @@ open class ScoreAPI {
 
 
     /// Search Score
-    /// - GET /api/{version}/score/search
+    /// - GET /score/search
     /// - Search the scores for an item.  Pass in the full path IDs for the scores.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter appKey: (query) The game application key to get the level for. 
     /// - parameter missionId: (query) The missionId to score for, null if not playing mission. (optional)
@@ -146,14 +141,13 @@ open class ScoreAPI {
     /// - parameter gameLevelId: (query) The gameLevelId to score for. (optional)
     /// - parameter gameObjectId: (query) The gameObjectId to score for, null if level based scoring. (optional)
     /// - returns: AnyPublisher<[ScoreResponse], Error> 
-    open func searchScores(version: Double, accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil) -> AnyPublisher<[ScoreResponse], Error> {
+    open func searchScores(accountId: Int64, appKey: String, missionId: Int64? = nil, gameId: Int64? = nil, packId: Int64? = nil, gameLevelId: Int64? = nil, gameObjectId: Int64? = nil) -> AnyPublisher<[ScoreResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/score/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/score/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

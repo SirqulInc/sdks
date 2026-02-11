@@ -21,7 +21,7 @@ open class StripeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,20 +29,18 @@ open class StripeAPI {
 
 
     /// Create Stripe Checkout Session
-    /// - POST /api/{version}/stripe/checkout/session/create
+    /// - POST /stripe/checkout/session/create
     /// - Create a Stripe checkout session
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) Sirqul Application Key 
     /// - parameter stripeParameters: (query) Stripe Parameters 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func createStripeCheckoutSession(version: Double, appKey: String, stripeParameters: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func createStripeCheckoutSession(appKey: String, stripeParameters: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/stripe/checkout/session/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/stripe/checkout/session/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

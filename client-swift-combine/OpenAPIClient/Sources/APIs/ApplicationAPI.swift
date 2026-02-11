@@ -21,7 +21,7 @@ open class ApplicationAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -66,9 +66,8 @@ open class ApplicationAPI {
     }
 
     /// Create Application
-    /// - POST /api/{version}/application/create
+    /// - POST /application/create
     /// - Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-    /// - parameter version: (path)  
     /// - parameter appName: (query) The name of the application 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -149,14 +148,13 @@ open class ApplicationAPI {
     /// - parameter twilioSenderPhoneNumber: (query) Twilio Sender Phone Number (optional)
     /// - parameter openAISecretKey: (query) OpenAI Secret API Key (optional)
     /// - returns: AnyPublisher<ApplicationResponse, Error> 
-    open func createApplication(version: Double, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: CreateApplicationScoringType? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: CreateApplicationPlacementSize? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: CreateApplicationTrilatProcessingType? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: Data? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: Data? = nil, googlePrivateKeyFile: Data? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil) -> AnyPublisher<ApplicationResponse, Error> {
+    open func createApplication(appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: CreateApplicationScoringType? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: CreateApplicationPlacementSize? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: CreateApplicationTrilatProcessingType? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: Data? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: Data? = nil, googlePrivateKeyFile: Data? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil) -> AnyPublisher<ApplicationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -280,9 +278,8 @@ open class ApplicationAPI {
     }
 
     /// Create Ad Placement
-    /// - POST /api/{version}/application/placement/create
+    /// - POST /application/placement/create
     /// - Creates a new ad placement for an application.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The appKey of the application the ad placement is for 
     /// - parameter size: (query) The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -295,14 +292,13 @@ open class ApplicationAPI {
     /// - parameter defaultImageId: (query) Default Image Id (optional)
     /// - parameter active: (query) Active (optional)
     /// - returns: AnyPublisher<PlacementResponse, Error> 
-    open func createApplicationPlacement(version: Double, appKey: String, size: CreateApplicationPlacementSize, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil) -> AnyPublisher<PlacementResponse, Error> {
+    open func createApplicationPlacement(appKey: String, size: CreateApplicationPlacementSize, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil) -> AnyPublisher<PlacementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/placement/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/placement/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -336,20 +332,18 @@ open class ApplicationAPI {
 
 
     /// Delete Application
-    /// - POST /api/{version}/application/delete
+    /// - POST /application/delete
     /// - Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. (optional)
     /// - parameter appKey: (query) The key of the application to be deleted (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteApplication(version: Double, accountId: Int64? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteApplication(accountId: Int64? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -374,21 +368,19 @@ open class ApplicationAPI {
 
 
     /// Delete Ad Placement
-    /// - POST /api/{version}/application/placement/delete
+    /// - POST /application/placement/delete
     /// - Deletes an ad placement for an application.
-    /// - parameter version: (path)  
     /// - parameter placementId: (query) The id of the placement to delete, the user must have rights to the application the ad placement is for 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<PlacementResponse, Error> 
-    open func deleteApplicationPlacement(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<PlacementResponse, Error> {
+    open func deleteApplicationPlacement(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<PlacementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/placement/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/placement/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -414,20 +406,18 @@ open class ApplicationAPI {
 
 
     /// Get Application
-    /// - GET /api/{version}/application/get
+    /// - GET /application/get
     /// - Get a specific application by appKey
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The key of the application (optional)
     /// - parameter applicationId: (query) Application Id (optional)
     /// - returns: AnyPublisher<ApplicationResponse, Error> 
-    open func getApplication(version: Double, appKey: String? = nil, applicationId: Int64? = nil) -> AnyPublisher<ApplicationResponse, Error> {
+    open func getApplication(appKey: String? = nil, applicationId: Int64? = nil) -> AnyPublisher<ApplicationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -452,21 +442,19 @@ open class ApplicationAPI {
 
 
     /// Get Ad Placement
-    /// - GET /api/{version}/application/placement/get
+    /// - GET /application/placement/get
     /// - Get details of an ad placement
-    /// - parameter version: (path)  
     /// - parameter placementId: (query) The id of the placement 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<PlacementResponse, Error> 
-    open func getApplicationPlacement(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<PlacementResponse, Error> {
+    open func getApplicationPlacement(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<PlacementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/placement/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/placement/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -492,18 +480,16 @@ open class ApplicationAPI {
 
 
     /// Get API versions
-    /// - GET /api/{version}/application/versions
+    /// - GET /application/versions
     /// - Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-    /// - parameter version: (path)  
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func getApplicationVersions(version: Double) -> AnyPublisher<SirqulResponse, Error> {
+    open func getApplicationVersions() -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/versions"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/versions"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -524,9 +510,8 @@ open class ApplicationAPI {
 
 
     /// Search Application Users
-    /// - GET /api/{version}/application/users
+    /// - GET /application/users
     /// - Get a list of users per application
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key 
     /// - parameter q: (query) Q (optional)
     /// - parameter keyword: (query) The keyword used to search (optional)
@@ -536,14 +521,13 @@ open class ApplicationAPI {
     /// - parameter l: (query) the limit of the index (optional)
     /// - parameter limit: (query) The limit of the pagination (optional, default to 20)
     /// - returns: AnyPublisher<AccountListResponse, Error> 
-    open func getUniqueUsersByApp(version: Double, appKey: String, q: String? = nil, keyword: String? = nil, since: Int64? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<AccountListResponse, Error> {
+    open func getUniqueUsersByApp(appKey: String, q: String? = nil, keyword: String? = nil, since: Int64? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<AccountListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/users"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/users"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -603,9 +587,8 @@ open class ApplicationAPI {
     }
 
     /// List Applications
-    /// - GET /api/{version}/application/list
+    /// - GET /application/list
     /// - List active applications matching the criteria (as a consumer)
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the application owner/manager (optional)
     /// - parameter q: (query) Q (optional)
     /// - parameter keyword: (query) The keyword used to search for title, about, and description fields (optional)
@@ -627,14 +610,13 @@ open class ApplicationAPI {
     /// - parameter hasObjectStore: (query) Only include applications with a object store (default is false) (optional, default to false)
     /// - parameter activeOnly: (query) Return only active results (optional, default to true)
     /// - returns: AnyPublisher<[ApplicationShortResponse], Error> 
-    open func listApplications(version: Double, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, platforms: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, categoryIds: String? = nil, sortField: ListApplicationsSortField? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, filterBillable: Bool? = nil, filterContentAdmin: Bool? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, applicationIds: String? = nil, hasObjectStore: Bool? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[ApplicationShortResponse], Error> {
+    open func listApplications(accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, platforms: String? = nil, deviceIds: String? = nil, deviceVersions: String? = nil, categoryIds: String? = nil, sortField: ListApplicationsSortField? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, filterBillable: Bool? = nil, filterContentAdmin: Bool? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, applicationIds: String? = nil, hasObjectStore: Bool? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[ApplicationShortResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -677,23 +659,21 @@ open class ApplicationAPI {
 
 
     /// Search for Ad Placements
-    /// - GET /api/{version}/application/placement/search
+    /// - GET /application/placement/search
     /// - Searches placements for an application.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The key of the application 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter start: (query) The start of the pagination (optional, default to 0)
     /// - parameter limit: (query) The limit of the pagination (optional, default to 100)
     /// - returns: AnyPublisher<[PlacementResponse], Error> 
-    open func searchApplicationPlacement(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[PlacementResponse], Error> {
+    open func searchApplicationPlacement(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[PlacementResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/placement/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/placement/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -721,9 +701,8 @@ open class ApplicationAPI {
 
 
     /// Search for Application Settings
-    /// - GET /api/{version}/application/settings/search
+    /// - GET /application/settings/search
     /// - Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter connectionAccountId: (query) The account id used to view another person&#39;s account (optional)
@@ -733,14 +712,13 @@ open class ApplicationAPI {
     /// - parameter start: (query) The start index for pagination (optional, default to 0)
     /// - parameter limit: (query) The limit per result set for pagination (optional, default to 20)
     /// - returns: AnyPublisher<ApplicationSettingsResponse, Error> 
-    open func searchApplicationSettings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<ApplicationSettingsResponse, Error> {
+    open func searchApplicationSettings(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<ApplicationSettingsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/settings/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/settings/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -800,9 +778,8 @@ open class ApplicationAPI {
     }
 
     /// Search Applications
-    /// - GET /api/{version}/application/search
+    /// - GET /application/search
     /// - Search for applications matching the criteria that the logged in user has access to
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) The location of the device (optional)
@@ -820,14 +797,13 @@ open class ApplicationAPI {
     /// - parameter publicNotifications: (query) Filter results on whether the application is available for public trigger notifications (optional)
     /// - parameter activeOnly: (query) Return only active results (optional, default to false)
     /// - returns: AnyPublisher<[ApplicationResponse], Error> 
-    open func searchApplications(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, q: String? = nil, keyword: String? = nil, qSearchFields: String? = nil, sortField: SearchApplicationsSortField? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[ApplicationResponse], Error> {
+    open func searchApplications(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, q: String? = nil, keyword: String? = nil, qSearchFields: String? = nil, sortField: SearchApplicationsSortField? = nil, descending: Bool? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, hasAds: Bool? = nil, publicNotifications: Bool? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[ApplicationResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -903,9 +879,8 @@ open class ApplicationAPI {
     }
 
     /// Update Application
-    /// - POST /api/{version}/application/update
+    /// - POST /application/update
     /// - Update an application record
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key for updating an existing application 
     /// - parameter appName: (query) The name of the application 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -987,14 +962,13 @@ open class ApplicationAPI {
     /// - parameter twilioSenderPhoneNumber: (query) Twilio Sender Phone Number (optional)
     /// - parameter openAISecretKey: (query) OpenAI Secret API Key (optional)
     /// - returns: AnyPublisher<ApplicationResponse, Error> 
-    open func updateApplication(version: Double, appKey: String, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: UpdateApplicationScoringType? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: UpdateApplicationPlacementSize? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: UpdateApplicationTrilatProcessingType? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: Data? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: Data? = nil, googlePrivateKeyFile: Data? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil) -> AnyPublisher<ApplicationResponse, Error> {
+    open func updateApplication(appKey: String, appName: String, deviceId: String? = nil, accountId: Int64? = nil, about: String? = nil, bundleId: String? = nil, appIconAssetId: Int64? = nil, appLogoAssetId: Int64? = nil, facebookAppId: String? = nil, facebookAppSecret: String? = nil, googleApiKey: String? = nil, updateEULADate: Bool? = nil, eulaVersion: String? = nil, landingPageUrl: String? = nil, showInActivities: Bool? = nil, activityDescription: String? = nil, inviteWelcomeText: String? = nil, invitePageUrl: String? = nil, urlScheme: String? = nil, platforms: String? = nil, downloadUrls: String? = nil, categoryIds: String? = nil, scoringType: UpdateApplicationScoringType? = nil, hintCost: Int? = nil, maxScore: Int? = nil, ticketsPerPoint: Float? = nil, hasGameData: Bool? = nil, publicNotifications: Bool? = nil, useMatchingAlgorithm: Bool? = nil, globalTickets: Bool? = nil, buildVersion: Float? = nil, apiVersion: Float? = nil, placementName: String? = nil, placementDescription: String? = nil, placementSize: UpdateApplicationPlacementSize? = nil, placementHeight: Int? = nil, placementWidth: Int? = nil, placementRefreshInterval: Int? = nil, createObjectStore: Bool? = nil, publicContentApproval: Bool? = nil, productionMode: Bool? = nil, minimumSessionLength: Int? = nil, sessionGapLength: Int? = nil, localAdsEnabled: Bool? = nil, sqootApiKey: String? = nil, trilatProcessingType: UpdateApplicationTrilatProcessingType? = nil, maxSampleSize: Int? = nil, minRSSI: Double? = nil, modules: String? = nil, authorizedCount: Int? = nil, authorizedServers: String? = nil, defaultTimezone: String? = nil, smtpPass: String? = nil, metaData: String? = nil, placementMetaData: String? = nil, ipsFloor: Bool? = nil, enableAPNSBadge: Bool? = nil, includeInReport: Bool? = nil, defaultAppFilterId: Int64? = nil, enableWelcomeEmail: Bool? = nil, appleAppId: String? = nil, appleTeamId: String? = nil, appleAuthKeyId: String? = nil, appleAuthKey: Data? = nil, appleIssuerId: String? = nil, appStoreKeyId: String? = nil, appStoreKey: Data? = nil, googlePrivateKeyFile: Data? = nil, authorizeNetApiKey: String? = nil, authorizeNetTransactionKey: String? = nil, emailSender: String? = nil, smtpUser: String? = nil, smtpHost: String? = nil, vatomBusinessId: String? = nil, vatomRestClientId: String? = nil, vatomRestSecretKey: String? = nil, twilioAccountSID: String? = nil, twilioAuthToken: String? = nil, twilioSenderPhoneNumber: String? = nil, openAISecretKey: String? = nil) -> AnyPublisher<ApplicationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1097,21 +1071,19 @@ open class ApplicationAPI {
 
 
     /// Change Appliation Status
-    /// - POST /api/{version}/application/active
+    /// - POST /application/active
     /// - Set the application's active flag to true/false. This effectively activates or deactivates the application.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. 
     /// - parameter appKey: (query) The key of the application to be deleted 
     /// - parameter active: (query) If true then set to active, false otherwise 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateApplicationActive(version: Double, accountId: Int64, appKey: String, active: Bool) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateApplicationActive(accountId: Int64, appKey: String, active: Bool) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/active"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/active"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1159,9 +1131,8 @@ open class ApplicationAPI {
     }
 
     /// Update Ad Placement
-    /// - POST /api/{version}/application/placement/update
+    /// - POST /application/placement/update
     /// - Updates an ad placement for an application.
-    /// - parameter version: (path)  
     /// - parameter placementId: (query) The id of the placement to update, the user must have rights to the application the ad placement is for 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -1174,14 +1145,13 @@ open class ApplicationAPI {
     /// - parameter defaultImageId: (query) Default Image Id (optional)
     /// - parameter active: (query) Active (optional)
     /// - returns: AnyPublisher<PlacementResponse, Error> 
-    open func updateApplicationPlacement(version: Double, placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, size: UpdateApplicationPlacementSize? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil) -> AnyPublisher<PlacementResponse, Error> {
+    open func updateApplicationPlacement(placementId: Int64, deviceId: String? = nil, accountId: Int64? = nil, name: String? = nil, description: String? = nil, size: UpdateApplicationPlacementSize? = nil, height: Int? = nil, width: Int? = nil, refreshInterval: Int? = nil, defaultImageId: Int64? = nil, active: Bool? = nil) -> AnyPublisher<PlacementResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/placement/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/placement/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1215,22 +1185,20 @@ open class ApplicationAPI {
 
 
     /// Create Application Certificate
-    /// - POST /api/{version}/application/certificate/create
+    /// - POST /application/certificate/create
     /// - Uploads a certificate for an application that the user has access to.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The key of the application 
     /// - parameter deviceId: (query) Device Id (optional)
     /// - parameter accountId: (query) The account used to perform the delete, must have rights to edit the application. (optional)
     /// - parameter certificate: (query) Certificate (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func uploadApplicationCertificate(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, certificate: Data? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func uploadApplicationCertificate(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, certificate: Data? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/application/certificate/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/application/certificate/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

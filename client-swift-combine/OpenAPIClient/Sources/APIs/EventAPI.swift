@@ -21,7 +21,7 @@ open class EventAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class EventAPI {
 
 
     /// Attend Event
-    /// - POST /api/{version}/event/attend
+    /// - POST /event/attend
     /// -  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id (deviceId or accountId required) (optional)
     /// - parameter appKey: (query) The application of where to send notifications about the attend action (optional)
@@ -43,14 +42,13 @@ open class EventAPI {
     /// - parameter latitude: (query) The location of the status update (optional)
     /// - parameter longitude: (query) The location of the status update (optional)
     /// - returns: AnyPublisher<OfferResponse, Error> 
-    open func attendEvent(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, listingId: Int64? = nil, retailerLocationId: Int64? = nil, offerLocationId: Int64? = nil, transactionId: Int64? = nil, status: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<OfferResponse, Error> {
+    open func attendEvent(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, listingId: Int64? = nil, retailerLocationId: Int64? = nil, offerLocationId: Int64? = nil, transactionId: Int64? = nil, status: Int? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<OfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/event/attend"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/event/attend"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -83,9 +81,8 @@ open class EventAPI {
 
 
     /// Create Event
-    /// - POST /api/{version}/event/create
+    /// - POST /event/create
     /// - Create a private event to share with associates.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter title: (query) The event title 
     /// - parameter retailerLocationIds: (query) The retailer location to have the event at (optional)
@@ -99,14 +96,13 @@ open class EventAPI {
     /// - parameter redeemableEnd: (query) The event end date/time (optional)
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - returns: AnyPublisher<OfferResponse, Error> 
-    open func createEvent(version: Double, accountId: Int64, title: String, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, metaData: String? = nil) -> AnyPublisher<OfferResponse, Error> {
+    open func createEvent(accountId: Int64, title: String, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, metaData: String? = nil) -> AnyPublisher<OfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/event/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/event/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -141,20 +137,18 @@ open class EventAPI {
 
 
     /// Delete Event
-    /// - POST /api/{version}/event/delete
+    /// - POST /event/delete
     /// - Delete an event that the user has permissions to.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter eventId: (query) the id of the event to update 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteEvent(version: Double, accountId: Int64, eventId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteEvent(accountId: Int64, eventId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/event/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/event/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -179,20 +173,18 @@ open class EventAPI {
 
 
     /// Get Event
-    /// - GET /api/{version}/event/get
+    /// - GET /event/get
     /// - Get an event.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter eventId: (query) The id of the event to return 
     /// - returns: AnyPublisher<OfferResponse, Error> 
-    open func getEvent(version: Double, accountId: Int64, eventId: Int64) -> AnyPublisher<OfferResponse, Error> {
+    open func getEvent(accountId: Int64, eventId: Int64) -> AnyPublisher<OfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/event/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/event/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -247,9 +239,8 @@ open class EventAPI {
     }
 
     /// Search Event Attendance
-    /// - GET /api/{version}/event/attendance/search
+    /// - GET /event/attendance/search
     /// - Searches on event type transactions. This can be used to see who is attending an event.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter appKey: (query) The application key (optional)
@@ -270,14 +261,13 @@ open class EventAPI {
     /// - parameter start: (query) The start index for pagination (optional)
     /// - parameter limit: (query) The limit for pagination (optional)
     /// - returns: AnyPublisher<[EventAttendanceResponse], Error> 
-    open func searchEventTransactions(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, excludeRetailerLocationId: Int64? = nil, listingId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, customerAccountIds: String? = nil, affiliatedCategoryIds: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, statuses: String? = nil, sortField: SearchEventTransactionsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[EventAttendanceResponse], Error> {
+    open func searchEventTransactions(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, keyword: String? = nil, retailerId: Int64? = nil, retailerLocationId: Int64? = nil, excludeRetailerLocationId: Int64? = nil, listingId: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, customerAccountIds: String? = nil, affiliatedCategoryIds: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, statuses: String? = nil, sortField: SearchEventTransactionsSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[EventAttendanceResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/event/attendance/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/event/attendance/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -355,9 +345,8 @@ open class EventAPI {
     }
 
     /// Search Events
-    /// - GET /api/{version}/event/search
+    /// - GET /event/search
     /// - Searches on events that the account has access to.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter keyword: (query) The keyword used to search (optional)
     /// - parameter activeOnly: (query) Return only active results (optional)
@@ -372,14 +361,13 @@ open class EventAPI {
     /// - parameter start: (query) The record to begin the return set on (optional)
     /// - parameter limit: (query) The number of records to return (optional)
     /// - returns: AnyPublisher<[OfferShortResponse], Error> 
-    open func searchEvents(version: Double, accountId: Int64, keyword: String? = nil, activeOnly: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, sortField: SearchEventsSortField? = nil, descending: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[OfferShortResponse], Error> {
+    open func searchEvents(accountId: Int64, keyword: String? = nil, activeOnly: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, sortField: SearchEventsSortField? = nil, descending: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[OfferShortResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/event/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/event/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -415,9 +403,8 @@ open class EventAPI {
 
 
     /// Update Event
-    /// - POST /api/{version}/event/update
+    /// - POST /event/update
     /// - Update a private event to share with associates.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter eventId: (query) The id of the event to update 
     /// - parameter retailerLocationIds: (query) The retailer location to have the event at (optional)
@@ -431,14 +418,13 @@ open class EventAPI {
     /// - parameter redeemableStart: (query) The event start date/time (optional)
     /// - parameter redeemableEnd: (query) The event end date/time (optional)
     /// - returns: AnyPublisher<OfferResponse, Error> 
-    open func updateEvent(version: Double, accountId: Int64, eventId: Int64, retailerLocationIds: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil) -> AnyPublisher<OfferResponse, Error> {
+    open func updateEvent(accountId: Int64, eventId: Int64, retailerLocationIds: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, imageAssetId: Int64? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil) -> AnyPublisher<OfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/event/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/event/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

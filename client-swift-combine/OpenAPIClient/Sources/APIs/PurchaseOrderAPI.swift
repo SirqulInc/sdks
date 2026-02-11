@@ -21,7 +21,7 @@ open class PurchaseOrderAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -41,9 +41,8 @@ open class PurchaseOrderAPI {
     }
 
     /// Create Order
-    /// - POST /api/{version}/order/create
+    /// - POST /order/create
     /// - Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application requesting the purchase 
     /// - parameter cart: (query) &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -57,14 +56,13 @@ open class PurchaseOrderAPI {
     /// - parameter externalDate: (query) External Date (optional)
     /// - parameter promoCode: (query) The Promo Code (optional)
     /// - returns: AnyPublisher<OrderResponse, Error> 
-    open func createOrder(version: Double, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CreateOrderCurrencyType? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil) -> AnyPublisher<OrderResponse, Error> {
+    open func createOrder(appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: CreateOrderCurrencyType? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil) -> AnyPublisher<OrderResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/order/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/order/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -99,21 +97,19 @@ open class PurchaseOrderAPI {
 
 
     /// Delete Order
-    /// - POST /api/{version}/order/delete
+    /// - POST /order/delete
     /// - Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-    /// - parameter version: (path)  
     /// - parameter orderId: (query) Order Id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteOrder(version: Double, orderId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteOrder(orderId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/order/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/order/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -139,22 +135,20 @@ open class PurchaseOrderAPI {
 
 
     /// Get Order
-    /// - GET /api/{version}/order/get
+    /// - GET /order/get
     /// - Get an order record
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter orderId: (query) The order id to get details of, either orderId or externalOrderId must be provided (optional)
     /// - parameter externalOrderId: (query) The external order id to get details of, either orderId or externalOrderId must be provided (optional)
     /// - returns: AnyPublisher<OrderResponse, Error> 
-    open func getOrder(version: Double, deviceId: String? = nil, accountId: Int64? = nil, orderId: Int64? = nil, externalOrderId: String? = nil) -> AnyPublisher<OrderResponse, Error> {
+    open func getOrder(deviceId: String? = nil, accountId: Int64? = nil, orderId: Int64? = nil, externalOrderId: String? = nil) -> AnyPublisher<OrderResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/order/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/order/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -193,9 +187,8 @@ open class PurchaseOrderAPI {
     }
 
     /// Preview Order
-    /// - POST /api/{version}/order/preview
+    /// - POST /order/preview
     /// - Previews a purchase to see the total cost before making it.
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application requesting the purchase 
     /// - parameter cart: (query) A JSON list of items to purchase 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
@@ -209,14 +202,13 @@ open class PurchaseOrderAPI {
     /// - parameter externalDate: (query) External Date (optional)
     /// - parameter promoCode: (query) The Promo Code (optional)
     /// - returns: AnyPublisher<OrderResponse, Error> 
-    open func previewOrder(version: Double, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: PreviewOrderCurrencyType? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil) -> AnyPublisher<OrderResponse, Error> {
+    open func previewOrder(appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, description: String? = nil, currencyType: PreviewOrderCurrencyType? = nil, paymentMethodId: Int64? = nil, externalOrderId: String? = nil, externalPaymentId: String? = nil, remoteRefType: String? = nil, externalDate: Int64? = nil, promoCode: String? = nil) -> AnyPublisher<OrderResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/order/preview"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/order/preview"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -251,9 +243,8 @@ open class PurchaseOrderAPI {
 
 
     /// Search Orders
-    /// - GET /api/{version}/order/search
+    /// - GET /order/search
     /// - Search on active orders by customer
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application requesting the purchase 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -286,14 +277,13 @@ open class PurchaseOrderAPI {
     /// - parameter endedSince: (query) Filter results by the offer end date (optional)
     /// - parameter endedBefore: (query) Filter results by the offer end date (optional)
     /// - returns: AnyPublisher<[OrderResponse], Error> 
-    open func searchOrders(version: Double, appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, ignoreCustomerFilter: Bool? = nil, orderItemTypes: String? = nil, orderItemIds: String? = nil, orderCustomTypes: String? = nil, orderCustomIds: String? = nil, sortField: String? = nil, offerTypes: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, offerIds: String? = nil, offerLocationIds: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, statuses: String? = nil, keyword: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil) -> AnyPublisher<[OrderResponse], Error> {
+    open func searchOrders(appKey: String, deviceId: String? = nil, accountId: Int64? = nil, start: Int? = nil, limit: Int? = nil, descending: Bool? = nil, activeOnly: Bool? = nil, ignoreCustomerFilter: Bool? = nil, orderItemTypes: String? = nil, orderItemIds: String? = nil, orderCustomTypes: String? = nil, orderCustomIds: String? = nil, sortField: String? = nil, offerTypes: String? = nil, specialOfferTypes: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, offerAudienceIds: String? = nil, transactionAudienceIds: String? = nil, offerIds: String? = nil, offerLocationIds: String? = nil, retailerIds: String? = nil, retailerLocationIds: String? = nil, statuses: String? = nil, keyword: String? = nil, redeemableStartDate: Int64? = nil, redeemableEndDate: Int64? = nil, startedSince: Int64? = nil, startedBefore: Int64? = nil, endedSince: Int64? = nil, endedBefore: Int64? = nil) -> AnyPublisher<[OrderResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/order/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/order/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -359,9 +349,8 @@ open class PurchaseOrderAPI {
     }
 
     /// Update Order
-    /// - POST /api/{version}/order/update
+    /// - POST /order/update
     /// - Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-    /// - parameter version: (path)  
     /// - parameter orderId: (query) The order to add the purchase to, leave null for new order. 
     /// - parameter appKey: (query) The application requesting the purchase 
     /// - parameter cart: (query) &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;  
@@ -374,14 +363,13 @@ open class PurchaseOrderAPI {
     /// - parameter externalPaymentId: (query) Store identifier from external system (optional)
     /// - parameter externalDate: (query) External Date (optional)
     /// - returns: AnyPublisher<OrderResponse, Error> 
-    open func updateOrder(version: Double, orderId: Int64, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, paymentTransactionId: Int64? = nil, description: String? = nil, currencyType: UpdateOrderCurrencyType? = nil, paymentMethodId: Int64? = nil, externalPaymentId: String? = nil, externalDate: Int64? = nil) -> AnyPublisher<OrderResponse, Error> {
+    open func updateOrder(orderId: Int64, appKey: String, cart: String, deviceId: String? = nil, accountId: Int64? = nil, paymentTransactionId: Int64? = nil, description: String? = nil, currencyType: UpdateOrderCurrencyType? = nil, paymentMethodId: Int64? = nil, externalPaymentId: String? = nil, externalDate: Int64? = nil) -> AnyPublisher<OrderResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/order/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/order/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

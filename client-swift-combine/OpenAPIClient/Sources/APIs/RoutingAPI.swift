@@ -21,7 +21,7 @@ open class RoutingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class RoutingAPI {
 
 
     /// Compute Route
-    /// - POST /api/{version}/routing/compute
+    /// - POST /routing/compute
     /// - This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-    /// - parameter version: (path)  
     /// - parameter data: (query) Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest 
     /// - returns: AnyPublisher<RoutingListResponse, Error> 
-    open func computeRouting(version: Double, data: String) -> AnyPublisher<RoutingListResponse, Error> {
+    open func computeRouting(data: String) -> AnyPublisher<RoutingListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/routing/compute"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/routing/compute"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

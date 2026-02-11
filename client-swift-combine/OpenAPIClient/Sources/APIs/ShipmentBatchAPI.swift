@@ -21,7 +21,7 @@ open class ShipmentBatchAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class ShipmentBatchAPI {
 
 
     /// Create Shipment Batch
-    /// - POST /api/{version}/shipment/batch
+    /// - POST /shipment/batch
     /// - Create a new shipment batch
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ShipmentBatch, Error> 
-    open func createShipmentBatch(version: Double, body: ShipmentBatch? = nil) -> AnyPublisher<ShipmentBatch, Error> {
+    open func createShipmentBatch(body: ShipmentBatch? = nil) -> AnyPublisher<ShipmentBatch, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/shipment/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -64,19 +62,17 @@ open class ShipmentBatchAPI {
 
 
     /// Delete Shipment Batch
-    /// - DELETE /api/{version}/shipment/batch/{batchId}
+    /// - DELETE /shipment/batch/{batchId}
     /// - Search for shipment batches
-    /// - parameter version: (path)  
     /// - parameter batchId: (path) the id of the shipment batch to delete 
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteShipmentBatch(version: Double, batchId: Int64) -> AnyPublisher<Void, Error> {
+    open func deleteShipmentBatch(batchId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/batch/{batchId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/batch/{batchId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{batchId}", with: "\(batchId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -98,19 +94,17 @@ open class ShipmentBatchAPI {
 
 
     /// Get Shipment Batch
-    /// - GET /api/{version}/shipment/batch/{batchId}
+    /// - GET /shipment/batch/{batchId}
     /// - Get an existing shipment batch
-    /// - parameter version: (path)  
     /// - parameter batchId: (path) the id of the shipment batch to get 
     /// - returns: AnyPublisher<ShipmentBatch, Error> 
-    open func getShipmentBatch(version: Double, batchId: Int64) -> AnyPublisher<ShipmentBatch, Error> {
+    open func getShipmentBatch(batchId: Int64) -> AnyPublisher<ShipmentBatch, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/batch/{batchId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/batch/{batchId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{batchId}", with: "\(batchId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -132,9 +126,8 @@ open class ShipmentBatchAPI {
 
 
     /// Get Shipment Batch Status
-    /// - GET /api/{version}/shipment/batch/{batchId}/status
+    /// - GET /shipment/batch/{batchId}/status
     /// - Get the import status list of the import shipment batch
-    /// - parameter version: (path)  
     /// - parameter batchId: (path) The id of the requested shipment batch 
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter sortField: (query) The field to sort by 
@@ -148,14 +141,13 @@ open class ShipmentBatchAPI {
     /// - parameter hasRoute: (query) Has route associate to the status (optional)
     /// - parameter keyword: (query) The keyword to search for (optional)
     /// - returns: AnyPublisher<[ShipmentImportStatus], Error> 
-    open func getShipmentBatchStatus(version: Double, batchId: Int64, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, valid: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, hasShipment: Bool? = nil, hasRoute: Bool? = nil, keyword: String? = nil) -> AnyPublisher<[ShipmentImportStatus], Error> {
+    open func getShipmentBatchStatus(batchId: Int64, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, valid: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, hasShipment: Bool? = nil, hasRoute: Bool? = nil, keyword: String? = nil) -> AnyPublisher<[ShipmentImportStatus], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/batch/{batchId}/status"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/shipment/batch/{batchId}/status"
                 localVarPath = localVarPath.replacingOccurrences(of: "{batchId}", with: "\(batchId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -190,23 +182,21 @@ open class ShipmentBatchAPI {
 
 
     /// Search Shipment Batch
-    /// - GET /api/{version}/shipment/batch
+    /// - GET /shipment/batch
     /// - Search for shipment batches
-    /// - parameter version: (path)  
     /// - parameter hubId: (query) The associated service hub 
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) The start index for pagination 
     /// - parameter limit: (query) The limit for pagination 
     /// - returns: AnyPublisher<[ShipmentBatch], Error> 
-    open func searchShipmentBatch(version: Double, hubId: Int64, sortField: String, descending: Bool, start: Int, limit: Int) -> AnyPublisher<[ShipmentBatch], Error> {
+    open func searchShipmentBatch(hubId: Int64, sortField: String, descending: Bool, start: Int, limit: Int) -> AnyPublisher<[ShipmentBatch], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/shipment/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/shipment/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

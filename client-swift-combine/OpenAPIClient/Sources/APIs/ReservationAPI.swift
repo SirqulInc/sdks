@@ -21,7 +21,7 @@ open class ReservationAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class ReservationAPI {
 
 
     /// Create Reservation
-    /// - POST /api/{version}/reservation/create
+    /// - POST /reservation/create
     /// - Creates a reservation on an offer object
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter startDate: (query) The start date (optional)
@@ -41,14 +40,13 @@ open class ReservationAPI {
     /// - parameter appKey: (query) The application requesting the reservation (optional)
     /// - parameter metaData: (query) External custom client defined data (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func createReservation(version: Double, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, appKey: String? = nil, metaData: String? = nil) -> AnyPublisher<Void, Error> {
+    open func createReservation(deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, offerId: Int64? = nil, offerLocationId: Int64? = nil, appKey: String? = nil, metaData: String? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/reservation/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/reservation/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -79,21 +77,19 @@ open class ReservationAPI {
 
 
     /// Delete Reservation
-    /// - POST /api/{version}/reservation/delete
+    /// - POST /reservation/delete
     /// - Deleted a reservation on a reservation object
-    /// - parameter version: (path)  
     /// - parameter reservationId: (query) The reservation id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteReservation(version: Double, reservationId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<Void, Error> {
+    open func deleteReservation(reservationId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/reservation/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/reservation/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -162,8 +158,7 @@ open class ReservationAPI {
     }
 
     /// Update Availability
-    /// - POST /api/{version}/reservable/availability/update
-    /// - parameter version: (path)  
+    /// - POST /reservable/availability/update
     /// - parameter reservableId: (query) the id of the reservation 
     /// - parameter reservableType: (query) the type of reservation 
     /// - parameter deviceId: (query) the device id of the reservation (optional)
@@ -171,14 +166,13 @@ open class ReservationAPI {
     /// - parameter availability: (query) Availability (optional)
     /// - parameter availabilitySummary: (query) Availability Summary (optional)
     /// - returns: AnyPublisher<[AvailabilityResponse], Error> 
-    open func reservableAvailability(version: Double, reservableId: Int64, reservableType: ReservableAvailabilityReservableType, deviceId: String? = nil, accountId: Int64? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<[AvailabilityResponse], Error> {
+    open func reservableAvailability(reservableId: Int64, reservableType: ReservableAvailabilityReservableType, deviceId: String? = nil, accountId: Int64? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<[AvailabilityResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/reservable/availability/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/reservable/availability/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -250,8 +244,7 @@ open class ReservationAPI {
     }
 
     /// Search Availability
-    /// - GET /api/{version}/reservable/availability/search
-    /// - parameter version: (path)  
+    /// - GET /reservable/availability/search
     /// - parameter reservableId: (query) the id of the reservation 
     /// - parameter reservableType: (query) the reservable type 
     /// - parameter deviceId: (query) the device ID that the reservation is on (optional)
@@ -261,14 +254,13 @@ open class ReservationAPI {
     /// - parameter start: (query) the start of the index and/or pagination (optional, default to 0)
     /// - parameter limit: (query) the limit of the index and/or pagination (optional, default to 100)
     /// - returns: AnyPublisher<[AvailabilityResponse], Error> 
-    open func searchAvailability(version: Double, reservableId: Int64, reservableType: SearchAvailabilityReservableType, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[AvailabilityResponse], Error> {
+    open func searchAvailability(reservableId: Int64, reservableType: SearchAvailabilityReservableType, deviceId: String? = nil, accountId: Int64? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[AvailabilityResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/reservable/availability/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/reservable/availability/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -342,8 +334,7 @@ open class ReservationAPI {
     }
 
     /// Search Reservations
-    /// - GET /api/{version}/reservation/search
-    /// - parameter version: (path)  
+    /// - GET /reservation/search
     /// - parameter deviceId: (query) Device Id (optional)
     /// - parameter appKey: (query) Appilcation Key (optional)
     /// - parameter accountId: (query) the id of the logged in user (optional)
@@ -356,14 +347,13 @@ open class ReservationAPI {
     /// - parameter start: (query) the start of the index and/or pagination (optional, default to 0)
     /// - parameter limit: (query) the limit of the index and/or pagination (optional, default to 100)
     /// - returns: AnyPublisher<[ReservationResponse], Error> 
-    open func searchReservations(version: Double, deviceId: String? = nil, appKey: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, reservableId: Int64? = nil, reservableType: SearchReservationsReservableType? = nil, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[ReservationResponse], Error> {
+    open func searchReservations(deviceId: String? = nil, appKey: String? = nil, accountId: Int64? = nil, filterAccountId: Int64? = nil, reservableId: Int64? = nil, reservableType: SearchReservationsReservableType? = nil, keyword: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[ReservationResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/reservation/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/reservation/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -440,8 +430,7 @@ open class ReservationAPI {
     }
 
     /// Search Schedule
-    /// - GET /api/{version}/reservable/schedule/search
-    /// - parameter version: (path)  
+    /// - GET /reservable/schedule/search
     /// - parameter reservableId: (query) the id of the reservation 
     /// - parameter reservableType: (query) the reservation type 
     /// - parameter startDate: (query) the start date of the reservation 
@@ -450,14 +439,13 @@ open class ReservationAPI {
     /// - parameter accountId: (query) the id of the logged in user (optional)
     /// - parameter timeBucketMins: (query) the length of time in minutes to search on for reservation (optional, default to 30)
     /// - returns: AnyPublisher<[TimeSlotResponse], Error> 
-    open func searchSchedule(version: Double, reservableId: Int64, reservableType: SearchScheduleReservableType, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, timeBucketMins: Int? = nil) -> AnyPublisher<[TimeSlotResponse], Error> {
+    open func searchSchedule(reservableId: Int64, reservableType: SearchScheduleReservableType, startDate: Int64, endDate: Int64, deviceId: String? = nil, accountId: Int64? = nil, timeBucketMins: Int? = nil) -> AnyPublisher<[TimeSlotResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/reservable/schedule/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/reservable/schedule/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

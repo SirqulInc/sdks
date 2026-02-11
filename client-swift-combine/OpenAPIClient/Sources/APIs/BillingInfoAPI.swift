@@ -21,7 +21,7 @@ open class BillingInfoAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class BillingInfoAPI {
 
 
     /// Update Payment Method
-    /// - POST /api/{version}/billing/update
+    /// - POST /billing/update
     /// - Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the the request 
     /// - parameter paymentMethodId: (query) Payment Method Id (optional)
     /// - parameter accountName: (query) the name of the account (optional)
@@ -56,14 +55,13 @@ open class BillingInfoAPI {
     /// - parameter providerPaymentProfileId: (query) Provider customer payment profile Id (optional)
     /// - parameter metaData: (query) Meta Data (optional)
     /// - returns: AnyPublisher<PaymentTypesResponse, Error> 
-    open func addPaymentMethod(version: Double, accountId: Int64, paymentMethodId: Int64? = nil, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, defaultPaymentMethod: Bool? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
+    open func addPaymentMethod(accountId: Int64, paymentMethodId: Int64? = nil, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, defaultPaymentMethod: Bool? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billing/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billing/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -109,9 +107,8 @@ open class BillingInfoAPI {
 
 
     /// Create Payment Method
-    /// - POST /api/{version}/billing/create
+    /// - POST /billing/create
     /// - Add a new method of payment.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the the request 
     /// - parameter accountName: (query) Account Name of the credit card user (optional)
     /// - parameter firstName: (query) The first name on the credit card (optional)
@@ -138,14 +135,13 @@ open class BillingInfoAPI {
     /// - parameter metaData: (query) Meta Data (optional)
     /// - parameter appKey: (query) Application Key (optional)
     /// - returns: AnyPublisher<PaymentTypesResponse, Error> 
-    open func createPaymentMethod(version: Double, accountId: Int64, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, defaultPaymentMethod: Bool? = nil, authToken: String? = nil, provider: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, appKey: String? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
+    open func createPaymentMethod(accountId: Int64, accountName: String? = nil, firstName: String? = nil, lastName: String? = nil, address: String? = nil, city: String? = nil, state: String? = nil, postalCode: String? = nil, country: String? = nil, phone: String? = nil, creditCardNumber: String? = nil, expirationDate: String? = nil, ccv: String? = nil, accountNumber: String? = nil, bankName: String? = nil, routingNumber: String? = nil, paymentMethodNickname: String? = nil, taxId: String? = nil, defaultPaymentMethod: Bool? = nil, authToken: String? = nil, provider: String? = nil, providerCustomerProfileId: String? = nil, providerPaymentProfileId: String? = nil, metaData: String? = nil, appKey: String? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billing/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billing/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -193,22 +189,20 @@ open class BillingInfoAPI {
 
 
     /// Create Smart Contract
-    /// - POST /api/{version}/billing/crypto/transfer
+    /// - POST /billing/crypto/transfer
     /// - Adds a smart contract.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the the request 
     /// - parameter tokenName: (query) The token name 
     /// - parameter tokenSymbol: (query) The token symbol 
     /// - parameter paymentMethodId: (query) The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
     /// - returns: AnyPublisher<PaymentTypesResponse, Error> 
-    open func createSmartContract(version: Double, accountId: Int64, tokenName: String, tokenSymbol: String, paymentMethodId: Int64? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
+    open func createSmartContract(accountId: Int64, tokenName: String, tokenSymbol: String, paymentMethodId: Int64? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billing/crypto/transfer"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billing/crypto/transfer"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -235,21 +229,19 @@ open class BillingInfoAPI {
 
 
     /// Get Crypto Balances
-    /// - GET /api/{version}/billing/crypto/get
+    /// - GET /billing/crypto/get
     /// - Get the cypto balance details for a user
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the the request 
     /// - parameter ownerAccountId: (query) The account to retreive balances for (optional)
     /// - parameter paymentMethodId: (query) The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
     /// - returns: AnyPublisher<PaymentTypesResponse, Error> 
-    open func getCryptoBalance(version: Double, accountId: Int64, ownerAccountId: Int64? = nil, paymentMethodId: Int64? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
+    open func getCryptoBalance(accountId: Int64, ownerAccountId: Int64? = nil, paymentMethodId: Int64? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billing/crypto/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billing/crypto/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -275,21 +267,19 @@ open class BillingInfoAPI {
 
 
     /// Get Payment Method
-    /// - GET /api/{version}/billing/get
+    /// - GET /billing/get
     /// - Get the details of the user's payment method or their current default method of payment
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the the request 
     /// - parameter paymentMethodId: (query) The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional)
     /// - parameter getCurrentBalance: (query) Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional)
     /// - returns: AnyPublisher<PaymentTypesResponse, Error> 
-    open func getPaymentMethod(version: Double, accountId: Int64, paymentMethodId: Int64? = nil, getCurrentBalance: Bool? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
+    open func getPaymentMethod(accountId: Int64, paymentMethodId: Int64? = nil, getCurrentBalance: Bool? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billing/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billing/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -315,9 +305,8 @@ open class BillingInfoAPI {
 
 
     /// Search Payment Methods
-    /// - GET /api/{version}/billing/search
+    /// - GET /billing/search
     /// - Search the payment methods of an account
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) Account Id to search on 
     /// - parameter provider: (query) Provider to search on (optional, default to "AUTHORIZE_NET")
     /// - parameter type: (query) the type to search on (optional)
@@ -327,14 +316,13 @@ open class BillingInfoAPI {
     /// - parameter start: (query) the start of the search (optional, default to 0)
     /// - parameter limit: (query) the limit of the search (optional, default to 5)
     /// - returns: AnyPublisher<PaymentTypesResponse, Error> 
-    open func searchPaymentMethod(version: Double, accountId: Int64, provider: String? = nil, type: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
+    open func searchPaymentMethod(accountId: Int64, provider: String? = nil, type: String? = nil, keyword: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<PaymentTypesResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/billing/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/billing/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class FilterAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class FilterAPI {
 
 
     /// Create Filter
-    /// - POST /api/{version}/filter/create
+    /// - POST /filter/create
     /// - Create a filter
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (must have permissions to the target application) 
     /// - parameter name: (query) The name of the filter 
     /// - parameter appKey: (query) The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional)
@@ -42,14 +41,13 @@ open class FilterAPI {
     /// - parameter active: (query) Sets whether the filter is active or inactive (hidden from consumers) (optional)
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - returns: AnyPublisher<FilterTreeResponse, Error> 
-    open func createFilter(version: Double, accountId: Int64, name: String, appKey: String? = nil, parentFilterId: Int64? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<FilterTreeResponse, Error> {
+    open func createFilter(accountId: Int64, name: String, appKey: String? = nil, parentFilterId: Int64? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<FilterTreeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/filter/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/filter/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -81,20 +79,18 @@ open class FilterAPI {
 
 
     /// Delete Filter
-    /// - POST /api/{version}/filter/delete
+    /// - POST /filter/delete
     /// - Delete a filter.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (must have permissions to the filter&#39;s assigned application) 
     /// - parameter filterId: (query) The ID of the filter to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteFilter(version: Double, accountId: Int64, filterId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteFilter(accountId: Int64, filterId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/filter/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/filter/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -119,19 +115,17 @@ open class FilterAPI {
 
 
     /// Get Filter
-    /// - GET /api/{version}/filter/get
+    /// - GET /filter/get
     /// - Get the details of a specific filter. Recursively include all child filters and their children.
-    /// - parameter version: (path)  
     /// - parameter filterId: (query) the id of the filter to get 
     /// - returns: AnyPublisher<FilterTreeResponse, Error> 
-    open func getFilter(version: Double, filterId: Int64) -> AnyPublisher<FilterTreeResponse, Error> {
+    open func getFilter(filterId: Int64) -> AnyPublisher<FilterTreeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/filter/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/filter/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -176,9 +170,8 @@ open class FilterAPI {
     }
 
     /// Search Filters
-    /// - GET /api/{version}/filter/search
+    /// - GET /filter/search
     /// - Search for filters.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (optional)
     /// - parameter keyword: (query) The string to search on (optional)
     /// - parameter appKey: (query) the appKey of the application to retrieve filters for (optional)
@@ -190,14 +183,13 @@ open class FilterAPI {
     /// - parameter limit: (query) The number of records to return (optional, default to 20)
     /// - parameter activeOnly: (query) Determines whether to return only active categories (optional, default to true)
     /// - returns: AnyPublisher<[FilterResponse], Error> 
-    open func searchFilters(version: Double, accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, responseGroup: SearchFiltersResponseGroup? = nil, rootOnly: Bool? = nil, sortField: SearchFiltersSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[FilterResponse], Error> {
+    open func searchFilters(accountId: Int64? = nil, keyword: String? = nil, appKey: String? = nil, responseGroup: SearchFiltersResponseGroup? = nil, rootOnly: Bool? = nil, sortField: SearchFiltersSortField? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[FilterResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/filter/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/filter/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -230,9 +222,8 @@ open class FilterAPI {
 
 
     /// Update Filter
-    /// - POST /api/{version}/filter/update
+    /// - POST /filter/update
     /// - Update a filter.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - parameter filterId: (query) The ID of the filter to edit 
     /// - parameter parentFilterId: (query) The ID of the parent filter, if not provided then the parent filter will be null (optional)
@@ -243,14 +234,13 @@ open class FilterAPI {
     /// - parameter active: (query) Sets whether the filter is active or inactive (hidden from consumers) (optional)
     /// - parameter metaData: (query) external custom client defined data (optional)
     /// - returns: AnyPublisher<FilterTreeResponse, Error> 
-    open func updateFilter(version: Double, accountId: Int64, filterId: Int64, parentFilterId: Int64? = nil, name: String? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<FilterTreeResponse, Error> {
+    open func updateFilter(accountId: Int64, filterId: Int64, parentFilterId: Int64? = nil, name: String? = nil, description: String? = nil, externalId: String? = nil, externalType: String? = nil, active: Bool? = nil, metaData: String? = nil) -> AnyPublisher<FilterTreeResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/filter/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/filter/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

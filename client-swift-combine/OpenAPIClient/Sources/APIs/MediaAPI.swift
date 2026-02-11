@@ -21,7 +21,7 @@ open class MediaAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -85,9 +85,8 @@ open class MediaAPI {
     }
 
     /// Create Media
-    /// - POST /api/{version}/media/create
+    /// - POST /media/create
     /// - Create a media offering.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the logged in user 
     /// - parameter title: (query) The title (255 char limit) 
     /// - parameter barcodeType: (query) The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA} 
@@ -146,14 +145,13 @@ open class MediaAPI {
     /// - parameter availability: (query) ability to assign if this media should active or not (optional)
     /// - parameter availabilitySummary: (query) ability to assign when the media expires (optional)
     /// - returns: AnyPublisher<MediaOfferResponse, Error> 
-    open func createMedia(version: Double, accountId: Int64, title: String, barcodeType: CreateMediaBarcodeType, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, specialOfferType: CreateMediaSpecialOfferType, offerVisibility: CreateMediaOfferVisibility, active: Bool, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: CreateMediaConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, parentalRating: String? = nil, availabilityDate: Int64? = nil, mediaType: CreateMediaMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<MediaOfferResponse, Error> {
+    open func createMedia(accountId: Int64, title: String, barcodeType: CreateMediaBarcodeType, noExpiration: Bool, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Int64, fullPrice: Double, discountPrice: Double, specialOfferType: CreateMediaSpecialOfferType, offerVisibility: CreateMediaOfferVisibility, active: Bool, retailerLocationIds: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, ticketPriceType: String? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, categoryIds: String? = nil, filterIds: String? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: CreateMediaConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, parentalRating: String? = nil, availabilityDate: Int64? = nil, mediaType: CreateMediaMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<MediaOfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/media/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/media/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -233,20 +231,18 @@ open class MediaAPI {
 
 
     /// Delete Media
-    /// - POST /api/{version}/media/delete
+    /// - POST /media/delete
     /// - Delete a media offering that the user has permissions to.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter mediaId: (query) the ID of the media to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteMedia(version: Double, accountId: Int64, mediaId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteMedia(accountId: Int64, mediaId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/media/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/media/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -271,20 +267,18 @@ open class MediaAPI {
 
 
     /// Media Get
-    /// - GET /api/{version}/media/get
+    /// - GET /media/get
     /// - Get a media offering.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter mediaId: (query) the id of the media to get 
     /// - returns: AnyPublisher<MediaOfferResponse, Error> 
-    open func getMedia(version: Double, accountId: Int64, mediaId: Int64) -> AnyPublisher<MediaOfferResponse, Error> {
+    open func getMedia(accountId: Int64, mediaId: Int64) -> AnyPublisher<MediaOfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/media/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/media/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -345,9 +339,8 @@ open class MediaAPI {
     }
 
     /// Search Media
-    /// - GET /api/{version}/media/search
+    /// - GET /media/search
     /// - Searches on events that the account has access to.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The logged in user. 
     /// - parameter activeOnly: (query) Return only active results 
     /// - parameter sortField: (query) The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE 
@@ -358,14 +351,13 @@ open class MediaAPI {
     /// - parameter start: (query) The record to begin the return set on (optional)
     /// - parameter limit: (query) The number of records to return (optional)
     /// - returns: AnyPublisher<[MediaOfferResponse], Error> 
-    open func searchMedia(version: Double, accountId: Int64, activeOnly: Bool, sortField: SearchMediaSortField, descending: Bool, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[MediaOfferResponse], Error> {
+    open func searchMedia(accountId: Int64, activeOnly: Bool, sortField: SearchMediaSortField, descending: Bool, keyword: String? = nil, categoryIds: String? = nil, filterIds: String? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[MediaOfferResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/media/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/media/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -453,9 +445,8 @@ open class MediaAPI {
     }
 
     /// Update Media
-    /// - POST /api/{version}/media/update
+    /// - POST /media/update
     /// - Update a media offering.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) 
     /// - parameter mediaId: (query)  
     /// - parameter retailerLocationIds: (query) Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional)
@@ -516,14 +507,13 @@ open class MediaAPI {
     /// - parameter availability: (query)  (optional)
     /// - parameter availabilitySummary: (query)  (optional)
     /// - returns: AnyPublisher<MediaOfferResponse, Error> 
-    open func updateMedia(version: Double, accountId: Int64, mediaId: Int64, retailerLocationIds: String? = nil, offerLocations: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: UpdateMediaBarcodeType? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, specialOfferType: UpdateMediaSpecialOfferType? = nil, offerVisibility: UpdateMediaOfferVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: UpdateMediaConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, availabilityDate: Int64? = nil, parentalRating: String? = nil, mediaType: UpdateMediaMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<MediaOfferResponse, Error> {
+    open func updateMedia(accountId: Int64, mediaId: Int64, retailerLocationIds: String? = nil, offerLocations: String? = nil, title: String? = nil, subTitle: String? = nil, details: String? = nil, subDetails: String? = nil, finePrint: String? = nil, barcodeType: UpdateMediaBarcodeType? = nil, barcodeEntry: String? = nil, externalRedeemOptions: String? = nil, externalUrl: String? = nil, ticketsRewardType: String? = nil, ticketsReward: Int64? = nil, activated: Int64? = nil, expires: Int64? = nil, noExpiration: Bool? = nil, availableLimit: Int? = nil, availableLimitPerUser: Int? = nil, addedLimit: Int? = nil, viewLimit: Int? = nil, maxPrints: Int? = nil, ticketPriceType: String? = nil, ticketPrice: Int64? = nil, fullPrice: Double? = nil, discountPrice: Double? = nil, showRemaining: Bool? = nil, showRedeemed: Bool? = nil, replaced: Bool? = nil, featured: Bool? = nil, specialOfferType: UpdateMediaSpecialOfferType? = nil, offerVisibility: UpdateMediaOfferVisibility? = nil, categoryIds: String? = nil, filterIds: String? = nil, active: Bool? = nil, barcodeAssetId: Int64? = nil, imageAssetId: Int64? = nil, imageAssetId1: Int64? = nil, imageAssetId2: Int64? = nil, imageAssetId3: Int64? = nil, imageAssetId4: Int64? = nil, imageAssetId5: Int64? = nil, publisher: String? = nil, redeemableStart: Int64? = nil, redeemableEnd: Int64? = nil, conditionType: UpdateMediaConditionType? = nil, isbn: String? = nil, asin: String? = nil, catalogNumbers: String? = nil, availabilityDate: Int64? = nil, parentalRating: String? = nil, mediaType: UpdateMediaMediaType? = nil, duration: Int? = nil, author: String? = nil, releaseDate: Int64? = nil, collectionIds: String? = nil, availability: String? = nil, availabilitySummary: String? = nil) -> AnyPublisher<MediaOfferResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/media/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/media/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

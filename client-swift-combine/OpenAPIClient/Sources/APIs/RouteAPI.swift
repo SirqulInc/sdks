@@ -21,7 +21,7 @@ open class RouteAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class RouteAPI {
 
 
     /// Approve Route
-    /// - POST /api/{version}/route/{routeId}/approve
+    /// - POST /route/{routeId}/approve
     /// - Approve a route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to approve 
     /// - returns: AnyPublisher<Route, Error> 
-    open func approveRoute(version: Double, routeId: Int64) -> AnyPublisher<Route, Error> {
+    open func approveRoute(routeId: Int64) -> AnyPublisher<Route, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/approve"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/approve"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -63,20 +61,18 @@ open class RouteAPI {
 
 
     /// Copy Route
-    /// - POST /api/{version}/route/{routeId}/copy
+    /// - POST /route/{routeId}/copy
     /// - Make an copy of the given route with optional overriding properties
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to duplicate 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Route, Error> 
-    open func copyRoute(version: Double, routeId: Int64, body: Route? = nil) -> AnyPublisher<Route, Error> {
+    open func copyRoute(routeId: Int64, body: Route? = nil) -> AnyPublisher<Route, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/copy"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/copy"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -100,19 +96,17 @@ open class RouteAPI {
 
 
     /// Create Route
-    /// - POST /api/{version}/route
+    /// - POST /route
     /// - Create new route
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Route, Error> 
-    open func createRoute(version: Double, body: Route? = nil) -> AnyPublisher<Route, Error> {
+    open func createRoute(body: Route? = nil) -> AnyPublisher<Route, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/route"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -135,19 +129,17 @@ open class RouteAPI {
 
 
     /// Update Route Directions
-    /// - PUT /api/{version}/route/{routeId}/directions
+    /// - PUT /route/{routeId}/directions
     /// - Regenerate the directions of a route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to update directions for 
     /// - returns: AnyPublisher<[Direction], Error> 
-    open func createRouteDirections(version: Double, routeId: Int64) -> AnyPublisher<[Direction], Error> {
+    open func createRouteDirections(routeId: Int64) -> AnyPublisher<[Direction], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/directions"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/directions"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -169,19 +161,17 @@ open class RouteAPI {
 
 
     /// Create Route Polyline
-    /// - PUT /api/{version}/route/{routeId}/polyline
+    /// - PUT /route/{routeId}/polyline
     /// - Update the polyline of the requested route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to create a polyline for 
     /// - returns: AnyPublisher<Route, Error> 
-    open func createRoutePolyline(version: Double, routeId: Int64) -> AnyPublisher<Route, Error> {
+    open func createRoutePolyline(routeId: Int64) -> AnyPublisher<Route, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/polyline"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/polyline"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -203,19 +193,17 @@ open class RouteAPI {
 
 
     /// Delete Route
-    /// - DELETE /api/{version}/route/{routeId}
+    /// - DELETE /route/{routeId}
     /// - Delete an existing route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route 
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteRoute(version: Double, routeId: Int64) -> AnyPublisher<Void, Error> {
+    open func deleteRoute(routeId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -237,19 +225,17 @@ open class RouteAPI {
 
 
     /// Disapprove Route
-    /// - POST /api/{version}/route/{routeId}/disapprove
+    /// - POST /route/{routeId}/disapprove
     /// - Disapprove a route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to reject 
     /// - returns: AnyPublisher<Route, Error> 
-    open func disapproveRoute(version: Double, routeId: Int64) -> AnyPublisher<Route, Error> {
+    open func disapproveRoute(routeId: Int64) -> AnyPublisher<Route, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/disapprove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/disapprove"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -271,20 +257,18 @@ open class RouteAPI {
 
 
     /// Get Route
-    /// - GET /api/{version}/route/{routeId}
+    /// - GET /route/{routeId}
     /// - Get an existing route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to get 
     /// - parameter showInheritedProperties: (query) return inherited properties from parent or not 
     /// - returns: AnyPublisher<Route, Error> 
-    open func getRoute(version: Double, routeId: Int64, showInheritedProperties: Bool) -> AnyPublisher<Route, Error> {
+    open func getRoute(routeId: Int64, showInheritedProperties: Bool) -> AnyPublisher<Route, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -309,19 +293,17 @@ open class RouteAPI {
 
 
     /// Get Route Directions
-    /// - GET /api/{version}/route/{routeId}/directions
+    /// - GET /route/{routeId}/directions
     /// - Get the directions of a route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to get directions for 
     /// - returns: AnyPublisher<[Direction], Error> 
-    open func getRouteDirections(version: Double, routeId: Int64) -> AnyPublisher<[Direction], Error> {
+    open func getRouteDirections(routeId: Int64) -> AnyPublisher<[Direction], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/directions"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/directions"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -343,19 +325,17 @@ open class RouteAPI {
 
 
     /// Get Route Shipments
-    /// - GET /api/{version}/route/{routeId}/shipments
+    /// - GET /route/{routeId}/shipments
     /// - Get the shipments on the requested route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to get shipments for 
     /// - returns: AnyPublisher<[Shipment], Error> 
-    open func getRouteShipments(version: Double, routeId: Int64) -> AnyPublisher<[Shipment], Error> {
+    open func getRouteShipments(routeId: Int64) -> AnyPublisher<[Shipment], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/shipments"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/shipments"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -377,20 +357,18 @@ open class RouteAPI {
 
 
     /// Get Route Stop
-    /// - GET /api/{version}/route/{routeId}/stop/{stopId}
+    /// - GET /route/{routeId}/stop/{stopId}
     /// - Get the specific stop on a route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to get stops for 
     /// - parameter stopId: (path) the id of the specific stop on the route 
     /// - returns: AnyPublisher<Stop, Error> 
-    open func getRouteStop(version: Double, routeId: Int64, stopId: Int64) -> AnyPublisher<Stop, Error> {
+    open func getRouteStop(routeId: Int64, stopId: Int64) -> AnyPublisher<Stop, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/stop/{stopId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 localVarPath = localVarPath.replacingOccurrences(of: "{stopId}", with: "\(stopId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
@@ -413,20 +391,18 @@ open class RouteAPI {
 
 
     /// Get Route Stops
-    /// - GET /api/{version}/route/{routeId}/stops
+    /// - GET /route/{routeId}/stops
     /// - The stops of the route requested
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route 
     /// - parameter confirmedOnly: (query) only get stops that have been confirmed or not 
     /// - returns: AnyPublisher<[Stop], Error> 
-    open func getRouteStops(version: Double, routeId: Int64, confirmedOnly: Bool) -> AnyPublisher<[Stop], Error> {
+    open func getRouteStops(routeId: Int64, confirmedOnly: Bool) -> AnyPublisher<[Stop], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/stops"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/stops"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -451,20 +427,18 @@ open class RouteAPI {
 
 
     /// Get Shipments At Stop
-    /// - GET /api/{version}/route/{routeId}/stop/{stopId}/shipments
+    /// - GET /route/{routeId}/stop/{stopId}/shipments
     /// - Get the list of shipments on the requested route at a stop
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route 
     /// - parameter stopId: (path) the id of the stop to get shipments on 
     /// - returns: AnyPublisher<[Shipment], Error> 
-    open func getShipmentsAtStop(version: Double, routeId: Int64, stopId: Int64) -> AnyPublisher<[Shipment], Error> {
+    open func getShipmentsAtStop(routeId: Int64, stopId: Int64) -> AnyPublisher<[Shipment], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}/shipments"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/stop/{stopId}/shipments"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 localVarPath = localVarPath.replacingOccurrences(of: "{stopId}", with: "\(stopId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
@@ -487,19 +461,17 @@ open class RouteAPI {
 
 
     /// Optimize Route
-    /// - POST /api/{version}/route/{routeId}/optimize
+    /// - POST /route/{routeId}/optimize
     /// - Optimize a route. The optimization method based on how the server is configured.
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to optimize 
     /// - returns: AnyPublisher<Void, Error> 
-    open func optimizeRoute(version: Double, routeId: Int64) -> AnyPublisher<Void, Error> {
+    open func optimizeRoute(routeId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/optimize"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/optimize"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -521,20 +493,18 @@ open class RouteAPI {
 
 
     /// Delete Stop
-    /// - DELETE /api/{version}/route/{routeId}/stop/{stopId}
+    /// - DELETE /route/{routeId}/stop/{stopId}
     /// - Delete a stop on a route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route 
     /// - parameter stopId: (path) the id of the specific stop to delete on the route 
     /// - returns: AnyPublisher<Void, Error> 
-    open func removeStop(version: Double, routeId: Int64, stopId: Int64) -> AnyPublisher<Void, Error> {
+    open func removeStop(routeId: Int64, stopId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/stop/{stopId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 localVarPath = localVarPath.replacingOccurrences(of: "{stopId}", with: "\(stopId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
@@ -557,20 +527,18 @@ open class RouteAPI {
 
 
     /// Reorder Route Stops
-    /// - PATCH /api/{version}/route/{routeId}/stops/reorder
+    /// - PATCH /route/{routeId}/stops/reorder
     /// - Reordering the stops on the route with and update route distance, time, direction, and polyline
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<[Stop], Error> 
-    open func reorderRouteStopsPatch(version: Double, routeId: Int64, body: [Stop]? = nil) -> AnyPublisher<[Stop], Error> {
+    open func reorderRouteStopsPatch(routeId: Int64, body: [Stop]? = nil) -> AnyPublisher<[Stop], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/stops/reorder"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/stops/reorder"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -594,20 +562,18 @@ open class RouteAPI {
 
 
     /// Reorder Route Stops
-    /// - POST /api/{version}/route/{routeId}/stops/reorder
+    /// - POST /route/{routeId}/stops/reorder
     /// - Reordering the stops on the route with and update route distance, time, direction, and polyline
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<[Stop], Error> 
-    open func reorderRouteStopsPost(version: Double, routeId: Int64, body: [Stop]? = nil) -> AnyPublisher<[Stop], Error> {
+    open func reorderRouteStopsPost(routeId: Int64, body: [Stop]? = nil) -> AnyPublisher<[Stop], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/stops/reorder"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/stops/reorder"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -631,9 +597,8 @@ open class RouteAPI {
 
 
     /// Search Routes
-    /// - GET /api/{version}/route
+    /// - GET /route
     /// - Search for routes.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
     /// - parameter start: (query) The start index for pagination 
@@ -656,14 +621,13 @@ open class RouteAPI {
     /// - parameter valid: (query) Is valid or not (optional)
     /// - parameter parentId: (query) If it is a recurring route based on the parent route (optional)
     /// - returns: AnyPublisher<[Route], Error> 
-    open func searchRoutes(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includesEmpty: Bool, rootOnly: Bool, showInheritedProperties: Bool, hubId: Int64? = nil, programId: Int64? = nil, scheduledStart: Int64? = nil, scheduledEnd: Int64? = nil, updatedStart: Int64? = nil, updatedEnd: Int64? = nil, featured: Bool? = nil, seatCount: Int? = nil, approved: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, valid: Bool? = nil, parentId: Int64? = nil) -> AnyPublisher<[Route], Error> {
+    open func searchRoutes(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, includesEmpty: Bool, rootOnly: Bool, showInheritedProperties: Bool, hubId: Int64? = nil, programId: Int64? = nil, scheduledStart: Int64? = nil, scheduledEnd: Int64? = nil, updatedStart: Int64? = nil, updatedEnd: Int64? = nil, featured: Bool? = nil, seatCount: Int? = nil, approved: Bool? = nil, started: Bool? = nil, completed: Bool? = nil, valid: Bool? = nil, parentId: Int64? = nil) -> AnyPublisher<[Route], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/route"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -707,20 +671,18 @@ open class RouteAPI {
 
 
     /// Set Driver
-    /// - POST /api/{version}/route/{id}/driver/{driverId}
+    /// - POST /route/{id}/driver/{driverId}
     /// - Update the driver of the route.
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the route 
     /// - parameter driverId: (path) the id of the driver 
     /// - returns: AnyPublisher<Void, Error> 
-    open func setDriver(version: Double, id: Int64, driverId: Int64) -> AnyPublisher<Void, Error> {
+    open func setDriver(id: Int64, driverId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{id}/driver/{driverId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{id}/driver/{driverId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 localVarPath = localVarPath.replacingOccurrences(of: "{driverId}", with: "\(driverId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
@@ -743,20 +705,18 @@ open class RouteAPI {
 
 
     /// Update Route
-    /// - PUT /api/{version}/route/{routeId}
+    /// - PUT /route/{routeId}
     /// - Update an existing route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Route, Error> 
-    open func updateRoute(version: Double, routeId: Int64, body: Route? = nil) -> AnyPublisher<Route, Error> {
+    open func updateRoute(routeId: Int64, body: Route? = nil) -> AnyPublisher<Route, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -780,21 +740,19 @@ open class RouteAPI {
 
 
     /// Update Route Stop
-    /// - PUT /api/{version}/route/{routeId}/stop/{stopId}
+    /// - PUT /route/{routeId}/stop/{stopId}
     /// - Update a stop on a specified route
-    /// - parameter version: (path)  
     /// - parameter routeId: (path) the id of the route to update stops for 
     /// - parameter stopId: (path) the id of the specific stop to update on the route 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Void, Error> 
-    open func updateRouteStop(version: Double, routeId: Int64, stopId: Int64, body: Stop? = nil) -> AnyPublisher<Void, Error> {
+    open func updateRouteStop(routeId: Int64, stopId: Int64, body: Stop? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/route/{routeId}/stop/{stopId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/route/{routeId}/stop/{stopId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{routeId}", with: "\(routeId)")
                 localVarPath = localVarPath.replacingOccurrences(of: "{stopId}", with: "\(stopId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)

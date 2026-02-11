@@ -21,7 +21,7 @@ open class AccountAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class AccountAPI {
 
 
     /// Search Accounts by Location
-    /// - GET /api/{version}/account/search
+    /// - GET /account/search
     /// - Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter q: (query) Deprecated - legacy query parameter (optional)
@@ -67,14 +66,13 @@ open class AccountAPI {
     /// - parameter verifiedUserOnly: (query) Returns only verified users (optional)
     /// - parameter contentAdminOnly: (query) Returns only content admin users (optional)
     /// - returns: AnyPublisher<UserLocationSearchResponse, Error> 
-    open func accountLocationSearch(version: Double, deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, postalCode: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, range: Double? = nil, locationLastUpdated: Int64? = nil, gender: String? = nil, minAge: Int? = nil, maxAge: Int? = nil, companionshipIndex: Int? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, searchMode: String? = nil, sortField: String? = nil, descending: Bool? = nil, roles: String? = nil, tags: String? = nil, experience: String? = nil, categoryIds: String? = nil, audienceIds: String? = nil, audienceOperator: String? = nil, updateCurrentLocation: Bool? = nil, updatePreferredSettings: Bool? = nil, showExactLocations: Bool? = nil, showConnectionToSearcher: Bool? = nil, flagCountMinimum: Int64? = nil, verifiedUserOnly: Bool? = nil, contentAdminOnly: Bool? = nil) -> AnyPublisher<UserLocationSearchResponse, Error> {
+    open func accountLocationSearch(deviceId: String? = nil, accountId: Int64? = nil, q: String? = nil, keyword: String? = nil, postalCode: String? = nil, latitude: Double? = nil, longitude: Double? = nil, appKey: String? = nil, range: Double? = nil, locationLastUpdated: Int64? = nil, gender: String? = nil, minAge: Int? = nil, maxAge: Int? = nil, companionshipIndex: Int? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil, searchMode: String? = nil, sortField: String? = nil, descending: Bool? = nil, roles: String? = nil, tags: String? = nil, experience: String? = nil, categoryIds: String? = nil, audienceIds: String? = nil, audienceOperator: String? = nil, updateCurrentLocation: Bool? = nil, updatePreferredSettings: Bool? = nil, showExactLocations: Bool? = nil, showConnectionToSearcher: Bool? = nil, flagCountMinimum: Int64? = nil, verifiedUserOnly: Bool? = nil, contentAdminOnly: Bool? = nil) -> AnyPublisher<UserLocationSearchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -131,9 +129,8 @@ open class AccountAPI {
 
 
     /// Block Account
-    /// - POST /api/{version}/account/block
+    /// - POST /account/block
     /// - Moves or removes an account into the user's blocked group.
-    /// - parameter version: (path)  
     /// - parameter accountIdBeingBlocked: (query) The id of the account to be blocked/unblocked 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -142,14 +139,13 @@ open class AccountAPI {
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func blockAccount(version: Double, accountIdBeingBlocked: Int64, deviceId: String? = nil, accountId: Int64? = nil, blockFlagValue: Bool? = nil, removeFromGroupsIfBlocked: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func blockAccount(accountIdBeingBlocked: Int64, deviceId: String? = nil, accountId: Int64? = nil, blockFlagValue: Bool? = nil, removeFromGroupsIfBlocked: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/block"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/block"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -179,9 +175,8 @@ open class AccountAPI {
 
 
     /// Create Account
-    /// - POST /api/{version}/account/create
+    /// - POST /account/create
     /// - Create a new account by role.
-    /// - parameter version: (path)  
     /// - parameter username: (query) The access token to authenticate with (ex: username) 
     /// - parameter password: (query) The secret to authenticate with (ex: password) 
     /// - parameter name: (query) The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional)
@@ -255,14 +250,13 @@ open class AccountAPI {
     /// - parameter appNickname: (query) The nickname used in the application for this account (optional)
     /// - parameter personalAudienceId: (query) Personal audience id to associate with this account (optional)
     /// - returns: AnyPublisher<AccountLoginResponse, Error> 
-    open func createAccount(version: Double, username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceId: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, streetAddress: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, inviteToken: String? = nil, referralAccountId: Int64? = nil, sendValidation: Bool? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, audienceIdsToAdd: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, locationVisibility: String? = nil, homeLatitude: Double? = nil, homeLongitude: Double? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil) -> AnyPublisher<AccountLoginResponse, Error> {
+    open func createAccount(username: String, password: String, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceId: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, streetAddress: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, inviteToken: String? = nil, referralAccountId: Int64? = nil, sendValidation: Bool? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil, audienceIdsToAdd: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, locationVisibility: String? = nil, homeLatitude: Double? = nil, homeLongitude: Double? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil) -> AnyPublisher<AccountLoginResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -357,9 +351,8 @@ open class AccountAPI {
 
 
     /// Update Account
-    /// - POST /api/{version}/account/profile/update
+    /// - POST /account/profile/update
     /// - Edit the user's profile information
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter connectionAccountId: (query) The account id used to edit another person&#39;s account (optional)
@@ -443,14 +436,13 @@ open class AccountAPI {
     /// - parameter personalAudienceId: (query) Personal Audience (optional)
     /// - parameter nonGuestUsername: (query) The user&#39;s username to update with if they currently have a guest username (optional)
     /// - returns: AnyPublisher<ProfileInfoResponse, Error> 
-    open func editAccount(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, role: String? = nil, assetId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, gender: String? = nil, age: Int? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, makeProfileInfoPublic: Bool? = nil, makeGameInfoPublic: Bool? = nil, makeFriendsInfoPublic: Bool? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, matchToken: String? = nil, gameExperience: String? = nil, categories: String? = nil, categoryIds: String? = nil, responseFilters: String? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, showOthersExactLocation: Bool? = nil, acceptedTerms: Bool? = nil, locationVisibility: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, nonGuestUsername: String? = nil) -> AnyPublisher<ProfileInfoResponse, Error> {
+    open func editAccount(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, role: String? = nil, assetId: Int64? = nil, name: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, gender: String? = nil, age: Int? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, emailAddress: String? = nil, streetAddress: String? = nil, streetAddress2: String? = nil, city: String? = nil, state: String? = nil, zipcode: String? = nil, country: String? = nil, makeProfileInfoPublic: Bool? = nil, makeGameInfoPublic: Bool? = nil, makeFriendsInfoPublic: Bool? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, matchToken: String? = nil, gameExperience: String? = nil, categories: String? = nil, categoryIds: String? = nil, responseFilters: String? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, showOthersExactLocation: Bool? = nil, acceptedTerms: Bool? = nil, locationVisibility: String? = nil, appBlob: String? = nil, appEnablePush: Bool? = nil, appEnableSMS: Bool? = nil, appEnableEmail: Bool? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, audienceIdsToAdd: String? = nil, audienceIdsToRemove: String? = nil, referralAccountId: Int64? = nil, appNickname: String? = nil, personalAudienceId: Int64? = nil, nonGuestUsername: String? = nil) -> AnyPublisher<ProfileInfoResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/profile/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/profile/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -555,22 +547,20 @@ open class AccountAPI {
 
 
     /// Update Username and Email
-    /// - POST /api/{version}/account/username/update
+    /// - POST /account/username/update
     /// - Update account's own username and/or emailAddress
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter emailAddress: (query) the user&#39;s contact email address (NOT the username) which is also used for email validation (optional)
     /// - parameter username: (query) the user&#39;s username to update with if they currently have a guest username (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func editUsername(version: Double, deviceId: String? = nil, accountId: Int64? = nil, emailAddress: String? = nil, username: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func editUsername(deviceId: String? = nil, accountId: Int64? = nil, emailAddress: String? = nil, username: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/username/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/username/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -597,9 +587,8 @@ open class AccountAPI {
 
 
     /// Get Account
-    /// - GET /api/{version}/account/profile/get
+    /// - GET /account/profile/get
     /// - Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) Return Nulls (optional, default to false)
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -613,14 +602,13 @@ open class AccountAPI {
     /// - parameter latitude: (query) Latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) Longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func getAccount(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, responseFilters: String? = nil, gameType: String? = nil, appKey: String? = nil, purchaseType: String? = nil, updateViewedDate: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func getAccount(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountEmail: String? = nil, connectionAccountId: Int64? = nil, responseFilters: String? = nil, gameType: String? = nil, appKey: String? = nil, purchaseType: String? = nil, updateViewedDate: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/profile/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/profile/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -655,9 +643,8 @@ open class AccountAPI {
 
 
     /// Get Profile Assets
-    /// - GET /api/{version}/account/profile/assets
+    /// - GET /account/profile/assets
     /// - Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) Determines whether to return null fields in the response (optional, default to false)
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -673,14 +660,13 @@ open class AccountAPI {
     /// - parameter l: (query) _l (optional)
     /// - parameter limit: (query) Limit of the pagination (optional, default to 0)
     /// - returns: AnyPublisher<AssetListResponse, Error> 
-    open func getProfileAssets(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, mediaTypes: String? = nil, mimeTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<AssetListResponse, Error> {
+    open func getProfileAssets(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, ownerId: Int64? = nil, mediaTypes: String? = nil, mimeTypes: String? = nil, sortField: String? = nil, descending: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil, i: Int? = nil, start: Int? = nil, l: Int? = nil, limit: Int? = nil) -> AnyPublisher<AssetListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/profile/assets"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/profile/assets"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -717,9 +703,8 @@ open class AccountAPI {
 
 
     /// Search Accounts
-    /// - GET /api/{version}/account/referral/list
+    /// - GET /account/referral/list
     /// - Gets a user's account profile and their referral List.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter appKey: (query) The application key (optional)
     /// - parameter retrieveType: (query) one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional)
@@ -732,14 +717,13 @@ open class AccountAPI {
     /// - parameter childrenListLimit: (query) pagination limit for children list (optional)
     /// - parameter childrenChildren: (query) if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to true)
     /// - returns: AnyPublisher<Void, Error> 
-    open func getReferralList(version: Double, accountId: Int64? = nil, appKey: String? = nil, retrieveType: String? = nil, levelLimit: Double? = nil, ancestorLevelLimit: Double? = nil, childrenLevelLimit: Double? = nil, ancestorListStart: Double? = nil, ancestorListLimit: Double? = nil, childrenListStart: Double? = nil, childrenListLimit: Double? = nil, childrenChildren: Bool? = nil) -> AnyPublisher<Void, Error> {
+    open func getReferralList(accountId: Int64? = nil, appKey: String? = nil, retrieveType: String? = nil, levelLimit: Double? = nil, ancestorLevelLimit: Double? = nil, childrenLevelLimit: Double? = nil, ancestorListStart: Double? = nil, ancestorListLimit: Double? = nil, childrenListStart: Double? = nil, childrenListLimit: Double? = nil, childrenChildren: Bool? = nil) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/referral/list"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/referral/list"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -773,22 +757,20 @@ open class AccountAPI {
 
 
     /// Get Account Settings
-    /// - GET /api/{version}/account/settings/get
+    /// - GET /account/settings/get
     /// - Get the account settings for a user
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<UserSettingsResponse, Error> 
-    open func getSettings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<UserSettingsResponse, Error> {
+    open func getSettings(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<UserSettingsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/settings/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/settings/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -815,9 +797,8 @@ open class AccountAPI {
 
 
     /// Login as Account
-    /// - POST /api/{version}/account/login/delegate
+    /// - POST /account/login/delegate
     /// - A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-    /// - parameter version: (path)  
     /// - parameter accessToken: (query)  
     /// - parameter appKey: (query)  
     /// - parameter deviceId: (query)  (optional)
@@ -830,14 +811,13 @@ open class AccountAPI {
     /// - parameter latitude: (query)  (optional)
     /// - parameter longitude: (query)  (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func loginDelegate(version: Double, accessToken: String, appKey: String, deviceId: String? = nil, accessTokenSecret: String? = nil, delegatedAccountId: Int64? = nil, delegatedUsername: String? = nil, networkUID: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func loginDelegate(accessToken: String, appKey: String, deviceId: String? = nil, accessTokenSecret: String? = nil, delegatedAccountId: Int64? = nil, delegatedUsername: String? = nil, networkUID: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/login/delegate"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/login/delegate"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -871,9 +851,8 @@ open class AccountAPI {
 
 
     /// Login Account
-    /// - POST /api/{version}/account/login
+    /// - POST /account/login
     /// - General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-    /// - parameter version: (path)  
     /// - parameter accessToken: (query) The access token to authenticate with (ex: username or fb token) 
     /// - parameter networkUID: (query) The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  
     /// - parameter appKey: (query) The application key 
@@ -888,14 +867,13 @@ open class AccountAPI {
     /// - parameter chosenAccountId: (query) Chosen account Id sent from the app - pass in the 2nd request to choose an account from multiple accounts matching the email - use one of the account id from the previous request (optional, default to 0)
     /// - parameter thirdPartyCredentialId: (query) Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func loginGeneral(version: Double, accessToken: String, networkUID: String, appKey: String, deviceId: String? = nil, deviceIdType: String? = nil, accessTokenSecret: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, emailMatch: Bool? = nil, chosenAccountId: Int64? = nil, thirdPartyCredentialId: Int64? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func loginGeneral(accessToken: String, networkUID: String, appKey: String, deviceId: String? = nil, deviceIdType: String? = nil, accessTokenSecret: String? = nil, ageRestriction: Int? = nil, responseFilters: String? = nil, latitude: Double? = nil, longitude: Double? = nil, emailMatch: Bool? = nil, chosenAccountId: Int64? = nil, thirdPartyCredentialId: Int64? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/login"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/login"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -931,9 +909,8 @@ open class AccountAPI {
 
 
     /// Login Account (Username)
-    /// - POST /api/{version}/account/get
+    /// - POST /account/get
     /// - Login to system with an account
-    /// - parameter version: (path)  
     /// - parameter username: (query) the user&#39;s email address they used to sign-up 
     /// - parameter password: (query) the password 
     /// - parameter deviceId: (query) the device id (optional)
@@ -945,14 +922,13 @@ open class AccountAPI {
     /// - parameter returnProfile: (query) the profile to return (optional)
     /// - parameter responseFilters: (query) a comma separated list of ProfileFilters for filtering the returned response data (optional)
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func loginUsername(version: Double, username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func loginUsername(username: String, password: String, deviceId: String? = nil, latitude: Double? = nil, longitude: Double? = nil, app: String? = nil, gameType: String? = nil, appKey: String? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -985,23 +961,21 @@ open class AccountAPI {
 
 
     /// Logout Account
-    /// - POST /api/{version}/account/logout
+    /// - POST /account/logout
     /// - Cleans up the users data for logging out.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter deviceIdType: (query) Device Id Type (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func logout(version: Double, deviceId: String? = nil, deviceIdType: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func logout(deviceId: String? = nil, deviceIdType: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/logout"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/logout"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1029,22 +1003,20 @@ open class AccountAPI {
 
 
     /// Merge Account
-    /// - POST /api/{version}/account/merge
+    /// - POST /account/merge
     /// - Merges the analytics, achievements, leaderboards of two accounts.
-    /// - parameter version: (path)  
     /// - parameter mergeAccountId: (query) The id of the account to being merged 
     /// - parameter appKey: (query) The application key 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func mergeAccount(version: Double, mergeAccountId: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func mergeAccount(mergeAccountId: Int64, appKey: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/merge"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/merge"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1071,22 +1043,20 @@ open class AccountAPI {
 
 
     /// Update Password
-    /// - POST /api/{version}/account/passwordchange
+    /// - POST /account/passwordchange
     /// - Update the account password.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account to update 
     /// - parameter oldPassword: (query) The current password, used to validate access 
     /// - parameter newPassword: (query) The new password to set, cannot be empty 
     /// - parameter confirmPassword: (query) The new password to confirm, must match newPassword 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func passwordChange(version: Double, accountId: Int64, oldPassword: String, newPassword: String, confirmPassword: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func passwordChange(accountId: Int64, oldPassword: String, newPassword: String, confirmPassword: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/passwordchange"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/passwordchange"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1113,21 +1083,19 @@ open class AccountAPI {
 
 
     /// Reset Password
-    /// - POST /api/{version}/account/passwordreset
+    /// - POST /account/passwordreset
     /// - Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-    /// - parameter version: (path)  
     /// - parameter token: (query) The token associated with the account to update, good for 24 hours 
     /// - parameter password: (query) The new password to set, cannot be empty 
     /// - parameter confirm: (query) The new password to confirm, must match newPassword 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func passwordReset(version: Double, token: String, password: String, confirm: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func passwordReset(token: String, password: String, confirm: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/passwordreset"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/passwordreset"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1153,23 +1121,21 @@ open class AccountAPI {
 
 
     /// Request Password Reset
-    /// - POST /api/{version}/account/requestpasswordreset
+    /// - POST /account/requestpasswordreset
     /// - Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-    /// - parameter version: (path)  
     /// - parameter email: (query) The email/username of the account 
     /// - parameter from: (query) this is the sender email (optional, default to "Sirqul")
     /// - parameter domain: (query) this is the domain (like dev.sirqul.com) used to generate the password reset link (optional)
     /// - parameter subUrl: (query) this is the the subUrl (like resetpassword) used to generate a password reset link (optional)
     /// - parameter referer: (query) this is used to generate a password reset link (optional, default to "http://dev.sirqul.com/resetpassword")
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func requestPasswordReset(version: Double, email: String, from: String? = nil, domain: String? = nil, subUrl: String? = nil, referer: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func requestPasswordReset(email: String, from: String? = nil, domain: String? = nil, subUrl: String? = nil, referer: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/requestpasswordreset"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/requestpasswordreset"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1197,19 +1163,17 @@ open class AccountAPI {
 
 
     /// Send Validation Request
-    /// - POST /api/{version}/account/requestValidateAccount
+    /// - POST /account/requestValidateAccount
     /// - Send an email to validate a user's account.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func requestValidateAccount(version: Double, accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func requestValidateAccount(accountId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/requestValidateAccount"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/requestValidateAccount"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1251,9 +1215,8 @@ open class AccountAPI {
     }
 
     /// Search Accounts
-    /// - GET /api/{version}/account/profile/search
+    /// - GET /account/profile/search
     /// - Search for account profiles.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The id of the account requesting 
     /// - parameter appKey: (query) The application key 
     /// - parameter keyword: (query) The keyword for for querying the account (optional)
@@ -1273,14 +1236,13 @@ open class AccountAPI {
     /// - parameter limit: (query) The total number of record to return. (optional, default to 20)
     /// - parameter activeOnly: (query) Determines whether to return only active results. Default is false. (optional, default to false)
     /// - returns: AnyPublisher<[ProfileResponse], Error> 
-    open func searchAccounts(version: Double, accountId: Int64, appKey: String, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, radius: Double? = nil, gender: SearchAccountsGender? = nil, gameExperience: SearchAccountsGameExperience? = nil, age: Int? = nil, categoryIds: String? = nil, returnNulls: Bool? = nil, responseFilters: String? = nil, purchaseType: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[ProfileResponse], Error> {
+    open func searchAccounts(accountId: Int64, appKey: String, keyword: String? = nil, latitude: Double? = nil, longitude: Double? = nil, radius: Double? = nil, gender: SearchAccountsGender? = nil, gameExperience: SearchAccountsGameExperience? = nil, age: Int? = nil, categoryIds: String? = nil, returnNulls: Bool? = nil, responseFilters: String? = nil, purchaseType: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil, activeOnly: Bool? = nil) -> AnyPublisher<[ProfileResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/profile/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/profile/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1321,9 +1283,8 @@ open class AccountAPI {
 
 
     /// Login Account (Encrypted Username)
-    /// - POST /api/{version}/account/login/validate
+    /// - POST /account/login/validate
     /// - ogin with encrypted user-name and password.
-    /// - parameter version: (path)  
     /// - parameter username: (query) The user&#39;s encrypted email address they used to sign-up 
     /// - parameter password: (query) The encrypted password 
     /// - parameter gameType: (query) The application key 
@@ -1334,14 +1295,13 @@ open class AccountAPI {
     /// - parameter returnProfile: (query) Return Profile (optional, default to false)
     /// - parameter responseFilters: (query) A comma separated list of ProfileFilters for filtering the returned response data (optional, default to "PROFILE")
     /// - returns: AnyPublisher<ProfileResponse, Error> 
-    open func secureLogin(version: Double, username: String, password: String, gameType: String, deviceId: String? = nil, charsetName: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
+    open func secureLogin(username: String, password: String, gameType: String, deviceId: String? = nil, charsetName: String? = nil, latitude: Double? = nil, longitude: Double? = nil, returnProfile: Bool? = nil, responseFilters: String? = nil) -> AnyPublisher<ProfileResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/login/validate"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/login/validate"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1373,9 +1333,8 @@ open class AccountAPI {
 
 
     /// Create Account (Encrypted Username)
-    /// - POST /api/{version}/account/create/validate
+    /// - POST /account/create/validate
     /// - Create a new account by role (with encrypted user-name and password)
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id 
     /// - parameter username: (query) The encrypted email of the user, this is what will be used when they login 
     /// - parameter password: (query) The encrypted password of the user 
@@ -1438,14 +1397,13 @@ open class AccountAPI {
     /// - parameter appVersion: (query) App Version (optional)
     /// - parameter responseType: (query) Response Type (optional)
     /// - returns: AnyPublisher<ProfileInfoResponse, Error> 
-    open func secureSignup(version: Double, deviceId: String, username: String, password: String, name: String? = nil, inviteToken: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, address: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, charsetName: String? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil) -> AnyPublisher<ProfileInfoResponse, Error> {
+    open func secureSignup(deviceId: String, username: String, password: String, name: String? = nil, inviteToken: String? = nil, prefixName: String? = nil, firstName: String? = nil, middleName: String? = nil, lastName: String? = nil, suffixName: String? = nil, title: String? = nil, deviceIdType: String? = nil, emailAddress: String? = nil, assetId: Int64? = nil, address: String? = nil, zipcode: String? = nil, gender: String? = nil, birthday: Int64? = nil, homePhone: String? = nil, cellPhone: String? = nil, cellPhoneCarrier: String? = nil, businessPhone: String? = nil, role: String? = nil, platforms: String? = nil, tags: String? = nil, aboutUs: String? = nil, gameExperience: String? = nil, categoryIds: String? = nil, hometown: String? = nil, height: String? = nil, heightIndex: Int? = nil, ethnicity: String? = nil, bodyType: String? = nil, maritalStatus: String? = nil, children: String? = nil, religion: String? = nil, education: String? = nil, educationIndex: Int? = nil, smoke: String? = nil, drink: String? = nil, companionship: String? = nil, companionshipIndex: Int? = nil, preferredMinAge: Int? = nil, preferredMaxAge: Int? = nil, preferredMinHeight: Int? = nil, preferredMaxHeight: Int? = nil, preferredGender: String? = nil, preferredEducation: String? = nil, preferredEducationIndex: Int? = nil, preferredBodyType: String? = nil, preferredEthnicity: String? = nil, preferredLocation: String? = nil, preferredLocationRange: Double? = nil, latitude: Double? = nil, longitude: Double? = nil, acceptedTerms: Bool? = nil, charsetName: String? = nil, gameType: String? = nil, appKey: String? = nil, appVersion: String? = nil, responseType: String? = nil) -> AnyPublisher<ProfileInfoResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/create/validate"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/create/validate"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1529,9 +1487,8 @@ open class AccountAPI {
 
 
     /// Save Match Token
-    /// - POST /api/{version}/consumer/profile/matchToken
+    /// - POST /consumer/profile/matchToken
     /// - Save user's match token to be used for profile match making
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter matchToken: (query) A string of numbers (optional)
@@ -1540,14 +1497,13 @@ open class AccountAPI {
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func setMatchToken(version: Double, deviceId: String? = nil, accountId: Int64? = nil, matchToken: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func setMatchToken(deviceId: String? = nil, accountId: Int64? = nil, matchToken: String? = nil, gameType: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/consumer/profile/matchToken"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/consumer/profile/matchToken"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1577,23 +1533,21 @@ open class AccountAPI {
 
 
     /// Update Account Active Status
-    /// - POST /api/{version}/account/active/update
+    /// - POST /account/active/update
     /// - Activate or deactivate an account (requires appropriate permissions).
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) 
     /// - parameter connectionAccountId: (query) The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) 
     /// - parameter active: (query) true will activate the user and false will deactivate 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter appKey: (query) the application key that the user belongs to (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateActveStatus(version: Double, accountId: Int64, connectionAccountId: Int64, active: Bool, deviceId: String? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateActveStatus(accountId: Int64, connectionAccountId: Int64, active: Bool, deviceId: String? = nil, appKey: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/active/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/active/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1621,23 +1575,21 @@ open class AccountAPI {
 
 
     /// Update Location
-    /// - POST /api/{version}/account/location/update
+    /// - POST /account/location/update
     /// - Update the account location
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - parameter clientTime: (query) The time of the update (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateLocation(version: Double, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, clientTime: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateLocation(deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, clientTime: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/location/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/location/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1665,9 +1617,8 @@ open class AccountAPI {
 
 
     /// Update Account Settings
-    /// - POST /api/{version}/account/settings/update
+    /// - POST /account/settings/update
     /// - Update the account settings for a user
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - parameter blockedNotifications: (query) The notifications to be blocked (optional)
@@ -1681,14 +1632,13 @@ open class AccountAPI {
     /// - parameter latitude: (query) The current latitude of the user (optional)
     /// - parameter longitude: (query) The current longitude of the user (optional)
     /// - returns: AnyPublisher<UserSettingsResponse, Error> 
-    open func updateSettings(version: Double, deviceId: String? = nil, accountId: Int64? = nil, blockedNotifications: String? = nil, suggestionMethod: String? = nil, suggestionCount: Int? = nil, suggestionTimeFrame: Int? = nil, showOthersExactLocation: Bool? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, favoriteVisibility: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<UserSettingsResponse, Error> {
+    open func updateSettings(deviceId: String? = nil, accountId: Int64? = nil, blockedNotifications: String? = nil, suggestionMethod: String? = nil, suggestionCount: Int? = nil, suggestionTimeFrame: Int? = nil, showOthersExactLocation: Bool? = nil, showAsZipcode: Bool? = nil, showExactLocation: Bool? = nil, favoriteVisibility: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<UserSettingsResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/settings/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/settings/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1723,19 +1673,17 @@ open class AccountAPI {
 
 
     /// Save Validation Status
-    /// - POST /api/{version}/account/validateAccountSignup
+    /// - POST /account/validateAccountSignup
     /// - Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-    /// - parameter version: (path)  
     /// - parameter token: (query) The token associated with the account to update, good for 24 hours 
     /// - returns: AnyPublisher<AccountLoginResponse, Error> 
-    open func validateAccountSignup(version: Double, token: String) -> AnyPublisher<AccountLoginResponse, Error> {
+    open func validateAccountSignup(token: String) -> AnyPublisher<AccountLoginResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/validateAccountSignup"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/validateAccountSignup"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -1759,19 +1707,17 @@ open class AccountAPI {
 
 
     /// Validate Password Reset Token
-    /// - POST /api/{version}/account/validatepasswordreset
+    /// - POST /account/validatepasswordreset
     /// - Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-    /// - parameter version: (path)  
     /// - parameter token: (query) The token associated with the account to update, good for 24 hours 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func validatePasswordReset(version: Double, token: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func validatePasswordReset(token: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/account/validatepasswordreset"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/account/validatepasswordreset"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

@@ -21,7 +21,7 @@ open class CargoTypeAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class CargoTypeAPI {
 
 
     /// Create Cargo Type
-    /// - POST /api/{version}/cargo/type
+    /// - POST /cargo/type
     /// - Create new cargo type
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<CargoType, Error> 
-    open func createCargoType(version: Double, body: CargoType? = nil) -> AnyPublisher<CargoType, Error> {
+    open func createCargoType(body: CargoType? = nil) -> AnyPublisher<CargoType, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/type"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/cargo/type"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -64,19 +62,17 @@ open class CargoTypeAPI {
 
 
     /// Delete Cargo Type
-    /// - DELETE /api/{version}/cargo/type/{cargoTypeId}
+    /// - DELETE /cargo/type/{cargoTypeId}
     /// - Delete a type of cargo
-    /// - parameter version: (path)  
     /// - parameter cargoTypeId: (path) the ID of the cargo type 
     /// - returns: AnyPublisher<Void, Error> 
-    open func deleteCargoType(version: Double, cargoTypeId: Int64) -> AnyPublisher<Void, Error> {
+    open func deleteCargoType(cargoTypeId: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/type/{cargoTypeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/cargo/type/{cargoTypeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{cargoTypeId}", with: "\(cargoTypeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -98,19 +94,17 @@ open class CargoTypeAPI {
 
 
     /// Get Cargo Type
-    /// - GET /api/{version}/cargo/type/{cargoTypeId}
+    /// - GET /cargo/type/{cargoTypeId}
     /// - Get an existing cargo type
-    /// - parameter version: (path)  
     /// - parameter cargoTypeId: (path) the cargo type ID 
     /// - returns: AnyPublisher<CargoType, Error> 
-    open func getCargoType(version: Double, cargoTypeId: Int64) -> AnyPublisher<CargoType, Error> {
+    open func getCargoType(cargoTypeId: Int64) -> AnyPublisher<CargoType, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/type/{cargoTypeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/cargo/type/{cargoTypeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{cargoTypeId}", with: "\(cargoTypeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -132,9 +126,8 @@ open class CargoTypeAPI {
 
 
     /// Search Cargo Type
-    /// - GET /api/{version}/cargo/type
+    /// - GET /cargo/type
     /// - Search for types of cargo
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) the sort field to use for the cargo type 
     /// - parameter descending: (query) if the cargo type should be should be in descending order 
     /// - parameter start: (query) the start of the search 
@@ -143,14 +136,13 @@ open class CargoTypeAPI {
     /// - parameter retailerId: (query) the id of the retailer location (optional)
     /// - parameter hubId: (query) the ID of the hub (optional)
     /// - returns: AnyPublisher<[CargoType], Error> 
-    open func searchCargoTypes(version: Double, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil) -> AnyPublisher<[CargoType], Error> {
+    open func searchCargoTypes(sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, retailerId: Int64? = nil, hubId: Int64? = nil) -> AnyPublisher<[CargoType], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/type"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/cargo/type"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -180,20 +172,18 @@ open class CargoTypeAPI {
 
 
     /// Update Cargo Type
-    /// - PUT /api/{version}/cargo/type/{cargoTypeId}
+    /// - PUT /cargo/type/{cargoTypeId}
     /// - Update an existing cargo type
-    /// - parameter version: (path)  
     /// - parameter cargoTypeId: (path) the ID of the cargo type 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<CargoType, Error> 
-    open func updateCargoType(version: Double, cargoTypeId: Int64, body: CargoType? = nil) -> AnyPublisher<CargoType, Error> {
+    open func updateCargoType(cargoTypeId: Int64, body: CargoType? = nil) -> AnyPublisher<CargoType, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/cargo/type/{cargoTypeId}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/cargo/type/{cargoTypeId}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{cargoTypeId}", with: "\(cargoTypeId)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)

@@ -21,7 +21,7 @@ open class BidAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class BidAPI {
 
 
     /// Create Bid
-    /// - POST /api/{version}/bid/create
+    /// - POST /bid/create
     /// - Creates a bid on a biddable object
-    /// - parameter version: (path)  
     /// - parameter biddableType: (query) A biddable object type. Possible values include: CREATIVE (ads). 
     /// - parameter biddableId: (query) The id of the biddable object 
     /// - parameter amountPerView: (query) The bid amount for views. For ads, this is the amount that will be taken for each impression. 
@@ -41,14 +40,13 @@ open class BidAPI {
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<BidResponse, Error> 
-    open func createBid(version: Double, biddableType: String, biddableId: Int64, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<BidResponse, Error> {
+    open func createBid(biddableType: String, biddableId: Int64, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<BidResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/bid/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/bid/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -79,21 +77,19 @@ open class BidAPI {
 
 
     /// Delete Bid
-    /// - POST /api/{version}/bid/delete
+    /// - POST /bid/delete
     /// - Deleted a bid on a biddable object
-    /// - parameter version: (path)  
     /// - parameter bidId: (query) The bid id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteBid(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteBid(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/bid/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/bid/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -119,21 +115,19 @@ open class BidAPI {
 
 
     /// Get Bid
-    /// - GET /api/{version}/bid/get
+    /// - GET /bid/get
     /// - Get the bid details of a biddable object
-    /// - parameter version: (path)  
     /// - parameter bidId: (query) The bid id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
     /// - returns: AnyPublisher<BidResponse, Error> 
-    open func getBid(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<BidResponse, Error> {
+    open func getBid(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil) -> AnyPublisher<BidResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/bid/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/bid/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -159,9 +153,8 @@ open class BidAPI {
 
 
     /// Update Bid
-    /// - POST /api/{version}/bid/update
+    /// - POST /bid/update
     /// - Updates a bid on a biddable object
-    /// - parameter version: (path)  
     /// - parameter bidId: (query) The bid id 
     /// - parameter deviceId: (query) The device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) The account id of the user (deviceId or accountId required) (optional)
@@ -170,14 +163,13 @@ open class BidAPI {
     /// - parameter budgetAmount: (query) The allocated budget amount that will be used (optional)
     /// - parameter budgetSchedule: (query) The schedule for when the allocated budget amount is reset (optional)
     /// - returns: AnyPublisher<BidResponse, Error> 
-    open func updateBid(version: Double, bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, amountPerView: Double? = nil, amountPerAction: Double? = nil, budgetAmount: Double? = nil, budgetSchedule: String? = nil) -> AnyPublisher<BidResponse, Error> {
+    open func updateBid(bidId: Int64, deviceId: String? = nil, accountId: Int64? = nil, amountPerView: Double? = nil, amountPerAction: Double? = nil, budgetAmount: Double? = nil, budgetSchedule: String? = nil) -> AnyPublisher<BidResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/bid/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/bid/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

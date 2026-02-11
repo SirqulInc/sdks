@@ -21,7 +21,7 @@ open class ReportingAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -41,9 +41,8 @@ open class ReportingAPI {
     }
 
     /// Create Offline Report
-    /// - POST /api/{version}/report/batch/create
+    /// - POST /report/batch/create
     /// - Create an entry for the batch for offline report
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the user for passing account related params 
     /// - parameter status: (query) the status of the report 
     /// - parameter previewLimit: (query) the limit on how much you can preview of the batch report 
@@ -56,14 +55,13 @@ open class ReportingAPI {
     /// - parameter description: (query) the description of the batch report (optional)
     /// - parameter pageUrl: (query)  (optional)
     /// - returns: AnyPublisher<ReportBatchResponse, Error> 
-    open func createBatch(version: Double, accountId: Int64, status: CreateBatchStatus, previewLimit: Int, appKey: String? = nil, endpoint: String? = nil, parameters: String? = nil, name: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, description: String? = nil, pageUrl: String? = nil) -> AnyPublisher<ReportBatchResponse, Error> {
+    open func createBatch(accountId: Int64, status: CreateBatchStatus, previewLimit: Int, appKey: String? = nil, endpoint: String? = nil, parameters: String? = nil, name: String? = nil, startDate: Int64? = nil, endDate: Int64? = nil, description: String? = nil, pageUrl: String? = nil) -> AnyPublisher<ReportBatchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/report/batch/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/report/batch/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -97,19 +95,17 @@ open class ReportingAPI {
 
 
     /// Create Offline Report
-    /// - POST /api/{version}/report/region/summary/batch
+    /// - POST /report/region/summary/batch
     /// - Create an entry for the batch for offline report
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<ReportRegionLegSummaryBatchResponse, Error> 
-    open func createRegionLegSummaryBatch(version: Double, body: [RegionLegSummary]? = nil) -> AnyPublisher<ReportRegionLegSummaryBatchResponse, Error> {
+    open func createRegionLegSummaryBatch(body: [RegionLegSummary]? = nil) -> AnyPublisher<ReportRegionLegSummaryBatchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/report/region/summary/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/report/region/summary/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -132,20 +128,18 @@ open class ReportingAPI {
 
 
     /// Delete Offline Report
-    /// - POST /api/{version}/report/batch/delete
+    /// - POST /report/batch/delete
     /// - Deletes a batch report.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account 
     /// - parameter batchId: (query) the id of the batch to delete 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteBatch(version: Double, accountId: Int64, batchId: Int64) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteBatch(accountId: Int64, batchId: Int64) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/report/batch/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/report/batch/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -170,21 +164,19 @@ open class ReportingAPI {
 
 
     /// Get Offline Report
-    /// - GET /api/{version}/report/batch/get
+    /// - GET /report/batch/get
     /// - Checks status of batch report.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the logged in user 
     /// - parameter batchId: (query) returned by /report/batch/create 
     /// - parameter allResults: (query) whether to return all batch results or not 
     /// - returns: AnyPublisher<ReportBatchResponse, Error> 
-    open func getReportBatch(version: Double, accountId: Int64, batchId: Int64, allResults: Bool) -> AnyPublisher<ReportBatchResponse, Error> {
+    open func getReportBatch(accountId: Int64, batchId: Int64, allResults: Bool) -> AnyPublisher<ReportBatchResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/report/batch/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/report/batch/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -219,9 +211,8 @@ open class ReportingAPI {
     }
 
     /// Run Report
-    /// - POST /api/{version}/report/run
+    /// - POST /report/run
     /// -  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
-    /// - parameter version: (path)  
     /// - parameter desc: (query) If true then descending order, false is ascending 
     /// - parameter accountId: (query) The account id of the user for passing account related params (optional)
     /// - parameter query: (query) The named identifier of the query (optional)
@@ -231,14 +222,13 @@ open class ReportingAPI {
     /// - parameter limit: (query) The limit of the pagination (optional)
     /// - parameter responseFormat: (query) Determines what response format to return. Options are: JSON or CSV (optional)
     /// - returns: AnyPublisher<ReportResponse, Error> 
-    open func runReport(version: Double, desc: Bool, accountId: Int64? = nil, query: String? = nil, parameters: String? = nil, order: String? = nil, start: Int64? = nil, limit: Int64? = nil, responseFormat: RunReportResponseFormat? = nil) -> AnyPublisher<ReportResponse, Error> {
+    open func runReport(desc: Bool, accountId: Int64? = nil, query: String? = nil, parameters: String? = nil, order: String? = nil, start: Int64? = nil, limit: Int64? = nil, responseFormat: RunReportResponseFormat? = nil) -> AnyPublisher<ReportResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/report/run"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/report/run"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -281,9 +271,8 @@ open class ReportingAPI {
     }
 
     /// Search Offline Reports
-    /// - GET /api/{version}/report/batch/search
+    /// - GET /report/batch/search
     /// - Retrieves batches for a user..
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account logged in 
     /// - parameter start: (query) the start of the index and/or pagination 
     /// - parameter limit: (query) the limit of the index and/or pagination 
@@ -294,14 +283,13 @@ open class ReportingAPI {
     /// - parameter startDate: (query) the start date of the report batch to search on (optional)
     /// - parameter endDate: (query) the end date of the report batch to search on (optional)
     /// - returns: AnyPublisher<[ReportBatchResponse], Error> 
-    open func searchBatch(version: Double, accountId: Int64, start: Int, limit: Int, names: String? = nil, appKey: String? = nil, status: SearchBatchStatus? = nil, globalAppSearch: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil) -> AnyPublisher<[ReportBatchResponse], Error> {
+    open func searchBatch(accountId: Int64, start: Int, limit: Int, names: String? = nil, appKey: String? = nil, status: SearchBatchStatus? = nil, globalAppSearch: Bool? = nil, startDate: Int64? = nil, endDate: Int64? = nil) -> AnyPublisher<[ReportBatchResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/report/batch/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/report/batch/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

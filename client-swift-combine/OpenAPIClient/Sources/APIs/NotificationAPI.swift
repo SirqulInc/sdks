@@ -21,7 +21,7 @@ open class NotificationAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,9 +29,8 @@ open class NotificationAPI {
 
 
     /// Create Notification Template
-    /// - POST /api/{version}/notification/template/create
+    /// - POST /notification/template/create
     /// - Create a notification template. Developers will only be able to create notification templates for their own applications.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user. 
     /// - parameter conduit: (query) Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. 
     /// - parameter title: (query) title of the notification template 
@@ -40,14 +39,13 @@ open class NotificationAPI {
     /// - parameter event: (query) Filter results by event. (optional)
     /// - parameter tags: (query) tags associated with the note template (optional)
     /// - returns: AnyPublisher<NotificationTemplateResponse, Error> 
-    open func createNotificationTemplate(version: Double, accountId: Int64, conduit: String, title: String, body: String, appKey: String? = nil, event: String? = nil, tags: String? = nil) -> AnyPublisher<NotificationTemplateResponse, Error> {
+    open func createNotificationTemplate(accountId: Int64, conduit: String, title: String, body: String, appKey: String? = nil, event: String? = nil, tags: String? = nil) -> AnyPublisher<NotificationTemplateResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/template/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/template/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -77,21 +75,19 @@ open class NotificationAPI {
 
 
     /// Create or update blocked notification settings
-    /// - POST /api/{version}/notification/blocked/batch
+    /// - POST /notification/blocked/batch
     /// - Create or update blocked notification settings
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key 
     /// - parameter data: (query) batch data payload (application specific) 
     /// - parameter accountId: (query) the account id of the user (optional)
     /// - returns: AnyPublisher<BlockedNotificationResponse, Error> 
-    open func createOrUpdateBlockedNotifications(version: Double, appKey: String, data: String, accountId: Int64? = nil) -> AnyPublisher<BlockedNotificationResponse, Error> {
+    open func createOrUpdateBlockedNotifications(appKey: String, data: String, accountId: Int64? = nil) -> AnyPublisher<BlockedNotificationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/blocked/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/blocked/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -117,20 +113,18 @@ open class NotificationAPI {
 
 
     /// Delete Notification Template
-    /// - POST /api/{version}/notification/template/delete
+    /// - POST /notification/template/delete
     /// - Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the account id of the user 
     /// - parameter notificationTemplateId: (query) the id of the notification template to delete 
     /// - returns: AnyPublisher<NotificationTemplateResponse, Error> 
-    open func deleteNotificationTemplate(version: Double, accountId: Int64, notificationTemplateId: Int64) -> AnyPublisher<NotificationTemplateResponse, Error> {
+    open func deleteNotificationTemplate(accountId: Int64, notificationTemplateId: Int64) -> AnyPublisher<NotificationTemplateResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/template/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/template/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -155,20 +149,18 @@ open class NotificationAPI {
 
 
     /// Get Notification Template
-    /// - GET /api/{version}/notification/template/get
+    /// - GET /notification/template/get
     /// - Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) the id of the account 
     /// - parameter notificationTemplateId: (query) the id of the notification template to get 
     /// - returns: AnyPublisher<NotificationTemplateResponse, Error> 
-    open func getNotificationTemplate(version: Double, accountId: Int64, notificationTemplateId: Int64) -> AnyPublisher<NotificationTemplateResponse, Error> {
+    open func getNotificationTemplate(accountId: Int64, notificationTemplateId: Int64) -> AnyPublisher<NotificationTemplateResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/template/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/template/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -193,9 +185,8 @@ open class NotificationAPI {
 
 
     /// Get Notifications
-    /// - GET /api/{version}/notification/search
+    /// - GET /notification/search
     /// - Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter connectionAccountId: (query) the account id used to view another person&#39;s notifications (optional)
@@ -218,14 +209,13 @@ open class NotificationAPI {
     /// - parameter start: (query) start of the pagination (optional)
     /// - parameter limit: (query) limit of the pagination (optional)
     /// - returns: AnyPublisher<NotificationMessageListResponse, Error> 
-    open func getNotifications(version: Double, deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, appKey: String? = nil, eventType: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, actionCategory: String? = nil, conduits: String? = nil, keyword: String? = nil, returnReadMessages: Bool? = nil, markAsRead: Bool? = nil, fromDate: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, returnSent: Bool? = nil, ignoreFlagged: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<NotificationMessageListResponse, Error> {
+    open func getNotifications(deviceId: String? = nil, accountId: Int64? = nil, connectionAccountId: Int64? = nil, appKey: String? = nil, eventType: String? = nil, contentIds: String? = nil, contentTypes: String? = nil, parentIds: String? = nil, parentTypes: String? = nil, actionCategory: String? = nil, conduits: String? = nil, keyword: String? = nil, returnReadMessages: Bool? = nil, markAsRead: Bool? = nil, fromDate: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil, returnSent: Bool? = nil, ignoreFlagged: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<NotificationMessageListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -279,9 +269,8 @@ open class NotificationAPI {
     }
 
     /// Register Notification Token
-    /// - POST /api/{version}/notification/token
+    /// - POST /notification/token
     /// - Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-    /// - parameter version: (path)  
     /// - parameter token: (query) A token that is generated by the device to sign requests for the notification service providers 
     /// - parameter pushType: (query) The type of push notification. Possible values include: APNS, GCM 
     /// - parameter deviceId: (query) The unique id of the device making the request (deviceId or accountId required) (optional)
@@ -293,14 +282,13 @@ open class NotificationAPI {
     /// - parameter latitude: (query) Latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) Longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func registerNotificationToken(version: Double, token: String, pushType: RegisterNotificationTokenPushType, deviceId: String? = nil, accountId: Int64? = nil, environment: String? = nil, appKey: String? = nil, gameType: String? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func registerNotificationToken(token: String, pushType: RegisterNotificationTokenPushType, deviceId: String? = nil, accountId: Int64? = nil, environment: String? = nil, appKey: String? = nil, gameType: String? = nil, active: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/token"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/token"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -333,9 +321,8 @@ open class NotificationAPI {
 
 
     /// Search on the user's blocked notification settings
-    /// - GET /api/{version}/notification/blocked/search
+    /// - GET /notification/blocked/search
     /// - Search on the user's blocked notification settings
-    /// - parameter version: (path)  
     /// - parameter appKey: (query) The application key 
     /// - parameter accountId: (query) the account id of the user (optional)
     /// - parameter searchTags: (query) search tags to filter results (optional)
@@ -349,14 +336,13 @@ open class NotificationAPI {
     /// - parameter start: (query) start of the pagination (optional)
     /// - parameter limit: (query) limit of the pagination (optional)
     /// - returns: AnyPublisher<BlockedNotificationResponse, Error> 
-    open func searchBlockedNotifications(version: Double, appKey: String, accountId: Int64? = nil, searchTags: String? = nil, events: String? = nil, conduits: String? = nil, customTypes: String? = nil, contentTypes: String? = nil, contentIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<BlockedNotificationResponse, Error> {
+    open func searchBlockedNotifications(appKey: String, accountId: Int64? = nil, searchTags: String? = nil, events: String? = nil, conduits: String? = nil, customTypes: String? = nil, contentTypes: String? = nil, contentIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<BlockedNotificationResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/blocked/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/blocked/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -391,9 +377,8 @@ open class NotificationAPI {
 
 
     /// Search Notification Templates
-    /// - GET /api/{version}/notification/template/search
+    /// - GET /notification/template/search
     /// - Search for notification templates on owned applications.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user. 
     /// - parameter sortField: (query) Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false. 
     /// - parameter descending: (query) Specified whether the results are returned in descending or ascending order. 
@@ -406,14 +391,13 @@ open class NotificationAPI {
     /// - parameter reservedOnly: (query) Returns only templates that use reserved events. (optional)
     /// - parameter keyword: (query) Filter results by keyword on the title, tags. (optional)
     /// - returns: AnyPublisher<NotificationTemplateResponse, Error> 
-    open func searchNotificationTemplate(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, appKey: String? = nil, event: String? = nil, conduit: String? = nil, globalOnly: Bool? = nil, reservedOnly: Bool? = nil, keyword: String? = nil) -> AnyPublisher<NotificationTemplateResponse, Error> {
+    open func searchNotificationTemplate(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, appKey: String? = nil, event: String? = nil, conduit: String? = nil, globalOnly: Bool? = nil, reservedOnly: Bool? = nil, keyword: String? = nil) -> AnyPublisher<NotificationTemplateResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/template/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/template/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -463,9 +447,8 @@ open class NotificationAPI {
     }
 
     /// Search for Recipients
-    /// - GET /api/{version}/notification/recipient/search
+    /// - GET /notification/recipient/search
     /// - Search for application users to send notifications.
-    /// - parameter version: (path)  
     /// - parameter sortField: (query) The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} 
     /// - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -480,14 +463,13 @@ open class NotificationAPI {
     /// - parameter start: (query) start of the pagination (optional)
     /// - parameter limit: (query) limit of the pagination (hard limit of 1000) (optional)
     /// - returns: AnyPublisher<[NotificationRecipientResponse], Error> 
-    open func searchRecipients(version: Double, sortField: SearchRecipientsSortField, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, recipientAccountIds: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[NotificationRecipientResponse], Error> {
+    open func searchRecipients(sortField: SearchRecipientsSortField, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, recipientAccountIds: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<[NotificationRecipientResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/recipient/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/recipient/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -523,9 +505,8 @@ open class NotificationAPI {
 
 
     /// Search for Recipients (Counts/Grouped)
-    /// - GET /api/{version}/notification/recipient/search/count
+    /// - GET /notification/recipient/search/count
     /// - Search for application users to send notifications (count/grouped variant).
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter appKey: (query) filters results by application. If this is empty, will return all recipients for all applications that the user has access to. (optional)
@@ -539,14 +520,13 @@ open class NotificationAPI {
     /// - parameter start: (query) start of the pagination (optional)
     /// - parameter limit: (query) limit of the pagination (optional)
     /// - returns: AnyPublisher<NotificationRecipientResponseListResponse, Error> 
-    open func searchRecipientsCount(version: Double, deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<NotificationRecipientResponseListResponse, Error> {
+    open func searchRecipientsCount(deviceId: String? = nil, accountId: Int64? = nil, appKey: String? = nil, conduit: String? = nil, keyword: String? = nil, audienceId: Int64? = nil, audienceIds: String? = nil, connectionGroupIds: String? = nil, sortField: String? = nil, descending: Bool? = nil, start: Int? = nil, limit: Int? = nil) -> AnyPublisher<NotificationRecipientResponseListResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/recipient/search/count"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/recipient/search/count"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -581,9 +561,8 @@ open class NotificationAPI {
 
 
     /// Send Batch Notifications
-    /// - POST /api/{version}/notification/batch
+    /// - POST /notification/batch
     /// - Send notifications to all users of an application. Only someone with permissions to the application can do this.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account id of the application owner/manager 
     /// - parameter appKey: (query) The application key for updating an existing application 
     /// - parameter customMessage: (query) Message string that will be displayed in on the notification 
@@ -594,14 +573,13 @@ open class NotificationAPI {
     /// - parameter parentId: (query) Default notification pay-load field (usage is dependent on the app and the type of event) (optional)
     /// - parameter parentType: (query) Default notification pay-load field (usage is dependent on the app and the type of event) (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func sendBatchNotifications(version: Double, accountId: Int64, appKey: String, customMessage: String, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func sendBatchNotifications(accountId: Int64, appKey: String, customMessage: String, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/batch"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/batch"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -633,9 +611,8 @@ open class NotificationAPI {
 
 
     /// Send Custom Notifications
-    /// - POST /api/{version}/notification/custom
+    /// - POST /notification/custom
     /// - Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) the unique id of the device making the request (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter receiverAccountIds: (query) comma separated list of account IDs that will receive the notification (optional)
@@ -655,14 +632,13 @@ open class NotificationAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func sendCustomNotifications(version: Double, deviceId: String? = nil, accountId: Int64? = nil, receiverAccountIds: String? = nil, includeFriendGroup: Bool? = nil, appKey: String? = nil, gameType: String? = nil, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, actionCategory: String? = nil, subject: String? = nil, customMessage: String? = nil, friendOnlyAPNS: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func sendCustomNotifications(deviceId: String? = nil, accountId: Int64? = nil, receiverAccountIds: String? = nil, includeFriendGroup: Bool? = nil, appKey: String? = nil, gameType: String? = nil, conduit: String? = nil, contentId: Int64? = nil, contentName: String? = nil, contentType: String? = nil, parentId: Int64? = nil, parentType: String? = nil, actionCategory: String? = nil, subject: String? = nil, customMessage: String? = nil, friendOnlyAPNS: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/custom"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/custom"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -703,23 +679,21 @@ open class NotificationAPI {
 
 
     /// Update Notification Template
-    /// - POST /api/{version}/notification/template/update
+    /// - POST /notification/template/update
     /// - Update a notification template. Developers will only be able to update notification templates for their own applications.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The account ID of the user. 
     /// - parameter notificationTemplateId: (query) The notification template ID to update. 
     /// - parameter title: (query) The title of the message (this would become the subject title for emails). There is a 191 character limit. (optional)
     /// - parameter body: (query) The body of the message. (optional)
     /// - parameter tags: (query) The search tags on the template used during search queries. (optional)
     /// - returns: AnyPublisher<NotificationTemplateResponse, Error> 
-    open func updateNotificationTemplate(version: Double, accountId: Int64, notificationTemplateId: Int64, title: String? = nil, body: String? = nil, tags: String? = nil) -> AnyPublisher<NotificationTemplateResponse, Error> {
+    open func updateNotificationTemplate(accountId: Int64, notificationTemplateId: Int64, title: String? = nil, body: String? = nil, tags: String? = nil) -> AnyPublisher<NotificationTemplateResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/notification/template/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/notification/template/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

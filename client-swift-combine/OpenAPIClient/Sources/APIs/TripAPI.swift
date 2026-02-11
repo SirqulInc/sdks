@@ -21,7 +21,7 @@ open class TripAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class TripAPI {
 
 
     /// Create Trip
-    /// - POST /api/{version}/trip
+    /// - POST /trip
     /// - Create a new trip
-    /// - parameter version: (path)  
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Trip, Error> 
-    open func createTrip(version: Double, body: Trip? = nil) -> AnyPublisher<Trip, Error> {
+    open func createTrip(body: Trip? = nil) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trip"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 guard let requestURL = components?.url else {
@@ -64,19 +62,17 @@ open class TripAPI {
 
 
     /// Delete Trip
-    /// - DELETE /api/{version}/trip/{id}
+    /// - DELETE /trip/{id}
     /// - Delete an existing trip
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the trip to delete 
     /// - returns: AnyPublisher<Void, Error> 
-    open func delete(version: Double, id: Int64) -> AnyPublisher<Void, Error> {
+    open func delete(id: Int64) -> AnyPublisher<Void, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -98,20 +94,18 @@ open class TripAPI {
 
 
     /// Set Trip Preference Driver
-    /// - POST /api/{version}/trip/{id}/drive
+    /// - POST /trip/{id}/drive
     /// - Update trip preference to drive, also create a route and assign the trip to the route
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the trip 
     /// - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
     /// - returns: AnyPublisher<Trip, Error> 
-    open func driveTrip(version: Double, id: Int64, recurrence: Bool) -> AnyPublisher<Trip, Error> {
+    open func driveTrip(id: Int64, recurrence: Bool) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/drive"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/drive"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -136,20 +130,18 @@ open class TripAPI {
 
 
     /// Set Trip Preference Flexible
-    /// - POST /api/{version}/trip/{id}/flexible
+    /// - POST /trip/{id}/flexible
     /// - Update trip preference to flexible.
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the trip 
     /// - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
     /// - returns: AnyPublisher<Trip, Error> 
-    open func flexibleTrip(version: Double, id: Int64, recurrence: Bool) -> AnyPublisher<Trip, Error> {
+    open func flexibleTrip(id: Int64, recurrence: Bool) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/flexible"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/flexible"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -174,19 +166,17 @@ open class TripAPI {
 
 
     /// Get Trip
-    /// - GET /api/{version}/trip/{id}
+    /// - GET /trip/{id}
     /// - Get an existing trip
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the trip to get 
     /// - returns: AnyPublisher<Trip, Error> 
-    open func getTrip(version: Double, id: Int64) -> AnyPublisher<Trip, Error> {
+    open func getTrip(id: Int64) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -208,9 +198,8 @@ open class TripAPI {
 
 
     /// Get Trip Matches
-    /// - GET /api/{version}/trip/{id}/match
+    /// - GET /trip/{id}/match
     /// - Get matching trips of specific trip
-    /// - parameter version: (path)  
     /// - parameter id: (path) The id The id of the trip to search for matches for 
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -220,14 +209,13 @@ open class TripAPI {
     /// - parameter matchedHasRoute: (query) Only return matchings that already have route assigned (optional)
     /// - parameter matchedHasDriver: (query) Only return matchings that already have driver assigned (optional)
     /// - returns: AnyPublisher<[Trip], Error> 
-    open func getTripMatches(version: Double, id: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil) -> AnyPublisher<[Trip], Error> {
+    open func getTripMatches(id: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil) -> AnyPublisher<[Trip], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/match"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/match"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -258,21 +246,19 @@ open class TripAPI {
 
 
     /// Process Trip Matches
-    /// - POST /api/{version}/trip/match/process
+    /// - POST /trip/match/process
     /// - Process trip matching, assign trips with no route to matched trips with route.
-    /// - parameter version: (path)  
     /// - parameter startDate: (query) The lower bound date to process matchings (optional)
     /// - parameter endDate: (query) The upper bound date to process matchings (optional)
     /// - parameter tripId: (query) the id of the trip to process (optional)
     /// - returns: AnyPublisher<[Trip], Error> 
-    open func processTripMatches(version: Double, startDate: Int64? = nil, endDate: Int64? = nil, tripId: Int64? = nil) -> AnyPublisher<[Trip], Error> {
+    open func processTripMatches(startDate: Int64? = nil, endDate: Int64? = nil, tripId: Int64? = nil) -> AnyPublisher<[Trip], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/match/process"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trip/match/process"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -298,20 +284,18 @@ open class TripAPI {
 
 
     /// Set Trip Preference Rider
-    /// - POST /api/{version}/trip/{id}/ride
+    /// - POST /trip/{id}/ride
     /// - Update trip preference to ride.
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the trip 
     /// - parameter recurrence: (query) the frequency of the trip (e.g. weekly, until 2018-08-09) 
     /// - returns: AnyPublisher<Trip, Error> 
-    open func ride(version: Double, id: Int64, recurrence: Bool) -> AnyPublisher<Trip, Error> {
+    open func ride(id: Int64, recurrence: Bool) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/ride"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/ride"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -336,9 +320,8 @@ open class TripAPI {
 
 
     /// Search Trips
-    /// - GET /api/{version}/trip
+    /// - GET /trip
     /// - Search for trips
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The owner of the trips 
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -349,14 +332,13 @@ open class TripAPI {
     /// - parameter endDate: (query) The upper bound limit of time (optional)
     /// - parameter hasNotifications: (query) whether to search on trips that have notifications or not (optional)
     /// - returns: AnyPublisher<[Trip], Error> 
-    open func search(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, hasNotifications: Bool? = nil) -> AnyPublisher<[Trip], Error> {
+    open func search(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, hasNotifications: Bool? = nil) -> AnyPublisher<[Trip], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trip"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -388,9 +370,8 @@ open class TripAPI {
 
 
     /// Search Trips
-    /// - GET /api/{version}/trip/match
+    /// - GET /trip/match
     /// - Search for trips with matching information.
-    /// - parameter version: (path)  
     /// - parameter accountId: (query) The owner of the trips 
     /// - parameter sortField: (query) The field to sort by 
     /// - parameter descending: (query) Determines whether the sorted list is in descending or ascending order 
@@ -402,14 +383,13 @@ open class TripAPI {
     /// - parameter matchedHasRoute: (query) Only return matchings that already have route assigned (optional)
     /// - parameter matchedHasDriver: (query) Only return matchings that already have driver assigned (optional)
     /// - returns: AnyPublisher<[Trip], Error> 
-    open func searchTrips(version: Double, accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil) -> AnyPublisher<[Trip], Error> {
+    open func searchTrips(accountId: Int64, sortField: String, descending: Bool, start: Int, limit: Int, activeOnly: Bool, startDate: Int64? = nil, endDate: Int64? = nil, matchedHasRoute: Bool? = nil, matchedHasDriver: Bool? = nil) -> AnyPublisher<[Trip], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/match"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trip/match"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -442,19 +422,17 @@ open class TripAPI {
 
 
     /// Update Trip Locations
-    /// - POST /api/{version}/trip/{id}/locations
-    /// - parameter version: (path)  
+    /// - POST /trip/{id}/locations
     /// - parameter id: (path) the id of the trip to update locations for 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Trip, Error> 
-    open func updateLocations(version: Double, id: Int64, body: Trip? = nil) -> AnyPublisher<Trip, Error> {
+    open func updateLocations(id: Int64, body: Trip? = nil) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/locations"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/locations"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -478,19 +456,17 @@ open class TripAPI {
 
 
     /// Update Recurrence Locations
-    /// - POST /api/{version}/trip/{id}/locations/recurrence
-    /// - parameter version: (path)  
+    /// - POST /trip/{id}/locations/recurrence
     /// - parameter id: (path) the id of the trip 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<[Trip], Error> 
-    open func updateRecurrenceLocations(version: Double, id: Int64, body: Trip? = nil) -> AnyPublisher<[Trip], Error> {
+    open func updateRecurrenceLocations(id: Int64, body: Trip? = nil) -> AnyPublisher<[Trip], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/locations/recurrence"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/locations/recurrence"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -514,19 +490,17 @@ open class TripAPI {
 
 
     /// Update Recurrence Shipments
-    /// - POST /api/{version}/trip/{id}/shipments/recurrence
-    /// - parameter version: (path)  
+    /// - POST /trip/{id}/shipments/recurrence
     /// - parameter id: (path) the id of the trip 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<[Trip], Error> 
-    open func updateRecurrenceShipments(version: Double, id: Int64, body: Trip? = nil) -> AnyPublisher<[Trip], Error> {
+    open func updateRecurrenceShipments(id: Int64, body: Trip? = nil) -> AnyPublisher<[Trip], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/shipments/recurrence"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/shipments/recurrence"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -550,19 +524,17 @@ open class TripAPI {
 
 
     /// Update Trip Shipments
-    /// - POST /api/{version}/trip/{id}/shipments
-    /// - parameter version: (path)  
+    /// - POST /trip/{id}/shipments
     /// - parameter id: (path) the id of the trip shipments to update 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Trip, Error> 
-    open func updateShipments(version: Double, id: Int64, body: Trip? = nil) -> AnyPublisher<Trip, Error> {
+    open func updateShipments(id: Int64, body: Trip? = nil) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}/shipments"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}/shipments"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -586,20 +558,18 @@ open class TripAPI {
 
 
     /// Update Trip
-    /// - PUT /api/{version}/trip/{id}
+    /// - PUT /trip/{id}
     /// - Update an existing trip. Does not support recurring trip update.
-    /// - parameter version: (path)  
     /// - parameter id: (path) the id of the trip to update 
     /// - parameter body: (body)  (optional)
     /// - returns: AnyPublisher<Trip, Error> 
-    open func updateTrip(version: Double, id: Int64, body: Trip? = nil) -> AnyPublisher<Trip, Error> {
+    open func updateTrip(id: Int64, body: Trip? = nil) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/{id}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/trip/{id}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{id}", with: "\(id)")
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -623,20 +593,18 @@ open class TripAPI {
 
 
     /// Trip Notifications
-    /// - POST /api/{version}/trip/notifications
+    /// - POST /trip/notifications
     /// - Update the trip notifications
-    /// - parameter version: (path)  
     /// - parameter id: (query) the id of the trip 
     /// - parameter notifications: (query) the notifications to update on the trip (optional)
     /// - returns: AnyPublisher<Trip, Error> 
-    open func updateTripNotifications(version: Double, id: Int64, notifications: String? = nil) -> AnyPublisher<Trip, Error> {
+    open func updateTripNotifications(id: Int64, notifications: String? = nil) -> AnyPublisher<Trip, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/trip/notifications"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/trip/notifications"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []

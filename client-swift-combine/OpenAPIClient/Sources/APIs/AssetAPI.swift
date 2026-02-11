@@ -21,7 +21,7 @@ open class AssetAPI {
         decoder.dateDecodingStrategy = .formatted(OpenISO8601DateFormatter())
         return decoder
     }()
-    public var baseURL = URL(string: "http://localhost")
+    public var baseURL = URL(string: "https://dev.sirqul.com/api/3.18")
 
     public init(_ transport: OpenAPITransport) {
         self.transport = transport
@@ -29,19 +29,17 @@ open class AssetAPI {
 
 
     /// Download Asset
-    /// - GET /api/{version}/asset/download/{filename}
+    /// - GET /asset/download/{filename}
     /// - Downloads an asset from the server for assets that have been uploaded to the server.
-    /// - parameter version: (path)  
     /// - parameter filename: (path) the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} 
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func assetDownload(version: Double, filename: String) -> AnyPublisher<SirqulResponse, Error> {
+    open func assetDownload(filename: String) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/download/{filename}"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                var localVarPath = "/asset/download/{filename}"
                 localVarPath = localVarPath.replacingOccurrences(of: "{filename}", with: filename)
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 let components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
@@ -85,9 +83,8 @@ open class AssetAPI {
     }
 
     /// Convert Offer to Creative
-    /// - POST /api/{version}/asset/morph
+    /// - POST /asset/morph
     /// - Converts an offer image + text into a creative image.
-    /// - parameter version: (path)  
     /// - parameter offerId: (query) offer id used for inserting offer text/flavor 
     /// - parameter adSize: (query) the ad size used for selecting a format for the creative image 
     /// - parameter creativeId: (query) used for inserting the newly created image into (optional)
@@ -96,14 +93,13 @@ open class AssetAPI {
     /// - parameter backgroundSize: (query) the size of the background (optional)
     /// - parameter template: (query) the template to use (optional)
     /// - returns: AnyPublisher<AssetShortResponse, Error> 
-    open func assetMorph(version: Double, offerId: Int64, adSize: AssetMorphAdSize, creativeId: Int64? = nil, width: Int? = nil, height: Int? = nil, backgroundSize: String? = nil, template: String? = nil) -> AnyPublisher<AssetShortResponse, Error> {
+    open func assetMorph(offerId: Int64, adSize: AssetMorphAdSize, creativeId: Int64? = nil, width: Int? = nil, height: Int? = nil, backgroundSize: String? = nil, template: String? = nil) -> AnyPublisher<AssetShortResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/morph"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/asset/morph"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -133,9 +129,8 @@ open class AssetAPI {
 
 
     /// Create Asset
-    /// - POST /api/{version}/asset/create
+    /// - POST /asset/create
     /// - Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-    /// - parameter version: (path)  
     /// - parameter returnNulls: (query) to return nulls (optional)
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -171,14 +166,13 @@ open class AssetAPI {
     /// - parameter latitude: (query) the latitude (optional) (optional)
     /// - parameter longitude: (query) the longitude (optional) (optional)
     /// - returns: AnyPublisher<AssetResponse, Error> 
-    open func createAsset(version: Double, returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, addToDefaultAlbum: String? = nil, addToMediaLibrary: Bool? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: Data? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: Data? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, app: String? = nil, appKey: String? = nil, searchTags: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AssetResponse, Error> {
+    open func createAsset(returnNulls: Bool? = nil, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, addToDefaultAlbum: String? = nil, addToMediaLibrary: Bool? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: Data? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: Data? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, app: String? = nil, appKey: String? = nil, searchTags: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<AssetResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/create"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/asset/create"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -235,23 +229,21 @@ open class AssetAPI {
 
 
     /// Delete Asset
-    /// - POST /api/{version}/asset/delete
+    /// - POST /asset/delete
     /// - Delete an asset.
-    /// - parameter version: (path)  
     /// - parameter assetId: (query) the id of the asset to delete 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func deleteAsset(version: Double, assetId: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func deleteAsset(assetId: String, deviceId: String? = nil, accountId: Int64? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/delete"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/asset/delete"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -279,22 +271,20 @@ open class AssetAPI {
 
 
     /// Get Asset
-    /// - GET /api/{version}/asset/get
+    /// - GET /asset/get
     /// - Gets the full asset response including attached likes and notes.
-    /// - parameter version: (path)  
     /// - parameter assetId: (query) the asset ID 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter noteDescending: (query) determines whether the notes on the asset are in descending order (optional, default to false)
     /// - returns: AnyPublisher<AssetFullResponse, Error> 
-    open func getAsset(version: Double, assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, noteDescending: Bool? = nil) -> AnyPublisher<AssetFullResponse, Error> {
+    open func getAsset(assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, noteDescending: Bool? = nil) -> AnyPublisher<AssetFullResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/get"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/asset/get"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -321,9 +311,8 @@ open class AssetAPI {
 
 
     /// Remove Asset from Collection
-    /// - POST /api/{version}/asset/remove
+    /// - POST /asset/remove
     /// - Remove assets from collections
-    /// - parameter version: (path)  
     /// - parameter assetId: (query) the id of the asset to remove 
     /// - parameter deviceId: (query) the device id (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account id of the user (deviceId or accountId required) (optional)
@@ -333,14 +322,13 @@ open class AssetAPI {
     /// - parameter latitude: (query) latitude used to update the user&#39;s current location (optional)
     /// - parameter longitude: (query) longitude used to update the user&#39;s current location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func removeAsset(version: Double, assetId: String, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, removeFromDefaultAlbums: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func removeAsset(assetId: String, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, collectionId: Int64? = nil, removeFromDefaultAlbums: Bool? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/remove"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/asset/remove"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -371,9 +359,8 @@ open class AssetAPI {
 
 
     /// Search Assets
-    /// - GET /api/{version}/asset/search
+    /// - GET /asset/search
     /// - Searches for assets
-    /// - parameter version: (path)  
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
     /// - parameter albumIds: (query) comma separated list of album ids to search on (optional)
@@ -399,14 +386,13 @@ open class AssetAPI {
     /// - parameter approvalStatus: (query) filter by approval status (optional)
     /// - parameter assignedAccountId: (query) filter results by an assigned account id (optional)
     /// - returns: AnyPublisher<[AssetResponse], Error> 
-    open func searchAssets(version: Double, deviceId: String? = nil, accountId: Int64? = nil, albumIds: String? = nil, assetIds: String? = nil, appKey: String? = nil, mediaType: String? = nil, mimeType: String? = nil, keyword: String? = nil, versionCode: Int? = nil, versionName: String? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, searchMediaLibrary: Bool? = nil, filterByBillable: Bool? = nil, activeOnly: Bool? = nil, returnApp: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchMode: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil) -> AnyPublisher<[AssetResponse], Error> {
+    open func searchAssets(deviceId: String? = nil, accountId: Int64? = nil, albumIds: String? = nil, assetIds: String? = nil, appKey: String? = nil, mediaType: String? = nil, mimeType: String? = nil, keyword: String? = nil, versionCode: Int? = nil, versionName: String? = nil, updatedSince: Int64? = nil, updatedBefore: Int64? = nil, sortField: String? = nil, descending: Bool? = nil, searchMediaLibrary: Bool? = nil, filterByBillable: Bool? = nil, activeOnly: Bool? = nil, returnApp: Bool? = nil, start: Int? = nil, limit: Int? = nil, searchMode: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil) -> AnyPublisher<[AssetResponse], Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/search"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/asset/search"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
@@ -453,9 +439,8 @@ open class AssetAPI {
 
 
     /// Update Asset
-    /// - POST /api/{version}/asset/update
+    /// - POST /asset/update
     /// - Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-    /// - parameter version: (path)  
     /// - parameter assetId: (query) the ID of the asset to update 
     /// - parameter deviceId: (query) a unique ID given by the device (deviceId or accountId required) (optional)
     /// - parameter accountId: (query) the account ID of the user (deviceId or accountId required) (optional)
@@ -488,14 +473,13 @@ open class AssetAPI {
     /// - parameter latitude: (query) latitude used to update the asset&#39;s location (optional)
     /// - parameter longitude: (query) longitude used to update the asset&#39;s location (optional)
     /// - returns: AnyPublisher<SirqulResponse, Error> 
-    open func updateAsset(version: Double, assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, attachedAssetId: Int64? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: Data? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: Data? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, searchTags: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
+    open func updateAsset(assetId: Int64, deviceId: String? = nil, accountId: Int64? = nil, albumId: Int64? = nil, attachedAssetId: Int64? = nil, versionCode: Int? = nil, versionName: String? = nil, metaData: String? = nil, caption: String? = nil, assetType: String? = nil, approvalStatus: String? = nil, assignedAccountId: Int64? = nil, media: Data? = nil, mediaUrl: String? = nil, mediaString: String? = nil, mediaStringFileName: String? = nil, mediaStringContentType: String? = nil, mediaHeight: Int? = nil, mediaWidth: Int? = nil, attachedMedia: Data? = nil, attachedMediaUrl: String? = nil, attachedMediaString: String? = nil, attachedMediaStringFileName: String? = nil, attachedMediaStringContentType: String? = nil, attachedMediaHeight: Int? = nil, attachedMediaWidth: Int? = nil, locationDescription: String? = nil, searchTags: String? = nil, appKey: String? = nil, latitude: Double? = nil, longitude: Double? = nil) -> AnyPublisher<SirqulResponse, Error> {
         Deferred {
             Result<URLRequest, Error> {
                 guard let baseURL = self.transport.baseURL ?? self.baseURL else {
                     throw OpenAPITransportError.badURLError()
                 }
-                var localVarPath = "/api/{version}/asset/update"
-                localVarPath = localVarPath.replacingOccurrences(of: "{version}", with: "\(version)")
+                let localVarPath = "/asset/update"
                 let localVarURL = baseURL.appendingPathComponent(localVarPath)
                 var components = URLComponents(url: localVarURL, resolvingAgainstBaseURL: false)
                 var queryItems: [URLQueryItem] = []
