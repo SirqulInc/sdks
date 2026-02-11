@@ -13,7 +13,6 @@ package org.openapitools.client.api
 
 import org.openapitools.client.model.AlbumFullResponse
 import org.openapitools.client.model.AlbumResponse
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.SearchResponse
 import org.openapitools.client.model.SirqulResponse
@@ -23,7 +22,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AlbumApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AlbumApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AlbumApi(baseUrl)
 }
 
 class AlbumApi(baseUrl: String) {
@@ -34,7 +33,6 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SearchResponse (successful operation)
    * 
-   * @param version 
    * @param title the title of the album
    * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image
    * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -82,8 +80,8 @@ class AlbumApi(baseUrl: String) {
    * @param linkedObjectType sets a linked object so that it can be returned as part of the album response
    * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response
    */
-  def addAlbumCollection(version: BigDecimal, title: String, coverAssetNullable: Boolean, includeCoverInAssetList: Boolean, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, anonymous: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, assetsToAdd: Option[String] = None, media: Option[File] = None, mediaURL: Option[String] = None, assetId: Option[Long] = None, attachedMedia: Option[File] = None, attachedMediaURL: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, description: Option[String] = None, albumType: Option[String] = None, albumTypeId: Option[Long] = None, subType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, locationDescription: Option[String] = None, visibility: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, cellPhone: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, fullAddress: Option[String] = None, metaData: Option[String] = None, categoryIds: Option[String] = None, categoryFilterIds: Option[String] = None, audienceIds: Option[String] = None, includeAllAppUsersAsMembers: Option[Boolean] = None, includeAudiencesAsMembers: Option[Boolean] = None, audienceOperator: Option[String] = None, approvalStatus: Option[String] = None, linkedObjectType: Option[String] = None, linkedObjectId: Option[Long] = None): ApiRequest[SearchResponse] =
-    ApiRequest[SearchResponse](ApiMethods.POST, baseUrl, "/api/{version}/album/create", "application/json")
+  def addAlbumCollection(title: String, coverAssetNullable: Boolean, includeCoverInAssetList: Boolean, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, anonymous: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, assetsToAdd: Option[String] = None, media: Option[File] = None, mediaURL: Option[String] = None, assetId: Option[Long] = None, attachedMedia: Option[File] = None, attachedMediaURL: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, description: Option[String] = None, albumType: Option[String] = None, albumTypeId: Option[Long] = None, subType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, locationDescription: Option[String] = None, visibility: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, cellPhone: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, fullAddress: Option[String] = None, metaData: Option[String] = None, categoryIds: Option[String] = None, categoryFilterIds: Option[String] = None, audienceIds: Option[String] = None, includeAllAppUsersAsMembers: Option[Boolean] = None, includeAudiencesAsMembers: Option[Boolean] = None, audienceOperator: Option[String] = None, approvalStatus: Option[String] = None, linkedObjectType: Option[String] = None, linkedObjectId: Option[Long] = None): ApiRequest[SearchResponse] =
+    ApiRequest[SearchResponse](ApiMethods.POST, baseUrl, "/album/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("title", title)
@@ -130,7 +128,6 @@ class AlbumApi(baseUrl: String) {
       .withQueryParam("approvalStatus", approvalStatus)
       .withQueryParam("linkedObjectType", linkedObjectType)
       .withQueryParam("linkedObjectId", linkedObjectId)
-      .withPathParam("version", version)
       .withSuccessResponse[SearchResponse](200)
       
 
@@ -140,7 +137,6 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param albumId the album ID
    * @param includeFriendGroup determines whether to include all friends as participants
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -152,8 +148,8 @@ class AlbumApi(baseUrl: String) {
    * @param connections comma separated list of connection IDs
    * @param connectionGroups comma separated list of connection group IDs
    */
-  def addAlbumUsers(version: BigDecimal, albumId: Long, includeFriendGroup: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, read: Option[Boolean] = None, write: Option[Boolean] = None, delete: Option[Boolean] = None, add: Option[Boolean] = None, connections: Option[String] = None, connectionGroups: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/album/user/add", "application/json")
+  def addAlbumUsers(albumId: Long, includeFriendGroup: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, read: Option[Boolean] = None, write: Option[Boolean] = None, delete: Option[Boolean] = None, add: Option[Boolean] = None, connections: Option[String] = None, connectionGroups: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/album/user/add", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
@@ -164,7 +160,6 @@ class AlbumApi(baseUrl: String) {
       .withQueryParam("connections", connections)
       .withQueryParam("connectionGroups", connectionGroups)
       .withQueryParam("includeFriendGroup", includeFriendGroup)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -174,21 +169,19 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param albumId The ID of the album
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
    * @param verified Sets whether the album should be marked as \"verified\"
    */
-  def approveAlbum(version: BigDecimal, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, approvalStatus: Option[String] = None, verified: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/album/approve", "application/json")
+  def approveAlbum(albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, approvalStatus: Option[String] = None, verified: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/album/approve", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
       .withQueryParam("approvalStatus", approvalStatus)
       .withQueryParam("verified", verified)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -198,7 +191,6 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AlbumFullResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls This parameter is deprecated.
    * @param albumId the album to look up
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -209,8 +201,8 @@ class AlbumApi(baseUrl: String) {
    * @param connectionPreviewSize returns the first X users/connections. To search on and paginate the remaining connections - please use the \"/permissions/search\" endpoint.
    * @param audiencePreviewSize returns the first X audiences. To search on and paginate the remaining audiences - please use the \"/audience/search\" endpoint.
    */
-  def getAlbumCollection(version: BigDecimal, returnNulls: Boolean, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, likePreviewSize: Option[Int] = None, assetPreviewSize: Option[Int] = None, notePreviewSize: Option[Int] = None, connectionPreviewSize: Option[Int] = None, audiencePreviewSize: Option[Int] = None): ApiRequest[AlbumFullResponse] =
-    ApiRequest[AlbumFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/album/get", "application/json")
+  def getAlbumCollection(returnNulls: Boolean, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, likePreviewSize: Option[Int] = None, assetPreviewSize: Option[Int] = None, notePreviewSize: Option[Int] = None, connectionPreviewSize: Option[Int] = None, audiencePreviewSize: Option[Int] = None): ApiRequest[AlbumFullResponse] =
+    ApiRequest[AlbumFullResponse](ApiMethods.GET, baseUrl, "/album/get", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -220,7 +212,6 @@ class AlbumApi(baseUrl: String) {
       .withQueryParam("notePreviewSize", notePreviewSize)
       .withQueryParam("connectionPreviewSize", connectionPreviewSize)
       .withQueryParam("audiencePreviewSize", audiencePreviewSize)
-      .withPathParam("version", version)
       .withSuccessResponse[AlbumFullResponse](200)
       
 
@@ -230,17 +221,15 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param albumId the album ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    */
-  def leaveAlbum(version: BigDecimal, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/album/user/leave", "application/json")
+  def leaveAlbum(albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/album/user/leave", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -250,17 +239,15 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param albumId the album ID to delete
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    */
-  def removeAlbum(version: BigDecimal, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/album/delete", "application/json")
+  def removeAlbum(albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/album/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -270,7 +257,6 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param albumId the album ID
    * @param removeFriendGroup remove friend group
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -278,15 +264,14 @@ class AlbumApi(baseUrl: String) {
    * @param connections comma separated list of connection IDs
    * @param connectionGroups comma separated list of connection group IDs
    */
-  def removeAlbumUsers(version: BigDecimal, albumId: Long, removeFriendGroup: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, connections: Option[String] = None, connectionGroups: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/album/user/delete", "application/json")
+  def removeAlbumUsers(albumId: Long, removeFriendGroup: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, connections: Option[String] = None, connectionGroups: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/album/user/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
       .withQueryParam("connections", connections)
       .withQueryParam("connectionGroups", connectionGroups)
       .withQueryParam("removeFriendGroup", removeFriendGroup)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -296,7 +281,6 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AlbumFullResponse] (successful operation)
    * 
-   * @param version 
    * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
    * @param albumTypeId id of custom albumType
    * @param subType filter albums with this album sub type
@@ -358,8 +342,8 @@ class AlbumApi(baseUrl: String) {
    * @param searchExpression Advanced search expression to be used by the server
    * @param generateAlbums If true and results are empty, attempt to generate albums via templates
    */
-  def searchAlbums(version: BigDecimal, filter: String, albumTypeId: Long, subType: String, includeInactive: Boolean, sortField: String, descending: Boolean, start: Int, limit: Int, range: Double, includeLiked: Boolean, includeFavorited: Boolean, includePermissions: Boolean, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, ownerId: Option[Long] = None, albumIds: Option[String] = None, excludeAlbumIds: Option[String] = None, mediaId: Option[Long] = None, keyword: Option[String] = None, albumType: Option[String] = None, limitPerAlbumType: Option[Int] = None, dateCreated: Option[Long] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, createdSince: Option[Long] = None, createdBefore: Option[Long] = None, startedSince: Option[Long] = None, startedBefore: Option[Long] = None, endedSince: Option[Long] = None, endedBefore: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None, categoryIds: Option[String] = None, categoryFilterIds: Option[String] = None, audienceIds: Option[String] = None, excludeAudienceIds: Option[String] = None, includeCompletable: Option[Boolean] = None, includeRating: Option[Boolean] = None, searchMode: Option[String] = None, stackSearch: Option[Boolean] = None, stackWindowSize: Option[Int] = None, minStackPerPage: Option[Int] = None, stackPaginationIdentifier: Option[String] = None, stackDetails: Option[Boolean] = None, flagCountMinimum: Option[Long] = None, removeFlaggedContent: Option[Boolean] = None, verifiedFilter: Option[Boolean] = None, linkedObjectType: Option[String] = None, linkedObjectId: Option[Long] = None, orderAudienceId: Option[Long] = None, ignoreDefaultAppFilter: Option[Boolean] = None, searchExpression: Option[String] = None, generateAlbums: Option[Boolean] = None): ApiRequest[Seq[AlbumFullResponse]] =
-    ApiRequest[Seq[AlbumFullResponse]](ApiMethods.GET, baseUrl, "/api/{version}/album/search", "application/json")
+  def searchAlbums(filter: String, albumTypeId: Long, subType: String, includeInactive: Boolean, sortField: String, descending: Boolean, start: Int, limit: Int, range: Double, includeLiked: Boolean, includeFavorited: Boolean, includePermissions: Boolean, likePreviewSize: Int, assetPreviewSize: Int, notePreviewSize: Int, connectionPreviewSize: Int, audiencePreviewSize: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, ownerId: Option[Long] = None, albumIds: Option[String] = None, excludeAlbumIds: Option[String] = None, mediaId: Option[Long] = None, keyword: Option[String] = None, albumType: Option[String] = None, limitPerAlbumType: Option[Int] = None, dateCreated: Option[Long] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, createdSince: Option[Long] = None, createdBefore: Option[Long] = None, startedSince: Option[Long] = None, startedBefore: Option[Long] = None, endedSince: Option[Long] = None, endedBefore: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None, categoryIds: Option[String] = None, categoryFilterIds: Option[String] = None, audienceIds: Option[String] = None, excludeAudienceIds: Option[String] = None, includeCompletable: Option[Boolean] = None, includeRating: Option[Boolean] = None, searchMode: Option[String] = None, stackSearch: Option[Boolean] = None, stackWindowSize: Option[Int] = None, minStackPerPage: Option[Int] = None, stackPaginationIdentifier: Option[String] = None, stackDetails: Option[Boolean] = None, flagCountMinimum: Option[Long] = None, removeFlaggedContent: Option[Boolean] = None, verifiedFilter: Option[Boolean] = None, linkedObjectType: Option[String] = None, linkedObjectId: Option[Long] = None, orderAudienceId: Option[Long] = None, ignoreDefaultAppFilter: Option[Boolean] = None, searchExpression: Option[String] = None, generateAlbums: Option[Boolean] = None): ApiRequest[Seq[AlbumFullResponse]] =
+    ApiRequest[Seq[AlbumFullResponse]](ApiMethods.GET, baseUrl, "/album/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
@@ -420,7 +404,6 @@ class AlbumApi(baseUrl: String) {
       .withQueryParam("ignoreDefaultAppFilter", ignoreDefaultAppFilter)
       .withQueryParam("searchExpression", searchExpression)
       .withQueryParam("generateAlbums", generateAlbums)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AlbumFullResponse]](200)
       
 
@@ -430,7 +413,6 @@ class AlbumApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AlbumResponse (successful operation)
    * 
-   * @param version 
    * @param albumId the ID of the album to update
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -477,8 +459,8 @@ class AlbumApi(baseUrl: String) {
    * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response
    * @param indexNow determines whether the album should be indexed immediately
    */
-  def updateAlbumCollection(version: BigDecimal, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, assetsToAdd: Option[String] = None, assetsToRemove: Option[String] = None, assetId: Option[Long] = None, media: Option[File] = None, mediaURL: Option[String] = None, active: Option[Boolean] = None, title: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, description: Option[String] = None, albumType: Option[String] = None, albumTypeId: Option[Long] = None, subType: Option[String] = None, publicRead: Option[Boolean] = None, publicWrite: Option[Boolean] = None, publicDelete: Option[Boolean] = None, publicAdd: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, locationDescription: Option[String] = None, visibility: Option[String] = None, cellPhone: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, fullAddress: Option[String] = None, anonymous: Option[Boolean] = None, metaData: Option[String] = None, categoryIds: Option[String] = None, categoryFilterIds: Option[String] = None, audienceIds: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, includeAllAppUsersAsMembers: Option[Boolean] = None, includeAudiencesAsMembers: Option[Boolean] = None, audienceOperator: Option[String] = None, linkedObjectType: Option[String] = None, linkedObjectId: Option[Long] = None, indexNow: Option[Boolean] = None): ApiRequest[AlbumResponse] =
-    ApiRequest[AlbumResponse](ApiMethods.POST, baseUrl, "/api/{version}/album/update", "application/json")
+  def updateAlbumCollection(albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, assetsToAdd: Option[String] = None, assetsToRemove: Option[String] = None, assetId: Option[Long] = None, media: Option[File] = None, mediaURL: Option[String] = None, active: Option[Boolean] = None, title: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, description: Option[String] = None, albumType: Option[String] = None, albumTypeId: Option[Long] = None, subType: Option[String] = None, publicRead: Option[Boolean] = None, publicWrite: Option[Boolean] = None, publicDelete: Option[Boolean] = None, publicAdd: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, locationDescription: Option[String] = None, visibility: Option[String] = None, cellPhone: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, fullAddress: Option[String] = None, anonymous: Option[Boolean] = None, metaData: Option[String] = None, categoryIds: Option[String] = None, categoryFilterIds: Option[String] = None, audienceIds: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, includeAllAppUsersAsMembers: Option[Boolean] = None, includeAudiencesAsMembers: Option[Boolean] = None, audienceOperator: Option[String] = None, linkedObjectType: Option[String] = None, linkedObjectId: Option[Long] = None, indexNow: Option[Boolean] = None): ApiRequest[AlbumResponse] =
+    ApiRequest[AlbumResponse](ApiMethods.POST, baseUrl, "/album/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
@@ -524,7 +506,6 @@ class AlbumApi(baseUrl: String) {
       .withQueryParam("linkedObjectType", linkedObjectType)
       .withQueryParam("linkedObjectId", linkedObjectId)
       .withQueryParam("indexNow", indexNow)
-      .withPathParam("version", version)
       .withSuccessResponse[AlbumResponse](200)
       
 

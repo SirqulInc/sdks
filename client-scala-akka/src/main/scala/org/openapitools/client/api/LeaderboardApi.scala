@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.LeaderboardResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object LeaderboardApi {
 
-  def apply(baseUrl: String = "http://localhost") = new LeaderboardApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new LeaderboardApi(baseUrl)
 }
 
 class LeaderboardApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class LeaderboardApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : LeaderboardResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user creating the leaderboard.
    * @param appKey The application key
    * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -47,8 +45,8 @@ class LeaderboardApi(baseUrl: String) {
    * @param description leaderboard's description
    * @param metaData custom meta data for the leaderboard
    */
-  def createLeaderboard(version: BigDecimal, accountId: Option[Long] = None, appKey: Option[String] = None, rankType: Option[String] = None, leaderboardMode: Option[String] = None, iconMedia: Option[File] = None, iconAssetId: Option[Long] = None, bannerMedia: Option[File] = None, bannerAssetId: Option[Long] = None, limitation: Option[Int] = None, sortField: Option[String] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None): ApiRequest[LeaderboardResponse] =
-    ApiRequest[LeaderboardResponse](ApiMethods.POST, baseUrl, "/api/{version}/leaderboard/create", "application/json")
+  def createLeaderboard(accountId: Option[Long] = None, appKey: Option[String] = None, rankType: Option[String] = None, leaderboardMode: Option[String] = None, iconMedia: Option[File] = None, iconAssetId: Option[Long] = None, bannerMedia: Option[File] = None, bannerAssetId: Option[Long] = None, limitation: Option[Int] = None, sortField: Option[String] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None): ApiRequest[LeaderboardResponse] =
+    ApiRequest[LeaderboardResponse](ApiMethods.POST, baseUrl, "/leaderboard/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("rankType", rankType)
@@ -62,7 +60,6 @@ class LeaderboardApi(baseUrl: String) {
       .withQueryParam("title", title)
       .withQueryParam("description", description)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[LeaderboardResponse](200)
       
 
@@ -72,15 +69,13 @@ class LeaderboardApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param leaderboardId The leaderboard id to delete.
    * @param accountId The account id of the user making the request.
    */
-  def deleteLeaderboard(version: BigDecimal, leaderboardId: Long, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/leaderboard/delete", "application/json")
+  def deleteLeaderboard(leaderboardId: Long, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/leaderboard/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("leaderboardId", leaderboardId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -90,17 +85,15 @@ class LeaderboardApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : LeaderboardResponse (successful operation)
    * 
-   * @param version 
    * @param leaderboardId The leaderboard id.
    * @param accountId A valid account.
    * @param includeFullRankingList set to true if need to return the leaderboard's full ranking list
    */
-  def getLeaderboard(version: BigDecimal, leaderboardId: Long, accountId: Option[Long] = None, includeFullRankingList: Option[Boolean] = None): ApiRequest[LeaderboardResponse] =
-    ApiRequest[LeaderboardResponse](ApiMethods.GET, baseUrl, "/api/{version}/leaderboard/get", "application/json")
+  def getLeaderboard(leaderboardId: Long, accountId: Option[Long] = None, includeFullRankingList: Option[Boolean] = None): ApiRequest[LeaderboardResponse] =
+    ApiRequest[LeaderboardResponse](ApiMethods.GET, baseUrl, "/leaderboard/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("leaderboardId", leaderboardId)
       .withQueryParam("includeFullRankingList", includeFullRankingList)
-      .withPathParam("version", version)
       .withSuccessResponse[LeaderboardResponse](200)
       
 
@@ -110,7 +103,6 @@ class LeaderboardApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : LeaderboardResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user requesting the search.
    * @param appKey The application key.
    * @param globalOnly only include global leaderboards (this overrides the appKey filter)
@@ -124,8 +116,8 @@ class LeaderboardApi(baseUrl: String) {
    * @param start Start the result set at some index.
    * @param limit Limit the result to some number.
    */
-  def searchLeaderboards(version: BigDecimal, accountId: Option[Long] = None, appKey: Option[String] = None, globalOnly: Option[Boolean] = None, keyword: Option[String] = None, leaderboardIds: Option[String] = None, rankTypes: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, includeInactive: Option[Boolean] = None, includeAppResponse: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[LeaderboardResponse] =
-    ApiRequest[LeaderboardResponse](ApiMethods.GET, baseUrl, "/api/{version}/leaderboard/search", "application/json")
+  def searchLeaderboards(accountId: Option[Long] = None, appKey: Option[String] = None, globalOnly: Option[Boolean] = None, keyword: Option[String] = None, leaderboardIds: Option[String] = None, rankTypes: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, includeInactive: Option[Boolean] = None, includeAppResponse: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[LeaderboardResponse] =
+    ApiRequest[LeaderboardResponse](ApiMethods.GET, baseUrl, "/leaderboard/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("globalOnly", globalOnly)
@@ -138,7 +130,6 @@ class LeaderboardApi(baseUrl: String) {
       .withQueryParam("includeAppResponse", includeAppResponse)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[LeaderboardResponse](200)
       
 
@@ -148,7 +139,6 @@ class LeaderboardApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : LeaderboardResponse (successful operation)
    * 
-   * @param version 
    * @param leaderboardId The leaderboard id to update.
    * @param accountId The account id of the user updating the leaderboard.
    * @param appKey The application key
@@ -165,8 +155,8 @@ class LeaderboardApi(baseUrl: String) {
    * @param description leaderboard's description
    * @param metaData custom meta data for the leaderboard
    */
-  def updateLeaderboard(version: BigDecimal, leaderboardId: Long, accountId: Option[Long] = None, appKey: Option[String] = None, rankType: Option[String] = None, leaderboardMode: Option[String] = None, sortField: Option[String] = None, iconMedia: Option[File] = None, iconAssetId: Option[Long] = None, bannerMedia: Option[File] = None, bannerAssetId: Option[Long] = None, limitation: Option[Int] = None, active: Option[Boolean] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None): ApiRequest[LeaderboardResponse] =
-    ApiRequest[LeaderboardResponse](ApiMethods.POST, baseUrl, "/api/{version}/leaderboard/update", "application/json")
+  def updateLeaderboard(leaderboardId: Long, accountId: Option[Long] = None, appKey: Option[String] = None, rankType: Option[String] = None, leaderboardMode: Option[String] = None, sortField: Option[String] = None, iconMedia: Option[File] = None, iconAssetId: Option[Long] = None, bannerMedia: Option[File] = None, bannerAssetId: Option[Long] = None, limitation: Option[Int] = None, active: Option[Boolean] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None): ApiRequest[LeaderboardResponse] =
+    ApiRequest[LeaderboardResponse](ApiMethods.POST, baseUrl, "/leaderboard/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("leaderboardId", leaderboardId)
@@ -182,7 +172,6 @@ class LeaderboardApi(baseUrl: String) {
       .withQueryParam("title", title)
       .withQueryParam("description", description)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[LeaderboardResponse](200)
       
 

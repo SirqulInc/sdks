@@ -25,7 +25,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AccountApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AccountApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AccountApi(baseUrl)
 }
 
 class AccountApi(baseUrl: String) {
@@ -36,7 +36,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : UserLocationSearchResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param `q` Deprecated - legacy query parameter
@@ -72,8 +71,8 @@ class AccountApi(baseUrl: String) {
    * @param verifiedUserOnly Returns only verified users
    * @param contentAdminOnly Returns only content admin users
    */
-  def accountLocationSearch(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, postalCode: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None, range: Option[Double] = None, locationLastUpdated: Option[Long] = None, gender: Option[String] = None, minAge: Option[Int] = None, maxAge: Option[Int] = None, companionshipIndex: Option[Int] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, searchMode: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, roles: Option[String] = None, tags: Option[String] = None, experience: Option[String] = None, categoryIds: Option[String] = None, audienceIds: Option[String] = None, audienceOperator: Option[String] = None, updateCurrentLocation: Option[Boolean] = None, updatePreferredSettings: Option[Boolean] = None, showExactLocations: Option[Boolean] = None, showConnectionToSearcher: Option[Boolean] = None, flagCountMinimum: Option[Long] = None, verifiedUserOnly: Option[Boolean] = None, contentAdminOnly: Option[Boolean] = None): ApiRequest[UserLocationSearchResponse] =
-    ApiRequest[UserLocationSearchResponse](ApiMethods.GET, baseUrl, "/api/{version}/account/search", "application/json")
+  def accountLocationSearch(deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, postalCode: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None, range: Option[Double] = None, locationLastUpdated: Option[Long] = None, gender: Option[String] = None, minAge: Option[Int] = None, maxAge: Option[Int] = None, companionshipIndex: Option[Int] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, searchMode: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, roles: Option[String] = None, tags: Option[String] = None, experience: Option[String] = None, categoryIds: Option[String] = None, audienceIds: Option[String] = None, audienceOperator: Option[String] = None, updateCurrentLocation: Option[Boolean] = None, updatePreferredSettings: Option[Boolean] = None, showExactLocations: Option[Boolean] = None, showConnectionToSearcher: Option[Boolean] = None, flagCountMinimum: Option[Long] = None, verifiedUserOnly: Option[Boolean] = None, contentAdminOnly: Option[Boolean] = None): ApiRequest[UserLocationSearchResponse] =
+    ApiRequest[UserLocationSearchResponse](ApiMethods.GET, baseUrl, "/account/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("q", `q`)
@@ -108,7 +107,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("flagCountMinimum", flagCountMinimum)
       .withQueryParam("verifiedUserOnly", verifiedUserOnly)
       .withQueryParam("contentAdminOnly", contentAdminOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[UserLocationSearchResponse](200)
       
 
@@ -118,7 +116,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountIdBeingBlocked The id of the account to be blocked/unblocked
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -127,8 +124,8 @@ class AccountApi(baseUrl: String) {
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def blockAccount(version: BigDecimal, accountIdBeingBlocked: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, blockFlagValue: Option[Boolean] = None, removeFromGroupsIfBlocked: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/block", "application/json")
+  def blockAccount(accountIdBeingBlocked: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, blockFlagValue: Option[Boolean] = None, removeFromGroupsIfBlocked: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/block", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("accountIdBeingBlocked", accountIdBeingBlocked)
@@ -136,7 +133,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("removeFromGroupsIfBlocked", removeFromGroupsIfBlocked)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -146,7 +142,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AccountLoginResponse (successful operation)
    * 
-   * @param version 
    * @param username The access token to authenticate with (ex: username)
    * @param password The secret to authenticate with (ex: password)
    * @param name The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName
@@ -220,8 +215,8 @@ class AccountApi(baseUrl: String) {
    * @param appNickname The nickname used in the application for this account
    * @param personalAudienceId Personal audience id to associate with this account
    */
-  def createAccount(version: BigDecimal, username: String, password: String, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, deviceId: Option[String] = None, deviceIdType: Option[String] = None, emailAddress: Option[String] = None, assetId: Option[Long] = None, streetAddress: Option[String] = None, zipcode: Option[String] = None, gender: Option[String] = None, birthday: Option[Long] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, role: Option[String] = None, platforms: Option[String] = None, tags: Option[String] = None, aboutUs: Option[String] = None, gameExperience: Option[String] = None, categoryIds: Option[String] = None, hometown: Option[String] = None, height: Option[String] = None, heightIndex: Option[Int] = None, ethnicity: Option[String] = None, bodyType: Option[String] = None, maritalStatus: Option[String] = None, children: Option[String] = None, religion: Option[String] = None, education: Option[String] = None, educationIndex: Option[Int] = None, smoke: Option[String] = None, drink: Option[String] = None, companionship: Option[String] = None, companionshipIndex: Option[Int] = None, preferredMinAge: Option[Int] = None, preferredMaxAge: Option[Int] = None, preferredMinHeight: Option[Int] = None, preferredMaxHeight: Option[Int] = None, preferredGender: Option[String] = None, preferredEducation: Option[String] = None, preferredEducationIndex: Option[Int] = None, preferredBodyType: Option[String] = None, preferredEthnicity: Option[String] = None, preferredLocation: Option[String] = None, preferredLocationRange: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, acceptedTerms: Option[Boolean] = None, inviteToken: Option[String] = None, referralAccountId: Option[Long] = None, sendValidation: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, appVersion: Option[String] = None, responseType: Option[String] = None, audienceIdsToAdd: Option[String] = None, appBlob: Option[String] = None, appEnablePush: Option[Boolean] = None, appEnableSMS: Option[Boolean] = None, appEnableEmail: Option[Boolean] = None, locationVisibility: Option[String] = None, homeLatitude: Option[Double] = None, homeLongitude: Option[Double] = None, appNickname: Option[String] = None, personalAudienceId: Option[Long] = None): ApiRequest[AccountLoginResponse] =
-    ApiRequest[AccountLoginResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/create", "application/json")
+  def createAccount(username: String, password: String, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, deviceId: Option[String] = None, deviceIdType: Option[String] = None, emailAddress: Option[String] = None, assetId: Option[Long] = None, streetAddress: Option[String] = None, zipcode: Option[String] = None, gender: Option[String] = None, birthday: Option[Long] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, role: Option[String] = None, platforms: Option[String] = None, tags: Option[String] = None, aboutUs: Option[String] = None, gameExperience: Option[String] = None, categoryIds: Option[String] = None, hometown: Option[String] = None, height: Option[String] = None, heightIndex: Option[Int] = None, ethnicity: Option[String] = None, bodyType: Option[String] = None, maritalStatus: Option[String] = None, children: Option[String] = None, religion: Option[String] = None, education: Option[String] = None, educationIndex: Option[Int] = None, smoke: Option[String] = None, drink: Option[String] = None, companionship: Option[String] = None, companionshipIndex: Option[Int] = None, preferredMinAge: Option[Int] = None, preferredMaxAge: Option[Int] = None, preferredMinHeight: Option[Int] = None, preferredMaxHeight: Option[Int] = None, preferredGender: Option[String] = None, preferredEducation: Option[String] = None, preferredEducationIndex: Option[Int] = None, preferredBodyType: Option[String] = None, preferredEthnicity: Option[String] = None, preferredLocation: Option[String] = None, preferredLocationRange: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, acceptedTerms: Option[Boolean] = None, inviteToken: Option[String] = None, referralAccountId: Option[Long] = None, sendValidation: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, appVersion: Option[String] = None, responseType: Option[String] = None, audienceIdsToAdd: Option[String] = None, appBlob: Option[String] = None, appEnablePush: Option[Boolean] = None, appEnableSMS: Option[Boolean] = None, appEnableEmail: Option[Boolean] = None, locationVisibility: Option[String] = None, homeLatitude: Option[Double] = None, homeLongitude: Option[Double] = None, appNickname: Option[String] = None, personalAudienceId: Option[Long] = None): ApiRequest[AccountLoginResponse] =
+    ApiRequest[AccountLoginResponse](ApiMethods.POST, baseUrl, "/account/create", "application/json")
       .withQueryParam("name", name)
       .withQueryParam("prefixName", prefixName)
       .withQueryParam("firstName", firstName)
@@ -294,7 +289,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("homeLongitude", homeLongitude)
       .withQueryParam("appNickname", appNickname)
       .withQueryParam("personalAudienceId", personalAudienceId)
-      .withPathParam("version", version)
       .withSuccessResponse[AccountLoginResponse](200)
       
 
@@ -304,7 +298,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileInfoResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param connectionAccountId The account id used to edit another person's account
@@ -388,8 +381,8 @@ class AccountApi(baseUrl: String) {
    * @param personalAudienceId Personal Audience
    * @param nonGuestUsername The user's username to update with if they currently have a guest username
    */
-  def editAccount(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, role: Option[String] = None, assetId: Option[Long] = None, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, gender: Option[String] = None, age: Option[Int] = None, birthday: Option[Long] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, emailAddress: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, zipcode: Option[String] = None, country: Option[String] = None, makeProfileInfoPublic: Option[Boolean] = None, makeGameInfoPublic: Option[Boolean] = None, makeFriendsInfoPublic: Option[Boolean] = None, hometown: Option[String] = None, height: Option[String] = None, heightIndex: Option[Int] = None, ethnicity: Option[String] = None, bodyType: Option[String] = None, maritalStatus: Option[String] = None, children: Option[String] = None, religion: Option[String] = None, education: Option[String] = None, educationIndex: Option[Int] = None, smoke: Option[String] = None, drink: Option[String] = None, companionship: Option[String] = None, companionshipIndex: Option[Int] = None, preferredMinAge: Option[Int] = None, preferredMaxAge: Option[Int] = None, preferredMinHeight: Option[Int] = None, preferredMaxHeight: Option[Int] = None, preferredGender: Option[String] = None, preferredEducation: Option[String] = None, preferredEducationIndex: Option[Int] = None, preferredBodyType: Option[String] = None, preferredEthnicity: Option[String] = None, preferredLocation: Option[String] = None, preferredLocationRange: Option[Double] = None, platforms: Option[String] = None, tags: Option[String] = None, aboutUs: Option[String] = None, matchToken: Option[String] = None, gameExperience: Option[String] = None, categories: Option[String] = None, categoryIds: Option[String] = None, responseFilters: Option[String] = None, showAsZipcode: Option[Boolean] = None, showExactLocation: Option[Boolean] = None, showOthersExactLocation: Option[Boolean] = None, acceptedTerms: Option[Boolean] = None, locationVisibility: Option[String] = None, appBlob: Option[String] = None, appEnablePush: Option[Boolean] = None, appEnableSMS: Option[Boolean] = None, appEnableEmail: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnProfile: Option[Boolean] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, referralAccountId: Option[Long] = None, appNickname: Option[String] = None, personalAudienceId: Option[Long] = None, nonGuestUsername: Option[String] = None): ApiRequest[ProfileInfoResponse] =
-    ApiRequest[ProfileInfoResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/profile/update", "application/json")
+  def editAccount(deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, role: Option[String] = None, assetId: Option[Long] = None, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, gender: Option[String] = None, age: Option[Int] = None, birthday: Option[Long] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, emailAddress: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, zipcode: Option[String] = None, country: Option[String] = None, makeProfileInfoPublic: Option[Boolean] = None, makeGameInfoPublic: Option[Boolean] = None, makeFriendsInfoPublic: Option[Boolean] = None, hometown: Option[String] = None, height: Option[String] = None, heightIndex: Option[Int] = None, ethnicity: Option[String] = None, bodyType: Option[String] = None, maritalStatus: Option[String] = None, children: Option[String] = None, religion: Option[String] = None, education: Option[String] = None, educationIndex: Option[Int] = None, smoke: Option[String] = None, drink: Option[String] = None, companionship: Option[String] = None, companionshipIndex: Option[Int] = None, preferredMinAge: Option[Int] = None, preferredMaxAge: Option[Int] = None, preferredMinHeight: Option[Int] = None, preferredMaxHeight: Option[Int] = None, preferredGender: Option[String] = None, preferredEducation: Option[String] = None, preferredEducationIndex: Option[Int] = None, preferredBodyType: Option[String] = None, preferredEthnicity: Option[String] = None, preferredLocation: Option[String] = None, preferredLocationRange: Option[Double] = None, platforms: Option[String] = None, tags: Option[String] = None, aboutUs: Option[String] = None, matchToken: Option[String] = None, gameExperience: Option[String] = None, categories: Option[String] = None, categoryIds: Option[String] = None, responseFilters: Option[String] = None, showAsZipcode: Option[Boolean] = None, showExactLocation: Option[Boolean] = None, showOthersExactLocation: Option[Boolean] = None, acceptedTerms: Option[Boolean] = None, locationVisibility: Option[String] = None, appBlob: Option[String] = None, appEnablePush: Option[Boolean] = None, appEnableSMS: Option[Boolean] = None, appEnableEmail: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnProfile: Option[Boolean] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, referralAccountId: Option[Long] = None, appNickname: Option[String] = None, personalAudienceId: Option[Long] = None, nonGuestUsername: Option[String] = None): ApiRequest[ProfileInfoResponse] =
+    ApiRequest[ProfileInfoResponse](ApiMethods.POST, baseUrl, "/account/profile/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
@@ -472,7 +465,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("appNickname", appNickname)
       .withQueryParam("personalAudienceId", personalAudienceId)
       .withQueryParam("nonGuestUsername", nonGuestUsername)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileInfoResponse](200)
       
 
@@ -482,19 +474,17 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param emailAddress the user's contact email address (NOT the username) which is also used for email validation
    * @param username the user's username to update with if they currently have a guest username
    */
-  def editUsername(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, emailAddress: Option[String] = None, username: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/username/update", "application/json")
+  def editUsername(deviceId: Option[String] = None, accountId: Option[Long] = None, emailAddress: Option[String] = None, username: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/username/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("emailAddress", emailAddress)
       .withQueryParam("username", username)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -504,7 +494,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls Return Nulls
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -518,8 +507,8 @@ class AccountApi(baseUrl: String) {
    * @param latitude Latitude used to update the user's current location
    * @param longitude Longitude used to update the user's current location
    */
-  def getAccount(version: BigDecimal, returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountEmail: Option[String] = None, connectionAccountId: Option[Long] = None, responseFilters: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, purchaseType: Option[String] = None, updateViewedDate: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.GET, baseUrl, "/api/{version}/account/profile/get", "application/json")
+  def getAccount(returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountEmail: Option[String] = None, connectionAccountId: Option[Long] = None, responseFilters: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, purchaseType: Option[String] = None, updateViewedDate: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.GET, baseUrl, "/account/profile/get", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -532,7 +521,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("updateViewedDate", updateViewedDate)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -542,7 +530,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssetListResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls Determines whether to return null fields in the response
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -558,8 +545,8 @@ class AccountApi(baseUrl: String) {
    * @param `l` _l
    * @param limit Limit of the pagination
    */
-  def getProfileAssets(version: BigDecimal, returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, ownerId: Option[Long] = None, mediaTypes: Option[String] = None, mimeTypes: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[AssetListResponse] =
-    ApiRequest[AssetListResponse](ApiMethods.GET, baseUrl, "/api/{version}/account/profile/assets", "application/json")
+  def getProfileAssets(returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, ownerId: Option[Long] = None, mediaTypes: Option[String] = None, mimeTypes: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[AssetListResponse] =
+    ApiRequest[AssetListResponse](ApiMethods.GET, baseUrl, "/account/profile/assets", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -574,7 +561,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("_l", `l`)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[AssetListResponse](200)
       
 
@@ -584,7 +570,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param appKey The application key
    * @param retrieveType one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it's parents, recursively - GET_ALL will get all of the above
@@ -597,8 +582,8 @@ class AccountApi(baseUrl: String) {
    * @param childrenListLimit pagination limit for children list
    * @param childrenChildren if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item
    */
-  def getReferralList(version: BigDecimal, accountId: Option[Long] = None, appKey: Option[String] = None, retrieveType: Option[String] = None, levelLimit: Option[BigDecimal] = None, ancestorLevelLimit: Option[BigDecimal] = None, childrenLevelLimit: Option[BigDecimal] = None, ancestorListStart: Option[BigDecimal] = None, ancestorListLimit: Option[BigDecimal] = None, childrenListStart: Option[BigDecimal] = None, childrenListLimit: Option[BigDecimal] = None, childrenChildren: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/account/referral/list", "application/json")
+  def getReferralList(accountId: Option[Long] = None, appKey: Option[String] = None, retrieveType: Option[String] = None, levelLimit: Option[BigDecimal] = None, ancestorLevelLimit: Option[BigDecimal] = None, childrenLevelLimit: Option[BigDecimal] = None, ancestorListStart: Option[BigDecimal] = None, ancestorListLimit: Option[BigDecimal] = None, childrenListStart: Option[BigDecimal] = None, childrenListLimit: Option[BigDecimal] = None, childrenChildren: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/account/referral/list", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("retrieveType", retrieveType)
@@ -610,7 +595,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("childrenListStart", childrenListStart)
       .withQueryParam("childrenListLimit", childrenListLimit)
       .withQueryParam("childrenChildren", childrenChildren)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -620,19 +604,17 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : UserSettingsResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def getSettings(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[UserSettingsResponse] =
-    ApiRequest[UserSettingsResponse](ApiMethods.GET, baseUrl, "/api/{version}/account/settings/get", "application/json")
+  def getSettings(deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[UserSettingsResponse] =
+    ApiRequest[UserSettingsResponse](ApiMethods.GET, baseUrl, "/account/settings/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[UserSettingsResponse](200)
       
 
@@ -642,7 +624,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param accessToken 
    * @param appKey 
    * @param deviceId 
@@ -655,8 +636,8 @@ class AccountApi(baseUrl: String) {
    * @param latitude 
    * @param longitude 
    */
-  def loginDelegate(version: BigDecimal, accessToken: String, appKey: String, deviceId: Option[String] = None, accessTokenSecret: Option[String] = None, delegatedAccountId: Option[Long] = None, delegatedUsername: Option[String] = None, networkUID: Option[String] = None, ageRestriction: Option[Int] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/login/delegate", "application/json")
+  def loginDelegate(accessToken: String, appKey: String, deviceId: Option[String] = None, accessTokenSecret: Option[String] = None, delegatedAccountId: Option[Long] = None, delegatedUsername: Option[String] = None, networkUID: Option[String] = None, ageRestriction: Option[Int] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/account/login/delegate", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accessToken", accessToken)
       .withQueryParam("accessTokenSecret", accessTokenSecret)
@@ -668,7 +649,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("responseFilters", responseFilters)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -678,7 +658,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param accessToken The access token to authenticate with (ex: username or fb token)
    * @param networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
    * @param appKey The application key
@@ -693,8 +672,8 @@ class AccountApi(baseUrl: String) {
    * @param chosenAccountId Chosen account Id sent from the app - pass in the 2nd request to choose an account from multiple accounts matching the email - use one of the account id from the previous request
    * @param thirdPartyCredentialId Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object
    */
-  def loginGeneral(version: BigDecimal, accessToken: String, networkUID: String, appKey: String, deviceId: Option[String] = None, deviceIdType: Option[String] = None, accessTokenSecret: Option[String] = None, ageRestriction: Option[Int] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, emailMatch: Option[Boolean] = None, chosenAccountId: Option[Long] = None, thirdPartyCredentialId: Option[Long] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/login", "application/json")
+  def loginGeneral(accessToken: String, networkUID: String, appKey: String, deviceId: Option[String] = None, deviceIdType: Option[String] = None, accessTokenSecret: Option[String] = None, ageRestriction: Option[Int] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, emailMatch: Option[Boolean] = None, chosenAccountId: Option[Long] = None, thirdPartyCredentialId: Option[Long] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/account/login", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("deviceIdType", deviceIdType)
       .withQueryParam("accessToken", accessToken)
@@ -708,7 +687,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("emailMatch", emailMatch)
       .withQueryParam("chosenAccountId", chosenAccountId)
       .withQueryParam("thirdPartyCredentialId", thirdPartyCredentialId)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -718,7 +696,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param username the user's email address they used to sign-up
    * @param password the password
    * @param deviceId the device id
@@ -730,8 +707,8 @@ class AccountApi(baseUrl: String) {
    * @param returnProfile the profile to return
    * @param responseFilters a comma separated list of ProfileFilters for filtering the returned response data
    */
-  def loginUsername(version: BigDecimal, username: String, password: String, deviceId: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, app: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, returnProfile: Option[Boolean] = None, responseFilters: Option[String] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/get", "application/json")
+  def loginUsername(username: String, password: String, deviceId: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, app: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, returnProfile: Option[Boolean] = None, responseFilters: Option[String] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/account/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("username", username)
       .withQueryParam("password", password)
@@ -742,7 +719,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("returnProfile", returnProfile)
       .withQueryParam("responseFilters", responseFilters)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -752,21 +728,19 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param deviceIdType Device Id Type
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def logout(version: BigDecimal, deviceId: Option[String] = None, deviceIdType: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/logout", "application/json")
+  def logout(deviceId: Option[String] = None, deviceIdType: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/logout", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("deviceIdType", deviceIdType)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -776,19 +750,17 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param mergeAccountId The id of the account to being merged
    * @param appKey The application key
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def mergeAccount(version: BigDecimal, mergeAccountId: Long, appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/merge", "application/json")
+  def mergeAccount(mergeAccountId: Long, appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/merge", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("mergeAccountId", mergeAccountId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -798,19 +770,17 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account to update
    * @param oldPassword The current password, used to validate access
    * @param newPassword The new password to set, cannot be empty
    * @param confirmPassword The new password to confirm, must match newPassword
    */
-  def passwordChange(version: BigDecimal, accountId: Long, oldPassword: String, newPassword: String, confirmPassword: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/passwordchange", "application/json")
+  def passwordChange(accountId: Long, oldPassword: String, newPassword: String, confirmPassword: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/passwordchange", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("oldPassword", oldPassword)
       .withQueryParam("newPassword", newPassword)
       .withQueryParam("confirmPassword", confirmPassword)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -820,17 +790,15 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param token The token associated with the account to update, good for 24 hours
    * @param password The new password to set, cannot be empty
    * @param confirm The new password to confirm, must match newPassword
    */
-  def passwordReset(version: BigDecimal, token: String, password: String, confirm: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/passwordreset", "application/json")
+  def passwordReset(token: String, password: String, confirm: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/passwordreset", "application/json")
       .withQueryParam("token", token)
       .withQueryParam("password", password)
       .withQueryParam("confirm", confirm)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -840,21 +808,19 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param email The email/username of the account
    * @param from this is the sender email
    * @param domain this is the domain (like dev.sirqul.com) used to generate the password reset link
    * @param subUrl this is the the subUrl (like resetpassword) used to generate a password reset link
    * @param referer this is used to generate a password reset link
    */
-  def requestPasswordReset(version: BigDecimal, email: String, from: Option[String] = None, domain: Option[String] = None, subUrl: Option[String] = None, referer: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/requestpasswordreset", "application/json")
+  def requestPasswordReset(email: String, from: Option[String] = None, domain: Option[String] = None, subUrl: Option[String] = None, referer: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/requestpasswordreset", "application/json")
       .withQueryParam("email", email)
       .withQueryParam("from", from)
       .withQueryParam("domain", domain)
       .withQueryParam("subUrl", subUrl)
       .withQueryParam("referer", referer)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -864,13 +830,11 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    */
-  def requestValidateAccount(version: BigDecimal, accountId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/requestValidateAccount", "application/json")
+  def requestValidateAccount(accountId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/requestValidateAccount", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -880,7 +844,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ProfileResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The id of the account requesting
    * @param appKey The application key
    * @param keyword The keyword for for querying the account
@@ -900,8 +863,8 @@ class AccountApi(baseUrl: String) {
    * @param limit The total number of record to return.
    * @param activeOnly Determines whether to return only active results. Default is false.
    */
-  def searchAccounts(version: BigDecimal, accountId: Long, appKey: String, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, radius: Option[Double] = None, gender: Option[String] = None, gameExperience: Option[String] = None, age: Option[Int] = None, categoryIds: Option[String] = None, returnNulls: Option[Boolean] = None, responseFilters: Option[String] = None, purchaseType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[ProfileResponse]] =
-    ApiRequest[Seq[ProfileResponse]](ApiMethods.GET, baseUrl, "/api/{version}/account/profile/search", "application/json")
+  def searchAccounts(accountId: Long, appKey: String, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, radius: Option[Double] = None, gender: Option[String] = None, gameExperience: Option[String] = None, age: Option[Int] = None, categoryIds: Option[String] = None, returnNulls: Option[Boolean] = None, responseFilters: Option[String] = None, purchaseType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[ProfileResponse]] =
+    ApiRequest[Seq[ProfileResponse]](ApiMethods.GET, baseUrl, "/account/profile/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("keyword", keyword)
@@ -920,7 +883,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ProfileResponse]](200)
       
 
@@ -930,7 +892,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param username The user's encrypted email address they used to sign-up
    * @param password The encrypted password
    * @param gameType The application key
@@ -941,8 +902,8 @@ class AccountApi(baseUrl: String) {
    * @param returnProfile Return Profile
    * @param responseFilters A comma separated list of ProfileFilters for filtering the returned response data
    */
-  def secureLogin(version: BigDecimal, username: String, password: String, gameType: String, deviceId: Option[String] = None, charsetName: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnProfile: Option[Boolean] = None, responseFilters: Option[String] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/login/validate", "application/json")
+  def secureLogin(username: String, password: String, gameType: String, deviceId: Option[String] = None, charsetName: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnProfile: Option[Boolean] = None, responseFilters: Option[String] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/account/login/validate", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("username", username)
       .withQueryParam("password", password)
@@ -952,7 +913,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("longitude", longitude)
       .withQueryParam("returnProfile", returnProfile)
       .withQueryParam("responseFilters", responseFilters)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -962,7 +922,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileInfoResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id
    * @param username The encrypted email of the user, this is what will be used when they login
    * @param password The encrypted password of the user
@@ -1025,8 +984,8 @@ class AccountApi(baseUrl: String) {
    * @param appVersion App Version
    * @param responseType Response Type
    */
-  def secureSignup(version: BigDecimal, deviceId: String, username: String, password: String, name: Option[String] = None, inviteToken: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, deviceIdType: Option[String] = None, emailAddress: Option[String] = None, assetId: Option[Long] = None, address: Option[String] = None, zipcode: Option[String] = None, gender: Option[String] = None, birthday: Option[Long] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, role: Option[String] = None, platforms: Option[String] = None, tags: Option[String] = None, aboutUs: Option[String] = None, gameExperience: Option[String] = None, categoryIds: Option[String] = None, hometown: Option[String] = None, height: Option[String] = None, heightIndex: Option[Int] = None, ethnicity: Option[String] = None, bodyType: Option[String] = None, maritalStatus: Option[String] = None, children: Option[String] = None, religion: Option[String] = None, education: Option[String] = None, educationIndex: Option[Int] = None, smoke: Option[String] = None, drink: Option[String] = None, companionship: Option[String] = None, companionshipIndex: Option[Int] = None, preferredMinAge: Option[Int] = None, preferredMaxAge: Option[Int] = None, preferredMinHeight: Option[Int] = None, preferredMaxHeight: Option[Int] = None, preferredGender: Option[String] = None, preferredEducation: Option[String] = None, preferredEducationIndex: Option[Int] = None, preferredBodyType: Option[String] = None, preferredEthnicity: Option[String] = None, preferredLocation: Option[String] = None, preferredLocationRange: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, acceptedTerms: Option[Boolean] = None, charsetName: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, appVersion: Option[String] = None, responseType: Option[String] = None): ApiRequest[ProfileInfoResponse] =
-    ApiRequest[ProfileInfoResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/create/validate", "application/json")
+  def secureSignup(deviceId: String, username: String, password: String, name: Option[String] = None, inviteToken: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, deviceIdType: Option[String] = None, emailAddress: Option[String] = None, assetId: Option[Long] = None, address: Option[String] = None, zipcode: Option[String] = None, gender: Option[String] = None, birthday: Option[Long] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, role: Option[String] = None, platforms: Option[String] = None, tags: Option[String] = None, aboutUs: Option[String] = None, gameExperience: Option[String] = None, categoryIds: Option[String] = None, hometown: Option[String] = None, height: Option[String] = None, heightIndex: Option[Int] = None, ethnicity: Option[String] = None, bodyType: Option[String] = None, maritalStatus: Option[String] = None, children: Option[String] = None, religion: Option[String] = None, education: Option[String] = None, educationIndex: Option[Int] = None, smoke: Option[String] = None, drink: Option[String] = None, companionship: Option[String] = None, companionshipIndex: Option[Int] = None, preferredMinAge: Option[Int] = None, preferredMaxAge: Option[Int] = None, preferredMinHeight: Option[Int] = None, preferredMaxHeight: Option[Int] = None, preferredGender: Option[String] = None, preferredEducation: Option[String] = None, preferredEducationIndex: Option[Int] = None, preferredBodyType: Option[String] = None, preferredEthnicity: Option[String] = None, preferredLocation: Option[String] = None, preferredLocationRange: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, acceptedTerms: Option[Boolean] = None, charsetName: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, appVersion: Option[String] = None, responseType: Option[String] = None): ApiRequest[ProfileInfoResponse] =
+    ApiRequest[ProfileInfoResponse](ApiMethods.POST, baseUrl, "/account/create/validate", "application/json")
       .withQueryParam("name", name)
       .withQueryParam("inviteToken", inviteToken)
       .withQueryParam("prefixName", prefixName)
@@ -1088,7 +1047,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("appVersion", appVersion)
       .withQueryParam("responseType", responseType)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileInfoResponse](200)
       
 
@@ -1098,7 +1056,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param matchToken A string of numbers
@@ -1107,8 +1064,8 @@ class AccountApi(baseUrl: String) {
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def setMatchToken(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, matchToken: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/profile/matchToken", "application/json")
+  def setMatchToken(deviceId: Option[String] = None, accountId: Option[Long] = None, matchToken: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/profile/matchToken", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("matchToken", matchToken)
@@ -1116,7 +1073,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -1126,21 +1082,19 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
    * @param active true will activate the user and false will deactivate
    * @param deviceId the device id (deviceId or accountId required)
    * @param appKey the application key that the user belongs to
    */
-  def updateActveStatus(version: BigDecimal, accountId: Long, connectionAccountId: Long, active: Boolean, deviceId: Option[String] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/active/update", "application/json")
+  def updateActveStatus(accountId: Long, connectionAccountId: Long, active: Boolean, deviceId: Option[String] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/active/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -1150,21 +1104,19 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    * @param clientTime The time of the update
    */
-  def updateLocation(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, clientTime: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/location/update", "application/json")
+  def updateLocation(deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, clientTime: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/location/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("clientTime", clientTime)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -1174,7 +1126,6 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : UserSettingsResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param blockedNotifications The notifications to be blocked
@@ -1188,8 +1139,8 @@ class AccountApi(baseUrl: String) {
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def updateSettings(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, blockedNotifications: Option[String] = None, suggestionMethod: Option[String] = None, suggestionCount: Option[Int] = None, suggestionTimeFrame: Option[Int] = None, showOthersExactLocation: Option[Boolean] = None, showAsZipcode: Option[Boolean] = None, showExactLocation: Option[Boolean] = None, favoriteVisibility: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[UserSettingsResponse] =
-    ApiRequest[UserSettingsResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/settings/update", "application/json")
+  def updateSettings(deviceId: Option[String] = None, accountId: Option[Long] = None, blockedNotifications: Option[String] = None, suggestionMethod: Option[String] = None, suggestionCount: Option[Int] = None, suggestionTimeFrame: Option[Int] = None, showOthersExactLocation: Option[Boolean] = None, showAsZipcode: Option[Boolean] = None, showExactLocation: Option[Boolean] = None, favoriteVisibility: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[UserSettingsResponse] =
+    ApiRequest[UserSettingsResponse](ApiMethods.POST, baseUrl, "/account/settings/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("blockedNotifications", blockedNotifications)
@@ -1202,7 +1153,6 @@ class AccountApi(baseUrl: String) {
       .withQueryParam("favoriteVisibility", favoriteVisibility)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[UserSettingsResponse](200)
       
 
@@ -1212,13 +1162,11 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AccountLoginResponse (successful operation)
    * 
-   * @param version 
    * @param token The token associated with the account to update, good for 24 hours
    */
-  def validateAccountSignup(version: BigDecimal, token: String): ApiRequest[AccountLoginResponse] =
-    ApiRequest[AccountLoginResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/validateAccountSignup", "application/json")
+  def validateAccountSignup(token: String): ApiRequest[AccountLoginResponse] =
+    ApiRequest[AccountLoginResponse](ApiMethods.POST, baseUrl, "/account/validateAccountSignup", "application/json")
       .withQueryParam("token", token)
-      .withPathParam("version", version)
       .withSuccessResponse[AccountLoginResponse](200)
       
 
@@ -1228,13 +1176,11 @@ class AccountApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param token The token associated with the account to update, good for 24 hours
    */
-  def validatePasswordReset(version: BigDecimal, token: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/account/validatepasswordreset", "application/json")
+  def validatePasswordReset(token: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/account/validatepasswordreset", "application/json")
       .withQueryParam("token", token)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

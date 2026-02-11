@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.QuestionResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object QuestionApi {
 
-  def apply(baseUrl: String = "http://localhost") = new QuestionApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new QuestionApi(baseUrl)
 }
 
 class QuestionApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class QuestionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QuestionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param question the text of the question
    * @param answers ```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` 
@@ -44,8 +42,8 @@ class QuestionApi(baseUrl: String) {
    * @param ticketType The type of ticket to reward, null means default type
    * @param points The number of points to award for completing a mission
    */
-  def createQuestion(version: BigDecimal, accountId: Long, question: String, answers: String, active: Boolean, allocateTickets: Boolean, ticketCount: Long, tags: Option[String] = None, videoURL: Option[String] = None, assetId: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[QuestionResponse] =
-    ApiRequest[QuestionResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/question/create", "application/json")
+  def createQuestion(accountId: Long, question: String, answers: String, active: Boolean, allocateTickets: Boolean, ticketCount: Long, tags: Option[String] = None, videoURL: Option[String] = None, assetId: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[QuestionResponse] =
+    ApiRequest[QuestionResponse](ApiMethods.POST, baseUrl, "/game/question/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("question", question)
       .withQueryParam("answers", answers)
@@ -57,7 +55,6 @@ class QuestionApi(baseUrl: String) {
       .withQueryParam("ticketCount", ticketCount)
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
-      .withPathParam("version", version)
       .withSuccessResponse[QuestionResponse](200)
       
 
@@ -67,15 +64,13 @@ class QuestionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param questionId the id of the question to delete
    * @param accountId the id of the account that can execute this request
    */
-  def deleteQuestion(version: BigDecimal, questionId: Long, accountId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/question/delete", "application/json")
+  def deleteQuestion(questionId: Long, accountId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/game/question/delete", "application/json")
       .withQueryParam("questionId", questionId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -85,15 +80,13 @@ class QuestionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QuestionResponse (successful operation)
    * 
-   * @param version 
    * @param questionId the id of the question to get
    * @param accountId the id of the account that can make this request
    */
-  def getQuestion(version: BigDecimal, questionId: Long, accountId: Long): ApiRequest[QuestionResponse] =
-    ApiRequest[QuestionResponse](ApiMethods.GET, baseUrl, "/api/{version}/game/question/get", "application/json")
+  def getQuestion(questionId: Long, accountId: Long): ApiRequest[QuestionResponse] =
+    ApiRequest[QuestionResponse](ApiMethods.GET, baseUrl, "/game/question/get", "application/json")
       .withQueryParam("questionId", questionId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[QuestionResponse](200)
       
 
@@ -103,7 +96,6 @@ class QuestionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[QuestionResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param sortField The column to sort the search on
    * @param descending The order to return the search results
@@ -112,8 +104,8 @@ class QuestionApi(baseUrl: String) {
    * @param limit The number of records to return.
    * @param keyword The keyword for searching questions with matching tags or question text.
    */
-  def searchQuestions(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, keyword: Option[String] = None): ApiRequest[Seq[QuestionResponse]] =
-    ApiRequest[Seq[QuestionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/game/question/search", "application/json")
+  def searchQuestions(accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, keyword: Option[String] = None): ApiRequest[Seq[QuestionResponse]] =
+    ApiRequest[Seq[QuestionResponse]](ApiMethods.GET, baseUrl, "/game/question/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("sortField", sortField)
@@ -121,7 +113,6 @@ class QuestionApi(baseUrl: String) {
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[QuestionResponse]](200)
       
 
@@ -131,7 +122,6 @@ class QuestionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QuestionResponse (successful operation)
    * 
-   * @param version 
    * @param questionId The id of the question to update.
    * @param accountId The logged in user.
    * @param ticketCount The number of tickets to reward
@@ -145,8 +135,8 @@ class QuestionApi(baseUrl: String) {
    * @param ticketType The type of ticket to reward, null means default type
    * @param points The number of points to award for completing a mission
    */
-  def updateQuestion(version: BigDecimal, questionId: Long, accountId: Long, ticketCount: Long, question: Option[String] = None, answers: Option[String] = None, tags: Option[String] = None, videoURL: Option[String] = None, assetId: Option[Long] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[QuestionResponse] =
-    ApiRequest[QuestionResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/question/update", "application/json")
+  def updateQuestion(questionId: Long, accountId: Long, ticketCount: Long, question: Option[String] = None, answers: Option[String] = None, tags: Option[String] = None, videoURL: Option[String] = None, assetId: Option[Long] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[QuestionResponse] =
+    ApiRequest[QuestionResponse](ApiMethods.POST, baseUrl, "/game/question/update", "application/json")
       .withQueryParam("questionId", questionId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("question", question)
@@ -159,7 +149,6 @@ class QuestionApi(baseUrl: String) {
       .withQueryParam("ticketCount", ticketCount)
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
-      .withPathParam("version", version)
       .withSuccessResponse[QuestionResponse](200)
       
 

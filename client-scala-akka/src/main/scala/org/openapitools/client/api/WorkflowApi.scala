@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object WorkflowApi {
 
-  def apply(baseUrl: String = "http://localhost") = new WorkflowApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new WorkflowApi(baseUrl)
 }
 
 class WorkflowApi(baseUrl: String) {
@@ -30,21 +29,19 @@ class WorkflowApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user
    * @param workflowId the workflow to run
    * @param skuId this runs a particular sku on the workflow
    * @param versionCode this runs a particular sku version on the workflow
    * @param parameters Override parameters in JSON format. Example: ```json {   \"arguments_81\": { \"filter\": \"PUBLIC\" },   \"arguments_87\": { \"tag\": \"custom_tag\" } } ``` 
    */
-  def runWorkflow(version: BigDecimal, accountId: Long, workflowId: Long, skuId: Option[Long] = None, versionCode: Option[Int] = None, parameters: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/workflow/run", "application/json")
+  def runWorkflow(accountId: Long, workflowId: Long, skuId: Option[Long] = None, versionCode: Option[Int] = None, parameters: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/workflow/run", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("workflowId", workflowId)
       .withQueryParam("skuId", skuId)
       .withQueryParam("versionCode", versionCode)
       .withQueryParam("parameters", parameters)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

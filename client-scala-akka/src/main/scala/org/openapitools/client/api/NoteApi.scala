@@ -21,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object NoteApi {
 
-  def apply(baseUrl: String = "http://localhost") = new NoteApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new NoteApi(baseUrl)
 }
 
 class NoteApi(baseUrl: String) {
@@ -32,21 +32,19 @@ class NoteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param notableId The id of the notable object the batch operation will affect
    * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param batchOperation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
    */
-  def batchOperation(version: BigDecimal, notableId: Long, notableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, batchOperation: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/note/batch", "application/json")
+  def batchOperation(notableId: Long, notableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, batchOperation: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/note/batch", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("notableId", notableId)
       .withQueryParam("notableType", notableType)
       .withQueryParam("batchOperation", batchOperation)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -56,7 +54,6 @@ class NoteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NoteResponse (successful operation)
    * 
-   * @param version 
    * @param comment The message the user wishes to leave a comment on
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -100,8 +97,8 @@ class NoteApi(baseUrl: String) {
    * @param assetLatitude the latitude of the asset
    * @param assetLongitude the longitude of the asset
    */
-  def createNote(version: BigDecimal, comment: String, deviceId: Option[String] = None, accountId: Option[Long] = None, notableType: Option[String] = None, notableId: Option[Long] = None, noteType: Option[String] = None, assetIds: Option[String] = None, tags: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, appKey: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, receiverAccountIds: Option[String] = None, returnFullResponse: Option[Boolean] = None, initializeAsset: Option[Boolean] = None, assetReturnNulls: Option[Boolean] = None, assetAlbumId: Option[Long] = None, assetCollectionId: Option[Long] = None, assetAddToDefaultAlbum: Option[String] = None, assetAddToMediaLibrary: Option[Boolean] = None, assetVersionCode: Option[Int] = None, assetVersionName: Option[String] = None, assetMetaData: Option[String] = None, assetCaption: Option[String] = None, assetMedia: Option[File] = None, assetMediaUrl: Option[String] = None, assetMediaString: Option[String] = None, assetMediaStringFileName: Option[String] = None, assetMediaStringContentType: Option[String] = None, assetAttachedMedia: Option[File] = None, assetAttachedMediaUrl: Option[String] = None, assetAttachedMediaString: Option[String] = None, assetAttachedMediaStringFileName: Option[String] = None, assetAttachedMediaStringContentType: Option[String] = None, assetLocationDescription: Option[String] = None, assetApp: Option[String] = None, assetSearchTags: Option[String] = None, assetLatitude: Option[Double] = None, assetLongitude: Option[BigDecimal] = None): ApiRequest[NoteResponse] =
-    ApiRequest[NoteResponse](ApiMethods.POST, baseUrl, "/api/{version}/note/create", "application/json")
+  def createNote(comment: String, deviceId: Option[String] = None, accountId: Option[Long] = None, notableType: Option[String] = None, notableId: Option[Long] = None, noteType: Option[String] = None, assetIds: Option[String] = None, tags: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, appKey: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, receiverAccountIds: Option[String] = None, returnFullResponse: Option[Boolean] = None, initializeAsset: Option[Boolean] = None, assetReturnNulls: Option[Boolean] = None, assetAlbumId: Option[Long] = None, assetCollectionId: Option[Long] = None, assetAddToDefaultAlbum: Option[String] = None, assetAddToMediaLibrary: Option[Boolean] = None, assetVersionCode: Option[Int] = None, assetVersionName: Option[String] = None, assetMetaData: Option[String] = None, assetCaption: Option[String] = None, assetMedia: Option[File] = None, assetMediaUrl: Option[String] = None, assetMediaString: Option[String] = None, assetMediaStringFileName: Option[String] = None, assetMediaStringContentType: Option[String] = None, assetAttachedMedia: Option[File] = None, assetAttachedMediaUrl: Option[String] = None, assetAttachedMediaString: Option[String] = None, assetAttachedMediaStringFileName: Option[String] = None, assetAttachedMediaStringContentType: Option[String] = None, assetLocationDescription: Option[String] = None, assetApp: Option[String] = None, assetSearchTags: Option[String] = None, assetLatitude: Option[Double] = None, assetLongitude: Option[BigDecimal] = None): ApiRequest[NoteResponse] =
+    ApiRequest[NoteResponse](ApiMethods.POST, baseUrl, "/note/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("notableType", notableType)
@@ -144,7 +141,6 @@ class NoteApi(baseUrl: String) {
       .withQueryParam("assetSearchTags", assetSearchTags)
       .withQueryParam("assetLatitude", assetLatitude)
       .withQueryParam("assetLongitude", assetLongitude)
-      .withPathParam("version", version)
       .withSuccessResponse[NoteResponse](200)
       
 
@@ -154,7 +150,6 @@ class NoteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param noteId The ID of the note to delete
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -162,15 +157,14 @@ class NoteApi(baseUrl: String) {
    * @param longitude The current location of the user
    * @param appKey The application key used to identify the application
    */
-  def deleteNote(version: BigDecimal, noteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/note/delete", "application/json")
+  def deleteNote(noteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/note/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("noteId", noteId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -180,19 +174,17 @@ class NoteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param noteId the id of the note to get
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param returnFullResponse Determines whether to return the NoteFullResponse for the item
    */
-  def getNote(version: BigDecimal, noteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, returnFullResponse: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/note/get", "application/json")
+  def getNote(noteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, returnFullResponse: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/note/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("returnFullResponse", returnFullResponse)
       .withQueryParam("noteId", noteId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -202,7 +194,6 @@ class NoteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[NoteResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}
@@ -221,8 +212,8 @@ class NoteApi(baseUrl: String) {
    * @param start The record to begin the return set on
    * @param limit The number of records to return
    */
-  def searchNotes(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, notableType: Option[String] = None, notableId: Option[Long] = None, noteTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, flagCountMinimum: Option[Long] = None, flagsExceedThreshold: Option[Boolean] = None, includeInactive: Option[Boolean] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, returnFullResponse: Option[Boolean] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[NoteResponse]] =
-    ApiRequest[Seq[NoteResponse]](ApiMethods.POST, baseUrl, "/api/{version}/note/search", "application/json")
+  def searchNotes(deviceId: Option[String] = None, accountId: Option[Long] = None, notableType: Option[String] = None, notableId: Option[Long] = None, noteTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, flagCountMinimum: Option[Long] = None, flagsExceedThreshold: Option[Boolean] = None, includeInactive: Option[Boolean] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, returnFullResponse: Option[Boolean] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[NoteResponse]] =
+    ApiRequest[Seq[NoteResponse]](ApiMethods.POST, baseUrl, "/note/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("notableType", notableType)
@@ -240,7 +231,6 @@ class NoteApi(baseUrl: String) {
       .withQueryParam("updatedBefore", updatedBefore)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[NoteResponse]](200)
       
 
@@ -250,7 +240,6 @@ class NoteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NoteResponse (successful operation)
    * 
-   * @param version 
    * @param noteId The id of the note, used when editing a comment
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -293,8 +282,8 @@ class NoteApi(baseUrl: String) {
    * @param assetLatitude the latitude of the asset
    * @param assetLongitude the longitude of the asset
    */
-  def updateNote(version: BigDecimal, noteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, comment: Option[String] = None, noteType: Option[String] = None, assetIds: Option[String] = None, tags: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, appKey: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, returnFullResponse: Option[Boolean] = None, active: Option[Boolean] = None, updateAsset: Option[Boolean] = None, assetReturnNulls: Option[Boolean] = None, assetAlbumId: Option[Long] = None, assetCollectionId: Option[Long] = None, assetAddToDefaultAlbum: Option[String] = None, assetAddToMediaLibrary: Option[Boolean] = None, assetVersionCode: Option[Int] = None, assetVersionName: Option[String] = None, assetMetaData: Option[String] = None, assetCaption: Option[String] = None, assetMedia: Option[File] = None, assetMediaUrl: Option[String] = None, assetMediaString: Option[String] = None, assetMediaStringFileName: Option[String] = None, assetMediaStringContentType: Option[String] = None, assetAttachedMedia: Option[File] = None, assetAttachedMediaUrl: Option[String] = None, assetAttachedMediaString: Option[String] = None, assetAttachedMediaStringFileName: Option[String] = None, assetAttachedMediaStringContentType: Option[String] = None, assetLocationDescription: Option[String] = None, assetApp: Option[String] = None, assetSearchTags: Option[String] = None, assetLatitude: Option[Double] = None, assetLongitude: Option[Double] = None): ApiRequest[NoteResponse] =
-    ApiRequest[NoteResponse](ApiMethods.POST, baseUrl, "/api/{version}/note/update", "application/json")
+  def updateNote(noteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, comment: Option[String] = None, noteType: Option[String] = None, assetIds: Option[String] = None, tags: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, appKey: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, returnFullResponse: Option[Boolean] = None, active: Option[Boolean] = None, updateAsset: Option[Boolean] = None, assetReturnNulls: Option[Boolean] = None, assetAlbumId: Option[Long] = None, assetCollectionId: Option[Long] = None, assetAddToDefaultAlbum: Option[String] = None, assetAddToMediaLibrary: Option[Boolean] = None, assetVersionCode: Option[Int] = None, assetVersionName: Option[String] = None, assetMetaData: Option[String] = None, assetCaption: Option[String] = None, assetMedia: Option[File] = None, assetMediaUrl: Option[String] = None, assetMediaString: Option[String] = None, assetMediaStringFileName: Option[String] = None, assetMediaStringContentType: Option[String] = None, assetAttachedMedia: Option[File] = None, assetAttachedMediaUrl: Option[String] = None, assetAttachedMediaString: Option[String] = None, assetAttachedMediaStringFileName: Option[String] = None, assetAttachedMediaStringContentType: Option[String] = None, assetLocationDescription: Option[String] = None, assetApp: Option[String] = None, assetSearchTags: Option[String] = None, assetLatitude: Option[Double] = None, assetLongitude: Option[Double] = None): ApiRequest[NoteResponse] =
+    ApiRequest[NoteResponse](ApiMethods.POST, baseUrl, "/note/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("noteId", noteId)
@@ -336,7 +325,6 @@ class NoteApi(baseUrl: String) {
       .withQueryParam("assetSearchTags", assetSearchTags)
       .withQueryParam("assetLatitude", assetLatitude)
       .withQueryParam("assetLongitude", assetLongitude)
-      .withPathParam("version", version)
       .withSuccessResponse[NoteResponse](200)
       
 

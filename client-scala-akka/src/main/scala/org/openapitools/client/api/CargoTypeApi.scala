@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CargoType
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CargoTypeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new CargoTypeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new CargoTypeApi(baseUrl)
 }
 
 class CargoTypeApi(baseUrl: String) {
@@ -30,13 +29,11 @@ class CargoTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CargoType (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createCargoType(version: BigDecimal, body: Option[CargoType] = None): ApiRequest[CargoType] =
-    ApiRequest[CargoType](ApiMethods.POST, baseUrl, "/api/{version}/cargo/type", "application/json")
+  def createCargoType(body: Option[CargoType] = None): ApiRequest[CargoType] =
+    ApiRequest[CargoType](ApiMethods.POST, baseUrl, "/cargo/type", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[CargoType](200)
       
 
@@ -46,12 +43,10 @@ class CargoTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param cargoTypeId the ID of the cargo type
    */
-  def deleteCargoType(version: BigDecimal, cargoTypeId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/cargo/type/{cargoTypeId}", "application/json")
-      .withPathParam("version", version)
+  def deleteCargoType(cargoTypeId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/cargo/type/{cargoTypeId}", "application/json")
       .withPathParam("cargoTypeId", cargoTypeId)
       .withDefaultErrorResponse[Unit]
       
@@ -62,12 +57,10 @@ class CargoTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CargoType (successful operation)
    * 
-   * @param version 
    * @param cargoTypeId the cargo type ID
    */
-  def getCargoType(version: BigDecimal, cargoTypeId: Long): ApiRequest[CargoType] =
-    ApiRequest[CargoType](ApiMethods.GET, baseUrl, "/api/{version}/cargo/type/{cargoTypeId}", "application/json")
-      .withPathParam("version", version)
+  def getCargoType(cargoTypeId: Long): ApiRequest[CargoType] =
+    ApiRequest[CargoType](ApiMethods.GET, baseUrl, "/cargo/type/{cargoTypeId}", "application/json")
       .withPathParam("cargoTypeId", cargoTypeId)
       .withSuccessResponse[CargoType](200)
       
@@ -78,7 +71,6 @@ class CargoTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[CargoType] (successful operation)
    * 
-   * @param version 
    * @param sortField the sort field to use for the cargo type
    * @param descending if the cargo type should be should be in descending order
    * @param start the start of the search
@@ -87,8 +79,8 @@ class CargoTypeApi(baseUrl: String) {
    * @param retailerId the id of the retailer location
    * @param hubId the ID of the hub
    */
-  def searchCargoTypes(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, retailerId: Option[Long] = None, hubId: Option[Long] = None): ApiRequest[Seq[CargoType]] =
-    ApiRequest[Seq[CargoType]](ApiMethods.GET, baseUrl, "/api/{version}/cargo/type", "application/json")
+  def searchCargoTypes(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, retailerId: Option[Long] = None, hubId: Option[Long] = None): ApiRequest[Seq[CargoType]] =
+    ApiRequest[Seq[CargoType]](ApiMethods.GET, baseUrl, "/cargo/type", "application/json")
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("hubId", hubId)
       .withQueryParam("sortField", sortField)
@@ -96,7 +88,6 @@ class CargoTypeApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[CargoType]](200)
       
 
@@ -106,14 +97,12 @@ class CargoTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CargoType (successful operation)
    * 
-   * @param version 
    * @param cargoTypeId the ID of the cargo type
    * @param body 
    */
-  def updateCargoType(version: BigDecimal, cargoTypeId: Long, body: Option[CargoType] = None): ApiRequest[CargoType] =
-    ApiRequest[CargoType](ApiMethods.PUT, baseUrl, "/api/{version}/cargo/type/{cargoTypeId}", "application/json")
+  def updateCargoType(cargoTypeId: Long, body: Option[CargoType] = None): ApiRequest[CargoType] =
+    ApiRequest[CargoType](ApiMethods.PUT, baseUrl, "/cargo/type/{cargoTypeId}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("cargoTypeId", cargoTypeId)
       .withSuccessResponse[CargoType](200)
       

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RetailerV2Api {
 
-  def apply(baseUrl: String = "http://localhost") = new RetailerV2Api(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RetailerV2Api(baseUrl)
 }
 
 class RetailerV2Api(baseUrl: String) {
@@ -30,7 +29,6 @@ class RetailerV2Api(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param retailerId the id of the retailer
    * @param activeOnly whether to return results that are active only or all
    * @param keyword the keyword to search on to get retailer
@@ -38,15 +36,14 @@ class RetailerV2Api(baseUrl: String) {
    * @param start the start of the index and/or pagination
    * @param limit the limit of the index and/or pagination
    */
-  def getRetaokiler(version: BigDecimal, retailerId: Long, activeOnly: Boolean, keyword: Option[String] = None, sortField: Option[String] = None, start: Option[Long] = None, limit: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/retailer", "application/json")
+  def getRetaokiler(retailerId: Long, activeOnly: Boolean, keyword: Option[String] = None, sortField: Option[String] = None, start: Option[Long] = None, limit: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/retailer", "application/json")
       .withQueryParam("keyword", keyword)
       .withQueryParam("sortField", sortField)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

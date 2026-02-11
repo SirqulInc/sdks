@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.MissionFormatResponse
 import org.openapitools.client.model.MissionResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MissionApi {
 
-  def apply(baseUrl: String = "http://localhost") = new MissionApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new MissionApi(baseUrl)
 }
 
 class MissionApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param title The title of the mission
    * @param description The description of the mission
@@ -60,8 +58,8 @@ class MissionApi(baseUrl: String) {
    * @param locations List of lat/long pairs for mission locations
    * @param radius Comma separated list of radii for locations
    */
-  def createMission(version: BigDecimal, accountId: Long, title: String, description: Option[String] = None, subType: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, active: Option[Boolean] = None, gameLevelIds: Option[String] = None, creativeIds: Option[String] = None, audienceIds: Option[String] = None, missionTask: Option[String] = None, formatType: Option[String] = None, offerId: Option[Long] = None, balance: Option[Double] = None, advancedReporting: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, metaData: Option[String] = None, applicationIds: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None): ApiRequest[MissionResponse] =
-    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/api/{version}/mission/create", "application/json")
+  def createMission(accountId: Long, title: String, description: Option[String] = None, subType: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, active: Option[Boolean] = None, gameLevelIds: Option[String] = None, creativeIds: Option[String] = None, audienceIds: Option[String] = None, missionTask: Option[String] = None, formatType: Option[String] = None, offerId: Option[Long] = None, balance: Option[Double] = None, advancedReporting: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, metaData: Option[String] = None, applicationIds: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None): ApiRequest[MissionResponse] =
+    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/mission/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("title", title)
       .withQueryParam("description", description)
@@ -88,7 +86,6 @@ class MissionApi(baseUrl: String) {
       .withQueryParam("deviceVersions", deviceVersions)
       .withQueryParam("locations", locations)
       .withQueryParam("radius", radius)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionResponse](200)
       
 
@@ -98,15 +95,13 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param missionId the id of the mission to delete
    */
-  def deleteMission(version: BigDecimal, accountId: Long, missionId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/mission/delete", "application/json")
+  def deleteMission(accountId: Long, missionId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/mission/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -116,7 +111,6 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
    * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
    * @param `type` The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.
@@ -137,8 +131,8 @@ class MissionApi(baseUrl: String) {
    * @param missionIds return only ads from the specified campaigns.
    * @param audienceOperator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
    */
-  def findMissions(version: BigDecimal, appKey: String, suffix: Option[String] = None, `type`: Option[String] = None, accountId: Option[Long] = None, appVersion: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, device: Option[String] = None, deviceIdentifier: Option[Long] = None, deviceVersion: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeAudiences: Option[Boolean] = None, allocatesTickets: Option[Boolean] = None, randomize: Option[Boolean] = None, targetedAdsOnly: Option[Boolean] = None, missionIds: Option[String] = None, audienceOperator: Option[String] = None): ApiRequest[MissionResponse] =
-    ApiRequest[MissionResponse](ApiMethods.GET, baseUrl, "/api/{version}/mission/find", "application/json")
+  def findMissions(appKey: String, suffix: Option[String] = None, `type`: Option[String] = None, accountId: Option[Long] = None, appVersion: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, device: Option[String] = None, deviceIdentifier: Option[Long] = None, deviceVersion: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeAudiences: Option[Boolean] = None, allocatesTickets: Option[Boolean] = None, randomize: Option[Boolean] = None, targetedAdsOnly: Option[Boolean] = None, missionIds: Option[String] = None, audienceOperator: Option[String] = None): ApiRequest[MissionResponse] =
+    ApiRequest[MissionResponse](ApiMethods.GET, baseUrl, "/mission/find", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("suffix", suffix)
       .withQueryParam("type", `type`)
@@ -158,7 +152,6 @@ class MissionApi(baseUrl: String) {
       .withQueryParam("targetedAdsOnly", targetedAdsOnly)
       .withQueryParam("missionIds", missionIds)
       .withQueryParam("audienceOperator", audienceOperator)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionResponse](200)
       
 
@@ -168,17 +161,15 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param missionId The id of the mission to return.
    * @param returnCreative Return creatives associated with the mission when true
    */
-  def getMission(version: BigDecimal, accountId: Long, missionId: Long, returnCreative: Option[Boolean] = None): ApiRequest[MissionResponse] =
-    ApiRequest[MissionResponse](ApiMethods.GET, baseUrl, "/api/{version}/mission/get", "application/json")
+  def getMission(accountId: Long, missionId: Long, returnCreative: Option[Boolean] = None): ApiRequest[MissionResponse] =
+    ApiRequest[MissionResponse](ApiMethods.GET, baseUrl, "/mission/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("returnCreative", returnCreative)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionResponse](200)
       
 
@@ -188,7 +179,6 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param latitude The current location of the requesting device
    * @param longitude The current location of the requesting device
@@ -198,8 +188,8 @@ class MissionApi(baseUrl: String) {
    * @param limit The total number of records to return. Default is 20.
    * @param adSize the size of the ad
    */
-  def importMission(version: BigDecimal, accountId: Long, latitude: Double, longitude: Double, appKey: String, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, adSize: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/mission/import", "application/json")
+  def importMission(accountId: Long, latitude: Double, longitude: Double, appKey: String, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, adSize: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/mission/import", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
@@ -208,7 +198,6 @@ class MissionApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("appKey", appKey)
       .withQueryParam("adSize", adSize)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -218,17 +207,15 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[MissionFormatResponse] (successful operation)
    * 
-   * @param version 
    * @param start The starting index in the result set to return. Default is 0.
    * @param limit The total number of records to return. Default is 20.
    * @param activeOnly Determines whether to return only active results. Default is false.
    */
-  def searchMissionFormats(version: BigDecimal, start: Int, limit: Int, activeOnly: Boolean): ApiRequest[Seq[MissionFormatResponse]] =
-    ApiRequest[Seq[MissionFormatResponse]](ApiMethods.GET, baseUrl, "/api/{version}/mission/format/search", "application/json")
+  def searchMissionFormats(start: Int, limit: Int, activeOnly: Boolean): ApiRequest[Seq[MissionFormatResponse]] =
+    ApiRequest[Seq[MissionFormatResponse]](ApiMethods.GET, baseUrl, "/mission/format/search", "application/json")
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[MissionFormatResponse]](200)
       
 
@@ -238,7 +225,6 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[MissionResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param keyword Filter by keyword
    * @param subType Custom string client apps can use for searching/filtering missions
@@ -251,8 +237,8 @@ class MissionApi(baseUrl: String) {
    * @param sortField The field to sort the search on (for example TITLE)
    * @param descending Whether to sort in descending order (default true)
    */
-  def searchMissions(version: BigDecimal, accountId: Long, keyword: Option[String] = None, subType: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeAudiences: Option[Boolean] = None, includeInactive: Option[Boolean] = None, suffix: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None): ApiRequest[Seq[MissionResponse]] =
-    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/mission/search", "application/json")
+  def searchMissions(accountId: Long, keyword: Option[String] = None, subType: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeAudiences: Option[Boolean] = None, includeInactive: Option[Boolean] = None, suffix: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None): ApiRequest[Seq[MissionResponse]] =
+    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/mission/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("subType", subType)
@@ -264,7 +250,6 @@ class MissionApi(baseUrl: String) {
       .withQueryParam("suffix", suffix)
       .withQueryParam("sortField", sortField)
       .withQueryParam("descending", descending)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[MissionResponse]](200)
       
 
@@ -274,7 +259,6 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[MissionResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param keyword Filter by keyword
    * @param start The index into the record set to start with. Default is 0.
@@ -286,8 +270,8 @@ class MissionApi(baseUrl: String) {
    * @param sortField The field to sort the search on (for example TITLE)
    * @param descending Whether to sort in descending order (default true)
    */
-  def searchMissionsByBillableEntity(version: BigDecimal, accountId: Long, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeAudiences: Option[Boolean] = None, includeInactive: Option[Boolean] = None, suffix: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None): ApiRequest[Seq[MissionResponse]] =
-    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/mission/searchByBillableEntity", "application/json")
+  def searchMissionsByBillableEntity(accountId: Long, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeAudiences: Option[Boolean] = None, includeInactive: Option[Boolean] = None, suffix: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None): ApiRequest[Seq[MissionResponse]] =
+    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/mission/searchByBillableEntity", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("start", start)
@@ -298,7 +282,6 @@ class MissionApi(baseUrl: String) {
       .withQueryParam("suffix", suffix)
       .withQueryParam("sortField", sortField)
       .withQueryParam("descending", descending)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[MissionResponse]](200)
       
 
@@ -308,7 +291,6 @@ class MissionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param missionId The id of the mission to update.
    * @param title The title of the mission
@@ -335,8 +317,8 @@ class MissionApi(baseUrl: String) {
    * @param locations List of lat/long pairs for mission locations
    * @param radius Comma separated list of radii for locations
    */
-  def updateMission(version: BigDecimal, accountId: Long, missionId: Long, title: Option[String] = None, description: Option[String] = None, subType: Option[String] = None, metaData: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, active: Option[Boolean] = None, gameLevelIds: Option[String] = None, creativeIds: Option[String] = None, audienceIds: Option[String] = None, offerId: Option[Long] = None, balance: Option[Double] = None, advancedReporting: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, applicationIds: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None): ApiRequest[MissionResponse] =
-    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/api/{version}/mission/update", "application/json")
+  def updateMission(accountId: Long, missionId: Long, title: Option[String] = None, description: Option[String] = None, subType: Option[String] = None, metaData: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, active: Option[Boolean] = None, gameLevelIds: Option[String] = None, creativeIds: Option[String] = None, audienceIds: Option[String] = None, offerId: Option[Long] = None, balance: Option[Double] = None, advancedReporting: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, applicationIds: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None): ApiRequest[MissionResponse] =
+    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/mission/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("title", title)
@@ -362,7 +344,6 @@ class MissionApi(baseUrl: String) {
       .withQueryParam("deviceVersions", deviceVersions)
       .withQueryParam("locations", locations)
       .withQueryParam("radius", radius)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionResponse](200)
       
 

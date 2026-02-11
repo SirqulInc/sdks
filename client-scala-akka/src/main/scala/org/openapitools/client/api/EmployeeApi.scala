@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.EmployeeResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object EmployeeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new EmployeeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new EmployeeApi(baseUrl)
 }
 
 class EmployeeApi(baseUrl: String) {
@@ -31,19 +30,17 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : EmployeeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param managerAccountId The account id of the manager to assign under
    * @param employeeAccountId The account id of the user to be assigned as employee
    * @param role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
    */
-  def assignEmployee(version: BigDecimal, accountId: Long, managerAccountId: Long, employeeAccountId: Long, role: Option[String] = None): ApiRequest[EmployeeResponse] =
-    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/api/{version}/employee/assign", "application/json")
+  def assignEmployee(accountId: Long, managerAccountId: Long, employeeAccountId: Long, role: Option[String] = None): ApiRequest[EmployeeResponse] =
+    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/employee/assign", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("managerAccountId", managerAccountId)
       .withQueryParam("employeeAccountId", employeeAccountId)
       .withQueryParam("role", role)
-      .withPathParam("version", version)
       .withSuccessResponse[EmployeeResponse](200)
       
 
@@ -53,19 +50,17 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param retailerLocationId The retailer location to apply the change to
    * @param employeeAccountId The account id of the user to apply the change to
    * @param assign If true (default) assign to the location, otherwise remove from the retailer
    */
-  def assignToLocationEmployee(version: BigDecimal, accountId: Long, retailerLocationId: Long, employeeAccountId: Option[Long] = None, assign: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/employee/assignToLocation", "application/json")
+  def assignToLocationEmployee(accountId: Long, retailerLocationId: Long, employeeAccountId: Option[Long] = None, assign: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/employee/assignToLocation", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("employeeAccountId", employeeAccountId)
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("assign", assign)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -75,7 +70,6 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : EmployeeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param managerAccountId The account id of the manager to assign under
    * @param username The username/email for the new user. This must be unique across the entire the system.
@@ -107,8 +101,8 @@ class EmployeeApi(baseUrl: String) {
    * @param appBlob external custom client defined data (per Application)
    * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
    */
-  def createEmployee(version: BigDecimal, accountId: Long, managerAccountId: Long, username: String, password: String, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, aboutUs: Option[String] = None, assetId: Option[Long] = None, gender: Option[String] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, emailAddress: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, zipcode: Option[String] = None, country: Option[String] = None, role: Option[String] = None, retailerLocationIds: Option[String] = None, settingsAppKey: Option[String] = None, appBlob: Option[String] = None, assignedDeviceId: Option[String] = None): ApiRequest[EmployeeResponse] =
-    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/api/{version}/employee/create", "application/json")
+  def createEmployee(accountId: Long, managerAccountId: Long, username: String, password: String, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, aboutUs: Option[String] = None, assetId: Option[Long] = None, gender: Option[String] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, emailAddress: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, zipcode: Option[String] = None, country: Option[String] = None, role: Option[String] = None, retailerLocationIds: Option[String] = None, settingsAppKey: Option[String] = None, appBlob: Option[String] = None, assignedDeviceId: Option[String] = None): ApiRequest[EmployeeResponse] =
+    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/employee/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("managerAccountId", managerAccountId)
       .withQueryParam("username", username)
@@ -139,7 +133,6 @@ class EmployeeApi(baseUrl: String) {
       .withQueryParam("settingsAppKey", settingsAppKey)
       .withQueryParam("appBlob", appBlob)
       .withQueryParam("assignedDeviceId", assignedDeviceId)
-      .withPathParam("version", version)
       .withSuccessResponse[EmployeeResponse](200)
       
 
@@ -149,15 +142,13 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param employeeAccountId the id of the employee to delete
    */
-  def deleteEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/employee/delete", "application/json")
+  def deleteEmployee(accountId: Long, employeeAccountId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/employee/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("employeeAccountId", employeeAccountId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -167,17 +158,15 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : EmployeeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of logged in user
    * @param employeeAccountId the id of the employee account to get
    * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application
    */
-  def getEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long, settingsAppKey: Option[String] = None): ApiRequest[EmployeeResponse] =
-    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/api/{version}/employee/get", "application/json")
+  def getEmployee(accountId: Long, employeeAccountId: Long, settingsAppKey: Option[String] = None): ApiRequest[EmployeeResponse] =
+    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/employee/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("employeeAccountId", employeeAccountId)
       .withQueryParam("settingsAppKey", settingsAppKey)
-      .withPathParam("version", version)
       .withSuccessResponse[EmployeeResponse](200)
       
 
@@ -187,7 +176,6 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[EmployeeResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
    * @param retailerId Filters employees by retailer
@@ -206,8 +194,8 @@ class EmployeeApi(baseUrl: String) {
    * @param categoryIds Comma separated list of category ids to filter results
    * @param query Legacy/reporting query parameter used for formatting employee responses
    */
-  def searchEmployees(version: BigDecimal, accountId: Long, role: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, managedOnly: Option[Boolean] = None, settingsAppKey: Option[String] = None, categoryIds: Option[String] = None, query: Option[String] = None): ApiRequest[Seq[EmployeeResponse]] =
-    ApiRequest[Seq[EmployeeResponse]](ApiMethods.POST, baseUrl, "/api/{version}/employee/search", "application/json")
+  def searchEmployees(accountId: Long, role: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, managedOnly: Option[Boolean] = None, settingsAppKey: Option[String] = None, categoryIds: Option[String] = None, query: Option[String] = None): ApiRequest[Seq[EmployeeResponse]] =
+    ApiRequest[Seq[EmployeeResponse]](ApiMethods.POST, baseUrl, "/employee/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("role", role)
       .withQueryParam("retailerId", retailerId)
@@ -225,7 +213,6 @@ class EmployeeApi(baseUrl: String) {
       .withQueryParam("settingsAppKey", settingsAppKey)
       .withQueryParam("categoryIds", categoryIds)
       .withQueryParam("query", query)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[EmployeeResponse]](200)
       
 
@@ -235,15 +222,13 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : EmployeeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param employeeAccountId The account id of the user to be unassigned
    */
-  def unassignEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long): ApiRequest[EmployeeResponse] =
-    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/api/{version}/employee/unassign", "application/json")
+  def unassignEmployee(accountId: Long, employeeAccountId: Long): ApiRequest[EmployeeResponse] =
+    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/employee/unassign", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("employeeAccountId", employeeAccountId)
-      .withPathParam("version", version)
       .withSuccessResponse[EmployeeResponse](200)
       
 
@@ -253,7 +238,6 @@ class EmployeeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : EmployeeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param employeeAccountId the id of the employee account
    * @param managerAccountId The account id of the manager to assign under
@@ -285,8 +269,8 @@ class EmployeeApi(baseUrl: String) {
    * @param appBlob external custom client defined data (per Application)
    * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
    */
-  def updateEmployee(version: BigDecimal, accountId: Long, employeeAccountId: Long, managerAccountId: Option[Long] = None, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, assetId: Option[Long] = None, gender: Option[String] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, emailAddress: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, zipcode: Option[String] = None, country: Option[String] = None, role: Option[String] = None, active: Option[Boolean] = None, password: Option[String] = None, retailerLocationIds: Option[String] = None, settingsAppKey: Option[String] = None, appBlob: Option[String] = None, assignedDeviceId: Option[String] = None): ApiRequest[EmployeeResponse] =
-    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/api/{version}/employee/update", "application/json")
+  def updateEmployee(accountId: Long, employeeAccountId: Long, managerAccountId: Option[Long] = None, name: Option[String] = None, prefixName: Option[String] = None, firstName: Option[String] = None, middleName: Option[String] = None, lastName: Option[String] = None, suffixName: Option[String] = None, title: Option[String] = None, assetId: Option[Long] = None, gender: Option[String] = None, homePhone: Option[String] = None, cellPhone: Option[String] = None, cellPhoneCarrier: Option[String] = None, businessPhone: Option[String] = None, emailAddress: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, zipcode: Option[String] = None, country: Option[String] = None, role: Option[String] = None, active: Option[Boolean] = None, password: Option[String] = None, retailerLocationIds: Option[String] = None, settingsAppKey: Option[String] = None, appBlob: Option[String] = None, assignedDeviceId: Option[String] = None): ApiRequest[EmployeeResponse] =
+    ApiRequest[EmployeeResponse](ApiMethods.POST, baseUrl, "/employee/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("employeeAccountId", employeeAccountId)
       .withQueryParam("managerAccountId", managerAccountId)
@@ -317,7 +301,6 @@ class EmployeeApi(baseUrl: String) {
       .withQueryParam("settingsAppKey", settingsAppKey)
       .withQueryParam("appBlob", appBlob)
       .withQueryParam("assignedDeviceId", assignedDeviceId)
-      .withPathParam("version", version)
       .withSuccessResponse[EmployeeResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.MediaOfferResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MediaApi {
 
-  def apply(baseUrl: String = "http://localhost") = new MediaApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new MediaApi(baseUrl)
 }
 
 class MediaApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class MediaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MediaOfferResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param title The title (255 char limit)
    * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -90,8 +88,8 @@ class MediaApi(baseUrl: String) {
    * @param availability ability to assign if this media should active or not
    * @param availabilitySummary ability to assign when the media expires
    */
-  def createMedia(version: BigDecimal, accountId: Long, title: String, barcodeType: String, noExpiration: Boolean, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Long, fullPrice: Double, discountPrice: Double, specialOfferType: String, offerVisibility: String, active: Boolean, retailerLocationIds: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, ticketPriceType: Option[String] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, parentalRating: Option[String] = None, availabilityDate: Option[Long] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[MediaOfferResponse] =
-    ApiRequest[MediaOfferResponse](ApiMethods.POST, baseUrl, "/api/{version}/media/create", "application/json")
+  def createMedia(accountId: Long, title: String, barcodeType: String, noExpiration: Boolean, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Long, fullPrice: Double, discountPrice: Double, specialOfferType: String, offerVisibility: String, active: Boolean, retailerLocationIds: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, ticketPriceType: Option[String] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, parentalRating: Option[String] = None, availabilityDate: Option[Long] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[MediaOfferResponse] =
+    ApiRequest[MediaOfferResponse](ApiMethods.POST, baseUrl, "/media/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerLocationIds", retailerLocationIds)
       .withQueryParam("title", title)
@@ -149,7 +147,6 @@ class MediaApi(baseUrl: String) {
       .withQueryParam("collectionIds", collectionIds)
       .withQueryParam("availability", availability)
       .withQueryParam("availabilitySummary", availabilitySummary)
-      .withPathParam("version", version)
       .withSuccessResponse[MediaOfferResponse](200)
       
 
@@ -159,15 +156,13 @@ class MediaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param mediaId the ID of the media to delete
    */
-  def deleteMedia(version: BigDecimal, accountId: Long, mediaId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/media/delete", "application/json")
+  def deleteMedia(accountId: Long, mediaId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/media/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("mediaId", mediaId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -177,15 +172,13 @@ class MediaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MediaOfferResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param mediaId the id of the media to get
    */
-  def getMedia(version: BigDecimal, accountId: Long, mediaId: Long): ApiRequest[MediaOfferResponse] =
-    ApiRequest[MediaOfferResponse](ApiMethods.GET, baseUrl, "/api/{version}/media/get", "application/json")
+  def getMedia(accountId: Long, mediaId: Long): ApiRequest[MediaOfferResponse] =
+    ApiRequest[MediaOfferResponse](ApiMethods.GET, baseUrl, "/media/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("mediaId", mediaId)
-      .withPathParam("version", version)
       .withSuccessResponse[MediaOfferResponse](200)
       
 
@@ -195,7 +188,6 @@ class MediaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[MediaOfferResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param activeOnly Return only active results
    * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -206,8 +198,8 @@ class MediaApi(baseUrl: String) {
    * @param start The record to begin the return set on
    * @param limit The number of records to return
    */
-  def searchMedia(version: BigDecimal, accountId: Long, activeOnly: Boolean, sortField: String, descending: Boolean, keyword: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[MediaOfferResponse]] =
-    ApiRequest[Seq[MediaOfferResponse]](ApiMethods.GET, baseUrl, "/api/{version}/media/search", "application/json")
+  def searchMedia(accountId: Long, activeOnly: Boolean, sortField: String, descending: Boolean, keyword: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[MediaOfferResponse]] =
+    ApiRequest[Seq[MediaOfferResponse]](ApiMethods.GET, baseUrl, "/media/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("activeOnly", activeOnly)
@@ -217,7 +209,6 @@ class MediaApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[MediaOfferResponse]](200)
       
 
@@ -227,7 +218,6 @@ class MediaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MediaOfferResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
    * @param mediaId 
    * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.
@@ -288,8 +278,8 @@ class MediaApi(baseUrl: String) {
    * @param availability 
    * @param availabilitySummary 
    */
-  def updateMedia(version: BigDecimal, accountId: Long, mediaId: Long, retailerLocationIds: Option[String] = None, offerLocations: Option[String] = None, title: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, noExpiration: Option[Boolean] = None, availableLimit: Option[Int] = None, availableLimitPerUser: Option[Int] = None, addedLimit: Option[Int] = None, viewLimit: Option[Int] = None, maxPrints: Option[Int] = None, ticketPriceType: Option[String] = None, ticketPrice: Option[Long] = None, fullPrice: Option[Double] = None, discountPrice: Option[Double] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, specialOfferType: Option[String] = None, offerVisibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, availabilityDate: Option[Long] = None, parentalRating: Option[String] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[MediaOfferResponse] =
-    ApiRequest[MediaOfferResponse](ApiMethods.POST, baseUrl, "/api/{version}/media/update", "application/json")
+  def updateMedia(accountId: Long, mediaId: Long, retailerLocationIds: Option[String] = None, offerLocations: Option[String] = None, title: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, noExpiration: Option[Boolean] = None, availableLimit: Option[Int] = None, availableLimitPerUser: Option[Int] = None, addedLimit: Option[Int] = None, viewLimit: Option[Int] = None, maxPrints: Option[Int] = None, ticketPriceType: Option[String] = None, ticketPrice: Option[Long] = None, fullPrice: Option[Double] = None, discountPrice: Option[Double] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, specialOfferType: Option[String] = None, offerVisibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, availabilityDate: Option[Long] = None, parentalRating: Option[String] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[MediaOfferResponse] =
+    ApiRequest[MediaOfferResponse](ApiMethods.POST, baseUrl, "/media/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("mediaId", mediaId)
       .withQueryParam("retailerLocationIds", retailerLocationIds)
@@ -349,7 +339,6 @@ class MediaApi(baseUrl: String) {
       .withQueryParam("collectionIds", collectionIds)
       .withQueryParam("availability", availability)
       .withQueryParam("availabilitySummary", availabilitySummary)
-      .withPathParam("version", version)
       .withSuccessResponse[MediaOfferResponse](200)
       
 

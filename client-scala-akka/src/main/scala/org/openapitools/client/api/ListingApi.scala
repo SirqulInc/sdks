@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ListingFullResponse
 import org.openapitools.client.model.ListingGroupResponse
 import org.openapitools.client.model.ListingResponse
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ListingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ListingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ListingApi(baseUrl)
 }
 
 class ListingApi(baseUrl: String) {
@@ -33,7 +32,6 @@ class ListingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ListingFullResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user's account ID
    * @param name the name of the listing
    * @param filterIds comma separated list of filter IDs
@@ -49,8 +47,8 @@ class ListingApi(baseUrl: String) {
    * @param active Sets the active flag
    * @param metaData external custom client defined data
    */
-  def createListing(version: BigDecimal, accountId: Long, name: String, filterIds: Option[String] = None, description: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, locationName: Option[String] = None, locationDescription: Option[String] = None, isPrivate: Option[Boolean] = None, externalId: Option[String] = None, externalId2: Option[String] = None, externalGroupId: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[ListingFullResponse] =
-    ApiRequest[ListingFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/listing/create", "application/json")
+  def createListing(accountId: Long, name: String, filterIds: Option[String] = None, description: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, locationName: Option[String] = None, locationDescription: Option[String] = None, isPrivate: Option[Boolean] = None, externalId: Option[String] = None, externalId2: Option[String] = None, externalGroupId: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[ListingFullResponse] =
+    ApiRequest[ListingFullResponse](ApiMethods.POST, baseUrl, "/listing/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("filterIds", filterIds)
@@ -65,7 +63,6 @@ class ListingApi(baseUrl: String) {
       .withQueryParam("externalGroupId", externalGroupId)
       .withQueryParam("active", active)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[ListingFullResponse](200)
       
 
@@ -75,15 +72,13 @@ class ListingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param listingId the id of the listing to delete
    */
-  def deleteListing(version: BigDecimal, accountId: Long, listingId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/listing/delete", "application/json")
+  def deleteListing(accountId: Long, listingId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/listing/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("listingId", listingId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -93,13 +88,11 @@ class ListingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ListingFullResponse (successful operation)
    * 
-   * @param version 
    * @param listingId the id of the listing to get
    */
-  def getListing(version: BigDecimal, listingId: Long): ApiRequest[ListingFullResponse] =
-    ApiRequest[ListingFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/listing/get", "application/json")
+  def getListing(listingId: Long): ApiRequest[ListingFullResponse] =
+    ApiRequest[ListingFullResponse](ApiMethods.GET, baseUrl, "/listing/get", "application/json")
       .withQueryParam("listingId", listingId)
-      .withPathParam("version", version)
       .withSuccessResponse[ListingFullResponse](200)
       
 
@@ -109,7 +102,6 @@ class ListingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ListingResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param keyword search the event name and description for this keyword
    * @param start the record to begin the return set on
@@ -126,8 +118,8 @@ class ListingApi(baseUrl: String) {
    * @param externalId2 secondary external identifier used by a third party
    * @param externalGroupId external group identifier used by a third party
    */
-  def searchListing(version: BigDecimal, accountId: Option[Long] = None, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, useListingOrderIds: Option[Boolean] = None, externalId: Option[String] = None, externalId2: Option[String] = None, externalGroupId: Option[String] = None): ApiRequest[Seq[ListingResponse]] =
-    ApiRequest[Seq[ListingResponse]](ApiMethods.GET, baseUrl, "/api/{version}/listing/search", "application/json")
+  def searchListing(accountId: Option[Long] = None, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, useListingOrderIds: Option[Boolean] = None, externalId: Option[String] = None, externalId2: Option[String] = None, externalGroupId: Option[String] = None): ApiRequest[Seq[ListingResponse]] =
+    ApiRequest[Seq[ListingResponse]](ApiMethods.GET, baseUrl, "/listing/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("start", start)
@@ -143,7 +135,6 @@ class ListingApi(baseUrl: String) {
       .withQueryParam("externalId", externalId)
       .withQueryParam("externalId2", externalId2)
       .withQueryParam("externalGroupId", externalGroupId)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ListingResponse]](200)
       
 
@@ -153,21 +144,19 @@ class ListingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ListingGroupResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param startDate the start date to search from
    * @param categoryIds the list of categories to search on
    * @param daysToInclude how far out to search, in days
    * @param useListingOrderIds determines whether to use configured listing order ids
    */
-  def summaryListing(version: BigDecimal, accountId: Option[Long] = None, startDate: Option[Long] = None, categoryIds: Option[String] = None, daysToInclude: Option[Int] = None, useListingOrderIds: Option[Boolean] = None): ApiRequest[Seq[ListingGroupResponse]] =
-    ApiRequest[Seq[ListingGroupResponse]](ApiMethods.GET, baseUrl, "/api/{version}/listing/summary", "application/json")
+  def summaryListing(accountId: Option[Long] = None, startDate: Option[Long] = None, categoryIds: Option[String] = None, daysToInclude: Option[Int] = None, useListingOrderIds: Option[Boolean] = None): ApiRequest[Seq[ListingGroupResponse]] =
+    ApiRequest[Seq[ListingGroupResponse]](ApiMethods.GET, baseUrl, "/listing/summary", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("startDate", startDate)
       .withQueryParam("categoryIds", categoryIds)
       .withQueryParam("daysToInclude", daysToInclude)
       .withQueryParam("useListingOrderIds", useListingOrderIds)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ListingGroupResponse]](200)
       
 
@@ -177,7 +166,6 @@ class ListingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ListingFullResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user's account ID
    * @param listingId the listing to update
    * @param filterIds comma separated list of filter IDs
@@ -194,8 +182,8 @@ class ListingApi(baseUrl: String) {
    * @param active Sets the active flag
    * @param metaData external custom client defined data
    */
-  def updateListing(version: BigDecimal, accountId: Long, listingId: Long, filterIds: Option[String] = None, name: Option[String] = None, description: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, locationName: Option[String] = None, locationDescription: Option[String] = None, isPrivate: Option[Boolean] = None, externalId: Option[String] = None, externalId2: Option[String] = None, externalGroupId: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[ListingFullResponse] =
-    ApiRequest[ListingFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/listing/update", "application/json")
+  def updateListing(accountId: Long, listingId: Long, filterIds: Option[String] = None, name: Option[String] = None, description: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, locationName: Option[String] = None, locationDescription: Option[String] = None, isPrivate: Option[Boolean] = None, externalId: Option[String] = None, externalId2: Option[String] = None, externalGroupId: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[ListingFullResponse] =
+    ApiRequest[ListingFullResponse](ApiMethods.POST, baseUrl, "/listing/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("listingId", listingId)
       .withQueryParam("filterIds", filterIds)
@@ -211,7 +199,6 @@ class ListingApi(baseUrl: String) {
       .withQueryParam("externalGroupId", externalGroupId)
       .withQueryParam("active", active)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[ListingFullResponse](200)
       
 

@@ -14,7 +14,6 @@ package org.openapitools.client.api
 import org.openapitools.client.model.AssetFullResponse
 import org.openapitools.client.model.AssetResponse
 import org.openapitools.client.model.AssetShortResponse
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -23,7 +22,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AssetApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AssetApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AssetApi(baseUrl)
 }
 
 class AssetApi(baseUrl: String) {
@@ -34,12 +33,10 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
    */
-  def assetDownload(version: BigDecimal, filename: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/asset/download/{filename}", "application/json")
-      .withPathParam("version", version)
+  def assetDownload(filename: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/asset/download/{filename}", "application/json")
       .withPathParam("filename", filename)
       .withSuccessResponse[SirqulResponse](200)
       
@@ -50,7 +47,6 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssetShortResponse (successful operation)
    * 
-   * @param version 
    * @param offerId offer id used for inserting offer text/flavor
    * @param adSize the ad size used for selecting a format for the creative image
    * @param creativeId used for inserting the newly created image into
@@ -59,8 +55,8 @@ class AssetApi(baseUrl: String) {
    * @param backgroundSize the size of the background
    * @param template the template to use
    */
-  def assetMorph(version: BigDecimal, offerId: Long, adSize: String, creativeId: Option[Long] = None, width: Option[Int] = None, height: Option[Int] = None, backgroundSize: Option[String] = None, template: Option[String] = None): ApiRequest[AssetShortResponse] =
-    ApiRequest[AssetShortResponse](ApiMethods.POST, baseUrl, "/api/{version}/asset/morph", "application/json")
+  def assetMorph(offerId: Long, adSize: String, creativeId: Option[Long] = None, width: Option[Int] = None, height: Option[Int] = None, backgroundSize: Option[String] = None, template: Option[String] = None): ApiRequest[AssetShortResponse] =
+    ApiRequest[AssetShortResponse](ApiMethods.POST, baseUrl, "/asset/morph", "application/json")
       .withQueryParam("offerId", offerId)
       .withQueryParam("creativeId", creativeId)
       .withQueryParam("adSize", adSize)
@@ -68,7 +64,6 @@ class AssetApi(baseUrl: String) {
       .withQueryParam("height", height)
       .withQueryParam("backgroundSize", backgroundSize)
       .withQueryParam("template", template)
-      .withPathParam("version", version)
       .withSuccessResponse[AssetShortResponse](200)
       
 
@@ -78,7 +73,6 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssetResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls to return nulls
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -114,8 +108,8 @@ class AssetApi(baseUrl: String) {
    * @param latitude the latitude (optional)
    * @param longitude the longitude (optional)
    */
-  def createAsset(version: BigDecimal, returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, albumId: Option[Long] = None, collectionId: Option[Long] = None, addToDefaultAlbum: Option[String] = None, addToMediaLibrary: Option[Boolean] = None, versionCode: Option[Int] = None, versionName: Option[String] = None, metaData: Option[String] = None, caption: Option[String] = None, assetType: Option[String] = None, approvalStatus: Option[String] = None, assignedAccountId: Option[Long] = None, media: Option[File] = None, mediaUrl: Option[String] = None, mediaString: Option[String] = None, mediaStringFileName: Option[String] = None, mediaStringContentType: Option[String] = None, mediaHeight: Option[Int] = None, mediaWidth: Option[Int] = None, attachedMedia: Option[File] = None, attachedMediaUrl: Option[String] = None, attachedMediaString: Option[String] = None, attachedMediaStringFileName: Option[String] = None, attachedMediaStringContentType: Option[String] = None, attachedMediaHeight: Option[Int] = None, attachedMediaWidth: Option[Int] = None, locationDescription: Option[String] = None, app: Option[String] = None, appKey: Option[String] = None, searchTags: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AssetResponse] =
-    ApiRequest[AssetResponse](ApiMethods.POST, baseUrl, "/api/{version}/asset/create", "application/json")
+  def createAsset(returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, albumId: Option[Long] = None, collectionId: Option[Long] = None, addToDefaultAlbum: Option[String] = None, addToMediaLibrary: Option[Boolean] = None, versionCode: Option[Int] = None, versionName: Option[String] = None, metaData: Option[String] = None, caption: Option[String] = None, assetType: Option[String] = None, approvalStatus: Option[String] = None, assignedAccountId: Option[Long] = None, media: Option[File] = None, mediaUrl: Option[String] = None, mediaString: Option[String] = None, mediaStringFileName: Option[String] = None, mediaStringContentType: Option[String] = None, mediaHeight: Option[Int] = None, mediaWidth: Option[Int] = None, attachedMedia: Option[File] = None, attachedMediaUrl: Option[String] = None, attachedMediaString: Option[String] = None, attachedMediaStringFileName: Option[String] = None, attachedMediaStringContentType: Option[String] = None, attachedMediaHeight: Option[Int] = None, attachedMediaWidth: Option[Int] = None, locationDescription: Option[String] = None, app: Option[String] = None, appKey: Option[String] = None, searchTags: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AssetResponse] =
+    ApiRequest[AssetResponse](ApiMethods.POST, baseUrl, "/asset/create", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -150,7 +144,6 @@ class AssetApi(baseUrl: String) {
       .withQueryParam("searchTags", searchTags)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[AssetResponse](200)
       
 
@@ -160,21 +153,19 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param assetId the id of the asset to delete
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def deleteAsset(version: BigDecimal, assetId: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/asset/delete", "application/json")
+  def deleteAsset(assetId: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/asset/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("assetId", assetId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -184,19 +175,17 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssetFullResponse (successful operation)
    * 
-   * @param version 
    * @param assetId the asset ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param noteDescending determines whether the notes on the asset are in descending order
    */
-  def getAsset(version: BigDecimal, assetId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, noteDescending: Option[Boolean] = None): ApiRequest[AssetFullResponse] =
-    ApiRequest[AssetFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/asset/get", "application/json")
+  def getAsset(assetId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, noteDescending: Option[Boolean] = None): ApiRequest[AssetFullResponse] =
+    ApiRequest[AssetFullResponse](ApiMethods.GET, baseUrl, "/asset/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("assetId", assetId)
       .withQueryParam("noteDescending", noteDescending)
-      .withPathParam("version", version)
       .withSuccessResponse[AssetFullResponse](200)
       
 
@@ -206,7 +195,6 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param assetId the id of the asset to remove
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -216,8 +204,8 @@ class AssetApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def removeAsset(version: BigDecimal, assetId: String, deviceId: Option[String] = None, accountId: Option[Long] = None, albumId: Option[Long] = None, collectionId: Option[Long] = None, removeFromDefaultAlbums: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/asset/remove", "application/json")
+  def removeAsset(assetId: String, deviceId: Option[String] = None, accountId: Option[Long] = None, albumId: Option[Long] = None, collectionId: Option[Long] = None, removeFromDefaultAlbums: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/asset/remove", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
@@ -226,7 +214,6 @@ class AssetApi(baseUrl: String) {
       .withQueryParam("removeFromDefaultAlbums", removeFromDefaultAlbums)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -236,7 +223,6 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AssetResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param albumIds comma separated list of album ids to search on
@@ -262,8 +248,8 @@ class AssetApi(baseUrl: String) {
    * @param approvalStatus filter by approval status
    * @param assignedAccountId filter results by an assigned account id
    */
-  def searchAssets(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, albumIds: Option[String] = None, assetIds: Option[String] = None, appKey: Option[String] = None, mediaType: Option[String] = None, mimeType: Option[String] = None, keyword: Option[String] = None, versionCode: Option[Int] = None, versionName: Option[String] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, searchMediaLibrary: Option[Boolean] = None, filterByBillable: Option[Boolean] = None, activeOnly: Option[Boolean] = None, returnApp: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, searchMode: Option[String] = None, assetType: Option[String] = None, approvalStatus: Option[String] = None, assignedAccountId: Option[Long] = None): ApiRequest[Seq[AssetResponse]] =
-    ApiRequest[Seq[AssetResponse]](ApiMethods.GET, baseUrl, "/api/{version}/asset/search", "application/json")
+  def searchAssets(deviceId: Option[String] = None, accountId: Option[Long] = None, albumIds: Option[String] = None, assetIds: Option[String] = None, appKey: Option[String] = None, mediaType: Option[String] = None, mimeType: Option[String] = None, keyword: Option[String] = None, versionCode: Option[Int] = None, versionName: Option[String] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, searchMediaLibrary: Option[Boolean] = None, filterByBillable: Option[Boolean] = None, activeOnly: Option[Boolean] = None, returnApp: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, searchMode: Option[String] = None, assetType: Option[String] = None, approvalStatus: Option[String] = None, assignedAccountId: Option[Long] = None): ApiRequest[Seq[AssetResponse]] =
+    ApiRequest[Seq[AssetResponse]](ApiMethods.GET, baseUrl, "/asset/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumIds", albumIds)
@@ -288,7 +274,6 @@ class AssetApi(baseUrl: String) {
       .withQueryParam("assetType", assetType)
       .withQueryParam("approvalStatus", approvalStatus)
       .withQueryParam("assignedAccountId", assignedAccountId)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AssetResponse]](200)
       
 
@@ -298,7 +283,6 @@ class AssetApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param assetId the ID of the asset to update
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -331,8 +315,8 @@ class AssetApi(baseUrl: String) {
    * @param latitude latitude used to update the asset's location
    * @param longitude longitude used to update the asset's location
    */
-  def updateAsset(version: BigDecimal, assetId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, albumId: Option[Long] = None, attachedAssetId: Option[Long] = None, versionCode: Option[Int] = None, versionName: Option[String] = None, metaData: Option[String] = None, caption: Option[String] = None, assetType: Option[String] = None, approvalStatus: Option[String] = None, assignedAccountId: Option[Long] = None, media: Option[File] = None, mediaUrl: Option[String] = None, mediaString: Option[String] = None, mediaStringFileName: Option[String] = None, mediaStringContentType: Option[String] = None, mediaHeight: Option[Int] = None, mediaWidth: Option[Int] = None, attachedMedia: Option[File] = None, attachedMediaUrl: Option[String] = None, attachedMediaString: Option[String] = None, attachedMediaStringFileName: Option[String] = None, attachedMediaStringContentType: Option[String] = None, attachedMediaHeight: Option[Int] = None, attachedMediaWidth: Option[Int] = None, locationDescription: Option[String] = None, searchTags: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/asset/update", "application/json")
+  def updateAsset(assetId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, albumId: Option[Long] = None, attachedAssetId: Option[Long] = None, versionCode: Option[Int] = None, versionName: Option[String] = None, metaData: Option[String] = None, caption: Option[String] = None, assetType: Option[String] = None, approvalStatus: Option[String] = None, assignedAccountId: Option[Long] = None, media: Option[File] = None, mediaUrl: Option[String] = None, mediaString: Option[String] = None, mediaStringFileName: Option[String] = None, mediaStringContentType: Option[String] = None, mediaHeight: Option[Int] = None, mediaWidth: Option[Int] = None, attachedMedia: Option[File] = None, attachedMediaUrl: Option[String] = None, attachedMediaString: Option[String] = None, attachedMediaStringFileName: Option[String] = None, attachedMediaStringContentType: Option[String] = None, attachedMediaHeight: Option[Int] = None, attachedMediaWidth: Option[Int] = None, locationDescription: Option[String] = None, searchTags: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/asset/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("assetId", assetId)
@@ -364,7 +348,6 @@ class AssetApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

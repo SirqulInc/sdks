@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.LikableResponse
 import org.openapitools.client.model.SearchResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object LikeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new LikeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new LikeApi(baseUrl)
 }
 
 class LikeApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class LikeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : LikableResponse (successful operation)
    * 
-   * @param version 
    * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
    * @param likableId The id of the likable object
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -45,8 +43,8 @@ class LikeApi(baseUrl: String) {
    * @param latitude The current location of the user
    * @param longitude The current location of the user
    */
-  def registerLike(version: BigDecimal, likableType: String, likableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, like: Option[Boolean] = None, app: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[LikableResponse] =
-    ApiRequest[LikableResponse](ApiMethods.POST, baseUrl, "/api/{version}/like", "application/json")
+  def registerLike(likableType: String, likableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, like: Option[Boolean] = None, app: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[LikableResponse] =
+    ApiRequest[LikableResponse](ApiMethods.POST, baseUrl, "/like", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("likableType", likableType)
@@ -59,7 +57,6 @@ class LikeApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[LikableResponse](200)
       
 
@@ -69,7 +66,6 @@ class LikeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : LikableResponse (successful operation)
    * 
-   * @param version 
    * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
    * @param likableId The id of the likable object
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -77,15 +73,14 @@ class LikeApi(baseUrl: String) {
    * @param latitude The current location of the user
    * @param longitude The current location of the user
    */
-  def removeLike(version: BigDecimal, likableType: String, likableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[LikableResponse] =
-    ApiRequest[LikableResponse](ApiMethods.POST, baseUrl, "/api/{version}/like/delete", "application/json")
+  def removeLike(likableType: String, likableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[LikableResponse] =
+    ApiRequest[LikableResponse](ApiMethods.POST, baseUrl, "/like/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("likableType", likableType)
       .withQueryParam("likableId", likableId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[LikableResponse](200)
       
 
@@ -95,7 +90,6 @@ class LikeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SearchResponse (successful operation)
    * 
-   * @param version 
    * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
    * @param likableId The id of the likable object
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -108,8 +102,8 @@ class LikeApi(baseUrl: String) {
    * @param start the start index for pagination
    * @param limit the limit for pagination
    */
-  def searchLikes(version: BigDecimal, likableType: String, likableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[SearchResponse] =
-    ApiRequest[SearchResponse](ApiMethods.GET, baseUrl, "/api/{version}/like/search", "application/json")
+  def searchLikes(likableType: String, likableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, updatedSince: Option[Long] = None, updatedBefore: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[SearchResponse] =
+    ApiRequest[SearchResponse](ApiMethods.GET, baseUrl, "/like/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountIds", connectionAccountIds)
@@ -121,7 +115,6 @@ class LikeApi(baseUrl: String) {
       .withQueryParam("updatedBefore", updatedBefore)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[SearchResponse](200)
       
 

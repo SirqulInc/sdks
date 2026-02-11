@@ -13,7 +13,6 @@ package org.openapitools.client.api
 
 import org.openapitools.client.model.AlbumContestListResponse
 import org.openapitools.client.model.AlbumContestResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ContestApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ContestApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ContestApi(baseUrl)
 }
 
 class ContestApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class ContestApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AlbumContestResponse (successful operation)
    * 
-   * @param version 
    * @param publicRead determines whether the contest's participants has read permissions
    * @param publicWrite determines whether the contest's participants has write permissions
    * @param publicDelete determines whether the contest's participants has delete permissions
@@ -59,8 +57,8 @@ class ContestApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def addOrUpdateAlbumContest(version: BigDecimal, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, contestType: Option[String] = None, albumContestId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, albumId1: Option[Long] = None, removeAlbum1: Option[Boolean] = None, albumId2: Option[Long] = None, removeAlbum2: Option[Boolean] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, locationDescription: Option[String] = None, connectionIdsToAdd: Option[String] = None, connectionGroupIdsToAdd: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestResponse] =
-    ApiRequest[AlbumContestResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/album/contest", "application/json")
+  def addOrUpdateAlbumContest(publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, contestType: Option[String] = None, albumContestId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, albumId1: Option[Long] = None, removeAlbum1: Option[Boolean] = None, albumId2: Option[Long] = None, removeAlbum2: Option[Boolean] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, locationDescription: Option[String] = None, connectionIdsToAdd: Option[String] = None, connectionGroupIdsToAdd: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestResponse] =
+    ApiRequest[AlbumContestResponse](ApiMethods.POST, baseUrl, "/consumer/album/contest", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
@@ -86,7 +84,6 @@ class ContestApi(baseUrl: String) {
       .withQueryParam("includeFriendGroup", includeFriendGroup)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[AlbumContestResponse](200)
       
 
@@ -96,19 +93,17 @@ class ContestApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param albumContestId The ID of the album contest
    * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    */
-  def approveAlbumContest(version: BigDecimal, albumContestId: Long, approvalStatus: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/album/contest/approve", "application/json")
+  def approveAlbumContest(albumContestId: Long, approvalStatus: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/album/contest/approve", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumContestId", albumContestId)
       .withQueryParam("approvalStatus", approvalStatus)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -118,21 +113,19 @@ class ContestApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param albumContestId the album contest ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def deleteContest(version: BigDecimal, albumContestId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/album/contest/remove", "application/json")
+  def deleteContest(albumContestId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/album/contest/remove", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumContestId", albumContestId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -142,21 +135,19 @@ class ContestApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AlbumContestResponse (successful operation)
    * 
-   * @param version 
    * @param albumContestId the album contest ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def getAlbumContest(version: BigDecimal, albumContestId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestResponse] =
-    ApiRequest[AlbumContestResponse](ApiMethods.GET, baseUrl, "/api/{version}/consumer/album/contest/get", "application/json")
+  def getAlbumContest(albumContestId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestResponse] =
+    ApiRequest[AlbumContestResponse](ApiMethods.GET, baseUrl, "/consumer/album/contest/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumContestId", albumContestId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[AlbumContestResponse](200)
       
 
@@ -166,7 +157,6 @@ class ContestApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AlbumContestListResponse (successful operation)
    * 
-   * @param version 
    * @param filter a comma separated list of Ownership
    * @param sortField the field to sort by. See AlbumContestApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -187,8 +177,8 @@ class ContestApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def getAlbumContests(version: BigDecimal, filter: String, sortField: String, descending: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, appType: Option[String] = None, contestType: Option[String] = None, ownerId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, dateCreated: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestListResponse] =
-    ApiRequest[AlbumContestListResponse](ApiMethods.GET, baseUrl, "/api/{version}/consumer/album/contest/search", "application/json")
+  def getAlbumContests(filter: String, sortField: String, descending: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, appType: Option[String] = None, contestType: Option[String] = None, ownerId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, dateCreated: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestListResponse] =
+    ApiRequest[AlbumContestListResponse](ApiMethods.GET, baseUrl, "/consumer/album/contest/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
@@ -208,7 +198,6 @@ class ContestApi(baseUrl: String) {
       .withQueryParam("dateCreated", dateCreated)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[AlbumContestListResponse](200)
       
 
@@ -218,7 +207,6 @@ class ContestApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AlbumContestResponse (successful operation)
    * 
-   * @param version 
    * @param albumContestId the album contest ID
    * @param albumId the ID of the album to vote on
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -227,8 +215,8 @@ class ContestApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def voteOnAlbumContest(version: BigDecimal, albumContestId: Long, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, contestType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestResponse] =
-    ApiRequest[AlbumContestResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/album/contest/vote", "application/json")
+  def voteOnAlbumContest(albumContestId: Long, albumId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, contestType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[AlbumContestResponse] =
+    ApiRequest[AlbumContestResponse](ApiMethods.POST, baseUrl, "/consumer/album/contest/vote", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumContestId", albumContestId)
@@ -236,7 +224,6 @@ class ContestApi(baseUrl: String) {
       .withQueryParam("contestType", contestType)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[AlbumContestResponse](200)
       
 

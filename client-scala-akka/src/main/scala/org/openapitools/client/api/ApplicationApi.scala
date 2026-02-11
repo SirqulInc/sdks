@@ -15,7 +15,6 @@ import org.openapitools.client.model.AccountListResponse
 import org.openapitools.client.model.ApplicationResponse
 import org.openapitools.client.model.ApplicationSettingsResponse
 import org.openapitools.client.model.ApplicationShortResponse
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.PlacementResponse
 import org.openapitools.client.model.SirqulResponse
@@ -25,7 +24,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ApplicationApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ApplicationApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ApplicationApi(baseUrl)
 }
 
 class ApplicationApi(baseUrl: String) {
@@ -36,7 +35,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationResponse (successful operation)
    * 
-   * @param version 
    * @param appName The name of the application
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -117,8 +115,8 @@ class ApplicationApi(baseUrl: String) {
    * @param twilioSenderPhoneNumber Twilio Sender Phone Number
    * @param openAISecretKey OpenAI Secret API Key
    */
-  def createApplication(version: BigDecimal, appName: String, deviceId: Option[String] = None, accountId: Option[Long] = None, about: Option[String] = None, bundleId: Option[String] = None, appIconAssetId: Option[Long] = None, appLogoAssetId: Option[Long] = None, facebookAppId: Option[String] = None, facebookAppSecret: Option[String] = None, googleApiKey: Option[String] = None, updateEULADate: Option[Boolean] = None, eulaVersion: Option[String] = None, landingPageUrl: Option[String] = None, showInActivities: Option[Boolean] = None, activityDescription: Option[String] = None, inviteWelcomeText: Option[String] = None, invitePageUrl: Option[String] = None, urlScheme: Option[String] = None, platforms: Option[String] = None, downloadUrls: Option[String] = None, categoryIds: Option[String] = None, scoringType: Option[String] = None, hintCost: Option[Int] = None, maxScore: Option[Int] = None, ticketsPerPoint: Option[Float] = None, hasGameData: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, useMatchingAlgorithm: Option[Boolean] = None, globalTickets: Option[Boolean] = None, buildVersion: Option[Float] = None, apiVersion: Option[Float] = None, placementName: Option[String] = None, placementDescription: Option[String] = None, placementSize: Option[String] = None, placementHeight: Option[Int] = None, placementWidth: Option[Int] = None, placementRefreshInterval: Option[Int] = None, createObjectStore: Option[Boolean] = None, publicContentApproval: Option[Boolean] = None, productionMode: Option[Boolean] = None, minimumSessionLength: Option[Int] = None, sessionGapLength: Option[Int] = None, localAdsEnabled: Option[Boolean] = None, sqootApiKey: Option[String] = None, trilatProcessingType: Option[String] = None, maxSampleSize: Option[Int] = None, minRSSI: Option[Double] = None, modules: Option[String] = None, authorizedCount: Option[Int] = None, authorizedServers: Option[String] = None, defaultTimezone: Option[String] = None, smtpPass: Option[String] = None, metaData: Option[String] = None, placementMetaData: Option[String] = None, ipsFloor: Option[Boolean] = None, enableAPNSBadge: Option[Boolean] = None, includeInReport: Option[Boolean] = None, defaultAppFilterId: Option[Long] = None, enableWelcomeEmail: Option[Boolean] = None, appleAppId: Option[String] = None, appleTeamId: Option[String] = None, appleAuthKeyId: Option[String] = None, appleAuthKey: Option[File] = None, appleIssuerId: Option[String] = None, appStoreKeyId: Option[String] = None, appStoreKey: Option[File] = None, googlePrivateKeyFile: Option[File] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None, emailSender: Option[String] = None, smtpUser: Option[String] = None, smtpHost: Option[String] = None, vatomBusinessId: Option[String] = None, vatomRestClientId: Option[String] = None, vatomRestSecretKey: Option[String] = None, twilioAccountSID: Option[String] = None, twilioAuthToken: Option[String] = None, twilioSenderPhoneNumber: Option[String] = None, openAISecretKey: Option[String] = None): ApiRequest[ApplicationResponse] =
-    ApiRequest[ApplicationResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/create", "application/json")
+  def createApplication(appName: String, deviceId: Option[String] = None, accountId: Option[Long] = None, about: Option[String] = None, bundleId: Option[String] = None, appIconAssetId: Option[Long] = None, appLogoAssetId: Option[Long] = None, facebookAppId: Option[String] = None, facebookAppSecret: Option[String] = None, googleApiKey: Option[String] = None, updateEULADate: Option[Boolean] = None, eulaVersion: Option[String] = None, landingPageUrl: Option[String] = None, showInActivities: Option[Boolean] = None, activityDescription: Option[String] = None, inviteWelcomeText: Option[String] = None, invitePageUrl: Option[String] = None, urlScheme: Option[String] = None, platforms: Option[String] = None, downloadUrls: Option[String] = None, categoryIds: Option[String] = None, scoringType: Option[String] = None, hintCost: Option[Int] = None, maxScore: Option[Int] = None, ticketsPerPoint: Option[Float] = None, hasGameData: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, useMatchingAlgorithm: Option[Boolean] = None, globalTickets: Option[Boolean] = None, buildVersion: Option[Float] = None, apiVersion: Option[Float] = None, placementName: Option[String] = None, placementDescription: Option[String] = None, placementSize: Option[String] = None, placementHeight: Option[Int] = None, placementWidth: Option[Int] = None, placementRefreshInterval: Option[Int] = None, createObjectStore: Option[Boolean] = None, publicContentApproval: Option[Boolean] = None, productionMode: Option[Boolean] = None, minimumSessionLength: Option[Int] = None, sessionGapLength: Option[Int] = None, localAdsEnabled: Option[Boolean] = None, sqootApiKey: Option[String] = None, trilatProcessingType: Option[String] = None, maxSampleSize: Option[Int] = None, minRSSI: Option[Double] = None, modules: Option[String] = None, authorizedCount: Option[Int] = None, authorizedServers: Option[String] = None, defaultTimezone: Option[String] = None, smtpPass: Option[String] = None, metaData: Option[String] = None, placementMetaData: Option[String] = None, ipsFloor: Option[Boolean] = None, enableAPNSBadge: Option[Boolean] = None, includeInReport: Option[Boolean] = None, defaultAppFilterId: Option[Long] = None, enableWelcomeEmail: Option[Boolean] = None, appleAppId: Option[String] = None, appleTeamId: Option[String] = None, appleAuthKeyId: Option[String] = None, appleAuthKey: Option[File] = None, appleIssuerId: Option[String] = None, appStoreKeyId: Option[String] = None, appStoreKey: Option[File] = None, googlePrivateKeyFile: Option[File] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None, emailSender: Option[String] = None, smtpUser: Option[String] = None, smtpHost: Option[String] = None, vatomBusinessId: Option[String] = None, vatomRestClientId: Option[String] = None, vatomRestSecretKey: Option[String] = None, twilioAccountSID: Option[String] = None, twilioAuthToken: Option[String] = None, twilioSenderPhoneNumber: Option[String] = None, openAISecretKey: Option[String] = None): ApiRequest[ApplicationResponse] =
+    ApiRequest[ApplicationResponse](ApiMethods.POST, baseUrl, "/application/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appName", appName)
@@ -198,7 +196,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("twilioAuthToken", twilioAuthToken)
       .withQueryParam("twilioSenderPhoneNumber", twilioSenderPhoneNumber)
       .withQueryParam("openAISecretKey", openAISecretKey)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationResponse](200)
       
 
@@ -208,7 +205,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PlacementResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The appKey of the application the ad placement is for
    * @param size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
@@ -221,8 +217,8 @@ class ApplicationApi(baseUrl: String) {
    * @param defaultImageId Default Image Id
    * @param active Active
    */
-  def createApplicationPlacement(version: BigDecimal, appKey: String, size: String, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, height: Option[Int] = None, width: Option[Int] = None, refreshInterval: Option[Int] = None, defaultImageId: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[PlacementResponse] =
-    ApiRequest[PlacementResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/placement/create", "application/json")
+  def createApplicationPlacement(appKey: String, size: String, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, height: Option[Int] = None, width: Option[Int] = None, refreshInterval: Option[Int] = None, defaultImageId: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[PlacementResponse] =
+    ApiRequest[PlacementResponse](ApiMethods.POST, baseUrl, "/application/placement/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -234,7 +230,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("refreshInterval", refreshInterval)
       .withQueryParam("defaultImageId", defaultImageId)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[PlacementResponse](200)
       
 
@@ -244,15 +239,13 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the delete, must have rights to edit the application.
    * @param appKey The key of the application to be deleted
    */
-  def deleteApplication(version: BigDecimal, accountId: Option[Long] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/delete", "application/json")
+  def deleteApplication(accountId: Option[Long] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/application/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -262,17 +255,15 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PlacementResponse (successful operation)
    * 
-   * @param version 
    * @param placementId The id of the placement to delete, the user must have rights to the application the ad placement is for
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def deleteApplicationPlacement(version: BigDecimal, placementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[PlacementResponse] =
-    ApiRequest[PlacementResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/placement/delete", "application/json")
+  def deleteApplicationPlacement(placementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[PlacementResponse] =
+    ApiRequest[PlacementResponse](ApiMethods.POST, baseUrl, "/application/placement/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("placementId", placementId)
-      .withPathParam("version", version)
       .withSuccessResponse[PlacementResponse](200)
       
 
@@ -282,15 +273,13 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The key of the application
    * @param applicationId Application Id
    */
-  def getApplication(version: BigDecimal, appKey: Option[String] = None, applicationId: Option[Long] = None): ApiRequest[ApplicationResponse] =
-    ApiRequest[ApplicationResponse](ApiMethods.GET, baseUrl, "/api/{version}/application/get", "application/json")
+  def getApplication(appKey: Option[String] = None, applicationId: Option[Long] = None): ApiRequest[ApplicationResponse] =
+    ApiRequest[ApplicationResponse](ApiMethods.GET, baseUrl, "/application/get", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("applicationId", applicationId)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationResponse](200)
       
 
@@ -300,17 +289,15 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PlacementResponse (successful operation)
    * 
-   * @param version 
    * @param placementId The id of the placement
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def getApplicationPlacement(version: BigDecimal, placementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[PlacementResponse] =
-    ApiRequest[PlacementResponse](ApiMethods.GET, baseUrl, "/api/{version}/application/placement/get", "application/json")
+  def getApplicationPlacement(placementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[PlacementResponse] =
+    ApiRequest[PlacementResponse](ApiMethods.GET, baseUrl, "/application/placement/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("placementId", placementId)
-      .withPathParam("version", version)
       .withSuccessResponse[PlacementResponse](200)
       
 
@@ -319,12 +306,9 @@ class ApplicationApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
-   * 
-   * @param version 
    */
-  def getApplicationVersions(version: BigDecimal): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/application/versions", "application/json")
-      .withPathParam("version", version)
+  def getApplicationVersions(): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/application/versions", "application/json")
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -334,7 +318,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AccountListResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key
    * @param `q` Q
    * @param keyword The keyword used to search
@@ -344,8 +327,8 @@ class ApplicationApi(baseUrl: String) {
    * @param `l` the limit of the index
    * @param limit The limit of the pagination
    */
-  def getUniqueUsersByApp(version: BigDecimal, appKey: String, `q`: Option[String] = None, keyword: Option[String] = None, since: Option[Long] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[AccountListResponse] =
-    ApiRequest[AccountListResponse](ApiMethods.GET, baseUrl, "/api/{version}/application/users", "application/json")
+  def getUniqueUsersByApp(appKey: String, `q`: Option[String] = None, keyword: Option[String] = None, since: Option[Long] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[AccountListResponse] =
+    ApiRequest[AccountListResponse](ApiMethods.GET, baseUrl, "/application/users", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("q", `q`)
       .withQueryParam("keyword", keyword)
@@ -354,7 +337,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("_l", `l`)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[AccountListResponse](200)
       
 
@@ -364,7 +346,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ApplicationShortResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the application owner/manager
    * @param `q` Q
    * @param keyword The keyword used to search for title, about, and description fields
@@ -386,8 +367,8 @@ class ApplicationApi(baseUrl: String) {
    * @param hasObjectStore Only include applications with a object store (default is false)
    * @param activeOnly Return only active results
    */
-  def listApplications(version: BigDecimal, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, platforms: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, categoryIds: Option[String] = None, sortField: Option[String] = None, hasAds: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, filterBillable: Option[Boolean] = None, filterContentAdmin: Option[Boolean] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, applicationIds: Option[String] = None, hasObjectStore: Option[Boolean] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[ApplicationShortResponse]] =
-    ApiRequest[Seq[ApplicationShortResponse]](ApiMethods.GET, baseUrl, "/api/{version}/application/list", "application/json")
+  def listApplications(accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, platforms: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, categoryIds: Option[String] = None, sortField: Option[String] = None, hasAds: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, filterBillable: Option[Boolean] = None, filterContentAdmin: Option[Boolean] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, applicationIds: Option[String] = None, hasObjectStore: Option[Boolean] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[ApplicationShortResponse]] =
+    ApiRequest[Seq[ApplicationShortResponse]](ApiMethods.GET, baseUrl, "/application/list", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("q", `q`)
       .withQueryParam("keyword", keyword)
@@ -408,7 +389,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("applicationIds", applicationIds)
       .withQueryParam("hasObjectStore", hasObjectStore)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ApplicationShortResponse]](200)
       
 
@@ -418,21 +398,19 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[PlacementResponse] (successful operation)
    * 
-   * @param version 
    * @param appKey The key of the application
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param start The start of the pagination
    * @param limit The limit of the pagination
    */
-  def searchApplicationPlacement(version: BigDecimal, appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[PlacementResponse]] =
-    ApiRequest[Seq[PlacementResponse]](ApiMethods.GET, baseUrl, "/api/{version}/application/placement/search", "application/json")
+  def searchApplicationPlacement(appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[PlacementResponse]] =
+    ApiRequest[Seq[PlacementResponse]](ApiMethods.GET, baseUrl, "/application/placement/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[PlacementResponse]](200)
       
 
@@ -442,7 +420,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationSettingsResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param connectionAccountId The account id used to view another person's account
@@ -452,8 +429,8 @@ class ApplicationApi(baseUrl: String) {
    * @param start The start index for pagination
    * @param limit The limit per result set for pagination
    */
-  def searchApplicationSettings(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[ApplicationSettingsResponse] =
-    ApiRequest[ApplicationSettingsResponse](ApiMethods.GET, baseUrl, "/api/{version}/application/settings/search", "application/json")
+  def searchApplicationSettings(deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[ApplicationSettingsResponse] =
+    ApiRequest[ApplicationSettingsResponse](ApiMethods.GET, baseUrl, "/application/settings/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
@@ -462,7 +439,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationSettingsResponse](200)
       
 
@@ -472,7 +448,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ApplicationResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude The location of the device
@@ -490,8 +465,8 @@ class ApplicationApi(baseUrl: String) {
    * @param publicNotifications Filter results on whether the application is available for public trigger notifications
    * @param activeOnly Return only active results
    */
-  def searchApplications(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, `q`: Option[String] = None, keyword: Option[String] = None, qSearchFields: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, hasAds: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[ApplicationResponse]] =
-    ApiRequest[Seq[ApplicationResponse]](ApiMethods.GET, baseUrl, "/api/{version}/application/search", "application/json")
+  def searchApplications(deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, `q`: Option[String] = None, keyword: Option[String] = None, qSearchFields: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, hasAds: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[ApplicationResponse]] =
+    ApiRequest[Seq[ApplicationResponse]](ApiMethods.GET, baseUrl, "/application/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
@@ -508,7 +483,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("hasAds", hasAds)
       .withQueryParam("publicNotifications", publicNotifications)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ApplicationResponse]](200)
       
 
@@ -518,7 +492,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key for updating an existing application
    * @param appName The name of the application
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
@@ -600,8 +573,8 @@ class ApplicationApi(baseUrl: String) {
    * @param twilioSenderPhoneNumber Twilio Sender Phone Number
    * @param openAISecretKey OpenAI Secret API Key
    */
-  def updateApplication(version: BigDecimal, appKey: String, appName: String, deviceId: Option[String] = None, accountId: Option[Long] = None, about: Option[String] = None, bundleId: Option[String] = None, appIconAssetId: Option[Long] = None, appLogoAssetId: Option[Long] = None, facebookAppId: Option[String] = None, facebookAppSecret: Option[String] = None, googleApiKey: Option[String] = None, updateEULADate: Option[Boolean] = None, eulaVersion: Option[String] = None, landingPageUrl: Option[String] = None, showInActivities: Option[Boolean] = None, activityDescription: Option[String] = None, inviteWelcomeText: Option[String] = None, invitePageUrl: Option[String] = None, urlScheme: Option[String] = None, platforms: Option[String] = None, downloadUrls: Option[String] = None, categoryIds: Option[String] = None, scoringType: Option[String] = None, hintCost: Option[Int] = None, maxScore: Option[Int] = None, ticketsPerPoint: Option[Float] = None, hasGameData: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, useMatchingAlgorithm: Option[Boolean] = None, globalTickets: Option[Boolean] = None, buildVersion: Option[Float] = None, apiVersion: Option[Float] = None, placementName: Option[String] = None, placementDescription: Option[String] = None, placementSize: Option[String] = None, placementHeight: Option[Int] = None, placementWidth: Option[Int] = None, placementRefreshInterval: Option[Int] = None, createObjectStore: Option[Boolean] = None, publicContentApproval: Option[Boolean] = None, productionMode: Option[Boolean] = None, minimumSessionLength: Option[Int] = None, sessionGapLength: Option[Int] = None, localAdsEnabled: Option[Boolean] = None, sqootApiKey: Option[String] = None, trilatProcessingType: Option[String] = None, maxSampleSize: Option[Int] = None, minRSSI: Option[Double] = None, modules: Option[String] = None, authorizedCount: Option[Int] = None, authorizedServers: Option[String] = None, defaultTimezone: Option[String] = None, smtpPass: Option[String] = None, metaData: Option[String] = None, placementMetaData: Option[String] = None, ipsFloor: Option[Boolean] = None, enableAPNSBadge: Option[Boolean] = None, includeInReport: Option[Boolean] = None, defaultAppFilterId: Option[Long] = None, enableWelcomeEmail: Option[Boolean] = None, appleAppId: Option[String] = None, appleTeamId: Option[String] = None, appleAuthKeyId: Option[String] = None, appleAuthKey: Option[File] = None, appleIssuerId: Option[String] = None, appStoreKeyId: Option[String] = None, appStoreKey: Option[File] = None, googlePrivateKeyFile: Option[File] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None, emailSender: Option[String] = None, smtpUser: Option[String] = None, smtpHost: Option[String] = None, vatomBusinessId: Option[String] = None, vatomRestClientId: Option[String] = None, vatomRestSecretKey: Option[String] = None, twilioAccountSID: Option[String] = None, twilioAuthToken: Option[String] = None, twilioSenderPhoneNumber: Option[String] = None, openAISecretKey: Option[String] = None): ApiRequest[ApplicationResponse] =
-    ApiRequest[ApplicationResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/update", "application/json")
+  def updateApplication(appKey: String, appName: String, deviceId: Option[String] = None, accountId: Option[Long] = None, about: Option[String] = None, bundleId: Option[String] = None, appIconAssetId: Option[Long] = None, appLogoAssetId: Option[Long] = None, facebookAppId: Option[String] = None, facebookAppSecret: Option[String] = None, googleApiKey: Option[String] = None, updateEULADate: Option[Boolean] = None, eulaVersion: Option[String] = None, landingPageUrl: Option[String] = None, showInActivities: Option[Boolean] = None, activityDescription: Option[String] = None, inviteWelcomeText: Option[String] = None, invitePageUrl: Option[String] = None, urlScheme: Option[String] = None, platforms: Option[String] = None, downloadUrls: Option[String] = None, categoryIds: Option[String] = None, scoringType: Option[String] = None, hintCost: Option[Int] = None, maxScore: Option[Int] = None, ticketsPerPoint: Option[Float] = None, hasGameData: Option[Boolean] = None, publicNotifications: Option[Boolean] = None, useMatchingAlgorithm: Option[Boolean] = None, globalTickets: Option[Boolean] = None, buildVersion: Option[Float] = None, apiVersion: Option[Float] = None, placementName: Option[String] = None, placementDescription: Option[String] = None, placementSize: Option[String] = None, placementHeight: Option[Int] = None, placementWidth: Option[Int] = None, placementRefreshInterval: Option[Int] = None, createObjectStore: Option[Boolean] = None, publicContentApproval: Option[Boolean] = None, productionMode: Option[Boolean] = None, minimumSessionLength: Option[Int] = None, sessionGapLength: Option[Int] = None, localAdsEnabled: Option[Boolean] = None, sqootApiKey: Option[String] = None, trilatProcessingType: Option[String] = None, maxSampleSize: Option[Int] = None, minRSSI: Option[Double] = None, modules: Option[String] = None, authorizedCount: Option[Int] = None, authorizedServers: Option[String] = None, defaultTimezone: Option[String] = None, smtpPass: Option[String] = None, metaData: Option[String] = None, placementMetaData: Option[String] = None, ipsFloor: Option[Boolean] = None, enableAPNSBadge: Option[Boolean] = None, includeInReport: Option[Boolean] = None, defaultAppFilterId: Option[Long] = None, enableWelcomeEmail: Option[Boolean] = None, appleAppId: Option[String] = None, appleTeamId: Option[String] = None, appleAuthKeyId: Option[String] = None, appleAuthKey: Option[File] = None, appleIssuerId: Option[String] = None, appStoreKeyId: Option[String] = None, appStoreKey: Option[File] = None, googlePrivateKeyFile: Option[File] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None, emailSender: Option[String] = None, smtpUser: Option[String] = None, smtpHost: Option[String] = None, vatomBusinessId: Option[String] = None, vatomRestClientId: Option[String] = None, vatomRestSecretKey: Option[String] = None, twilioAccountSID: Option[String] = None, twilioAuthToken: Option[String] = None, twilioSenderPhoneNumber: Option[String] = None, openAISecretKey: Option[String] = None): ApiRequest[ApplicationResponse] =
+    ApiRequest[ApplicationResponse](ApiMethods.POST, baseUrl, "/application/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -682,7 +655,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("twilioAuthToken", twilioAuthToken)
       .withQueryParam("twilioSenderPhoneNumber", twilioSenderPhoneNumber)
       .withQueryParam("openAISecretKey", openAISecretKey)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationResponse](200)
       
 
@@ -692,17 +664,15 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the delete, must have rights to edit the application.
    * @param appKey The key of the application to be deleted
    * @param active If true then set to active, false otherwise
    */
-  def updateApplicationActive(version: BigDecimal, accountId: Long, appKey: String, active: Boolean): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/active", "application/json")
+  def updateApplicationActive(accountId: Long, appKey: String, active: Boolean): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/application/active", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -712,7 +682,6 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PlacementResponse (successful operation)
    * 
-   * @param version 
    * @param placementId The id of the placement to update, the user must have rights to the application the ad placement is for
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -725,8 +694,8 @@ class ApplicationApi(baseUrl: String) {
    * @param defaultImageId Default Image Id
    * @param active Active
    */
-  def updateApplicationPlacement(version: BigDecimal, placementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, size: Option[String] = None, height: Option[Int] = None, width: Option[Int] = None, refreshInterval: Option[Int] = None, defaultImageId: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[PlacementResponse] =
-    ApiRequest[PlacementResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/placement/update", "application/json")
+  def updateApplicationPlacement(placementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, size: Option[String] = None, height: Option[Int] = None, width: Option[Int] = None, refreshInterval: Option[Int] = None, defaultImageId: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[PlacementResponse] =
+    ApiRequest[PlacementResponse](ApiMethods.POST, baseUrl, "/application/placement/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("placementId", placementId)
@@ -738,7 +707,6 @@ class ApplicationApi(baseUrl: String) {
       .withQueryParam("refreshInterval", refreshInterval)
       .withQueryParam("defaultImageId", defaultImageId)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[PlacementResponse](200)
       
 
@@ -748,19 +716,17 @@ class ApplicationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The key of the application
    * @param deviceId Device Id
    * @param accountId The account used to perform the delete, must have rights to edit the application.
    * @param certificate Certificate
    */
-  def uploadApplicationCertificate(version: BigDecimal, appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None, certificate: Option[File] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/application/certificate/create", "application/json")
+  def uploadApplicationCertificate(appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None, certificate: Option[File] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/application/certificate/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("certificate", certificate)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

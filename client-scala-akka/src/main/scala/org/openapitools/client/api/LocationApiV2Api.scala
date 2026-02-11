@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.Location
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object LocationApiV2Api {
 
-  def apply(baseUrl: String = "http://localhost") = new LocationApiV2Api(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new LocationApiV2Api(baseUrl)
 }
 
 class LocationApiV2Api(baseUrl: String) {
@@ -31,13 +30,11 @@ class LocationApiV2Api(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createLocationV2(version: BigDecimal, body: Option[Location] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/location", "application/json")
+  def createLocationV2(body: Option[Location] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/location", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -47,14 +44,12 @@ class LocationApiV2Api(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param id the id of the location to update
    * @param body 
    */
-  def updateLocationV2(version: BigDecimal, id: Long, body: Option[Location] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/location/{id}", "application/json")
+  def updateLocationV2(id: Long, body: Option[Location] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/location/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[SirqulResponse](200)
       

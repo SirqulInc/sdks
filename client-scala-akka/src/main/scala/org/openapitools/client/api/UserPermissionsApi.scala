@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.UserPermissionsResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object UserPermissionsApi {
 
-  def apply(baseUrl: String = "http://localhost") = new UserPermissionsApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new UserPermissionsApi(baseUrl)
 }
 
 class UserPermissionsApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class UserPermissionsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param permissionableType the permissionable type of the object
    * @param permissionableId the id of the permissionable object
    * @param deviceId the device id (deviceId or accountId required)
@@ -50,8 +48,8 @@ class UserPermissionsApi(baseUrl: String) {
    * @param longitude the current longitude of the user
    * @param audienceIds comma separated list of audience ids. This is a feature only available to the permissionable's application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
    */
-  def addUsersToPermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, read: Option[Boolean] = None, write: Option[Boolean] = None, delete: Option[Boolean] = None, add: Option[Boolean] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, connectionGroupIds: Option[String] = None, pending: Option[Boolean] = None, admin: Option[Boolean] = None, includeFriendGroup: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, audienceIds: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/permissions/add", "application/json")
+  def addUsersToPermissionable(permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, read: Option[Boolean] = None, write: Option[Boolean] = None, delete: Option[Boolean] = None, add: Option[Boolean] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, connectionGroupIds: Option[String] = None, pending: Option[Boolean] = None, admin: Option[Boolean] = None, includeFriendGroup: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, audienceIds: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/permissions/add", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("permissionableType", permissionableType)
@@ -69,7 +67,6 @@ class UserPermissionsApi(baseUrl: String) {
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("audienceIds", audienceIds)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -79,21 +76,19 @@ class UserPermissionsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param permissionableType The permissionable type of the object
    * @param permissionableId The id of the permissionable object
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
    */
-  def approvePermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, approvalStatus: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/permissionable/approve", "application/json")
+  def approvePermissionable(permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, approvalStatus: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/permissionable/approve", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("permissionableType", permissionableType)
       .withQueryParam("permissionableId", permissionableId)
       .withQueryParam("approvalStatus", approvalStatus)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -103,7 +98,6 @@ class UserPermissionsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param permissionableType the permissionable type PermissionableType
    * @param permissionableId the id of the permissionable object
    * @param deviceId the device id (deviceId or accountId required)
@@ -111,15 +105,14 @@ class UserPermissionsApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def leaveFromPermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/permissions/leave", "application/json")
+  def leaveFromPermissionable(permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/permissions/leave", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("permissionableType", permissionableType)
       .withQueryParam("permissionableId", permissionableId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -129,7 +122,6 @@ class UserPermissionsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param permissionableType the permissionable type of the object
    * @param permissionableId the id of the permissionable object
    * @param deviceId the device id (deviceId or accountId required)
@@ -142,8 +134,8 @@ class UserPermissionsApi(baseUrl: String) {
    * @param longitude the current longitude of the user
    * @param audienceIds comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
    */
-  def removeUsersFromPermissionable(version: BigDecimal, permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, connectionGroupIds: Option[String] = None, removeFriendGroup: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, audienceIds: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/permissions/remove", "application/json")
+  def removeUsersFromPermissionable(permissionableType: String, permissionableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, connectionGroupIds: Option[String] = None, removeFriendGroup: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, audienceIds: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/permissions/remove", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("permissionableType", permissionableType)
@@ -155,7 +147,6 @@ class UserPermissionsApi(baseUrl: String) {
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("audienceIds", audienceIds)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -165,7 +156,6 @@ class UserPermissionsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[UserPermissionsResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @param connectionAccountId Filter results for a specific user account
@@ -180,8 +170,8 @@ class UserPermissionsApi(baseUrl: String) {
    * @param start the start index for pagination
    * @param limit the limit for pagination
    */
-  def searchPermissionables(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, connectionAccountIds: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, pending: Option[Boolean] = None, admin: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[UserPermissionsResponse]] =
-    ApiRequest[Seq[UserPermissionsResponse]](ApiMethods.GET, baseUrl, "/api/{version}/permissions/search", "application/json")
+  def searchPermissionables(deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, connectionAccountIds: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, pending: Option[Boolean] = None, admin: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[UserPermissionsResponse]] =
+    ApiRequest[Seq[UserPermissionsResponse]](ApiMethods.GET, baseUrl, "/permissions/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
@@ -195,7 +185,6 @@ class UserPermissionsApi(baseUrl: String) {
       .withQueryParam("admin", admin)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[UserPermissionsResponse]](200)
       
 
@@ -205,7 +194,6 @@ class UserPermissionsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[UserPermissionsResponse] (successful operation)
    * 
-   * @param version 
    * @param latitude The latitude of the current account
    * @param longitude The longitude of the current account
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
@@ -221,8 +209,8 @@ class UserPermissionsApi(baseUrl: String) {
    * @param start The start index for pagination
    * @param limit The limit for pagination
    */
-  def searchPermissionablesFollowingDistance(version: BigDecimal, latitude: Double, longitude: Double, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, connectionAccountIds: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, searchRange: Option[Double] = None, keyword: Option[String] = None, pending: Option[Boolean] = None, admin: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[UserPermissionsResponse]] =
-    ApiRequest[Seq[UserPermissionsResponse]](ApiMethods.GET, baseUrl, "/api/{version}/permissions/distancesearch", "application/json")
+  def searchPermissionablesFollowingDistance(latitude: Double, longitude: Double, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, connectionAccountIds: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, searchRange: Option[Double] = None, keyword: Option[String] = None, pending: Option[Boolean] = None, admin: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[UserPermissionsResponse]] =
+    ApiRequest[Seq[UserPermissionsResponse]](ApiMethods.GET, baseUrl, "/permissions/distancesearch", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
@@ -237,7 +225,6 @@ class UserPermissionsApi(baseUrl: String) {
       .withQueryParam("admin", admin)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[UserPermissionsResponse]](200)
       
 

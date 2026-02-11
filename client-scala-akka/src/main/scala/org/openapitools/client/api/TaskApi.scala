@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.TaskResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TaskApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TaskApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TaskApi(baseUrl)
 }
 
 class TaskApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class TaskApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TaskResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the task
    * @param appKey The application to target
@@ -45,8 +43,8 @@ class TaskApi(baseUrl: String) {
    * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
    * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
    */
-  def createTask(version: BigDecimal, accountId: Long, name: String, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TaskResponse] =
-    ApiRequest[TaskResponse](ApiMethods.POST, baseUrl, "/api/{version}/task/create", "application/json")
+  def createTask(accountId: Long, name: String, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TaskResponse] =
+    ApiRequest[TaskResponse](ApiMethods.POST, baseUrl, "/task/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("appKey", appKey)
@@ -59,7 +57,6 @@ class TaskApi(baseUrl: String) {
       .withQueryParam("cronExpression", cronExpression)
       .withQueryParam("visibility", visibility)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[TaskResponse](200)
       
 
@@ -69,15 +66,13 @@ class TaskApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param taskId The id of the Task to delete.
    */
-  def deleteTask(version: BigDecimal, accountId: Long, taskId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/task/delete", "application/json")
+  def deleteTask(accountId: Long, taskId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/task/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("taskId", taskId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -87,15 +82,13 @@ class TaskApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TaskResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param taskId The id of the Task to return.
    */
-  def getTask(version: BigDecimal, accountId: Long, taskId: Long): ApiRequest[TaskResponse] =
-    ApiRequest[TaskResponse](ApiMethods.GET, baseUrl, "/api/{version}/task/get", "application/json")
+  def getTask(accountId: Long, taskId: Long): ApiRequest[TaskResponse] =
+    ApiRequest[TaskResponse](ApiMethods.GET, baseUrl, "/task/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("taskId", taskId)
-      .withPathParam("version", version)
       .withSuccessResponse[TaskResponse](200)
       
 
@@ -105,7 +98,6 @@ class TaskApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[TaskResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param groupingId Filter results by a grouping identifier defined by the client
    * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks 
@@ -119,8 +111,8 @@ class TaskApi(baseUrl: String) {
    * @param limit Limit the result to some number.
    * @param activeOnly Determines whether to return only active results
    */
-  def searchTasks(version: BigDecimal, accountId: Long, groupingId: Option[String] = None, filter: Option[String] = None, statuses: Option[String] = None, templateTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[TaskResponse]] =
-    ApiRequest[Seq[TaskResponse]](ApiMethods.GET, baseUrl, "/api/{version}/task/search", "application/json")
+  def searchTasks(accountId: Long, groupingId: Option[String] = None, filter: Option[String] = None, statuses: Option[String] = None, templateTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[TaskResponse]] =
+    ApiRequest[Seq[TaskResponse]](ApiMethods.GET, baseUrl, "/task/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("groupingId", groupingId)
       .withQueryParam("filter", filter)
@@ -133,7 +125,6 @@ class TaskApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[TaskResponse]](200)
       
 
@@ -143,7 +134,6 @@ class TaskApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TaskResponse (successful operation)
    * 
-   * @param version 
    * @param taskId Task Id
    * @param accountId The logged in user.
    * @param name The name of the task
@@ -158,8 +148,8 @@ class TaskApi(baseUrl: String) {
    * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
    * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
    */
-  def updateTask(version: BigDecimal, taskId: Long, accountId: Long, name: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TaskResponse] =
-    ApiRequest[TaskResponse](ApiMethods.POST, baseUrl, "/api/{version}/task/update", "application/json")
+  def updateTask(taskId: Long, accountId: Long, name: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TaskResponse] =
+    ApiRequest[TaskResponse](ApiMethods.POST, baseUrl, "/task/update", "application/json")
       .withQueryParam("taskId", taskId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
@@ -173,7 +163,6 @@ class TaskApi(baseUrl: String) {
       .withQueryParam("cronExpression", cronExpression)
       .withQueryParam("visibility", visibility)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[TaskResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ParticipantsApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ParticipantsApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ParticipantsApi(baseUrl)
 }
 
 class ParticipantsApi(baseUrl: String) {
@@ -31,17 +30,15 @@ class ParticipantsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param appKey The application key used to identify the application
    * @param useShortNameAsID Whether to use short name as the participant ID
    */
-  def processAllParticipants(version: BigDecimal, accountId: Long, appKey: Option[String] = None, useShortNameAsID: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/participant/process/all", "application/json")
+  def processAllParticipants(accountId: Long, appKey: Option[String] = None, useShortNameAsID: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/participant/process/all", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("useShortNameAsID", useShortNameAsID)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -51,21 +48,19 @@ class ParticipantsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param league The league identifier to process
    * @param appKey The application key used to identify the application
    * @param useShortNameAsID Whether to use short name as the participant ID
    * @param file Multipart file containing participant feed contents
    */
-  def processParticipants(version: BigDecimal, accountId: Long, league: String, appKey: Option[String] = None, useShortNameAsID: Option[Boolean] = None, file: Option[File] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/participant/process", "application/json")
+  def processParticipants(accountId: Long, league: String, appKey: Option[String] = None, useShortNameAsID: Option[Boolean] = None, file: Option[File] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/participant/process", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("league", league)
       .withQueryParam("appKey", appKey)
       .withQueryParam("useShortNameAsID", useShortNameAsID)
       .withQueryParam("file", file)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

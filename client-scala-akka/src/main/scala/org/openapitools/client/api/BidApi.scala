@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.BidResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object BidApi {
 
-  def apply(baseUrl: String = "http://localhost") = new BidApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new BidApi(baseUrl)
 }
 
 class BidApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class BidApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BidResponse (successful operation)
    * 
-   * @param version 
    * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).
    * @param biddableId The id of the biddable object
    * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -41,8 +39,8 @@ class BidApi(baseUrl: String) {
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def createBid(version: BigDecimal, biddableType: String, biddableId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[BidResponse] =
-    ApiRequest[BidResponse](ApiMethods.POST, baseUrl, "/api/{version}/bid/create", "application/json")
+  def createBid(biddableType: String, biddableId: Long, amountPerView: Double, amountPerAction: Double, budgetAmount: Double, budgetSchedule: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[BidResponse] =
+    ApiRequest[BidResponse](ApiMethods.POST, baseUrl, "/bid/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("biddableType", biddableType)
@@ -51,7 +49,6 @@ class BidApi(baseUrl: String) {
       .withQueryParam("amountPerAction", amountPerAction)
       .withQueryParam("budgetAmount", budgetAmount)
       .withQueryParam("budgetSchedule", budgetSchedule)
-      .withPathParam("version", version)
       .withSuccessResponse[BidResponse](200)
       
 
@@ -61,17 +58,15 @@ class BidApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param bidId The bid id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def deleteBid(version: BigDecimal, bidId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/bid/delete", "application/json")
+  def deleteBid(bidId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/bid/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("bidId", bidId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -81,17 +76,15 @@ class BidApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BidResponse (successful operation)
    * 
-   * @param version 
    * @param bidId The bid id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def getBid(version: BigDecimal, bidId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[BidResponse] =
-    ApiRequest[BidResponse](ApiMethods.GET, baseUrl, "/api/{version}/bid/get", "application/json")
+  def getBid(bidId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[BidResponse] =
+    ApiRequest[BidResponse](ApiMethods.GET, baseUrl, "/bid/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("bidId", bidId)
-      .withPathParam("version", version)
       .withSuccessResponse[BidResponse](200)
       
 
@@ -101,7 +94,6 @@ class BidApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BidResponse (successful operation)
    * 
-   * @param version 
    * @param bidId The bid id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -110,8 +102,8 @@ class BidApi(baseUrl: String) {
    * @param budgetAmount The allocated budget amount that will be used
    * @param budgetSchedule The schedule for when the allocated budget amount is reset
    */
-  def updateBid(version: BigDecimal, bidId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, amountPerView: Option[Double] = None, amountPerAction: Option[Double] = None, budgetAmount: Option[Double] = None, budgetSchedule: Option[String] = None): ApiRequest[BidResponse] =
-    ApiRequest[BidResponse](ApiMethods.POST, baseUrl, "/api/{version}/bid/update", "application/json")
+  def updateBid(bidId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, amountPerView: Option[Double] = None, amountPerAction: Option[Double] = None, budgetAmount: Option[Double] = None, budgetSchedule: Option[String] = None): ApiRequest[BidResponse] =
+    ApiRequest[BidResponse](ApiMethods.POST, baseUrl, "/bid/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("bidId", bidId)
@@ -119,7 +111,6 @@ class BidApi(baseUrl: String) {
       .withQueryParam("amountPerAction", amountPerAction)
       .withQueryParam("budgetAmount", budgetAmount)
       .withQueryParam("budgetSchedule", budgetSchedule)
-      .withPathParam("version", version)
       .withSuccessResponse[BidResponse](200)
       
 

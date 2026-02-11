@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.RatingIndexResponse
 import org.openapitools.client.model.RatingResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RatingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RatingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RatingApi(baseUrl)
 }
 
 class RatingApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class RatingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RatingResponse (successful operation)
    * 
-   * @param version 
    * @param ratableType The ratable object type {RETAILER_LOCATION}
    * @param ratableId The id of the ratable object
    * @param ratingValue The integer value of 0-100
@@ -45,8 +43,8 @@ class RatingApi(baseUrl: String) {
    * @param latitude The current location of the user
    * @param longitude The current location of the user
    */
-  def createRating(version: BigDecimal, ratableType: String, ratableId: Long, ratingValue: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, categoryId: Option[Long] = None, display: Option[String] = None, description: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[RatingResponse] =
-    ApiRequest[RatingResponse](ApiMethods.POST, baseUrl, "/api/{version}/rating/create", "application/json")
+  def createRating(ratableType: String, ratableId: Long, ratingValue: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, categoryId: Option[Long] = None, display: Option[String] = None, description: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[RatingResponse] =
+    ApiRequest[RatingResponse](ApiMethods.POST, baseUrl, "/rating/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("ratableType", ratableType)
@@ -58,7 +56,6 @@ class RatingApi(baseUrl: String) {
       .withQueryParam("locationDescription", locationDescription)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[RatingResponse](200)
       
 
@@ -68,17 +65,15 @@ class RatingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param ratingId The ID of the rating to delete
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    */
-  def deleteRating(version: BigDecimal, ratingId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/rating/delete", "application/json")
+  def deleteRating(ratingId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/rating/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("ratingId", ratingId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -88,7 +83,6 @@ class RatingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RatingIndexResponse] (successful operation)
    * 
-   * @param version 
    * @param categoryIds Comma separated list of category ids to filter the results by
    * @param keyword The keyword used to search
    * @param locationType The type of location to filter the results by
@@ -107,8 +101,8 @@ class RatingApi(baseUrl: String) {
    * @param returnCategories whether to return the categories or not
    * @param returnFilters whether to return the filters or not
    */
-  def searchLocationRatingIndexes(version: BigDecimal, categoryIds: Option[String] = None, keyword: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, searchRange: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnOverallRating: Option[Boolean] = None, distanceUnit: Option[String] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None): ApiRequest[Seq[RatingIndexResponse]] =
-    ApiRequest[Seq[RatingIndexResponse]](ApiMethods.GET, baseUrl, "/api/{version}/location/rating/index/search", "application/json")
+  def searchLocationRatingIndexes(categoryIds: Option[String] = None, keyword: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, searchRange: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnOverallRating: Option[Boolean] = None, distanceUnit: Option[String] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None): ApiRequest[Seq[RatingIndexResponse]] =
+    ApiRequest[Seq[RatingIndexResponse]](ApiMethods.GET, baseUrl, "/location/rating/index/search", "application/json")
       .withQueryParam("categoryIds", categoryIds)
       .withQueryParam("keyword", keyword)
       .withQueryParam("locationType", locationType)
@@ -126,7 +120,6 @@ class RatingApi(baseUrl: String) {
       .withQueryParam("returnOffers", returnOffers)
       .withQueryParam("returnCategories", returnCategories)
       .withQueryParam("returnFilters", returnFilters)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RatingIndexResponse]](200)
       
 
@@ -136,7 +129,6 @@ class RatingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RatingIndexResponse] (successful operation)
    * 
-   * @param version 
    * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}
    * @param ratableIds Comma separated list of ratable ids to filter the resuts by
    * @param categoryIds Comma separated list of category ids to filter the results by
@@ -151,8 +143,8 @@ class RatingApi(baseUrl: String) {
    * @param returnRatable Determines whether to return the ratable object in the response
    * @param returnOverallRating Determines whether to return the overall rating record instead
    */
-  def searchRatingIndexes(version: BigDecimal, ratableType: String, ratableIds: Option[String] = None, categoryIds: Option[String] = None, secondaryType: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnRatable: Option[Boolean] = None, returnOverallRating: Option[Boolean] = None): ApiRequest[Seq[RatingIndexResponse]] =
-    ApiRequest[Seq[RatingIndexResponse]](ApiMethods.GET, baseUrl, "/api/{version}/rating/index/search", "application/json")
+  def searchRatingIndexes(ratableType: String, ratableIds: Option[String] = None, categoryIds: Option[String] = None, secondaryType: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnRatable: Option[Boolean] = None, returnOverallRating: Option[Boolean] = None): ApiRequest[Seq[RatingIndexResponse]] =
+    ApiRequest[Seq[RatingIndexResponse]](ApiMethods.GET, baseUrl, "/rating/index/search", "application/json")
       .withQueryParam("ratableType", ratableType)
       .withQueryParam("ratableIds", ratableIds)
       .withQueryParam("categoryIds", categoryIds)
@@ -166,7 +158,6 @@ class RatingApi(baseUrl: String) {
       .withQueryParam("longitude", longitude)
       .withQueryParam("returnRatable", returnRatable)
       .withQueryParam("returnOverallRating", returnOverallRating)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RatingIndexResponse]](200)
       
 
@@ -176,7 +167,6 @@ class RatingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RatingResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param filterAccountId Filter results for a particular account
@@ -189,8 +179,8 @@ class RatingApi(baseUrl: String) {
    * @param start The record to begin the return set on
    * @param limit The number of records to return
    */
-  def searchRatings(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, filterAccountId: Option[Long] = None, ratableType: Option[String] = None, ratableId: Option[Long] = None, categoryIds: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[RatingResponse]] =
-    ApiRequest[Seq[RatingResponse]](ApiMethods.GET, baseUrl, "/api/{version}/rating/search", "application/json")
+  def searchRatings(deviceId: Option[String] = None, accountId: Option[Long] = None, filterAccountId: Option[Long] = None, ratableType: Option[String] = None, ratableId: Option[Long] = None, categoryIds: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[RatingResponse]] =
+    ApiRequest[Seq[RatingResponse]](ApiMethods.GET, baseUrl, "/rating/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("filterAccountId", filterAccountId)
@@ -202,7 +192,6 @@ class RatingApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RatingResponse]](200)
       
 
@@ -212,7 +201,6 @@ class RatingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RatingResponse (successful operation)
    * 
-   * @param version 
    * @param ratingId The id of the rating (Note: this is not the ratable object id)
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -224,8 +212,8 @@ class RatingApi(baseUrl: String) {
    * @param latitude The current location of the user
    * @param longitude The current location of the user
    */
-  def updateRating(version: BigDecimal, ratingId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, ratingValue: Option[Int] = None, categoryId: Option[Long] = None, display: Option[String] = None, description: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[RatingResponse] =
-    ApiRequest[RatingResponse](ApiMethods.POST, baseUrl, "/api/{version}/rating/update", "application/json")
+  def updateRating(ratingId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, ratingValue: Option[Int] = None, categoryId: Option[Long] = None, display: Option[String] = None, description: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[RatingResponse] =
+    ApiRequest[RatingResponse](ApiMethods.POST, baseUrl, "/rating/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("ratingId", ratingId)
@@ -236,7 +224,6 @@ class RatingApi(baseUrl: String) {
       .withQueryParam("locationDescription", locationDescription)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[RatingResponse](200)
       
 

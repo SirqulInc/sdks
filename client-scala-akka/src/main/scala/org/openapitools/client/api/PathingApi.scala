@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.PathingResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PathingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new PathingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new PathingApi(baseUrl)
 }
 
 class PathingApi(baseUrl: String) {
@@ -30,19 +29,17 @@ class PathingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PathingResponse (successful operation)
    * 
-   * @param version 
    * @param data the data to with start, end point and exclusion points
    * @param units the system of measurement for directions: {METRIC, IMPERIAL}
    * @param reducePath determines whether to reduce the path to go in diagonal lines
    * @param directions determines whether to return text directions
    */
-  def computePath(version: BigDecimal, data: String, units: String, reducePath: Boolean, directions: Boolean): ApiRequest[PathingResponse] =
-    ApiRequest[PathingResponse](ApiMethods.GET, baseUrl, "/api/{version}/pathing/compute", "application/json")
+  def computePath(data: String, units: String, reducePath: Boolean, directions: Boolean): ApiRequest[PathingResponse] =
+    ApiRequest[PathingResponse](ApiMethods.GET, baseUrl, "/pathing/compute", "application/json")
       .withQueryParam("data", data)
       .withQueryParam("units", units)
       .withQueryParam("reducePath", reducePath)
       .withQueryParam("directions", directions)
-      .withPathParam("version", version)
       .withSuccessResponse[PathingResponse](200)
       
 

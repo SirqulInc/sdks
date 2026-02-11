@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.VehicleType
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object VehicleTypeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new VehicleTypeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new VehicleTypeApi(baseUrl)
 }
 
 class VehicleTypeApi(baseUrl: String) {
@@ -30,15 +29,13 @@ class VehicleTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : VehicleType (successful operation)
    * 
-   * @param version 
    * @param vehicleType A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"width\": 100,   \"height\": 200,   \"depth\": 200,   \"maxWeight\": 5000,   \"hub\": { \"id\": 1 } } ``` 
    * @param body 
    */
-  def createVehicleType(version: BigDecimal, vehicleType: String, body: Option[VehicleType] = None): ApiRequest[VehicleType] =
-    ApiRequest[VehicleType](ApiMethods.POST, baseUrl, "/api/{version}/vehicle/type", "application/json")
+  def createVehicleType(vehicleType: String, body: Option[VehicleType] = None): ApiRequest[VehicleType] =
+    ApiRequest[VehicleType](ApiMethods.POST, baseUrl, "/vehicle/type", "application/json")
       .withBody(body)
       .withQueryParam("vehicleType", vehicleType)
-      .withPathParam("version", version)
       .withSuccessResponse[VehicleType](200)
       
 
@@ -48,12 +45,10 @@ class VehicleTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param vehicleTypeId The id of the requested vehicle type
    */
-  def deleteVehicleType(version: BigDecimal, vehicleTypeId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/vehicle/type/{vehicleTypeId}", "application/json")
-      .withPathParam("version", version)
+  def deleteVehicleType(vehicleTypeId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/vehicle/type/{vehicleTypeId}", "application/json")
       .withPathParam("vehicleTypeId", vehicleTypeId)
       .withDefaultErrorResponse[Unit]
       
@@ -64,12 +59,10 @@ class VehicleTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : VehicleType (successful operation)
    * 
-   * @param version 
    * @param vehicleTypeId The id of the requested vehicle type
    */
-  def getVehicleType(version: BigDecimal, vehicleTypeId: Long): ApiRequest[VehicleType] =
-    ApiRequest[VehicleType](ApiMethods.GET, baseUrl, "/api/{version}/vehicle/type/{vehicleTypeId}", "application/json")
-      .withPathParam("version", version)
+  def getVehicleType(vehicleTypeId: Long): ApiRequest[VehicleType] =
+    ApiRequest[VehicleType](ApiMethods.GET, baseUrl, "/vehicle/type/{vehicleTypeId}", "application/json")
       .withPathParam("vehicleTypeId", vehicleTypeId)
       .withSuccessResponse[VehicleType](200)
       
@@ -80,7 +73,6 @@ class VehicleTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[VehicleType] (successful operation)
    * 
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -89,8 +81,8 @@ class VehicleTypeApi(baseUrl: String) {
    * @param retailerId Filter by retailer
    * @param hubId Filter by service hub
    */
-  def searchVehicleTypes(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, retailerId: Option[Long] = None, hubId: Option[Long] = None): ApiRequest[Seq[VehicleType]] =
-    ApiRequest[Seq[VehicleType]](ApiMethods.GET, baseUrl, "/api/{version}/vehicle/type", "application/json")
+  def searchVehicleTypes(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, retailerId: Option[Long] = None, hubId: Option[Long] = None): ApiRequest[Seq[VehicleType]] =
+    ApiRequest[Seq[VehicleType]](ApiMethods.GET, baseUrl, "/vehicle/type", "application/json")
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("hubId", hubId)
       .withQueryParam("sortField", sortField)
@@ -98,7 +90,6 @@ class VehicleTypeApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[VehicleType]](200)
       
 
@@ -108,16 +99,14 @@ class VehicleTypeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : VehicleType (successful operation)
    * 
-   * @param version 
    * @param vehicleTypeId The id of the vehicle type to update
    * @param vehicleType The new data for the vehicle type to update to. A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"width\": 100,   \"height\": 200,   \"depth\": 200,   \"maxWeight\": 5000,   \"hub\": { \"id\": 1 } } ``` 
    * @param body 
    */
-  def updateVehicleType(version: BigDecimal, vehicleTypeId: Long, vehicleType: String, body: Option[VehicleType] = None): ApiRequest[VehicleType] =
-    ApiRequest[VehicleType](ApiMethods.PUT, baseUrl, "/api/{version}/vehicle/type/{vehicleTypeId}", "application/json")
+  def updateVehicleType(vehicleTypeId: Long, vehicleType: String, body: Option[VehicleType] = None): ApiRequest[VehicleType] =
+    ApiRequest[VehicleType](ApiMethods.PUT, baseUrl, "/vehicle/type/{vehicleTypeId}", "application/json")
       .withBody(body)
       .withQueryParam("vehicleType", vehicleType)
-      .withPathParam("version", version)
       .withPathParam("vehicleTypeId", vehicleTypeId)
       .withSuccessResponse[VehicleType](200)
       

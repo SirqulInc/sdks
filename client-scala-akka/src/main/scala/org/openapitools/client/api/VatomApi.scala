@@ -11,14 +11,13 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
 import org.openapitools.client.core.ApiKeyLocations._
 
 object VatomApi {
 
-  def apply(baseUrl: String = "http://localhost") = new VatomApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new VatomApi(baseUrl)
 }
 
 class VatomApi(baseUrl: String) {
@@ -29,17 +28,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def createFollowing(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/me/rels/following/create", "application/json")
+  def createFollowing(accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/me/rels/following/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -49,19 +46,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def createSpace(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/spaces/create", "application/json")
+  def createSpace(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/spaces/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -71,19 +66,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def createVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/events/create", "application/json")
+  def createVatomEvent(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/events/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -93,17 +86,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomRelsKey Vatom Rels Key
    * @param returnRawResponse Return raw response
    */
-  def deleteFollowing(version: BigDecimal, accountId: Long, vatomRelsKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/me/rels/following/delete", "application/json")
+  def deleteFollowing(accountId: Long, vatomRelsKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/me/rels/following/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomRelsKey", vatomRelsKey)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -113,19 +104,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    */
-  def deletePointsBalance(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/campaign/points/delete", "application/json")
+  def deletePointsBalance(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/campaign/points/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -135,19 +124,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomSpaceId Vatom Space Id
    * @param returnRawResponse Return raw response
    */
-  def deleteSpace(version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/spaces/delete", "application/json")
+  def deleteSpace(accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/spaces/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomSpaceId", vatomSpaceId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -157,19 +144,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param returnRawResponse Return raw response
    */
-  def deleteVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/events/delete", "application/json")
+  def deleteVatomEvent(accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/events/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomEventId", vatomEventId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -179,17 +164,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param returnRawResponse Return raw response
    */
-  def deleteVatomNFT(version: BigDecimal, accountId: Long, vatomId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/vatoms/delete", "application/json")
+  def deleteVatomNFT(accountId: Long, vatomId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/vatoms/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomId", vatomId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -199,19 +182,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def executeActionOnNFT(version: BigDecimal, accountId: Long, vatomId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/vatoms/execute-action", "application/json")
+  def executeActionOnNFT(accountId: Long, vatomId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/vatoms/execute-action", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomId", vatomId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -221,17 +202,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def geomapSearch(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/vatoms/geo-map/search", "application/json")
+  def geomapSearch(accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/vatoms/geo-map/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -241,17 +220,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    */
-  def getBusinessBehaviors(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/behaviors", "application/json")
+  def getBusinessBehaviors(accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/behaviors", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -261,17 +238,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    */
-  def getBusinessCoinsBalance(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/coins/get", "application/json")
+  def getBusinessCoinsBalance(accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/coins/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -281,15 +256,13 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    */
-  def getBusinessIds(version: BigDecimal, accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/me/businesses", "application/json")
+  def getBusinessIds(accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/me/businesses", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -299,19 +272,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def getBusinessInfo(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/get", "application/json")
+  def getBusinessInfo(accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -321,17 +292,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    */
-  def getBusinessUsers(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/users", "application/json")
+  def getBusinessUsers(accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/users", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -341,19 +310,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    */
-  def getCampaignGroupEntities(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/campaign-groups/entities", "application/json")
+  def getCampaignGroupEntities(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/campaign-groups/entities", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -363,19 +330,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    */
-  def getCampaignGroupRules(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/campaign-groups/rules", "application/json")
+  def getCampaignGroupRules(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/campaign-groups/rules", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -385,19 +350,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    */
-  def getCampaignGroupStats(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/campaign-groups/stats", "application/json")
+  def getCampaignGroupStats(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/campaign-groups/stats", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -407,19 +370,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    */
-  def getCampaignInfo(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/campaign-groups/get", "application/json")
+  def getCampaignInfo(accountId: Long, appKey: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/campaign-groups/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -429,19 +390,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param returnRawResponse Return raw response
    */
-  def getEventGuestList(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/events/guests/get", "application/json")
+  def getEventGuestList(accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/events/guests/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomEventId", vatomEventId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -451,17 +410,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def getInventory(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/me/inventory", "application/json")
+  def getInventory(accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/me/inventory", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -471,15 +428,13 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    */
-  def getMyFollowing(version: BigDecimal, accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/me/rels/following", "application/json")
+  def getMyFollowing(accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/me/rels/following", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -489,19 +444,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    */
-  def getPointsBalance(version: BigDecimal, accountId: Long, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/u/campaign/points/get", "application/json")
+  def getPointsBalance(accountId: Long, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/u/campaign/points/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -511,21 +464,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomUserId Vatom User Id
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    */
-  def getPointsBalanceAsBusiness(version: BigDecimal, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/campaign/u/points/get", "application/json")
+  def getPointsBalanceAsBusiness(accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/campaign/u/points/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -535,19 +486,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomSpaceId Vatom Space Id
    * @param returnRawResponse Return raw response
    */
-  def getSpace(version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/spaces/get", "application/json")
+  def getSpace(accountId: Long, appKey: String, vatomSpaceId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/spaces/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomSpaceId", vatomSpaceId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -557,19 +506,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    */
-  def getUserCoinsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/users/coins/get", "application/json")
+  def getUserCoinsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/users/coins/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -579,19 +526,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def getUserCoinsBalance(version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/u/coins/get", "application/json")
+  def getUserCoinsBalance(accountId: Long, vatomUserId: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/u/coins/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -601,17 +546,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param returnRawResponse Return raw response
    */
-  def getUserFollowers(version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/users/rels/followers", "application/json")
+  def getUserFollowers(accountId: Long, vatomUserId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/users/rels/followers", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -621,17 +564,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param returnRawResponse Return raw response
    */
-  def getUserFollowing(version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/users/rels/following", "application/json")
+  def getUserFollowing(accountId: Long, vatomUserId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/users/rels/following", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -641,17 +582,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param returnRawResponse Return raw response
    */
-  def getUserInfo(version: BigDecimal, accountId: Long, vatomUserId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/user/get", "application/json")
+  def getUserInfo(accountId: Long, vatomUserId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/user/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -661,15 +600,13 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    */
-  def getUserProfile(version: BigDecimal, accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/me/get", "application/json")
+  def getUserProfile(accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/me/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -679,19 +616,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param returnRawResponse Return raw response
    */
-  def getVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/events/get", "application/json")
+  def getVatomEvent(accountId: Long, appKey: String, vatomEventId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/events/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomEventId", vatomEventId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -701,17 +636,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param returnRawResponse Return raw response
    */
-  def getVatomNFT(version: BigDecimal, accountId: Long, vatomId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/vatoms/get", "application/json")
+  def getVatomNFT(accountId: Long, vatomId: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/vatoms/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomId", vatomId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -721,19 +654,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def listCommunities(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/communities/search", "application/json")
+  def listCommunities(accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/communities/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -743,19 +674,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def listEvents(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/events/search", "application/json")
+  def listEvents(accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/events/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -765,19 +694,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def listSpaces(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/spaces/search", "application/json")
+  def listSpaces(accountId: Long, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/spaces/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -787,19 +714,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def listUserCoinTransactions(version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/u/coins/txns/search", "application/json")
+  def listUserCoinTransactions(accountId: Long, vatomUserId: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/u/coins/txns/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -809,21 +734,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def listUserCoinTransactionsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/users/coins/txns/search", "application/json")
+  def listUserCoinTransactionsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/users/coins/txns/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -833,21 +756,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param vatomAction Vatom Action
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def performActionOnNFT(version: BigDecimal, accountId: Long, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/me/vatoms/actions", "application/json")
+  def performActionOnNFT(accountId: Long, vatomId: String, vatomAction: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/me/vatoms/actions", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomId", vatomId)
       .withQueryParam("vatomAction", vatomAction)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -857,19 +778,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def redeemNFT(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/redemptions", "application/json")
+  def redeemNFT(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/redemptions", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -879,21 +798,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def redeemUserCoinsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/users/coins/redeem", "application/json")
+  def redeemUserCoinsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/users/coins/redeem", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -903,17 +820,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def searchBusinesses(version: BigDecimal, accountId: Long, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/search", "application/json")
+  def searchBusinesses(accountId: Long, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -923,17 +838,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    */
-  def searchCampaignGroups(version: BigDecimal, accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/b/campaign-groups/search", "application/json")
+  def searchCampaignGroups(accountId: Long, appKey: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/b/campaign-groups/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -943,15 +856,13 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    */
-  def searchIdentities(version: BigDecimal, accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/me/identities/search", "application/json")
+  def searchIdentities(accountId: Long, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/me/identities/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -961,17 +872,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def searchInventory(version: BigDecimal, accountId: Long, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/api/{version}/vatom/user-inventory/search", "application/json")
+  def searchInventory(accountId: Long, vatomParameters: Option[String] = None, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.GET, baseUrl, "/vatom/user-inventory/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -981,21 +890,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def sendNFT(version: BigDecimal, accountId: Long, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/campaigns/send", "application/json")
+  def sendNFT(accountId: Long, appKey: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/campaigns/send", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1005,7 +912,6 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomUserId Vatom User Id
@@ -1013,15 +919,14 @@ class VatomApi(baseUrl: String) {
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def setPointsBalanceAsBusiness(version: BigDecimal, accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/campaign/u/points/update", "application/json")
+  def setPointsBalanceAsBusiness(accountId: Long, appKey: String, vatomUserId: String, vatomCampaignId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/campaign/u/points/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("vatomCampaignId", vatomCampaignId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1031,19 +936,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def transferUserCoins(version: BigDecimal, accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/u/coins/transfer", "application/json")
+  def transferUserCoins(accountId: Long, vatomUserId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/u/coins/transfer", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1053,19 +956,17 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def updateBusinessCoins(version: BigDecimal, accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/coins/update", "application/json")
+  def updateBusinessCoins(accountId: Long, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/coins/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1075,21 +976,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def updateEventGuestList(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/events/guests/update", "application/json")
+  def updateEventGuestList(accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/events/guests/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomEventId", vatomEventId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1099,21 +998,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomSpaceId Vatom Space Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def updateSpace(version: BigDecimal, accountId: Long, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/spaces/update", "application/json")
+  def updateSpace(accountId: Long, appKey: String, vatomSpaceId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/spaces/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomSpaceId", vatomSpaceId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1123,21 +1020,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def updateUserCoinsAsBusiness(version: BigDecimal, accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/users/coins/update", "application/json")
+  def updateUserCoinsAsBusiness(accountId: Long, vatomUserId: String, appKey: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/users/coins/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomUserId", vatomUserId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1147,17 +1042,15 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def updateUserProfile(version: BigDecimal, accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/me/update", "application/json")
+  def updateUserProfile(accountId: Long, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/me/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -1167,21 +1060,19 @@ class VatomApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    */
-  def updateVatomEvent(version: BigDecimal, accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/vatom/b/events/update", "application/json")
+  def updateVatomEvent(accountId: Long, appKey: String, vatomEventId: String, vatomParameters: String, returnRawResponse: Option[Boolean] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/vatom/b/events/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("vatomEventId", vatomEventId)
       .withQueryParam("vatomParameters", vatomParameters)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 

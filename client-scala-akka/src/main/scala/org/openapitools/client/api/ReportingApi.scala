@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.RegionLegSummary
 import org.openapitools.client.model.ReportBatchResponse
 import org.openapitools.client.model.ReportRegionLegSummaryBatchResponse
@@ -23,7 +22,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ReportingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ReportingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ReportingApi(baseUrl)
 }
 
 class ReportingApi(baseUrl: String) {
@@ -34,7 +33,6 @@ class ReportingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ReportBatchResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user for passing account related params
    * @param status the status of the report
    * @param previewLimit the limit on how much you can preview of the batch report
@@ -47,8 +45,8 @@ class ReportingApi(baseUrl: String) {
    * @param description the description of the batch report
    * @param pageUrl 
    */
-  def createBatch(version: BigDecimal, accountId: Long, status: String, previewLimit: Int, appKey: Option[String] = None, endpoint: Option[String] = None, parameters: Option[String] = None, name: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, description: Option[String] = None, pageUrl: Option[String] = None): ApiRequest[ReportBatchResponse] =
-    ApiRequest[ReportBatchResponse](ApiMethods.POST, baseUrl, "/api/{version}/report/batch/create", "application/json")
+  def createBatch(accountId: Long, status: String, previewLimit: Int, appKey: Option[String] = None, endpoint: Option[String] = None, parameters: Option[String] = None, name: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, description: Option[String] = None, pageUrl: Option[String] = None): ApiRequest[ReportBatchResponse] =
+    ApiRequest[ReportBatchResponse](ApiMethods.POST, baseUrl, "/report/batch/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("status", status)
@@ -60,7 +58,6 @@ class ReportingApi(baseUrl: String) {
       .withQueryParam("description", description)
       .withQueryParam("previewLimit", previewLimit)
       .withQueryParam("pageUrl", pageUrl)
-      .withPathParam("version", version)
       .withSuccessResponse[ReportBatchResponse](200)
       
 
@@ -70,13 +67,11 @@ class ReportingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ReportRegionLegSummaryBatchResponse (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createRegionLegSummaryBatch(version: BigDecimal, body: Seq[RegionLegSummary]): ApiRequest[ReportRegionLegSummaryBatchResponse] =
-    ApiRequest[ReportRegionLegSummaryBatchResponse](ApiMethods.POST, baseUrl, "/api/{version}/report/region/summary/batch", "application/json")
+  def createRegionLegSummaryBatch(body: Seq[RegionLegSummary]): ApiRequest[ReportRegionLegSummaryBatchResponse] =
+    ApiRequest[ReportRegionLegSummaryBatchResponse](ApiMethods.POST, baseUrl, "/report/region/summary/batch", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[ReportRegionLegSummaryBatchResponse](200)
       
 
@@ -86,15 +81,13 @@ class ReportingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account
    * @param batchId the id of the batch to delete
    */
-  def deleteBatch(version: BigDecimal, accountId: Long, batchId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/report/batch/delete", "application/json")
+  def deleteBatch(accountId: Long, batchId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/report/batch/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("batchId", batchId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -104,17 +97,15 @@ class ReportingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ReportBatchResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param batchId returned by /report/batch/create
    * @param allResults whether to return all batch results or not
    */
-  def getReportBatch(version: BigDecimal, accountId: Long, batchId: Long, allResults: Boolean): ApiRequest[ReportBatchResponse] =
-    ApiRequest[ReportBatchResponse](ApiMethods.GET, baseUrl, "/api/{version}/report/batch/get", "application/json")
+  def getReportBatch(accountId: Long, batchId: Long, allResults: Boolean): ApiRequest[ReportBatchResponse] =
+    ApiRequest[ReportBatchResponse](ApiMethods.GET, baseUrl, "/report/batch/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("batchId", batchId)
       .withQueryParam("allResults", allResults)
-      .withPathParam("version", version)
       .withSuccessResponse[ReportBatchResponse](200)
       
 
@@ -124,7 +115,6 @@ class ReportingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ReportResponse (successful operation)
    * 
-   * @param version 
    * @param desc If true then descending order, false is ascending
    * @param accountId The account id of the user for passing account related params
    * @param query The named identifier of the query
@@ -134,8 +124,8 @@ class ReportingApi(baseUrl: String) {
    * @param limit The limit of the pagination
    * @param responseFormat Determines what response format to return. Options are: JSON or CSV
    */
-  def runReport(version: BigDecimal, desc: Boolean, accountId: Option[Long] = None, query: Option[String] = None, parameters: Option[String] = None, order: Option[String] = None, start: Option[Long] = None, limit: Option[Long] = None, responseFormat: Option[String] = None): ApiRequest[ReportResponse] =
-    ApiRequest[ReportResponse](ApiMethods.POST, baseUrl, "/api/{version}/report/run", "application/json")
+  def runReport(desc: Boolean, accountId: Option[Long] = None, query: Option[String] = None, parameters: Option[String] = None, order: Option[String] = None, start: Option[Long] = None, limit: Option[Long] = None, responseFormat: Option[String] = None): ApiRequest[ReportResponse] =
+    ApiRequest[ReportResponse](ApiMethods.POST, baseUrl, "/report/run", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("query", query)
       .withQueryParam("parameters", parameters)
@@ -144,7 +134,6 @@ class ReportingApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("responseFormat", responseFormat)
-      .withPathParam("version", version)
       .withSuccessResponse[ReportResponse](200)
       
 
@@ -154,7 +143,6 @@ class ReportingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ReportBatchResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account logged in
    * @param start the start of the index and/or pagination
    * @param limit the limit of the index and/or pagination
@@ -165,8 +153,8 @@ class ReportingApi(baseUrl: String) {
    * @param startDate the start date of the report batch to search on
    * @param endDate the end date of the report batch to search on
    */
-  def searchBatch(version: BigDecimal, accountId: Long, start: Int, limit: Int, names: Option[String] = None, appKey: Option[String] = None, status: Option[String] = None, globalAppSearch: Option[Boolean] = None, startDate: Option[Long] = None, endDate: Option[Long] = None): ApiRequest[Seq[ReportBatchResponse]] =
-    ApiRequest[Seq[ReportBatchResponse]](ApiMethods.GET, baseUrl, "/api/{version}/report/batch/search", "application/json")
+  def searchBatch(accountId: Long, start: Int, limit: Int, names: Option[String] = None, appKey: Option[String] = None, status: Option[String] = None, globalAppSearch: Option[Boolean] = None, startDate: Option[Long] = None, endDate: Option[Long] = None): ApiRequest[Seq[ReportBatchResponse]] =
+    ApiRequest[Seq[ReportBatchResponse]](ApiMethods.GET, baseUrl, "/report/batch/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("names", names)
       .withQueryParam("appKey", appKey)
@@ -176,7 +164,6 @@ class ReportingApi(baseUrl: String) {
       .withQueryParam("endDate", endDate)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ReportBatchResponse]](200)
       
 

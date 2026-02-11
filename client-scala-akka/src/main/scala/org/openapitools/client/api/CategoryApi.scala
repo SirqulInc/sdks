@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CategoryResponse
 import org.openapitools.client.model.CategoryTreeResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CategoryApi {
 
-  def apply(baseUrl: String = "http://localhost") = new CategoryApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new CategoryApi(baseUrl)
 }
 
 class CategoryApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class CategoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[CategoryResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword The keyword string to search on
    * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -54,8 +52,8 @@ class CategoryApi(baseUrl: String) {
    * @param longitude the longitude of where the search is centered on
    * @param range the maximum range the category can be from the center
    */
-  def categoryDistanceSearch(version: BigDecimal, accountId: Option[Long] = None, keyword: Option[String] = None, appKey: Option[String] = None, categoryIds: Option[String] = None, parentCategoryIds: Option[String] = None, rootOnly: Option[Boolean] = None, sortField: Option[String] = None, responseGroup: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, returnExternal: Option[Boolean] = None, exactMatch: Option[Boolean] = None, `type`: Option[String] = None, externalType: Option[String] = None, minOfferCount: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, range: Option[Double] = None): ApiRequest[Seq[CategoryResponse]] =
-    ApiRequest[Seq[CategoryResponse]](ApiMethods.GET, baseUrl, "/api/{version}/category/distancesearch", "application/json")
+  def categoryDistanceSearch(accountId: Option[Long] = None, keyword: Option[String] = None, appKey: Option[String] = None, categoryIds: Option[String] = None, parentCategoryIds: Option[String] = None, rootOnly: Option[Boolean] = None, sortField: Option[String] = None, responseGroup: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, returnExternal: Option[Boolean] = None, exactMatch: Option[Boolean] = None, `type`: Option[String] = None, externalType: Option[String] = None, minOfferCount: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, range: Option[Double] = None): ApiRequest[Seq[CategoryResponse]] =
+    ApiRequest[Seq[CategoryResponse]](ApiMethods.GET, baseUrl, "/category/distancesearch", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("appKey", appKey)
@@ -76,7 +74,6 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("range", range)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[CategoryResponse]](200)
       
 
@@ -86,7 +83,6 @@ class CategoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CategoryTreeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user (must have permissions to the target application)
    * @param name The name of the category
    * @param appKey The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions)
@@ -102,8 +98,8 @@ class CategoryApi(baseUrl: String) {
    * @param metaData external custom client defined data
    * @param searchTags user defined strings for searching
    */
-  def createCategory(version: BigDecimal, accountId: Long, name: String, appKey: Option[String] = None, parentCategoryId: Option[Long] = None, description: Option[String] = None, `type`: Option[String] = None, assetId: Option[Long] = None, externalId: Option[String] = None, externalType: Option[String] = None, externalCategorySlug: Option[String] = None, sqootSlug: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None, searchTags: Option[String] = None): ApiRequest[CategoryTreeResponse] =
-    ApiRequest[CategoryTreeResponse](ApiMethods.POST, baseUrl, "/api/{version}/category/create", "application/json")
+  def createCategory(accountId: Long, name: String, appKey: Option[String] = None, parentCategoryId: Option[Long] = None, description: Option[String] = None, `type`: Option[String] = None, assetId: Option[Long] = None, externalId: Option[String] = None, externalType: Option[String] = None, externalCategorySlug: Option[String] = None, sqootSlug: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None, searchTags: Option[String] = None): ApiRequest[CategoryTreeResponse] =
+    ApiRequest[CategoryTreeResponse](ApiMethods.POST, baseUrl, "/category/create", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("accountId", accountId)
       .withQueryParam("parentCategoryId", parentCategoryId)
@@ -118,7 +114,6 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("active", active)
       .withQueryParam("metaData", metaData)
       .withQueryParam("searchTags", searchTags)
-      .withPathParam("version", version)
       .withSuccessResponse[CategoryTreeResponse](200)
       
 
@@ -128,15 +123,13 @@ class CategoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the ID of the account
    * @param categoryId the ID of the category
    */
-  def deleteCategory(version: BigDecimal, accountId: Long, categoryId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/category/delete", "application/json")
+  def deleteCategory(accountId: Long, categoryId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/category/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("categoryId", categoryId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -146,19 +139,17 @@ class CategoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CategoryTreeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user (must have permissions to the target application)
    * @param categoryId The category ID to duplicate (includes all children)
    * @param appKey The application to assign the new category to, may be different then the application the source category is assigned to
    * @param parentCategoryId The parent category ID to add the target category to.
    */
-  def duplicateCategory(version: BigDecimal, accountId: Long, categoryId: Long, appKey: Option[String] = None, parentCategoryId: Option[Long] = None): ApiRequest[CategoryTreeResponse] =
-    ApiRequest[CategoryTreeResponse](ApiMethods.POST, baseUrl, "/api/{version}/category/duplicate", "application/json")
+  def duplicateCategory(accountId: Long, categoryId: Long, appKey: Option[String] = None, parentCategoryId: Option[Long] = None): ApiRequest[CategoryTreeResponse] =
+    ApiRequest[CategoryTreeResponse](ApiMethods.POST, baseUrl, "/category/duplicate", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("accountId", accountId)
       .withQueryParam("categoryId", categoryId)
       .withQueryParam("parentCategoryId", parentCategoryId)
-      .withPathParam("version", version)
       .withSuccessResponse[CategoryTreeResponse](200)
       
 
@@ -168,15 +159,13 @@ class CategoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CategoryTreeResponse (successful operation)
    * 
-   * @param version 
    * @param categoryId the ID of the category
    * @param returnExternal Determines whether to return extra info about the category's \"Participant\" reference
    */
-  def getCategory(version: BigDecimal, categoryId: Long, returnExternal: Option[Boolean] = None): ApiRequest[CategoryTreeResponse] =
-    ApiRequest[CategoryTreeResponse](ApiMethods.GET, baseUrl, "/api/{version}/category/get", "application/json")
+  def getCategory(categoryId: Long, returnExternal: Option[Boolean] = None): ApiRequest[CategoryTreeResponse] =
+    ApiRequest[CategoryTreeResponse](ApiMethods.GET, baseUrl, "/category/get", "application/json")
       .withQueryParam("categoryId", categoryId)
       .withQueryParam("returnExternal", returnExternal)
-      .withPathParam("version", version)
       .withSuccessResponse[CategoryTreeResponse](200)
       
 
@@ -186,7 +175,6 @@ class CategoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[CategoryResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword The string to search on
    * @param appKey the appKey of the application to retrieve categories for, if not specified then search on the global application.
@@ -209,8 +197,8 @@ class CategoryApi(baseUrl: String) {
    * @param searchDepth When searching by a specific parent category (to return sub children), this determines the number of child layers to search in. The minimum is 1, the maximum is 4.
    * @param searchMode The search index mode to use (e.g. OPENSEARCH or RDS)
    */
-  def searchCategories(version: BigDecimal, accountId: Option[Long] = None, keyword: Option[String] = None, appKey: Option[String] = None, categoryId: Option[String] = None, categoryIds: Option[String] = None, parentCategoryIds: Option[String] = None, rootOnly: Option[Boolean] = None, sortField: Option[String] = None, responseGroup: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, returnExternal: Option[Boolean] = None, exactMatch: Option[Boolean] = None, `type`: Option[String] = None, externalType: Option[String] = None, excludeExternalType: Option[Boolean] = None, minOfferCount: Option[Int] = None, searchDepth: Option[Int] = None, searchMode: Option[String] = None): ApiRequest[Seq[CategoryResponse]] =
-    ApiRequest[Seq[CategoryResponse]](ApiMethods.GET, baseUrl, "/api/{version}/category/search", "application/json")
+  def searchCategories(accountId: Option[Long] = None, keyword: Option[String] = None, appKey: Option[String] = None, categoryId: Option[String] = None, categoryIds: Option[String] = None, parentCategoryIds: Option[String] = None, rootOnly: Option[Boolean] = None, sortField: Option[String] = None, responseGroup: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, returnExternal: Option[Boolean] = None, exactMatch: Option[Boolean] = None, `type`: Option[String] = None, externalType: Option[String] = None, excludeExternalType: Option[Boolean] = None, minOfferCount: Option[Int] = None, searchDepth: Option[Int] = None, searchMode: Option[String] = None): ApiRequest[Seq[CategoryResponse]] =
+    ApiRequest[Seq[CategoryResponse]](ApiMethods.GET, baseUrl, "/category/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("appKey", appKey)
@@ -232,7 +220,6 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("minOfferCount", minOfferCount)
       .withQueryParam("searchDepth", searchDepth)
       .withQueryParam("searchMode", searchMode)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[CategoryResponse]](200)
       
 
@@ -242,7 +229,6 @@ class CategoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CategoryTreeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param categoryId The ID of the category to edit
    * @param parentCategoryId The ID of the parent category, if not provided then the parent category will be null
@@ -258,8 +244,8 @@ class CategoryApi(baseUrl: String) {
    * @param metaData external custom client defined data
    * @param searchTags user defined strings for searching
    */
-  def updateCategory(version: BigDecimal, accountId: Long, categoryId: Long, parentCategoryId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, `type`: Option[String] = None, assetId: Option[Long] = None, externalId: Option[String] = None, externalType: Option[String] = None, externalCategorySlug: Option[String] = None, sqootSlug: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None, searchTags: Option[String] = None): ApiRequest[CategoryTreeResponse] =
-    ApiRequest[CategoryTreeResponse](ApiMethods.POST, baseUrl, "/api/{version}/category/update", "application/json")
+  def updateCategory(accountId: Long, categoryId: Long, parentCategoryId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, `type`: Option[String] = None, assetId: Option[Long] = None, externalId: Option[String] = None, externalType: Option[String] = None, externalCategorySlug: Option[String] = None, sqootSlug: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None, searchTags: Option[String] = None): ApiRequest[CategoryTreeResponse] =
+    ApiRequest[CategoryTreeResponse](ApiMethods.POST, baseUrl, "/category/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("categoryId", categoryId)
       .withQueryParam("parentCategoryId", parentCategoryId)
@@ -274,7 +260,6 @@ class CategoryApi(baseUrl: String) {
       .withQueryParam("active", active)
       .withQueryParam("metaData", metaData)
       .withQueryParam("searchTags", searchTags)
-      .withPathParam("version", version)
       .withSuccessResponse[CategoryTreeResponse](200)
       
 

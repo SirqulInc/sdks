@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.OfferTransactionResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object WalletApi {
 
-  def apply(baseUrl: String = "http://localhost") = new WalletApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new WalletApi(baseUrl)
 }
 
 class WalletApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class WalletApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferTransactionResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param offerId The id of the offer being added (offerId or offeLocationId required)
@@ -44,8 +42,8 @@ class WalletApi(baseUrl: String) {
    * @param appKey The application requesting the purchase, required when currencyType is TICKETS
    * @param status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
    */
-  def createOfferTransaction(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, offerCart: Option[String] = None, promoCode: Option[String] = None, currencyType: Option[String] = None, usePoints: Option[Boolean] = None, metaData: Option[String] = None, appKey: Option[String] = None, status: Option[Int] = None): ApiRequest[Seq[OfferTransactionResponse]] =
-    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.POST, baseUrl, "/api/{version}/wallet/create", "application/json")
+  def createOfferTransaction(deviceId: Option[String] = None, accountId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, offerCart: Option[String] = None, promoCode: Option[String] = None, currencyType: Option[String] = None, usePoints: Option[Boolean] = None, metaData: Option[String] = None, appKey: Option[String] = None, status: Option[Int] = None): ApiRequest[Seq[OfferTransactionResponse]] =
+    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.POST, baseUrl, "/wallet/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerId", offerId)
@@ -57,7 +55,6 @@ class WalletApi(baseUrl: String) {
       .withQueryParam("metaData", metaData)
       .withQueryParam("appKey", appKey)
       .withQueryParam("status", status)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferTransactionResponse]](200)
       
 
@@ -67,17 +64,15 @@ class WalletApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param transactionId The offer transaction id to remove
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def deleteOfferTransaction(version: BigDecimal, transactionId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/wallet/delete", "application/json")
+  def deleteOfferTransaction(transactionId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/wallet/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("transactionId", transactionId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -85,7 +80,6 @@ class WalletApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferTransactionResponse (successful operation)
    * 
-   * @param version 
    * @param transactionId The offer transaction id to get details of
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -94,8 +88,8 @@ class WalletApi(baseUrl: String) {
    * @param longitude The latitude location of the user
    * @param returnFullResponse Determines whether to return a detailed version of the response
    */
-  def getOfferTransaction(version: BigDecimal, transactionId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, includeMission: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnFullResponse: Option[Boolean] = None): ApiRequest[OfferTransactionResponse] =
-    ApiRequest[OfferTransactionResponse](ApiMethods.GET, baseUrl, "/api/{version}/wallet/get", "application/json")
+  def getOfferTransaction(transactionId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, includeMission: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnFullResponse: Option[Boolean] = None): ApiRequest[OfferTransactionResponse] =
+    ApiRequest[OfferTransactionResponse](ApiMethods.GET, baseUrl, "/wallet/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("transactionId", transactionId)
@@ -103,7 +97,6 @@ class WalletApi(baseUrl: String) {
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("returnFullResponse", returnFullResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferTransactionResponse](200)
       
 
@@ -113,7 +106,6 @@ class WalletApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferTransactionResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param offerId The id of the offer being added (offerId or offeLocationId required)
@@ -125,8 +117,8 @@ class WalletApi(baseUrl: String) {
    * @param metaData External custom client defined data
    * @param appKey The application requesting the purchase, required when currencyType is TICKETS
    */
-  def previewOfferTransaction(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, offerCart: Option[String] = None, promoCode: Option[String] = None, currencyType: Option[String] = None, usePoints: Option[Boolean] = None, metaData: Option[String] = None, appKey: Option[String] = None): ApiRequest[Seq[OfferTransactionResponse]] =
-    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.POST, baseUrl, "/api/{version}/wallet/preview", "application/json")
+  def previewOfferTransaction(deviceId: Option[String] = None, accountId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, offerCart: Option[String] = None, promoCode: Option[String] = None, currencyType: Option[String] = None, usePoints: Option[Boolean] = None, metaData: Option[String] = None, appKey: Option[String] = None): ApiRequest[Seq[OfferTransactionResponse]] =
+    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.POST, baseUrl, "/wallet/preview", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerId", offerId)
@@ -137,7 +129,6 @@ class WalletApi(baseUrl: String) {
       .withQueryParam("usePoints", usePoints)
       .withQueryParam("metaData", metaData)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferTransactionResponse]](200)
       
 
@@ -147,7 +138,6 @@ class WalletApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferTransactionResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param keyword The keyword to search for
@@ -190,8 +180,8 @@ class WalletApi(baseUrl: String) {
    * @param recurringExpirationSince Filter results by the recurring billing expiration date
    * @param recurringExpirationBefore Filter results by the recurring billing expiration date
    */
-  def searchOfferTransactions(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerIds: Option[String] = None, retailerLocationId: Option[Long] = None, retailerLocationIds: Option[String] = None, excludeRetailerLocationIds: Option[String] = None, offerId: Option[Long] = None, offerIds: Option[String] = None, offerLocationId: Option[Long] = None, offerLocationIds: Option[String] = None, offerType: Option[String] = None, offerTypes: Option[String] = None, specialOfferType: Option[String] = None, specialOfferTypes: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, offerAudienceIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, redeemableStartDate: Option[Long] = None, redeemableEndDate: Option[Long] = None, filterByParentOffer: Option[Boolean] = None, startedSince: Option[Long] = None, startedBefore: Option[Long] = None, endedSince: Option[Long] = None, endedBefore: Option[Long] = None, redeemed: Option[Boolean] = None, statuses: Option[String] = None, reservationsOnly: Option[Boolean] = None, activeOnly: Option[Boolean] = None, returnFullResponse: Option[Boolean] = None, recurringStartedSince: Option[Long] = None, recurringStartedBefore: Option[Long] = None, recurringExpirationSince: Option[Long] = None, recurringExpirationBefore: Option[Long] = None): ApiRequest[Seq[OfferTransactionResponse]] =
-    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/wallet/search", "application/json")
+  def searchOfferTransactions(deviceId: Option[String] = None, accountId: Option[Long] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerIds: Option[String] = None, retailerLocationId: Option[Long] = None, retailerLocationIds: Option[String] = None, excludeRetailerLocationIds: Option[String] = None, offerId: Option[Long] = None, offerIds: Option[String] = None, offerLocationId: Option[Long] = None, offerLocationIds: Option[String] = None, offerType: Option[String] = None, offerTypes: Option[String] = None, specialOfferType: Option[String] = None, specialOfferTypes: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, offerAudienceIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, redeemableStartDate: Option[Long] = None, redeemableEndDate: Option[Long] = None, filterByParentOffer: Option[Boolean] = None, startedSince: Option[Long] = None, startedBefore: Option[Long] = None, endedSince: Option[Long] = None, endedBefore: Option[Long] = None, redeemed: Option[Boolean] = None, statuses: Option[String] = None, reservationsOnly: Option[Boolean] = None, activeOnly: Option[Boolean] = None, returnFullResponse: Option[Boolean] = None, recurringStartedSince: Option[Long] = None, recurringStartedBefore: Option[Long] = None, recurringExpirationSince: Option[Long] = None, recurringExpirationBefore: Option[Long] = None): ApiRequest[Seq[OfferTransactionResponse]] =
+    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.GET, baseUrl, "/wallet/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
@@ -233,7 +223,6 @@ class WalletApi(baseUrl: String) {
       .withQueryParam("recurringStartedBefore", recurringStartedBefore)
       .withQueryParam("recurringExpirationSince", recurringExpirationSince)
       .withQueryParam("recurringExpirationBefore", recurringExpirationBefore)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferTransactionResponse]](200)
       
 
@@ -243,7 +232,6 @@ class WalletApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferTransactionResponse (successful operation)
    * 
-   * @param version 
    * @param transactionId The offer transaction id to remove
    * @param status The status value to change to (0 or 1)
    * @param deviceId The device id (deviceId or accountId required)
@@ -258,8 +246,8 @@ class WalletApi(baseUrl: String) {
    * @param returnFullResponse Determines whether to return a detailed version of the response
    * @param exceptionMembershipOfferIds Exception Offers, transaction audiences of these offers won't be removed out of the account when up
    */
-  def updateOfferTransaction(version: BigDecimal, transactionId: Long, status: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, offerLocationId: Option[Long] = None, currencyType: Option[String] = None, usePoints: Option[Boolean] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, returnFullResponse: Option[Boolean] = None, exceptionMembershipOfferIds: Option[String] = None): ApiRequest[OfferTransactionResponse] =
-    ApiRequest[OfferTransactionResponse](ApiMethods.POST, baseUrl, "/api/{version}/wallet/update", "application/json")
+  def updateOfferTransaction(transactionId: Long, status: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, offerLocationId: Option[Long] = None, currencyType: Option[String] = None, usePoints: Option[Boolean] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, returnFullResponse: Option[Boolean] = None, exceptionMembershipOfferIds: Option[String] = None): ApiRequest[OfferTransactionResponse] =
+    ApiRequest[OfferTransactionResponse](ApiMethods.POST, baseUrl, "/wallet/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("transactionId", transactionId)
@@ -273,7 +261,6 @@ class WalletApi(baseUrl: String) {
       .withQueryParam("metaData", metaData)
       .withQueryParam("returnFullResponse", returnFullResponse)
       .withQueryParam("exceptionMembershipOfferIds", exceptionMembershipOfferIds)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferTransactionResponse](200)
       
 

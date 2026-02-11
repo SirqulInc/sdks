@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.PreviewPersonaResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PreviewPersonaApi {
 
-  def apply(baseUrl: String = "http://localhost") = new PreviewPersonaApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new PreviewPersonaApi(baseUrl)
 }
 
 class PreviewPersonaApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class PreviewPersonaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PreviewPersonaResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user
    * @param title the title of the persona
    * @param previewAccounts the accounts that are able to preview from this persona
@@ -42,8 +40,8 @@ class PreviewPersonaApi(baseUrl: String) {
    * @param latitude the specified latitude of the persona
    * @param longitude the specified longitude of the persona
    */
-  def createPersona(version: BigDecimal, accountId: Long, title: String, previewAccounts: Option[String] = None, date: Option[Long] = None, age: Option[Int] = None, gender: Option[String] = None, gameExperienceLevel: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PreviewPersonaResponse] =
-    ApiRequest[PreviewPersonaResponse](ApiMethods.POST, baseUrl, "/api/{version}/persona/create", "application/json")
+  def createPersona(accountId: Long, title: String, previewAccounts: Option[String] = None, date: Option[Long] = None, age: Option[Int] = None, gender: Option[String] = None, gameExperienceLevel: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PreviewPersonaResponse] =
+    ApiRequest[PreviewPersonaResponse](ApiMethods.POST, baseUrl, "/persona/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("title", title)
       .withQueryParam("previewAccounts", previewAccounts)
@@ -53,7 +51,6 @@ class PreviewPersonaApi(baseUrl: String) {
       .withQueryParam("gameExperienceLevel", gameExperienceLevel)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[PreviewPersonaResponse](200)
       
 
@@ -63,15 +60,13 @@ class PreviewPersonaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param personaId the id of the persona to delete
    */
-  def deletePersona(version: BigDecimal, accountId: Long, personaId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/persona/delete", "application/json")
+  def deletePersona(accountId: Long, personaId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/persona/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("personaId", personaId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -81,15 +76,13 @@ class PreviewPersonaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PreviewPersonaResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user
    * @param personaId the persona ID of the persona
    */
-  def getPersonaList(version: BigDecimal, accountId: Long, personaId: Long): ApiRequest[PreviewPersonaResponse] =
-    ApiRequest[PreviewPersonaResponse](ApiMethods.GET, baseUrl, "/api/{version}/persona/get", "application/json")
+  def getPersonaList(accountId: Long, personaId: Long): ApiRequest[PreviewPersonaResponse] =
+    ApiRequest[PreviewPersonaResponse](ApiMethods.GET, baseUrl, "/persona/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("personaId", personaId)
-      .withPathParam("version", version)
       .withSuccessResponse[PreviewPersonaResponse](200)
       
 
@@ -99,17 +92,15 @@ class PreviewPersonaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PreviewPersonaResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user
    * @param start the start index for pagination
    * @param limit the limit for pagination (There is a hard limit of 100)
    */
-  def searchPersona(version: BigDecimal, accountId: Long, start: Int, limit: Int): ApiRequest[PreviewPersonaResponse] =
-    ApiRequest[PreviewPersonaResponse](ApiMethods.GET, baseUrl, "/api/{version}/persona/search", "application/json")
+  def searchPersona(accountId: Long, start: Int, limit: Int): ApiRequest[PreviewPersonaResponse] =
+    ApiRequest[PreviewPersonaResponse](ApiMethods.GET, baseUrl, "/persona/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[PreviewPersonaResponse](200)
       
 
@@ -119,7 +110,6 @@ class PreviewPersonaApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PreviewPersonaResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user
    * @param personaId the persona ID of the persona to update
    * @param title the title of the persona
@@ -132,8 +122,8 @@ class PreviewPersonaApi(baseUrl: String) {
    * @param latitude the specified latitude of the persona
    * @param longitude the specified longitude of the persona
    */
-  def updatePersona(version: BigDecimal, accountId: Long, personaId: Long, title: Option[String] = None, previewAccounts: Option[String] = None, active: Option[Boolean] = None, date: Option[Long] = None, age: Option[Int] = None, gender: Option[String] = None, gameExperienceLevel: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PreviewPersonaResponse] =
-    ApiRequest[PreviewPersonaResponse](ApiMethods.POST, baseUrl, "/api/{version}/persona/update", "application/json")
+  def updatePersona(accountId: Long, personaId: Long, title: Option[String] = None, previewAccounts: Option[String] = None, active: Option[Boolean] = None, date: Option[Long] = None, age: Option[Int] = None, gender: Option[String] = None, gameExperienceLevel: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PreviewPersonaResponse] =
+    ApiRequest[PreviewPersonaResponse](ApiMethods.POST, baseUrl, "/persona/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("personaId", personaId)
       .withQueryParam("title", title)
@@ -145,7 +135,6 @@ class PreviewPersonaApi(baseUrl: String) {
       .withQueryParam("gameExperienceLevel", gameExperienceLevel)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[PreviewPersonaResponse](200)
       
 

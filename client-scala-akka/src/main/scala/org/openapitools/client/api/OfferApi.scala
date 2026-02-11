@@ -25,7 +25,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object OfferApi {
 
-  def apply(baseUrl: String = "http://localhost") = new OfferApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new OfferApi(baseUrl)
 }
 
 class OfferApi(baseUrl: String) {
@@ -36,17 +36,15 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param data JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def batchUpdateOfferLocations(version: BigDecimal, data: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/offer/location/batchUpdate", "application/json")
+  def batchUpdateOfferLocations(data: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/retailer/offer/location/batchUpdate", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("data", data)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -56,7 +54,6 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerOfferResponse (successful operation)
    * 
-   * @param version 
    * @param includeOfferLocations If true return all the offer locations associated with the offer
    * @param title The title (255 char limit)
    * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -144,8 +141,8 @@ class OfferApi(baseUrl: String) {
    * @param availability 
    * @param availabilitySummary 
    */
-  def createOffer(version: BigDecimal, includeOfferLocations: Boolean, title: String, barcodeType: String, noExpiration: Boolean, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Long, fullPrice: Double, discountPrice: Double, offerType: String, specialOfferType: String, offerVisibility: String, active: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, tags: Option[String] = None, parentOfferId: Option[Long] = None, retailerLocationIds: Option[String] = None, offerLocations: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, externalId: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, ticketPriceType: Option[String] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, brand: Option[String] = None, productType: Option[String] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, department: Option[String] = None, features: Option[String] = None, minimumPrice: Option[Double] = None, width: Option[Double] = None, height: Option[Double] = None, depth: Option[Double] = None, weight: Option[Double] = None, unit: Option[String] = None, studio: Option[String] = None, parentalRating: Option[String] = None, publishDate: Option[Long] = None, availabilityDate: Option[Long] = None, sizeId: Option[Long] = None, listingId: Option[Long] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, rebootTimeHour: Option[Int] = None, rebootTimeMinute: Option[Int] = None, idleTimeoutInSecond: Option[Int] = None, serialNumber: Option[String] = None, udid: Option[String] = None, deviceType: Option[String] = None, devicePower: Option[Double] = None, deviceInterference: Option[Double] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[RetailerOfferResponse] =
-    ApiRequest[RetailerOfferResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/offer/create", "application/json")
+  def createOffer(includeOfferLocations: Boolean, title: String, barcodeType: String, noExpiration: Boolean, availableLimit: Int, availableLimitPerUser: Int, addedLimit: Int, viewLimit: Int, maxPrints: Int, ticketPrice: Long, fullPrice: Double, discountPrice: Double, offerType: String, specialOfferType: String, offerVisibility: String, active: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, tags: Option[String] = None, parentOfferId: Option[Long] = None, retailerLocationIds: Option[String] = None, offerLocations: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, externalId: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, ticketPriceType: Option[String] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, brand: Option[String] = None, productType: Option[String] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, department: Option[String] = None, features: Option[String] = None, minimumPrice: Option[Double] = None, width: Option[Double] = None, height: Option[Double] = None, depth: Option[Double] = None, weight: Option[Double] = None, unit: Option[String] = None, studio: Option[String] = None, parentalRating: Option[String] = None, publishDate: Option[Long] = None, availabilityDate: Option[Long] = None, sizeId: Option[Long] = None, listingId: Option[Long] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, rebootTimeHour: Option[Int] = None, rebootTimeMinute: Option[Int] = None, idleTimeoutInSecond: Option[Int] = None, serialNumber: Option[String] = None, udid: Option[String] = None, deviceType: Option[String] = None, devicePower: Option[Double] = None, deviceInterference: Option[Double] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[RetailerOfferResponse] =
+    ApiRequest[RetailerOfferResponse](ApiMethods.POST, baseUrl, "/retailer/offer/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("tags", tags)
@@ -232,7 +229,6 @@ class OfferApi(baseUrl: String) {
       .withQueryParam("deviceInterference", deviceInterference)
       .withQueryParam("availability", availability)
       .withQueryParam("availabilitySummary", availabilitySummary)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerOfferResponse](200)
       
 
@@ -242,17 +238,15 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param offerId The ID of the offer to be deleted
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the delete, must have rights to edit the offer.
    */
-  def deleteOffer(version: BigDecimal, offerId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/offer/delete", "application/json")
+  def deleteOffer(offerId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/retailer/offer/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerId", offerId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -262,17 +256,15 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param offerLocationId The ID of the offer location to be deleted
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the delete, must have rights to edit the offer location.
    */
-  def deleteOfferLocation(version: BigDecimal, offerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/offer/location/delete", "application/json")
+  def deleteOfferLocation(offerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/retailer/offer/location/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerLocationId", offerLocationId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -282,19 +274,17 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerOfferResponse (successful operation)
    * 
-   * @param version 
    * @param offerId The id of the offer
    * @param includeOfferLocations 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id (deviceId or accountId required)
    */
-  def getOffer(version: BigDecimal, offerId: Long, includeOfferLocations: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[RetailerOfferResponse] =
-    ApiRequest[RetailerOfferResponse](ApiMethods.GET, baseUrl, "/api/{version}/retailer/offer/get", "application/json")
+  def getOffer(offerId: Long, includeOfferLocations: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[RetailerOfferResponse] =
+    ApiRequest[RetailerOfferResponse](ApiMethods.GET, baseUrl, "/retailer/offer/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerId", offerId)
       .withQueryParam("includeOfferLocations", includeOfferLocations)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerOfferResponse](200)
       
 
@@ -304,7 +294,6 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id for returning account information (i.e. favorites)
    * @param accountId The account id for returning account information (i.e. favorites)
    * @param offerId The offer id (either offeLocationId or offerId must be provided)
@@ -316,8 +305,8 @@ class OfferApi(baseUrl: String) {
    * @param includeRetailerLocations Determines whether to return the retailer location info for each offer location response (includeOfferLocations must also be true for this to work)
    * @param includeChildOffers Determines whether to include child offers in the response
    */
-  def getOfferDetails(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, distance: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, includeOfferLocations: Option[Boolean] = None, includeRetailerLocations: Option[Boolean] = None, includeChildOffers: Option[Boolean] = None): ApiRequest[OfferResponse] =
-    ApiRequest[OfferResponse](ApiMethods.GET, baseUrl, "/api/{version}/offer/get", "application/json")
+  def getOfferDetails(deviceId: Option[String] = None, accountId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, distance: Option[Double] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, includeOfferLocations: Option[Boolean] = None, includeRetailerLocations: Option[Boolean] = None, includeChildOffers: Option[Boolean] = None): ApiRequest[OfferResponse] =
+    ApiRequest[OfferResponse](ApiMethods.GET, baseUrl, "/offer/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerId", offerId)
@@ -328,7 +317,6 @@ class OfferApi(baseUrl: String) {
       .withQueryParam("includeOfferLocations", includeOfferLocations)
       .withQueryParam("includeRetailerLocations", includeRetailerLocations)
       .withQueryParam("includeChildOffers", includeChildOffers)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferResponse](200)
       
 
@@ -338,19 +326,17 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ListCountResponse (successful operation)
    * 
-   * @param version 
    * @param latitude The latitude of where the search will center at
    * @param longitude The longitude of where the search will center at
    * @param searchRange The range of the search
    * @param distanceUnit The units to use for distance calculations (e.g. MILES, KILOMETERS)
    */
-  def getOfferListCounts(version: BigDecimal, latitude: Double, longitude: Double, searchRange: Option[BigDecimal] = None, distanceUnit: Option[String] = None): ApiRequest[ListCountResponse] =
-    ApiRequest[ListCountResponse](ApiMethods.GET, baseUrl, "/api/{version}/offer/lists/count", "application/json")
+  def getOfferListCounts(latitude: Double, longitude: Double, searchRange: Option[BigDecimal] = None, distanceUnit: Option[String] = None): ApiRequest[ListCountResponse] =
+    ApiRequest[ListCountResponse](ApiMethods.GET, baseUrl, "/offer/lists/count", "application/json")
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("searchRange", searchRange)
       .withQueryParam("distanceUnit", distanceUnit)
-      .withPathParam("version", version)
       .withSuccessResponse[ListCountResponse](200)
       
 
@@ -360,15 +346,13 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferShortResponse (successful operation)
    * 
-   * @param version 
    * @param offerLocationId the id of the offer location to get
    * @param udid the UDID of the device
    */
-  def getOfferLocation(version: BigDecimal, offerLocationId: Option[Long] = None, udid: Option[String] = None): ApiRequest[OfferShortResponse] =
-    ApiRequest[OfferShortResponse](ApiMethods.GET, baseUrl, "/api/{version}/offer/location/get", "application/json")
+  def getOfferLocation(offerLocationId: Option[Long] = None, udid: Option[String] = None): ApiRequest[OfferShortResponse] =
+    ApiRequest[OfferShortResponse](ApiMethods.GET, baseUrl, "/offer/location/get", "application/json")
       .withQueryParam("offerLocationId", offerLocationId)
       .withQueryParam("udid", udid)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferShortResponse](200)
       
 
@@ -378,7 +362,6 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferShortResponse] (successful operation)
    * 
-   * @param version 
    * @param sortField The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
    * @param descending The order to return the results. Default is false, which will return the results in ascending order.
    * @param start The index into the record set to start with. Default is 0.
@@ -400,8 +383,8 @@ class OfferApi(baseUrl: String) {
    * @param needsNotificationSent 
    * @param lastNotificationSent 
    */
-  def getOfferLocationsForRetailers(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, includeRetailerLocation: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, offerType: Option[String] = None, specialOfferType: Option[String] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, deviceStatus: Option[String] = None, needsNotificationSent: Option[Boolean] = None, lastNotificationSent: Option[Long] = None): ApiRequest[Seq[OfferShortResponse]] =
-    ApiRequest[Seq[OfferShortResponse]](ApiMethods.GET, baseUrl, "/api/{version}/retailer/offer/location/search", "application/json")
+  def getOfferLocationsForRetailers(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, includeRetailerLocation: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, offerType: Option[String] = None, specialOfferType: Option[String] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, deviceStatus: Option[String] = None, needsNotificationSent: Option[Boolean] = None, lastNotificationSent: Option[Long] = None): ApiRequest[Seq[OfferShortResponse]] =
+    ApiRequest[Seq[OfferShortResponse]](ApiMethods.GET, baseUrl, "/retailer/offer/location/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
@@ -422,7 +405,6 @@ class OfferApi(baseUrl: String) {
       .withQueryParam("deviceStatus", deviceStatus)
       .withQueryParam("needsNotificationSent", needsNotificationSent)
       .withQueryParam("lastNotificationSent", lastNotificationSent)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferShortResponse]](200)
       
 
@@ -432,7 +414,6 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferResponse] (successful operation)
    * 
-   * @param version 
    * @param offerVisibility 
    * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
    * @param descending The order to return the search results
@@ -465,8 +446,8 @@ class OfferApi(baseUrl: String) {
    * @param needsNotificationSent 
    * @param lastNotificationSent 
    */
-  def getOffersForRetailers(version: BigDecimal, offerVisibility: String, sortField: String, descending: Boolean, start: Int, limit: Int, availableOnly: Boolean, activeOnly: Boolean, includeCategories: Boolean, includeFilters: Boolean, includeOfferLocations: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, `q`: Option[String] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, couponType: Option[String] = None, offerType: Option[String] = None, offerTypes: Option[String] = None, specialOfferType: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, deviceStatus: Option[String] = None, needsNotificationSent: Option[Boolean] = None, lastNotificationSent: Option[Long] = None): ApiRequest[Seq[OfferResponse]] =
-    ApiRequest[Seq[OfferResponse]](ApiMethods.GET, baseUrl, "/api/{version}/retailer/offer/search", "application/json")
+  def getOffersForRetailers(offerVisibility: String, sortField: String, descending: Boolean, start: Int, limit: Int, availableOnly: Boolean, activeOnly: Boolean, includeCategories: Boolean, includeFilters: Boolean, includeOfferLocations: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, `q`: Option[String] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, couponType: Option[String] = None, offerType: Option[String] = None, offerTypes: Option[String] = None, specialOfferType: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, deviceStatus: Option[String] = None, needsNotificationSent: Option[Boolean] = None, lastNotificationSent: Option[Long] = None): ApiRequest[Seq[OfferResponse]] =
+    ApiRequest[Seq[OfferResponse]](ApiMethods.GET, baseUrl, "/retailer/offer/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("categoryIds", categoryIds)
@@ -498,7 +479,6 @@ class OfferApi(baseUrl: String) {
       .withQueryParam("deviceStatus", deviceStatus)
       .withQueryParam("needsNotificationSent", needsNotificationSent)
       .withQueryParam("lastNotificationSent", lastNotificationSent)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferResponse]](200)
       
 
@@ -508,21 +488,19 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed
    * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param offerLocationId the OfferLocation ID where the offer is being redeemed
    */
-  def redeemOfferTransaction(version: BigDecimal, offerTransactionId: Long, status: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, offerLocationId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/offer/transaction/update", "application/json")
+  def redeemOfferTransaction(offerTransactionId: Long, status: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, offerLocationId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/retailer/offer/transaction/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerTransactionId", offerTransactionId)
       .withQueryParam("offerLocationId", offerLocationId)
       .withQueryParam("status", status)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -532,7 +510,6 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferTransactionResponse] (successful operation)
    * 
-   * @param version 
    * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
    * @param descending Determines whether the results are in descending order
    * @param start The start index for pagination
@@ -558,8 +535,8 @@ class OfferApi(baseUrl: String) {
    * @param `i` This parameter is deprecated.
    * @param `l` This parameter is deprecated.
    */
-  def searchOfferTransactionsForRetailers(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, redeemed: Option[Boolean] = None, reservationsOnly: Option[Boolean] = None, couponType: Option[String] = None, offerType: Option[String] = None, specialOfferType: Option[String] = None, customerAccountIds: Option[String] = None, categoryIds: Option[String] = None, redeemableStartDate: Option[Long] = None, redeemableEndDate: Option[Long] = None, `i`: Option[Int] = None, `l`: Option[Int] = None): ApiRequest[Seq[OfferTransactionResponse]] =
-    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/retailer/offer/transaction/search", "application/json")
+  def searchOfferTransactionsForRetailers(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, redeemed: Option[Boolean] = None, reservationsOnly: Option[Boolean] = None, couponType: Option[String] = None, offerType: Option[String] = None, specialOfferType: Option[String] = None, customerAccountIds: Option[String] = None, categoryIds: Option[String] = None, redeemableStartDate: Option[Long] = None, redeemableEndDate: Option[Long] = None, `i`: Option[Int] = None, `l`: Option[Int] = None): ApiRequest[Seq[OfferTransactionResponse]] =
+    ApiRequest[Seq[OfferTransactionResponse]](ApiMethods.GET, baseUrl, "/retailer/offer/transaction/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("q", `q`)
@@ -584,7 +561,6 @@ class OfferApi(baseUrl: String) {
       .withQueryParam("_l", `l`)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferTransactionResponse]](200)
       
 
@@ -594,7 +570,6 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferListResponse (successful operation)
    * 
-   * @param version 
    * @param latitude The latitude of where the search will center at
    * @param longitude The longitude of where the search will center at
    * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -627,8 +602,8 @@ class OfferApi(baseUrl: String) {
    * @param searchExpression 
    * @param groupBy groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy=OFFER_ID and sortField=DISTANCE (to sort by distance).
    */
-  def searchOffersForConsumer(version: BigDecimal, latitude: Double, longitude: Double, recommendationType: String, locationId: Long, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: String, appKey: Option[String] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, searchRange: Option[Double] = None, tags: Option[String] = None, supportedPostalCodes: Option[String] = None, keyword: Option[String] = None, categories: Option[String] = None, filters: Option[String] = None, offerTypes: Option[String] = None, `type`: Option[String] = None, sortField: Option[String] = None, recommendOfferIds: Option[String] = None, retailerLocationIds: Option[String] = None, offerId: Option[Long] = None, includeMission: Option[Boolean] = None, includeCategories: Option[Boolean] = None, includeFilters: Option[Boolean] = None, includeExpired: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, closestOfferOnly: Option[Boolean] = None, searchExpression: Option[String] = None, groupBy: Option[String] = None): ApiRequest[OfferListResponse] =
-    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/api/{version}/offer/lists", "application/json")
+  def searchOffersForConsumer(latitude: Double, longitude: Double, recommendationType: String, locationId: Long, start: Int, limit: Int, maxRecommendations: Int, distanceUnit: String, appKey: Option[String] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, searchRange: Option[Double] = None, tags: Option[String] = None, supportedPostalCodes: Option[String] = None, keyword: Option[String] = None, categories: Option[String] = None, filters: Option[String] = None, offerTypes: Option[String] = None, `type`: Option[String] = None, sortField: Option[String] = None, recommendOfferIds: Option[String] = None, retailerLocationIds: Option[String] = None, offerId: Option[Long] = None, includeMission: Option[Boolean] = None, includeCategories: Option[Boolean] = None, includeFilters: Option[Boolean] = None, includeExpired: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, closestOfferOnly: Option[Boolean] = None, searchExpression: Option[String] = None, groupBy: Option[String] = None): ApiRequest[OfferListResponse] =
+    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/offer/lists", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -660,7 +635,6 @@ class OfferApi(baseUrl: String) {
       .withQueryParam("closestOfferOnly", closestOfferOnly)
       .withQueryParam("searchExpression", searchExpression)
       .withQueryParam("groupBy", groupBy)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferListResponse](200)
       
 
@@ -670,15 +644,13 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferListResponse (successful operation)
    * 
-   * @param version 
    * @param start The index into the record set to start with. Default is 0.
    * @param limit The total number of record to return. Default id 20.
    */
-  def topOfferTransactions(version: BigDecimal, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[OfferListResponse] =
-    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/api/{version}/offer/top", "application/json")
+  def topOfferTransactions(start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[OfferListResponse] =
+    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/offer/top", "application/json")
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferListResponse](200)
       
 
@@ -688,7 +660,6 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerOfferResponse (successful operation)
    * 
-   * @param version 
    * @param offerId The offer to update
    * @param includeOfferLocations If true return all the offer locations associated with the offer
    * @param deviceId The device id (deviceId or accountId required)
@@ -777,8 +748,8 @@ class OfferApi(baseUrl: String) {
    * @param availability 
    * @param availabilitySummary 
    */
-  def updateOffer(version: BigDecimal, offerId: Long, includeOfferLocations: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, parentOfferId: Option[Long] = None, retailerLocationIds: Option[String] = None, offerLocations: Option[String] = None, tags: Option[String] = None, title: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, externalId: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, noExpiration: Option[Boolean] = None, availableLimit: Option[Int] = None, availableLimitPerUser: Option[Int] = None, addedLimit: Option[Int] = None, viewLimit: Option[Int] = None, maxPrints: Option[Int] = None, ticketPriceType: Option[String] = None, ticketPrice: Option[Long] = None, fullPrice: Option[Double] = None, discountPrice: Option[Double] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, offerType: Option[String] = None, specialOfferType: Option[String] = None, offerVisibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, brand: Option[String] = None, productType: Option[String] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, department: Option[String] = None, features: Option[String] = None, minimumPrice: Option[Double] = None, width: Option[Double] = None, height: Option[Double] = None, depth: Option[Double] = None, weight: Option[Double] = None, unit: Option[String] = None, studio: Option[String] = None, parentalRating: Option[String] = None, publishDate: Option[Long] = None, availabilityDate: Option[Long] = None, sizeId: Option[Long] = None, listingId: Option[Long] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, rebootTimeHour: Option[Int] = None, rebootTimeMinute: Option[Int] = None, idleTimeoutInSecond: Option[Int] = None, serialNumber: Option[String] = None, udid: Option[String] = None, deviceType: Option[String] = None, devicePower: Option[Double] = None, deviceInterference: Option[Double] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[RetailerOfferResponse] =
-    ApiRequest[RetailerOfferResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/offer/update", "application/json")
+  def updateOffer(offerId: Long, includeOfferLocations: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, parentOfferId: Option[Long] = None, retailerLocationIds: Option[String] = None, offerLocations: Option[String] = None, tags: Option[String] = None, title: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, subDetails: Option[String] = None, finePrint: Option[String] = None, barcodeType: Option[String] = None, barcodeEntry: Option[String] = None, externalRedeemOptions: Option[String] = None, externalUrl: Option[String] = None, externalId: Option[String] = None, ticketsRewardType: Option[String] = None, ticketsReward: Option[Long] = None, activated: Option[Long] = None, expires: Option[Long] = None, noExpiration: Option[Boolean] = None, availableLimit: Option[Int] = None, availableLimitPerUser: Option[Int] = None, addedLimit: Option[Int] = None, viewLimit: Option[Int] = None, maxPrints: Option[Int] = None, ticketPriceType: Option[String] = None, ticketPrice: Option[Long] = None, fullPrice: Option[Double] = None, discountPrice: Option[Double] = None, showRemaining: Option[Boolean] = None, showRedeemed: Option[Boolean] = None, replaced: Option[Boolean] = None, featured: Option[Boolean] = None, offerType: Option[String] = None, specialOfferType: Option[String] = None, offerVisibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, barcodeAssetId: Option[Long] = None, imageAssetId: Option[Long] = None, imageAssetId1: Option[Long] = None, imageAssetId2: Option[Long] = None, imageAssetId3: Option[Long] = None, imageAssetId4: Option[Long] = None, imageAssetId5: Option[Long] = None, publisher: Option[String] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, brand: Option[String] = None, productType: Option[String] = None, conditionType: Option[String] = None, isbn: Option[String] = None, asin: Option[String] = None, catalogNumbers: Option[String] = None, department: Option[String] = None, features: Option[String] = None, minimumPrice: Option[Double] = None, width: Option[Double] = None, height: Option[Double] = None, depth: Option[Double] = None, weight: Option[Double] = None, unit: Option[String] = None, studio: Option[String] = None, parentalRating: Option[String] = None, publishDate: Option[Long] = None, availabilityDate: Option[Long] = None, sizeId: Option[Long] = None, listingId: Option[Long] = None, mediaType: Option[String] = None, duration: Option[Int] = None, author: Option[String] = None, releaseDate: Option[Long] = None, collectionIds: Option[String] = None, rebootTimeHour: Option[Int] = None, rebootTimeMinute: Option[Int] = None, idleTimeoutInSecond: Option[Int] = None, serialNumber: Option[String] = None, udid: Option[String] = None, deviceType: Option[String] = None, devicePower: Option[Double] = None, deviceInterference: Option[Double] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[RetailerOfferResponse] =
+    ApiRequest[RetailerOfferResponse](ApiMethods.POST, baseUrl, "/retailer/offer/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerId", offerId)
@@ -866,7 +837,6 @@ class OfferApi(baseUrl: String) {
       .withQueryParam("deviceInterference", deviceInterference)
       .withQueryParam("availability", availability)
       .withQueryParam("availabilitySummary", availabilitySummary)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerOfferResponse](200)
       
 
@@ -876,19 +846,17 @@ class OfferApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param offerIds Comma separated list of offer ids
    * @param active Determines whether to make the offer active as well
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the activation, must have rights to edit the offer.
    */
-  def updateOfferStatus(version: BigDecimal, offerIds: String, active: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/offer/status", "application/json")
+  def updateOfferStatus(offerIds: String, active: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/retailer/offer/status", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("offerIds", offerIds)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

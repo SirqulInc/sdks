@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CountResponse
 import org.openapitools.client.model.FlagResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object FlagApi {
 
-  def apply(baseUrl: String = "http://localhost") = new FlagApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new FlagApi(baseUrl)
 }
 
 class FlagApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class FlagApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
    * @param flagableId The flagable object id
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -41,8 +39,8 @@ class FlagApi(baseUrl: String) {
    * @param latitude The current location of the user
    * @param longitude The current location of the user
    */
-  def createFlag(version: BigDecimal, flagableType: String, flagableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, flagDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/flag/create", "application/json")
+  def createFlag(flagableType: String, flagableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, flagDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/flag/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("flagableType", flagableType)
@@ -50,7 +48,6 @@ class FlagApi(baseUrl: String) {
       .withQueryParam("flagDescription", flagDescription)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -60,7 +57,6 @@ class FlagApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param itemBeingFlaggedType This parameter is deprecated.
@@ -68,15 +64,14 @@ class FlagApi(baseUrl: String) {
    * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
    * @param flagableId The flagable object id
    */
-  def deleteFlag(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, itemBeingFlaggedType: Option[String] = None, itemBeingFlaggedId: Option[Long] = None, flagableType: Option[String] = None, flagableId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/flag/delete", "application/json")
+  def deleteFlag(deviceId: Option[String] = None, accountId: Option[Long] = None, itemBeingFlaggedType: Option[String] = None, itemBeingFlaggedId: Option[Long] = None, flagableType: Option[String] = None, flagableId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/flag/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("itemBeingFlaggedType", itemBeingFlaggedType)
       .withQueryParam("itemBeingFlaggedId", itemBeingFlaggedId)
       .withQueryParam("flagableType", flagableType)
       .withQueryParam("flagableId", flagableId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -86,7 +81,6 @@ class FlagApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : FlagResponse (successful operation)
    * 
-   * @param version 
    * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
    * @param flagableId The flagable object id
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -94,15 +88,14 @@ class FlagApi(baseUrl: String) {
    * @param latitude The current location of the user
    * @param longitude The current location of the user
    */
-  def getFlag(version: BigDecimal, flagableType: String, flagableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[FlagResponse] =
-    ApiRequest[FlagResponse](ApiMethods.GET, baseUrl, "/api/{version}/flag/get", "application/json")
+  def getFlag(flagableType: String, flagableId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[FlagResponse] =
+    ApiRequest[FlagResponse](ApiMethods.GET, baseUrl, "/flag/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("flagableType", flagableType)
       .withQueryParam("flagableId", flagableId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[FlagResponse](200)
       
 
@@ -112,15 +105,13 @@ class FlagApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CountResponse (successful operation)
    * 
-   * @param version 
    * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
    * @param appKey The application key
    */
-  def getFlagThreshold(version: BigDecimal, itemBeingFlaggedType: String, appKey: String): ApiRequest[CountResponse] =
-    ApiRequest[CountResponse](ApiMethods.GET, baseUrl, "/api/{version}/flag/threshold/get", "application/json")
+  def getFlagThreshold(itemBeingFlaggedType: String, appKey: String): ApiRequest[CountResponse] =
+    ApiRequest[CountResponse](ApiMethods.GET, baseUrl, "/flag/threshold/get", "application/json")
       .withQueryParam("itemBeingFlaggedType", itemBeingFlaggedType)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[CountResponse](200)
       
 
@@ -130,21 +121,19 @@ class FlagApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CountResponse (successful operation)
    * 
-   * @param version 
    * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
    * @param threshold The threshold value
    * @param appKey The application key
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    */
-  def updateFlagThreshold(version: BigDecimal, itemBeingFlaggedType: String, threshold: Long, appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[CountResponse] =
-    ApiRequest[CountResponse](ApiMethods.POST, baseUrl, "/api/{version}/flag/threshold/update", "application/json")
+  def updateFlagThreshold(itemBeingFlaggedType: String, threshold: Long, appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[CountResponse] =
+    ApiRequest[CountResponse](ApiMethods.POST, baseUrl, "/flag/threshold/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("itemBeingFlaggedType", itemBeingFlaggedType)
       .withQueryParam("threshold", threshold)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[CountResponse](200)
       
 

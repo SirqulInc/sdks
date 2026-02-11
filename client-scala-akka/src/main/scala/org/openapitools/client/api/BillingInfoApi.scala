@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.PaymentTypesResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object BillingInfoApi {
 
-  def apply(baseUrl: String = "http://localhost") = new BillingInfoApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new BillingInfoApi(baseUrl)
 }
 
 class BillingInfoApi(baseUrl: String) {
@@ -30,7 +29,6 @@ class BillingInfoApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PaymentTypesResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param paymentMethodId Payment Method Id
    * @param accountName the name of the account
@@ -55,8 +53,8 @@ class BillingInfoApi(baseUrl: String) {
    * @param providerPaymentProfileId Provider customer payment profile Id
    * @param metaData Meta Data
    */
-  def addPaymentMethod(version: BigDecimal, accountId: Long, paymentMethodId: Option[Long] = None, accountName: Option[String] = None, firstName: Option[String] = None, lastName: Option[String] = None, address: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, phone: Option[String] = None, creditCardNumber: Option[String] = None, expirationDate: Option[String] = None, ccv: Option[String] = None, accountNumber: Option[String] = None, bankName: Option[String] = None, routingNumber: Option[String] = None, defaultPaymentMethod: Option[Boolean] = None, paymentMethodNickname: Option[String] = None, taxId: Option[String] = None, providerCustomerProfileId: Option[String] = None, providerPaymentProfileId: Option[String] = None, metaData: Option[String] = None): ApiRequest[PaymentTypesResponse] =
-    ApiRequest[PaymentTypesResponse](ApiMethods.POST, baseUrl, "/api/{version}/billing/update", "application/json")
+  def addPaymentMethod(accountId: Long, paymentMethodId: Option[Long] = None, accountName: Option[String] = None, firstName: Option[String] = None, lastName: Option[String] = None, address: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, phone: Option[String] = None, creditCardNumber: Option[String] = None, expirationDate: Option[String] = None, ccv: Option[String] = None, accountNumber: Option[String] = None, bankName: Option[String] = None, routingNumber: Option[String] = None, defaultPaymentMethod: Option[Boolean] = None, paymentMethodNickname: Option[String] = None, taxId: Option[String] = None, providerCustomerProfileId: Option[String] = None, providerPaymentProfileId: Option[String] = None, metaData: Option[String] = None): ApiRequest[PaymentTypesResponse] =
+    ApiRequest[PaymentTypesResponse](ApiMethods.POST, baseUrl, "/billing/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("paymentMethodId", paymentMethodId)
       .withQueryParam("accountName", accountName)
@@ -80,7 +78,6 @@ class BillingInfoApi(baseUrl: String) {
       .withQueryParam("providerCustomerProfileId", providerCustomerProfileId)
       .withQueryParam("providerPaymentProfileId", providerPaymentProfileId)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[PaymentTypesResponse](200)
       
 
@@ -90,7 +87,6 @@ class BillingInfoApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PaymentTypesResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param accountName Account Name of the credit card user
    * @param firstName The first name on the credit card
@@ -117,8 +113,8 @@ class BillingInfoApi(baseUrl: String) {
    * @param metaData Meta Data
    * @param appKey Application Key
    */
-  def createPaymentMethod(version: BigDecimal, accountId: Long, accountName: Option[String] = None, firstName: Option[String] = None, lastName: Option[String] = None, address: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, phone: Option[String] = None, creditCardNumber: Option[String] = None, expirationDate: Option[String] = None, ccv: Option[String] = None, accountNumber: Option[String] = None, bankName: Option[String] = None, routingNumber: Option[String] = None, paymentMethodNickname: Option[String] = None, taxId: Option[String] = None, defaultPaymentMethod: Option[Boolean] = None, authToken: Option[String] = None, provider: Option[String] = None, providerCustomerProfileId: Option[String] = None, providerPaymentProfileId: Option[String] = None, metaData: Option[String] = None, appKey: Option[String] = None): ApiRequest[PaymentTypesResponse] =
-    ApiRequest[PaymentTypesResponse](ApiMethods.POST, baseUrl, "/api/{version}/billing/create", "application/json")
+  def createPaymentMethod(accountId: Long, accountName: Option[String] = None, firstName: Option[String] = None, lastName: Option[String] = None, address: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, phone: Option[String] = None, creditCardNumber: Option[String] = None, expirationDate: Option[String] = None, ccv: Option[String] = None, accountNumber: Option[String] = None, bankName: Option[String] = None, routingNumber: Option[String] = None, paymentMethodNickname: Option[String] = None, taxId: Option[String] = None, defaultPaymentMethod: Option[Boolean] = None, authToken: Option[String] = None, provider: Option[String] = None, providerCustomerProfileId: Option[String] = None, providerPaymentProfileId: Option[String] = None, metaData: Option[String] = None, appKey: Option[String] = None): ApiRequest[PaymentTypesResponse] =
+    ApiRequest[PaymentTypesResponse](ApiMethods.POST, baseUrl, "/billing/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("accountName", accountName)
       .withQueryParam("firstName", firstName)
@@ -144,7 +140,6 @@ class BillingInfoApi(baseUrl: String) {
       .withQueryParam("providerPaymentProfileId", providerPaymentProfileId)
       .withQueryParam("metaData", metaData)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[PaymentTypesResponse](200)
       
 
@@ -154,19 +149,17 @@ class BillingInfoApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PaymentTypesResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param tokenName The token name
    * @param tokenSymbol The token symbol
    * @param paymentMethodId The payment method to return details on. If this is not set, then the user's default payment method will be returned.
    */
-  def createSmartContract(version: BigDecimal, accountId: Long, tokenName: String, tokenSymbol: String, paymentMethodId: Option[Long] = None): ApiRequest[PaymentTypesResponse] =
-    ApiRequest[PaymentTypesResponse](ApiMethods.POST, baseUrl, "/api/{version}/billing/crypto/transfer", "application/json")
+  def createSmartContract(accountId: Long, tokenName: String, tokenSymbol: String, paymentMethodId: Option[Long] = None): ApiRequest[PaymentTypesResponse] =
+    ApiRequest[PaymentTypesResponse](ApiMethods.POST, baseUrl, "/billing/crypto/transfer", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("paymentMethodId", paymentMethodId)
       .withQueryParam("tokenName", tokenName)
       .withQueryParam("tokenSymbol", tokenSymbol)
-      .withPathParam("version", version)
       .withSuccessResponse[PaymentTypesResponse](200)
       
 
@@ -176,17 +169,15 @@ class BillingInfoApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PaymentTypesResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param ownerAccountId The account to retreive balances for
    * @param paymentMethodId The payment method to return details on. If this is not set, then the user's default payment method will be returned.
    */
-  def getCryptoBalance(version: BigDecimal, accountId: Long, ownerAccountId: Option[Long] = None, paymentMethodId: Option[Long] = None): ApiRequest[PaymentTypesResponse] =
-    ApiRequest[PaymentTypesResponse](ApiMethods.GET, baseUrl, "/api/{version}/billing/crypto/get", "application/json")
+  def getCryptoBalance(accountId: Long, ownerAccountId: Option[Long] = None, paymentMethodId: Option[Long] = None): ApiRequest[PaymentTypesResponse] =
+    ApiRequest[PaymentTypesResponse](ApiMethods.GET, baseUrl, "/billing/crypto/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("ownerAccountId", ownerAccountId)
       .withQueryParam("paymentMethodId", paymentMethodId)
-      .withPathParam("version", version)
       .withSuccessResponse[PaymentTypesResponse](200)
       
 
@@ -196,17 +187,15 @@ class BillingInfoApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PaymentTypesResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param paymentMethodId The payment method to return details on. If this is not set, then the user's default payment method will be returned.
    * @param getCurrentBalance Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)
    */
-  def getPaymentMethod(version: BigDecimal, accountId: Long, paymentMethodId: Option[Long] = None, getCurrentBalance: Option[Boolean] = None): ApiRequest[PaymentTypesResponse] =
-    ApiRequest[PaymentTypesResponse](ApiMethods.GET, baseUrl, "/api/{version}/billing/get", "application/json")
+  def getPaymentMethod(accountId: Long, paymentMethodId: Option[Long] = None, getCurrentBalance: Option[Boolean] = None): ApiRequest[PaymentTypesResponse] =
+    ApiRequest[PaymentTypesResponse](ApiMethods.GET, baseUrl, "/billing/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("paymentMethodId", paymentMethodId)
       .withQueryParam("getCurrentBalance", getCurrentBalance)
-      .withPathParam("version", version)
       .withSuccessResponse[PaymentTypesResponse](200)
       
 
@@ -216,7 +205,6 @@ class BillingInfoApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PaymentTypesResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Account Id to search on
    * @param provider Provider to search on
    * @param `type` the type to search on
@@ -226,8 +214,8 @@ class BillingInfoApi(baseUrl: String) {
    * @param start the start of the search
    * @param limit the limit of the search
    */
-  def searchPaymentMethod(version: BigDecimal, accountId: Long, provider: Option[String] = None, `type`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[PaymentTypesResponse] =
-    ApiRequest[PaymentTypesResponse](ApiMethods.GET, baseUrl, "/api/{version}/billing/search", "application/json")
+  def searchPaymentMethod(accountId: Long, provider: Option[String] = None, `type`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[PaymentTypesResponse] =
+    ApiRequest[PaymentTypesResponse](ApiMethods.GET, baseUrl, "/billing/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("provider", provider)
       .withQueryParam("type", `type`)
@@ -236,7 +224,6 @@ class BillingInfoApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[PaymentTypesResponse](200)
       
 

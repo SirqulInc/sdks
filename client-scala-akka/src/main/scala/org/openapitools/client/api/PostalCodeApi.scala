@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.PostalCodeResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PostalCodeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new PostalCodeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new PostalCodeApi(baseUrl)
 }
 
 class PostalCodeApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class PostalCodeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PostalCodeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param code the postal code
    * @param latitude the latitude of the postal code
@@ -40,8 +38,8 @@ class PostalCodeApi(baseUrl: String) {
    * @param city the city that the postal code is located
    * @param active whether the postal code created should be active or inactive
    */
-  def createPostalCode(version: BigDecimal, accountId: Long, code: String, latitude: Double, longitude: Double, stateCode: Option[String] = None, city: Option[String] = None, active: Option[Boolean] = None): ApiRequest[PostalCodeResponse] =
-    ApiRequest[PostalCodeResponse](ApiMethods.POST, baseUrl, "/api/{version}/postalCode/create", "application/json")
+  def createPostalCode(accountId: Long, code: String, latitude: Double, longitude: Double, stateCode: Option[String] = None, city: Option[String] = None, active: Option[Boolean] = None): ApiRequest[PostalCodeResponse] =
+    ApiRequest[PostalCodeResponse](ApiMethods.POST, baseUrl, "/postalCode/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("code", code)
       .withQueryParam("latitude", latitude)
@@ -49,7 +47,6 @@ class PostalCodeApi(baseUrl: String) {
       .withQueryParam("stateCode", stateCode)
       .withQueryParam("city", city)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[PostalCodeResponse](200)
       
 
@@ -59,15 +56,13 @@ class PostalCodeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param postalCodeId the id of the postal code to delete
    */
-  def deletePostalCode(version: BigDecimal, accountId: Long, postalCodeId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/postalCode/delete", "application/json")
+  def deletePostalCode(accountId: Long, postalCodeId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/postalCode/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("postalCodeId", postalCodeId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -77,13 +72,11 @@ class PostalCodeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PostalCodeResponse (successful operation)
    * 
-   * @param version 
    * @param postalCodeId the id of the postal code to get
    */
-  def getPostalCode(version: BigDecimal, postalCodeId: Long): ApiRequest[PostalCodeResponse] =
-    ApiRequest[PostalCodeResponse](ApiMethods.GET, baseUrl, "/api/{version}/postalCode/get", "application/json")
+  def getPostalCode(postalCodeId: Long): ApiRequest[PostalCodeResponse] =
+    ApiRequest[PostalCodeResponse](ApiMethods.GET, baseUrl, "/postalCode/get", "application/json")
       .withQueryParam("postalCodeId", postalCodeId)
-      .withPathParam("version", version)
       .withSuccessResponse[PostalCodeResponse](200)
       
 
@@ -93,7 +86,6 @@ class PostalCodeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[PostalCodeResponse] (successful operation)
    * 
-   * @param version 
    * @param sortField the field to sort the results on
    * @param descending whether to order results in ascending or descending order
    * @param latitude the latitude of the postal code to search on
@@ -103,8 +95,8 @@ class PostalCodeApi(baseUrl: String) {
    * @param start the start of the index and/or pagination
    * @param limit the limit of the index and/or pagination
    */
-  def getPostalCodes(version: BigDecimal, sortField: String, descending: Boolean, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None, miles: Option[Double] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[PostalCodeResponse]] =
-    ApiRequest[Seq[PostalCodeResponse]](ApiMethods.GET, baseUrl, "/api/{version}/postalCode/search", "application/json")
+  def getPostalCodes(sortField: String, descending: Boolean, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None, miles: Option[Double] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[PostalCodeResponse]] =
+    ApiRequest[Seq[PostalCodeResponse]](ApiMethods.GET, baseUrl, "/postalCode/search", "application/json")
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("keyword", keyword)
@@ -113,7 +105,6 @@ class PostalCodeApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("sortField", sortField)
       .withQueryParam("descending", descending)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[PostalCodeResponse]](200)
       
 
@@ -123,7 +114,6 @@ class PostalCodeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PostalCodeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param postalCodeId the id of the postal code to update
    * @param code the postal code to update
@@ -133,8 +123,8 @@ class PostalCodeApi(baseUrl: String) {
    * @param city the city where the postal code is located
    * @param active whether the postal code is active or inactive
    */
-  def updatePostalCode(version: BigDecimal, accountId: Long, postalCodeId: Long, code: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, stateCode: Option[String] = None, city: Option[String] = None, active: Option[Boolean] = None): ApiRequest[PostalCodeResponse] =
-    ApiRequest[PostalCodeResponse](ApiMethods.POST, baseUrl, "/api/{version}/postalCode/update", "application/json")
+  def updatePostalCode(accountId: Long, postalCodeId: Long, code: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, stateCode: Option[String] = None, city: Option[String] = None, active: Option[Boolean] = None): ApiRequest[PostalCodeResponse] =
+    ApiRequest[PostalCodeResponse](ApiMethods.POST, baseUrl, "/postalCode/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("postalCodeId", postalCodeId)
       .withQueryParam("code", code)
@@ -143,7 +133,6 @@ class PostalCodeApi(baseUrl: String) {
       .withQueryParam("stateCode", stateCode)
       .withQueryParam("city", city)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[PostalCodeResponse](200)
       
 

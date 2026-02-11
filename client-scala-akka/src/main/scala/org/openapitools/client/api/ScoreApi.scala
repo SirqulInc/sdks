@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ScoreResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ScoreApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ScoreApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ScoreApi(baseUrl)
 }
 
 class ScoreApi(baseUrl: String) {
@@ -30,7 +29,6 @@ class ScoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ScoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to save the score for.
    * @param points The score
@@ -42,8 +40,8 @@ class ScoreApi(baseUrl: String) {
    * @param timeTaken The time taken to complete task
    * @param highest 
    */
-  def createScore(version: BigDecimal, accountId: Long, appKey: String, points: Int, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None, timeTaken: Option[Int] = None, highest: Option[Boolean] = None): ApiRequest[ScoreResponse] =
-    ApiRequest[ScoreResponse](ApiMethods.POST, baseUrl, "/api/{version}/score/create", "application/json")
+  def createScore(accountId: Long, appKey: String, points: Int, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None, timeTaken: Option[Int] = None, highest: Option[Boolean] = None): ApiRequest[ScoreResponse] =
+    ApiRequest[ScoreResponse](ApiMethods.POST, baseUrl, "/score/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("missionId", missionId)
@@ -54,7 +52,6 @@ class ScoreApi(baseUrl: String) {
       .withQueryParam("points", points)
       .withQueryParam("timeTaken", timeTaken)
       .withQueryParam("highest", highest)
-      .withPathParam("version", version)
       .withSuccessResponse[ScoreResponse](200)
       
 
@@ -64,7 +61,6 @@ class ScoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ScoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to get the level for.
    * @param missionId The missionId to score for, null if not playing mission.
@@ -75,8 +71,8 @@ class ScoreApi(baseUrl: String) {
    * @param scoreObjectType The object type to filter scores by (TicketObjectType)
    * @param scoreStatus The status of the score to filter (ScoreStatus)
    */
-  def getScore(version: BigDecimal, accountId: Long, appKey: String, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None, scoreObjectType: Option[String] = None, scoreStatus: Option[String] = None): ApiRequest[ScoreResponse] =
-    ApiRequest[ScoreResponse](ApiMethods.GET, baseUrl, "/api/{version}/score/get", "application/json")
+  def getScore(accountId: Long, appKey: String, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None, scoreObjectType: Option[String] = None, scoreStatus: Option[String] = None): ApiRequest[ScoreResponse] =
+    ApiRequest[ScoreResponse](ApiMethods.GET, baseUrl, "/score/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("missionId", missionId)
@@ -86,7 +82,6 @@ class ScoreApi(baseUrl: String) {
       .withQueryParam("gameObjectId", gameObjectId)
       .withQueryParam("scoreObjectType", scoreObjectType)
       .withQueryParam("scoreStatus", scoreStatus)
-      .withPathParam("version", version)
       .withSuccessResponse[ScoreResponse](200)
       
 
@@ -96,7 +91,6 @@ class ScoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ScoreResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to get the level for.
    * @param missionId The missionId to score for, null if not playing mission.
@@ -105,8 +99,8 @@ class ScoreApi(baseUrl: String) {
    * @param gameLevelId The gameLevelId to score for.
    * @param gameObjectId The gameObjectId to score for, null if level based scoring.
    */
-  def searchScores(version: BigDecimal, accountId: Long, appKey: String, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None): ApiRequest[Seq[ScoreResponse]] =
-    ApiRequest[Seq[ScoreResponse]](ApiMethods.GET, baseUrl, "/api/{version}/score/search", "application/json")
+  def searchScores(accountId: Long, appKey: String, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None): ApiRequest[Seq[ScoreResponse]] =
+    ApiRequest[Seq[ScoreResponse]](ApiMethods.GET, baseUrl, "/score/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("missionId", missionId)
@@ -114,7 +108,6 @@ class ScoreApi(baseUrl: String) {
       .withQueryParam("packId", packId)
       .withQueryParam("gameLevelId", gameLevelId)
       .withQueryParam("gameObjectId", gameObjectId)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ScoreResponse]](200)
       
 

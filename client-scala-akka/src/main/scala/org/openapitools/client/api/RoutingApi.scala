@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.RoutingListResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RoutingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RoutingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RoutingApi(baseUrl)
 }
 
 class RoutingApi(baseUrl: String) {
@@ -30,13 +29,11 @@ class RoutingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RoutingListResponse (successful operation)
    * 
-   * @param version 
    * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
    */
-  def computeRouting(version: BigDecimal, data: String): ApiRequest[RoutingListResponse] =
-    ApiRequest[RoutingListResponse](ApiMethods.POST, baseUrl, "/api/{version}/routing/compute", "application/json")
+  def computeRouting(data: String): ApiRequest[RoutingListResponse] =
+    ApiRequest[RoutingListResponse](ApiMethods.POST, baseUrl, "/routing/compute", "application/json")
       .withQueryParam("data", data)
-      .withPathParam("version", version)
       .withSuccessResponse[RoutingListResponse](200)
       
 

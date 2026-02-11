@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.PurchaseItemListResponse
 import org.openapitools.client.model.SirqulResponse
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ThemeDescriptorApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ThemeDescriptorApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ThemeDescriptorApi(baseUrl)
 }
 
 class ThemeDescriptorApi(baseUrl: String) {
@@ -33,7 +32,6 @@ class ThemeDescriptorApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ThemeDescriptorResponse (successful operation)
    * 
-   * @param version 
    * @param publicRead determines whether the theme's participants have read permissions
    * @param publicWrite determines whether the theme's participants have write permissions
    * @param publicDelete determines whether the theme's participants have delete permissions
@@ -62,8 +60,8 @@ class ThemeDescriptorApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def addOrUpdateThemeDescriptor(version: BigDecimal, publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, completeWithDefaultValues: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, themeDescriptorId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, connectionIdsToAdd: Option[String] = None, connectionGroupIdsToAdd: Option[String] = None, appVersion: Option[String] = None, colorValueJson: Option[String] = None, stringReplacerJson: Option[String] = None, customJsonObjects: Option[String] = None, iconImage: Option[File] = None, sceneAtlasImage: Option[File] = None, bgImage: Option[File] = None, bgSound: Option[File] = None, musicSelection: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ThemeDescriptorResponse] =
-    ApiRequest[ThemeDescriptorResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/theme", "application/json")
+  def addOrUpdateThemeDescriptor(publicRead: Boolean, publicWrite: Boolean, publicDelete: Boolean, publicAdd: Boolean, visibility: String, includeFriendGroup: Boolean, completeWithDefaultValues: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, themeDescriptorId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, connectionIdsToAdd: Option[String] = None, connectionGroupIdsToAdd: Option[String] = None, appVersion: Option[String] = None, colorValueJson: Option[String] = None, stringReplacerJson: Option[String] = None, customJsonObjects: Option[String] = None, iconImage: Option[File] = None, sceneAtlasImage: Option[File] = None, bgImage: Option[File] = None, bgSound: Option[File] = None, musicSelection: Option[String] = None, locationDescription: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ThemeDescriptorResponse] =
+    ApiRequest[ThemeDescriptorResponse](ApiMethods.POST, baseUrl, "/consumer/theme", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
@@ -91,7 +89,6 @@ class ThemeDescriptorApi(baseUrl: String) {
       .withQueryParam("locationDescription", locationDescription)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ThemeDescriptorResponse](200)
       
 
@@ -101,7 +98,6 @@ class ThemeDescriptorApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PurchaseItemListResponse (successful operation)
    * 
-   * @param version 
    * @param themeDescriptorId the theme id
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -109,15 +105,14 @@ class ThemeDescriptorApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def getThemeDescriptor(version: BigDecimal, themeDescriptorId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PurchaseItemListResponse] =
-    ApiRequest[PurchaseItemListResponse](ApiMethods.GET, baseUrl, "/api/{version}/consumer/theme/get", "application/json")
+  def getThemeDescriptor(themeDescriptorId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PurchaseItemListResponse] =
+    ApiRequest[PurchaseItemListResponse](ApiMethods.GET, baseUrl, "/consumer/theme/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
       .withQueryParam("themeDescriptorId", themeDescriptorId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[PurchaseItemListResponse](200)
       
 
@@ -127,7 +122,6 @@ class ThemeDescriptorApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PurchaseItemListResponse (successful operation)
    * 
-   * @param version 
    * @param filter a comma separated list of Ownership
    * @param sortField the field to sort by. See ThemeDescriptorApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -147,8 +141,8 @@ class ThemeDescriptorApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def getThemeDescriptors(version: BigDecimal, filter: String, sortField: String, descending: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, contestType: Option[String] = None, ownerId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, dateCreated: Option[Long] = None, appVersion: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PurchaseItemListResponse] =
-    ApiRequest[PurchaseItemListResponse](ApiMethods.GET, baseUrl, "/api/{version}/consumer/theme/search", "application/json")
+  def getThemeDescriptors(filter: String, sortField: String, descending: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, contestType: Option[String] = None, ownerId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, dateCreated: Option[Long] = None, appVersion: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[PurchaseItemListResponse] =
+    ApiRequest[PurchaseItemListResponse](ApiMethods.GET, baseUrl, "/consumer/theme/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
@@ -167,7 +161,6 @@ class ThemeDescriptorApi(baseUrl: String) {
       .withQueryParam("appVersion", appVersion)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[PurchaseItemListResponse](200)
       
 
@@ -177,7 +170,6 @@ class ThemeDescriptorApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param themeDescriptorId the theme id to remove
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -185,15 +177,14 @@ class ThemeDescriptorApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def removeThemeDescriptor(version: BigDecimal, themeDescriptorId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/theme/remove", "application/json")
+  def removeThemeDescriptor(themeDescriptorId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/theme/remove", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
       .withQueryParam("themeDescriptorId", themeDescriptorId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

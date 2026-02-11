@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.WeatherResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object WeatherApi {
 
-  def apply(baseUrl: String = "http://localhost") = new WeatherApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new WeatherApi(baseUrl)
 }
 
 class WeatherApi(baseUrl: String) {
@@ -30,19 +29,17 @@ class WeatherApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WeatherResponse (successful operation)
    * 
-   * @param version 
    * @param regionId Region Id
    * @param latitude Latitude
    * @param longitude Longitude
    * @param timezoneOffset Timezone Offset
    */
-  def searchWeather(version: BigDecimal, regionId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, timezoneOffset: Option[Long] = None): ApiRequest[WeatherResponse] =
-    ApiRequest[WeatherResponse](ApiMethods.GET, baseUrl, "/api/{version}/weather/search", "application/json")
+  def searchWeather(regionId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, timezoneOffset: Option[Long] = None): ApiRequest[WeatherResponse] =
+    ApiRequest[WeatherResponse](ApiMethods.GET, baseUrl, "/weather/search", "application/json")
       .withQueryParam("regionId", regionId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("timezoneOffset", timezoneOffset)
-      .withPathParam("version", version)
       .withSuccessResponse[WeatherResponse](200)
       
 

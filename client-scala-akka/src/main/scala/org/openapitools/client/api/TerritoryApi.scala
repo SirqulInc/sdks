@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.TerritoryResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TerritoryApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TerritoryApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TerritoryApi(baseUrl)
 }
 
 class TerritoryApi(baseUrl: String) {
@@ -31,17 +30,15 @@ class TerritoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TerritoryResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the territory
    * @param active If true set the game level as active. Default is true.
    */
-  def createTerritory(version: BigDecimal, accountId: Long, name: String, active: Option[Boolean] = None): ApiRequest[TerritoryResponse] =
-    ApiRequest[TerritoryResponse](ApiMethods.POST, baseUrl, "/api/{version}/territory/create", "application/json")
+  def createTerritory(accountId: Long, name: String, active: Option[Boolean] = None): ApiRequest[TerritoryResponse] =
+    ApiRequest[TerritoryResponse](ApiMethods.POST, baseUrl, "/territory/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[TerritoryResponse](200)
       
 
@@ -51,15 +48,13 @@ class TerritoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param territoryId the id of the territory to delete
    */
-  def deleteTerritory(version: BigDecimal, accountId: Long, territoryId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/territory/delete", "application/json")
+  def deleteTerritory(accountId: Long, territoryId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/territory/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("territoryId", territoryId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -69,13 +64,11 @@ class TerritoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TerritoryResponse (successful operation)
    * 
-   * @param version 
    * @param territoryId the id of the territory to get
    */
-  def getTerritory(version: BigDecimal, territoryId: Long): ApiRequest[TerritoryResponse] =
-    ApiRequest[TerritoryResponse](ApiMethods.GET, baseUrl, "/api/{version}/territory/get", "application/json")
+  def getTerritory(territoryId: Long): ApiRequest[TerritoryResponse] =
+    ApiRequest[TerritoryResponse](ApiMethods.GET, baseUrl, "/territory/get", "application/json")
       .withQueryParam("territoryId", territoryId)
-      .withPathParam("version", version)
       .withSuccessResponse[TerritoryResponse](200)
       
 
@@ -85,21 +78,19 @@ class TerritoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[TerritoryResponse] (successful operation)
    * 
-   * @param version 
    * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
    * @param descending determines whether the sorted list is in descending or ascending order
    * @param keyword Return results that match this keyword.
    * @param start The start index for pagination
    * @param limit The limit for pagination
    */
-  def searchTerritories(version: BigDecimal, sortField: String, descending: Boolean, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[TerritoryResponse]] =
-    ApiRequest[Seq[TerritoryResponse]](ApiMethods.GET, baseUrl, "/api/{version}/territory/search", "application/json")
+  def searchTerritories(sortField: String, descending: Boolean, keyword: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[TerritoryResponse]] =
+    ApiRequest[Seq[TerritoryResponse]](ApiMethods.GET, baseUrl, "/territory/search", "application/json")
       .withQueryParam("keyword", keyword)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("sortField", sortField)
       .withQueryParam("descending", descending)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[TerritoryResponse]](200)
       
 
@@ -109,19 +100,17 @@ class TerritoryApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TerritoryResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param territoryId the id of the territory to update
    * @param name The name of the territory
    * @param active If true set the game level as active.
    */
-  def updateTerritory(version: BigDecimal, accountId: Long, territoryId: Long, name: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TerritoryResponse] =
-    ApiRequest[TerritoryResponse](ApiMethods.POST, baseUrl, "/api/{version}/territory/update", "application/json")
+  def updateTerritory(accountId: Long, territoryId: Long, name: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TerritoryResponse] =
+    ApiRequest[TerritoryResponse](ApiMethods.POST, baseUrl, "/territory/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("territoryId", territoryId)
       .withQueryParam("name", name)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[TerritoryResponse](200)
       
 

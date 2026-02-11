@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.AccountResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.SearchResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.WrappedResponse
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object FavoriteApi {
 
-  def apply(baseUrl: String = "http://localhost") = new FavoriteApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new FavoriteApi(baseUrl)
 }
 
 class FavoriteApi(baseUrl: String) {
@@ -33,7 +32,6 @@ class FavoriteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WrappedResponse (successful operation)
    * 
-   * @param version 
    * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
    * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
    * @param deviceId The unique ID given by the device (deviceId or accountId required)
@@ -41,15 +39,14 @@ class FavoriteApi(baseUrl: String) {
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def addFavorite(version: BigDecimal, favoritableId: Long, favoritableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[WrappedResponse] =
-    ApiRequest[WrappedResponse](ApiMethods.POST, baseUrl, "/api/{version}/favorite/create", "application/json")
+  def addFavorite(favoritableId: Long, favoritableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[WrappedResponse] =
+    ApiRequest[WrappedResponse](ApiMethods.POST, baseUrl, "/favorite/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("favoritableId", favoritableId)
       .withQueryParam("favoritableType", favoritableType)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[WrappedResponse](200)
       
 
@@ -59,21 +56,19 @@ class FavoriteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @param favoriteId The ID of the favorite reference record (only optional if favoritableId & favoritableType is pass in instead)
    * @param favoritableId The ID of the object to un-favorite {offerId, offerLocationId, retailerLocationId, categoryId} (this is required if favoriteId is NOT passed in)
    * @param favoritableType The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
    */
-  def deleteFavorite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, favoriteId: Option[Long] = None, favoritableId: Option[Long] = None, favoritableType: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/favorite/delete", "application/json")
+  def deleteFavorite(deviceId: Option[String] = None, accountId: Option[Long] = None, favoriteId: Option[Long] = None, favoritableId: Option[Long] = None, favoritableType: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/favorite/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("favoriteId", favoriteId)
       .withQueryParam("favoritableId", favoritableId)
       .withQueryParam("favoritableType", favoritableType)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -83,21 +78,19 @@ class FavoriteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WrappedResponse (successful operation)
    * 
-   * @param version 
    * @param favoriteId The ID of the favorite reference record
    * @param deviceId The unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def getFavorite(version: BigDecimal, favoriteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[WrappedResponse] =
-    ApiRequest[WrappedResponse](ApiMethods.GET, baseUrl, "/api/{version}/favorite/get", "application/json")
+  def getFavorite(favoriteId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[WrappedResponse] =
+    ApiRequest[WrappedResponse](ApiMethods.GET, baseUrl, "/favorite/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("favoriteId", favoriteId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[WrappedResponse](200)
       
 
@@ -107,7 +100,6 @@ class FavoriteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SearchResponse (successful operation)
    * 
-   * @param version 
    * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
    * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
    * @param descending Determines whether the results are in descending order
@@ -123,8 +115,8 @@ class FavoriteApi(baseUrl: String) {
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def searchFavorites(version: BigDecimal, favoritableType: String, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, returnFullResponse: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, secondaryType: Option[String] = None, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SearchResponse] =
-    ApiRequest[SearchResponse](ApiMethods.GET, baseUrl, "/api/{version}/favorite/search", "application/json")
+  def searchFavorites(favoritableType: String, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, returnFullResponse: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, secondaryType: Option[String] = None, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SearchResponse] =
+    ApiRequest[SearchResponse](ApiMethods.GET, baseUrl, "/favorite/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
@@ -139,7 +131,6 @@ class FavoriteApi(baseUrl: String) {
       .withQueryParam("returnFullResponse", returnFullResponse)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SearchResponse](200)
       
 
@@ -149,7 +140,6 @@ class FavoriteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AccountResponse] (successful operation)
    * 
-   * @param version 
    * @param favoritableId The ID of the favoritableType to search on
    * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
    * @param start The start index for pagination
@@ -160,8 +150,8 @@ class FavoriteApi(baseUrl: String) {
    * @param longitude The current longitude of the user
    * @param keyword The keyword to limit that account list
    */
-  def whoHasFavorited(version: BigDecimal, favoritableId: Long, favoritableType: String, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None): ApiRequest[Seq[AccountResponse]] =
-    ApiRequest[Seq[AccountResponse]](ApiMethods.GET, baseUrl, "/api/{version}/favorite/whois", "application/json")
+  def whoHasFavorited(favoritableId: Long, favoritableType: String, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None): ApiRequest[Seq[AccountResponse]] =
+    ApiRequest[Seq[AccountResponse]](ApiMethods.GET, baseUrl, "/favorite/whois", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
@@ -171,7 +161,6 @@ class FavoriteApi(baseUrl: String) {
       .withQueryParam("keyword", keyword)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AccountResponse]](200)
       
 

@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.AvailabilityResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.ReservationResponse
 import org.openapitools.client.model.TimeSlotResponse
 import org.openapitools.client.core._
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ReservationApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ReservationApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ReservationApi(baseUrl)
 }
 
 class ReservationApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class ReservationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param startDate The start date
@@ -42,8 +40,8 @@ class ReservationApi(baseUrl: String) {
    * @param appKey The application requesting the reservation
    * @param metaData External custom client defined data
    */
-  def createReservation(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, appKey: Option[String] = None, metaData: Option[String] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/reservation/create", "application/json")
+  def createReservation(deviceId: Option[String] = None, accountId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, appKey: Option[String] = None, metaData: Option[String] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/reservation/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("startDate", startDate)
@@ -52,7 +50,6 @@ class ReservationApi(baseUrl: String) {
       .withQueryParam("offerLocationId", offerLocationId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -62,17 +59,15 @@ class ReservationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (successful operation)
    * 
-   * @param version 
    * @param reservationId The reservation id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def deleteReservation(version: BigDecimal, reservationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/reservation/delete", "application/json")
+  def deleteReservation(reservationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/reservation/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("reservationId", reservationId)
-      .withPathParam("version", version)
       .withSuccessResponse[Unit](200)
       
 
@@ -80,7 +75,6 @@ class ReservationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AvailabilityResponse] (successful operation)
    * 
-   * @param version 
    * @param reservableId the id of the reservation
    * @param reservableType the type of reservation
    * @param deviceId the device id of the reservation
@@ -88,15 +82,14 @@ class ReservationApi(baseUrl: String) {
    * @param availability Availability
    * @param availabilitySummary Availability Summary
    */
-  def reservableAvailability(version: BigDecimal, reservableId: Long, reservableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[Seq[AvailabilityResponse]] =
-    ApiRequest[Seq[AvailabilityResponse]](ApiMethods.POST, baseUrl, "/api/{version}/reservable/availability/update", "application/json")
+  def reservableAvailability(reservableId: Long, reservableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, availability: Option[String] = None, availabilitySummary: Option[String] = None): ApiRequest[Seq[AvailabilityResponse]] =
+    ApiRequest[Seq[AvailabilityResponse]](ApiMethods.POST, baseUrl, "/reservable/availability/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("reservableId", reservableId)
       .withQueryParam("reservableType", reservableType)
       .withQueryParam("availability", availability)
       .withQueryParam("availabilitySummary", availabilitySummary)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AvailabilityResponse]](200)
       
 
@@ -104,7 +97,6 @@ class ReservationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AvailabilityResponse] (successful operation)
    * 
-   * @param version 
    * @param reservableId the id of the reservation
    * @param reservableType the reservable type
    * @param deviceId the device ID that the reservation is on
@@ -114,8 +106,8 @@ class ReservationApi(baseUrl: String) {
    * @param start the start of the index and/or pagination
    * @param limit the limit of the index and/or pagination
    */
-  def searchAvailability(version: BigDecimal, reservableId: Long, reservableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[AvailabilityResponse]] =
-    ApiRequest[Seq[AvailabilityResponse]](ApiMethods.GET, baseUrl, "/api/{version}/reservable/availability/search", "application/json")
+  def searchAvailability(reservableId: Long, reservableType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[AvailabilityResponse]] =
+    ApiRequest[Seq[AvailabilityResponse]](ApiMethods.GET, baseUrl, "/reservable/availability/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("reservableId", reservableId)
@@ -124,7 +116,6 @@ class ReservationApi(baseUrl: String) {
       .withQueryParam("endDate", endDate)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AvailabilityResponse]](200)
       
 
@@ -132,7 +123,6 @@ class ReservationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ReservationResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId Device Id
    * @param appKey Appilcation Key
    * @param accountId the id of the logged in user
@@ -145,8 +135,8 @@ class ReservationApi(baseUrl: String) {
    * @param start the start of the index and/or pagination
    * @param limit the limit of the index and/or pagination
    */
-  def searchReservations(version: BigDecimal, deviceId: Option[String] = None, appKey: Option[String] = None, accountId: Option[Long] = None, filterAccountId: Option[Long] = None, reservableId: Option[Long] = None, reservableType: Option[String] = None, keyword: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[ReservationResponse]] =
-    ApiRequest[Seq[ReservationResponse]](ApiMethods.GET, baseUrl, "/api/{version}/reservation/search", "application/json")
+  def searchReservations(deviceId: Option[String] = None, appKey: Option[String] = None, accountId: Option[Long] = None, filterAccountId: Option[Long] = None, reservableId: Option[Long] = None, reservableType: Option[String] = None, keyword: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[ReservationResponse]] =
+    ApiRequest[Seq[ReservationResponse]](ApiMethods.GET, baseUrl, "/reservation/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("accountId", accountId)
@@ -158,7 +148,6 @@ class ReservationApi(baseUrl: String) {
       .withQueryParam("endDate", endDate)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ReservationResponse]](200)
       
 
@@ -166,7 +155,6 @@ class ReservationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[TimeSlotResponse] (successful operation)
    * 
-   * @param version 
    * @param reservableId the id of the reservation
    * @param reservableType the reservation type
    * @param startDate the start date of the reservation
@@ -175,8 +163,8 @@ class ReservationApi(baseUrl: String) {
    * @param accountId the id of the logged in user
    * @param timeBucketMins the length of time in minutes to search on for reservation
    */
-  def searchSchedule(version: BigDecimal, reservableId: Long, reservableType: String, startDate: Long, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, timeBucketMins: Option[Int] = None): ApiRequest[Seq[TimeSlotResponse]] =
-    ApiRequest[Seq[TimeSlotResponse]](ApiMethods.GET, baseUrl, "/api/{version}/reservable/schedule/search", "application/json")
+  def searchSchedule(reservableId: Long, reservableType: String, startDate: Long, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, timeBucketMins: Option[Int] = None): ApiRequest[Seq[TimeSlotResponse]] =
+    ApiRequest[Seq[TimeSlotResponse]](ApiMethods.GET, baseUrl, "/reservable/schedule/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("reservableId", reservableId)
@@ -184,7 +172,6 @@ class ReservationApi(baseUrl: String) {
       .withQueryParam("startDate", startDate)
       .withQueryParam("endDate", endDate)
       .withQueryParam("timeBucketMins", timeBucketMins)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[TimeSlotResponse]](200)
       
 

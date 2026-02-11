@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.Shipment
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ShipmentApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ShipmentApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ShipmentApi(baseUrl)
 }
 
 class ShipmentApi(baseUrl: String) {
@@ -30,12 +29,10 @@ class ShipmentApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param id the id of the shipment to cancel
    */
-  def cancelShipment(version: BigDecimal, id: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/shipment/{id}/cancel", "application/json")
-      .withPathParam("version", version)
+  def cancelShipment(id: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/shipment/{id}/cancel", "application/json")
       .withPathParam("id", id)
       .withDefaultErrorResponse[Unit]
       
@@ -46,13 +43,11 @@ class ShipmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Shipment (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createShipment(version: BigDecimal, body: Option[Shipment] = None): ApiRequest[Shipment] =
-    ApiRequest[Shipment](ApiMethods.POST, baseUrl, "/api/{version}/shipment", "application/json")
+  def createShipment(body: Option[Shipment] = None): ApiRequest[Shipment] =
+    ApiRequest[Shipment](ApiMethods.POST, baseUrl, "/shipment", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[Shipment](200)
       
 
@@ -62,12 +57,10 @@ class ShipmentApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param id the id of the shipment to delete
    */
-  def deleteShipment(version: BigDecimal, id: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/shipment/{id}", "application/json")
-      .withPathParam("version", version)
+  def deleteShipment(id: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/shipment/{id}", "application/json")
       .withPathParam("id", id)
       .withDefaultErrorResponse[Unit]
       
@@ -78,12 +71,10 @@ class ShipmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Shipment (successful operation)
    * 
-   * @param version 
    * @param id the id of the shipment to get
    */
-  def getShipment(version: BigDecimal, id: Long): ApiRequest[Shipment] =
-    ApiRequest[Shipment](ApiMethods.GET, baseUrl, "/api/{version}/shipment/{id}", "application/json")
-      .withPathParam("version", version)
+  def getShipment(id: Long): ApiRequest[Shipment] =
+    ApiRequest[Shipment](ApiMethods.GET, baseUrl, "/shipment/{id}", "application/json")
       .withPathParam("id", id)
       .withSuccessResponse[Shipment](200)
       
@@ -94,7 +85,6 @@ class ShipmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Shipment] (successful operation)
    * 
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -104,8 +94,8 @@ class ShipmentApi(baseUrl: String) {
    * @param riderId The rider associate to this shipment
    * @param routeId The route associate to this shipment
    */
-  def searchShipments(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, ownerId: Option[Long] = None, riderId: Option[Long] = None, routeId: Option[Long] = None): ApiRequest[Seq[Shipment]] =
-    ApiRequest[Seq[Shipment]](ApiMethods.GET, baseUrl, "/api/{version}/shipment", "application/json")
+  def searchShipments(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, ownerId: Option[Long] = None, riderId: Option[Long] = None, routeId: Option[Long] = None): ApiRequest[Seq[Shipment]] =
+    ApiRequest[Seq[Shipment]](ApiMethods.GET, baseUrl, "/shipment", "application/json")
       .withQueryParam("ownerId", ownerId)
       .withQueryParam("riderId", riderId)
       .withQueryParam("routeId", routeId)
@@ -114,7 +104,6 @@ class ShipmentApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[Shipment]](200)
       
 
@@ -124,14 +113,12 @@ class ShipmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Shipment (successful operation)
    * 
-   * @param version 
    * @param id the id of the shipment to update
    * @param body 
    */
-  def updateShipment(version: BigDecimal, id: Long, body: Option[Shipment] = None): ApiRequest[Shipment] =
-    ApiRequest[Shipment](ApiMethods.PUT, baseUrl, "/api/{version}/shipment/{id}", "application/json")
+  def updateShipment(id: Long, body: Option[Shipment] = None): ApiRequest[Shipment] =
+    ApiRequest[Shipment](ApiMethods.PUT, baseUrl, "/shipment/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Shipment](200)
       
@@ -142,14 +129,12 @@ class ShipmentApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param id the id of the shipment to update status
    * @param body 
    */
-  def updateShipmentStatus(version: BigDecimal, id: Long, body: Map[String, Boolean]): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/shipment/{id}/status", "application/json")
+  def updateShipmentStatus(id: Long, body: Map[String, Boolean]): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/shipment/{id}/status", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withDefaultErrorResponse[Unit]
       

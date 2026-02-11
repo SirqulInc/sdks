@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.AppResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AppDataApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AppDataApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AppDataApi(baseUrl)
 }
 
 class AppDataApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class AppDataApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AppResponse (successful operation)
    * 
-   * @param version 
    * @param start start the search results at a record.
    * @param limit limit the search results to some number.
    * @param deviceId the device id (deviceId or accountId required).
@@ -58,8 +56,8 @@ class AppDataApi(baseUrl: String) {
    * @param responseGroups use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list 
    * @param purchaseType the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
    */
-  def getAppData(version: BigDecimal, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, includeGameData: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, gameObjectCount: Option[Boolean] = None, filter: Option[String] = None, dateCreated: Option[Long] = None, ownerId: Option[Long] = None, missionIds: Option[String] = None, gameIds: Option[String] = None, packIds: Option[String] = None, gameLevelIds: Option[String] = None, appVersion: Option[String] = None, includeHigherVersionPacks: Option[Boolean] = None, includeHigherVersionLevels: Option[Boolean] = None, responseGroups: Option[String] = None, purchaseType: Option[String] = None): ApiRequest[AppResponse] =
-    ApiRequest[AppResponse](ApiMethods.GET, baseUrl, "/api/{version}/app/get", "application/json")
+  def getAppData(start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, includeGameData: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, gameObjectCount: Option[Boolean] = None, filter: Option[String] = None, dateCreated: Option[Long] = None, ownerId: Option[Long] = None, missionIds: Option[String] = None, gameIds: Option[String] = None, packIds: Option[String] = None, gameLevelIds: Option[String] = None, appVersion: Option[String] = None, includeHigherVersionPacks: Option[Boolean] = None, includeHigherVersionLevels: Option[Boolean] = None, responseGroups: Option[String] = None, purchaseType: Option[String] = None): ApiRequest[AppResponse] =
+    ApiRequest[AppResponse](ApiMethods.GET, baseUrl, "/app/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
@@ -85,7 +83,6 @@ class AppDataApi(baseUrl: String) {
       .withQueryParam("includeHigherVersionLevels", includeHigherVersionLevels)
       .withQueryParam("responseGroups", responseGroups)
       .withQueryParam("purchaseType", purchaseType)
-      .withPathParam("version", version)
       .withSuccessResponse[AppResponse](200)
       
 
@@ -95,7 +92,6 @@ class AppDataApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AppResponse (successful operation)
    * 
-   * @param version 
    * @param gameType the game to retrieve the data for, use your application key.
    * @param start start the search results at a record.
    * @param limit limit the search results to some number.
@@ -123,8 +119,8 @@ class AppDataApi(baseUrl: String) {
    * @param responseGroups use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list 
    * @param purchaseType the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
    */
-  def postAppData(version: BigDecimal, gameType: String, start: Int, limit: Int, data: String, deviceId: Option[String] = None, accountId: Option[Long] = None, includeGameData: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, gameObjectCount: Option[Boolean] = None, filter: Option[String] = None, dateCreated: Option[Long] = None, ownerId: Option[Long] = None, missionIds: Option[String] = None, gameIds: Option[String] = None, packIds: Option[String] = None, gameLevelIds: Option[String] = None, appVersion: Option[String] = None, includeHigherVersionPacks: Option[Boolean] = None, includeHigherVersionLevels: Option[Boolean] = None, responseGroups: Option[String] = None, purchaseType: Option[String] = None): ApiRequest[AppResponse] =
-    ApiRequest[AppResponse](ApiMethods.POST, baseUrl, "/api/{version}/app/post", "application/json")
+  def postAppData(gameType: String, start: Int, limit: Int, data: String, deviceId: Option[String] = None, accountId: Option[Long] = None, includeGameData: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, gameObjectCount: Option[Boolean] = None, filter: Option[String] = None, dateCreated: Option[Long] = None, ownerId: Option[Long] = None, missionIds: Option[String] = None, gameIds: Option[String] = None, packIds: Option[String] = None, gameLevelIds: Option[String] = None, appVersion: Option[String] = None, includeHigherVersionPacks: Option[Boolean] = None, includeHigherVersionLevels: Option[Boolean] = None, responseGroups: Option[String] = None, purchaseType: Option[String] = None): ApiRequest[AppResponse] =
+    ApiRequest[AppResponse](ApiMethods.POST, baseUrl, "/app/post", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
@@ -151,7 +147,6 @@ class AppDataApi(baseUrl: String) {
       .withQueryParam("responseGroups", responseGroups)
       .withQueryParam("purchaseType", purchaseType)
       .withQueryParam("data", data)
-      .withPathParam("version", version)
       .withSuccessResponse[AppResponse](200)
       
 
@@ -161,19 +156,17 @@ class AppDataApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param appKey process a specific application, if null process all apps with caches
    * @param buildVersion create a specific version, if null use current version. Be careful if processing all
    * @param apiVersion create a specific version, if null use current version. Be careful if processing all
    */
-  def regenAppData(version: BigDecimal, accountId: Option[Long] = None, appKey: Option[String] = None, buildVersion: Option[String] = None, apiVersion: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/app/regen", "application/json")
+  def regenAppData(accountId: Option[Long] = None, appKey: Option[String] = None, buildVersion: Option[String] = None, apiVersion: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/app/regen", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("buildVersion", buildVersion)
       .withQueryParam("apiVersion", apiVersion)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

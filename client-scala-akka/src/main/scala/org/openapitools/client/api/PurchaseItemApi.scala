@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.PurchaseItemFullResponse
 import org.openapitools.client.model.PurchaseItemResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PurchaseItemApi {
 
-  def apply(baseUrl: String = "http://localhost") = new PurchaseItemApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new PurchaseItemApi(baseUrl)
 }
 
 class PurchaseItemApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class PurchaseItemApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PurchaseItemFullResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key that the purchase can be used in
    * @param name The name of the purchase item
    * @param purchaseType The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>
@@ -54,8 +52,8 @@ class PurchaseItemApi(baseUrl: String) {
    * @param points The number of points to award for completing a mission
    * @param offerLocationId The offer location that will get added to the user's wallet after purchase.
    */
-  def createPurchaseItem(version: BigDecimal, appKey: String, name: String, purchaseType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, description: Option[String] = None, tickets: Option[Int] = None, price: Option[Float] = None, purchaseCode: Option[String] = None, secretKey: Option[String] = None, purchaseLimit: Option[Int] = None, serviceAction: Option[String] = None, coverAssetId: Option[Long] = None, promoAssetId: Option[Long] = None, giftable: Option[Boolean] = None, assetable: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None, offerLocationId: Option[Long] = None): ApiRequest[PurchaseItemFullResponse] =
-    ApiRequest[PurchaseItemFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/purchase/create", "application/json")
+  def createPurchaseItem(appKey: String, name: String, purchaseType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, description: Option[String] = None, tickets: Option[Int] = None, price: Option[Float] = None, purchaseCode: Option[String] = None, secretKey: Option[String] = None, purchaseLimit: Option[Int] = None, serviceAction: Option[String] = None, coverAssetId: Option[Long] = None, promoAssetId: Option[Long] = None, giftable: Option[Boolean] = None, assetable: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None, offerLocationId: Option[Long] = None): ApiRequest[PurchaseItemFullResponse] =
+    ApiRequest[PurchaseItemFullResponse](ApiMethods.POST, baseUrl, "/purchase/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -76,7 +74,6 @@ class PurchaseItemApi(baseUrl: String) {
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
       .withQueryParam("offerLocationId", offerLocationId)
-      .withPathParam("version", version)
       .withSuccessResponse[PurchaseItemFullResponse](200)
       
 
@@ -86,17 +83,15 @@ class PurchaseItemApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param purchaseItemId The purchase item id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def deletePurchaseItem(version: BigDecimal, purchaseItemId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/purchase/delete", "application/json")
+  def deletePurchaseItem(purchaseItemId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/purchase/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("purchaseItemId", purchaseItemId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -106,17 +101,15 @@ class PurchaseItemApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PurchaseItemFullResponse (successful operation)
    * 
-   * @param version 
    * @param purchaseItemId The purchase item id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def getPurchaseItem(version: BigDecimal, purchaseItemId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[PurchaseItemFullResponse] =
-    ApiRequest[PurchaseItemFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/purchase/get", "application/json")
+  def getPurchaseItem(purchaseItemId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[PurchaseItemFullResponse] =
+    ApiRequest[PurchaseItemFullResponse](ApiMethods.GET, baseUrl, "/purchase/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("purchaseItemId", purchaseItemId)
-      .withPathParam("version", version)
       .withSuccessResponse[PurchaseItemFullResponse](200)
       
 
@@ -126,7 +119,6 @@ class PurchaseItemApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[PurchaseItemResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param appKey The application key to filter results by application
@@ -140,8 +132,8 @@ class PurchaseItemApi(baseUrl: String) {
    * @param limit The number of records to return
    * @param activeOnly Return only active results
    */
-  def searchPurchaseItems(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, filterByBillable: Option[Boolean] = None, purchaseType: Option[String] = None, serviceAction: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[PurchaseItemResponse]] =
-    ApiRequest[Seq[PurchaseItemResponse]](ApiMethods.GET, baseUrl, "/api/{version}/purchase/search", "application/json")
+  def searchPurchaseItems(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, filterByBillable: Option[Boolean] = None, purchaseType: Option[String] = None, serviceAction: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[PurchaseItemResponse]] =
+    ApiRequest[Seq[PurchaseItemResponse]](ApiMethods.GET, baseUrl, "/purchase/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -154,7 +146,6 @@ class PurchaseItemApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[PurchaseItemResponse]](200)
       
 
@@ -164,7 +155,6 @@ class PurchaseItemApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PurchaseItemFullResponse (successful operation)
    * 
-   * @param version 
    * @param purchaseItemId The purchase item id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -187,8 +177,8 @@ class PurchaseItemApi(baseUrl: String) {
    * @param points The number of points to award for completing a mission
    * @param offerLocationId The offer location that will get added to the user's wallet after purchase.
    */
-  def updatePurchaseItem(version: BigDecimal, purchaseItemId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, tickets: Option[Int] = None, price: Option[Float] = None, purchaseType: Option[String] = None, purchaseCode: Option[String] = None, secretKey: Option[String] = None, purchaseLimit: Option[Int] = None, serviceAction: Option[String] = None, coverAssetId: Option[Long] = None, promoAssetId: Option[Long] = None, giftable: Option[Boolean] = None, assetable: Option[Boolean] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None, offerLocationId: Option[Long] = None): ApiRequest[PurchaseItemFullResponse] =
-    ApiRequest[PurchaseItemFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/purchase/update", "application/json")
+  def updatePurchaseItem(purchaseItemId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, tickets: Option[Int] = None, price: Option[Float] = None, purchaseType: Option[String] = None, purchaseCode: Option[String] = None, secretKey: Option[String] = None, purchaseLimit: Option[Int] = None, serviceAction: Option[String] = None, coverAssetId: Option[Long] = None, promoAssetId: Option[Long] = None, giftable: Option[Boolean] = None, assetable: Option[Boolean] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None, offerLocationId: Option[Long] = None): ApiRequest[PurchaseItemFullResponse] =
+    ApiRequest[PurchaseItemFullResponse](ApiMethods.POST, baseUrl, "/purchase/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("purchaseItemId", purchaseItemId)
@@ -210,7 +200,6 @@ class PurchaseItemApi(baseUrl: String) {
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
       .withQueryParam("offerLocationId", offerLocationId)
-      .withPathParam("version", version)
       .withSuccessResponse[PurchaseItemFullResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.WrappedProxyItemResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object OpenAIApi {
 
-  def apply(baseUrl: String = "http://localhost") = new OpenAIApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new OpenAIApi(baseUrl)
 }
 
 class OpenAIApi(baseUrl: String) {
@@ -30,17 +29,15 @@ class OpenAIApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WrappedProxyItemResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param postBody Post Body Parameters
    * @param returnRawResponse Return raw response
    */
-  def imageGeneration(version: BigDecimal, accountId: Long, postBody: String, returnRawResponse: Option[Boolean] = None): ApiRequest[WrappedProxyItemResponse] =
-    ApiRequest[WrappedProxyItemResponse](ApiMethods.POST, baseUrl, "/api/{version}/openai/v1/images/generations", "application/json")
+  def imageGeneration(accountId: Long, postBody: String, returnRawResponse: Option[Boolean] = None): ApiRequest[WrappedProxyItemResponse] =
+    ApiRequest[WrappedProxyItemResponse](ApiMethods.POST, baseUrl, "/openai/v1/images/generations", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("postBody", postBody)
       .withQueryParam("returnRawResponse", returnRawResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[WrappedProxyItemResponse](200)
       
 

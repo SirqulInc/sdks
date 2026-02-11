@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.EventAttendanceResponse
 import org.openapitools.client.model.OfferResponse
 import org.openapitools.client.model.OfferShortResponse
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object EventApi {
 
-  def apply(baseUrl: String = "http://localhost") = new EventApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new EventApi(baseUrl)
 }
 
 class EventApi(baseUrl: String) {
@@ -33,7 +32,6 @@ class EventApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id (deviceId or accountId required)
    * @param appKey The application of where to send notifications about the attend action
@@ -45,8 +43,8 @@ class EventApi(baseUrl: String) {
    * @param latitude The location of the status update
    * @param longitude The location of the status update
    */
-  def attendEvent(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, listingId: Option[Long] = None, retailerLocationId: Option[Long] = None, offerLocationId: Option[Long] = None, transactionId: Option[Long] = None, status: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[OfferResponse] =
-    ApiRequest[OfferResponse](ApiMethods.POST, baseUrl, "/api/{version}/event/attend", "application/json")
+  def attendEvent(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, listingId: Option[Long] = None, retailerLocationId: Option[Long] = None, offerLocationId: Option[Long] = None, transactionId: Option[Long] = None, status: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[OfferResponse] =
+    ApiRequest[OfferResponse](ApiMethods.POST, baseUrl, "/event/attend", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -57,7 +55,6 @@ class EventApi(baseUrl: String) {
       .withQueryParam("status", status)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferResponse](200)
       
 
@@ -67,7 +64,6 @@ class EventApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param title The event title
    * @param retailerLocationIds The retailer location to have the event at
@@ -81,8 +77,8 @@ class EventApi(baseUrl: String) {
    * @param redeemableEnd The event end date/time
    * @param metaData external custom client defined data
    */
-  def createEvent(version: BigDecimal, accountId: Long, title: String, retailerLocationIds: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, imageAssetId: Option[Long] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, metaData: Option[String] = None): ApiRequest[OfferResponse] =
-    ApiRequest[OfferResponse](ApiMethods.POST, baseUrl, "/api/{version}/event/create", "application/json")
+  def createEvent(accountId: Long, title: String, retailerLocationIds: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, imageAssetId: Option[Long] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None, metaData: Option[String] = None): ApiRequest[OfferResponse] =
+    ApiRequest[OfferResponse](ApiMethods.POST, baseUrl, "/event/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerLocationIds", retailerLocationIds)
       .withQueryParam("title", title)
@@ -95,7 +91,6 @@ class EventApi(baseUrl: String) {
       .withQueryParam("redeemableStart", redeemableStart)
       .withQueryParam("redeemableEnd", redeemableEnd)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferResponse](200)
       
 
@@ -105,15 +100,13 @@ class EventApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param eventId the id of the event to update
    */
-  def deleteEvent(version: BigDecimal, accountId: Long, eventId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/event/delete", "application/json")
+  def deleteEvent(accountId: Long, eventId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/event/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("eventId", eventId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -123,15 +116,13 @@ class EventApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param eventId The id of the event to return
    */
-  def getEvent(version: BigDecimal, accountId: Long, eventId: Long): ApiRequest[OfferResponse] =
-    ApiRequest[OfferResponse](ApiMethods.GET, baseUrl, "/api/{version}/event/get", "application/json")
+  def getEvent(accountId: Long, eventId: Long): ApiRequest[OfferResponse] =
+    ApiRequest[OfferResponse](ApiMethods.GET, baseUrl, "/event/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("eventId", eventId)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferResponse](200)
       
 
@@ -141,7 +132,6 @@ class EventApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[EventAttendanceResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param appKey The application key
@@ -162,8 +152,8 @@ class EventApi(baseUrl: String) {
    * @param start The start index for pagination
    * @param limit The limit for pagination
    */
-  def searchEventTransactions(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, excludeRetailerLocationId: Option[Long] = None, listingId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, customerAccountIds: Option[String] = None, affiliatedCategoryIds: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, statuses: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[EventAttendanceResponse]] =
-    ApiRequest[Seq[EventAttendanceResponse]](ApiMethods.GET, baseUrl, "/api/{version}/event/attendance/search", "application/json")
+  def searchEventTransactions(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, keyword: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, excludeRetailerLocationId: Option[Long] = None, listingId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, customerAccountIds: Option[String] = None, affiliatedCategoryIds: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, statuses: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[EventAttendanceResponse]] =
+    ApiRequest[Seq[EventAttendanceResponse]](ApiMethods.GET, baseUrl, "/event/attendance/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -183,7 +173,6 @@ class EventApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[EventAttendanceResponse]](200)
       
 
@@ -193,7 +182,6 @@ class EventApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferShortResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param keyword The keyword used to search
    * @param activeOnly Return only active results
@@ -208,8 +196,8 @@ class EventApi(baseUrl: String) {
    * @param start The record to begin the return set on
    * @param limit The number of records to return
    */
-  def searchEvents(version: BigDecimal, accountId: Long, keyword: Option[String] = None, activeOnly: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, offerAudienceIds: Option[String] = None, transactionAudienceIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[OfferShortResponse]] =
-    ApiRequest[Seq[OfferShortResponse]](ApiMethods.GET, baseUrl, "/api/{version}/event/search", "application/json")
+  def searchEvents(accountId: Long, keyword: Option[String] = None, activeOnly: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, offerAudienceIds: Option[String] = None, transactionAudienceIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[OfferShortResponse]] =
+    ApiRequest[Seq[OfferShortResponse]](ApiMethods.GET, baseUrl, "/event/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("activeOnly", activeOnly)
@@ -223,7 +211,6 @@ class EventApi(baseUrl: String) {
       .withQueryParam("endDate", endDate)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferShortResponse]](200)
       
 
@@ -233,7 +220,6 @@ class EventApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param eventId The id of the event to update
    * @param retailerLocationIds The retailer location to have the event at
@@ -247,8 +233,8 @@ class EventApi(baseUrl: String) {
    * @param redeemableStart The event start date/time
    * @param redeemableEnd The event end date/time
    */
-  def updateEvent(version: BigDecimal, accountId: Long, eventId: Long, retailerLocationIds: Option[String] = None, title: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, imageAssetId: Option[Long] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None): ApiRequest[OfferResponse] =
-    ApiRequest[OfferResponse](ApiMethods.POST, baseUrl, "/api/{version}/event/update", "application/json")
+  def updateEvent(accountId: Long, eventId: Long, retailerLocationIds: Option[String] = None, title: Option[String] = None, subTitle: Option[String] = None, details: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, active: Option[Boolean] = None, imageAssetId: Option[Long] = None, redeemableStart: Option[Long] = None, redeemableEnd: Option[Long] = None): ApiRequest[OfferResponse] =
+    ApiRequest[OfferResponse](ApiMethods.POST, baseUrl, "/event/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("eventId", eventId)
       .withQueryParam("retailerLocationIds", retailerLocationIds)
@@ -261,7 +247,6 @@ class EventApi(baseUrl: String) {
       .withQueryParam("imageAssetId", imageAssetId)
       .withQueryParam("redeemableStart", redeemableStart)
       .withQueryParam("redeemableEnd", redeemableEnd)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferResponse](200)
       
 

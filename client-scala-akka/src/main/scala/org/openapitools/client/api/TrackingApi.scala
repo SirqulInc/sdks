@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.AccountMiniResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.Leg
 import org.openapitools.client.model.LegResponse
 import org.openapitools.client.model.PredictedLocationResponse
@@ -25,7 +24,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TrackingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TrackingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TrackingApi(baseUrl)
 }
 
 class TrackingApi(baseUrl: String) {
@@ -36,7 +35,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Leg] (successful operation)
    * 
-   * @param version 
    * @param data JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -45,8 +43,8 @@ class TrackingApi(baseUrl: String) {
    * @param defaultTag The default tag to apply to incoming legs when no tag is provided
    * @param slaveUID 
    */
-  def batchSaveTracking(version: BigDecimal, data: String, deviceId: Option[String] = None, accountId: Option[Long] = None, generateAccounts: Option[Boolean] = None, updateAccountLocations: Option[Boolean] = None, defaultTag: Option[String] = None, slaveUID: Option[String] = None): ApiRequest[Seq[Leg]] =
-    ApiRequest[Seq[Leg]](ApiMethods.POST, baseUrl, "/api/{version}/tracking/batch/create", "application/json")
+  def batchSaveTracking(data: String, deviceId: Option[String] = None, accountId: Option[Long] = None, generateAccounts: Option[Boolean] = None, updateAccountLocations: Option[Boolean] = None, defaultTag: Option[String] = None, slaveUID: Option[String] = None): ApiRequest[Seq[Leg]] =
+    ApiRequest[Seq[Leg]](ApiMethods.POST, baseUrl, "/tracking/batch/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("data", data)
@@ -54,7 +52,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("updateAccountLocations", updateAccountLocations)
       .withQueryParam("defaultTag", defaultTag)
       .withQueryParam("slaveUID", slaveUID)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[Leg]](200)
       
 
@@ -64,7 +61,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PredictedLocationResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the customer
    * @param latitude latitude to return a more likely result set based on the user's current location
    * @param longitude longitude to return a more likely result set based on the user's current location
@@ -75,8 +71,8 @@ class TrackingApi(baseUrl: String) {
    * @param searchRange Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \"0\" (zero) will ignore the radius restriction.
    * @param sortOrder The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED}
    */
-  def getPredictedLocations(version: BigDecimal, accountId: Long, latitude: Option[Double] = None, longitude: Option[Double] = None, dateCheck: Option[Long] = None, hourCheck: Option[String] = None, threshold: Option[Long] = None, distanceUnit: Option[String] = None, searchRange: Option[Double] = None, sortOrder: Option[String] = None): ApiRequest[PredictedLocationResponse] =
-    ApiRequest[PredictedLocationResponse](ApiMethods.GET, baseUrl, "/api/{version}/tracking/predicted/get", "application/json")
+  def getPredictedLocations(accountId: Long, latitude: Option[Double] = None, longitude: Option[Double] = None, dateCheck: Option[Long] = None, hourCheck: Option[String] = None, threshold: Option[Long] = None, distanceUnit: Option[String] = None, searchRange: Option[Double] = None, sortOrder: Option[String] = None): ApiRequest[PredictedLocationResponse] =
+    ApiRequest[PredictedLocationResponse](ApiMethods.GET, baseUrl, "/tracking/predicted/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
@@ -86,7 +82,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("distanceUnit", distanceUnit)
       .withQueryParam("searchRange", searchRange)
       .withQueryParam("sortOrder", sortOrder)
-      .withPathParam("version", version)
       .withSuccessResponse[PredictedLocationResponse](200)
       
 
@@ -96,17 +91,15 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[StepResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the customer
    * @param startStepId The stepId to begin from
    * @param endStepId The stepId to end with
    */
-  def getPredictedPath(version: BigDecimal, accountId: Long, startStepId: Long, endStepId: Long): ApiRequest[Seq[StepResponse]] =
-    ApiRequest[Seq[StepResponse]](ApiMethods.GET, baseUrl, "/api/{version}/tracking/path/get", "application/json")
+  def getPredictedPath(accountId: Long, startStepId: Long, endStepId: Long): ApiRequest[Seq[StepResponse]] =
+    ApiRequest[Seq[StepResponse]](ApiMethods.GET, baseUrl, "/tracking/path/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("startStepId", startStepId)
       .withQueryParam("endStepId", endStepId)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[StepResponse]](200)
       
 
@@ -116,7 +109,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[PreferredLocationResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the customer
    * @param latitude latitude to return a more likely result set based on the user's current location
    * @param longitude longitude to return a more likely result set based on the user's current location
@@ -129,8 +121,8 @@ class TrackingApi(baseUrl: String) {
    * @param searchRange Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \"0\" (zero) will ignore the radius restriction.
    * @param distanceUnit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}
    */
-  def getPreferredLocations(version: BigDecimal, accountId: Long, latitude: Option[Double] = None, longitude: Option[Double] = None, dateCheck: Option[Long] = None, hourCheck: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, searchRange: Option[Double] = None, distanceUnit: Option[String] = None): ApiRequest[Seq[PreferredLocationResponse]] =
-    ApiRequest[Seq[PreferredLocationResponse]](ApiMethods.GET, baseUrl, "/api/{version}/tracking/preferred/search", "application/json")
+  def getPreferredLocations(accountId: Long, latitude: Option[Double] = None, longitude: Option[Double] = None, dateCheck: Option[Long] = None, hourCheck: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, searchRange: Option[Double] = None, distanceUnit: Option[String] = None): ApiRequest[Seq[PreferredLocationResponse]] =
+    ApiRequest[Seq[PreferredLocationResponse]](ApiMethods.GET, baseUrl, "/tracking/preferred/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
@@ -142,7 +134,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("searchRange", searchRange)
       .withQueryParam("distanceUnit", distanceUnit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[PreferredLocationResponse]](200)
       
 
@@ -152,7 +143,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[LegResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param ownerId the account id of the person the user wants to tracking data for
@@ -162,8 +152,8 @@ class TrackingApi(baseUrl: String) {
    * @param tags filter results by tag
    * @param getLastPoint gets the last known location of the user
    */
-  def getTrackingLegs(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, ownerId: Option[Long] = None, trackingDeviceId: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, getLastPoint: Option[Boolean] = None): ApiRequest[Seq[LegResponse]] =
-    ApiRequest[Seq[LegResponse]](ApiMethods.GET, baseUrl, "/api/{version}/tracking/search", "application/json")
+  def getTrackingLegs(deviceId: Option[String] = None, accountId: Option[Long] = None, ownerId: Option[Long] = None, trackingDeviceId: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, getLastPoint: Option[Boolean] = None): ApiRequest[Seq[LegResponse]] =
+    ApiRequest[Seq[LegResponse]](ApiMethods.GET, baseUrl, "/tracking/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("ownerId", ownerId)
@@ -172,7 +162,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("endDate", endDate)
       .withQueryParam("tags", tags)
       .withQueryParam("getLastPoint", getLastPoint)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[LegResponse]](200)
       
 
@@ -182,7 +171,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param startLat the latitude of the first point
    * @param startLng the longitude of the first point
    * @param startDate the start date (in UTC milliseconds) of the first point
@@ -196,8 +184,8 @@ class TrackingApi(baseUrl: String) {
    * @param steps JSON array of tracking vectors used for smoother pathing data. If null then the leg data will be used to generate a single step, if an empty array then no steps will be generated. ```json [{   \"distance\": \"0.03\",   \"duration\": \"5000\",   \"startLat\": \"47.614603\",   \"startLng\": \"-122.350518\",   \"startDate\": \"1361924010000\",   \"endLat\": \"47.614941\",   \"endLng\": \"-122.350062\",   \"endDate\": \"1361924015000\" }] ``` 
    * @param tags name the leg for searching
    */
-  def saveTrackingLeg(version: BigDecimal, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, distance: Option[Double] = None, duration: Option[Long] = None, steps: Option[String] = None, tags: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/tracking/leg/create", "application/json")
+  def saveTrackingLeg(startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, distance: Option[Double] = None, duration: Option[Long] = None, steps: Option[String] = None, tags: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/tracking/leg/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("distance", distance)
@@ -210,7 +198,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("endDate", endDate)
       .withQueryParam("steps", steps)
       .withQueryParam("tags", tags)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -220,7 +207,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param legId the leg to add the step to
    * @param startLat the latitude of the first point
    * @param startLng the longitude of the first point
@@ -233,8 +219,8 @@ class TrackingApi(baseUrl: String) {
    * @param distance the total distance
    * @param duration the total duration
    */
-  def saveTrackingStep(version: BigDecimal, legId: Long, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, distance: Option[Double] = None, duration: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/tracking/step/create", "application/json")
+  def saveTrackingStep(legId: Long, startLat: Double, startLng: Double, startDate: Long, endLat: Double, endLng: Double, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, distance: Option[Double] = None, duration: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/tracking/step/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("legId", legId)
@@ -246,7 +232,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("endLat", endLat)
       .withQueryParam("endLng", endLng)
       .withQueryParam("endDate", endDate)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -256,7 +241,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AccountMiniResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword Used for LIKE search of first or last name on the acocunt
    * @param startDate Range to begin in UTC milliseconds
@@ -272,8 +256,8 @@ class TrackingApi(baseUrl: String) {
    * @param limit The total number of records to return. Default is 20.
    * @param activeOnly Determines whether to return only active results. Default is false.
    */
-  def searchAccountsWithTrackingLegs(version: BigDecimal, accountId: Long, keyword: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, audienceIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, range: Option[Double] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[AccountMiniResponse]] =
-    ApiRequest[Seq[AccountMiniResponse]](ApiMethods.GET, baseUrl, "/api/{version}/tracking/list", "application/json")
+  def searchAccountsWithTrackingLegs(accountId: Long, keyword: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, audienceIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, range: Option[Double] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[AccountMiniResponse]] =
+    ApiRequest[Seq[AccountMiniResponse]](ApiMethods.GET, baseUrl, "/tracking/list", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("startDate", startDate)
@@ -288,7 +272,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AccountMiniResponse]](200)
       
 
@@ -298,7 +281,6 @@ class TrackingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[LegResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id to search tracking for
    * @param appKey The application key
    * @param trackingDeviceId The id of the tracking device
@@ -308,8 +290,8 @@ class TrackingApi(baseUrl: String) {
    * @param start The start index for pagination
    * @param limit The limit for pagination
    */
-  def searchTrackingLegs(version: BigDecimal, accountId: Long, appKey: String, trackingDeviceId: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[LegResponse]] =
-    ApiRequest[Seq[LegResponse]](ApiMethods.GET, baseUrl, "/api/{version}/tracking/searchByBillable", "application/json")
+  def searchTrackingLegs(accountId: Long, appKey: String, trackingDeviceId: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, tags: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[LegResponse]] =
+    ApiRequest[Seq[LegResponse]](ApiMethods.GET, baseUrl, "/tracking/searchByBillable", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("trackingDeviceId", trackingDeviceId)
@@ -318,7 +300,6 @@ class TrackingApi(baseUrl: String) {
       .withQueryParam("tags", tags)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[LegResponse]](200)
       
 

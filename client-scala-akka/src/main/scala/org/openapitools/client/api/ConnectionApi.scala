@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ConnectionGroupResponse
 import org.openapitools.client.model.ConnectionInfoResponse
 import org.openapitools.client.model.ConnectionListResponse
@@ -23,7 +22,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ConnectionApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ConnectionApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ConnectionApi(baseUrl)
 }
 
 class ConnectionApi(baseUrl: String) {
@@ -34,7 +33,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the group id
    * @param deviceId the device id (deviceId or accountId required)
@@ -45,8 +43,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def addConnectionToGroup(version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionId: Option[Long] = None, connectionAccountId: Option[Long] = None, pendingId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/connection/group/addConnection", "application/json")
+  def addConnectionToGroup(returnNulls: Boolean, groupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionId: Option[Long] = None, connectionAccountId: Option[Long] = None, pendingId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/connection/group/addConnection", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -56,7 +54,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("groupId", groupId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -66,7 +63,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param connectionGroupId the connection group ID
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -75,8 +71,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def addConnectionsToGroup(version: BigDecimal, connectionGroupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/connection/group/addConnections", "application/json")
+  def addConnectionsToGroup(connectionGroupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/connection/group/addConnections", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionIds", connectionIds)
@@ -84,7 +80,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("connectionGroupId", connectionGroupId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -94,7 +89,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ConnectionGroupResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the parent group id
    * @param subGroupIds comma separated list of group IDs to add to the parent group
@@ -103,8 +97,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def addSubGroups(version: BigDecimal, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ConnectionGroupResponse] =
-    ApiRequest[ConnectionGroupResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/connection/group/addSubGroup", "application/json")
+  def addSubGroups(returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ConnectionGroupResponse] =
+    ApiRequest[ConnectionGroupResponse](ApiMethods.POST, baseUrl, "/consumer/connection/group/addSubGroup", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -112,7 +106,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("subGroupIds", subGroupIds)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ConnectionGroupResponse](200)
       
 
@@ -122,7 +115,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ConnectionResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param connectionId the connection id for editing
@@ -138,8 +130,8 @@ class ConnectionApi(baseUrl: String) {
    * @param isFollowing determines whether the user is following this account
    * @param connectionResponse whether to return the connection response or not
    */
-  def createOrUpdateConnection(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionId: Option[Long] = None, connectionAccountId: Option[Long] = None, pendingId: Option[Long] = None, groupId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, isTrusted: Option[Boolean] = None, ignoreFriendRequest: Option[Boolean] = None, isContact: Option[Boolean] = None, isBlocked: Option[Boolean] = None, isFollowing: Option[Boolean] = None, connectionResponse: Option[Boolean] = None): ApiRequest[ConnectionResponse] =
-    ApiRequest[ConnectionResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/connection/add", "application/json")
+  def createOrUpdateConnection(deviceId: Option[String] = None, accountId: Option[Long] = None, connectionId: Option[Long] = None, connectionAccountId: Option[Long] = None, pendingId: Option[Long] = None, groupId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, isTrusted: Option[Boolean] = None, ignoreFriendRequest: Option[Boolean] = None, isContact: Option[Boolean] = None, isBlocked: Option[Boolean] = None, isFollowing: Option[Boolean] = None, connectionResponse: Option[Boolean] = None): ApiRequest[ConnectionResponse] =
+    ApiRequest[ConnectionResponse](ApiMethods.POST, baseUrl, "/consumer/connection/add", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionId", connectionId)
@@ -154,7 +146,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("isBlocked", isBlocked)
       .withQueryParam("isFollowing", isFollowing)
       .withQueryParam("connectionResponse", connectionResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[ConnectionResponse](200)
       
 
@@ -164,7 +155,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -180,8 +170,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the latitude of the group
    * @param longitude the longitude of the group
    */
-  def createOrUpdateGroup(version: BigDecimal, returnNulls: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, groupId: Option[Long] = None, assetId: Option[Long] = None, connections: Option[String] = None, description: Option[String] = None, canViewProfileInfo: Option[Boolean] = None, canViewGameInfo: Option[Boolean] = None, canViewFriendInfo: Option[Boolean] = None, active: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/connection/group", "application/json")
+  def createOrUpdateGroup(returnNulls: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, groupId: Option[Long] = None, assetId: Option[Long] = None, connections: Option[String] = None, description: Option[String] = None, canViewProfileInfo: Option[Boolean] = None, canViewGameInfo: Option[Boolean] = None, canViewFriendInfo: Option[Boolean] = None, active: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/connection/group", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -196,7 +186,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("active", active)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -206,17 +195,15 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who initiated the follow
    * @param appKey the application key for sending notifications
    */
-  def followAccept(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/follow/accept", "application/json")
+  def followAccept(accountId: Long, connectionAccountId: Long, appKey: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/follow/accept", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -226,17 +213,15 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who initiated the follow
    * @param appKey the application key for sending notifications
    */
-  def followReject(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/follow/reject", "application/json")
+  def followReject(accountId: Long, connectionAccountId: Long, appKey: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/follow/reject", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -246,17 +231,15 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who you want to unfollow
    * @param appKey the application key for sending notifications
    */
-  def followRemove(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/follow/remove", "application/json")
+  def followRemove(accountId: Long, connectionAccountId: Long, appKey: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/follow/remove", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -266,19 +249,17 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who you want to follow
    * @param appKey the application key for sending notifications
    * @param approvalNeeded determines if the other user needs to confirm the follow request
    */
-  def followRequest(version: BigDecimal, accountId: Long, connectionAccountId: Long, appKey: String, approvalNeeded: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/follow/request", "application/json")
+  def followRequest(accountId: Long, connectionAccountId: Long, appKey: String, approvalNeeded: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/follow/request", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("approvalNeeded", approvalNeeded)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -288,7 +269,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param friendAccountId the friend's account id
    * @param notifyFriend determines whether to send a notification to the afflicting party
    * @param deviceId the device id (deviceId or accountId required)
@@ -297,8 +277,8 @@ class ConnectionApi(baseUrl: String) {
    * @param appKey the application key
    * @param notificationMessage optional message to send in a notification
    */
-  def friendAccept(version: BigDecimal, friendAccountId: Long, notifyFriend: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, notificationMessage: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/friend/accept", "application/json")
+  def friendAccept(friendAccountId: Long, notifyFriend: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, notificationMessage: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/friend/accept", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("friendAccountId", friendAccountId)
@@ -306,7 +286,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("notifyFriend", notifyFriend)
       .withQueryParam("notificationMessage", notificationMessage)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -316,7 +295,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param friendAccountId the friend's account id
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -325,8 +303,8 @@ class ConnectionApi(baseUrl: String) {
    * @param notifyFriend determines whether to send a notification to the afflicting party
    * @param notificationMessage optional message to send in a notification
    */
-  def friendReject(version: BigDecimal, friendAccountId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, notifyFriend: Option[Boolean] = None, notificationMessage: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/friend/reject", "application/json")
+  def friendReject(friendAccountId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, notifyFriend: Option[Boolean] = None, notificationMessage: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/friend/reject", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("friendAccountId", friendAccountId)
@@ -334,7 +312,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("notifyFriend", notifyFriend)
       .withQueryParam("notificationMessage", notificationMessage)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -344,21 +321,19 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param friendAccountId the account ID of the friend to remove
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param notifyFriend optionally notifies the connection that they have been removed as a friend
    * @param removeFromGroups optionally removes the connection from the user's groups
    */
-  def friendRemove(version: BigDecimal, friendAccountId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, notifyFriend: Option[Boolean] = None, removeFromGroups: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/friend/remove", "application/json")
+  def friendRemove(friendAccountId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, notifyFriend: Option[Boolean] = None, removeFromGroups: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/friend/remove", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("friendAccountId", friendAccountId)
       .withQueryParam("notifyFriend", notifyFriend)
       .withQueryParam("removeFromGroups", removeFromGroups)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -368,7 +343,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param friendAccountId the friend's account id
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -376,15 +350,14 @@ class ConnectionApi(baseUrl: String) {
    * @param appKey the application key
    * @param notificationMessage optional message to send in a notification
    */
-  def friendRequest(version: BigDecimal, friendAccountId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, notificationMessage: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/friend/request", "application/json")
+  def friendRequest(friendAccountId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, notificationMessage: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/friend/request", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("friendAccountId", friendAccountId)
       .withQueryParam("gameType", gameType)
       .withQueryParam("appKey", appKey)
       .withQueryParam("notificationMessage", notificationMessage)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -394,15 +367,13 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ConnectionListResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the ID of the device
    * @param accountId the id of the account
    */
-  def getConnectionSentFriendRequests(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[ConnectionListResponse] =
-    ApiRequest[ConnectionListResponse](ApiMethods.GET, baseUrl, "/api/{version}/consumer/connection/getRequested", "application/json")
+  def getConnectionSentFriendRequests(deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[ConnectionListResponse] =
+    ApiRequest[ConnectionListResponse](ApiMethods.GET, baseUrl, "/consumer/connection/getRequested", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[ConnectionListResponse](200)
       
 
@@ -412,7 +383,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ConnectionListResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
    * @param sortField sorts the response list by ConnectionApiMap
@@ -429,8 +399,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def getConnections(version: BigDecimal, returnNulls: Boolean, filter: String, sortField: String, descending: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ConnectionListResponse] =
-    ApiRequest[ConnectionListResponse](ApiMethods.GET, baseUrl, "/api/{version}/consumer/connection/get", "application/json")
+  def getConnections(returnNulls: Boolean, filter: String, sortField: String, descending: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ConnectionListResponse] =
+    ApiRequest[ConnectionListResponse](ApiMethods.GET, baseUrl, "/consumer/connection/get", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -446,7 +416,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ConnectionListResponse](200)
       
 
@@ -454,7 +423,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ConnectionGroupResponse (successful operation)
    * 
-   * @param version 
    * @param combineConnections whether to combine connections or not
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -462,15 +430,14 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def getGroupDetails(version: BigDecimal, combineConnections: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, groupId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ConnectionGroupResponse] =
-    ApiRequest[ConnectionGroupResponse](ApiMethods.GET, baseUrl, "/api/{version}/consumer/connection/group/details/get", "application/json")
+  def getGroupDetails(combineConnections: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, groupId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ConnectionGroupResponse] =
+    ApiRequest[ConnectionGroupResponse](ApiMethods.GET, baseUrl, "/consumer/connection/group/details/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("groupId", groupId)
       .withQueryParam("combineConnections", combineConnections)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ConnectionGroupResponse](200)
       
 
@@ -480,7 +447,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ConnectionInfoResponse] (successful operation)
    * 
-   * @param version 
    * @param sortField the field to sort by
    * @param descending whether to return results in descending or ascending order
    * @param activeOnly to search on active only or not
@@ -492,8 +458,8 @@ class ConnectionApi(baseUrl: String) {
    * @param longitude the current longitude of the user
    * @param keyword keyword search string
    */
-  def groupSearch(version: BigDecimal, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None): ApiRequest[Seq[ConnectionInfoResponse]] =
-    ApiRequest[Seq[ConnectionInfoResponse]](ApiMethods.GET, baseUrl, "/api/{version}/connection/group/search", "application/json")
+  def groupSearch(sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None): ApiRequest[Seq[ConnectionInfoResponse]] =
+    ApiRequest[Seq[ConnectionInfoResponse]](ApiMethods.GET, baseUrl, "/connection/group/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
@@ -504,7 +470,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ConnectionInfoResponse]](200)
       
 
@@ -514,7 +479,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the group id
    * @param deviceId the device id (deviceId or accountId required)
@@ -525,8 +489,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def removeConnectionFromGroup(version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionId: Option[Long] = None, connectionAccountId: Option[Long] = None, pendingId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/connection/group/removeConnection", "application/json")
+  def removeConnectionFromGroup(returnNulls: Boolean, groupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionId: Option[Long] = None, connectionAccountId: Option[Long] = None, pendingId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/connection/group/removeConnection", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -536,7 +500,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("groupId", groupId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -546,7 +509,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param connectionGroupId connection group id
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -555,8 +517,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def removeConnectionsFromGroup(version: BigDecimal, connectionGroupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/connection/group/removeConnections", "application/json")
+  def removeConnectionsFromGroup(connectionGroupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionIds: Option[String] = None, connectionAccountIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/connection/group/removeConnections", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionIds", connectionIds)
@@ -564,7 +526,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("connectionGroupId", connectionGroupId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -574,7 +535,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the group id
    * @param deviceId the device id (deviceId or accountId required)
@@ -582,15 +542,14 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def removeGroup(version: BigDecimal, returnNulls: Boolean, groupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/connection/group/remove", "application/json")
+  def removeGroup(returnNulls: Boolean, groupId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/connection/group/remove", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("groupId", groupId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -600,7 +559,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the parent group id
    * @param subGroupIds comma separated list of group IDs to remove from the parent group
@@ -609,8 +567,8 @@ class ConnectionApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def removeSubGroups(version: BigDecimal, returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/consumer/connection/group/removeSubGroup", "application/json")
+  def removeSubGroups(returnNulls: Boolean, groupId: Long, subGroupIds: String, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/consumer/connection/group/removeSubGroup", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -618,7 +576,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("subGroupIds", subGroupIds)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -628,7 +585,6 @@ class ConnectionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ConnectionListResponse (successful operation)
    * 
-   * @param version 
    * @param returnNulls return all json attributes if true. defualt is true.
    * @param start start index of the pagination
    * @param limit limit of the pagination
@@ -645,8 +601,8 @@ class ConnectionApi(baseUrl: String) {
    * @param sortField the field to sort on
    * @param hasLocation whether the search has location or not
    */
-  def searchConnections(version: BigDecimal, returnNulls: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, gameType: Option[String] = None, appKey: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, sortField: Option[String] = None, hasLocation: Option[Boolean] = None): ApiRequest[ConnectionListResponse] =
-    ApiRequest[ConnectionListResponse](ApiMethods.GET, baseUrl, "/api/{version}/connection/search", "application/json")
+  def searchConnections(returnNulls: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, gameType: Option[String] = None, appKey: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None, sortField: Option[String] = None, hasLocation: Option[Boolean] = None): ApiRequest[ConnectionListResponse] =
+    ApiRequest[ConnectionListResponse](ApiMethods.GET, baseUrl, "/connection/search", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -662,7 +618,6 @@ class ConnectionApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("sortField", sortField)
       .withQueryParam("hasLocation", hasLocation)
-      .withPathParam("version", version)
       .withSuccessResponse[ConnectionListResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object StripeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new StripeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new StripeApi(baseUrl)
 }
 
 class StripeApi(baseUrl: String) {
@@ -30,15 +29,13 @@ class StripeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param appKey Sirqul Application Key
    * @param stripeParameters Stripe Parameters
    */
-  def createStripeCheckoutSession(version: BigDecimal, appKey: String, stripeParameters: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/stripe/checkout/session/create", "application/json")
+  def createStripeCheckoutSession(appKey: String, stripeParameters: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/stripe/checkout/session/create", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("stripeParameters", stripeParameters)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

@@ -19,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object DisbursementApi {
 
-  def apply(baseUrl: String = "http://localhost") = new DisbursementApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new DisbursementApi(baseUrl)
 }
 
 class DisbursementApi(baseUrl: String) {
@@ -30,13 +30,11 @@ class DisbursementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : DisbursementResponse (successful operation)
    * 
-   * @param version 
    * @param disbursementId the ID of the disbursement being checked on
    */
-  def checkDisbursements(version: BigDecimal, disbursementId: Long): ApiRequest[DisbursementResponse] =
-    ApiRequest[DisbursementResponse](ApiMethods.GET, baseUrl, "/api/{version}/disbursement/check", "application/json")
+  def checkDisbursements(disbursementId: Long): ApiRequest[DisbursementResponse] =
+    ApiRequest[DisbursementResponse](ApiMethods.GET, baseUrl, "/disbursement/check", "application/json")
       .withQueryParam("disbursementId", disbursementId)
-      .withPathParam("version", version)
       .withSuccessResponse[DisbursementResponse](200)
       
 
@@ -46,7 +44,6 @@ class DisbursementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : DisbursementResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the ID of the logging in user (must be an EXECUTIVE account)
    * @param receiverAccountId the ID of the account receiving the disbursement
    * @param originalSenderAccountId the ID of the original sender account
@@ -58,8 +55,8 @@ class DisbursementApi(baseUrl: String) {
    * @param externalId external ID, which can be used as a way to reference the disbursement
    * @param introspectionParams This is for specifying parameters to make an http callback request for validating that the disbursement is valid
    */
-  def createDisbursement(version: BigDecimal, accountId: Long, receiverAccountId: Long, originalSenderAccountId: Long, amount: BigDecimal, provider: String, scheduledDate: Option[Long] = None, title: Option[String] = None, comment: Option[String] = None, externalId: Option[String] = None, introspectionParams: Option[String] = None): ApiRequest[DisbursementResponse] =
-    ApiRequest[DisbursementResponse](ApiMethods.POST, baseUrl, "/api/{version}/disbursement/create", "application/json")
+  def createDisbursement(accountId: Long, receiverAccountId: Long, originalSenderAccountId: Long, amount: BigDecimal, provider: String, scheduledDate: Option[Long] = None, title: Option[String] = None, comment: Option[String] = None, externalId: Option[String] = None, introspectionParams: Option[String] = None): ApiRequest[DisbursementResponse] =
+    ApiRequest[DisbursementResponse](ApiMethods.POST, baseUrl, "/disbursement/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("receiverAccountId", receiverAccountId)
       .withQueryParam("originalSenderAccountId", originalSenderAccountId)
@@ -70,7 +67,6 @@ class DisbursementApi(baseUrl: String) {
       .withQueryParam("comment", comment)
       .withQueryParam("externalId", externalId)
       .withQueryParam("introspectionParams", introspectionParams)
-      .withPathParam("version", version)
       .withSuccessResponse[DisbursementResponse](200)
       
 
@@ -80,15 +76,13 @@ class DisbursementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : DisbursementResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param disbursementId the id of the disbursement
    */
-  def getDisbursement(version: BigDecimal, accountId: Long, disbursementId: Long): ApiRequest[DisbursementResponse] =
-    ApiRequest[DisbursementResponse](ApiMethods.GET, baseUrl, "/api/{version}/disbursement/get", "application/json")
+  def getDisbursement(accountId: Long, disbursementId: Long): ApiRequest[DisbursementResponse] =
+    ApiRequest[DisbursementResponse](ApiMethods.GET, baseUrl, "/disbursement/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("disbursementId", disbursementId)
-      .withPathParam("version", version)
       .withSuccessResponse[DisbursementResponse](200)
       
 
@@ -98,7 +92,6 @@ class DisbursementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[DisbursementResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param receiverAccountId filter results by the id of the account receiving the disbursement
    * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED
@@ -110,8 +103,8 @@ class DisbursementApi(baseUrl: String) {
    * @param activeOnly search on disbursements that are active only
    * @param externalId search results by this external ID (that can be used to reference the disbursement)
    */
-  def searchDisbursements(version: BigDecimal, accountId: Long, receiverAccountId: Option[Long] = None, statuses: Option[String] = None, providers: Option[String] = None, beforeDate: Option[Long] = None, afterDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, externalId: Option[String] = None): ApiRequest[Seq[DisbursementResponse]] =
-    ApiRequest[Seq[DisbursementResponse]](ApiMethods.GET, baseUrl, "/api/{version}/disbursement/search", "application/json")
+  def searchDisbursements(accountId: Long, receiverAccountId: Option[Long] = None, statuses: Option[String] = None, providers: Option[String] = None, beforeDate: Option[Long] = None, afterDate: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, externalId: Option[String] = None): ApiRequest[Seq[DisbursementResponse]] =
+    ApiRequest[Seq[DisbursementResponse]](ApiMethods.GET, baseUrl, "/disbursement/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("receiverAccountId", receiverAccountId)
       .withQueryParam("statuses", statuses)
@@ -122,7 +115,6 @@ class DisbursementApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("externalId", externalId)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[DisbursementResponse]](200)
       
 
@@ -132,7 +124,6 @@ class DisbursementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : DisbursementResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param disbursementId the id of the disbursement being updated
    * @param amount the disbursement dollar amount being updated
@@ -144,8 +135,8 @@ class DisbursementApi(baseUrl: String) {
    * @param retry determines whether to try sending the disbursement again in the case of a previous failure
    * @param introspectionParams for specifying parameters to make an http callback request for validating that the disbursement is valid
    */
-  def updateDisbursement(version: BigDecimal, accountId: Long, disbursementId: Long, amount: Option[BigDecimal] = None, provider: Option[String] = None, scheduledDate: Option[Long] = None, title: Option[String] = None, comment: Option[String] = None, externalId: Option[String] = None, retry: Option[Boolean] = None, introspectionParams: Option[String] = None): ApiRequest[DisbursementResponse] =
-    ApiRequest[DisbursementResponse](ApiMethods.POST, baseUrl, "/api/{version}/disbursement/update", "application/json")
+  def updateDisbursement(accountId: Long, disbursementId: Long, amount: Option[BigDecimal] = None, provider: Option[String] = None, scheduledDate: Option[Long] = None, title: Option[String] = None, comment: Option[String] = None, externalId: Option[String] = None, retry: Option[Boolean] = None, introspectionParams: Option[String] = None): ApiRequest[DisbursementResponse] =
+    ApiRequest[DisbursementResponse](ApiMethods.POST, baseUrl, "/disbursement/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("disbursementId", disbursementId)
       .withQueryParam("amount", amount)
@@ -156,7 +147,6 @@ class DisbursementApi(baseUrl: String) {
       .withQueryParam("externalId", externalId)
       .withQueryParam("retry", retry)
       .withQueryParam("introspectionParams", introspectionParams)
-      .withPathParam("version", version)
       .withSuccessResponse[DisbursementResponse](200)
       
 

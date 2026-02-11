@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.Direction
 import org.openapitools.client.model.Route
 import org.openapitools.client.model.Shipment
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RouteApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RouteApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RouteApi(baseUrl)
 }
 
 class RouteApi(baseUrl: String) {
@@ -33,12 +32,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Route (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to approve
    */
-  def approveRoute(version: BigDecimal, routeId: Long): ApiRequest[Route] =
-    ApiRequest[Route](ApiMethods.POST, baseUrl, "/api/{version}/route/{routeId}/approve", "application/json")
-      .withPathParam("version", version)
+  def approveRoute(routeId: Long): ApiRequest[Route] =
+    ApiRequest[Route](ApiMethods.POST, baseUrl, "/route/{routeId}/approve", "application/json")
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Route](200)
       
@@ -49,14 +46,12 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Route (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to duplicate
    * @param body 
    */
-  def copyRoute(version: BigDecimal, routeId: Long, body: Option[Route] = None): ApiRequest[Route] =
-    ApiRequest[Route](ApiMethods.POST, baseUrl, "/api/{version}/route/{routeId}/copy", "application/json")
+  def copyRoute(routeId: Long, body: Option[Route] = None): ApiRequest[Route] =
+    ApiRequest[Route](ApiMethods.POST, baseUrl, "/route/{routeId}/copy", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Route](200)
       
@@ -67,13 +62,11 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Route (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createRoute(version: BigDecimal, body: Option[Route] = None): ApiRequest[Route] =
-    ApiRequest[Route](ApiMethods.POST, baseUrl, "/api/{version}/route", "application/json")
+  def createRoute(body: Option[Route] = None): ApiRequest[Route] =
+    ApiRequest[Route](ApiMethods.POST, baseUrl, "/route", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[Route](200)
       
 
@@ -83,12 +76,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Direction] (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to update directions for
    */
-  def createRouteDirections(version: BigDecimal, routeId: Long): ApiRequest[Seq[Direction]] =
-    ApiRequest[Seq[Direction]](ApiMethods.PUT, baseUrl, "/api/{version}/route/{routeId}/directions", "application/json")
-      .withPathParam("version", version)
+  def createRouteDirections(routeId: Long): ApiRequest[Seq[Direction]] =
+    ApiRequest[Seq[Direction]](ApiMethods.PUT, baseUrl, "/route/{routeId}/directions", "application/json")
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Seq[Direction]](200)
       
@@ -99,12 +90,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Route (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to create a polyline for
    */
-  def createRoutePolyline(version: BigDecimal, routeId: Long): ApiRequest[Route] =
-    ApiRequest[Route](ApiMethods.PUT, baseUrl, "/api/{version}/route/{routeId}/polyline", "application/json")
-      .withPathParam("version", version)
+  def createRoutePolyline(routeId: Long): ApiRequest[Route] =
+    ApiRequest[Route](ApiMethods.PUT, baseUrl, "/route/{routeId}/polyline", "application/json")
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Route](200)
       
@@ -115,12 +104,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route
    */
-  def deleteRoute(version: BigDecimal, routeId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/route/{routeId}", "application/json")
-      .withPathParam("version", version)
+  def deleteRoute(routeId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/route/{routeId}", "application/json")
       .withPathParam("routeId", routeId)
       .withDefaultErrorResponse[Unit]
       
@@ -131,12 +118,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Route (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to reject
    */
-  def disapproveRoute(version: BigDecimal, routeId: Long): ApiRequest[Route] =
-    ApiRequest[Route](ApiMethods.POST, baseUrl, "/api/{version}/route/{routeId}/disapprove", "application/json")
-      .withPathParam("version", version)
+  def disapproveRoute(routeId: Long): ApiRequest[Route] =
+    ApiRequest[Route](ApiMethods.POST, baseUrl, "/route/{routeId}/disapprove", "application/json")
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Route](200)
       
@@ -147,14 +132,12 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Route (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to get
    * @param showInheritedProperties return inherited properties from parent or not
    */
-  def getRoute(version: BigDecimal, routeId: Long, showInheritedProperties: Boolean): ApiRequest[Route] =
-    ApiRequest[Route](ApiMethods.GET, baseUrl, "/api/{version}/route/{routeId}", "application/json")
+  def getRoute(routeId: Long, showInheritedProperties: Boolean): ApiRequest[Route] =
+    ApiRequest[Route](ApiMethods.GET, baseUrl, "/route/{routeId}", "application/json")
       .withQueryParam("showInheritedProperties", showInheritedProperties)
-      .withPathParam("version", version)
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Route](200)
       
@@ -165,12 +148,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Direction] (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to get directions for
    */
-  def getRouteDirections(version: BigDecimal, routeId: Long): ApiRequest[Seq[Direction]] =
-    ApiRequest[Seq[Direction]](ApiMethods.GET, baseUrl, "/api/{version}/route/{routeId}/directions", "application/json")
-      .withPathParam("version", version)
+  def getRouteDirections(routeId: Long): ApiRequest[Seq[Direction]] =
+    ApiRequest[Seq[Direction]](ApiMethods.GET, baseUrl, "/route/{routeId}/directions", "application/json")
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Seq[Direction]](200)
       
@@ -181,12 +162,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Shipment] (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to get shipments for
    */
-  def getRouteShipments(version: BigDecimal, routeId: Long): ApiRequest[Seq[Shipment]] =
-    ApiRequest[Seq[Shipment]](ApiMethods.GET, baseUrl, "/api/{version}/route/{routeId}/shipments", "application/json")
-      .withPathParam("version", version)
+  def getRouteShipments(routeId: Long): ApiRequest[Seq[Shipment]] =
+    ApiRequest[Seq[Shipment]](ApiMethods.GET, baseUrl, "/route/{routeId}/shipments", "application/json")
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Seq[Shipment]](200)
       
@@ -197,13 +176,11 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Stop (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to get stops for
    * @param stopId the id of the specific stop on the route
    */
-  def getRouteStop(version: BigDecimal, routeId: Long, stopId: Long): ApiRequest[Stop] =
-    ApiRequest[Stop](ApiMethods.GET, baseUrl, "/api/{version}/route/{routeId}/stop/{stopId}", "application/json")
-      .withPathParam("version", version)
+  def getRouteStop(routeId: Long, stopId: Long): ApiRequest[Stop] =
+    ApiRequest[Stop](ApiMethods.GET, baseUrl, "/route/{routeId}/stop/{stopId}", "application/json")
       .withPathParam("routeId", routeId)
       .withPathParam("stopId", stopId)
       .withSuccessResponse[Stop](200)
@@ -215,14 +192,12 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Stop] (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route
    * @param confirmedOnly only get stops that have been confirmed or not
    */
-  def getRouteStops(version: BigDecimal, routeId: Long, confirmedOnly: Boolean): ApiRequest[Seq[Stop]] =
-    ApiRequest[Seq[Stop]](ApiMethods.GET, baseUrl, "/api/{version}/route/{routeId}/stops", "application/json")
+  def getRouteStops(routeId: Long, confirmedOnly: Boolean): ApiRequest[Seq[Stop]] =
+    ApiRequest[Seq[Stop]](ApiMethods.GET, baseUrl, "/route/{routeId}/stops", "application/json")
       .withQueryParam("confirmedOnly", confirmedOnly)
-      .withPathParam("version", version)
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Seq[Stop]](200)
       
@@ -233,13 +208,11 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Shipment] (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route
    * @param stopId the id of the stop to get shipments on
    */
-  def getShipmentsAtStop(version: BigDecimal, routeId: Long, stopId: Long): ApiRequest[Seq[Shipment]] =
-    ApiRequest[Seq[Shipment]](ApiMethods.GET, baseUrl, "/api/{version}/route/{routeId}/stop/{stopId}/shipments", "application/json")
-      .withPathParam("version", version)
+  def getShipmentsAtStop(routeId: Long, stopId: Long): ApiRequest[Seq[Shipment]] =
+    ApiRequest[Seq[Shipment]](ApiMethods.GET, baseUrl, "/route/{routeId}/stop/{stopId}/shipments", "application/json")
       .withPathParam("routeId", routeId)
       .withPathParam("stopId", stopId)
       .withSuccessResponse[Seq[Shipment]](200)
@@ -251,12 +224,10 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to optimize
    */
-  def optimizeRoute(version: BigDecimal, routeId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/route/{routeId}/optimize", "application/json")
-      .withPathParam("version", version)
+  def optimizeRoute(routeId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/route/{routeId}/optimize", "application/json")
       .withPathParam("routeId", routeId)
       .withDefaultErrorResponse[Unit]
       
@@ -267,13 +238,11 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route
    * @param stopId the id of the specific stop to delete on the route
    */
-  def removeStop(version: BigDecimal, routeId: Long, stopId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/route/{routeId}/stop/{stopId}", "application/json")
-      .withPathParam("version", version)
+  def removeStop(routeId: Long, stopId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/route/{routeId}/stop/{stopId}", "application/json")
       .withPathParam("routeId", routeId)
       .withPathParam("stopId", stopId)
       .withDefaultErrorResponse[Unit]
@@ -285,14 +254,12 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Stop] (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route
    * @param body 
    */
-  def reorderRouteStopsPatch(version: BigDecimal, routeId: Long, body: Seq[Stop]): ApiRequest[Seq[Stop]] =
-    ApiRequest[Seq[Stop]](ApiMethods.PATCH, baseUrl, "/api/{version}/route/{routeId}/stops/reorder", "application/json")
+  def reorderRouteStopsPatch(routeId: Long, body: Seq[Stop]): ApiRequest[Seq[Stop]] =
+    ApiRequest[Seq[Stop]](ApiMethods.PATCH, baseUrl, "/route/{routeId}/stops/reorder", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Seq[Stop]](200)
       
@@ -303,14 +270,12 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Stop] (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route
    * @param body 
    */
-  def reorderRouteStopsPost(version: BigDecimal, routeId: Long, body: Seq[Stop]): ApiRequest[Seq[Stop]] =
-    ApiRequest[Seq[Stop]](ApiMethods.POST, baseUrl, "/api/{version}/route/{routeId}/stops/reorder", "application/json")
+  def reorderRouteStopsPost(routeId: Long, body: Seq[Stop]): ApiRequest[Seq[Stop]] =
+    ApiRequest[Seq[Stop]](ApiMethods.POST, baseUrl, "/route/{routeId}/stops/reorder", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Seq[Stop]](200)
       
@@ -321,7 +286,6 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Route] (successful operation)
    * 
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -344,8 +308,8 @@ class RouteApi(baseUrl: String) {
    * @param valid Is valid or not
    * @param parentId If it is a recurring route based on the parent route
    */
-  def searchRoutes(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, includesEmpty: Boolean, rootOnly: Boolean, showInheritedProperties: Boolean, hubId: Option[Long] = None, programId: Option[Long] = None, scheduledStart: Option[Long] = None, scheduledEnd: Option[Long] = None, updatedStart: Option[Long] = None, updatedEnd: Option[Long] = None, featured: Option[Boolean] = None, seatCount: Option[Int] = None, approved: Option[Boolean] = None, started: Option[Boolean] = None, completed: Option[Boolean] = None, valid: Option[Boolean] = None, parentId: Option[Long] = None): ApiRequest[Seq[Route]] =
-    ApiRequest[Seq[Route]](ApiMethods.GET, baseUrl, "/api/{version}/route", "application/json")
+  def searchRoutes(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, includesEmpty: Boolean, rootOnly: Boolean, showInheritedProperties: Boolean, hubId: Option[Long] = None, programId: Option[Long] = None, scheduledStart: Option[Long] = None, scheduledEnd: Option[Long] = None, updatedStart: Option[Long] = None, updatedEnd: Option[Long] = None, featured: Option[Boolean] = None, seatCount: Option[Int] = None, approved: Option[Boolean] = None, started: Option[Boolean] = None, completed: Option[Boolean] = None, valid: Option[Boolean] = None, parentId: Option[Long] = None): ApiRequest[Seq[Route]] =
+    ApiRequest[Seq[Route]](ApiMethods.GET, baseUrl, "/route", "application/json")
       .withQueryParam("hubId", hubId)
       .withQueryParam("programId", programId)
       .withQueryParam("scheduledStart", scheduledStart)
@@ -367,7 +331,6 @@ class RouteApi(baseUrl: String) {
       .withQueryParam("includesEmpty", includesEmpty)
       .withQueryParam("rootOnly", rootOnly)
       .withQueryParam("showInheritedProperties", showInheritedProperties)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[Route]](200)
       
 
@@ -377,13 +340,11 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param id the id of the route
    * @param driverId the id of the driver
    */
-  def setDriver(version: BigDecimal, id: Long, driverId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/api/{version}/route/{id}/driver/{driverId}", "application/json")
-      .withPathParam("version", version)
+  def setDriver(id: Long, driverId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.POST, baseUrl, "/route/{id}/driver/{driverId}", "application/json")
       .withPathParam("id", id)
       .withPathParam("driverId", driverId)
       .withDefaultErrorResponse[Unit]
@@ -395,14 +356,12 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Route (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route
    * @param body 
    */
-  def updateRoute(version: BigDecimal, routeId: Long, body: Option[Route] = None): ApiRequest[Route] =
-    ApiRequest[Route](ApiMethods.PUT, baseUrl, "/api/{version}/route/{routeId}", "application/json")
+  def updateRoute(routeId: Long, body: Option[Route] = None): ApiRequest[Route] =
+    ApiRequest[Route](ApiMethods.PUT, baseUrl, "/route/{routeId}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("routeId", routeId)
       .withSuccessResponse[Route](200)
       
@@ -413,15 +372,13 @@ class RouteApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param routeId the id of the route to update stops for
    * @param stopId the id of the specific stop to update on the route
    * @param body 
    */
-  def updateRouteStop(version: BigDecimal, routeId: Long, stopId: Long, body: Option[Stop] = None): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.PUT, baseUrl, "/api/{version}/route/{routeId}/stop/{stopId}", "application/json")
+  def updateRouteStop(routeId: Long, stopId: Long, body: Option[Stop] = None): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.PUT, baseUrl, "/route/{routeId}/stop/{stopId}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("routeId", routeId)
       .withPathParam("stopId", stopId)
       .withDefaultErrorResponse[Unit]

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.TwiMLResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TwilioApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TwilioApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TwilioApi(baseUrl)
 }
 
 class TwilioApi(baseUrl: String) {
@@ -30,18 +29,16 @@ class TwilioApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TwiMLResponse (successful operation)
    * 
-   * @param version 
    * @param appKey the application key
    * @param body the message of the text
    * @param from the sender of the sms
    * @param currencyType the type of currency
    */
-  def smsBuyOffer(version: BigDecimal, appKey: String, body: String, from: String, currencyType: String): ApiRequest[TwiMLResponse] =
-    ApiRequest[TwiMLResponse](ApiMethods.POST, baseUrl, "/api/{version}/sms/buyoffer/{appKey}", "application/json")
+  def smsBuyOffer(appKey: String, body: String, from: String, currencyType: String): ApiRequest[TwiMLResponse] =
+    ApiRequest[TwiMLResponse](ApiMethods.POST, baseUrl, "/sms/buyoffer/{appKey}", "application/json")
       .withQueryParam("Body", body)
       .withQueryParam("From", from)
       .withQueryParam("currencyType", currencyType)
-      .withPathParam("version", version)
       .withPathParam("appKey", appKey)
       .withSuccessResponse[TwiMLResponse](200)
       

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ProfileResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TwitterApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TwitterApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TwitterApi(baseUrl)
 }
 
 class TwitterApi(baseUrl: String) {
@@ -31,13 +30,11 @@ class TwitterApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param appKey the application key
    */
-  def authorizeTwitter(version: BigDecimal, appKey: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/twitter/authorize", "application/json")
+  def authorizeTwitter(appKey: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/twitter/authorize", "application/json")
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -47,7 +44,6 @@ class TwitterApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param accessToken The access token
    * @param accessTokenSecret The secret access token
    * @param appKey The application key
@@ -56,8 +52,8 @@ class TwitterApi(baseUrl: String) {
    * @param latitude The current latitude of the user
    * @param longitude The current longitude of the user
    */
-  def loginTwitter(version: BigDecimal, accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/twitter/login", "application/json")
+  def loginTwitter(accessToken: String, accessTokenSecret: String, appKey: String, responseFilters: String, deviceId: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/twitter/login", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accessToken", accessToken)
       .withQueryParam("accessTokenSecret", accessTokenSecret)
@@ -65,7 +61,6 @@ class TwitterApi(baseUrl: String) {
       .withQueryParam("responseFilters", responseFilters)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 

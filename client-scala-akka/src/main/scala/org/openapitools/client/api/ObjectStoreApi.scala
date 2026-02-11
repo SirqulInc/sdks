@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ObjectStoreResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ObjectStoreApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ObjectStoreApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ObjectStoreApi(baseUrl)
 }
 
 class ObjectStoreApi(baseUrl: String) {
@@ -30,21 +29,19 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param appKey The application key for updating an existing application
    * @param objectName The name of the object to add the field to
    * @param fieldName field name The name of the field to add.
    * @param fieldType field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY
    */
-  def addField(version: BigDecimal, accountId: Long, appKey: String, objectName: String, fieldName: String, fieldType: String): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/api/{version}/object/field/add", "application/json")
+  def addField(accountId: Long, appKey: String, objectName: String, fieldName: String, fieldType: String): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/object/field/add", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("objectName", objectName)
       .withQueryParam("fieldName", fieldName)
       .withQueryParam("fieldType", fieldType)
-      .withPathParam("version", version)
       .withSuccessResponse[ObjectStoreResponse](200)
       
 
@@ -54,16 +51,14 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param objectName the name of the object to create data for
    * @param accountId the account id
    * @param body 
    */
-  def createData(version: BigDecimal, objectName: String, accountId: Option[Long] = None, body: Option[String] = None): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/api/{version}/object/data/{objectName}", "application/json")
+  def createData(objectName: String, accountId: Option[Long] = None, body: Option[String] = None): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/object/data/{objectName}", "application/json")
       .withBody(body)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("objectName", objectName)
       .withSuccessResponse[ObjectStoreResponse](200)
       
@@ -74,17 +69,15 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param appKey The application key for updating an existing application
    * @param objectName The name of the object to create
    */
-  def createObject(version: BigDecimal, accountId: Long, appKey: String, objectName: String): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/api/{version}/object/create", "application/json")
+  def createObject(accountId: Long, appKey: String, objectName: String): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/object/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("objectName", objectName)
-      .withPathParam("version", version)
       .withSuccessResponse[ObjectStoreResponse](200)
       
 
@@ -94,15 +87,13 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param objectName The name of the object to search upon
    * @param objectId objectId The id of the record to return
    * @param accountId The account id of the logged in user
    */
-  def deleteData(version: BigDecimal, objectName: String, objectId: String, accountId: Option[Long] = None): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.DELETE, baseUrl, "/api/{version}/object/data/{objectName}/{objectId}", "application/json")
+  def deleteData(objectName: String, objectId: String, accountId: Option[Long] = None): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.DELETE, baseUrl, "/object/data/{objectName}/{objectId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("objectName", objectName)
       .withPathParam("objectId", objectId)
       .withSuccessResponse[ObjectStoreResponse](200)
@@ -114,19 +105,17 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param appKey The application key for updating an existing application
    * @param objectName The name of the object to remove the field from
    * @param fieldName field name The name of the field to remove.
    */
-  def deleteField(version: BigDecimal, accountId: Long, appKey: String, objectName: String, fieldName: String): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/api/{version}/object/field/delete", "application/json")
+  def deleteField(accountId: Long, appKey: String, objectName: String, fieldName: String): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/object/field/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("objectName", objectName)
       .withQueryParam("fieldName", fieldName)
-      .withPathParam("version", version)
       .withSuccessResponse[ObjectStoreResponse](200)
       
 
@@ -136,17 +125,15 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param appKey the application key
    * @param objectName the name of the object to delete
    */
-  def deleteObject(version: BigDecimal, accountId: Long, appKey: String, objectName: String): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/api/{version}/object/delete", "application/json")
+  def deleteObject(accountId: Long, appKey: String, objectName: String): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.POST, baseUrl, "/object/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("objectName", objectName)
-      .withPathParam("version", version)
       .withSuccessResponse[ObjectStoreResponse](200)
       
 
@@ -156,17 +143,15 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param objectName The name of the object to search upon
    * @param objectId objectId The id of the record to return
    * @param accountId The account id of the logged in user
    * @param include 
    */
-  def getData(version: BigDecimal, objectName: String, objectId: String, accountId: Option[Long] = None, include: Option[String] = None): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/api/{version}/object/data/{objectName}/{objectId}", "application/json")
+  def getData(objectName: String, objectId: String, accountId: Option[Long] = None, include: Option[String] = None): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/object/data/{objectName}/{objectId}", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("include", include)
-      .withPathParam("version", version)
       .withPathParam("objectName", objectName)
       .withPathParam("objectId", objectId)
       .withSuccessResponse[ObjectStoreResponse](200)
@@ -178,17 +163,15 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param appKey The application key for updating an existing application
    * @param objectName The name of the object to get the definition for
    */
-  def getObject(version: BigDecimal, accountId: Long, appKey: String, objectName: String): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/api/{version}/object/get", "application/json")
+  def getObject(accountId: Long, appKey: String, objectName: String): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/object/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("objectName", objectName)
-      .withPathParam("version", version)
       .withSuccessResponse[ObjectStoreResponse](200)
       
 
@@ -198,7 +181,6 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param objectName The name of the object to search upon
    * @param count If true just return the record count of the search. False (default) will return the actual records
    * @param start The start of the pagination
@@ -208,8 +190,8 @@ class ObjectStoreApi(baseUrl: String) {
    * @param order The order of results; comma seperated list of field names. Illegal field names will be ignored. Direction by defualt is ascending. Prepend a minus to the field name to make that field descending.
    * @param include 
    */
-  def searchData(version: BigDecimal, objectName: String, count: Boolean, start: Long, limit: Long, accountId: Option[Long] = None, criteria: Option[String] = None, order: Option[String] = None, include: Option[String] = None): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/api/{version}/object/data/{objectName}", "application/json")
+  def searchData(objectName: String, count: Boolean, start: Long, limit: Long, accountId: Option[Long] = None, criteria: Option[String] = None, order: Option[String] = None, include: Option[String] = None): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/object/data/{objectName}", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("criteria", criteria)
       .withQueryParam("count", count)
@@ -217,7 +199,6 @@ class ObjectStoreApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("order", order)
       .withQueryParam("include", include)
-      .withPathParam("version", version)
       .withPathParam("objectName", objectName)
       .withSuccessResponse[ObjectStoreResponse](200)
       
@@ -228,21 +209,19 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param appKey The application key for updating an existing application
    * @param start The start of the pagination
    * @param limit The limit of the pagination
    * @param keyword The name of the object(s) to search for, can be a partial match
    */
-  def searchObject(version: BigDecimal, accountId: Long, appKey: String, start: Long, limit: Long, keyword: Option[String] = None): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/api/{version}/object/search", "application/json")
+  def searchObject(accountId: Long, appKey: String, start: Long, limit: Long, keyword: Option[String] = None): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.GET, baseUrl, "/object/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("keyword", keyword)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[ObjectStoreResponse](200)
       
 
@@ -252,17 +231,15 @@ class ObjectStoreApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ObjectStoreResponse (successful operation)
    * 
-   * @param version 
    * @param objectName The name of the object to search upon
    * @param objectId objectId The id of the record to return
    * @param accountId The account id of the logged in user
    * @param body 
    */
-  def updateData(version: BigDecimal, objectName: String, objectId: String, accountId: Option[Long] = None, body: Option[String] = None): ApiRequest[ObjectStoreResponse] =
-    ApiRequest[ObjectStoreResponse](ApiMethods.PUT, baseUrl, "/api/{version}/object/data/{objectName}/{objectId}", "application/json")
+  def updateData(objectName: String, objectId: String, accountId: Option[Long] = None, body: Option[String] = None): ApiRequest[ObjectStoreResponse] =
+    ApiRequest[ObjectStoreResponse](ApiMethods.PUT, baseUrl, "/object/data/{objectName}/{objectId}", "application/json")
       .withBody(body)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("objectName", objectName)
       .withPathParam("objectId", objectId)
       .withSuccessResponse[ObjectStoreResponse](200)

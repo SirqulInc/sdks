@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.TokenResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object FacebookApi {
 
-  def apply(baseUrl: String = "http://localhost") = new FacebookApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new FacebookApi(baseUrl)
 }
 
 class FacebookApi(baseUrl: String) {
@@ -31,19 +30,17 @@ class FacebookApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TokenResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param latitude used to update the user's current location
    * @param longitude used to update the user's current location
    */
-  def getToken(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[TokenResponse] =
-    ApiRequest[TokenResponse](ApiMethods.GET, baseUrl, "/api/{version}/facebook/getfbtoken", "application/json")
+  def getToken(deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[TokenResponse] =
+    ApiRequest[TokenResponse](ApiMethods.GET, baseUrl, "/facebook/getfbtoken", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[TokenResponse](200)
       
 
@@ -53,7 +50,6 @@ class FacebookApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -65,8 +61,8 @@ class FacebookApi(baseUrl: String) {
    * @param latitude used to update the user's current location
    * @param longitude used to update the user's current location
    */
-  def graphInterface(version: BigDecimal, event: String, deviceId: Option[String] = None, accountId: Option[Long] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, assetId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/facebook/graph", "application/json")
+  def graphInterface(event: String, deviceId: Option[String] = None, accountId: Option[Long] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, assetId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/facebook/graph", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("event", event)
@@ -77,7 +73,6 @@ class FacebookApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.ApplicationUsageResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.SubscriptionPlanResponse
 import org.openapitools.client.model.SubscriptionResponse
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object SubscriptionApi {
 
-  def apply(baseUrl: String = "http://localhost") = new SubscriptionApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new SubscriptionApi(baseUrl)
 }
 
 class SubscriptionApi(baseUrl: String) {
@@ -33,17 +32,15 @@ class SubscriptionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SubscriptionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the create, must be the responsible manager
    * @param planId The plan to subscribe to, if null use default plan
    * @param promoCode Set a promo code for a discount.
    */
-  def createSubscription(version: BigDecimal, accountId: Long, planId: Option[Long] = None, promoCode: Option[String] = None): ApiRequest[SubscriptionResponse] =
-    ApiRequest[SubscriptionResponse](ApiMethods.POST, baseUrl, "/api/{version}/subscription/create", "application/json")
+  def createSubscription(accountId: Long, planId: Option[Long] = None, promoCode: Option[String] = None): ApiRequest[SubscriptionResponse] =
+    ApiRequest[SubscriptionResponse](ApiMethods.POST, baseUrl, "/subscription/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("planId", planId)
       .withQueryParam("promoCode", promoCode)
-      .withPathParam("version", version)
       .withSuccessResponse[SubscriptionResponse](200)
       
 
@@ -53,13 +50,11 @@ class SubscriptionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the delete, must be the responsible manager
    */
-  def deleteSubscription(version: BigDecimal, accountId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/subscription/delete", "application/json")
+  def deleteSubscription(accountId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/subscription/delete", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -69,13 +64,11 @@ class SubscriptionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SubscriptionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the lookup
    */
-  def getSubscription(version: BigDecimal, accountId: Long): ApiRequest[SubscriptionResponse] =
-    ApiRequest[SubscriptionResponse](ApiMethods.GET, baseUrl, "/api/{version}/subscription/get", "application/json")
+  def getSubscription(accountId: Long): ApiRequest[SubscriptionResponse] =
+    ApiRequest[SubscriptionResponse](ApiMethods.GET, baseUrl, "/subscription/get", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[SubscriptionResponse](200)
       
 
@@ -85,13 +78,11 @@ class SubscriptionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SubscriptionPlanResponse (successful operation)
    * 
-   * @param version 
    * @param planId The ID of the plan to get
    */
-  def getSubscriptionPlan(version: BigDecimal, planId: Long): ApiRequest[SubscriptionPlanResponse] =
-    ApiRequest[SubscriptionPlanResponse](ApiMethods.GET, baseUrl, "/api/{version}/subscription/plan/get", "application/json")
+  def getSubscriptionPlan(planId: Long): ApiRequest[SubscriptionPlanResponse] =
+    ApiRequest[SubscriptionPlanResponse](ApiMethods.GET, baseUrl, "/subscription/plan/get", "application/json")
       .withQueryParam("planId", planId)
-      .withPathParam("version", version)
       .withSuccessResponse[SubscriptionPlanResponse](200)
       
 
@@ -101,15 +92,13 @@ class SubscriptionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[SubscriptionPlanResponse] (successful operation)
    * 
-   * @param version 
    * @param visible Include visible only (true), hidden only (false), or all (null)
    * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
    */
-  def getSubscriptionPlans(version: BigDecimal, visible: Option[Boolean] = None, role: Option[String] = None): ApiRequest[Seq[SubscriptionPlanResponse]] =
-    ApiRequest[Seq[SubscriptionPlanResponse]](ApiMethods.GET, baseUrl, "/api/{version}/subscription/plan/list", "application/json")
+  def getSubscriptionPlans(visible: Option[Boolean] = None, role: Option[String] = None): ApiRequest[Seq[SubscriptionPlanResponse]] =
+    ApiRequest[Seq[SubscriptionPlanResponse]](ApiMethods.GET, baseUrl, "/subscription/plan/list", "application/json")
       .withQueryParam("visible", visible)
       .withQueryParam("role", role)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[SubscriptionPlanResponse]](200)
       
 
@@ -119,19 +108,17 @@ class SubscriptionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationUsageResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the lookup
    * @param applicationId Get for just 1 application instead of the BillableEntity
    * @param start The start time frame
    * @param end The end time frame
    */
-  def getSubscriptionUsage(version: BigDecimal, accountId: Long, applicationId: Option[Long] = None, start: Option[Long] = None, end: Option[Long] = None): ApiRequest[ApplicationUsageResponse] =
-    ApiRequest[ApplicationUsageResponse](ApiMethods.GET, baseUrl, "/api/{version}/subscription/usage/get", "application/json")
+  def getSubscriptionUsage(accountId: Long, applicationId: Option[Long] = None, start: Option[Long] = None, end: Option[Long] = None): ApiRequest[ApplicationUsageResponse] =
+    ApiRequest[ApplicationUsageResponse](ApiMethods.GET, baseUrl, "/subscription/usage/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("applicationId", applicationId)
       .withQueryParam("start", start)
       .withQueryParam("end", end)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationUsageResponse](200)
       
 
@@ -141,19 +128,17 @@ class SubscriptionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SubscriptionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account used to perform the update, must be the responsible manager
    * @param planId The plan to subscribe to
    * @param promoCode Set a promo code for a discount.
    * @param active Set active status
    */
-  def updateSubscription(version: BigDecimal, accountId: Long, planId: Option[Long] = None, promoCode: Option[String] = None, active: Option[Boolean] = None): ApiRequest[SubscriptionResponse] =
-    ApiRequest[SubscriptionResponse](ApiMethods.POST, baseUrl, "/api/{version}/subscription/update", "application/json")
+  def updateSubscription(accountId: Long, planId: Option[Long] = None, promoCode: Option[String] = None, active: Option[Boolean] = None): ApiRequest[SubscriptionResponse] =
+    ApiRequest[SubscriptionResponse](ApiMethods.POST, baseUrl, "/subscription/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("planId", planId)
       .withQueryParam("promoCode", promoCode)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[SubscriptionResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.RetailerLocationResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RetailerLocationApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RetailerLocationApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RetailerLocationApi(baseUrl)
 }
 
 class RetailerLocationApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerLocationResponse (successful operation)
    * 
-   * @param version 
    * @param appKey the application key
    * @param name The name of the retailer location
    * @param deviceId The device id (deviceId or accountId required)
@@ -63,8 +61,8 @@ class RetailerLocationApi(baseUrl: String) {
    * @param latitude The latitude to center the search on
    * @param longitude The longitude to center the search on
    */
-  def createRetailerLocationConsumer(version: BigDecimal, appKey: String, name: String, deviceId: Option[String] = None, accountId: Option[Long] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, detailsHeader: Option[String] = None, detailsBody: Option[String] = None, hours: Option[String] = None, tags: Option[String] = None, logoAssetId: Option[Long] = None, picture1AssetId: Option[Long] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, metaData: Option[String] = None, publicLocation: Option[Boolean] = None, active: Option[Boolean] = None, locationType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[RetailerLocationResponse] =
-    ApiRequest[RetailerLocationResponse](ApiMethods.POST, baseUrl, "/api/{version}/location/create", "application/json")
+  def createRetailerLocationConsumer(appKey: String, name: String, deviceId: Option[String] = None, accountId: Option[Long] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, detailsHeader: Option[String] = None, detailsBody: Option[String] = None, hours: Option[String] = None, tags: Option[String] = None, logoAssetId: Option[Long] = None, picture1AssetId: Option[Long] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, metaData: Option[String] = None, publicLocation: Option[Boolean] = None, active: Option[Boolean] = None, locationType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[RetailerLocationResponse] =
+    ApiRequest[RetailerLocationResponse](ApiMethods.POST, baseUrl, "/location/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -94,7 +92,6 @@ class RetailerLocationApi(baseUrl: String) {
       .withQueryParam("locationType", locationType)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerLocationResponse](200)
       
 
@@ -104,7 +101,6 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerLocationResponse (successful operation)
    * 
-   * @param version 
    * @param retailerId The ID of the retailer
    * @param name The name of the retailer location
    * @param streetAddress The street address of the retailer location
@@ -145,8 +141,8 @@ class RetailerLocationApi(baseUrl: String) {
    * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
    * @param responseIncludes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
    */
-  def createRetailerLocations(version: BigDecimal, retailerId: Long, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: Option[String] = None, accountId: Option[Long] = None, streetAddress2: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, internalId: Option[String] = None, detailsHeader: Option[String] = None, detailsBody: Option[String] = None, hours: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, building: Option[String] = None, googlePlaceId: Option[String] = None, yelpId: Option[String] = None, active: Option[Boolean] = None, publicLocation: Option[Boolean] = None, locationType: Option[String] = None, audienceIds: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, responseFormat: Option[String] = None, responseIncludes: Option[String] = None): ApiRequest[RetailerLocationResponse] =
-    ApiRequest[RetailerLocationResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/location/create", "application/json")
+  def createRetailerLocations(retailerId: Long, name: String, streetAddress: String, city: String, state: String, postalCode: String, deviceId: Option[String] = None, accountId: Option[Long] = None, streetAddress2: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, internalId: Option[String] = None, detailsHeader: Option[String] = None, detailsBody: Option[String] = None, hours: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, building: Option[String] = None, googlePlaceId: Option[String] = None, yelpId: Option[String] = None, active: Option[Boolean] = None, publicLocation: Option[Boolean] = None, locationType: Option[String] = None, audienceIds: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, responseFormat: Option[String] = None, responseIncludes: Option[String] = None): ApiRequest[RetailerLocationResponse] =
+    ApiRequest[RetailerLocationResponse](ApiMethods.POST, baseUrl, "/retailer/location/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerId", retailerId)
@@ -186,7 +182,6 @@ class RetailerLocationApi(baseUrl: String) {
       .withQueryParam("audienceIdsToRemove", audienceIdsToRemove)
       .withQueryParam("responseFormat", responseFormat)
       .withQueryParam("responseIncludes", responseIncludes)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerLocationResponse](200)
       
 
@@ -196,17 +191,15 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id
    * @param accountId the id of the logged in user
    * @param retailerLocationId the id of the retailer location to delete
    */
-  def deleteRetailerLocation(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, retailerLocationId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/location/delete", "application/json")
+  def deleteRetailerLocation(deviceId: Option[String] = None, accountId: Option[Long] = None, retailerLocationId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/retailer/location/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerLocationId", retailerLocationId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -216,19 +209,17 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerLocationResponse (successful operation)
    * 
-   * @param version 
    * @param retailerLocationId The ID of the retailer location
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param retailerLocationToken the unique token of the retailer location
    */
-  def getRetailerLocation(version: BigDecimal, retailerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, retailerLocationToken: Option[String] = None): ApiRequest[RetailerLocationResponse] =
-    ApiRequest[RetailerLocationResponse](ApiMethods.GET, baseUrl, "/api/{version}/retailer/location/get", "application/json")
+  def getRetailerLocation(retailerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, retailerLocationToken: Option[String] = None): ApiRequest[RetailerLocationResponse] =
+    ApiRequest[RetailerLocationResponse](ApiMethods.GET, baseUrl, "/retailer/location/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("retailerLocationToken", retailerLocationToken)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerLocationResponse](200)
       
 
@@ -238,17 +229,15 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerLocationResponse (successful operation)
    * 
-   * @param version 
    * @param retailerLocationId The retailer location id
    * @param deviceId The device id for returning account information (i.e. favorites)
    * @param accountId The account id for returning account information (i.e. favorites)
    */
-  def getRetailerLocationConsumer(version: BigDecimal, retailerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[RetailerLocationResponse] =
-    ApiRequest[RetailerLocationResponse](ApiMethods.GET, baseUrl, "/api/{version}/location/get", "application/json")
+  def getRetailerLocationConsumer(retailerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[RetailerLocationResponse] =
+    ApiRequest[RetailerLocationResponse](ApiMethods.GET, baseUrl, "/location/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerLocationId", retailerLocationId)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerLocationResponse](200)
       
 
@@ -258,7 +247,6 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RetailerLocationResponse] (successful operation)
    * 
-   * @param version 
    * @param latitude The latitude to center the search on
    * @param longitude The longitude to center the search on
    * @param searchRange The search range in the distanceUnit specified; default is MILES.
@@ -294,8 +282,8 @@ class RetailerLocationApi(baseUrl: String) {
    * @param includeLiked Include liked flag in response
    * @param includeRating Include rating info in response
    */
-  def indexedRetailerLocationDistanceSearch(version: BigDecimal, latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Option[Long] = None, address: Option[String] = None, hasOffers: Option[Boolean] = None, categories: Option[String] = None, filters: Option[String] = None, audiences: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, tags: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, keywordOperator: Option[String] = None, searchExpression: Option[String] = None, distanceUnit: Option[String] = None, returnFavorited: Option[Boolean] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None, returnAudiences: Option[Boolean] = None, returnQrCode: Option[Boolean] = None, returnExternalCategoryData: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, includeLiked: Option[Boolean] = None, includeRating: Option[Boolean] = None): ApiRequest[Seq[RetailerLocationResponse]] =
-    ApiRequest[Seq[RetailerLocationResponse]](ApiMethods.GET, baseUrl, "/api/{version}/retailer/location/idistancesearch", "application/json")
+  def indexedRetailerLocationDistanceSearch(latitude: Double, longitude: Double, searchRange: Double, start: Int, limit: Int, accountId: Option[Long] = None, address: Option[String] = None, hasOffers: Option[Boolean] = None, categories: Option[String] = None, filters: Option[String] = None, audiences: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, tags: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, keywordOperator: Option[String] = None, searchExpression: Option[String] = None, distanceUnit: Option[String] = None, returnFavorited: Option[Boolean] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None, returnAudiences: Option[Boolean] = None, returnQrCode: Option[Boolean] = None, returnExternalCategoryData: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, includeLiked: Option[Boolean] = None, includeRating: Option[Boolean] = None): ApiRequest[Seq[RetailerLocationResponse]] =
+    ApiRequest[Seq[RetailerLocationResponse]](ApiMethods.GET, baseUrl, "/retailer/location/idistancesearch", "application/json")
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("accountId", accountId)
@@ -330,7 +318,6 @@ class RetailerLocationApi(baseUrl: String) {
       .withQueryParam("includeFavorite", includeFavorite)
       .withQueryParam("includeLiked", includeLiked)
       .withQueryParam("includeRating", includeRating)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RetailerLocationResponse]](200)
       
 
@@ -340,7 +327,6 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RetailerLocationResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param start The start index for pagination
    * @param limit The limit for pagination
@@ -370,8 +356,8 @@ class RetailerLocationApi(baseUrl: String) {
    * @param includeLiked Include liked flag in response
    * @param includeRating Include rating info in response
    */
-  def indexedRetailerLocationSearch(version: BigDecimal, accountId: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, hasOffers: Option[Boolean] = None, categories: Option[String] = None, filters: Option[String] = None, audiences: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, tags: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, keywordOperator: Option[String] = None, searchExpression: Option[String] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None, returnAudiences: Option[Boolean] = None, returnQrCode: Option[Boolean] = None, returnExternalCategoryData: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, includeLiked: Option[Boolean] = None, includeRating: Option[Boolean] = None): ApiRequest[Seq[RetailerLocationResponse]] =
-    ApiRequest[Seq[RetailerLocationResponse]](ApiMethods.GET, baseUrl, "/api/{version}/retailer/location/isearch", "application/json")
+  def indexedRetailerLocationSearch(accountId: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, hasOffers: Option[Boolean] = None, categories: Option[String] = None, filters: Option[String] = None, audiences: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, tags: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `q`: Option[String] = None, keyword: Option[String] = None, keywordOperator: Option[String] = None, searchExpression: Option[String] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None, returnAudiences: Option[Boolean] = None, returnQrCode: Option[Boolean] = None, returnExternalCategoryData: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, includeLiked: Option[Boolean] = None, includeRating: Option[Boolean] = None): ApiRequest[Seq[RetailerLocationResponse]] =
+    ApiRequest[Seq[RetailerLocationResponse]](ApiMethods.GET, baseUrl, "/retailer/location/isearch", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
@@ -400,7 +386,6 @@ class RetailerLocationApi(baseUrl: String) {
       .withQueryParam("includeFavorite", includeFavorite)
       .withQueryParam("includeLiked", includeLiked)
       .withQueryParam("includeRating", includeRating)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RetailerLocationResponse]](200)
       
 
@@ -410,7 +395,6 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RetailerLocationResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param `q` This parameter is deprecated.
@@ -437,8 +421,8 @@ class RetailerLocationApi(baseUrl: String) {
    * @param includeLiked Include liked flag in response
    * @param includeRating Include rating info in response
    */
-  def searchRetailerLocations(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, showPublicLocations: Option[Boolean] = None, activeOnly: Option[Boolean] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None, returnAudiences: Option[Boolean] = None, returnQrCode: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, includeLiked: Option[Boolean] = None, includeRating: Option[Boolean] = None): ApiRequest[Seq[RetailerLocationResponse]] =
-    ApiRequest[Seq[RetailerLocationResponse]](ApiMethods.GET, baseUrl, "/api/{version}/retailer/location/search", "application/json")
+  def searchRetailerLocations(deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, locationType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None, showPublicLocations: Option[Boolean] = None, activeOnly: Option[Boolean] = None, returnRetailer: Option[Boolean] = None, returnAssets: Option[Boolean] = None, returnOffers: Option[Boolean] = None, returnCategories: Option[Boolean] = None, returnFilters: Option[Boolean] = None, returnAudiences: Option[Boolean] = None, returnQrCode: Option[Boolean] = None, includeFavorite: Option[Boolean] = None, includeLiked: Option[Boolean] = None, includeRating: Option[Boolean] = None): ApiRequest[Seq[RetailerLocationResponse]] =
+    ApiRequest[Seq[RetailerLocationResponse]](ApiMethods.GET, baseUrl, "/retailer/location/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("q", `q`)
@@ -464,7 +448,6 @@ class RetailerLocationApi(baseUrl: String) {
       .withQueryParam("includeFavorite", includeFavorite)
       .withQueryParam("includeLiked", includeLiked)
       .withQueryParam("includeRating", includeRating)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RetailerLocationResponse]](200)
       
 
@@ -474,7 +457,6 @@ class RetailerLocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerLocationResponse (successful operation)
    * 
-   * @param version 
    * @param retailerLocationId The ID of the retailer location
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -517,8 +499,8 @@ class RetailerLocationApi(baseUrl: String) {
    * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
    * @param tags Custom string field for doing full-text searches
    */
-  def updateRetailerLocations(version: BigDecimal, retailerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, internalId: Option[String] = None, detailsHeader: Option[String] = None, detailsBody: Option[String] = None, hours: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, building: Option[String] = None, googlePlaceId: Option[String] = None, yelpId: Option[String] = None, metaData: Option[String] = None, paymentProvider: Option[String] = None, active: Option[Boolean] = None, publicLocation: Option[Boolean] = None, locationType: Option[String] = None, audienceIds: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, responseFormat: Option[String] = None, tags: Option[String] = None): ApiRequest[RetailerLocationResponse] =
-    ApiRequest[RetailerLocationResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/location/update", "application/json")
+  def updateRetailerLocations(retailerLocationId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, internalId: Option[String] = None, detailsHeader: Option[String] = None, detailsBody: Option[String] = None, hours: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, building: Option[String] = None, googlePlaceId: Option[String] = None, yelpId: Option[String] = None, metaData: Option[String] = None, paymentProvider: Option[String] = None, active: Option[Boolean] = None, publicLocation: Option[Boolean] = None, locationType: Option[String] = None, audienceIds: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, responseFormat: Option[String] = None, tags: Option[String] = None): ApiRequest[RetailerLocationResponse] =
+    ApiRequest[RetailerLocationResponse](ApiMethods.POST, baseUrl, "/retailer/location/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerLocationId", retailerLocationId)
@@ -560,7 +542,6 @@ class RetailerLocationApi(baseUrl: String) {
       .withQueryParam("audienceIdsToRemove", audienceIdsToRemove)
       .withQueryParam("responseFormat", responseFormat)
       .withQueryParam("tags", tags)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerLocationResponse](200)
       
 

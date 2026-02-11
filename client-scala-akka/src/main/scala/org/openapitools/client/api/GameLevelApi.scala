@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.GameLevelListResponse
 import org.openapitools.client.model.GameLevelResponse
 import org.openapitools.client.model.QuestionResponse
@@ -23,7 +22,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object GameLevelApi {
 
-  def apply(baseUrl: String = "http://localhost") = new GameLevelApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new GameLevelApi(baseUrl)
 }
 
 class GameLevelApi(baseUrl: String) {
@@ -34,7 +33,6 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameLevelResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the level.
    * @param gameData The game level data: xml, json, or other text based format.
@@ -62,8 +60,8 @@ class GameLevelApi(baseUrl: String) {
    * @param offerId id of the offer
    * @param metaData external custom client defined data
    */
-  def createGameLevel(version: BigDecimal, accountId: Long, name: String, gameData: String, gameDataSuffix: String, appKey: Option[String] = None, description: Option[String] = None, difficulty: Option[String] = None, appVersion: Option[String] = None, assetImageId: Option[Long] = None, assetIconId: Option[Long] = None, visibility: Option[String] = None, friendGroup: Option[Boolean] = None, connectionIds: Option[String] = None, connectionGroupIds: Option[String] = None, balance: Option[Double] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, tutorialTitle: Option[String] = None, tutorialMessage: Option[String] = None, tutorialAlignment: Option[String] = None, tutorialImageAssetId: Option[Long] = None, offerId: Option[Long] = None, metaData: Option[String] = None): ApiRequest[GameLevelResponse] =
-    ApiRequest[GameLevelResponse](ApiMethods.POST, baseUrl, "/api/{version}/level/create", "application/json")
+  def createGameLevel(accountId: Long, name: String, gameData: String, gameDataSuffix: String, appKey: Option[String] = None, description: Option[String] = None, difficulty: Option[String] = None, appVersion: Option[String] = None, assetImageId: Option[Long] = None, assetIconId: Option[Long] = None, visibility: Option[String] = None, friendGroup: Option[Boolean] = None, connectionIds: Option[String] = None, connectionGroupIds: Option[String] = None, balance: Option[Double] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, tutorialTitle: Option[String] = None, tutorialMessage: Option[String] = None, tutorialAlignment: Option[String] = None, tutorialImageAssetId: Option[Long] = None, offerId: Option[Long] = None, metaData: Option[String] = None): ApiRequest[GameLevelResponse] =
+    ApiRequest[GameLevelResponse](ApiMethods.POST, baseUrl, "/level/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("name", name)
@@ -90,7 +88,6 @@ class GameLevelApi(baseUrl: String) {
       .withQueryParam("tutorialImageAssetId", tutorialImageAssetId)
       .withQueryParam("offerId", offerId)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[GameLevelResponse](200)
       
 
@@ -100,15 +97,13 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param levelId The id of the level to return.
    */
-  def deleteGameLevel(version: BigDecimal, accountId: Long, levelId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/level/delete", "application/json")
+  def deleteGameLevel(accountId: Long, levelId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/level/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("levelId", levelId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -118,17 +113,15 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameLevelResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param levelId The id of the level to return.
    * @param includeGameData If true include the game level data, otherwise don't. default is false.
    */
-  def getGameLevel(version: BigDecimal, accountId: Long, levelId: Long, includeGameData: Option[Boolean] = None): ApiRequest[GameLevelResponse] =
-    ApiRequest[GameLevelResponse](ApiMethods.GET, baseUrl, "/api/{version}/level/get", "application/json")
+  def getGameLevel(accountId: Long, levelId: Long, includeGameData: Option[Boolean] = None): ApiRequest[GameLevelResponse] =
+    ApiRequest[GameLevelResponse](ApiMethods.GET, baseUrl, "/level/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("levelId", levelId)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[GameLevelResponse](200)
       
 
@@ -138,7 +131,6 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameLevelListResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey the application key
    * @param keyword Match the keyword to the owner name or level name.
@@ -150,8 +142,8 @@ class GameLevelApi(baseUrl: String) {
    * @param includeGameData If true include the game level data, otherwise don't. default is false.
    * @param filters 
    */
-  def getGameLevelsByApplication(version: BigDecimal, accountId: Long, appKey: String, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, appVersion: Option[String] = None, includeGameData: Option[Boolean] = None, filters: Option[String] = None): ApiRequest[GameLevelListResponse] =
-    ApiRequest[GameLevelListResponse](ApiMethods.GET, baseUrl, "/api/{version}/level/search", "application/json")
+  def getGameLevelsByApplication(accountId: Long, appKey: String, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, appVersion: Option[String] = None, includeGameData: Option[Boolean] = None, filters: Option[String] = None): ApiRequest[GameLevelListResponse] =
+    ApiRequest[GameLevelListResponse](ApiMethods.GET, baseUrl, "/level/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("keyword", keyword)
@@ -162,7 +154,6 @@ class GameLevelApi(baseUrl: String) {
       .withQueryParam("appVersion", appVersion)
       .withQueryParam("includeGameData", includeGameData)
       .withQueryParam("filters", filters)
-      .withPathParam("version", version)
       .withSuccessResponse[GameLevelListResponse](200)
       
 
@@ -172,7 +163,6 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameLevelResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param appKey the application key
    * @param keyword The keyword used to search
@@ -182,8 +172,8 @@ class GameLevelApi(baseUrl: String) {
    * @param start The record to begin the return set on
    * @param limit The number of records to return
    */
-  def getGameLevelsByBillableEntity(version: BigDecimal, accountId: Long, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, activeOnly: Option[Boolean] = None, start: Option[Long] = None, limit: Option[Long] = None): ApiRequest[GameLevelResponse] =
-    ApiRequest[GameLevelResponse](ApiMethods.GET, baseUrl, "/api/{version}/level/searchByBillableEntity", "application/json")
+  def getGameLevelsByBillableEntity(accountId: Long, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, activeOnly: Option[Boolean] = None, start: Option[Long] = None, limit: Option[Long] = None): ApiRequest[GameLevelResponse] =
+    ApiRequest[GameLevelResponse](ApiMethods.GET, baseUrl, "/level/searchByBillableEntity", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("keyword", keyword)
@@ -192,7 +182,6 @@ class GameLevelApi(baseUrl: String) {
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[GameLevelResponse](200)
       
 
@@ -202,15 +191,13 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QuestionResponse (successful operation)
    * 
-   * @param version 
    * @param levelId the id of the level to get questions from
    * @param accountId the id of the logged in user
    */
-  def getQuestionsInLevel(version: BigDecimal, levelId: Long, accountId: Long): ApiRequest[QuestionResponse] =
-    ApiRequest[QuestionResponse](ApiMethods.GET, baseUrl, "/api/{version}/level/questions/get", "application/json")
+  def getQuestionsInLevel(levelId: Long, accountId: Long): ApiRequest[QuestionResponse] =
+    ApiRequest[QuestionResponse](ApiMethods.GET, baseUrl, "/level/questions/get", "application/json")
       .withQueryParam("levelId", levelId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[QuestionResponse](200)
       
 
@@ -220,15 +207,13 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WordzWordResponse (successful operation)
    * 
-   * @param version 
    * @param levelId the id of the level to get words for
    * @param accountId the id of the logged in user
    */
-  def getWordsInLevel(version: BigDecimal, levelId: Long, accountId: Long): ApiRequest[WordzWordResponse] =
-    ApiRequest[WordzWordResponse](ApiMethods.GET, baseUrl, "/api/{version}/level/words/get", "application/json")
+  def getWordsInLevel(levelId: Long, accountId: Long): ApiRequest[WordzWordResponse] =
+    ApiRequest[WordzWordResponse](ApiMethods.GET, baseUrl, "/level/words/get", "application/json")
       .withQueryParam("levelId", levelId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[WordzWordResponse](200)
       
 
@@ -238,7 +223,6 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameLevelResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param levelId If update then include the level Id.
    * @param appKey The game application key to save the level for.
@@ -267,8 +251,8 @@ class GameLevelApi(baseUrl: String) {
    * @param offerId 
    * @param metaData external custom client defined data
    */
-  def updateGameLevel(version: BigDecimal, accountId: Long, levelId: Long, appKey: Option[String] = None, name: Option[String] = None, description: Option[String] = None, difficulty: Option[String] = None, appVersion: Option[String] = None, assetImageId: Option[Long] = None, assetIconId: Option[Long] = None, gameData: Option[String] = None, gameDataSuffix: Option[String] = None, visibility: Option[String] = None, friendGroup: Option[Boolean] = None, connectionIds: Option[String] = None, connectionGroupIds: Option[String] = None, balance: Option[Double] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, tutorialTitle: Option[String] = None, tutorialMessage: Option[String] = None, tutorialAlignment: Option[String] = None, tutorialImageAssetId: Option[Long] = None, offerId: Option[Long] = None, metaData: Option[String] = None): ApiRequest[GameLevelResponse] =
-    ApiRequest[GameLevelResponse](ApiMethods.POST, baseUrl, "/api/{version}/level/update", "application/json")
+  def updateGameLevel(accountId: Long, levelId: Long, appKey: Option[String] = None, name: Option[String] = None, description: Option[String] = None, difficulty: Option[String] = None, appVersion: Option[String] = None, assetImageId: Option[Long] = None, assetIconId: Option[Long] = None, gameData: Option[String] = None, gameDataSuffix: Option[String] = None, visibility: Option[String] = None, friendGroup: Option[Boolean] = None, connectionIds: Option[String] = None, connectionGroupIds: Option[String] = None, balance: Option[Double] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketCount: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None, tutorialTitle: Option[String] = None, tutorialMessage: Option[String] = None, tutorialAlignment: Option[String] = None, tutorialImageAssetId: Option[Long] = None, offerId: Option[Long] = None, metaData: Option[String] = None): ApiRequest[GameLevelResponse] =
+    ApiRequest[GameLevelResponse](ApiMethods.POST, baseUrl, "/level/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("levelId", levelId)
@@ -296,7 +280,6 @@ class GameLevelApi(baseUrl: String) {
       .withQueryParam("tutorialImageAssetId", tutorialImageAssetId)
       .withQueryParam("offerId", offerId)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[GameLevelResponse](200)
       
 
@@ -306,17 +289,15 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param levelId the id of the level to update questions on
    * @param accountId the id of the logged in user
    * @param questionIds the IDs of the questions to update
    */
-  def updateQuestionsInLevel(version: BigDecimal, levelId: Long, accountId: Long, questionIds: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/level/questions/update", "application/json")
+  def updateQuestionsInLevel(levelId: Long, accountId: Long, questionIds: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/level/questions/update", "application/json")
       .withQueryParam("levelId", levelId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("questionIds", questionIds)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -326,17 +307,15 @@ class GameLevelApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param levelId the id of the level to update words for
    * @param accountId the id of the logged in user
    * @param wordIds the ids of the words to update for the level
    */
-  def updateWordsInLevel(version: BigDecimal, levelId: Long, accountId: Long, wordIds: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/level/words/update", "application/json")
+  def updateWordsInLevel(levelId: Long, accountId: Long, wordIds: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/level/words/update", "application/json")
       .withQueryParam("levelId", levelId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("wordIds", wordIds)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

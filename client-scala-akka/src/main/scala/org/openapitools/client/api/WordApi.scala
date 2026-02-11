@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.WordzWordResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object WordApi {
 
-  def apply(baseUrl: String = "http://localhost") = new WordApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new WordApi(baseUrl)
 }
 
 class WordApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class WordApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WordzWordResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param word The text of the word.
    * @param definition The definition of the word.
@@ -42,8 +40,8 @@ class WordApi(baseUrl: String) {
    * @param ticketType The type of ticket to reward, null means default type
    * @param points The number of points to award for completing a mission
    */
-  def createWord(version: BigDecimal, accountId: Long, word: String, definition: String, active: Boolean, allocateTickets: Boolean, ticketCount: Long, assetId: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[WordzWordResponse] =
-    ApiRequest[WordzWordResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/word/create", "application/json")
+  def createWord(accountId: Long, word: String, definition: String, active: Boolean, allocateTickets: Boolean, ticketCount: Long, assetId: Option[Long] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[WordzWordResponse] =
+    ApiRequest[WordzWordResponse](ApiMethods.POST, baseUrl, "/game/word/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("word", word)
       .withQueryParam("definition", definition)
@@ -53,7 +51,6 @@ class WordApi(baseUrl: String) {
       .withQueryParam("ticketCount", ticketCount)
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
-      .withPathParam("version", version)
       .withSuccessResponse[WordzWordResponse](200)
       
 
@@ -63,15 +60,13 @@ class WordApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param wordId The id of the word to delete.
    * @param accountId The account vor validating permission
    */
-  def deleteWord(version: BigDecimal, wordId: Long, accountId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.DELETE, baseUrl, "/api/{version}/game/word/delete", "application/json")
+  def deleteWord(wordId: Long, accountId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.DELETE, baseUrl, "/game/word/delete", "application/json")
       .withQueryParam("wordId", wordId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -81,15 +76,13 @@ class WordApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WordzWordResponse (successful operation)
    * 
-   * @param version 
    * @param wordId The id of the word to get.
    * @param accountId The logged in user.
    */
-  def getWord(version: BigDecimal, wordId: Long, accountId: Long): ApiRequest[WordzWordResponse] =
-    ApiRequest[WordzWordResponse](ApiMethods.GET, baseUrl, "/api/{version}/game/word/get", "application/json")
+  def getWord(wordId: Long, accountId: Long): ApiRequest[WordzWordResponse] =
+    ApiRequest[WordzWordResponse](ApiMethods.GET, baseUrl, "/game/word/get", "application/json")
       .withQueryParam("wordId", wordId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[WordzWordResponse](200)
       
 
@@ -99,7 +92,6 @@ class WordApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[WordzWordResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param sortField The column to sort the search on
    * @param descending The order to return the search results
@@ -108,8 +100,8 @@ class WordApi(baseUrl: String) {
    * @param limit The number of records to return.
    * @param keyword The keyword for searching words with matching definition or word text.
    */
-  def getWords(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, keyword: Option[String] = None): ApiRequest[Seq[WordzWordResponse]] =
-    ApiRequest[Seq[WordzWordResponse]](ApiMethods.GET, baseUrl, "/api/{version}/game/word/search", "application/json")
+  def getWords(accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, keyword: Option[String] = None): ApiRequest[Seq[WordzWordResponse]] =
+    ApiRequest[Seq[WordzWordResponse]](ApiMethods.GET, baseUrl, "/game/word/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("sortField", sortField)
@@ -117,7 +109,6 @@ class WordApi(baseUrl: String) {
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[WordzWordResponse]](200)
       
 
@@ -127,7 +118,6 @@ class WordApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : WordzWordResponse (successful operation)
    * 
-   * @param version 
    * @param wordId The id of the word to update.
    * @param accountId The logged in user.
    * @param ticketCount The number of tickets to reward
@@ -139,8 +129,8 @@ class WordApi(baseUrl: String) {
    * @param ticketType The type of ticket to reward, null means default type
    * @param points The number of points to award for completing a mission
    */
-  def updateWord(version: BigDecimal, wordId: Long, accountId: Long, ticketCount: Long, wordText: Option[String] = None, definition: Option[String] = None, assetId: Option[Long] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[WordzWordResponse] =
-    ApiRequest[WordzWordResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/word/update", "application/json")
+  def updateWord(wordId: Long, accountId: Long, ticketCount: Long, wordText: Option[String] = None, definition: Option[String] = None, assetId: Option[Long] = None, active: Option[Boolean] = None, allocateTickets: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[WordzWordResponse] =
+    ApiRequest[WordzWordResponse](ApiMethods.POST, baseUrl, "/game/word/update", "application/json")
       .withQueryParam("wordId", wordId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("wordText", wordText)
@@ -151,7 +141,6 @@ class WordApi(baseUrl: String) {
       .withQueryParam("ticketCount", ticketCount)
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
-      .withPathParam("version", version)
       .withSuccessResponse[WordzWordResponse](200)
       
 

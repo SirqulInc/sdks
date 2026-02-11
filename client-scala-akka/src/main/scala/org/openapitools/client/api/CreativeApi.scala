@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CreativeResponse
 import org.openapitools.client.model.MissionResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CreativeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new CreativeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new CreativeApi(baseUrl)
 }
 
 class CreativeApi(baseUrl: String) {
@@ -32,15 +31,13 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account
    * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
    */
-  def addPreview(version: BigDecimal, accountId: Long, creativeId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/creative/addpreview", "application/json")
+  def addPreview(accountId: Long, creativeId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/creative/addpreview", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("creativeId", creativeId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -50,7 +47,6 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[MissionResponse] (successful operation)
    * 
-   * @param version 
    * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
    * @param randomize return a random set of results, default is true. If false returns in nature order.
    * @param targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -68,8 +64,8 @@ class CreativeApi(baseUrl: String) {
    * @param allocatesTickets If true/false only return missions whose game levels allocate (or don't allocate) tickets. Do not provide a value to return both.
    * @param missionIds return only ads from the specified campaigns.
    */
-  def adsFind(version: BigDecimal, appKey: String, randomize: Boolean, targetedAdsOnly: Boolean, `type`: Option[String] = None, accountId: Option[Long] = None, appVersion: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, device: Option[String] = None, deviceIdentifier: Option[Long] = None, deviceVersion: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeAudiences: Option[Boolean] = None, allocatesTickets: Option[Boolean] = None, missionIds: Option[String] = None): ApiRequest[Seq[MissionResponse]] =
-    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/ads/find", "application/json")
+  def adsFind(appKey: String, randomize: Boolean, targetedAdsOnly: Boolean, `type`: Option[String] = None, accountId: Option[Long] = None, appVersion: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, device: Option[String] = None, deviceIdentifier: Option[Long] = None, deviceVersion: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeAudiences: Option[Boolean] = None, allocatesTickets: Option[Boolean] = None, missionIds: Option[String] = None): ApiRequest[Seq[MissionResponse]] =
+    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/ads/find", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("type", `type`)
       .withQueryParam("accountId", accountId)
@@ -86,7 +82,6 @@ class CreativeApi(baseUrl: String) {
       .withQueryParam("randomize", randomize)
       .withQueryParam("targetedAdsOnly", targetedAdsOnly)
       .withQueryParam("missionIds", missionIds)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[MissionResponse]](200)
       
 
@@ -96,7 +91,6 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CreativeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the level.
    * @param active If true set the game level as active. Default is false.
@@ -113,8 +107,8 @@ class CreativeApi(baseUrl: String) {
    * @param missionId Assign the creative to a campaign for timing and audience matching.
    * @param offerId the id of the offer
    */
-  def createCreative(version: BigDecimal, accountId: Long, name: String, active: Boolean, waitForAsset: Boolean, description: Option[String] = None, assetImageId: Option[Long] = None, action: Option[String] = None, data: Option[String] = None, suffix: Option[String] = None, `type`: Option[String] = None, balance: Option[Double] = None, referenceId: Option[Long] = None, appVersion: Option[String] = None, missionId: Option[Long] = None, offerId: Option[Long] = None): ApiRequest[CreativeResponse] =
-    ApiRequest[CreativeResponse](ApiMethods.POST, baseUrl, "/api/{version}/creative/create", "application/json")
+  def createCreative(accountId: Long, name: String, active: Boolean, waitForAsset: Boolean, description: Option[String] = None, assetImageId: Option[Long] = None, action: Option[String] = None, data: Option[String] = None, suffix: Option[String] = None, `type`: Option[String] = None, balance: Option[Double] = None, referenceId: Option[Long] = None, appVersion: Option[String] = None, missionId: Option[Long] = None, offerId: Option[Long] = None): ApiRequest[CreativeResponse] =
+    ApiRequest[CreativeResponse](ApiMethods.POST, baseUrl, "/creative/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("description", description)
@@ -130,7 +124,6 @@ class CreativeApi(baseUrl: String) {
       .withQueryParam("missionId", missionId)
       .withQueryParam("offerId", offerId)
       .withQueryParam("waitForAsset", waitForAsset)
-      .withPathParam("version", version)
       .withSuccessResponse[CreativeResponse](200)
       
 
@@ -140,15 +133,13 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param creativeId the id of the creative to delete
    */
-  def deleteCreative(version: BigDecimal, accountId: Long, creativeId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/creative/delete", "application/json")
+  def deleteCreative(accountId: Long, creativeId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/creative/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("creativeId", creativeId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -158,15 +149,13 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CreativeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param creativeId the ID of the creative to get
    */
-  def getCreative(version: BigDecimal, accountId: Long, creativeId: Long): ApiRequest[CreativeResponse] =
-    ApiRequest[CreativeResponse](ApiMethods.GET, baseUrl, "/api/{version}/creative/get", "application/json")
+  def getCreative(accountId: Long, creativeId: Long): ApiRequest[CreativeResponse] =
+    ApiRequest[CreativeResponse](ApiMethods.GET, baseUrl, "/creative/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("creativeId", creativeId)
-      .withPathParam("version", version)
       .withSuccessResponse[CreativeResponse](200)
       
 
@@ -176,7 +165,6 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[CreativeResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey the application key
    * @param start Start the result set at some index.
@@ -184,15 +172,14 @@ class CreativeApi(baseUrl: String) {
    * @param missionId Creatives contained in the provided mission.
    * @param keyword Match the keyword to the owner name or level name.
    */
-  def getCreativesByApplication(version: BigDecimal, accountId: Long, appKey: String, start: Int, limit: Int, missionId: Option[Long] = None, keyword: Option[String] = None): ApiRequest[Seq[CreativeResponse]] =
-    ApiRequest[Seq[CreativeResponse]](ApiMethods.GET, baseUrl, "/api/{version}/creative/search", "application/json")
+  def getCreativesByApplication(accountId: Long, appKey: String, start: Int, limit: Int, missionId: Option[Long] = None, keyword: Option[String] = None): ApiRequest[Seq[CreativeResponse]] =
+    ApiRequest[Seq[CreativeResponse]](ApiMethods.GET, baseUrl, "/creative/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("missionId", missionId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[CreativeResponse]](200)
       
 
@@ -202,15 +189,13 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the ID of the logged in user
    * @param creativeId the ID of the creative to remove preview
    */
-  def removePreview(version: BigDecimal, accountId: Long, creativeId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/creative/removepreview", "application/json")
+  def removePreview(accountId: Long, creativeId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/creative/removepreview", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("creativeId", creativeId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -220,7 +205,6 @@ class CreativeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CreativeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param creativeId the creative Id to upate.
    * @param name The name of the level.
@@ -236,8 +220,8 @@ class CreativeApi(baseUrl: String) {
    * @param appVersion The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives.
    * @param missionId Assign the creative to a campaign for timing and audience matching.
    */
-  def updateCreative(version: BigDecimal, accountId: Long, creativeId: Long, name: Option[String] = None, description: Option[String] = None, assetImageId: Option[Long] = None, action: Option[String] = None, data: Option[String] = None, suffix: Option[String] = None, `type`: Option[String] = None, balance: Option[Double] = None, active: Option[Boolean] = None, referenceId: Option[Long] = None, appVersion: Option[String] = None, missionId: Option[Long] = None): ApiRequest[CreativeResponse] =
-    ApiRequest[CreativeResponse](ApiMethods.POST, baseUrl, "/api/{version}/creative/update", "application/json")
+  def updateCreative(accountId: Long, creativeId: Long, name: Option[String] = None, description: Option[String] = None, assetImageId: Option[Long] = None, action: Option[String] = None, data: Option[String] = None, suffix: Option[String] = None, `type`: Option[String] = None, balance: Option[Double] = None, active: Option[Boolean] = None, referenceId: Option[Long] = None, appVersion: Option[String] = None, missionId: Option[Long] = None): ApiRequest[CreativeResponse] =
+    ApiRequest[CreativeResponse](ApiMethods.POST, baseUrl, "/creative/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("creativeId", creativeId)
       .withQueryParam("name", name)
@@ -252,7 +236,6 @@ class CreativeApi(baseUrl: String) {
       .withQueryParam("referenceId", referenceId)
       .withQueryParam("appVersion", appVersion)
       .withQueryParam("missionId", missionId)
-      .withPathParam("version", version)
       .withSuccessResponse[CreativeResponse](200)
       
 

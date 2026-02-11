@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.MissionResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object MissionInviteApi {
 
-  def apply(baseUrl: String = "http://localhost") = new MissionInviteApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new MissionInviteApi(baseUrl)
 }
 
 class MissionInviteApi(baseUrl: String) {
@@ -31,21 +30,19 @@ class MissionInviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param missionId The mission to find the invite for.
    * @param joinCode code to be entered for user to join the mission
    * @param includeGameData Include the game level data with the mission.
    */
-  def createMissionInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, missionId: Option[Long] = None, joinCode: Option[String] = None, includeGameData: Option[Boolean] = None): ApiRequest[MissionResponse] =
-    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/api/{version}/mission/invite/create", "application/json")
+  def createMissionInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, missionId: Option[Long] = None, joinCode: Option[String] = None, includeGameData: Option[Boolean] = None): ApiRequest[MissionResponse] =
+    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/mission/invite/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("joinCode", joinCode)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionResponse](200)
       
 
@@ -55,21 +52,19 @@ class MissionInviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param missionId The mission to find the invite for (missionId or missionInviteId requried).
    * @param missionInviteId The mission invite id. This checks on the user's billable for permission (missionId or missionInviteId requried).
    * @param includeGameData Include the game level data with the mission.
    */
-  def deleteMissionInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, missionId: Option[Long] = None, missionInviteId: Option[Long] = None, includeGameData: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/mission/invite/delete", "application/json")
+  def deleteMissionInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, missionId: Option[Long] = None, missionInviteId: Option[Long] = None, includeGameData: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/mission/invite/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("missionInviteId", missionInviteId)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -79,7 +74,6 @@ class MissionInviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param missionId The mission to find the invite for (missionId or missionInviteId requried).
@@ -87,15 +81,14 @@ class MissionInviteApi(baseUrl: String) {
    * @param includeGameData Include the game level data with the mission.
    * @param includeScores include the scores with the mission
    */
-  def getMissionInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, missionId: Option[Long] = None, missionInviteId: Option[Long] = None, includeGameData: Option[Boolean] = None, includeScores: Option[String] = None): ApiRequest[MissionResponse] =
-    ApiRequest[MissionResponse](ApiMethods.GET, baseUrl, "/api/{version}/mission/invite/get", "application/json")
+  def getMissionInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, missionId: Option[Long] = None, missionInviteId: Option[Long] = None, includeGameData: Option[Boolean] = None, includeScores: Option[String] = None): ApiRequest[MissionResponse] =
+    ApiRequest[MissionResponse](ApiMethods.GET, baseUrl, "/mission/invite/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("missionInviteId", missionInviteId)
       .withQueryParam("includeGameData", includeGameData)
       .withQueryParam("includeScores", includeScores)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionResponse](200)
       
 
@@ -105,7 +98,6 @@ class MissionInviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[MissionResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param appKey the app to retrieve the data for, use your application key.
@@ -120,8 +112,8 @@ class MissionInviteApi(baseUrl: String) {
    * @param filterByBillable filter results by the account's billable
    * @param includeGameData Include the game level data with the mission.
    */
-  def searchMissionInvites(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, appVersion: Option[String] = None, missionId: Option[Long] = None, status: Option[String] = None, lastUpdated: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, keyword: Option[String] = None, missionTypes: Option[String] = None, filterByBillable: Option[Boolean] = None, includeGameData: Option[Boolean] = None): ApiRequest[Seq[MissionResponse]] =
-    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/mission/invite/search", "application/json")
+  def searchMissionInvites(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, appVersion: Option[String] = None, missionId: Option[Long] = None, status: Option[String] = None, lastUpdated: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, keyword: Option[String] = None, missionTypes: Option[String] = None, filterByBillable: Option[Boolean] = None, includeGameData: Option[Boolean] = None): ApiRequest[Seq[MissionResponse]] =
+    ApiRequest[Seq[MissionResponse]](ApiMethods.GET, baseUrl, "/mission/invite/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -135,7 +127,6 @@ class MissionInviteApi(baseUrl: String) {
       .withQueryParam("missionTypes", missionTypes)
       .withQueryParam("filterByBillable", filterByBillable)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[MissionResponse]](200)
       
 
@@ -145,7 +136,6 @@ class MissionInviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param appKey the application key
@@ -158,8 +148,8 @@ class MissionInviteApi(baseUrl: String) {
    * @param permissionableId The id of the content being submitted.
    * @param includeGameData Include the game level data with the mission.
    */
-  def updateMissionInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, missionId: Option[Long] = None, missionInviteId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, status: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, includeGameData: Option[Boolean] = None): ApiRequest[MissionResponse] =
-    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/api/{version}/mission/invite/update", "application/json")
+  def updateMissionInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, missionId: Option[Long] = None, missionInviteId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, status: Option[String] = None, permissionableType: Option[String] = None, permissionableId: Option[Long] = None, includeGameData: Option[Boolean] = None): ApiRequest[MissionResponse] =
+    ApiRequest[MissionResponse](ApiMethods.POST, baseUrl, "/mission/invite/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -171,7 +161,6 @@ class MissionInviteApi(baseUrl: String) {
       .withQueryParam("permissionableType", permissionableType)
       .withQueryParam("permissionableId", permissionableId)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionResponse](200)
       
 

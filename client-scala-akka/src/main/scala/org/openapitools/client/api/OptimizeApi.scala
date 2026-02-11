@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ImportStatuses
 import org.openapitools.client.model.Orders
 import org.openapitools.client.model.ShipmentOrder
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object OptimizeApi {
 
-  def apply(baseUrl: String = "http://localhost") = new OptimizeApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new OptimizeApi(baseUrl)
 }
 
 class OptimizeApi(baseUrl: String) {
@@ -32,16 +31,14 @@ class OptimizeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Map[String, ShipmentOrder] (successful operation)
    * 
-   * @param version 
    * @param batchID The batchID for getting the import status of.
    * @param start The start index for pagination
    * @param limit The limit for pagination
    */
-  def getOptimizationResult(version: BigDecimal, batchID: String, start: Int, limit: Int): ApiRequest[Map[String, ShipmentOrder]] =
-    ApiRequest[Map[String, ShipmentOrder]](ApiMethods.GET, baseUrl, "/api/{version}/optimize/result/{batchID}", "application/json")
+  def getOptimizationResult(batchID: String, start: Int, limit: Int): ApiRequest[Map[String, ShipmentOrder]] =
+    ApiRequest[Map[String, ShipmentOrder]](ApiMethods.GET, baseUrl, "/optimize/result/{batchID}", "application/json")
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withPathParam("batchID", batchID)
       .withSuccessResponse[Map[String, ShipmentOrder]](200)
       
@@ -52,13 +49,11 @@ class OptimizeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ImportStatuses (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def requestOptimization(version: BigDecimal, body: Option[Orders] = None): ApiRequest[ImportStatuses] =
-    ApiRequest[ImportStatuses](ApiMethods.POST, baseUrl, "/api/{version}/optimize/request", "application/json")
+  def requestOptimization(body: Option[Orders] = None): ApiRequest[ImportStatuses] =
+    ApiRequest[ImportStatuses](ApiMethods.POST, baseUrl, "/optimize/request", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[ImportStatuses](200)
       
 

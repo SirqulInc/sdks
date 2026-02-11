@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.BlockedNotificationResponse
 import org.openapitools.client.model.NotificationMessageListResponse
 import org.openapitools.client.model.NotificationRecipientResponse
@@ -24,7 +23,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object NotificationApi {
 
-  def apply(baseUrl: String = "http://localhost") = new NotificationApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new NotificationApi(baseUrl)
 }
 
 class NotificationApi(baseUrl: String) {
@@ -35,7 +34,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NotificationTemplateResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user.
    * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
    * @param title title of the notification template
@@ -44,8 +42,8 @@ class NotificationApi(baseUrl: String) {
    * @param event Filter results by event.
    * @param tags tags associated with the note template
    */
-  def createNotificationTemplate(version: BigDecimal, accountId: Long, conduit: String, title: String, body: String, appKey: Option[String] = None, event: Option[String] = None, tags: Option[String] = None): ApiRequest[NotificationTemplateResponse] =
-    ApiRequest[NotificationTemplateResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/template/create", "application/json")
+  def createNotificationTemplate(accountId: Long, conduit: String, title: String, body: String, appKey: Option[String] = None, event: Option[String] = None, tags: Option[String] = None): ApiRequest[NotificationTemplateResponse] =
+    ApiRequest[NotificationTemplateResponse](ApiMethods.POST, baseUrl, "/notification/template/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("event", event)
@@ -53,7 +51,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("title", title)
       .withQueryParam("body", body)
       .withQueryParam("tags", tags)
-      .withPathParam("version", version)
       .withSuccessResponse[NotificationTemplateResponse](200)
       
 
@@ -63,17 +60,15 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BlockedNotificationResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key
    * @param data batch data payload (application specific)
    * @param accountId the account id of the user
    */
-  def createOrUpdateBlockedNotifications(version: BigDecimal, appKey: String, data: String, accountId: Option[Long] = None): ApiRequest[BlockedNotificationResponse] =
-    ApiRequest[BlockedNotificationResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/blocked/batch", "application/json")
+  def createOrUpdateBlockedNotifications(appKey: String, data: String, accountId: Option[Long] = None): ApiRequest[BlockedNotificationResponse] =
+    ApiRequest[BlockedNotificationResponse](ApiMethods.POST, baseUrl, "/notification/blocked/batch", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("data", data)
-      .withPathParam("version", version)
       .withSuccessResponse[BlockedNotificationResponse](200)
       
 
@@ -83,15 +78,13 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NotificationTemplateResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param notificationTemplateId the id of the notification template to delete
    */
-  def deleteNotificationTemplate(version: BigDecimal, accountId: Long, notificationTemplateId: Long): ApiRequest[NotificationTemplateResponse] =
-    ApiRequest[NotificationTemplateResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/template/delete", "application/json")
+  def deleteNotificationTemplate(accountId: Long, notificationTemplateId: Long): ApiRequest[NotificationTemplateResponse] =
+    ApiRequest[NotificationTemplateResponse](ApiMethods.POST, baseUrl, "/notification/template/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("notificationTemplateId", notificationTemplateId)
-      .withPathParam("version", version)
       .withSuccessResponse[NotificationTemplateResponse](200)
       
 
@@ -101,15 +94,13 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NotificationTemplateResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account
    * @param notificationTemplateId the id of the notification template to get
    */
-  def getNotificationTemplate(version: BigDecimal, accountId: Long, notificationTemplateId: Long): ApiRequest[NotificationTemplateResponse] =
-    ApiRequest[NotificationTemplateResponse](ApiMethods.GET, baseUrl, "/api/{version}/notification/template/get", "application/json")
+  def getNotificationTemplate(accountId: Long, notificationTemplateId: Long): ApiRequest[NotificationTemplateResponse] =
+    ApiRequest[NotificationTemplateResponse](ApiMethods.GET, baseUrl, "/notification/template/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("notificationTemplateId", notificationTemplateId)
-      .withPathParam("version", version)
       .withSuccessResponse[NotificationTemplateResponse](200)
       
 
@@ -119,7 +110,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NotificationMessageListResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param connectionAccountId the account id used to view another person's notifications
@@ -142,8 +132,8 @@ class NotificationApi(baseUrl: String) {
    * @param start start of the pagination
    * @param limit limit of the pagination
    */
-  def getNotifications(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, appKey: Option[String] = None, eventType: Option[String] = None, contentIds: Option[String] = None, contentTypes: Option[String] = None, parentIds: Option[String] = None, parentTypes: Option[String] = None, actionCategory: Option[String] = None, conduits: Option[String] = None, keyword: Option[String] = None, returnReadMessages: Option[Boolean] = None, markAsRead: Option[Boolean] = None, fromDate: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnSent: Option[Boolean] = None, ignoreFlagged: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[NotificationMessageListResponse] =
-    ApiRequest[NotificationMessageListResponse](ApiMethods.GET, baseUrl, "/api/{version}/notification/search", "application/json")
+  def getNotifications(deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountId: Option[Long] = None, appKey: Option[String] = None, eventType: Option[String] = None, contentIds: Option[String] = None, contentTypes: Option[String] = None, parentIds: Option[String] = None, parentTypes: Option[String] = None, actionCategory: Option[String] = None, conduits: Option[String] = None, keyword: Option[String] = None, returnReadMessages: Option[Boolean] = None, markAsRead: Option[Boolean] = None, fromDate: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, returnSent: Option[Boolean] = None, ignoreFlagged: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[NotificationMessageListResponse] =
+    ApiRequest[NotificationMessageListResponse](ApiMethods.GET, baseUrl, "/notification/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("connectionAccountId", connectionAccountId)
@@ -165,7 +155,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("ignoreFlagged", ignoreFlagged)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[NotificationMessageListResponse](200)
       
 
@@ -175,7 +164,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param token A token that is generated by the device to sign requests for the notification service providers
    * @param pushType The type of push notification. Possible values include: APNS, GCM
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
@@ -187,8 +175,8 @@ class NotificationApi(baseUrl: String) {
    * @param latitude Latitude used to update the user's current location
    * @param longitude Longitude used to update the user's current location
    */
-  def registerNotificationToken(version: BigDecimal, token: String, pushType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, environment: Option[String] = None, appKey: Option[String] = None, gameType: Option[String] = None, active: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/token", "application/json")
+  def registerNotificationToken(token: String, pushType: String, deviceId: Option[String] = None, accountId: Option[Long] = None, environment: Option[String] = None, appKey: Option[String] = None, gameType: Option[String] = None, active: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/notification/token", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("token", token)
@@ -199,7 +187,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("active", active)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -209,7 +196,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BlockedNotificationResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key
    * @param accountId the account id of the user
    * @param searchTags search tags to filter results
@@ -223,8 +209,8 @@ class NotificationApi(baseUrl: String) {
    * @param start start of the pagination
    * @param limit limit of the pagination
    */
-  def searchBlockedNotifications(version: BigDecimal, appKey: String, accountId: Option[Long] = None, searchTags: Option[String] = None, events: Option[String] = None, conduits: Option[String] = None, customTypes: Option[String] = None, contentTypes: Option[String] = None, contentIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[BlockedNotificationResponse] =
-    ApiRequest[BlockedNotificationResponse](ApiMethods.GET, baseUrl, "/api/{version}/notification/blocked/search", "application/json")
+  def searchBlockedNotifications(appKey: String, accountId: Option[Long] = None, searchTags: Option[String] = None, events: Option[String] = None, conduits: Option[String] = None, customTypes: Option[String] = None, contentTypes: Option[String] = None, contentIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[BlockedNotificationResponse] =
+    ApiRequest[BlockedNotificationResponse](ApiMethods.GET, baseUrl, "/notification/blocked/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("searchTags", searchTags)
@@ -237,7 +223,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[BlockedNotificationResponse](200)
       
 
@@ -247,7 +232,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NotificationTemplateResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user.
    * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.
    * @param descending Specified whether the results are returned in descending or ascending order.
@@ -260,8 +244,8 @@ class NotificationApi(baseUrl: String) {
    * @param reservedOnly Returns only templates that use reserved events.
    * @param keyword Filter results by keyword on the title, tags.
    */
-  def searchNotificationTemplate(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, appKey: Option[String] = None, event: Option[String] = None, conduit: Option[String] = None, globalOnly: Option[Boolean] = None, reservedOnly: Option[Boolean] = None, keyword: Option[String] = None): ApiRequest[NotificationTemplateResponse] =
-    ApiRequest[NotificationTemplateResponse](ApiMethods.GET, baseUrl, "/api/{version}/notification/template/search", "application/json")
+  def searchNotificationTemplate(accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, appKey: Option[String] = None, event: Option[String] = None, conduit: Option[String] = None, globalOnly: Option[Boolean] = None, reservedOnly: Option[Boolean] = None, keyword: Option[String] = None): ApiRequest[NotificationTemplateResponse] =
+    ApiRequest[NotificationTemplateResponse](ApiMethods.GET, baseUrl, "/notification/template/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("event", event)
@@ -273,7 +257,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[NotificationTemplateResponse](200)
       
 
@@ -283,7 +266,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[NotificationRecipientResponse] (successful operation)
    * 
-   * @param version 
    * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -298,8 +280,8 @@ class NotificationApi(baseUrl: String) {
    * @param start start of the pagination
    * @param limit limit of the pagination (hard limit of 1000)
    */
-  def searchRecipients(version: BigDecimal, sortField: String, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, conduit: Option[String] = None, keyword: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, connectionGroupIds: Option[String] = None, recipientAccountIds: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[NotificationRecipientResponse]] =
-    ApiRequest[Seq[NotificationRecipientResponse]](ApiMethods.GET, baseUrl, "/api/{version}/notification/recipient/search", "application/json")
+  def searchRecipients(sortField: String, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, conduit: Option[String] = None, keyword: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, connectionGroupIds: Option[String] = None, recipientAccountIds: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[NotificationRecipientResponse]] =
+    ApiRequest[Seq[NotificationRecipientResponse]](ApiMethods.GET, baseUrl, "/notification/recipient/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -313,7 +295,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[NotificationRecipientResponse]](200)
       
 
@@ -323,7 +304,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NotificationRecipientResponseListResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to.
@@ -337,8 +317,8 @@ class NotificationApi(baseUrl: String) {
    * @param start start of the pagination
    * @param limit limit of the pagination
    */
-  def searchRecipientsCount(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, conduit: Option[String] = None, keyword: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, connectionGroupIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[NotificationRecipientResponseListResponse] =
-    ApiRequest[NotificationRecipientResponseListResponse](ApiMethods.GET, baseUrl, "/api/{version}/notification/recipient/search/count", "application/json")
+  def searchRecipientsCount(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, conduit: Option[String] = None, keyword: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, connectionGroupIds: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[NotificationRecipientResponseListResponse] =
+    ApiRequest[NotificationRecipientResponseListResponse](ApiMethods.GET, baseUrl, "/notification/recipient/search/count", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -351,7 +331,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[NotificationRecipientResponseListResponse](200)
       
 
@@ -361,7 +340,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the application owner/manager
    * @param appKey The application key for updating an existing application
    * @param customMessage Message string that will be displayed in on the notification
@@ -372,8 +350,8 @@ class NotificationApi(baseUrl: String) {
    * @param parentId Default notification pay-load field (usage is dependent on the app and the type of event)
    * @param parentType Default notification pay-load field (usage is dependent on the app and the type of event)
    */
-  def sendBatchNotifications(version: BigDecimal, accountId: Long, appKey: String, customMessage: String, conduit: Option[String] = None, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/batch", "application/json")
+  def sendBatchNotifications(accountId: Long, appKey: String, customMessage: String, conduit: Option[String] = None, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/notification/batch", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("conduit", conduit)
@@ -383,7 +361,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("contentType", contentType)
       .withQueryParam("parentId", parentId)
       .withQueryParam("parentType", parentType)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -393,7 +370,6 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param receiverAccountIds comma separated list of account IDs that will receive the notification
@@ -413,8 +389,8 @@ class NotificationApi(baseUrl: String) {
    * @param latitude latitude used to update the user's current location
    * @param longitude longitude used to update the user's current location
    */
-  def sendCustomNotifications(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, receiverAccountIds: Option[String] = None, includeFriendGroup: Option[Boolean] = None, appKey: Option[String] = None, gameType: Option[String] = None, conduit: Option[String] = None, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None, actionCategory: Option[String] = None, subject: Option[String] = None, customMessage: Option[String] = None, friendOnlyAPNS: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/custom", "application/json")
+  def sendCustomNotifications(deviceId: Option[String] = None, accountId: Option[Long] = None, receiverAccountIds: Option[String] = None, includeFriendGroup: Option[Boolean] = None, appKey: Option[String] = None, gameType: Option[String] = None, conduit: Option[String] = None, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None, actionCategory: Option[String] = None, subject: Option[String] = None, customMessage: Option[String] = None, friendOnlyAPNS: Option[Boolean] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/notification/custom", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("receiverAccountIds", receiverAccountIds)
@@ -433,7 +409,6 @@ class NotificationApi(baseUrl: String) {
       .withQueryParam("friendOnlyAPNS", friendOnlyAPNS)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -443,21 +418,19 @@ class NotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : NotificationTemplateResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user.
    * @param notificationTemplateId The notification template ID to update.
    * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit.
    * @param body The body of the message.
    * @param tags The search tags on the template used during search queries.
    */
-  def updateNotificationTemplate(version: BigDecimal, accountId: Long, notificationTemplateId: Long, title: Option[String] = None, body: Option[String] = None, tags: Option[String] = None): ApiRequest[NotificationTemplateResponse] =
-    ApiRequest[NotificationTemplateResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/template/update", "application/json")
+  def updateNotificationTemplate(accountId: Long, notificationTemplateId: Long, title: Option[String] = None, body: Option[String] = None, tags: Option[String] = None): ApiRequest[NotificationTemplateResponse] =
+    ApiRequest[NotificationTemplateResponse](ApiMethods.POST, baseUrl, "/notification/template/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("notificationTemplateId", notificationTemplateId)
       .withQueryParam("title", title)
       .withQueryParam("body", body)
       .withQueryParam("tags", tags)
-      .withPathParam("version", version)
       .withSuccessResponse[NotificationTemplateResponse](200)
       
 

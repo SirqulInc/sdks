@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.RouteSettings
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RouteSettingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RouteSettingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RouteSettingApi(baseUrl)
 }
 
 class RouteSettingApi(baseUrl: String) {
@@ -30,13 +29,11 @@ class RouteSettingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RouteSettings (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createRouteSettings(version: BigDecimal, body: Option[RouteSettings] = None): ApiRequest[RouteSettings] =
-    ApiRequest[RouteSettings](ApiMethods.POST, baseUrl, "/api/{version}/route/setting", "application/json")
+  def createRouteSettings(body: Option[RouteSettings] = None): ApiRequest[RouteSettings] =
+    ApiRequest[RouteSettings](ApiMethods.POST, baseUrl, "/route/setting", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[RouteSettings](200)
       
 
@@ -46,12 +43,10 @@ class RouteSettingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Any (successful operation)
    * 
-   * @param version 
    * @param routeSettingsId the id of the route setting to delete
    */
-  def deleteRouteSettings(version: BigDecimal, routeSettingsId: Long): ApiRequest[Any] =
-    ApiRequest[Any](ApiMethods.DELETE, baseUrl, "/api/{version}/route/setting/{routeSettingsId}", "application/json")
-      .withPathParam("version", version)
+  def deleteRouteSettings(routeSettingsId: Long): ApiRequest[Any] =
+    ApiRequest[Any](ApiMethods.DELETE, baseUrl, "/route/setting/{routeSettingsId}", "application/json")
       .withPathParam("routeSettingsId", routeSettingsId)
       .withSuccessResponse[Any](200)
       
@@ -62,12 +57,10 @@ class RouteSettingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RouteSettings (successful operation)
    * 
-   * @param version 
    * @param routeSettingsId the id of the route settings to get
    */
-  def getRouteSettings(version: BigDecimal, routeSettingsId: Long): ApiRequest[RouteSettings] =
-    ApiRequest[RouteSettings](ApiMethods.GET, baseUrl, "/api/{version}/route/setting/{routeSettingsId}", "application/json")
-      .withPathParam("version", version)
+  def getRouteSettings(routeSettingsId: Long): ApiRequest[RouteSettings] =
+    ApiRequest[RouteSettings](ApiMethods.GET, baseUrl, "/route/setting/{routeSettingsId}", "application/json")
       .withPathParam("routeSettingsId", routeSettingsId)
       .withSuccessResponse[RouteSettings](200)
       
@@ -78,7 +71,6 @@ class RouteSettingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RouteSettings] (successful operation)
    * 
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -88,8 +80,8 @@ class RouteSettingApi(baseUrl: String) {
    * @param programId The program that the route belongs under
    * @param keyword The keyword to search for the route
    */
-  def searchRouteSettings(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, hubId: Option[Long] = None, programId: Option[Long] = None, keyword: Option[String] = None): ApiRequest[Seq[RouteSettings]] =
-    ApiRequest[Seq[RouteSettings]](ApiMethods.GET, baseUrl, "/api/{version}/route/setting", "application/json")
+  def searchRouteSettings(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, hubId: Option[Long] = None, programId: Option[Long] = None, keyword: Option[String] = None): ApiRequest[Seq[RouteSettings]] =
+    ApiRequest[Seq[RouteSettings]](ApiMethods.GET, baseUrl, "/route/setting", "application/json")
       .withQueryParam("hubId", hubId)
       .withQueryParam("programId", programId)
       .withQueryParam("keyword", keyword)
@@ -98,7 +90,6 @@ class RouteSettingApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RouteSettings]](200)
       
 
@@ -108,14 +99,12 @@ class RouteSettingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RouteSettings (successful operation)
    * 
-   * @param version 
    * @param routeSettingsId the id of the route settings to update
    * @param body 
    */
-  def updateRouteSettings(version: BigDecimal, routeSettingsId: Long, body: Option[RouteSettings] = None): ApiRequest[RouteSettings] =
-    ApiRequest[RouteSettings](ApiMethods.PUT, baseUrl, "/api/{version}/route/setting/{routeSettingsId}", "application/json")
+  def updateRouteSettings(routeSettingsId: Long, body: Option[RouteSettings] = None): ApiRequest[RouteSettings] =
+    ApiRequest[RouteSettings](ApiMethods.PUT, baseUrl, "/route/setting/{routeSettingsId}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("routeSettingsId", routeSettingsId)
       .withSuccessResponse[RouteSettings](200)
       

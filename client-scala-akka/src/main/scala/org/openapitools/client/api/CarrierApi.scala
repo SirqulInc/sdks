@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CellCarrierResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CarrierApi {
 
-  def apply(baseUrl: String = "http://localhost") = new CarrierApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new CarrierApi(baseUrl)
 }
 
 class CarrierApi(baseUrl: String) {
@@ -30,21 +29,19 @@ class CarrierApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[CellCarrierResponse] (successful operation)
    * 
-   * @param version 
    * @param keyword The keyword to search on
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
    * @param limit The limit for pagination
    * @param activeOnly Determines whether to return inactive results
    */
-  def searchCarriers(version: BigDecimal, keyword: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[CellCarrierResponse]] =
-    ApiRequest[Seq[CellCarrierResponse]](ApiMethods.GET, baseUrl, "/api/{version}/carrier/search", "application/json")
+  def searchCarriers(keyword: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[CellCarrierResponse]] =
+    ApiRequest[Seq[CellCarrierResponse]](ApiMethods.GET, baseUrl, "/carrier/search", "application/json")
       .withQueryParam("keyword", keyword)
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[CellCarrierResponse]](200)
       
 

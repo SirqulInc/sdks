@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ConsumerInviteResponse
 import org.openapitools.client.model.InviteResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object InviteApi {
 
-  def apply(baseUrl: String = "http://localhost") = new InviteApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new InviteApi(baseUrl)
 }
 
 class InviteApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ConsumerInviteResponse (successful operation)
    * 
-   * @param version 
    * @param token the invite token
    * @param accountId the accountId of the user who is accepting the invite
    * @param albumId the album id associated with this invite (if applicable)
@@ -48,8 +46,8 @@ class InviteApi(baseUrl: String) {
    * @param autoFavoriteOfferLocation whether to mark the offer location as favorited automatically after invite is accepted
    * @param autoFavoriteRetailerLocation whether to mark the retailer location as favorited automatically after invite is accepted
    */
-  def acceptInvite(version: BigDecimal, token: String, accountId: Long, albumId: Option[Long] = None, missionId: Option[Long] = None, albumContestId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, retailerLocationId: Option[Long] = None, appKey: Option[String] = None, autoFriend: Option[Boolean] = None, autoAttendEvent: Option[Boolean] = None, autoFavoriteOffer: Option[Boolean] = None, autoFavoriteOfferLocation: Option[Boolean] = None, autoFavoriteRetailerLocation: Option[Boolean] = None): ApiRequest[ConsumerInviteResponse] =
-    ApiRequest[ConsumerInviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/accept", "application/json")
+  def acceptInvite(token: String, accountId: Long, albumId: Option[Long] = None, missionId: Option[Long] = None, albumContestId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, retailerLocationId: Option[Long] = None, appKey: Option[String] = None, autoFriend: Option[Boolean] = None, autoAttendEvent: Option[Boolean] = None, autoFavoriteOffer: Option[Boolean] = None, autoFavoriteOfferLocation: Option[Boolean] = None, autoFavoriteRetailerLocation: Option[Boolean] = None): ApiRequest[ConsumerInviteResponse] =
+    ApiRequest[ConsumerInviteResponse](ApiMethods.POST, baseUrl, "/invite/accept", "application/json")
       .withQueryParam("token", token)
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumId", albumId)
@@ -64,7 +62,6 @@ class InviteApi(baseUrl: String) {
       .withQueryParam("autoFavoriteOffer", autoFavoriteOffer)
       .withQueryParam("autoFavoriteOfferLocation", autoFavoriteOfferLocation)
       .withQueryParam("autoFavoriteRetailerLocation", autoFavoriteRetailerLocation)
-      .withPathParam("version", version)
       .withSuccessResponse[ConsumerInviteResponse](200)
       
 
@@ -74,7 +71,6 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -83,8 +79,8 @@ class InviteApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def albumContestInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, albumContestId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/albumContest", "application/json")
+  def albumContestInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, albumContestId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/albumContest", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appId", appId)
@@ -92,7 +88,6 @@ class InviteApi(baseUrl: String) {
       .withQueryParam("albumContestId", albumContestId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 
@@ -102,7 +97,6 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -111,8 +105,8 @@ class InviteApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def albumInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, albumId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/album", "application/json")
+  def albumInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, albumId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/album", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appId", appId)
@@ -120,7 +114,6 @@ class InviteApi(baseUrl: String) {
       .withQueryParam("albumId", albumId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 
@@ -130,21 +123,19 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param listingId The ID of the event listing
    * @param receiverAccountIds the account ID of a Sirqul user they would like to share an event with
    * @param retailerLocationId The retailer location id of where the event will take place
    */
-  def eventInvite(version: BigDecimal, accountId: Long, appKey: String, listingId: Long, receiverAccountIds: Option[String] = None, retailerLocationId: Option[Long] = None): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/event", "application/json")
+  def eventInvite(accountId: Long, appKey: String, listingId: Long, receiverAccountIds: Option[String] = None, retailerLocationId: Option[Long] = None): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/event", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("receiverAccountIds", receiverAccountIds)
       .withQueryParam("appKey", appKey)
       .withQueryParam("listingId", listingId)
       .withQueryParam("retailerLocationId", retailerLocationId)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 
@@ -154,7 +145,6 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -163,8 +153,8 @@ class InviteApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def gameInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, gameLevelId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/gameLevel", "application/json")
+  def gameInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, gameLevelId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/gameLevel", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appId", appId)
@@ -172,7 +162,6 @@ class InviteApi(baseUrl: String) {
       .withQueryParam("gameLevelId", gameLevelId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 
@@ -182,7 +171,6 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Account ID of the user if they are logged in
    * @param token the invite token
    * @param albumId album id to match the invite against (if applicable)
@@ -193,8 +181,8 @@ class InviteApi(baseUrl: String) {
    * @param retailerLocationId retailer location id to match the invite against (if applicable)
    * @param appKey the application key
    */
-  def getInvite(version: BigDecimal, accountId: Option[Long] = None, token: Option[String] = None, albumId: Option[Long] = None, missionId: Option[Long] = None, albumContestId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, retailerLocationId: Option[Long] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/invite/get", "application/json")
+  def getInvite(accountId: Option[Long] = None, token: Option[String] = None, albumId: Option[Long] = None, missionId: Option[Long] = None, albumContestId: Option[Long] = None, offerId: Option[Long] = None, offerLocationId: Option[Long] = None, retailerLocationId: Option[Long] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/invite/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("token", token)
       .withQueryParam("albumId", albumId)
@@ -204,7 +192,6 @@ class InviteApi(baseUrl: String) {
       .withQueryParam("offerLocationId", offerLocationId)
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -214,7 +201,6 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -223,8 +209,8 @@ class InviteApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def missionInvite(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, missionId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/mission", "application/json")
+  def missionInvite(deviceId: Option[String] = None, accountId: Option[Long] = None, appId: Option[Long] = None, appKey: Option[String] = None, missionId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/mission", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appId", appId)
@@ -232,7 +218,6 @@ class InviteApi(baseUrl: String) {
       .withQueryParam("missionId", missionId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 
@@ -242,17 +227,15 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param offerId the ID of the offer used to invite to favorite
    */
-  def offerInvite(version: BigDecimal, accountId: Long, appKey: String, offerId: Long): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/offer", "application/json")
+  def offerInvite(accountId: Long, appKey: String, offerId: Long): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/offer", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("offerId", offerId)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 
@@ -262,17 +245,15 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param offerLocationId the id of the offer location to share
    */
-  def offerLocationInvite(version: BigDecimal, accountId: Long, appKey: String, offerLocationId: Long): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/offerLocation", "application/json")
+  def offerLocationInvite(accountId: Long, appKey: String, offerLocationId: Long): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/offerLocation", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("offerLocationId", offerLocationId)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 
@@ -282,19 +263,17 @@ class InviteApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : InviteResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param retailerLocationId The retailer location id of where the event will take place
    * @param albumId Optional album id to link with the invite
    */
-  def retailerLocationInvite(version: BigDecimal, accountId: Long, appKey: String, retailerLocationId: Long, albumId: Option[Long] = None): ApiRequest[InviteResponse] =
-    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/api/{version}/invite/retailerLocation", "application/json")
+  def retailerLocationInvite(accountId: Long, appKey: String, retailerLocationId: Long, albumId: Option[Long] = None): ApiRequest[InviteResponse] =
+    ApiRequest[InviteResponse](ApiMethods.POST, baseUrl, "/invite/retailerLocation", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("albumId", albumId)
-      .withPathParam("version", version)
       .withSuccessResponse[InviteResponse](200)
       
 

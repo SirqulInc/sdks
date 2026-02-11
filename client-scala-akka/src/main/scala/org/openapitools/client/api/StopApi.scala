@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.Stop
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object StopApi {
 
-  def apply(baseUrl: String = "http://localhost") = new StopApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new StopApi(baseUrl)
 }
 
 class StopApi(baseUrl: String) {
@@ -30,12 +29,10 @@ class StopApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Stop (successful operation)
    * 
-   * @param version 
    * @param id the id of the stop to get
    */
-  def getStop(version: BigDecimal, id: Long): ApiRequest[Stop] =
-    ApiRequest[Stop](ApiMethods.GET, baseUrl, "/api/{version}/stop/{id}", "application/json")
-      .withPathParam("version", version)
+  def getStop(id: Long): ApiRequest[Stop] =
+    ApiRequest[Stop](ApiMethods.GET, baseUrl, "/stop/{id}", "application/json")
       .withPathParam("id", id)
       .withSuccessResponse[Stop](200)
       
@@ -46,14 +43,12 @@ class StopApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Stop (successful operation)
    * 
-   * @param version 
    * @param id the id of the stop to update
    * @param body 
    */
-  def updateStop(version: BigDecimal, id: Long, body: Option[Stop] = None): ApiRequest[Stop] =
-    ApiRequest[Stop](ApiMethods.PUT, baseUrl, "/api/{version}/stop/{id}", "application/json")
+  def updateStop(id: Long, body: Option[Stop] = None): ApiRequest[Stop] =
+    ApiRequest[Stop](ApiMethods.PUT, baseUrl, "/stop/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Stop](200)
       

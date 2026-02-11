@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.ActivityResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.EntityReference
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ActivityApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ActivityApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ActivityApi(baseUrl)
 }
 
 class ActivityApi(baseUrl: String) {
@@ -31,13 +30,11 @@ class ActivityApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ActivityResponse (successful operation)
    * 
-   * @param version 
    * @param body The entity reference object
    */
-  def createEntityReference(version: BigDecimal, body: EntityReference): ApiRequest[ActivityResponse] =
-    ApiRequest[ActivityResponse](ApiMethods.POST, baseUrl, "/api/{version}/entity/reference", "application/json")
+  def createEntityReference(body: EntityReference): ApiRequest[ActivityResponse] =
+    ApiRequest[ActivityResponse](ApiMethods.POST, baseUrl, "/entity/reference", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[ActivityResponse](200)
       
 

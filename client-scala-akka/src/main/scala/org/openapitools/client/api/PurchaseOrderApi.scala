@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.OrderResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PurchaseOrderApi {
 
-  def apply(baseUrl: String = "http://localhost") = new PurchaseOrderApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new PurchaseOrderApi(baseUrl)
 }
 
 class PurchaseOrderApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class PurchaseOrderApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrderResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application requesting the purchase
    * @param cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
    * @param deviceId The device id (deviceId or accountId required)
@@ -45,8 +43,8 @@ class PurchaseOrderApi(baseUrl: String) {
    * @param externalDate External Date
    * @param promoCode The Promo Code
    */
-  def createOrder(version: BigDecimal, appKey: String, cart: String, deviceId: Option[String] = None, accountId: Option[Long] = None, description: Option[String] = None, currencyType: Option[String] = None, paymentMethodId: Option[Long] = None, externalOrderId: Option[String] = None, externalPaymentId: Option[String] = None, remoteRefType: Option[String] = None, externalDate: Option[Long] = None, promoCode: Option[String] = None): ApiRequest[OrderResponse] =
-    ApiRequest[OrderResponse](ApiMethods.POST, baseUrl, "/api/{version}/order/create", "application/json")
+  def createOrder(appKey: String, cart: String, deviceId: Option[String] = None, accountId: Option[Long] = None, description: Option[String] = None, currencyType: Option[String] = None, paymentMethodId: Option[Long] = None, externalOrderId: Option[String] = None, externalPaymentId: Option[String] = None, remoteRefType: Option[String] = None, externalDate: Option[Long] = None, promoCode: Option[String] = None): ApiRequest[OrderResponse] =
+    ApiRequest[OrderResponse](ApiMethods.POST, baseUrl, "/order/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -59,7 +57,6 @@ class PurchaseOrderApi(baseUrl: String) {
       .withQueryParam("remoteRefType", remoteRefType)
       .withQueryParam("externalDate", externalDate)
       .withQueryParam("promoCode", promoCode)
-      .withPathParam("version", version)
       .withSuccessResponse[OrderResponse](200)
       
 
@@ -69,17 +66,15 @@ class PurchaseOrderApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param orderId Order Id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    */
-  def deleteOrder(version: BigDecimal, orderId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/order/delete", "application/json")
+  def deleteOrder(orderId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/order/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("orderId", orderId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -89,19 +84,17 @@ class PurchaseOrderApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrderResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param orderId The order id to get details of, either orderId or externalOrderId must be provided
    * @param externalOrderId The external order id to get details of, either orderId or externalOrderId must be provided
    */
-  def getOrder(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, orderId: Option[Long] = None, externalOrderId: Option[String] = None): ApiRequest[OrderResponse] =
-    ApiRequest[OrderResponse](ApiMethods.GET, baseUrl, "/api/{version}/order/get", "application/json")
+  def getOrder(deviceId: Option[String] = None, accountId: Option[Long] = None, orderId: Option[Long] = None, externalOrderId: Option[String] = None): ApiRequest[OrderResponse] =
+    ApiRequest[OrderResponse](ApiMethods.GET, baseUrl, "/order/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("orderId", orderId)
       .withQueryParam("externalOrderId", externalOrderId)
-      .withPathParam("version", version)
       .withSuccessResponse[OrderResponse](200)
       
 
@@ -111,7 +104,6 @@ class PurchaseOrderApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrderResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application requesting the purchase
    * @param cart A JSON list of items to purchase
    * @param deviceId The device id (deviceId or accountId required)
@@ -125,8 +117,8 @@ class PurchaseOrderApi(baseUrl: String) {
    * @param externalDate External Date
    * @param promoCode The Promo Code
    */
-  def previewOrder(version: BigDecimal, appKey: String, cart: String, deviceId: Option[String] = None, accountId: Option[Long] = None, description: Option[String] = None, currencyType: Option[String] = None, paymentMethodId: Option[Long] = None, externalOrderId: Option[String] = None, externalPaymentId: Option[String] = None, remoteRefType: Option[String] = None, externalDate: Option[Long] = None, promoCode: Option[String] = None): ApiRequest[OrderResponse] =
-    ApiRequest[OrderResponse](ApiMethods.POST, baseUrl, "/api/{version}/order/preview", "application/json")
+  def previewOrder(appKey: String, cart: String, deviceId: Option[String] = None, accountId: Option[Long] = None, description: Option[String] = None, currencyType: Option[String] = None, paymentMethodId: Option[Long] = None, externalOrderId: Option[String] = None, externalPaymentId: Option[String] = None, remoteRefType: Option[String] = None, externalDate: Option[Long] = None, promoCode: Option[String] = None): ApiRequest[OrderResponse] =
+    ApiRequest[OrderResponse](ApiMethods.POST, baseUrl, "/order/preview", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -139,7 +131,6 @@ class PurchaseOrderApi(baseUrl: String) {
       .withQueryParam("remoteRefType", remoteRefType)
       .withQueryParam("externalDate", externalDate)
       .withQueryParam("promoCode", promoCode)
-      .withPathParam("version", version)
       .withSuccessResponse[OrderResponse](200)
       
 
@@ -149,7 +140,6 @@ class PurchaseOrderApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OrderResponse] (successful operation)
    * 
-   * @param version 
    * @param appKey The application requesting the purchase
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -182,8 +172,8 @@ class PurchaseOrderApi(baseUrl: String) {
    * @param endedSince Filter results by the offer end date
    * @param endedBefore Filter results by the offer end date
    */
-  def searchOrders(version: BigDecimal, appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, descending: Option[Boolean] = None, activeOnly: Option[Boolean] = None, ignoreCustomerFilter: Option[Boolean] = None, orderItemTypes: Option[String] = None, orderItemIds: Option[String] = None, orderCustomTypes: Option[String] = None, orderCustomIds: Option[String] = None, sortField: Option[String] = None, offerTypes: Option[String] = None, specialOfferTypes: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, offerAudienceIds: Option[String] = None, transactionAudienceIds: Option[String] = None, offerIds: Option[String] = None, offerLocationIds: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, statuses: Option[String] = None, keyword: Option[String] = None, redeemableStartDate: Option[Long] = None, redeemableEndDate: Option[Long] = None, startedSince: Option[Long] = None, startedBefore: Option[Long] = None, endedSince: Option[Long] = None, endedBefore: Option[Long] = None): ApiRequest[Seq[OrderResponse]] =
-    ApiRequest[Seq[OrderResponse]](ApiMethods.GET, baseUrl, "/api/{version}/order/search", "application/json")
+  def searchOrders(appKey: String, deviceId: Option[String] = None, accountId: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None, descending: Option[Boolean] = None, activeOnly: Option[Boolean] = None, ignoreCustomerFilter: Option[Boolean] = None, orderItemTypes: Option[String] = None, orderItemIds: Option[String] = None, orderCustomTypes: Option[String] = None, orderCustomIds: Option[String] = None, sortField: Option[String] = None, offerTypes: Option[String] = None, specialOfferTypes: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, offerAudienceIds: Option[String] = None, transactionAudienceIds: Option[String] = None, offerIds: Option[String] = None, offerLocationIds: Option[String] = None, retailerIds: Option[String] = None, retailerLocationIds: Option[String] = None, statuses: Option[String] = None, keyword: Option[String] = None, redeemableStartDate: Option[Long] = None, redeemableEndDate: Option[Long] = None, startedSince: Option[Long] = None, startedBefore: Option[Long] = None, endedSince: Option[Long] = None, endedBefore: Option[Long] = None): ApiRequest[Seq[OrderResponse]] =
+    ApiRequest[Seq[OrderResponse]](ApiMethods.GET, baseUrl, "/order/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -215,7 +205,6 @@ class PurchaseOrderApi(baseUrl: String) {
       .withQueryParam("startedBefore", startedBefore)
       .withQueryParam("endedSince", endedSince)
       .withQueryParam("endedBefore", endedBefore)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OrderResponse]](200)
       
 
@@ -225,7 +214,6 @@ class PurchaseOrderApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrderResponse (successful operation)
    * 
-   * @param version 
    * @param orderId The order to add the purchase to, leave null for new order.
    * @param appKey The application requesting the purchase
    * @param cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
@@ -238,8 +226,8 @@ class PurchaseOrderApi(baseUrl: String) {
    * @param externalPaymentId Store identifier from external system
    * @param externalDate External Date
    */
-  def updateOrder(version: BigDecimal, orderId: Long, appKey: String, cart: String, deviceId: Option[String] = None, accountId: Option[Long] = None, paymentTransactionId: Option[Long] = None, description: Option[String] = None, currencyType: Option[String] = None, paymentMethodId: Option[Long] = None, externalPaymentId: Option[String] = None, externalDate: Option[Long] = None): ApiRequest[OrderResponse] =
-    ApiRequest[OrderResponse](ApiMethods.POST, baseUrl, "/api/{version}/order/update", "application/json")
+  def updateOrder(orderId: Long, appKey: String, cart: String, deviceId: Option[String] = None, accountId: Option[Long] = None, paymentTransactionId: Option[Long] = None, description: Option[String] = None, currencyType: Option[String] = None, paymentMethodId: Option[Long] = None, externalPaymentId: Option[String] = None, externalDate: Option[Long] = None): ApiRequest[OrderResponse] =
+    ApiRequest[OrderResponse](ApiMethods.POST, baseUrl, "/order/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("orderId", orderId)
@@ -251,7 +239,6 @@ class PurchaseOrderApi(baseUrl: String) {
       .withQueryParam("paymentMethodId", paymentMethodId)
       .withQueryParam("externalPaymentId", externalPaymentId)
       .withQueryParam("externalDate", externalDate)
-      .withPathParam("version", version)
       .withSuccessResponse[OrderResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ShipmentBatch
 import org.openapitools.client.model.ShipmentImportStatus
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ShipmentBatchApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ShipmentBatchApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ShipmentBatchApi(baseUrl)
 }
 
 class ShipmentBatchApi(baseUrl: String) {
@@ -31,13 +30,11 @@ class ShipmentBatchApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ShipmentBatch (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createShipmentBatch(version: BigDecimal, body: Option[ShipmentBatch] = None): ApiRequest[ShipmentBatch] =
-    ApiRequest[ShipmentBatch](ApiMethods.POST, baseUrl, "/api/{version}/shipment/batch", "application/json")
+  def createShipmentBatch(body: Option[ShipmentBatch] = None): ApiRequest[ShipmentBatch] =
+    ApiRequest[ShipmentBatch](ApiMethods.POST, baseUrl, "/shipment/batch", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[ShipmentBatch](200)
       
 
@@ -47,12 +44,10 @@ class ShipmentBatchApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param batchId the id of the shipment batch to delete
    */
-  def deleteShipmentBatch(version: BigDecimal, batchId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/shipment/batch/{batchId}", "application/json")
-      .withPathParam("version", version)
+  def deleteShipmentBatch(batchId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/shipment/batch/{batchId}", "application/json")
       .withPathParam("batchId", batchId)
       .withDefaultErrorResponse[Unit]
       
@@ -63,12 +58,10 @@ class ShipmentBatchApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ShipmentBatch (successful operation)
    * 
-   * @param version 
    * @param batchId the id of the shipment batch to get
    */
-  def getShipmentBatch(version: BigDecimal, batchId: Long): ApiRequest[ShipmentBatch] =
-    ApiRequest[ShipmentBatch](ApiMethods.GET, baseUrl, "/api/{version}/shipment/batch/{batchId}", "application/json")
-      .withPathParam("version", version)
+  def getShipmentBatch(batchId: Long): ApiRequest[ShipmentBatch] =
+    ApiRequest[ShipmentBatch](ApiMethods.GET, baseUrl, "/shipment/batch/{batchId}", "application/json")
       .withPathParam("batchId", batchId)
       .withSuccessResponse[ShipmentBatch](200)
       
@@ -79,7 +72,6 @@ class ShipmentBatchApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ShipmentImportStatus] (successful operation)
    * 
-   * @param version 
    * @param batchId The id of the requested shipment batch
    * @param accountId the id of the logged in user
    * @param sortField The field to sort by
@@ -93,8 +85,8 @@ class ShipmentBatchApi(baseUrl: String) {
    * @param hasRoute Has route associate to the status
    * @param keyword The keyword to search for
    */
-  def getShipmentBatchStatus(version: BigDecimal, batchId: Long, accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, valid: Option[Boolean] = None, started: Option[Boolean] = None, completed: Option[Boolean] = None, hasShipment: Option[Boolean] = None, hasRoute: Option[Boolean] = None, keyword: Option[String] = None): ApiRequest[Seq[ShipmentImportStatus]] =
-    ApiRequest[Seq[ShipmentImportStatus]](ApiMethods.GET, baseUrl, "/api/{version}/shipment/batch/{batchId}/status", "application/json")
+  def getShipmentBatchStatus(batchId: Long, accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, valid: Option[Boolean] = None, started: Option[Boolean] = None, completed: Option[Boolean] = None, hasShipment: Option[Boolean] = None, hasRoute: Option[Boolean] = None, keyword: Option[String] = None): ApiRequest[Seq[ShipmentImportStatus]] =
+    ApiRequest[Seq[ShipmentImportStatus]](ApiMethods.GET, baseUrl, "/shipment/batch/{batchId}/status", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("valid", valid)
       .withQueryParam("started", started)
@@ -106,7 +98,6 @@ class ShipmentBatchApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withPathParam("batchId", batchId)
       .withSuccessResponse[Seq[ShipmentImportStatus]](200)
       
@@ -117,21 +108,19 @@ class ShipmentBatchApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ShipmentBatch] (successful operation)
    * 
-   * @param version 
    * @param hubId The associated service hub
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
    * @param limit The limit for pagination
    */
-  def searchShipmentBatch(version: BigDecimal, hubId: Long, sortField: String, descending: Boolean, start: Int, limit: Int): ApiRequest[Seq[ShipmentBatch]] =
-    ApiRequest[Seq[ShipmentBatch]](ApiMethods.GET, baseUrl, "/api/{version}/shipment/batch", "application/json")
+  def searchShipmentBatch(hubId: Long, sortField: String, descending: Boolean, start: Int, limit: Int): ApiRequest[Seq[ShipmentBatch]] =
+    ApiRequest[Seq[ShipmentBatch]](ApiMethods.GET, baseUrl, "/shipment/batch", "application/json")
       .withQueryParam("hubId", hubId)
       .withQueryParam("sortField", sortField)
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ShipmentBatch]](200)
       
 

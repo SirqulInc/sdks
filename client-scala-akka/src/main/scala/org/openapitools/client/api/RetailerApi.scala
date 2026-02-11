@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.AccountLoginResponse
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.RetailerFullResponse
 import org.openapitools.client.model.RetailerResponse
@@ -23,7 +22,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RetailerApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RetailerApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RetailerApi(baseUrl)
 }
 
 class RetailerApi(baseUrl: String) {
@@ -34,7 +33,6 @@ class RetailerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerFullResponse (successful operation)
    * 
-   * @param version 
    * @param name The name of the retailer
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -69,8 +67,8 @@ class RetailerApi(baseUrl: String) {
    * @param createDefaultLocation Determines whether to create a default location using the retailer information
    * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
    */
-  def createRetailer(version: BigDecimal, name: String, deviceId: Option[String] = None, accountId: Option[Long] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, facebookUrl: Option[String] = None, twitterUrl: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, categoryIdsToAdd: Option[String] = None, categoryIdsToRemove: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, searchTags: Option[String] = None, retailerType: Option[String] = None, visibility: Option[String] = None, createDefaultLocation: Option[Boolean] = None, responseFormat: Option[String] = None): ApiRequest[RetailerFullResponse] =
-    ApiRequest[RetailerFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/create", "application/json")
+  def createRetailer(name: String, deviceId: Option[String] = None, accountId: Option[Long] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, facebookUrl: Option[String] = None, twitterUrl: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, categoryIdsToAdd: Option[String] = None, categoryIdsToRemove: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, searchTags: Option[String] = None, retailerType: Option[String] = None, visibility: Option[String] = None, createDefaultLocation: Option[Boolean] = None, responseFormat: Option[String] = None): ApiRequest[RetailerFullResponse] =
+    ApiRequest[RetailerFullResponse](ApiMethods.POST, baseUrl, "/retailer/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
@@ -104,7 +102,6 @@ class RetailerApi(baseUrl: String) {
       .withQueryParam("visibility", visibility)
       .withQueryParam("createDefaultLocation", createDefaultLocation)
       .withQueryParam("responseFormat", responseFormat)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerFullResponse](200)
       
 
@@ -114,17 +111,15 @@ class RetailerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the delete, must have rights to edit the retailer.
    * @param retailerId The ID of the retailer to be deleted
    */
-  def deleteRetailer(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, retailerId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/delete", "application/json")
+  def deleteRetailer(deviceId: Option[String] = None, accountId: Option[Long] = None, retailerId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/retailer/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerId", retailerId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -134,19 +129,17 @@ class RetailerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerFullResponse (successful operation)
    * 
-   * @param version 
    * @param retailerId the ID of the retailer
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param includeCounts Determines whether to include counts in the response (default true)
    */
-  def getRetailer(version: BigDecimal, retailerId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, includeCounts: Option[Boolean] = None): ApiRequest[RetailerFullResponse] =
-    ApiRequest[RetailerFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/retailer/get", "application/json")
+  def getRetailer(retailerId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, includeCounts: Option[Boolean] = None): ApiRequest[RetailerFullResponse] =
+    ApiRequest[RetailerFullResponse](ApiMethods.GET, baseUrl, "/retailer/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("includeCounts", includeCounts)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerFullResponse](200)
       
 
@@ -156,7 +149,6 @@ class RetailerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RetailerResponse] (successful operation)
    * 
-   * @param version 
    * @param visibility 
    * @param sortField The column to sort the search on
    * @param descending The order to return the search results
@@ -172,8 +164,8 @@ class RetailerApi(baseUrl: String) {
    * @param `i` This parameter is deprecated.
    * @param `l` This parameter is deprecated.
    */
-  def getRetailers(version: BigDecimal, visibility: String, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None): ApiRequest[Seq[RetailerResponse]] =
-    ApiRequest[Seq[RetailerResponse]](ApiMethods.GET, baseUrl, "/api/{version}/retailer/search", "application/json")
+  def getRetailers(visibility: String, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, `q`: Option[String] = None, keyword: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, `i`: Option[Int] = None, `l`: Option[Int] = None): ApiRequest[Seq[RetailerResponse]] =
+    ApiRequest[Seq[RetailerResponse]](ApiMethods.GET, baseUrl, "/retailer/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("q", `q`)
@@ -188,7 +180,6 @@ class RetailerApi(baseUrl: String) {
       .withQueryParam("_l", `l`)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RetailerResponse]](200)
       
 
@@ -198,7 +189,6 @@ class RetailerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AccountLoginResponse (successful operation)
    * 
-   * @param version 
    * @param username the user's email address they used to sign-up
    * @param password the password
    * @param deviceId the device id (optional)
@@ -206,15 +196,14 @@ class RetailerApi(baseUrl: String) {
    * @param longitude the current longitude of the user
    * @param appKey the application key
    */
-  def retailerLoginCheck(version: BigDecimal, username: String, password: String, deviceId: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None): ApiRequest[AccountLoginResponse] =
-    ApiRequest[AccountLoginResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/login", "application/json")
+  def retailerLoginCheck(username: String, password: String, deviceId: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, appKey: Option[String] = None): ApiRequest[AccountLoginResponse] =
+    ApiRequest[AccountLoginResponse](ApiMethods.POST, baseUrl, "/retailer/login", "application/json")
       .withQueryParam("username", username)
       .withQueryParam("password", password)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[AccountLoginResponse](200)
       
 
@@ -224,7 +213,6 @@ class RetailerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RetailerFullResponse (successful operation)
    * 
-   * @param version 
    * @param retailerId The ID of the retailer to update
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -258,8 +246,8 @@ class RetailerApi(baseUrl: String) {
    * @param active Sets whether the retailer is active or inactive (hidden from consumers)
    * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
    */
-  def updateRetailer(version: BigDecimal, retailerId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, facebookUrl: Option[String] = None, twitterUrl: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, searchTags: Option[String] = None, retailerType: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None, responseFormat: Option[String] = None): ApiRequest[RetailerFullResponse] =
-    ApiRequest[RetailerFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/retailer/update", "application/json")
+  def updateRetailer(retailerId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, country: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, website: Option[String] = None, email: Option[String] = None, facebookUrl: Option[String] = None, twitterUrl: Option[String] = None, logo: Option[File] = None, logoAssetId: Option[Long] = None, picture1: Option[File] = None, picture1AssetId: Option[Long] = None, picture2: Option[File] = None, picture2AssetId: Option[Long] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, searchTags: Option[String] = None, retailerType: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None, responseFormat: Option[String] = None): ApiRequest[RetailerFullResponse] =
+    ApiRequest[RetailerFullResponse](ApiMethods.POST, baseUrl, "/retailer/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("retailerId", retailerId)
@@ -292,7 +280,6 @@ class RetailerApi(baseUrl: String) {
       .withQueryParam("visibility", visibility)
       .withQueryParam("active", active)
       .withQueryParam("responseFormat", responseFormat)
-      .withPathParam("version", version)
       .withSuccessResponse[RetailerFullResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.OrsonAiAddMovieResponse
 import org.openapitools.client.model.OrsonAiBatchResponse
@@ -30,7 +29,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object OrsonApi {
 
-  def apply(baseUrl: String = "http://localhost") = new OrsonApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new OrsonApi(baseUrl)
 }
 
 class OrsonApi(baseUrl: String) {
@@ -41,7 +40,6 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiAddMovieResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param movieName Movie Name
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -50,8 +48,8 @@ class OrsonApi(baseUrl: String) {
    * @param url A recording file to download and analyze (Size limit: 1GB)
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def addMovie(version: BigDecimal, accountId: Long, movieName: String, thirdPartyAccountId: Option[String] = None, tags: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiAddMovieResponse] =
-    ApiRequest[OrsonAiAddMovieResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/addMovie", "application/json")
+  def addMovie(accountId: Long, movieName: String, thirdPartyAccountId: Option[String] = None, tags: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiAddMovieResponse] =
+    ApiRequest[OrsonAiAddMovieResponse](ApiMethods.POST, baseUrl, "/orson/ai/addMovie", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("tags", tags)
@@ -59,7 +57,6 @@ class OrsonApi(baseUrl: String) {
       .withQueryParam("file", file)
       .withQueryParam("url", url)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiAddMovieResponse](200)
       
 
@@ -69,21 +66,19 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiProtoResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param doc Doc
    * @param returnTopics Return Topics
    * @param limit Limit
    * @param offset Offset
    */
-  def aiDocs(version: BigDecimal, accountId: Long, doc: String, returnTopics: Option[Boolean] = None, limit: Option[Int] = None, offset: Option[Int] = None): ApiRequest[OrsonAiProtoResponse] =
-    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/docs", "application/json")
+  def aiDocs(accountId: Long, doc: String, returnTopics: Option[Boolean] = None, limit: Option[Int] = None, offset: Option[Int] = None): ApiRequest[OrsonAiProtoResponse] =
+    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/orson/ai/docs", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("doc", doc)
       .withQueryParam("return_topics", returnTopics)
       .withQueryParam("limit", limit)
       .withQueryParam("offset", offset)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiProtoResponse](200)
       
 
@@ -93,21 +88,19 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiProtoResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param text Text
    * @param parseFlag Parse Flag
    * @param fetchFlag Fetch Flag
    * @param size Size
    */
-  def aiFindImages(version: BigDecimal, accountId: Long, text: String, parseFlag: Option[String] = None, fetchFlag: Option[String] = None, size: Option[String] = None): ApiRequest[OrsonAiProtoResponse] =
-    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/img", "application/json")
+  def aiFindImages(accountId: Long, text: String, parseFlag: Option[String] = None, fetchFlag: Option[String] = None, size: Option[String] = None): ApiRequest[OrsonAiProtoResponse] =
+    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/orson/ai/img", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("text", text)
       .withQueryParam("parse_flag", parseFlag)
       .withQueryParam("fetch_flag", fetchFlag)
       .withQueryParam("size", size)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiProtoResponse](200)
       
 
@@ -117,21 +110,19 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiProtoResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param tags Tags
    * @param conditional Conditional
    * @param limit Limit
    * @param offset Offset
    */
-  def aiTags(version: BigDecimal, accountId: Long, tags: String, conditional: Option[String] = None, limit: Option[Int] = None, offset: Option[Int] = None): ApiRequest[OrsonAiProtoResponse] =
-    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/tags", "application/json")
+  def aiTags(accountId: Long, tags: String, conditional: Option[String] = None, limit: Option[Int] = None, offset: Option[Int] = None): ApiRequest[OrsonAiProtoResponse] =
+    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/orson/ai/tags", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("tags", tags)
       .withQueryParam("conditional", conditional)
       .withQueryParam("limit", limit)
       .withQueryParam("offset", offset)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiProtoResponse](200)
       
 
@@ -141,21 +132,19 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiProtoResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param terms Terms
    * @param conditional Conditional
    * @param limit Limit
    * @param offset Offset
    */
-  def aiText(version: BigDecimal, accountId: Long, terms: String, conditional: Option[String] = None, limit: Option[Int] = None, offset: Option[Int] = None): ApiRequest[OrsonAiProtoResponse] =
-    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/text", "application/json")
+  def aiText(accountId: Long, terms: String, conditional: Option[String] = None, limit: Option[Int] = None, offset: Option[Int] = None): ApiRequest[OrsonAiProtoResponse] =
+    ApiRequest[OrsonAiProtoResponse](ApiMethods.GET, baseUrl, "/orson/ai/text", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("terms", terms)
       .withQueryParam("conditional", conditional)
       .withQueryParam("limit", limit)
       .withQueryParam("offset", offset)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiProtoResponse](200)
       
 
@@ -165,7 +154,6 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiBatchResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param limit The number of topics to return
@@ -174,8 +162,8 @@ class OrsonApi(baseUrl: String) {
    * @param url A recording file to download and analyze (Size limit: 1GB)
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def batch(version: BigDecimal, accountId: Long, thirdPartyAccountId: Option[String] = None, limit: Option[Int] = None, operations: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiBatchResponse] =
-    ApiRequest[OrsonAiBatchResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/batch", "application/json")
+  def batch(accountId: Long, thirdPartyAccountId: Option[String] = None, limit: Option[Int] = None, operations: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiBatchResponse] =
+    ApiRequest[OrsonAiBatchResponse](ApiMethods.POST, baseUrl, "/orson/ai/batch", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("limit", limit)
@@ -183,7 +171,6 @@ class OrsonApi(baseUrl: String) {
       .withQueryParam("file", file)
       .withQueryParam("url", url)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiBatchResponse](200)
       
 
@@ -193,15 +180,13 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonEpisodeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param data Request Data String
    */
-  def createInstantEpisode(version: BigDecimal, accountId: Long, data: String): ApiRequest[OrsonEpisodeResponse] =
-    ApiRequest[OrsonEpisodeResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/stories/episodes/instant", "application/json")
+  def createInstantEpisode(accountId: Long, data: String): ApiRequest[OrsonEpisodeResponse] =
+    ApiRequest[OrsonEpisodeResponse](ApiMethods.POST, baseUrl, "/orson/stories/episodes/instant", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("data", data)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonEpisodeResponse](200)
       
 
@@ -211,7 +196,6 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiVoiceCanvasResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param dimensions Enum: \"256x256\" \"512x512\" \"1024x1024\"
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -222,8 +206,8 @@ class OrsonApi(baseUrl: String) {
    * @param fetchFlag When true, fetches images instead of generating them
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def createVoiceCanvas(version: BigDecimal, accountId: Long, dimensions: String, thirdPartyAccountId: Option[String] = None, text: Option[String] = None, file: Option[File] = None, url: Option[String] = None, parseFlag: Option[Boolean] = None, fetchFlag: Option[Boolean] = None, callback: Option[String] = None): ApiRequest[OrsonAiVoiceCanvasResponse] =
-    ApiRequest[OrsonAiVoiceCanvasResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/voiceCanvas", "application/json")
+  def createVoiceCanvas(accountId: Long, dimensions: String, thirdPartyAccountId: Option[String] = None, text: Option[String] = None, file: Option[File] = None, url: Option[String] = None, parseFlag: Option[Boolean] = None, fetchFlag: Option[Boolean] = None, callback: Option[String] = None): ApiRequest[OrsonAiVoiceCanvasResponse] =
+    ApiRequest[OrsonAiVoiceCanvasResponse](ApiMethods.POST, baseUrl, "/orson/ai/voiceCanvas", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("dimensions", dimensions)
@@ -233,7 +217,6 @@ class OrsonApi(baseUrl: String) {
       .withQueryParam("parseFlag", parseFlag)
       .withQueryParam("fetchFlag", fetchFlag)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiVoiceCanvasResponse](200)
       
 
@@ -243,21 +226,19 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiEmotionsResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param file An uploaded recording to analyze (Currently limited to 10MB)
    * @param url A recording file to download and analyze (Size limit: 1GB)
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def emotion(version: BigDecimal, accountId: Long, thirdPartyAccountId: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiEmotionsResponse] =
-    ApiRequest[OrsonAiEmotionsResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/emotion", "application/json")
+  def emotion(accountId: Long, thirdPartyAccountId: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiEmotionsResponse] =
+    ApiRequest[OrsonAiEmotionsResponse](ApiMethods.POST, baseUrl, "/orson/ai/emotion", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("file", file)
       .withQueryParam("url", url)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiEmotionsResponse](200)
       
 
@@ -267,14 +248,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiAddMovieResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getAddMovieResult(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiAddMovieResponse] =
-    ApiRequest[OrsonAiAddMovieResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/addMovie/{requestId}", "application/json")
+  def getAddMovieResult(requestId: String, accountId: Long): ApiRequest[OrsonAiAddMovieResponse] =
+    ApiRequest[OrsonAiAddMovieResponse](ApiMethods.GET, baseUrl, "/orson/ai/addMovie/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiAddMovieResponse](200)
       
@@ -285,14 +264,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiBatchResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getBatch(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiBatchResponse] =
-    ApiRequest[OrsonAiBatchResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/batch/{requestId}", "application/json")
+  def getBatch(requestId: String, accountId: Long): ApiRequest[OrsonAiBatchResponse] =
+    ApiRequest[OrsonAiBatchResponse](ApiMethods.GET, baseUrl, "/orson/ai/batch/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiBatchResponse](200)
       
@@ -303,14 +280,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiEmotionsResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getEmotion(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiEmotionsResponse] =
-    ApiRequest[OrsonAiEmotionsResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/emotion/{requestId}", "application/json")
+  def getEmotion(requestId: String, accountId: Long): ApiRequest[OrsonAiEmotionsResponse] =
+    ApiRequest[OrsonAiEmotionsResponse](ApiMethods.GET, baseUrl, "/orson/ai/emotion/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiEmotionsResponse](200)
       
@@ -321,14 +296,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonEpisodeResponse (successful operation)
    * 
-   * @param version 
    * @param episodeId Episode ID
    * @param accountId Sirqul Account Id
    */
-  def getEpisodeStatus(version: BigDecimal, episodeId: Long, accountId: Long): ApiRequest[OrsonEpisodeResponse] =
-    ApiRequest[OrsonEpisodeResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/stories/episodes/{episodeId}/status", "application/json")
+  def getEpisodeStatus(episodeId: Long, accountId: Long): ApiRequest[OrsonEpisodeResponse] =
+    ApiRequest[OrsonEpisodeResponse](ApiMethods.GET, baseUrl, "/orson/stories/episodes/{episodeId}/status", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("episodeId", episodeId)
       .withSuccessResponse[OrsonEpisodeResponse](200)
       
@@ -339,14 +312,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonRenderResponse (successful operation)
    * 
-   * @param version 
    * @param renderId Render ID
    * @param accountId Sirqul Account Id
    */
-  def getRenderStatus(version: BigDecimal, renderId: String, accountId: Long): ApiRequest[OrsonRenderResponse] =
-    ApiRequest[OrsonRenderResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/stories/renders/{renderId}/status", "application/json")
+  def getRenderStatus(renderId: String, accountId: Long): ApiRequest[OrsonRenderResponse] =
+    ApiRequest[OrsonRenderResponse](ApiMethods.GET, baseUrl, "/orson/stories/renders/{renderId}/status", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("renderId", renderId)
       .withSuccessResponse[OrsonRenderResponse](200)
       
@@ -357,14 +328,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiSTTResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getSTT(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiSTTResponse] =
-    ApiRequest[OrsonAiSTTResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/stt/{requestId}", "application/json")
+  def getSTT(requestId: String, accountId: Long): ApiRequest[OrsonAiSTTResponse] =
+    ApiRequest[OrsonAiSTTResponse](ApiMethods.GET, baseUrl, "/orson/ai/stt/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiSTTResponse](200)
       
@@ -375,14 +344,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiTTSResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getTTS(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiTTSResponse] =
-    ApiRequest[OrsonAiTTSResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/tts/{requestId}", "application/json")
+  def getTTS(requestId: String, accountId: Long): ApiRequest[OrsonAiTTSResponse] =
+    ApiRequest[OrsonAiTTSResponse](ApiMethods.GET, baseUrl, "/orson/ai/tts/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiTTSResponse](200)
       
@@ -393,14 +360,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiTechTuneResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getTechTune(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiTechTuneResponse] =
-    ApiRequest[OrsonAiTechTuneResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/techTune/{requestId}", "application/json")
+  def getTechTune(requestId: String, accountId: Long): ApiRequest[OrsonAiTechTuneResponse] =
+    ApiRequest[OrsonAiTechTuneResponse](ApiMethods.GET, baseUrl, "/orson/ai/techTune/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiTechTuneResponse](200)
       
@@ -411,14 +376,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiTopicsResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getTopics(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiTopicsResponse] =
-    ApiRequest[OrsonAiTopicsResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/topics/{requestId}", "application/json")
+  def getTopics(requestId: String, accountId: Long): ApiRequest[OrsonAiTopicsResponse] =
+    ApiRequest[OrsonAiTopicsResponse](ApiMethods.GET, baseUrl, "/orson/ai/topics/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiTopicsResponse](200)
       
@@ -429,14 +392,12 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiVoiceCanvasResponse (successful operation)
    * 
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    */
-  def getVoiceCanvas(version: BigDecimal, requestId: String, accountId: Long): ApiRequest[OrsonAiVoiceCanvasResponse] =
-    ApiRequest[OrsonAiVoiceCanvasResponse](ApiMethods.GET, baseUrl, "/api/{version}/orson/ai/voiceCanvas/{requestId}", "application/json")
+  def getVoiceCanvas(requestId: String, accountId: Long): ApiRequest[OrsonAiVoiceCanvasResponse] =
+    ApiRequest[OrsonAiVoiceCanvasResponse](ApiMethods.GET, baseUrl, "/orson/ai/voiceCanvas/{requestId}", "application/json")
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withPathParam("requestId", requestId)
       .withSuccessResponse[OrsonAiVoiceCanvasResponse](200)
       
@@ -447,15 +408,13 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonRenderResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param data Request Data String
    */
-  def startVideoRender(version: BigDecimal, accountId: Long, data: String): ApiRequest[OrsonRenderResponse] =
-    ApiRequest[OrsonRenderResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/stories/renders", "application/json")
+  def startVideoRender(accountId: Long, data: String): ApiRequest[OrsonRenderResponse] =
+    ApiRequest[OrsonRenderResponse](ApiMethods.POST, baseUrl, "/orson/stories/renders", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("data", data)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonRenderResponse](200)
       
 
@@ -465,7 +424,6 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiSTTResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param sourceLanguage Source Language
@@ -474,8 +432,8 @@ class OrsonApi(baseUrl: String) {
    * @param url A recording file to download and analyze (Size limit: 1GB)
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def stt(version: BigDecimal, accountId: Long, thirdPartyAccountId: Option[String] = None, sourceLanguage: Option[String] = None, targetLanguage: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiSTTResponse] =
-    ApiRequest[OrsonAiSTTResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/stt", "application/json")
+  def stt(accountId: Long, thirdPartyAccountId: Option[String] = None, sourceLanguage: Option[String] = None, targetLanguage: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiSTTResponse] =
+    ApiRequest[OrsonAiSTTResponse](ApiMethods.POST, baseUrl, "/orson/ai/stt", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("sourceLanguage", sourceLanguage)
@@ -483,7 +441,6 @@ class OrsonApi(baseUrl: String) {
       .withQueryParam("file", file)
       .withQueryParam("url", url)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiSTTResponse](200)
       
 
@@ -493,7 +450,6 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiTopicsResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param doc The text to get topics for.
@@ -503,8 +459,8 @@ class OrsonApi(baseUrl: String) {
    * @param offset The starting offset into the total result set to start from
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def summarizeTopics(version: BigDecimal, accountId: Long, thirdPartyAccountId: Option[String] = None, doc: Option[String] = None, file: Option[File] = None, url: Option[String] = None, limit: Option[Int] = None, offset: Option[Int] = None, callback: Option[String] = None): ApiRequest[OrsonAiTopicsResponse] =
-    ApiRequest[OrsonAiTopicsResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/topics", "application/json")
+  def summarizeTopics(accountId: Long, thirdPartyAccountId: Option[String] = None, doc: Option[String] = None, file: Option[File] = None, url: Option[String] = None, limit: Option[Int] = None, offset: Option[Int] = None, callback: Option[String] = None): ApiRequest[OrsonAiTopicsResponse] =
+    ApiRequest[OrsonAiTopicsResponse](ApiMethods.POST, baseUrl, "/orson/ai/topics", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("doc", doc)
@@ -513,7 +469,6 @@ class OrsonApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("offset", offset)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiTopicsResponse](200)
       
 
@@ -523,7 +478,6 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiTechTuneResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param numFacesExpected Number of expected faces
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -531,15 +485,14 @@ class OrsonApi(baseUrl: String) {
    * @param url A recording file to download and analyze (Size limit: 1GB)
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def techTune(version: BigDecimal, accountId: Long, numFacesExpected: Int, thirdPartyAccountId: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiTechTuneResponse] =
-    ApiRequest[OrsonAiTechTuneResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/techTune", "application/json")
+  def techTune(accountId: Long, numFacesExpected: Int, thirdPartyAccountId: Option[String] = None, file: Option[File] = None, url: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiTechTuneResponse] =
+    ApiRequest[OrsonAiTechTuneResponse](ApiMethods.POST, baseUrl, "/orson/ai/techTune", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("numFacesExpected", numFacesExpected)
       .withQueryParam("file", file)
       .withQueryParam("url", url)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiTechTuneResponse](200)
       
 
@@ -549,7 +502,6 @@ class OrsonApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OrsonAiTTSResponse (successful operation)
    * 
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param text Text
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -557,15 +509,14 @@ class OrsonApi(baseUrl: String) {
    * @param voice A language-specific voice to use, or picks the language default if not provided
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    */
-  def tts(version: BigDecimal, accountId: Long, text: String, thirdPartyAccountId: Option[String] = None, language: Option[String] = None, voice: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiTTSResponse] =
-    ApiRequest[OrsonAiTTSResponse](ApiMethods.POST, baseUrl, "/api/{version}/orson/ai/tts", "application/json")
+  def tts(accountId: Long, text: String, thirdPartyAccountId: Option[String] = None, language: Option[String] = None, voice: Option[String] = None, callback: Option[String] = None): ApiRequest[OrsonAiTTSResponse] =
+    ApiRequest[OrsonAiTTSResponse](ApiMethods.POST, baseUrl, "/orson/ai/tts", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("thirdPartyAccountId", thirdPartyAccountId)
       .withQueryParam("text", text)
       .withQueryParam("language", language)
       .withQueryParam("voice", voice)
       .withQueryParam("callback", callback)
-      .withPathParam("version", version)
       .withSuccessResponse[OrsonAiTTSResponse](200)
       
 

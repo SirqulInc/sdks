@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.OfferTransactionStatusResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object OfferStatusApi {
 
-  def apply(baseUrl: String = "http://localhost") = new OfferStatusApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new OfferStatusApi(baseUrl)
 }
 
 class OfferStatusApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class OfferStatusApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferTransactionStatusResponse (successful operation)
    * 
-   * @param version 
    * @param name The name of the status
    * @param code The status code, must be unique 
    * @param deviceId The device id (deviceId or accountId required)
@@ -43,8 +41,8 @@ class OfferStatusApi(baseUrl: String) {
    * @param active The active status
    * @param applicationIds The applications to associate the status with, if null then for all.
    */
-  def createOfferTransactionStatus(version: BigDecimal, name: String, code: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, description: Option[String] = None, role: Option[String] = None, active: Option[Boolean] = None, applicationIds: Option[String] = None): ApiRequest[OfferTransactionStatusResponse] =
-    ApiRequest[OfferTransactionStatusResponse](ApiMethods.POST, baseUrl, "/api/{version}/offer/status/create", "application/json")
+  def createOfferTransactionStatus(name: String, code: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, description: Option[String] = None, role: Option[String] = None, active: Option[Boolean] = None, applicationIds: Option[String] = None): ApiRequest[OfferTransactionStatusResponse] =
+    ApiRequest[OfferTransactionStatusResponse](ApiMethods.POST, baseUrl, "/offer/status/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
@@ -55,7 +53,6 @@ class OfferStatusApi(baseUrl: String) {
       .withQueryParam("role", role)
       .withQueryParam("active", active)
       .withQueryParam("applicationIds", applicationIds)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferTransactionStatusResponse](200)
       
 
@@ -65,21 +62,19 @@ class OfferStatusApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param statusId The id of the record to delete
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude Used to update the user's current location
    * @param longitude Used to update the user's current location
    */
-  def deleteOfferTransactionStatus(version: BigDecimal, statusId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/offer/status/delete", "application/json")
+  def deleteOfferTransactionStatus(statusId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/offer/status/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("statusId", statusId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -89,21 +84,19 @@ class OfferStatusApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferTransactionStatusResponse (successful operation)
    * 
-   * @param version 
    * @param statusId The id of the record to get 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude Used to update the user's current location
    * @param longitude Used to update the user's current location
    */
-  def getOfferTransactionStatus(version: BigDecimal, statusId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[OfferTransactionStatusResponse] =
-    ApiRequest[OfferTransactionStatusResponse](ApiMethods.GET, baseUrl, "/api/{version}/offer/status/get", "application/json")
+  def getOfferTransactionStatus(statusId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[OfferTransactionStatusResponse] =
+    ApiRequest[OfferTransactionStatusResponse](ApiMethods.GET, baseUrl, "/offer/status/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("statusId", statusId)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferTransactionStatusResponse](200)
       
 
@@ -113,7 +106,6 @@ class OfferStatusApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[OfferTransactionStatusResponse] (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude Used to update the user's current location
@@ -127,8 +119,8 @@ class OfferStatusApi(baseUrl: String) {
    * @param limit The limit for pagination
    * @param includeInactive If true include inactive items
    */
-  def searchOfferTransactionStatuses(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None, role: Option[String] = None, appKey: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, includeInactive: Option[Boolean] = None): ApiRequest[Seq[OfferTransactionStatusResponse]] =
-    ApiRequest[Seq[OfferTransactionStatusResponse]](ApiMethods.GET, baseUrl, "/api/{version}/offer/status/search", "application/json")
+  def searchOfferTransactionStatuses(deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, keyword: Option[String] = None, role: Option[String] = None, appKey: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, includeInactive: Option[Boolean] = None): ApiRequest[Seq[OfferTransactionStatusResponse]] =
+    ApiRequest[Seq[OfferTransactionStatusResponse]](ApiMethods.GET, baseUrl, "/offer/status/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
@@ -141,7 +133,6 @@ class OfferStatusApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("includeInactive", includeInactive)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[OfferTransactionStatusResponse]](200)
       
 
@@ -151,7 +142,6 @@ class OfferStatusApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferTransactionStatusResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude Used to update the user's current location
@@ -164,8 +154,8 @@ class OfferStatusApi(baseUrl: String) {
    * @param active The active status
    * @param applicationIds The applications to associate the status with, if null then for all.
    */
-  def updateOfferTransactionStatus(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, statusId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, code: Option[Int] = None, role: Option[String] = None, active: Option[Boolean] = None, applicationIds: Option[String] = None): ApiRequest[OfferTransactionStatusResponse] =
-    ApiRequest[OfferTransactionStatusResponse](ApiMethods.POST, baseUrl, "/api/{version}/offer/status/update", "application/json")
+  def updateOfferTransactionStatus(deviceId: Option[String] = None, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, statusId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, code: Option[Int] = None, role: Option[String] = None, active: Option[Boolean] = None, applicationIds: Option[String] = None): ApiRequest[OfferTransactionStatusResponse] =
+    ApiRequest[OfferTransactionStatusResponse](ApiMethods.POST, baseUrl, "/offer/status/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
@@ -177,7 +167,6 @@ class OfferStatusApi(baseUrl: String) {
       .withQueryParam("role", role)
       .withQueryParam("active", active)
       .withQueryParam("applicationIds", applicationIds)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferTransactionStatusResponse](200)
       
 

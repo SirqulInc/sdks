@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.BillableEntityResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object BillableEntityApi {
 
-  def apply(baseUrl: String = "http://localhost") = new BillableEntityApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new BillableEntityApi(baseUrl)
 }
 
 class BillableEntityApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class BillableEntityApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BillableEntityResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param name The name of the entity responsible for billing 
@@ -45,8 +43,8 @@ class BillableEntityApi(baseUrl: String) {
    * @param authorizeNetApiKey Authorize Net Api Key
    * @param authorizeNetTransactionKey Authorize Net Transaction Key
    */
-  def createBillableEntity(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None): ApiRequest[BillableEntityResponse] =
-    ApiRequest[BillableEntityResponse](ApiMethods.POST, baseUrl, "/api/{version}/billable/create", "application/json")
+  def createBillableEntity(deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None): ApiRequest[BillableEntityResponse] =
+    ApiRequest[BillableEntityResponse](ApiMethods.POST, baseUrl, "/billable/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
@@ -59,7 +57,6 @@ class BillableEntityApi(baseUrl: String) {
       .withQueryParam("businessPhoneExt", businessPhoneExt)
       .withQueryParam("authorizeNetApiKey", authorizeNetApiKey)
       .withQueryParam("authorizeNetTransactionKey", authorizeNetTransactionKey)
-      .withPathParam("version", version)
       .withSuccessResponse[BillableEntityResponse](200)
       
 
@@ -69,15 +66,13 @@ class BillableEntityApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the delete, must have rights to edit the billable entity.
    */
-  def deleteBillableEntity(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/billable/delete", "application/json")
+  def deleteBillableEntity(deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/billable/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -87,19 +82,17 @@ class BillableEntityApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BillableEntityResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param includeCounts Determines whether to include the retailer dash board counts into the response
    * @param includePayments Whether to enable payments or not
    */
-  def getBillableEntity(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, includeCounts: Option[Boolean] = None, includePayments: Option[Boolean] = None): ApiRequest[BillableEntityResponse] =
-    ApiRequest[BillableEntityResponse](ApiMethods.GET, baseUrl, "/api/{version}/billable/get", "application/json")
+  def getBillableEntity(deviceId: Option[String] = None, accountId: Option[Long] = None, includeCounts: Option[Boolean] = None, includePayments: Option[Boolean] = None): ApiRequest[BillableEntityResponse] =
+    ApiRequest[BillableEntityResponse](ApiMethods.GET, baseUrl, "/billable/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("includeCounts", includeCounts)
       .withQueryParam("includePayments", includePayments)
-      .withPathParam("version", version)
       .withSuccessResponse[BillableEntityResponse](200)
       
 
@@ -109,7 +102,6 @@ class BillableEntityApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : BillableEntityResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
    * @param name The name of the entity responsible for billing 
@@ -123,8 +115,8 @@ class BillableEntityApi(baseUrl: String) {
    * @param authorizeNetApiKey Authorize Net Api Key of the billable entity
    * @param authorizeNetTransactionKey Authorize Net Transaction Key of the billable entity
    */
-  def updateBillableEntity(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None): ApiRequest[BillableEntityResponse] =
-    ApiRequest[BillableEntityResponse](ApiMethods.POST, baseUrl, "/api/{version}/billable/update", "application/json")
+  def updateBillableEntity(deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, streetAddress: Option[String] = None, streetAddress2: Option[String] = None, city: Option[String] = None, state: Option[String] = None, postalCode: Option[String] = None, businessPhone: Option[String] = None, businessPhoneExt: Option[String] = None, authorizeNetApiKey: Option[String] = None, authorizeNetTransactionKey: Option[String] = None): ApiRequest[BillableEntityResponse] =
+    ApiRequest[BillableEntityResponse](ApiMethods.POST, baseUrl, "/billable/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
@@ -137,7 +129,6 @@ class BillableEntityApi(baseUrl: String) {
       .withQueryParam("businessPhoneExt", businessPhoneExt)
       .withQueryParam("authorizeNetApiKey", authorizeNetApiKey)
       .withQueryParam("authorizeNetTransactionKey", authorizeNetTransactionKey)
-      .withPathParam("version", version)
       .withSuccessResponse[BillableEntityResponse](200)
       
 

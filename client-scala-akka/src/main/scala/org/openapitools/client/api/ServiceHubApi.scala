@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ServiceHub
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ServiceHubApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ServiceHubApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ServiceHubApi(baseUrl)
 }
 
 class ServiceHubApi(baseUrl: String) {
@@ -30,13 +29,11 @@ class ServiceHubApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ServiceHub (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createServiceHub(version: BigDecimal, body: Option[ServiceHub] = None): ApiRequest[ServiceHub] =
-    ApiRequest[ServiceHub](ApiMethods.POST, baseUrl, "/api/{version}/hub", "application/json")
+  def createServiceHub(body: Option[ServiceHub] = None): ApiRequest[ServiceHub] =
+    ApiRequest[ServiceHub](ApiMethods.POST, baseUrl, "/hub", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[ServiceHub](200)
       
 
@@ -46,12 +43,10 @@ class ServiceHubApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param id the id of the service hub to delete
    */
-  def deleteServiceHub(version: BigDecimal, id: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/hub/{id}", "application/json")
-      .withPathParam("version", version)
+  def deleteServiceHub(id: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/hub/{id}", "application/json")
       .withPathParam("id", id)
       .withDefaultErrorResponse[Unit]
       
@@ -62,12 +57,10 @@ class ServiceHubApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Any (successful operation)
    * 
-   * @param version 
    * @param id the id of the service hub to get
    */
-  def getServiceHub(version: BigDecimal, id: Long): ApiRequest[Any] =
-    ApiRequest[Any](ApiMethods.GET, baseUrl, "/api/{version}/hub/{id}", "application/json")
-      .withPathParam("version", version)
+  def getServiceHub(id: Long): ApiRequest[Any] =
+    ApiRequest[Any](ApiMethods.GET, baseUrl, "/hub/{id}", "application/json")
       .withPathParam("id", id)
       .withSuccessResponse[Any](200)
       
@@ -78,14 +71,12 @@ class ServiceHubApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ServiceHub (successful operation)
    * 
-   * @param version 
    * @param id the id of the service hub
    * @param body 
    */
-  def postServiceHub(version: BigDecimal, id: Long, body: Option[ServiceHub] = None): ApiRequest[ServiceHub] =
-    ApiRequest[ServiceHub](ApiMethods.POST, baseUrl, "/api/{version}/hub/{id}", "application/json")
+  def postServiceHub(id: Long, body: Option[ServiceHub] = None): ApiRequest[ServiceHub] =
+    ApiRequest[ServiceHub](ApiMethods.POST, baseUrl, "/hub/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[ServiceHub](200)
       
@@ -96,14 +87,12 @@ class ServiceHubApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ServiceHub (successful operation)
    * 
-   * @param version 
    * @param id the id of the service hub
    * @param body 
    */
-  def putServiceHub(version: BigDecimal, id: Long, body: Option[ServiceHub] = None): ApiRequest[ServiceHub] =
-    ApiRequest[ServiceHub](ApiMethods.PUT, baseUrl, "/api/{version}/hub/{id}", "application/json")
+  def putServiceHub(id: Long, body: Option[ServiceHub] = None): ApiRequest[ServiceHub] =
+    ApiRequest[ServiceHub](ApiMethods.PUT, baseUrl, "/hub/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[ServiceHub](200)
       
@@ -114,7 +103,6 @@ class ServiceHubApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ServiceHub] (successful operation)
    * 
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -123,8 +111,8 @@ class ServiceHubApi(baseUrl: String) {
    * @param keyword The keyword to search for
    * @param retailerId The retailer belongs to
    */
-  def searchServiceHubs(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, keyword: Option[String] = None, retailerId: Option[Long] = None): ApiRequest[Seq[ServiceHub]] =
-    ApiRequest[Seq[ServiceHub]](ApiMethods.GET, baseUrl, "/api/{version}/hub", "application/json")
+  def searchServiceHubs(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, keyword: Option[String] = None, retailerId: Option[Long] = None): ApiRequest[Seq[ServiceHub]] =
+    ApiRequest[Seq[ServiceHub]](ApiMethods.GET, baseUrl, "/hub", "application/json")
       .withQueryParam("keyword", keyword)
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("sortField", sortField)
@@ -132,7 +120,6 @@ class ServiceHubApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ServiceHub]](200)
       
 

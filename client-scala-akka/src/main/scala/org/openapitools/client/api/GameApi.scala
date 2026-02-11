@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.GameResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object GameApi {
 
-  def apply(baseUrl: String = "http://localhost") = new GameApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new GameApi(baseUrl)
 }
 
 class GameApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class GameApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to save the level for.
    * @param title Title of the game.
@@ -40,8 +38,8 @@ class GameApi(baseUrl: String) {
    * @param packIds comma separated String of pack Ids that will associate with the game.
    * @param includeGameData Show more details in response.
    */
-  def createGame(version: BigDecimal, accountId: Option[Long] = None, appKey: Option[String] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None, packIds: Option[String] = None, includeGameData: Option[Boolean] = None): ApiRequest[GameResponse] =
-    ApiRequest[GameResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/create", "application/json")
+  def createGame(accountId: Option[Long] = None, appKey: Option[String] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None, packIds: Option[String] = None, includeGameData: Option[Boolean] = None): ApiRequest[GameResponse] =
+    ApiRequest[GameResponse](ApiMethods.POST, baseUrl, "/game/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("title", title)
@@ -49,7 +47,6 @@ class GameApi(baseUrl: String) {
       .withQueryParam("metaData", metaData)
       .withQueryParam("packIds", packIds)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[GameResponse](200)
       
 
@@ -59,15 +56,13 @@ class GameApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param gameId the updating game's id.
    */
-  def deleteGame(version: BigDecimal, accountId: Long, gameId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/delete", "application/json")
+  def deleteGame(accountId: Long, gameId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/game/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameId", gameId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -77,17 +72,15 @@ class GameApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param gameId the updating game's id.
    * @param includeGameData If true include the game level data, otherwise don't. default is false.
    */
-  def getGame(version: BigDecimal, accountId: Long, gameId: Long, includeGameData: Option[Boolean] = None): ApiRequest[GameResponse] =
-    ApiRequest[GameResponse](ApiMethods.GET, baseUrl, "/api/{version}/game/get", "application/json")
+  def getGame(accountId: Long, gameId: Long, includeGameData: Option[Boolean] = None): ApiRequest[GameResponse] =
+    ApiRequest[GameResponse](ApiMethods.GET, baseUrl, "/game/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameId", gameId)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[GameResponse](200)
       
 
@@ -97,7 +90,6 @@ class GameApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey the application key
    * @param start Start the result set at some index.
@@ -107,8 +99,8 @@ class GameApi(baseUrl: String) {
    * @param includeGameData more details in response
    * @param includeInactive more details in response
    */
-  def searchGames(version: BigDecimal, accountId: Long, appKey: String, start: Int, limit: Int, keyword: Option[String] = None, appVersion: Option[String] = None, includeGameData: Option[Boolean] = None, includeInactive: Option[Boolean] = None): ApiRequest[GameResponse] =
-    ApiRequest[GameResponse](ApiMethods.GET, baseUrl, "/api/{version}/game/search", "application/json")
+  def searchGames(accountId: Long, appKey: String, start: Int, limit: Int, keyword: Option[String] = None, appVersion: Option[String] = None, includeGameData: Option[Boolean] = None, includeInactive: Option[Boolean] = None): ApiRequest[GameResponse] =
+    ApiRequest[GameResponse](ApiMethods.GET, baseUrl, "/game/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("keyword", keyword)
@@ -117,7 +109,6 @@ class GameApi(baseUrl: String) {
       .withQueryParam("appVersion", appVersion)
       .withQueryParam("includeGameData", includeGameData)
       .withQueryParam("includeInactive", includeInactive)
-      .withPathParam("version", version)
       .withSuccessResponse[GameResponse](200)
       
 
@@ -127,7 +118,6 @@ class GameApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GameResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param gameId the updating game's id
    * @param appKey The game application key to save the level for.
@@ -137,8 +127,8 @@ class GameApi(baseUrl: String) {
    * @param packIds comma separated String of pack Ids that will associate with the game.
    * @param includeGameData show more details in response.
    */
-  def updateGame(version: BigDecimal, accountId: Option[Long] = None, gameId: Option[Long] = None, appKey: Option[String] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None, packIds: Option[String] = None, includeGameData: Option[Boolean] = None): ApiRequest[GameResponse] =
-    ApiRequest[GameResponse](ApiMethods.POST, baseUrl, "/api/{version}/game/update", "application/json")
+  def updateGame(accountId: Option[Long] = None, gameId: Option[Long] = None, appKey: Option[String] = None, title: Option[String] = None, description: Option[String] = None, metaData: Option[String] = None, packIds: Option[String] = None, includeGameData: Option[Boolean] = None): ApiRequest[GameResponse] =
+    ApiRequest[GameResponse](ApiMethods.POST, baseUrl, "/game/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameId", gameId)
       .withQueryParam("appKey", appKey)
@@ -147,7 +137,6 @@ class GameApi(baseUrl: String) {
       .withQueryParam("metaData", metaData)
       .withQueryParam("packIds", packIds)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[GameResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ChartData
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.UserActivityResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AnalyticsApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AnalyticsApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AnalyticsApi(baseUrl)
 }
 
 class AnalyticsApi(baseUrl: String) {
@@ -32,17 +31,15 @@ class AnalyticsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[UserActivityResponse] (successful operation)
    * 
-   * @param version 
    * @param start The start of the pagination
    * @param limit The limit of the pagination
    * @param accountId the account id of the user
    */
-  def activities(version: BigDecimal, start: Int, limit: Int, accountId: Long): ApiRequest[Seq[UserActivityResponse]] =
-    ApiRequest[Seq[UserActivityResponse]](ApiMethods.GET, baseUrl, "/api/{version}/analytics/useractivity", "application/json")
+  def activities(start: Int, limit: Int, accountId: Long): ApiRequest[Seq[UserActivityResponse]] =
+    ApiRequest[Seq[UserActivityResponse]](ApiMethods.GET, baseUrl, "/analytics/useractivity", "application/json")
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("accountId", accountId)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[UserActivityResponse]](200)
       
 
@@ -52,7 +49,6 @@ class AnalyticsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ChartData (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param applicationId This parameter is deprecated.
@@ -85,8 +81,8 @@ class AnalyticsApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def aggregatedFilteredUsage(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, applicationId: Option[Long] = None, appKey: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, deviceType: Option[String] = None, device: Option[String] = None, deviceOS: Option[String] = None, gender: Option[String] = None, ageGroup: Option[String] = None, country: Option[String] = None, state: Option[String] = None, city: Option[String] = None, zip: Option[String] = None, model: Option[String] = None, tag: Option[String] = None, userAccountId: Option[Long] = None, userAccountDisplay: Option[String] = None, userAccountUsername: Option[String] = None, groupByRoot: Option[String] = None, groupBy: Option[String] = None, distinctCount: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, hideUnknown: Option[Boolean] = None, responseFormat: Option[String] = None, `l`: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ChartData] =
-    ApiRequest[ChartData](ApiMethods.GET, baseUrl, "/api/{version}/analytics/aggregatedFilteredUsage", "application/json")
+  def aggregatedFilteredUsage(deviceId: Option[String] = None, accountId: Option[Long] = None, applicationId: Option[Long] = None, appKey: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, deviceType: Option[String] = None, device: Option[String] = None, deviceOS: Option[String] = None, gender: Option[String] = None, ageGroup: Option[String] = None, country: Option[String] = None, state: Option[String] = None, city: Option[String] = None, zip: Option[String] = None, model: Option[String] = None, tag: Option[String] = None, userAccountId: Option[Long] = None, userAccountDisplay: Option[String] = None, userAccountUsername: Option[String] = None, groupByRoot: Option[String] = None, groupBy: Option[String] = None, distinctCount: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, hideUnknown: Option[Boolean] = None, responseFormat: Option[String] = None, `l`: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ChartData] =
+    ApiRequest[ChartData](ApiMethods.GET, baseUrl, "/analytics/aggregatedFilteredUsage", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("applicationId", applicationId)
@@ -118,7 +114,6 @@ class AnalyticsApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ChartData](200)
       
 
@@ -128,7 +123,6 @@ class AnalyticsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ChartData (successful operation)
    * 
-   * @param version 
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param applicationId This parameter is deprecated.
@@ -169,8 +163,8 @@ class AnalyticsApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def filteredUsage(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, applicationId: Option[Long] = None, appKey: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, deviceType: Option[String] = None, device: Option[String] = None, deviceOS: Option[String] = None, gender: Option[String] = None, ageGroup: Option[String] = None, country: Option[String] = None, state: Option[String] = None, city: Option[String] = None, zip: Option[String] = None, model: Option[String] = None, tag: Option[String] = None, userAccountId: Option[Long] = None, userAccountDisplay: Option[String] = None, userAccountUsername: Option[String] = None, customId: Option[Long] = None, customType: Option[String] = None, customValue: Option[Double] = None, customValue2: Option[Double] = None, customLong: Option[Long] = None, customLong2: Option[Long] = None, customMessage: Option[String] = None, customMessage2: Option[String] = None, groupBy: Option[String] = None, distinctCount: Option[String] = None, sumColumn: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, hideUnknown: Option[Boolean] = None, responseFormat: Option[String] = None, `l`: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ChartData] =
-    ApiRequest[ChartData](ApiMethods.GET, baseUrl, "/api/{version}/analytics/filteredUsage", "application/json")
+  def filteredUsage(deviceId: Option[String] = None, accountId: Option[Long] = None, applicationId: Option[Long] = None, appKey: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, deviceType: Option[String] = None, device: Option[String] = None, deviceOS: Option[String] = None, gender: Option[String] = None, ageGroup: Option[String] = None, country: Option[String] = None, state: Option[String] = None, city: Option[String] = None, zip: Option[String] = None, model: Option[String] = None, tag: Option[String] = None, userAccountId: Option[Long] = None, userAccountDisplay: Option[String] = None, userAccountUsername: Option[String] = None, customId: Option[Long] = None, customType: Option[String] = None, customValue: Option[Double] = None, customValue2: Option[Double] = None, customLong: Option[Long] = None, customLong2: Option[Long] = None, customMessage: Option[String] = None, customMessage2: Option[String] = None, groupBy: Option[String] = None, distinctCount: Option[String] = None, sumColumn: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, hideUnknown: Option[Boolean] = None, responseFormat: Option[String] = None, `l`: Option[Int] = None, limit: Option[Int] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ChartData] =
+    ApiRequest[ChartData](ApiMethods.GET, baseUrl, "/analytics/filteredUsage", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("applicationId", applicationId)
@@ -210,7 +204,6 @@ class AnalyticsApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ChartData](200)
       
 
@@ -220,7 +213,6 @@ class AnalyticsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param tag The tag to apply: the name of the action or thing being logged.
    * @param deviceId The client deviceID
    * @param accountId The logged in user ID
@@ -253,8 +245,8 @@ class AnalyticsApi(baseUrl: String) {
    * @param customLong a custom long value for the usage record
    * @param customLong2 a custom long value for the usage record
    */
-  def usage(version: BigDecimal, tag: String, deviceId: Option[String] = None, accountId: Option[Long] = None, applicationId: Option[Long] = None, appKey: Option[String] = None, appVersion: Option[String] = None, device: Option[String] = None, deviceType: Option[String] = None, deviceOS: Option[String] = None, model: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, customId: Option[Long] = None, customType: Option[String] = None, achievementIncrement: Option[Long] = None, city: Option[String] = None, state: Option[String] = None, country: Option[String] = None, zip: Option[String] = None, locationDescription: Option[String] = None, clientTime: Option[Long] = None, errorMessage: Option[String] = None, ip: Option[String] = None, userAgent: Option[String] = None, backgroundEvent: Option[Boolean] = None, customMessage: Option[String] = None, customMessage2: Option[String] = None, customValue: Option[Double] = None, customValue2: Option[Double] = None, customLong: Option[Long] = None, customLong2: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/analytics/usage", "application/json")
+  def usage(tag: String, deviceId: Option[String] = None, accountId: Option[Long] = None, applicationId: Option[Long] = None, appKey: Option[String] = None, appVersion: Option[String] = None, device: Option[String] = None, deviceType: Option[String] = None, deviceOS: Option[String] = None, model: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, customId: Option[Long] = None, customType: Option[String] = None, achievementIncrement: Option[Long] = None, city: Option[String] = None, state: Option[String] = None, country: Option[String] = None, zip: Option[String] = None, locationDescription: Option[String] = None, clientTime: Option[Long] = None, errorMessage: Option[String] = None, ip: Option[String] = None, userAgent: Option[String] = None, backgroundEvent: Option[Boolean] = None, customMessage: Option[String] = None, customMessage2: Option[String] = None, customValue: Option[Double] = None, customValue2: Option[Double] = None, customLong: Option[Long] = None, customLong2: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/analytics/usage", "application/json")
       .withQueryParam("tag", tag)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -286,7 +278,6 @@ class AnalyticsApi(baseUrl: String) {
       .withQueryParam("customValue2", customValue2)
       .withQueryParam("customLong", customLong)
       .withQueryParam("customLong2", customLong2)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -296,7 +287,6 @@ class AnalyticsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key unique to each application.
    * @param device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
    * @param data The analytic data AnalyticListResponse
@@ -309,8 +299,8 @@ class AnalyticsApi(baseUrl: String) {
    * @param updateRanking Will create a leaderboard if one does not exist for the \"tag\" yet
    * @param returnSummaryResponse Returns a summary response of the achievements that have been completed due to the analytics
    */
-  def usageBatch(version: BigDecimal, appKey: String, device: String, data: String, deviceId: Option[String] = None, accountId: Option[Long] = None, appVersion: Option[String] = None, deviceType: Option[String] = None, deviceOS: Option[String] = None, model: Option[String] = None, updateRanking: Option[Boolean] = None, returnSummaryResponse: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/analytics/usage/batch", "application/json")
+  def usageBatch(appKey: String, device: String, data: String, deviceId: Option[String] = None, accountId: Option[Long] = None, appVersion: Option[String] = None, deviceType: Option[String] = None, deviceOS: Option[String] = None, model: Option[String] = None, updateRanking: Option[Boolean] = None, returnSummaryResponse: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/analytics/usage/batch", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -322,7 +312,6 @@ class AnalyticsApi(baseUrl: String) {
       .withQueryParam("data", data)
       .withQueryParam("updateRanking", updateRanking)
       .withQueryParam("returnSummaryResponse", returnSummaryResponse)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

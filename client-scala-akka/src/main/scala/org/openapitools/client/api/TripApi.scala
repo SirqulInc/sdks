@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.Trip
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TripApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TripApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TripApi(baseUrl)
 }
 
 class TripApi(baseUrl: String) {
@@ -30,13 +29,11 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createTrip(version: BigDecimal, body: Option[Trip] = None): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/api/{version}/trip", "application/json")
+  def createTrip(body: Option[Trip] = None): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/trip", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[Trip](200)
       
 
@@ -46,12 +43,10 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip to delete
    */
-  def delete(version: BigDecimal, id: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/trip/{id}", "application/json")
-      .withPathParam("version", version)
+  def delete(id: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/trip/{id}", "application/json")
       .withPathParam("id", id)
       .withDefaultErrorResponse[Unit]
       
@@ -62,14 +57,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip
    * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
    */
-  def driveTrip(version: BigDecimal, id: Long, recurrence: Boolean): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/api/{version}/trip/{id}/drive", "application/json")
+  def driveTrip(id: Long, recurrence: Boolean): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/trip/{id}/drive", "application/json")
       .withQueryParam("recurrence", recurrence)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Trip](200)
       
@@ -80,14 +73,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip
    * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
    */
-  def flexibleTrip(version: BigDecimal, id: Long, recurrence: Boolean): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/api/{version}/trip/{id}/flexible", "application/json")
+  def flexibleTrip(id: Long, recurrence: Boolean): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/trip/{id}/flexible", "application/json")
       .withQueryParam("recurrence", recurrence)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Trip](200)
       
@@ -98,12 +89,10 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip to get
    */
-  def getTrip(version: BigDecimal, id: Long): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.GET, baseUrl, "/api/{version}/trip/{id}", "application/json")
-      .withPathParam("version", version)
+  def getTrip(id: Long): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.GET, baseUrl, "/trip/{id}", "application/json")
       .withPathParam("id", id)
       .withSuccessResponse[Trip](200)
       
@@ -114,7 +103,6 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Trip] (successful operation)
    * 
-   * @param version 
    * @param id The id The id of the trip to search for matches for
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -124,8 +112,8 @@ class TripApi(baseUrl: String) {
    * @param matchedHasRoute Only return matchings that already have route assigned
    * @param matchedHasDriver Only return matchings that already have driver assigned
    */
-  def getTripMatches(version: BigDecimal, id: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, matchedHasRoute: Option[Boolean] = None, matchedHasDriver: Option[Boolean] = None): ApiRequest[Seq[Trip]] =
-    ApiRequest[Seq[Trip]](ApiMethods.GET, baseUrl, "/api/{version}/trip/{id}/match", "application/json")
+  def getTripMatches(id: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, matchedHasRoute: Option[Boolean] = None, matchedHasDriver: Option[Boolean] = None): ApiRequest[Seq[Trip]] =
+    ApiRequest[Seq[Trip]](ApiMethods.GET, baseUrl, "/trip/{id}/match", "application/json")
       .withQueryParam("matchedHasRoute", matchedHasRoute)
       .withQueryParam("matchedHasDriver", matchedHasDriver)
       .withQueryParam("sortField", sortField)
@@ -133,7 +121,6 @@ class TripApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Seq[Trip]](200)
       
@@ -144,17 +131,15 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Trip] (successful operation)
    * 
-   * @param version 
    * @param startDate The lower bound date to process matchings
    * @param endDate The upper bound date to process matchings
    * @param tripId the id of the trip to process
    */
-  def processTripMatches(version: BigDecimal, startDate: Option[Long] = None, endDate: Option[Long] = None, tripId: Option[Long] = None): ApiRequest[Seq[Trip]] =
-    ApiRequest[Seq[Trip]](ApiMethods.POST, baseUrl, "/api/{version}/trip/match/process", "application/json")
+  def processTripMatches(startDate: Option[Long] = None, endDate: Option[Long] = None, tripId: Option[Long] = None): ApiRequest[Seq[Trip]] =
+    ApiRequest[Seq[Trip]](ApiMethods.POST, baseUrl, "/trip/match/process", "application/json")
       .withQueryParam("startDate", startDate)
       .withQueryParam("endDate", endDate)
       .withQueryParam("tripId", tripId)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[Trip]](200)
       
 
@@ -164,14 +149,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip
    * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
    */
-  def ride(version: BigDecimal, id: Long, recurrence: Boolean): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/api/{version}/trip/{id}/ride", "application/json")
+  def ride(id: Long, recurrence: Boolean): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/trip/{id}/ride", "application/json")
       .withQueryParam("recurrence", recurrence)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Trip](200)
       
@@ -182,7 +165,6 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Trip] (successful operation)
    * 
-   * @param version 
    * @param accountId The owner of the trips
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -193,8 +175,8 @@ class TripApi(baseUrl: String) {
    * @param endDate The upper bound limit of time
    * @param hasNotifications whether to search on trips that have notifications or not
    */
-  def search(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, startDate: Option[Long] = None, endDate: Option[Long] = None, hasNotifications: Option[Boolean] = None): ApiRequest[Seq[Trip]] =
-    ApiRequest[Seq[Trip]](ApiMethods.GET, baseUrl, "/api/{version}/trip", "application/json")
+  def search(accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, startDate: Option[Long] = None, endDate: Option[Long] = None, hasNotifications: Option[Boolean] = None): ApiRequest[Seq[Trip]] =
+    ApiRequest[Seq[Trip]](ApiMethods.GET, baseUrl, "/trip", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("startDate", startDate)
       .withQueryParam("endDate", endDate)
@@ -204,7 +186,6 @@ class TripApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[Trip]](200)
       
 
@@ -214,7 +195,6 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Trip] (successful operation)
    * 
-   * @param version 
    * @param accountId The owner of the trips
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -226,8 +206,8 @@ class TripApi(baseUrl: String) {
    * @param matchedHasRoute Only return matchings that already have route assigned
    * @param matchedHasDriver Only return matchings that already have driver assigned
    */
-  def searchTrips(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, startDate: Option[Long] = None, endDate: Option[Long] = None, matchedHasRoute: Option[Boolean] = None, matchedHasDriver: Option[Boolean] = None): ApiRequest[Seq[Trip]] =
-    ApiRequest[Seq[Trip]](ApiMethods.GET, baseUrl, "/api/{version}/trip/match", "application/json")
+  def searchTrips(accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, startDate: Option[Long] = None, endDate: Option[Long] = None, matchedHasRoute: Option[Boolean] = None, matchedHasDriver: Option[Boolean] = None): ApiRequest[Seq[Trip]] =
+    ApiRequest[Seq[Trip]](ApiMethods.GET, baseUrl, "/trip/match", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("startDate", startDate)
       .withQueryParam("endDate", endDate)
@@ -238,7 +218,6 @@ class TripApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[Trip]](200)
       
 
@@ -246,14 +225,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip to update locations for
    * @param body 
    */
-  def updateLocations(version: BigDecimal, id: Long, body: Option[Trip] = None): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/api/{version}/trip/{id}/locations", "application/json")
+  def updateLocations(id: Long, body: Option[Trip] = None): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/trip/{id}/locations", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Trip](200)
       
@@ -262,14 +239,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Trip] (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip
    * @param body 
    */
-  def updateRecurrenceLocations(version: BigDecimal, id: Long, body: Option[Trip] = None): ApiRequest[Seq[Trip]] =
-    ApiRequest[Seq[Trip]](ApiMethods.POST, baseUrl, "/api/{version}/trip/{id}/locations/recurrence", "application/json")
+  def updateRecurrenceLocations(id: Long, body: Option[Trip] = None): ApiRequest[Seq[Trip]] =
+    ApiRequest[Seq[Trip]](ApiMethods.POST, baseUrl, "/trip/{id}/locations/recurrence", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Seq[Trip]](200)
       
@@ -278,14 +253,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Trip] (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip
    * @param body 
    */
-  def updateRecurrenceShipments(version: BigDecimal, id: Long, body: Option[Trip] = None): ApiRequest[Seq[Trip]] =
-    ApiRequest[Seq[Trip]](ApiMethods.POST, baseUrl, "/api/{version}/trip/{id}/shipments/recurrence", "application/json")
+  def updateRecurrenceShipments(id: Long, body: Option[Trip] = None): ApiRequest[Seq[Trip]] =
+    ApiRequest[Seq[Trip]](ApiMethods.POST, baseUrl, "/trip/{id}/shipments/recurrence", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Seq[Trip]](200)
       
@@ -294,14 +267,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip shipments to update
    * @param body 
    */
-  def updateShipments(version: BigDecimal, id: Long, body: Option[Trip] = None): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/api/{version}/trip/{id}/shipments", "application/json")
+  def updateShipments(id: Long, body: Option[Trip] = None): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/trip/{id}/shipments", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Trip](200)
       
@@ -312,14 +283,12 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip to update
    * @param body 
    */
-  def updateTrip(version: BigDecimal, id: Long, body: Option[Trip] = None): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.PUT, baseUrl, "/api/{version}/trip/{id}", "application/json")
+  def updateTrip(id: Long, body: Option[Trip] = None): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.PUT, baseUrl, "/trip/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Trip](200)
       
@@ -330,15 +299,13 @@ class TripApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Trip (successful operation)
    * 
-   * @param version 
    * @param id the id of the trip
    * @param notifications the notifications to update on the trip
    */
-  def updateTripNotifications(version: BigDecimal, id: Long, notifications: Option[String] = None): ApiRequest[Trip] =
-    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/api/{version}/trip/notifications", "application/json")
+  def updateTripNotifications(id: Long, notifications: Option[String] = None): ApiRequest[Trip] =
+    ApiRequest[Trip](ApiMethods.POST, baseUrl, "/trip/notifications", "application/json")
       .withQueryParam("id", id)
       .withQueryParam("notifications", notifications)
-      .withPathParam("version", version)
       .withSuccessResponse[Trip](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.RankFullResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RankingApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RankingApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RankingApi(baseUrl)
 }
 
 class RankingApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class RankingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RankFullResponse (successful operation)
    * 
-   * @param version 
    * @param appKey the application key for filtering results by application
    * @param rankType the rank type to return
    * @param startDate timestamp in milliseconds to filter results with
@@ -43,8 +41,8 @@ class RankingApi(baseUrl: String) {
    * @param start the start index for pagination
    * @param limit the limit for pagination
    */
-  def getHistoricalRankings(version: BigDecimal, appKey: String, rankType: String, startDate: Long, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[RankFullResponse] =
-    ApiRequest[RankFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/ranking/historical/search", "application/json")
+  def getHistoricalRankings(appKey: String, rankType: String, startDate: Long, endDate: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[RankFullResponse] =
+    ApiRequest[RankFullResponse](ApiMethods.GET, baseUrl, "/ranking/historical/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -55,7 +53,6 @@ class RankingApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[RankFullResponse](200)
       
 
@@ -65,7 +62,6 @@ class RankingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RankFullResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param gameType This parameter is deprecated.
@@ -85,8 +81,8 @@ class RankingApi(baseUrl: String) {
    * @param `l` This parameter is deprecated.
    * @param limit the limit for pagination
    */
-  def getRankings(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, `q`: Option[String] = None, keyword: Option[String] = None, rankType: Option[String] = None, leaderboardMode: Option[String] = None, withinAccountIds: Option[String] = None, returnUserRank: Option[Boolean] = None, albumId: Option[Long] = None, audienceId: Option[Long] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[RankFullResponse] =
-    ApiRequest[RankFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/ranking/search", "application/json")
+  def getRankings(deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, `q`: Option[String] = None, keyword: Option[String] = None, rankType: Option[String] = None, leaderboardMode: Option[String] = None, withinAccountIds: Option[String] = None, returnUserRank: Option[Boolean] = None, albumId: Option[Long] = None, audienceId: Option[Long] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[RankFullResponse] =
+    ApiRequest[RankFullResponse](ApiMethods.GET, baseUrl, "/ranking/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
@@ -105,7 +101,6 @@ class RankingApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("_l", `l`)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[RankFullResponse](200)
       
 
@@ -115,7 +110,6 @@ class RankingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Any (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user
    * @param appKey the application key for filtering results by application (required)
@@ -128,8 +122,8 @@ class RankingApi(baseUrl: String) {
    * @param start the start index for pagination
    * @param limit the limit for pagination
    */
-  def getUserRank(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, rankType: Option[String] = None, returnUserRank: Option[Boolean] = None, leaderboardMode: Option[String] = None, sortField: Option[String] = None, keyword: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Any] =
-    ApiRequest[Any](ApiMethods.POST, baseUrl, "/api/{version}/ranking/personal/ranks", "application/json")
+  def getUserRank(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, rankType: Option[String] = None, returnUserRank: Option[Boolean] = None, leaderboardMode: Option[String] = None, sortField: Option[String] = None, keyword: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Any] =
+    ApiRequest[Any](ApiMethods.POST, baseUrl, "/ranking/personal/ranks", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -141,7 +135,6 @@ class RankingApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Any](200)
       
 
@@ -151,7 +144,6 @@ class RankingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the logged in user's account id (must have permissions to manage data for the application)
    * @param ownerAccountId the end user's account id to override
    * @param appKey the application key the leaderboard is for
@@ -175,8 +167,8 @@ class RankingApi(baseUrl: String) {
    * @param startDate the start date to update
    * @param endDate the end date to update
    */
-  def overrideUserRank(version: BigDecimal, accountId: Long, ownerAccountId: Long, appKey: String, rankType: String, totalScore: Option[Long] = None, totalCount: Option[Long] = None, totalTime: Option[Long] = None, dailyScore: Option[Long] = None, dailyCount: Option[Long] = None, dailyTime: Option[Long] = None, weeklyScore: Option[Long] = None, weeklyCount: Option[Long] = None, weeklyTime: Option[Long] = None, monthlyScore: Option[Long] = None, monthlyCount: Option[Long] = None, monthlyTime: Option[Long] = None, topScore: Option[Long] = None, lowestScore: Option[Long] = None, streakCount: Option[Long] = None, streakBestCount: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/ranking/override", "application/json")
+  def overrideUserRank(accountId: Long, ownerAccountId: Long, appKey: String, rankType: String, totalScore: Option[Long] = None, totalCount: Option[Long] = None, totalTime: Option[Long] = None, dailyScore: Option[Long] = None, dailyCount: Option[Long] = None, dailyTime: Option[Long] = None, weeklyScore: Option[Long] = None, weeklyCount: Option[Long] = None, weeklyTime: Option[Long] = None, monthlyScore: Option[Long] = None, monthlyCount: Option[Long] = None, monthlyTime: Option[Long] = None, topScore: Option[Long] = None, lowestScore: Option[Long] = None, streakCount: Option[Long] = None, streakBestCount: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/ranking/override", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("ownerAccountId", ownerAccountId)
       .withQueryParam("appKey", appKey)
@@ -199,7 +191,6 @@ class RankingApi(baseUrl: String) {
       .withQueryParam("streakBestCount", streakBestCount)
       .withQueryParam("startDate", startDate)
       .withQueryParam("endDate", endDate)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -209,7 +200,6 @@ class RankingApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param appKey the application key for filtering results by application
    * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -221,8 +211,8 @@ class RankingApi(baseUrl: String) {
    * @param updateGlobal update the global rankings if true, default is false
    * @param createLeaderboard create the leaderboard if it does not exist (default false)
    */
-  def updateRankings(version: BigDecimal, accountId: Long, appKey: String, rankType: String, increment: Option[Long] = None, timeIncrement: Option[Long] = None, tag: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, updateGlobal: Option[Boolean] = None, createLeaderboard: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/ranking/update", "application/json")
+  def updateRankings(accountId: Long, appKey: String, rankType: String, increment: Option[Long] = None, timeIncrement: Option[Long] = None, tag: Option[String] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, updateGlobal: Option[Boolean] = None, createLeaderboard: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/ranking/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("rankType", rankType)
@@ -233,7 +223,6 @@ class RankingApi(baseUrl: String) {
       .withQueryParam("endDate", endDate)
       .withQueryParam("updateGlobal", updateGlobal)
       .withQueryParam("createLeaderboard", createLeaderboard)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.ApplicationConfigResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ApplicationConfigApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ApplicationConfigApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ApplicationConfigApi(baseUrl)
 }
 
 class ApplicationConfigApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class ApplicationConfigApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationConfigResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user
    * @param appKey The application key that the newly created applicationConfig will be associated to
    * @param configVersion The application configuration, has to be unique within the application
@@ -40,8 +38,8 @@ class ApplicationConfigApi(baseUrl: String) {
    * @param retailerLocationId The retailer location id for retailer location specific configurations
    * @param udid The device udid for device specific configurations
    */
-  def createApplicationConfig(version: BigDecimal, accountId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None): ApiRequest[ApplicationConfigResponse] =
-    ApiRequest[ApplicationConfigResponse](ApiMethods.POST, baseUrl, "/api/{version}/appconfig/create", "application/json")
+  def createApplicationConfig(accountId: Long, appKey: String, configVersion: String, assetId: Long, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None): ApiRequest[ApplicationConfigResponse] =
+    ApiRequest[ApplicationConfigResponse](ApiMethods.POST, baseUrl, "/appconfig/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("configVersion", configVersion)
@@ -49,7 +47,6 @@ class ApplicationConfigApi(baseUrl: String) {
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("udid", udid)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationConfigResponse](200)
       
 
@@ -59,15 +56,13 @@ class ApplicationConfigApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user
    * @param configId The config ID of the application configuration to delete
    */
-  def deleteApplicationConfig(version: BigDecimal, accountId: Long, configId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/appconfig/delete", "application/json")
+  def deleteApplicationConfig(accountId: Long, configId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/appconfig/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("configId", configId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -77,15 +72,13 @@ class ApplicationConfigApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationConfigResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user
    * @param configId The config ID of the application configuration
    */
-  def getApplicationConfig(version: BigDecimal, accountId: Long, configId: Long): ApiRequest[ApplicationConfigResponse] =
-    ApiRequest[ApplicationConfigResponse](ApiMethods.GET, baseUrl, "/api/{version}/appconfig/get", "application/json")
+  def getApplicationConfig(accountId: Long, configId: Long): ApiRequest[ApplicationConfigResponse] =
+    ApiRequest[ApplicationConfigResponse](ApiMethods.GET, baseUrl, "/appconfig/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("configId", configId)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationConfigResponse](200)
       
 
@@ -95,7 +88,6 @@ class ApplicationConfigApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationConfigResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key
    * @param configVersion The version of the application configuration
    * @param retailerId Only returns the config that matches the given retailer
@@ -103,15 +95,14 @@ class ApplicationConfigApi(baseUrl: String) {
    * @param udid Only returns only returns the config that matches the given device udid
    * @param allowOlderVersions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version.
    */
-  def getApplicationConfigByConfigVersion(version: BigDecimal, appKey: String, configVersion: String, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None, allowOlderVersions: Option[Boolean] = None): ApiRequest[ApplicationConfigResponse] =
-    ApiRequest[ApplicationConfigResponse](ApiMethods.GET, baseUrl, "/api/{version}/appconfig/getbyversion", "application/json")
+  def getApplicationConfigByConfigVersion(appKey: String, configVersion: String, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None, allowOlderVersions: Option[Boolean] = None): ApiRequest[ApplicationConfigResponse] =
+    ApiRequest[ApplicationConfigResponse](ApiMethods.GET, baseUrl, "/appconfig/getbyversion", "application/json")
       .withQueryParam("appKey", appKey)
       .withQueryParam("configVersion", configVersion)
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("udid", udid)
       .withQueryParam("allowOlderVersions", allowOlderVersions)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationConfigResponse](200)
       
 
@@ -121,7 +112,6 @@ class ApplicationConfigApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ApplicationConfigResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user
    * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
    * @param retailerId Only returns the configs that matches the given retailer
@@ -133,8 +123,8 @@ class ApplicationConfigApi(baseUrl: String) {
    * @param start The start index for pagination
    * @param limit The limit for pagination (There is a hard limit of 100)
    */
-  def searchApplicationConfig(version: BigDecimal, accountId: Long, appKey: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None, configVersion: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[ApplicationConfigResponse]] =
-    ApiRequest[Seq[ApplicationConfigResponse]](ApiMethods.GET, baseUrl, "/api/{version}/appconfig/search", "application/json")
+  def searchApplicationConfig(accountId: Long, appKey: Option[String] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None, configVersion: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[ApplicationConfigResponse]] =
+    ApiRequest[Seq[ApplicationConfigResponse]](ApiMethods.GET, baseUrl, "/appconfig/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("retailerId", retailerId)
@@ -145,7 +135,6 @@ class ApplicationConfigApi(baseUrl: String) {
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ApplicationConfigResponse]](200)
       
 
@@ -155,7 +144,6 @@ class ApplicationConfigApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ApplicationConfigResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account ID of the user
    * @param configId The config ID of the application configuration to update
    * @param appKey The application key that the updated applicationConfig will be associated to
@@ -165,8 +153,8 @@ class ApplicationConfigApi(baseUrl: String) {
    * @param retailerLocationId The retailer location id for retailer location specific configurations
    * @param udid The device udid for device specific configurations
    */
-  def updateApplicationConfig(version: BigDecimal, accountId: Long, configId: Long, appKey: Option[String] = None, configVersion: Option[String] = None, assetId: Option[Long] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None): ApiRequest[ApplicationConfigResponse] =
-    ApiRequest[ApplicationConfigResponse](ApiMethods.POST, baseUrl, "/api/{version}/appconfig/update", "application/json")
+  def updateApplicationConfig(accountId: Long, configId: Long, appKey: Option[String] = None, configVersion: Option[String] = None, assetId: Option[Long] = None, retailerId: Option[Long] = None, retailerLocationId: Option[Long] = None, udid: Option[String] = None): ApiRequest[ApplicationConfigResponse] =
+    ApiRequest[ApplicationConfigResponse](ApiMethods.POST, baseUrl, "/appconfig/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("configId", configId)
       .withQueryParam("appKey", appKey)
@@ -175,7 +163,6 @@ class ApplicationConfigApi(baseUrl: String) {
       .withQueryParam("retailerId", retailerId)
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("udid", udid)
-      .withPathParam("version", version)
       .withSuccessResponse[ApplicationConfigResponse](200)
       
 

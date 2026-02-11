@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.FilterResponse
 import org.openapitools.client.model.FilterTreeResponse
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object FilterApi {
 
-  def apply(baseUrl: String = "http://localhost") = new FilterApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new FilterApi(baseUrl)
 }
 
 class FilterApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class FilterApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : FilterTreeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user (must have permissions to the target application)
    * @param name The name of the filter
    * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)
@@ -43,8 +41,8 @@ class FilterApi(baseUrl: String) {
    * @param active Sets whether the filter is active or inactive (hidden from consumers)
    * @param metaData external custom client defined data
    */
-  def createFilter(version: BigDecimal, accountId: Long, name: String, appKey: Option[String] = None, parentFilterId: Option[Long] = None, description: Option[String] = None, externalId: Option[String] = None, externalType: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[FilterTreeResponse] =
-    ApiRequest[FilterTreeResponse](ApiMethods.POST, baseUrl, "/api/{version}/filter/create", "application/json")
+  def createFilter(accountId: Long, name: String, appKey: Option[String] = None, parentFilterId: Option[Long] = None, description: Option[String] = None, externalId: Option[String] = None, externalType: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[FilterTreeResponse] =
+    ApiRequest[FilterTreeResponse](ApiMethods.POST, baseUrl, "/filter/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("parentFilterId", parentFilterId)
@@ -54,7 +52,6 @@ class FilterApi(baseUrl: String) {
       .withQueryParam("externalType", externalType)
       .withQueryParam("active", active)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[FilterTreeResponse](200)
       
 
@@ -64,15 +61,13 @@ class FilterApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user (must have permissions to the filter's assigned application)
    * @param filterId The ID of the filter to delete
    */
-  def deleteFilter(version: BigDecimal, accountId: Long, filterId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/filter/delete", "application/json")
+  def deleteFilter(accountId: Long, filterId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/filter/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("filterId", filterId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -82,13 +77,11 @@ class FilterApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : FilterTreeResponse (successful operation)
    * 
-   * @param version 
    * @param filterId the id of the filter to get
    */
-  def getFilter(version: BigDecimal, filterId: Long): ApiRequest[FilterTreeResponse] =
-    ApiRequest[FilterTreeResponse](ApiMethods.GET, baseUrl, "/api/{version}/filter/get", "application/json")
+  def getFilter(filterId: Long): ApiRequest[FilterTreeResponse] =
+    ApiRequest[FilterTreeResponse](ApiMethods.GET, baseUrl, "/filter/get", "application/json")
       .withQueryParam("filterId", filterId)
-      .withPathParam("version", version)
       .withSuccessResponse[FilterTreeResponse](200)
       
 
@@ -98,7 +91,6 @@ class FilterApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[FilterResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword The string to search on
    * @param appKey the appKey of the application to retrieve filters for
@@ -110,8 +102,8 @@ class FilterApi(baseUrl: String) {
    * @param limit The number of records to return
    * @param activeOnly Determines whether to return only active categories
    */
-  def searchFilters(version: BigDecimal, accountId: Option[Long] = None, keyword: Option[String] = None, appKey: Option[String] = None, responseGroup: Option[String] = None, rootOnly: Option[Boolean] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[FilterResponse]] =
-    ApiRequest[Seq[FilterResponse]](ApiMethods.GET, baseUrl, "/api/{version}/filter/search", "application/json")
+  def searchFilters(accountId: Option[Long] = None, keyword: Option[String] = None, appKey: Option[String] = None, responseGroup: Option[String] = None, rootOnly: Option[Boolean] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[FilterResponse]] =
+    ApiRequest[Seq[FilterResponse]](ApiMethods.GET, baseUrl, "/filter/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("appKey", appKey)
@@ -122,7 +114,6 @@ class FilterApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[FilterResponse]](200)
       
 
@@ -132,7 +123,6 @@ class FilterApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : FilterTreeResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param filterId The ID of the filter to edit
    * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null
@@ -143,8 +133,8 @@ class FilterApi(baseUrl: String) {
    * @param active Sets whether the filter is active or inactive (hidden from consumers)
    * @param metaData external custom client defined data
    */
-  def updateFilter(version: BigDecimal, accountId: Long, filterId: Long, parentFilterId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, externalId: Option[String] = None, externalType: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[FilterTreeResponse] =
-    ApiRequest[FilterTreeResponse](ApiMethods.POST, baseUrl, "/api/{version}/filter/update", "application/json")
+  def updateFilter(accountId: Long, filterId: Long, parentFilterId: Option[Long] = None, name: Option[String] = None, description: Option[String] = None, externalId: Option[String] = None, externalType: Option[String] = None, active: Option[Boolean] = None, metaData: Option[String] = None): ApiRequest[FilterTreeResponse] =
+    ApiRequest[FilterTreeResponse](ApiMethods.POST, baseUrl, "/filter/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("filterId", filterId)
       .withQueryParam("parentFilterId", parentFilterId)
@@ -154,7 +144,6 @@ class FilterApi(baseUrl: String) {
       .withQueryParam("externalType", externalType)
       .withQueryParam("active", active)
       .withQueryParam("metaData", metaData)
-      .withPathParam("version", version)
       .withSuccessResponse[FilterTreeResponse](200)
       
 

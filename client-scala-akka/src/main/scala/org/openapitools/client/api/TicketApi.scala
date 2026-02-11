@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CountResponse
 import java.io.File
 import org.openapitools.client.model.ProfileResponse
@@ -24,7 +23,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TicketApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TicketApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TicketApi(baseUrl)
 }
 
 class TicketApi(baseUrl: String) {
@@ -35,21 +34,19 @@ class TicketApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CountResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the id of the device that owns the tickets
    * @param accountId the id of the account that owns the tickets
    * @param gameType this is deprecated.
    * @param appKey the applicationkey
    * @param ticketType the type of ticket
    */
-  def getTicketCount(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, ticketType: Option[String] = None): ApiRequest[CountResponse] =
-    ApiRequest[CountResponse](ApiMethods.GET, baseUrl, "/api/{version}/ticket/count", "application/json")
+  def getTicketCount(deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, ticketType: Option[String] = None): ApiRequest[CountResponse] =
+    ApiRequest[CountResponse](ApiMethods.GET, baseUrl, "/ticket/count", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameType", gameType)
       .withQueryParam("appKey", appKey)
       .withQueryParam("ticketType", ticketType)
-      .withPathParam("version", version)
       .withSuccessResponse[CountResponse](200)
       
 
@@ -59,7 +56,6 @@ class TicketApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TicketListResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the id of the device that owns the tickets
    * @param accountId the id of the account that owns the tickets
    * @param ticketObjectType comma separated list of TicketObjectType
@@ -70,8 +66,8 @@ class TicketApi(baseUrl: String) {
    * @param gameType 
    * @param appKey the application key
    */
-  def getTicketList(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, ticketObjectType: Option[String] = None, actionType: Option[String] = None, ticketIds: Option[String] = None, objectIds: Option[String] = None, receiptTokens: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None): ApiRequest[TicketListResponse] =
-    ApiRequest[TicketListResponse](ApiMethods.GET, baseUrl, "/api/{version}/ticket/getList", "application/json")
+  def getTicketList(deviceId: Option[String] = None, accountId: Option[Long] = None, ticketObjectType: Option[String] = None, actionType: Option[String] = None, ticketIds: Option[String] = None, objectIds: Option[String] = None, receiptTokens: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None): ApiRequest[TicketListResponse] =
+    ApiRequest[TicketListResponse](ApiMethods.GET, baseUrl, "/ticket/getList", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("ticketObjectType", ticketObjectType)
@@ -81,7 +77,6 @@ class TicketApi(baseUrl: String) {
       .withQueryParam("receiptTokens", receiptTokens)
       .withQueryParam("gameType", gameType)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[TicketListResponse](200)
       
 
@@ -91,7 +86,6 @@ class TicketApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param receiverAccountId the id of the account receiving the tickets
    * @param ticketId the id of the tickets
    * @param deviceId the id of the device
@@ -101,8 +95,8 @@ class TicketApi(baseUrl: String) {
    * @param gameType the type of game associated with the tickets
    * @param appKey the application key
    */
-  def giftPurchase(version: BigDecimal, receiverAccountId: Long, ticketId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, assetId: Option[Long] = None, customMessage: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/purchase/gift", "application/json")
+  def giftPurchase(receiverAccountId: Long, ticketId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, assetId: Option[Long] = None, customMessage: Option[String] = None, gameType: Option[String] = None, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/purchase/gift", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("receiverAccountId", receiverAccountId)
@@ -111,7 +105,6 @@ class TicketApi(baseUrl: String) {
       .withQueryParam("customMessage", customMessage)
       .withQueryParam("gameType", gameType)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -121,7 +114,6 @@ class TicketApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
    * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
    * @param returnNulls whether to return nulls or not
@@ -141,8 +133,8 @@ class TicketApi(baseUrl: String) {
    * @param includeProfileResponse if returnProfileResponse is false, will return an AppResponse with profile data if true
    * @param appVersion the application version
    */
-  def saveTicket(version: BigDecimal, actionType: String, ticketObjectType: String, returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, objectId: Option[Long] = None, purchaseCode: Option[String] = None, receiptToken: Option[String] = None, receiptData: Option[String] = None, count: Option[Long] = None, ticketType: Option[String] = None, purchaseProvider: Option[String] = None, purchaseType: Option[String] = None, returnProfileResponse: Option[Boolean] = None, includeProfileResponse: Option[Boolean] = None, appVersion: Option[String] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/ticket/save", "application/json")
+  def saveTicket(actionType: String, ticketObjectType: String, returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, objectId: Option[Long] = None, purchaseCode: Option[String] = None, receiptToken: Option[String] = None, receiptData: Option[String] = None, count: Option[Long] = None, ticketType: Option[String] = None, purchaseProvider: Option[String] = None, purchaseType: Option[String] = None, returnProfileResponse: Option[Boolean] = None, includeProfileResponse: Option[Boolean] = None, appVersion: Option[String] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/ticket/save", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -161,7 +153,6 @@ class TicketApi(baseUrl: String) {
       .withQueryParam("returnProfileResponse", returnProfileResponse)
       .withQueryParam("includeProfileResponse", includeProfileResponse)
       .withQueryParam("appVersion", appVersion)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -171,7 +162,6 @@ class TicketApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
    * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
    * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -191,8 +181,8 @@ class TicketApi(baseUrl: String) {
    * @param includeProfileResponse if returnProfileResponse is false, will return an AppResponse with profile data if true
    * @param appVersion the application version
    */
-  def saveTicketViaFileUpload(version: BigDecimal, actionType: String, ticketObjectType: String, receiptData: File, returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, objectId: Option[Long] = None, purchaseCode: Option[String] = None, receiptToken: Option[String] = None, count: Option[Long] = None, ticketType: Option[String] = None, purchaseProvider: Option[String] = None, purchaseType: Option[String] = None, returnProfileResponse: Option[Boolean] = None, includeProfileResponse: Option[Boolean] = None, appVersion: Option[String] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/ticket/save/fileUpload", "application/json")
+  def saveTicketViaFileUpload(actionType: String, ticketObjectType: String, receiptData: File, returnNulls: Option[Boolean] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, gameType: Option[String] = None, appKey: Option[String] = None, objectId: Option[Long] = None, purchaseCode: Option[String] = None, receiptToken: Option[String] = None, count: Option[Long] = None, ticketType: Option[String] = None, purchaseProvider: Option[String] = None, purchaseType: Option[String] = None, returnProfileResponse: Option[Boolean] = None, includeProfileResponse: Option[Boolean] = None, appVersion: Option[String] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/ticket/save/fileUpload", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -211,7 +201,6 @@ class TicketApi(baseUrl: String) {
       .withQueryParam("returnProfileResponse", returnProfileResponse)
       .withQueryParam("includeProfileResponse", includeProfileResponse)
       .withQueryParam("appVersion", appVersion)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -220,12 +209,9 @@ class TicketApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : TicketOfferResponse (successful operation)
-   * 
-   * @param version 
    */
-  def ticketOffers(version: BigDecimal): ApiRequest[TicketOfferResponse] =
-    ApiRequest[TicketOfferResponse](ApiMethods.GET, baseUrl, "/api/{version}/ticket/ticketoffers", "application/json")
-      .withPathParam("version", version)
+  def ticketOffers(): ApiRequest[TicketOfferResponse] =
+    ApiRequest[TicketOfferResponse](ApiMethods.GET, baseUrl, "/ticket/ticketoffers", "application/json")
       .withSuccessResponse[TicketOfferResponse](200)
       
 

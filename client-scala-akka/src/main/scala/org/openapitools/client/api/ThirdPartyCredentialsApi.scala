@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.ProfileResponse
 import org.openapitools.client.model.SirqulResponse
@@ -24,7 +23,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ThirdPartyCredentialsApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ThirdPartyCredentialsApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ThirdPartyCredentialsApi(baseUrl)
 }
 
 class ThirdPartyCredentialsApi(baseUrl: String) {
@@ -35,7 +34,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param thirdPartyId the third party user account id
    * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)
    * @param networkUID the access provider to authenticate against
@@ -54,8 +52,8 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * @param audienceIdsToAdd audience ids to add to the account
    * @param audienceIdsToRemove audience ids to remove from the account
    */
-  def createCredential(version: BigDecimal, thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Option[Long] = None, deviceId: Option[String] = None, sessionId: Option[String] = None, thirdPartyName: Option[String] = None, emailAddress: Option[String] = None, signinOnlyMode: Option[Boolean] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, thirdPartyRefreshToken: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/credential/create", "application/json")
+  def createCredential(thirdPartyId: String, thirdPartyToken: String, networkUID: String, appKey: String, accountId: Option[Long] = None, deviceId: Option[String] = None, sessionId: Option[String] = None, thirdPartyName: Option[String] = None, emailAddress: Option[String] = None, signinOnlyMode: Option[Boolean] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, metaData: Option[String] = None, thirdPartyRefreshToken: Option[String] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/thirdparty/credential/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("sessionId", sessionId)
@@ -73,7 +71,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
       .withQueryParam("thirdPartyRefreshToken", thirdPartyRefreshToken)
       .withQueryParam("audienceIdsToAdd", audienceIdsToAdd)
       .withQueryParam("audienceIdsToRemove", audienceIdsToRemove)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -83,7 +80,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ThirdPartyNetworkResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id making the request
    * @param name The name of the network
    * @param enableIntrospection Whether the network uses introspection calls
@@ -102,8 +98,8 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * @param oauthSecretKey OAuth secret key
    * @param body 
    */
-  def createNetwork(version: BigDecimal, accountId: Long, name: String, enableIntrospection: Boolean, description: Option[String] = None, introspectionMethod: Option[String] = None, introspectionURL: Option[String] = None, introspectionParams: Option[String] = None, requiredRootField: Option[String] = None, enableMFA: Option[Boolean] = None, sizeMFA: Option[Int] = None, shelfLifeMFA: Option[Int] = None, oauthTokenURL: Option[String] = None, oauthPrivateKey: Option[File] = None, oauthPublicKey: Option[File] = None, oauthClientId: Option[String] = None, oauthSecretKey: Option[String] = None, body: Option[String] = None): ApiRequest[ThirdPartyNetworkResponse] =
-    ApiRequest[ThirdPartyNetworkResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/network/create", "application/json")
+  def createNetwork(accountId: Long, name: String, enableIntrospection: Boolean, description: Option[String] = None, introspectionMethod: Option[String] = None, introspectionURL: Option[String] = None, introspectionParams: Option[String] = None, requiredRootField: Option[String] = None, enableMFA: Option[Boolean] = None, sizeMFA: Option[Int] = None, shelfLifeMFA: Option[Int] = None, oauthTokenURL: Option[String] = None, oauthPrivateKey: Option[File] = None, oauthPublicKey: Option[File] = None, oauthClientId: Option[String] = None, oauthSecretKey: Option[String] = None, body: Option[String] = None): ApiRequest[ThirdPartyNetworkResponse] =
+    ApiRequest[ThirdPartyNetworkResponse](ApiMethods.POST, baseUrl, "/thirdparty/network/create", "application/json")
       .withBody(body)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
@@ -121,7 +117,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
       .withQueryParam("oauthPublicKey", oauthPublicKey)
       .withQueryParam("oauthClientId", oauthClientId)
       .withQueryParam("oauthSecretKey", oauthSecretKey)
-      .withPathParam("version", version)
       .withSuccessResponse[ThirdPartyNetworkResponse](200)
       
 
@@ -131,19 +126,17 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param networkUID The third party network identifier
    * @param thirdPartyId The third party user id
    * @param appKey the application key
    */
-  def deleteCredential(version: BigDecimal, accountId: Long, networkUID: String, thirdPartyId: String, appKey: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/credential/delete", "application/json")
+  def deleteCredential(accountId: Long, networkUID: String, thirdPartyId: String, appKey: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/thirdparty/credential/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("networkUID", networkUID)
       .withQueryParam("thirdPartyId", thirdPartyId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -153,15 +146,13 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param networkUID The unique identifier for the third party network defined by Sirqul
    */
-  def deleteNetwork(version: BigDecimal, accountId: Long, networkUID: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/network/delete", "application/json")
+  def deleteNetwork(accountId: Long, networkUID: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/thirdparty/network/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("networkUID", networkUID)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -171,7 +162,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param networkUID the access provider to authenticate against
    * @param appKey the application key
    * @param accountId the unique account id of a specific account that will be bound to the third-party credentials
@@ -188,8 +178,8 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * @param audienceIdsToRemove audience ids to remove from the account
    * @param referralAccountId account id of the referrer (inviter-invitee relationship)
    */
-  def getCredential(version: BigDecimal, networkUID: String, appKey: String, accountId: Option[Long] = None, deviceId: Option[String] = None, sessionId: Option[String] = None, thirdPartyCredentialId: Option[Long] = None, thirdPartyToken: Option[String] = None, thirdPartySecret: Option[String] = None, createNewAccount: Option[Boolean] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, referralAccountId: Option[Long] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/credential/get", "application/json")
+  def getCredential(networkUID: String, appKey: String, accountId: Option[Long] = None, deviceId: Option[String] = None, sessionId: Option[String] = None, thirdPartyCredentialId: Option[Long] = None, thirdPartyToken: Option[String] = None, thirdPartySecret: Option[String] = None, createNewAccount: Option[Boolean] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, audienceIdsToAdd: Option[String] = None, audienceIdsToRemove: Option[String] = None, referralAccountId: Option[Long] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/thirdparty/credential/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("sessionId", sessionId)
@@ -205,7 +195,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
       .withQueryParam("audienceIdsToAdd", audienceIdsToAdd)
       .withQueryParam("audienceIdsToRemove", audienceIdsToRemove)
       .withQueryParam("referralAccountId", referralAccountId)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -215,15 +204,13 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ThirdPartyNetworkResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id making the request
    * @param networkUID The unique identifier for the third party network defined by Sirqul
    */
-  def getNetwork(version: BigDecimal, accountId: Long, networkUID: String): ApiRequest[ThirdPartyNetworkResponse] =
-    ApiRequest[ThirdPartyNetworkResponse](ApiMethods.GET, baseUrl, "/api/{version}/thirdparty/network/get", "application/json")
+  def getNetwork(accountId: Long, networkUID: String): ApiRequest[ThirdPartyNetworkResponse] =
+    ApiRequest[ThirdPartyNetworkResponse](ApiMethods.GET, baseUrl, "/thirdparty/network/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("networkUID", networkUID)
-      .withPathParam("version", version)
       .withSuccessResponse[ThirdPartyNetworkResponse](200)
       
 
@@ -233,7 +220,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ThirdPartyCredentialResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword The keyword used to search on the third party name and network string
    * @param networkUID The network UID to filter results with
@@ -241,15 +227,14 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * @param start The start of the pagination
    * @param limit The limit of the pagination
    */
-  def searchCredentials(version: BigDecimal, accountId: Long, keyword: Option[String] = None, networkUID: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[ThirdPartyCredentialResponse]] =
-    ApiRequest[Seq[ThirdPartyCredentialResponse]](ApiMethods.GET, baseUrl, "/api/{version}/thirdparty/credential/search", "application/json")
+  def searchCredentials(accountId: Long, keyword: Option[String] = None, networkUID: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[ThirdPartyCredentialResponse]] =
+    ApiRequest[Seq[ThirdPartyCredentialResponse]](ApiMethods.GET, baseUrl, "/thirdparty/credential/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("networkUID", networkUID)
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ThirdPartyCredentialResponse]](200)
       
 
@@ -259,7 +244,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[ThirdPartyNetworkShortResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id making the request
    * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
    * @param descending The order to return the search results
@@ -269,8 +253,8 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * @param keyword The keyword used to search on the network name and description fields
    * @param filterBillable Determines whether to only return applications that the user has access to
    */
-  def searchNetworks(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, keyword: Option[String] = None, filterBillable: Option[Boolean] = None): ApiRequest[Seq[ThirdPartyNetworkShortResponse]] =
-    ApiRequest[Seq[ThirdPartyNetworkShortResponse]](ApiMethods.GET, baseUrl, "/api/{version}/thirdparty/network/search", "application/json")
+  def searchNetworks(accountId: Long, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, keyword: Option[String] = None, filterBillable: Option[Boolean] = None): ApiRequest[Seq[ThirdPartyNetworkShortResponse]] =
+    ApiRequest[Seq[ThirdPartyNetworkShortResponse]](ApiMethods.GET, baseUrl, "/thirdparty/network/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("sortField", sortField)
@@ -279,7 +263,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("filterBillable", filterBillable)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[ThirdPartyNetworkShortResponse]](200)
       
 
@@ -289,21 +272,19 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param networkUID the third party network provider that has MFA enabled
    * @param appKey the application key
    * @param thirdPartyToken the access token to authenticate with
    * @param thirdPartyCredentialId optional id of the existing third party credential
    * @param deviceId the unique id of the device making the request
    */
-  def sendMFAChallenge(version: BigDecimal, networkUID: String, appKey: String, thirdPartyToken: Option[String] = None, thirdPartyCredentialId: Option[Long] = None, deviceId: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/credential/mfa/send", "application/json")
+  def sendMFAChallenge(networkUID: String, appKey: String, thirdPartyToken: Option[String] = None, thirdPartyCredentialId: Option[Long] = None, deviceId: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/thirdparty/credential/mfa/send", "application/json")
       .withQueryParam("thirdPartyToken", thirdPartyToken)
       .withQueryParam("thirdPartyCredentialId", thirdPartyCredentialId)
       .withQueryParam("networkUID", networkUID)
       .withQueryParam("appKey", appKey)
       .withQueryParam("deviceId", deviceId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -313,7 +294,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param networkUID the access provider to authenticate against
    * @param thirdPartyId the third party user account id
    * @param appKey the application key
@@ -324,8 +304,8 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * @param metaData External custom client defined data
    * @param thirdPartyRefreshToken optional refresh token for the third party
    */
-  def updateCredential(version: BigDecimal, networkUID: String, thirdPartyId: String, appKey: String, deviceId: Option[String] = None, thirdPartyName: Option[String] = None, thirdPartyToken: Option[String] = None, responseFilters: Option[String] = None, metaData: Option[String] = None, thirdPartyRefreshToken: Option[String] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/credential/update", "application/json")
+  def updateCredential(networkUID: String, thirdPartyId: String, appKey: String, deviceId: Option[String] = None, thirdPartyName: Option[String] = None, thirdPartyToken: Option[String] = None, responseFilters: Option[String] = None, metaData: Option[String] = None, thirdPartyRefreshToken: Option[String] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/thirdparty/credential/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("networkUID", networkUID)
       .withQueryParam("thirdPartyId", thirdPartyId)
@@ -335,7 +315,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
       .withQueryParam("responseFilters", responseFilters)
       .withQueryParam("metaData", metaData)
       .withQueryParam("thirdPartyRefreshToken", thirdPartyRefreshToken)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -345,7 +324,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ThirdPartyNetworkResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account id making the request
    * @param networkUID The unique identifier for the third party network defined by Sirqul
    * @param name The name of the network
@@ -365,8 +343,8 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
    * @param oauthSecretKey OAuth secret key
    * @param body 
    */
-  def updateNetwork(version: BigDecimal, accountId: Long, networkUID: String, name: Option[String] = None, description: Option[String] = None, enableIntrospection: Option[Boolean] = None, introspectionMethod: Option[String] = None, introspectionURL: Option[String] = None, introspectionParams: Option[String] = None, requiredRootField: Option[String] = None, enableMFA: Option[Boolean] = None, sizeMFA: Option[Int] = None, shelfLifeMFA: Option[Int] = None, oauthTokenURL: Option[String] = None, oauthPrivateKey: Option[File] = None, oauthPublicKey: Option[File] = None, oauthClientId: Option[String] = None, oauthSecretKey: Option[String] = None, body: Option[String] = None): ApiRequest[ThirdPartyNetworkResponse] =
-    ApiRequest[ThirdPartyNetworkResponse](ApiMethods.POST, baseUrl, "/api/{version}/thirdparty/network/update", "application/json")
+  def updateNetwork(accountId: Long, networkUID: String, name: Option[String] = None, description: Option[String] = None, enableIntrospection: Option[Boolean] = None, introspectionMethod: Option[String] = None, introspectionURL: Option[String] = None, introspectionParams: Option[String] = None, requiredRootField: Option[String] = None, enableMFA: Option[Boolean] = None, sizeMFA: Option[Int] = None, shelfLifeMFA: Option[Int] = None, oauthTokenURL: Option[String] = None, oauthPrivateKey: Option[File] = None, oauthPublicKey: Option[File] = None, oauthClientId: Option[String] = None, oauthSecretKey: Option[String] = None, body: Option[String] = None): ApiRequest[ThirdPartyNetworkResponse] =
+    ApiRequest[ThirdPartyNetworkResponse](ApiMethods.POST, baseUrl, "/thirdparty/network/update", "application/json")
       .withBody(body)
       .withQueryParam("accountId", accountId)
       .withQueryParam("networkUID", networkUID)
@@ -385,7 +363,6 @@ class ThirdPartyCredentialsApi(baseUrl: String) {
       .withQueryParam("oauthPublicKey", oauthPublicKey)
       .withQueryParam("oauthClientId", oauthClientId)
       .withQueryParam("oauthSecretKey", oauthSecretKey)
-      .withPathParam("version", version)
       .withSuccessResponse[ThirdPartyNetworkResponse](200)
       
 

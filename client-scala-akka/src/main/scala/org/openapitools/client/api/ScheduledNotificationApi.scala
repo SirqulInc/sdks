@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.ScheduledNotificationFullResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ScheduledNotificationApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ScheduledNotificationApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ScheduledNotificationApi(baseUrl)
 }
 
 class ScheduledNotificationApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class ScheduledNotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ScheduledNotificationFullResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the scheduled notification
    * @param `type` The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -67,8 +65,8 @@ class ScheduledNotificationApi(baseUrl: String) {
    * @param deepLinkURI The payload deep link URI that can be used by the client app to direct users to a screen in the app
    * @param sendToAll Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
    */
-  def createScheduledNotification(version: BigDecimal, accountId: Long, name: String, `type`: String, message: String, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, connectionGroupIds: Option[String] = None, connectionAccountIds: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, albumIds: Option[String] = None, reportId: Option[Long] = None, reportParams: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, cronType: Option[String] = None, metaData: Option[String] = None, conditionalInput: Option[String] = None, templateType: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None, sendNow: Option[Boolean] = None, eventType: Option[String] = None, deepLinkURI: Option[String] = None, sendToAll: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
-    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/schedule/create", "application/json")
+  def createScheduledNotification(accountId: Long, name: String, `type`: String, message: String, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, connectionGroupIds: Option[String] = None, connectionAccountIds: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, albumIds: Option[String] = None, reportId: Option[Long] = None, reportParams: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, cronType: Option[String] = None, metaData: Option[String] = None, conditionalInput: Option[String] = None, templateType: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None, sendNow: Option[Boolean] = None, eventType: Option[String] = None, deepLinkURI: Option[String] = None, sendToAll: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
+    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.POST, baseUrl, "/notification/schedule/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("type", `type`)
@@ -103,7 +101,6 @@ class ScheduledNotificationApi(baseUrl: String) {
       .withQueryParam("eventType", eventType)
       .withQueryParam("deepLinkURI", deepLinkURI)
       .withQueryParam("sendToAll", sendToAll)
-      .withPathParam("version", version)
       .withSuccessResponse[ScheduledNotificationFullResponse](200)
       
 
@@ -113,17 +110,15 @@ class ScheduledNotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ScheduledNotificationFullResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param scheduledNotificationId the id of the scheduled notification to delete
    * @param deleteByGroupingId If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
    */
-  def deleteScheduledNotification(version: BigDecimal, accountId: Long, scheduledNotificationId: Long, deleteByGroupingId: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
-    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/schedule/delete", "application/json")
+  def deleteScheduledNotification(accountId: Long, scheduledNotificationId: Long, deleteByGroupingId: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
+    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.POST, baseUrl, "/notification/schedule/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("scheduledNotificationId", scheduledNotificationId)
       .withQueryParam("deleteByGroupingId", deleteByGroupingId)
-      .withPathParam("version", version)
       .withSuccessResponse[ScheduledNotificationFullResponse](200)
       
 
@@ -133,15 +128,13 @@ class ScheduledNotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ScheduledNotificationFullResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account logged in
    * @param scheduledNotificationId the id of the scheduled notification to get
    */
-  def getScheduledNotification(version: BigDecimal, accountId: Long, scheduledNotificationId: Long): ApiRequest[ScheduledNotificationFullResponse] =
-    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/notification/schedule/get", "application/json")
+  def getScheduledNotification(accountId: Long, scheduledNotificationId: Long): ApiRequest[ScheduledNotificationFullResponse] =
+    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.GET, baseUrl, "/notification/schedule/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("scheduledNotificationId", scheduledNotificationId)
-      .withPathParam("version", version)
       .withSuccessResponse[ScheduledNotificationFullResponse](200)
       
 
@@ -151,7 +144,6 @@ class ScheduledNotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The application to target
    * @param reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -161,8 +153,8 @@ class ScheduledNotificationApi(baseUrl: String) {
    * @param reportParams The parameters of the report used to identify events in a json structure, example: ```json {   \"string\": \"value\",   \"number\": 3.345,   \"date\": \"2014-05-01 00:00:00\" } ``` 
    * @param `type` The type of scheduled notification; supported values are: MOBILE_NOTIFICATION
    */
-  def scheduleNotificationListings(version: BigDecimal, accountId: Long, appKey: String, reportName: String, message: String, offset: Int, recipientReportId: Long, reportParams: Option[String] = None, `type`: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/schedule/generate", "application/json")
+  def scheduleNotificationListings(accountId: Long, appKey: String, reportName: String, message: String, offset: Int, recipientReportId: Long, reportParams: Option[String] = None, `type`: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/notification/schedule/generate", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("reportName", reportName)
@@ -171,7 +163,6 @@ class ScheduledNotificationApi(baseUrl: String) {
       .withQueryParam("offset", offset)
       .withQueryParam("type", `type`)
       .withQueryParam("recipientReportId", recipientReportId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -181,7 +172,6 @@ class ScheduledNotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ScheduledNotificationFullResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param groupingId Filter results by a grouping identifier defined by the client
    * @param audienceId Filter results by audience
@@ -203,8 +193,8 @@ class ScheduledNotificationApi(baseUrl: String) {
    * @param groupByGroupingId Determines whether to group results with the same groupingId together.
    * @param returnAudienceAccountCount If true, include audience account counts in the response
    */
-  def searchScheduledNotifications(version: BigDecimal, accountId: Long, groupingId: Option[String] = None, audienceId: Option[Long] = None, filter: Option[String] = None, types: Option[String] = None, contentIds: Option[String] = None, contentTypes: Option[String] = None, parentIds: Option[String] = None, parentTypes: Option[String] = None, statuses: Option[String] = None, templateTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, groupByGroupingId: Option[Boolean] = None, returnAudienceAccountCount: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
-    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.GET, baseUrl, "/api/{version}/notification/schedule/search", "application/json")
+  def searchScheduledNotifications(accountId: Long, groupingId: Option[String] = None, audienceId: Option[Long] = None, filter: Option[String] = None, types: Option[String] = None, contentIds: Option[String] = None, contentTypes: Option[String] = None, parentIds: Option[String] = None, parentTypes: Option[String] = None, statuses: Option[String] = None, templateTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None, groupByGroupingId: Option[Boolean] = None, returnAudienceAccountCount: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
+    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.GET, baseUrl, "/notification/schedule/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("groupingId", groupingId)
       .withQueryParam("audienceId", audienceId)
@@ -225,7 +215,6 @@ class ScheduledNotificationApi(baseUrl: String) {
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("groupByGroupingId", groupByGroupingId)
       .withQueryParam("returnAudienceAccountCount", returnAudienceAccountCount)
-      .withPathParam("version", version)
       .withSuccessResponse[ScheduledNotificationFullResponse](200)
       
 
@@ -235,7 +224,6 @@ class ScheduledNotificationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ScheduledNotificationFullResponse (successful operation)
    * 
-   * @param version 
    * @param scheduledNotificationId The id of scheduled notification to update
    * @param accountId The logged in user.
    * @param name The name of the scheduled notification
@@ -275,8 +263,8 @@ class ScheduledNotificationApi(baseUrl: String) {
    * @param deepLinkURI The payload deep link URI that can be used by the client app to direct users to a screen in the app
    * @param sendToAll Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
    */
-  def updateScheduledNotification(version: BigDecimal, scheduledNotificationId: Long, accountId: Long, name: Option[String] = None, `type`: Option[String] = None, message: Option[String] = None, payload: Option[String] = None, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, connectionGroupIds: Option[String] = None, connectionAccountIds: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, albumIds: Option[String] = None, reportId: Option[Long] = None, reportParams: Option[String] = None, endpointURL: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, cronType: Option[String] = None, metaData: Option[String] = None, conditionalInput: Option[String] = None, templateType: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None, errorMessage: Option[String] = None, status: Option[String] = None, updateByGroupingId: Option[Boolean] = None, sendNow: Option[Boolean] = None, eventType: Option[String] = None, deepLinkURI: Option[String] = None, sendToAll: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
-    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.POST, baseUrl, "/api/{version}/notification/schedule/update", "application/json")
+  def updateScheduledNotification(scheduledNotificationId: Long, accountId: Long, name: Option[String] = None, `type`: Option[String] = None, message: Option[String] = None, payload: Option[String] = None, contentId: Option[Long] = None, contentName: Option[String] = None, contentType: Option[String] = None, parentId: Option[Long] = None, parentType: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, connectionGroupIds: Option[String] = None, connectionAccountIds: Option[String] = None, audienceId: Option[Long] = None, audienceIds: Option[String] = None, albumIds: Option[String] = None, reportId: Option[Long] = None, reportParams: Option[String] = None, endpointURL: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, cronType: Option[String] = None, metaData: Option[String] = None, conditionalInput: Option[String] = None, templateType: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None, errorMessage: Option[String] = None, status: Option[String] = None, updateByGroupingId: Option[Boolean] = None, sendNow: Option[Boolean] = None, eventType: Option[String] = None, deepLinkURI: Option[String] = None, sendToAll: Option[Boolean] = None): ApiRequest[ScheduledNotificationFullResponse] =
+    ApiRequest[ScheduledNotificationFullResponse](ApiMethods.POST, baseUrl, "/notification/schedule/update", "application/json")
       .withQueryParam("scheduledNotificationId", scheduledNotificationId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
@@ -315,7 +303,6 @@ class ScheduledNotificationApi(baseUrl: String) {
       .withQueryParam("eventType", eventType)
       .withQueryParam("deepLinkURI", deepLinkURI)
       .withQueryParam("sendToAll", sendToAll)
-      .withPathParam("version", version)
       .withSuccessResponse[ScheduledNotificationFullResponse](200)
       
 

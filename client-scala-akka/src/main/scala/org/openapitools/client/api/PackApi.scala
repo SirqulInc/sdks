@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.PackResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object PackApi {
 
-  def apply(baseUrl: String = "http://localhost") = new PackApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new PackApi(baseUrl)
 }
 
 class PackApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class PackApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PackResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param title The title of the pack
    * @param packOrder The order of the pack
@@ -57,8 +55,8 @@ class PackApi(baseUrl: String) {
    * @param ticketType The type of ticket to reward, null means default type
    * @param points The number of points to award for completing a pack
    */
-  def createPack(version: BigDecimal, accountId: Long, title: String, packOrder: Long, price: Int, highest: Boolean, allocateTickets: Boolean, ticketCount: Long, description: Option[String] = None, searchTags: Option[String] = None, active: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, packType: Option[String] = None, sequenceType: Option[String] = None, backgroundId: Option[Long] = None, imageId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, authorOverride: Option[String] = None, priceType: Option[String] = None, gameLevelIds: Option[String] = None, inGame: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[PackResponse] =
-    ApiRequest[PackResponse](ApiMethods.POST, baseUrl, "/api/{version}/pack/create", "application/json")
+  def createPack(accountId: Long, title: String, packOrder: Long, price: Int, highest: Boolean, allocateTickets: Boolean, ticketCount: Long, description: Option[String] = None, searchTags: Option[String] = None, active: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, packType: Option[String] = None, sequenceType: Option[String] = None, backgroundId: Option[Long] = None, imageId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, authorOverride: Option[String] = None, priceType: Option[String] = None, gameLevelIds: Option[String] = None, inGame: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[PackResponse] =
+    ApiRequest[PackResponse](ApiMethods.POST, baseUrl, "/pack/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("title", title)
       .withQueryParam("description", description)
@@ -83,7 +81,6 @@ class PackApi(baseUrl: String) {
       .withQueryParam("ticketCount", ticketCount)
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
-      .withPathParam("version", version)
       .withSuccessResponse[PackResponse](200)
       
 
@@ -93,15 +90,13 @@ class PackApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param packId the id of the pack to delete
    */
-  def deletePack(version: BigDecimal, accountId: Long, packId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/pack/delete", "application/json")
+  def deletePack(accountId: Long, packId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/pack/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("packId", packId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -111,17 +106,15 @@ class PackApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PackResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param packId The id of the pack to return.
    * @param includeGameData If true include the game level data, otherwise don't. default is false.
    */
-  def getPack(version: BigDecimal, accountId: Long, packId: Long, includeGameData: Boolean): ApiRequest[PackResponse] =
-    ApiRequest[PackResponse](ApiMethods.GET, baseUrl, "/api/{version}/pack/get", "application/json")
+  def getPack(accountId: Long, packId: Long, includeGameData: Boolean): ApiRequest[PackResponse] =
+    ApiRequest[PackResponse](ApiMethods.GET, baseUrl, "/pack/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("packId", packId)
       .withQueryParam("includeGameData", includeGameData)
-      .withPathParam("version", version)
       .withSuccessResponse[PackResponse](200)
       
 
@@ -131,7 +124,6 @@ class PackApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[PackResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -143,8 +135,8 @@ class PackApi(baseUrl: String) {
    * @param includeInactive Determines whether to include inactive results
    * @param appKey The application to filter results on
    */
-  def searchPacks(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, keyword: Option[String] = None, packType: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeInactive: Option[Boolean] = None, appKey: Option[String] = None): ApiRequest[Seq[PackResponse]] =
-    ApiRequest[Seq[PackResponse]](ApiMethods.GET, baseUrl, "/api/{version}/pack/search", "application/json")
+  def searchPacks(accountId: Long, sortField: String, descending: Boolean, keyword: Option[String] = None, packType: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None, includeGameData: Option[Boolean] = None, includeInactive: Option[Boolean] = None, appKey: Option[String] = None): ApiRequest[Seq[PackResponse]] =
+    ApiRequest[Seq[PackResponse]](ApiMethods.GET, baseUrl, "/pack/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
       .withQueryParam("packType", packType)
@@ -155,7 +147,6 @@ class PackApi(baseUrl: String) {
       .withQueryParam("includeGameData", includeGameData)
       .withQueryParam("includeInactive", includeInactive)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[PackResponse]](200)
       
 
@@ -165,7 +156,6 @@ class PackApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : PackResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param packId The id of the pack to update.
    * @param allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -192,8 +182,8 @@ class PackApi(baseUrl: String) {
    * @param ticketType The type of ticket to reward, null means default type
    * @param points The number of points to award for completing a pack
    */
-  def updatePack(version: BigDecimal, accountId: Long, packId: Long, allocateTickets: Boolean, ticketCount: Long, title: Option[String] = None, description: Option[String] = None, searchTags: Option[String] = None, active: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, packType: Option[String] = None, packOrder: Option[Long] = None, sequenceType: Option[String] = None, backgroundId: Option[Long] = None, imageId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, authorOverride: Option[String] = None, price: Option[Int] = None, priceType: Option[String] = None, gameLevelIds: Option[String] = None, inGame: Option[Boolean] = None, highest: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[PackResponse] =
-    ApiRequest[PackResponse](ApiMethods.POST, baseUrl, "/api/{version}/pack/update", "application/json")
+  def updatePack(accountId: Long, packId: Long, allocateTickets: Boolean, ticketCount: Long, title: Option[String] = None, description: Option[String] = None, searchTags: Option[String] = None, active: Option[Boolean] = None, gameType: Option[String] = None, appKey: Option[String] = None, packType: Option[String] = None, packOrder: Option[Long] = None, sequenceType: Option[String] = None, backgroundId: Option[Long] = None, imageId: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, authorOverride: Option[String] = None, price: Option[Int] = None, priceType: Option[String] = None, gameLevelIds: Option[String] = None, inGame: Option[Boolean] = None, highest: Option[Boolean] = None, ticketType: Option[String] = None, points: Option[Long] = None): ApiRequest[PackResponse] =
+    ApiRequest[PackResponse](ApiMethods.POST, baseUrl, "/pack/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("packId", packId)
       .withQueryParam("title", title)
@@ -219,7 +209,6 @@ class PackApi(baseUrl: String) {
       .withQueryParam("ticketCount", ticketCount)
       .withQueryParam("ticketType", ticketType)
       .withQueryParam("points", points)
-      .withPathParam("version", version)
       .withSuccessResponse[PackResponse](200)
       
 

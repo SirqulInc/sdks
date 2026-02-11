@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CsvImportResponse
 import java.io.File
 import org.openapitools.client.model.SirqulResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object CSVImportApi {
 
-  def apply(baseUrl: String = "http://localhost") = new CSVImportApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new CSVImportApi(baseUrl)
 }
 
 class CSVImportApi(baseUrl: String) {
@@ -30,21 +29,19 @@ class CSVImportApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param batchId the id of the batch
    * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
    * @param start the start of the pagination
    * @param limit the limit of the pagination
    */
-  def getStatusCSV(version: BigDecimal, accountId: Long, batchId: Long, responseGroup: String, start: Long, limit: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/csvimport/batch/status/details", "application/json")
+  def getStatusCSV(accountId: Long, batchId: Long, responseGroup: String, start: Long, limit: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/csvimport/batch/status/details", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("batchId", batchId)
       .withQueryParam("responseGroup", responseGroup)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -54,17 +51,15 @@ class CSVImportApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CsvImportResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account
    * @param start the start of the pagination
    * @param limit the limit of the pagination
    */
-  def listStatusCSV(version: BigDecimal, accountId: Long, start: Int, limit: Int): ApiRequest[CsvImportResponse] =
-    ApiRequest[CsvImportResponse](ApiMethods.GET, baseUrl, "/api/{version}/csvimport/batch/list", "application/json")
+  def listStatusCSV(accountId: Long, start: Int, limit: Int): ApiRequest[CsvImportResponse] =
+    ApiRequest[CsvImportResponse](ApiMethods.GET, baseUrl, "/csvimport/batch/list", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[CsvImportResponse](200)
       
 
@@ -74,15 +69,13 @@ class CSVImportApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CsvImportResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account
    * @param batchId the id of the batch to get its status
    */
-  def statusCSV(version: BigDecimal, accountId: Long, batchId: Long): ApiRequest[CsvImportResponse] =
-    ApiRequest[CsvImportResponse](ApiMethods.GET, baseUrl, "/api/{version}/csvimport/batch/status", "application/json")
+  def statusCSV(accountId: Long, batchId: Long): ApiRequest[CsvImportResponse] =
+    ApiRequest[CsvImportResponse](ApiMethods.GET, baseUrl, "/csvimport/batch/status", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("batchId", batchId)
-      .withPathParam("version", version)
       .withSuccessResponse[CsvImportResponse](200)
       
 
@@ -92,21 +85,19 @@ class CSVImportApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CsvImportResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account
    * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
    * @param importFile the import file to reference
    * @param fileFormat the format of the file
    * @param appKey the application key
    */
-  def uploadCSV(version: BigDecimal, accountId: Long, uploadType: String, importFile: File, fileFormat: String, appKey: Option[String] = None): ApiRequest[CsvImportResponse] =
-    ApiRequest[CsvImportResponse](ApiMethods.POST, baseUrl, "/api/{version}/csvimport/upload", "application/json")
+  def uploadCSV(accountId: Long, uploadType: String, importFile: File, fileFormat: String, appKey: Option[String] = None): ApiRequest[CsvImportResponse] =
+    ApiRequest[CsvImportResponse](ApiMethods.POST, baseUrl, "/csvimport/upload", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("uploadType", uploadType)
       .withQueryParam("importFile", importFile)
       .withQueryParam("appKey", appKey)
       .withQueryParam("fileFormat", fileFormat)
-      .withPathParam("version", version)
       .withSuccessResponse[CsvImportResponse](200)
       
 

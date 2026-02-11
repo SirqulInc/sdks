@@ -12,7 +12,6 @@
 package org.openapitools.client.api
 
 import org.openapitools.client.model.Account
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object DependentApi {
 
-  def apply(baseUrl: String = "http://localhost") = new DependentApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new DependentApi(baseUrl)
 }
 
 class DependentApi(baseUrl: String) {
@@ -31,14 +30,12 @@ class DependentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the parent account to create a dependent for
    * @param body 
    */
-  def create(version: BigDecimal, accountId: Long, body: Option[Account] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.PUT, baseUrl, "/api/{version}/cargo/dependent/{accountId}", "application/json")
+  def create(accountId: Long, body: Option[Account] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.PUT, baseUrl, "/cargo/dependent/{accountId}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("accountId", accountId)
       .withSuccessResponse[SirqulResponse](200)
       
@@ -49,12 +46,10 @@ class DependentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the parent account to get a list of dependents
    */
-  def getDependents(version: BigDecimal, accountId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/cargo/dependent/{accountId}", "application/json")
-      .withPathParam("version", version)
+  def getDependents(accountId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/cargo/dependent/{accountId}", "application/json")
       .withPathParam("accountId", accountId)
       .withSuccessResponse[SirqulResponse](200)
       
@@ -65,13 +60,11 @@ class DependentApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the parent account tied to the dependent
    * @param dependentId the id of the dependent to delete
    */
-  def removeDependent(version: BigDecimal, accountId: Long, dependentId: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/cargo/dependent/{accountId}", "application/json")
-      .withPathParam("version", version)
+  def removeDependent(accountId: Long, dependentId: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/cargo/dependent/{accountId}", "application/json")
       .withPathParam("accountId", accountId)
       .withPathParam("dependentId", dependentId)
       .withDefaultErrorResponse[Unit]

@@ -14,7 +14,6 @@ package org.openapitools.client.api
 import org.openapitools.client.model.AccountMiniResponse
 import org.openapitools.client.model.AssignmentResponse
 import org.openapitools.client.model.AssignmentStatusResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AssignmentApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AssignmentApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AssignmentApi(baseUrl)
 }
 
 class AssignmentApi(baseUrl: String) {
@@ -33,15 +32,13 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AccountMiniResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The account id sending the request
    * @param keyword The keyword to filter the returned results
    */
-  def assigmentAssigneeAccountSearch(version: BigDecimal, accountId: Long, keyword: Option[String] = None): ApiRequest[Seq[AccountMiniResponse]] =
-    ApiRequest[Seq[AccountMiniResponse]](ApiMethods.GET, baseUrl, "/api/{version}/assignment/assignee/search", "application/json")
+  def assigmentAssigneeAccountSearch(accountId: Long, keyword: Option[String] = None): ApiRequest[Seq[AccountMiniResponse]] =
+    ApiRequest[Seq[AccountMiniResponse]](ApiMethods.GET, baseUrl, "/assignment/assignee/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("keyword", keyword)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AccountMiniResponse]](200)
       
 
@@ -51,7 +48,6 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssignmentResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param name the name for the assignment
    * @param assigneeAccountId the account id to assign to
@@ -60,8 +56,8 @@ class AssignmentApi(baseUrl: String) {
    * @param tags the tags
    * @param active determines whether the assignment is active or inactive
    */
-  def assignmentCreate(version: BigDecimal, accountId: Long, name: String, assigneeAccountId: Long, description: Option[String] = None, retailerLocationId: Option[Long] = None, tags: Option[String] = None, active: Option[Boolean] = None): ApiRequest[AssignmentResponse] =
-    ApiRequest[AssignmentResponse](ApiMethods.POST, baseUrl, "/api/{version}/assignment/create", "application/json")
+  def assignmentCreate(accountId: Long, name: String, assigneeAccountId: Long, description: Option[String] = None, retailerLocationId: Option[Long] = None, tags: Option[String] = None, active: Option[Boolean] = None): ApiRequest[AssignmentResponse] =
+    ApiRequest[AssignmentResponse](ApiMethods.POST, baseUrl, "/assignment/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("description", description)
@@ -69,7 +65,6 @@ class AssignmentApi(baseUrl: String) {
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("tags", tags)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[AssignmentResponse](200)
       
 
@@ -79,15 +74,13 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    */
-  def assignmentDelete(version: BigDecimal, accountId: Long, assignmentId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/assignment/delete", "application/json")
+  def assignmentDelete(accountId: Long, assignmentId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/assignment/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentId", assignmentId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -97,15 +90,13 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssignmentResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    */
-  def assignmentGet(version: BigDecimal, accountId: Long, assignmentId: Long): ApiRequest[AssignmentResponse] =
-    ApiRequest[AssignmentResponse](ApiMethods.GET, baseUrl, "/api/{version}/assignment/get", "application/json")
+  def assignmentGet(accountId: Long, assignmentId: Long): ApiRequest[AssignmentResponse] =
+    ApiRequest[AssignmentResponse](ApiMethods.GET, baseUrl, "/assignment/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentId", assignmentId)
-      .withPathParam("version", version)
       .withSuccessResponse[AssignmentResponse](200)
       
 
@@ -115,7 +106,6 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AssignmentResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId the account sending the request
    * @param sortField sort by table field
    * @param descending return results in descending order or not
@@ -128,8 +118,8 @@ class AssignmentApi(baseUrl: String) {
    * @param currentStatusType filter results by assignment status
    * @param keyword filter results by keyword search that matches the assignee, creator, or retailer location name
    */
-  def assignmentSearch(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, creatorAccountId: Option[Long] = None, assigneeAccountIds: Option[String] = None, retailerLocationIds: Option[String] = None, currentStatusType: Option[String] = None, keyword: Option[String] = None): ApiRequest[Seq[AssignmentResponse]] =
-    ApiRequest[Seq[AssignmentResponse]](ApiMethods.GET, baseUrl, "/api/{version}/assignment/search", "application/json")
+  def assignmentSearch(accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, creatorAccountId: Option[Long] = None, assigneeAccountIds: Option[String] = None, retailerLocationIds: Option[String] = None, currentStatusType: Option[String] = None, keyword: Option[String] = None): ApiRequest[Seq[AssignmentResponse]] =
+    ApiRequest[Seq[AssignmentResponse]](ApiMethods.GET, baseUrl, "/assignment/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("creatorAccountId", creatorAccountId)
       .withQueryParam("assigneeAccountIds", assigneeAccountIds)
@@ -141,7 +131,6 @@ class AssignmentApi(baseUrl: String) {
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AssignmentResponse]](200)
       
 
@@ -151,7 +140,6 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssignmentStatusResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    * @param scheduledNotificationId the scheduled notification id for reminders
@@ -164,8 +152,8 @@ class AssignmentApi(baseUrl: String) {
    * @param followUp the date to follow up by
    * @param active determines whether the assignment status is active or inactive
    */
-  def assignmentStatusCreate(version: BigDecimal, accountId: Long, assignmentId: Long, scheduledNotificationId: Option[Long] = None, toDo: Option[String] = None, connection: Option[String] = None, method: Option[String] = None, status: Option[String] = None, closure: Option[String] = None, message: Option[String] = None, followUp: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[AssignmentStatusResponse] =
-    ApiRequest[AssignmentStatusResponse](ApiMethods.POST, baseUrl, "/api/{version}/assignment/status/create", "application/json")
+  def assignmentStatusCreate(accountId: Long, assignmentId: Long, scheduledNotificationId: Option[Long] = None, toDo: Option[String] = None, connection: Option[String] = None, method: Option[String] = None, status: Option[String] = None, closure: Option[String] = None, message: Option[String] = None, followUp: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[AssignmentStatusResponse] =
+    ApiRequest[AssignmentStatusResponse](ApiMethods.POST, baseUrl, "/assignment/status/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentId", assignmentId)
       .withQueryParam("scheduledNotificationId", scheduledNotificationId)
@@ -177,7 +165,6 @@ class AssignmentApi(baseUrl: String) {
       .withQueryParam("message", message)
       .withQueryParam("followUp", followUp)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[AssignmentStatusResponse](200)
       
 
@@ -187,15 +174,13 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param assignmentStatusId the assignment status id
    */
-  def assignmentStatusDelete(version: BigDecimal, accountId: Long, assignmentStatusId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/assignment/status/delete", "application/json")
+  def assignmentStatusDelete(accountId: Long, assignmentStatusId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/assignment/status/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentStatusId", assignmentStatusId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -205,15 +190,13 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssignmentStatusResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param assignmentStatusId the assignment status id
    */
-  def assignmentStatusGet(version: BigDecimal, accountId: Long, assignmentStatusId: Long): ApiRequest[AssignmentStatusResponse] =
-    ApiRequest[AssignmentStatusResponse](ApiMethods.GET, baseUrl, "/api/{version}/assignment/status/get", "application/json")
+  def assignmentStatusGet(accountId: Long, assignmentStatusId: Long): ApiRequest[AssignmentStatusResponse] =
+    ApiRequest[AssignmentStatusResponse](ApiMethods.GET, baseUrl, "/assignment/status/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentStatusId", assignmentStatusId)
-      .withPathParam("version", version)
       .withSuccessResponse[AssignmentStatusResponse](200)
       
 
@@ -223,7 +206,6 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AssignmentStatusResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -237,8 +219,8 @@ class AssignmentApi(baseUrl: String) {
    * @param statusType filter results by the status type
    * @param keyword filter results by keyword search
    */
-  def assignmentStatusSearch(version: BigDecimal, accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, assignmentId: Option[Long] = None, creatorAccountId: Option[Long] = None, assigneeAccountId: Option[Long] = None, retailerLocationId: Option[Long] = None, statusType: Option[String] = None, keyword: Option[String] = None): ApiRequest[Seq[AssignmentStatusResponse]] =
-    ApiRequest[Seq[AssignmentStatusResponse]](ApiMethods.GET, baseUrl, "/api/{version}/assignment/status/search", "application/json")
+  def assignmentStatusSearch(accountId: Long, sortField: String, descending: Boolean, activeOnly: Boolean, start: Int, limit: Int, assignmentId: Option[Long] = None, creatorAccountId: Option[Long] = None, assigneeAccountId: Option[Long] = None, retailerLocationId: Option[Long] = None, statusType: Option[String] = None, keyword: Option[String] = None): ApiRequest[Seq[AssignmentStatusResponse]] =
+    ApiRequest[Seq[AssignmentStatusResponse]](ApiMethods.GET, baseUrl, "/assignment/status/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentId", assignmentId)
       .withQueryParam("creatorAccountId", creatorAccountId)
@@ -251,7 +233,6 @@ class AssignmentApi(baseUrl: String) {
       .withQueryParam("activeOnly", activeOnly)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AssignmentStatusResponse]](200)
       
 
@@ -261,7 +242,6 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssignmentStatusResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param assignmentStatusId the assignment status id
    * @param scheduledNotificationId the scheduled notification id for reminders
@@ -274,8 +254,8 @@ class AssignmentApi(baseUrl: String) {
    * @param followUp the date to follow up by
    * @param active determines whether the assignment status is active or inactive
    */
-  def assignmentStatusUpdate(version: BigDecimal, accountId: Long, assignmentStatusId: Long, scheduledNotificationId: Option[Long] = None, toDo: Option[String] = None, connection: Option[String] = None, method: Option[String] = None, status: Option[String] = None, closure: Option[String] = None, message: Option[String] = None, followUp: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[AssignmentStatusResponse] =
-    ApiRequest[AssignmentStatusResponse](ApiMethods.POST, baseUrl, "/api/{version}/assignment/status/update", "application/json")
+  def assignmentStatusUpdate(accountId: Long, assignmentStatusId: Long, scheduledNotificationId: Option[Long] = None, toDo: Option[String] = None, connection: Option[String] = None, method: Option[String] = None, status: Option[String] = None, closure: Option[String] = None, message: Option[String] = None, followUp: Option[Long] = None, active: Option[Boolean] = None): ApiRequest[AssignmentStatusResponse] =
+    ApiRequest[AssignmentStatusResponse](ApiMethods.POST, baseUrl, "/assignment/status/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentStatusId", assignmentStatusId)
       .withQueryParam("scheduledNotificationId", scheduledNotificationId)
@@ -287,7 +267,6 @@ class AssignmentApi(baseUrl: String) {
       .withQueryParam("message", message)
       .withQueryParam("followUp", followUp)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[AssignmentStatusResponse](200)
       
 
@@ -297,7 +276,6 @@ class AssignmentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AssignmentResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    * @param name the name of the assignment
@@ -307,8 +285,8 @@ class AssignmentApi(baseUrl: String) {
    * @param tags the tags
    * @param active determines whether the assignment is active or inactive
    */
-  def assignmentUpdate(version: BigDecimal, accountId: Long, assignmentId: Long, name: Option[String] = None, description: Option[String] = None, assigneeAccountId: Option[Long] = None, retailerLocationId: Option[Long] = None, tags: Option[String] = None, active: Option[Boolean] = None): ApiRequest[AssignmentResponse] =
-    ApiRequest[AssignmentResponse](ApiMethods.POST, baseUrl, "/api/{version}/assignment/update", "application/json")
+  def assignmentUpdate(accountId: Long, assignmentId: Long, name: Option[String] = None, description: Option[String] = None, assigneeAccountId: Option[Long] = None, retailerLocationId: Option[Long] = None, tags: Option[String] = None, active: Option[Boolean] = None): ApiRequest[AssignmentResponse] =
+    ApiRequest[AssignmentResponse](ApiMethods.POST, baseUrl, "/assignment/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("assignmentId", assignmentId)
       .withQueryParam("name", name)
@@ -317,7 +295,6 @@ class AssignmentApi(baseUrl: String) {
       .withQueryParam("retailerLocationId", retailerLocationId)
       .withQueryParam("tags", tags)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[AssignmentResponse](200)
       
 

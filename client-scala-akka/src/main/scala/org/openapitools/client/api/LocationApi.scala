@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.CoordsResponse
 import java.io.File
 import org.openapitools.client.model.GeoPointResponse
@@ -24,7 +23,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object LocationApi {
 
-  def apply(baseUrl: String = "http://localhost") = new LocationApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new LocationApi(baseUrl)
 }
 
 class LocationApi(baseUrl: String) {
@@ -35,21 +34,19 @@ class LocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param udid The unique identifier of the source device
    * @param sourceTime The current timestamp of the source device
    * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device
    * @param data The json formated sample data:  ```json {    \"count\": 2,   \"timespan\": 10,    \"samples\": [     {       \"deviceId\": \"device1\",       \"randomizedId\": true,        \"deviceSignature\": \"probe:xyz...\",        \"alternativeId\":\"adc123\",        \"rssi\": [-63, -75]     },      {       \"deviceId\": \"device2\",       \"randomizedId\": true,        \"deviceSignature\": \"probe:xyz...\",        \"alternativeId\": \"adc123\",        \"rssi\": [-83, -79]     }   ] } ``` 
    * @param dataFile Binary file containing data (multipart upload)
    */
-  def cacheTrilaterationData(version: BigDecimal, udid: String, sourceTime: Option[Long] = None, minimumSampleSize: Option[Int] = None, data: Option[String] = None, dataFile: Option[File] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/location/trilaterate/cache", "application/json")
+  def cacheTrilaterationData(udid: String, sourceTime: Option[Long] = None, minimumSampleSize: Option[Int] = None, data: Option[String] = None, dataFile: Option[File] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/location/trilaterate/cache", "application/json")
       .withQueryParam("udid", udid)
       .withQueryParam("sourceTime", sourceTime)
       .withQueryParam("minimumSampleSize", minimumSampleSize)
       .withQueryParam("data", data)
       .withQueryParam("dataFile", dataFile)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -59,13 +56,11 @@ class LocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def cacheTrilaterationDataGzip(version: BigDecimal, body: Option[TrilatCacheRequest] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/location/trilaterate/cache/submit", "application/json")
+  def cacheTrilaterationDataGzip(body: Option[TrilatCacheRequest] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/location/trilaterate/cache/submit", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -75,13 +70,11 @@ class LocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : CoordsResponse (successful operation)
    * 
-   * @param version 
    * @param ip the ip address of the client device
    */
-  def getLocationByIp(version: BigDecimal, ip: Option[String] = None): ApiRequest[CoordsResponse] =
-    ApiRequest[CoordsResponse](ApiMethods.GET, baseUrl, "/api/{version}/location/ip", "application/json")
+  def getLocationByIp(ip: Option[String] = None): ApiRequest[CoordsResponse] =
+    ApiRequest[CoordsResponse](ApiMethods.GET, baseUrl, "/location/ip", "application/json")
       .withQueryParam("ip", ip)
-      .withPathParam("version", version)
       .withSuccessResponse[CoordsResponse](200)
       
 
@@ -91,21 +84,19 @@ class LocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : GeoPointResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account making the request, if provided the last know location will be updated
    * @param latitude The known GPS latitude to compare to the calculated version
    * @param longitude The known GPS longitude to compare to the calculated version
    * @param data The json formated sample data:  ```json {    \"count\": 2,   \"timespan\": 10,    \"samples\": [     {       \"deviceId\": \"device1\",       \"rssi\": [-63, -75]     },      {       \"deviceId\": \"device2\",       \"rssi\": [-83, -79]     }   ] } ``` 
    * @param responseFilters Optional response filters (not used currently)
    */
-  def getLocationByTrilateration(version: BigDecimal, accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, data: Option[String] = None, responseFilters: Option[String] = None): ApiRequest[GeoPointResponse] =
-    ApiRequest[GeoPointResponse](ApiMethods.GET, baseUrl, "/api/{version}/account/location/trilaterate", "application/json")
+  def getLocationByTrilateration(accountId: Option[Long] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, data: Option[String] = None, responseFilters: Option[String] = None): ApiRequest[GeoPointResponse] =
+    ApiRequest[GeoPointResponse](ApiMethods.GET, baseUrl, "/account/location/trilaterate", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("data", data)
       .withQueryParam("responseFilters", responseFilters)
-      .withPathParam("version", version)
       .withSuccessResponse[GeoPointResponse](200)
       
 
@@ -115,7 +106,6 @@ class LocationApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : LocationSearchResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId the device id
    * @param accountId the account id
    * @param currentlatitude This parameter is deprecated.
@@ -136,8 +126,8 @@ class LocationApi(baseUrl: String) {
    * @param `l` This parameter is deprecated.
    * @param limit the limit for pagination
    */
-  def getLocations(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, currentlatitude: Option[Double] = None, currentlongitude: Option[Double] = None, currentLatitude: Option[Double] = None, currentLongitude: Option[Double] = None, query: Option[String] = None, zipcode: Option[String] = None, zipCode: Option[String] = None, selectedMaplatitude: Option[Double] = None, selectedMaplongitude: Option[Double] = None, selectedMapLatitude: Option[Double] = None, selectedMapLongitude: Option[Double] = None, searchRange: Option[Double] = None, useGeocode: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[LocationSearchResponse] =
-    ApiRequest[LocationSearchResponse](ApiMethods.GET, baseUrl, "/api/{version}/location/search", "application/json")
+  def getLocations(deviceId: Option[String] = None, accountId: Option[Long] = None, currentlatitude: Option[Double] = None, currentlongitude: Option[Double] = None, currentLatitude: Option[Double] = None, currentLongitude: Option[Double] = None, query: Option[String] = None, zipcode: Option[String] = None, zipCode: Option[String] = None, selectedMaplatitude: Option[Double] = None, selectedMaplongitude: Option[Double] = None, selectedMapLatitude: Option[Double] = None, selectedMapLongitude: Option[Double] = None, searchRange: Option[Double] = None, useGeocode: Option[Boolean] = None, `i`: Option[Int] = None, start: Option[Int] = None, `l`: Option[Int] = None, limit: Option[Int] = None): ApiRequest[LocationSearchResponse] =
+    ApiRequest[LocationSearchResponse](ApiMethods.GET, baseUrl, "/location/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("currentlatitude", currentlatitude)
@@ -157,7 +147,6 @@ class LocationApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("_l", `l`)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[LocationSearchResponse](200)
       
 

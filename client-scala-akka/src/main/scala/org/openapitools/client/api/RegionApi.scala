@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.RegionResponse
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object RegionApi {
 
-  def apply(baseUrl: String = "http://localhost") = new RegionApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new RegionApi(baseUrl)
 }
 
 class RegionApi(baseUrl: String) {
@@ -30,7 +29,6 @@ class RegionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RegionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The id of the account sending the request
    * @param regionClass RegionClass of this region
    * @param shortName Short name of the region. This is optimized for search
@@ -53,8 +51,8 @@ class RegionApi(baseUrl: String) {
    * @param root If this is a root region or not. If true means this region has no parent regions
    * @param active Active or inactive status of the region
    */
-  def createRegion(version: BigDecimal, accountId: Long, regionClass: String, shortName: String, fullName: Option[String] = None, parentIds: Option[String] = None, childrenIds: Option[String] = None, postalCodeIds: Option[String] = None, locations: Option[String] = None, retailerLocationId: Option[Long] = None, visibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, polygon: Option[String] = None, metaData: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, versionCode: Option[Int] = None, root: Option[Boolean] = None, active: Option[Boolean] = None): ApiRequest[RegionResponse] =
-    ApiRequest[RegionResponse](ApiMethods.POST, baseUrl, "/api/{version}/region/create", "application/json")
+  def createRegion(accountId: Long, regionClass: String, shortName: String, fullName: Option[String] = None, parentIds: Option[String] = None, childrenIds: Option[String] = None, postalCodeIds: Option[String] = None, locations: Option[String] = None, retailerLocationId: Option[Long] = None, visibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, polygon: Option[String] = None, metaData: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, versionCode: Option[Int] = None, root: Option[Boolean] = None, active: Option[Boolean] = None): ApiRequest[RegionResponse] =
+    ApiRequest[RegionResponse](ApiMethods.POST, baseUrl, "/region/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("regionClass", regionClass)
       .withQueryParam("shortName", shortName)
@@ -76,7 +74,6 @@ class RegionApi(baseUrl: String) {
       .withQueryParam("versionCode", versionCode)
       .withQueryParam("root", root)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[RegionResponse](200)
       
 
@@ -86,15 +83,13 @@ class RegionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RegionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the account logged in
    * @param regionId the id of the region
    */
-  def deleteRegion(version: BigDecimal, accountId: Long, regionId: Long): ApiRequest[RegionResponse] =
-    ApiRequest[RegionResponse](ApiMethods.POST, baseUrl, "/api/{version}/region/delete", "application/json")
+  def deleteRegion(accountId: Long, regionId: Long): ApiRequest[RegionResponse] =
+    ApiRequest[RegionResponse](ApiMethods.POST, baseUrl, "/region/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("regionId", regionId)
-      .withPathParam("version", version)
       .withSuccessResponse[RegionResponse](200)
       
 
@@ -104,15 +99,13 @@ class RegionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RegionResponse (successful operation)
    * 
-   * @param version 
    * @param regionId the id of the region to get
    * @param accountId the id of the logged in user
    */
-  def getRegion(version: BigDecimal, regionId: Long, accountId: Option[Long] = None): ApiRequest[RegionResponse] =
-    ApiRequest[RegionResponse](ApiMethods.GET, baseUrl, "/api/{version}/region/get", "application/json")
+  def getRegion(regionId: Long, accountId: Option[Long] = None): ApiRequest[RegionResponse] =
+    ApiRequest[RegionResponse](ApiMethods.GET, baseUrl, "/region/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("regionId", regionId)
-      .withPathParam("version", version)
       .withSuccessResponse[RegionResponse](200)
       
 
@@ -122,7 +115,6 @@ class RegionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[RegionResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId the owner account id of the region to be created
    * @param query This parameter is deprecated. deprecated - use \"keyword\"
    * @param keyword the keyword to filter results on
@@ -146,8 +138,8 @@ class RegionApi(baseUrl: String) {
    * @param start the start index for pagination
    * @param limit the limit for pagination
    */
-  def searchRegions(version: BigDecimal, accountId: Option[Long] = None, query: Option[String] = None, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, range: Option[Double] = None, regionClass: Option[String] = None, visibility: Option[String] = None, searchMode: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, includeParent: Option[Boolean] = None, includeChildren: Option[Boolean] = None, includePostalCodes: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, versionCode: Option[Int] = None, activeOnly: Option[Boolean] = None, showDeleted: Option[Boolean] = None, lastUpdatedSince: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[RegionResponse]] =
-    ApiRequest[Seq[RegionResponse]](ApiMethods.GET, baseUrl, "/api/{version}/region/search", "application/json")
+  def searchRegions(accountId: Option[Long] = None, query: Option[String] = None, keyword: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, range: Option[Double] = None, regionClass: Option[String] = None, visibility: Option[String] = None, searchMode: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, includeParent: Option[Boolean] = None, includeChildren: Option[Boolean] = None, includePostalCodes: Option[Boolean] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, versionCode: Option[Int] = None, activeOnly: Option[Boolean] = None, showDeleted: Option[Boolean] = None, lastUpdatedSince: Option[Long] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[Seq[RegionResponse]] =
+    ApiRequest[Seq[RegionResponse]](ApiMethods.GET, baseUrl, "/region/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("query", query)
       .withQueryParam("keyword", keyword)
@@ -170,7 +162,6 @@ class RegionApi(baseUrl: String) {
       .withQueryParam("lastUpdatedSince", lastUpdatedSince)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[RegionResponse]](200)
       
 
@@ -180,7 +171,6 @@ class RegionApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : RegionResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The id of the account sending the request
    * @param regionId The id of the region to be updated
    * @param regionClass RegionClass of this region
@@ -205,8 +195,8 @@ class RegionApi(baseUrl: String) {
    * @param active Active or inactive status of the region
    * @param clearLists If true clear the children and postal code lists before add new ones, otherwise just append.
    */
-  def updateRegion(version: BigDecimal, accountId: Long, regionId: Long, regionClass: Option[String] = None, shortName: Option[String] = None, fullName: Option[String] = None, parentIds: Option[String] = None, childrenIds: Option[String] = None, postalCodeIds: Option[String] = None, locations: Option[String] = None, retailerLocationId: Option[Long] = None, visibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, polygon: Option[String] = None, metaData: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, versionCode: Option[Int] = None, root: Option[Boolean] = None, active: Option[Boolean] = None, clearLists: Option[Boolean] = None): ApiRequest[RegionResponse] =
-    ApiRequest[RegionResponse](ApiMethods.POST, baseUrl, "/api/{version}/region/update", "application/json")
+  def updateRegion(accountId: Long, regionId: Long, regionClass: Option[String] = None, shortName: Option[String] = None, fullName: Option[String] = None, parentIds: Option[String] = None, childrenIds: Option[String] = None, postalCodeIds: Option[String] = None, locations: Option[String] = None, retailerLocationId: Option[Long] = None, visibility: Option[String] = None, categoryIds: Option[String] = None, filterIds: Option[String] = None, start: Option[Long] = None, end: Option[Long] = None, polygon: Option[String] = None, metaData: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None, versionCode: Option[Int] = None, root: Option[Boolean] = None, active: Option[Boolean] = None, clearLists: Option[Boolean] = None): ApiRequest[RegionResponse] =
+    ApiRequest[RegionResponse](ApiMethods.POST, baseUrl, "/region/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("regionId", regionId)
       .withQueryParam("regionClass", regionClass)
@@ -230,7 +220,6 @@ class RegionApi(baseUrl: String) {
       .withQueryParam("root", root)
       .withQueryParam("active", active)
       .withQueryParam("clearLists", clearLists)
-      .withPathParam("version", version)
       .withSuccessResponse[RegionResponse](200)
       
 

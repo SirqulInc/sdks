@@ -15,7 +15,6 @@ import org.openapitools.client.model.AchievementProgressResponse
 import org.openapitools.client.model.AchievementResponse
 import org.openapitools.client.model.AchievementShortResponse
 import org.openapitools.client.model.AchievementTierResponse
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -24,7 +23,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AchievementApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AchievementApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AchievementApi(baseUrl)
 }
 
 class AchievementApi(baseUrl: String) {
@@ -35,7 +34,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AchievementTierResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param appKey the application key
@@ -48,8 +46,8 @@ class AchievementApi(baseUrl: String) {
    * @param start The start of the index for pagination
    * @param limit the limit for pagination (has a hard limit of 1000)
    */
-  def apiVersionAchievementTierSearchPost(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, keyword: Option[String] = None, achievementType: Option[Long] = None, rankType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, descendingGoal: Option[Boolean] = None, start: Option[Long] = None, limit: Option[Long] = None): ApiRequest[AchievementTierResponse] =
-    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/tier/search", "application/json")
+  def achievementTierSearchPost(deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, keyword: Option[String] = None, achievementType: Option[Long] = None, rankType: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, descendingGoal: Option[Boolean] = None, start: Option[Long] = None, limit: Option[Long] = None): ApiRequest[AchievementTierResponse] =
+    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/achievement/tier/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -61,7 +59,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("descendingGoal", descendingGoal)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[AchievementTierResponse](200)
       
 
@@ -71,7 +68,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AchievementResponse (successful operation)
    * 
-   * @param version 
    * @param appKey the application key the achievement is for
    * @param title the title of the achievement (255 character limit)
    * @param deviceId a unique id given by the device (deviceId or accountId required)
@@ -86,8 +82,8 @@ class AchievementApi(baseUrl: String) {
    * @param active achievement is active or inactive
    * @param triggerDefinition if provided will define what triggers to run after a tier is completed
    */
-  def createAchievement(version: BigDecimal, appKey: String, title: String, deviceId: Option[String] = None, accountId: Option[Long] = None, analyticsTag: Option[String] = None, description: Option[String] = None, rankType: Option[String] = None, rankIncrement: Option[Int] = None, minIncrement: Option[Int] = None, maxIncrement: Option[Int] = None, validate: Option[Boolean] = None, active: Option[Boolean] = None, triggerDefinition: Option[String] = None): ApiRequest[AchievementResponse] =
-    ApiRequest[AchievementResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/create", "application/json")
+  def createAchievement(appKey: String, title: String, deviceId: Option[String] = None, accountId: Option[Long] = None, analyticsTag: Option[String] = None, description: Option[String] = None, rankType: Option[String] = None, rankIncrement: Option[Int] = None, minIncrement: Option[Int] = None, maxIncrement: Option[Int] = None, validate: Option[Boolean] = None, active: Option[Boolean] = None, triggerDefinition: Option[String] = None): ApiRequest[AchievementResponse] =
+    ApiRequest[AchievementResponse](ApiMethods.POST, baseUrl, "/achievement/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -101,7 +97,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("validate", validate)
       .withQueryParam("active", active)
       .withQueryParam("triggerDefinition", triggerDefinition)
-      .withPathParam("version", version)
       .withSuccessResponse[AchievementResponse](200)
       
 
@@ -111,7 +106,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AchievementTierResponse (successful operation)
    * 
-   * @param version 
    * @param achievementId the achievement id for adding a new tier
    * @param scoreAllInstances score all instances
    * @param deviceId a unique id given by the device (deviceId or accountId required)
@@ -127,8 +121,8 @@ class AchievementApi(baseUrl: String) {
    * @param gameLevelId The ID of the game level to associate with the achievement
    * @param gameObjectId The ID of the game object to associate with the achievement
    */
-  def createAchievementTier(version: BigDecimal, achievementId: Long, scoreAllInstances: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, icon: Option[File] = None, iconAssetId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, goalCount: Option[Long] = None, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Int] = None): ApiRequest[AchievementTierResponse] =
-    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/tier/create", "application/json")
+  def createAchievementTier(achievementId: Long, scoreAllInstances: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, icon: Option[File] = None, iconAssetId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, goalCount: Option[Long] = None, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Int] = None): ApiRequest[AchievementTierResponse] =
+    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/achievement/tier/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementId", achievementId)
@@ -143,7 +137,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("gameLevelId", gameLevelId)
       .withQueryParam("gameObjectId", gameObjectId)
       .withQueryParam("scoreAllInstances", scoreAllInstances)
-      .withPathParam("version", version)
       .withSuccessResponse[AchievementTierResponse](200)
       
 
@@ -153,15 +146,13 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param achievementId The ID of the achievement
    * @param accountId the account id of the user (deviceId or accountId required)
    */
-  def deleteAchievement(version: BigDecimal, achievementId: Long, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/delete", "application/json")
+  def deleteAchievement(achievementId: Long, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/achievement/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementId", achievementId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -171,15 +162,13 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param achievementTierId the achievement id for deletion
    * @param accountId the account id of the user (deviceId or accountId required).
    */
-  def deleteAchievementTier(version: BigDecimal, achievementTierId: Long, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/tier/delete", "application/json")
+  def deleteAchievementTier(achievementTierId: Long, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/achievement/tier/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementTierId", achievementTierId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -189,19 +178,17 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AchievementTierResponse (successful operation)
    * 
-   * @param version 
    * @param achievementId The ID of the achievement
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param achievementType achievementType
    */
-  def getAchievement(version: BigDecimal, achievementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, achievementType: Option[String] = None): ApiRequest[AchievementTierResponse] =
-    ApiRequest[AchievementTierResponse](ApiMethods.GET, baseUrl, "/api/{version}/achievement/get", "application/json")
+  def getAchievement(achievementId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, achievementType: Option[String] = None): ApiRequest[AchievementTierResponse] =
+    ApiRequest[AchievementTierResponse](ApiMethods.GET, baseUrl, "/achievement/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementId", achievementId)
       .withQueryParam("achievementType", achievementType)
-      .withPathParam("version", version)
       .withSuccessResponse[AchievementTierResponse](200)
       
 
@@ -211,15 +198,13 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AchievementTierResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param achievementTierId the achievement tier id that is being retrieved
    */
-  def getAchievementTier(version: BigDecimal, accountId: Long, achievementTierId: Long): ApiRequest[AchievementTierResponse] =
-    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/tier/get", "application/json")
+  def getAchievementTier(accountId: Long, achievementTierId: Long): ApiRequest[AchievementTierResponse] =
+    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/achievement/tier/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementTierId", achievementTierId)
-      .withPathParam("version", version)
       .withSuccessResponse[AchievementTierResponse](200)
       
 
@@ -229,7 +214,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AchievementProgressResponse] (successful operation)
    * 
-   * @param version 
    * @param returnNulls determines whether to return null fields in the response
    * @param appKey the application key for filtering results by application
    * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet
@@ -242,8 +226,8 @@ class AchievementApi(baseUrl: String) {
    * @param latitude the current latitude of the user
    * @param longitude the current longitude of the user
    */
-  def getUserAchievements(version: BigDecimal, returnNulls: Boolean, appKey: String, includeUndiscovered: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountEmail: Option[String] = None, connectionAccountId: Option[Long] = None, rankType: Option[String] = None, achievementType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[Seq[AchievementProgressResponse]] =
-    ApiRequest[Seq[AchievementProgressResponse]](ApiMethods.GET, baseUrl, "/api/{version}/achievement/progress/get", "application/json")
+  def getUserAchievements(returnNulls: Boolean, appKey: String, includeUndiscovered: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, connectionAccountEmail: Option[String] = None, connectionAccountId: Option[Long] = None, rankType: Option[String] = None, achievementType: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[Seq[AchievementProgressResponse]] =
+    ApiRequest[Seq[AchievementProgressResponse]](ApiMethods.GET, baseUrl, "/achievement/progress/get", "application/json")
       .withQueryParam("returnNulls", returnNulls)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
@@ -255,7 +239,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("includeUndiscovered", includeUndiscovered)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AchievementProgressResponse]](200)
       
 
@@ -265,13 +248,11 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param appKey filter results by application key
    */
-  def listAchievementTags(version: BigDecimal, appKey: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/achievement/tag/list", "application/json")
+  def listAchievementTags(appKey: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/achievement/tag/list", "application/json")
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -281,7 +262,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AchievementShortResponse] (successful operation)
    * 
-   * @param version 
    * @param sortField the field to sort by. See AchievementApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
    * @param start the start index for pagination
@@ -294,8 +274,8 @@ class AchievementApi(baseUrl: String) {
    * @param achievementType filter results by the achievementType (these are exact case sensitive matches)
    * @param rankType filter results by the rankType (these are exact case sensitive matches)
    */
-  def listAchievements(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, keyword: Option[String] = None, achievementType: Option[String] = None, rankType: Option[String] = None): ApiRequest[Seq[AchievementShortResponse]] =
-    ApiRequest[Seq[AchievementShortResponse]](ApiMethods.GET, baseUrl, "/api/{version}/achievement/list", "application/json")
+  def listAchievements(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, keyword: Option[String] = None, achievementType: Option[String] = None, rankType: Option[String] = None): ApiRequest[Seq[AchievementShortResponse]] =
+    ApiRequest[Seq[AchievementShortResponse]](ApiMethods.GET, baseUrl, "/achievement/list", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -307,7 +287,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AchievementShortResponse]](200)
       
 
@@ -317,7 +296,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AchievementShortResponse] (successful operation)
    * 
-   * @param version 
    * @param appKey the application key
    * @param sortField the field to sort by. See AchievementApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -331,8 +309,8 @@ class AchievementApi(baseUrl: String) {
    * @param achievementType filter results by the achievementType (these are exact case sensitive matches)
    * @param rankType filter results by the rankType (these are exact case sensitive matches)
    */
-  def searchAchievements(version: BigDecimal, appKey: String, sortField: String, descending: Boolean, includeTiers: Boolean, includeInactiveTiers: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, keyword: Option[String] = None, achievementType: Option[String] = None, rankType: Option[String] = None): ApiRequest[Seq[AchievementShortResponse]] =
-    ApiRequest[Seq[AchievementShortResponse]](ApiMethods.GET, baseUrl, "/api/{version}/achievement/search", "application/json")
+  def searchAchievements(appKey: String, sortField: String, descending: Boolean, includeTiers: Boolean, includeInactiveTiers: Boolean, start: Int, limit: Int, deviceId: Option[String] = None, accountId: Option[Long] = None, keyword: Option[String] = None, achievementType: Option[String] = None, rankType: Option[String] = None): ApiRequest[Seq[AchievementShortResponse]] =
+    ApiRequest[Seq[AchievementShortResponse]](ApiMethods.GET, baseUrl, "/achievement/search", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -345,7 +323,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("includeInactiveTiers", includeInactiveTiers)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AchievementShortResponse]](200)
       
 
@@ -355,7 +332,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AchievementResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param achievementId the achievement ID for updating an existing achievement
@@ -372,8 +348,8 @@ class AchievementApi(baseUrl: String) {
    * @param active if it's active or inactive
    * @param triggerDefinition if provided will define what triggers to run after a tier is completed
    */
-  def updateAchievement(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, achievementId: Option[Long] = None, analyticsTag: Option[String] = None, title: Option[String] = None, description: Option[String] = None, rankType: Option[String] = None, rankIncrement: Option[Int] = None, minIncrement: Option[Int] = None, nullMinIncrement: Option[Boolean] = None, maxIncrement: Option[Int] = None, nullMaxIncrement: Option[Boolean] = None, validate: Option[Boolean] = None, active: Option[Boolean] = None, triggerDefinition: Option[String] = None): ApiRequest[AchievementResponse] =
-    ApiRequest[AchievementResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/update", "application/json")
+  def updateAchievement(deviceId: Option[String] = None, accountId: Option[Long] = None, achievementId: Option[Long] = None, analyticsTag: Option[String] = None, title: Option[String] = None, description: Option[String] = None, rankType: Option[String] = None, rankIncrement: Option[Int] = None, minIncrement: Option[Int] = None, nullMinIncrement: Option[Boolean] = None, maxIncrement: Option[Int] = None, nullMaxIncrement: Option[Boolean] = None, validate: Option[Boolean] = None, active: Option[Boolean] = None, triggerDefinition: Option[String] = None): ApiRequest[AchievementResponse] =
+    ApiRequest[AchievementResponse](ApiMethods.POST, baseUrl, "/achievement/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementId", achievementId)
@@ -389,7 +365,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("validate", validate)
       .withQueryParam("active", active)
       .withQueryParam("triggerDefinition", triggerDefinition)
-      .withPathParam("version", version)
       .withSuccessResponse[AchievementResponse](200)
       
 
@@ -399,7 +374,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AchievementTierResponse (successful operation)
    * 
-   * @param version 
    * @param achievementTierId the achievement tier id for updating
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -415,8 +389,8 @@ class AchievementApi(baseUrl: String) {
    * @param gameObjectId The ID of the game object to associate with the achievement
    * @param scoreAllInstances score all instances
    */
-  def updateAchievementTier(version: BigDecimal, achievementTierId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, icon: Option[File] = None, iconAssetId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, goalCount: Option[Long] = None, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None, scoreAllInstances: Option[Boolean] = None): ApiRequest[AchievementTierResponse] =
-    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/tier/update", "application/json")
+  def updateAchievementTier(achievementTierId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, icon: Option[File] = None, iconAssetId: Option[Long] = None, title: Option[String] = None, description: Option[String] = None, goalCount: Option[Long] = None, missionId: Option[Long] = None, gameId: Option[Long] = None, packId: Option[Long] = None, gameLevelId: Option[Long] = None, gameObjectId: Option[Long] = None, scoreAllInstances: Option[Boolean] = None): ApiRequest[AchievementTierResponse] =
+    ApiRequest[AchievementTierResponse](ApiMethods.POST, baseUrl, "/achievement/tier/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementTierId", achievementTierId)
@@ -431,7 +405,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("gameLevelId", gameLevelId)
       .withQueryParam("gameObjectId", gameObjectId)
       .withQueryParam("scoreAllInstances", scoreAllInstances)
-      .withPathParam("version", version)
       .withSuccessResponse[AchievementTierResponse](200)
       
 
@@ -441,7 +414,6 @@ class AchievementApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account id of the user
    * @param achievementId the achievement id (achievementId or tag required)
    * @param tag the analytic tag to identify an achievement (achievementId or tag required)
@@ -451,8 +423,8 @@ class AchievementApi(baseUrl: String) {
    * @param endDate a custom end date that the client can set (not yet used in server logic)
    * @param returnProgress determines whether to return the achievement progress response
    */
-  def updateUserAchievement(version: BigDecimal, accountId: Long, achievementId: Option[Long] = None, tag: Option[String] = None, customId: Option[Long] = None, increment: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, returnProgress: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/achievement/progress/update", "application/json")
+  def updateUserAchievement(accountId: Long, achievementId: Option[Long] = None, tag: Option[String] = None, customId: Option[Long] = None, increment: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, returnProgress: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/achievement/progress/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("achievementId", achievementId)
       .withQueryParam("tag", tag)
@@ -461,7 +433,6 @@ class AchievementApi(baseUrl: String) {
       .withQueryParam("startDate", startDate)
       .withQueryParam("endDate", endDate)
       .withQueryParam("returnProgress", returnProgress)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

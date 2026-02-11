@@ -14,7 +14,6 @@ package org.openapitools.client.api
 import org.openapitools.client.model.AgeGroupResponse
 import org.openapitools.client.model.AudienceDeviceResponse
 import org.openapitools.client.model.AudienceResponse
-import java.math.BigDecimal
 import org.openapitools.client.model.OfferListResponse
 import org.openapitools.client.model.SearchResponse
 import org.openapitools.client.model.SirqulResponse
@@ -24,7 +23,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AudienceApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AudienceApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AudienceApi(baseUrl)
 }
 
 class AudienceApi(baseUrl: String) {
@@ -35,7 +34,6 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AudienceResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the audience
    * @param description The description of the audience
@@ -66,8 +64,8 @@ class AudienceApi(baseUrl: String) {
    * @param trilaterationTypes Trilateration types
    * @param uniqueName If true, makes sure the audience name is unique
    */
-  def createAudience(version: BigDecimal, accountId: Long, name: String, description: Option[String] = None, searchTags: Option[String] = None, gender: Option[String] = None, ageGroups: Option[String] = None, categoryIds: Option[String] = None, applicationIds: Option[String] = None, gameExperienceLevel: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None, startTimeOffset: Option[Int] = None, endTimeOffset: Option[Int] = None, sendSuggestion: Option[Boolean] = None, associateDescription: Option[String] = None, associateType: Option[String] = None, associateId: Option[Long] = None, groupingId: Option[String] = None, metaData: Option[String] = None, visibility: Option[String] = None, audienceType: Option[String] = None, useOrder: Option[Boolean] = None, cohortRegionsData: Option[String] = None, appKey: Option[String] = None, trilaterationTypes: Option[String] = None, uniqueName: Option[Boolean] = None): ApiRequest[AudienceResponse] =
-    ApiRequest[AudienceResponse](ApiMethods.POST, baseUrl, "/api/{version}/audience/create", "application/json")
+  def createAudience(accountId: Long, name: String, description: Option[String] = None, searchTags: Option[String] = None, gender: Option[String] = None, ageGroups: Option[String] = None, categoryIds: Option[String] = None, applicationIds: Option[String] = None, gameExperienceLevel: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None, startTimeOffset: Option[Int] = None, endTimeOffset: Option[Int] = None, sendSuggestion: Option[Boolean] = None, associateDescription: Option[String] = None, associateType: Option[String] = None, associateId: Option[Long] = None, groupingId: Option[String] = None, metaData: Option[String] = None, visibility: Option[String] = None, audienceType: Option[String] = None, useOrder: Option[Boolean] = None, cohortRegionsData: Option[String] = None, appKey: Option[String] = None, trilaterationTypes: Option[String] = None, uniqueName: Option[Boolean] = None): ApiRequest[AudienceResponse] =
+    ApiRequest[AudienceResponse](ApiMethods.POST, baseUrl, "/audience/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("description", description)
@@ -97,7 +95,6 @@ class AudienceApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("trilaterationTypes", trilaterationTypes)
       .withQueryParam("uniqueName", uniqueName)
-      .withPathParam("version", version)
       .withSuccessResponse[AudienceResponse](200)
       
 
@@ -107,15 +104,13 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceId The id of the audience to delete.
    */
-  def deleteAudience(version: BigDecimal, accountId: Long, audienceId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/audience/delete", "application/json")
+  def deleteAudience(accountId: Long, audienceId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/audience/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("audienceId", audienceId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -124,12 +119,9 @@ class AudienceApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : Seq[AgeGroupResponse] (successful operation)
-   * 
-   * @param version 
    */
-  def getAgeGroups(version: BigDecimal): ApiRequest[Seq[AgeGroupResponse]] =
-    ApiRequest[Seq[AgeGroupResponse]](ApiMethods.GET, baseUrl, "/api/{version}/audience/ageGroups", "application/json")
-      .withPathParam("version", version)
+  def getAgeGroups(): ApiRequest[Seq[AgeGroupResponse]] =
+    ApiRequest[Seq[AgeGroupResponse]](ApiMethods.GET, baseUrl, "/audience/ageGroups", "application/json")
       .withSuccessResponse[Seq[AgeGroupResponse]](200)
       
 
@@ -139,7 +131,6 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AudienceResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceId The id of the audience to return.
    * @param appKey The application key (optional). If provided, results may be scoped to this application.
@@ -147,15 +138,14 @@ class AudienceApi(baseUrl: String) {
    * @param returnAlbumCount (boolean) set to true to include the albumCount associated with current audience of the current app
    * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \"all_types\" count is returned.
    */
-  def getAudience(version: BigDecimal, accountId: Long, audienceId: Long, appKey: Option[String] = None, returnAccountCount: Option[Boolean] = None, returnAlbumCount: Option[Boolean] = None, albumTypesForCount: Option[String] = None): ApiRequest[AudienceResponse] =
-    ApiRequest[AudienceResponse](ApiMethods.GET, baseUrl, "/api/{version}/audience/get", "application/json")
+  def getAudience(accountId: Long, audienceId: Long, appKey: Option[String] = None, returnAccountCount: Option[Boolean] = None, returnAlbumCount: Option[Boolean] = None, albumTypesForCount: Option[String] = None): ApiRequest[AudienceResponse] =
+    ApiRequest[AudienceResponse](ApiMethods.GET, baseUrl, "/audience/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("audienceId", audienceId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("returnAccountCount", returnAccountCount)
       .withQueryParam("returnAlbumCount", returnAlbumCount)
       .withQueryParam("albumTypesForCount", albumTypesForCount)
-      .withPathParam("version", version)
       .withSuccessResponse[AudienceResponse](200)
       
 
@@ -165,7 +155,6 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[SearchResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param albumIds Comma separated list of album IDs to filter results with
    * @param keyword The keyword used to search
@@ -186,8 +175,8 @@ class AudienceApi(baseUrl: String) {
    * @param returnAlbumCount (boolean) set to true to include the albumCount associated with current audience of the current app
    * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \"all_types\" count is returned.
    */
-  def getAudienceList(version: BigDecimal, accountId: Option[Long] = None, albumIds: Option[String] = None, keyword: Option[String] = None, keywordFields: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, sendSuggestion: Option[Boolean] = None, activeOnly: Option[Boolean] = None, groupByGroupingId: Option[Boolean] = None, appKey: Option[String] = None, returnGlobal: Option[Boolean] = None, exactKeyword: Option[Boolean] = None, audienceType: Option[String] = None, audienceTypes: Option[String] = None, returnAccountCount: Option[Boolean] = None, returnAlbumCount: Option[Boolean] = None, albumTypesForCount: Option[String] = None): ApiRequest[Seq[SearchResponse]] =
-    ApiRequest[Seq[SearchResponse]](ApiMethods.GET, baseUrl, "/api/{version}/audience/search", "application/json")
+  def getAudienceList(accountId: Option[Long] = None, albumIds: Option[String] = None, keyword: Option[String] = None, keywordFields: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, sendSuggestion: Option[Boolean] = None, activeOnly: Option[Boolean] = None, groupByGroupingId: Option[Boolean] = None, appKey: Option[String] = None, returnGlobal: Option[Boolean] = None, exactKeyword: Option[Boolean] = None, audienceType: Option[String] = None, audienceTypes: Option[String] = None, returnAccountCount: Option[Boolean] = None, returnAlbumCount: Option[Boolean] = None, albumTypesForCount: Option[String] = None): ApiRequest[Seq[SearchResponse]] =
+    ApiRequest[Seq[SearchResponse]](ApiMethods.GET, baseUrl, "/audience/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("albumIds", albumIds)
       .withQueryParam("keyword", keyword)
@@ -207,7 +196,6 @@ class AudienceApi(baseUrl: String) {
       .withQueryParam("returnAccountCount", returnAccountCount)
       .withQueryParam("returnAlbumCount", returnAlbumCount)
       .withQueryParam("albumTypesForCount", albumTypesForCount)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[SearchResponse]](200)
       
 
@@ -217,13 +205,11 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[AudienceDeviceResponse] (successful operation)
    * 
-   * @param version 
    * @param includeInactive If true return inactive record as well. default is false.
    */
-  def getDevices(version: BigDecimal, includeInactive: Boolean): ApiRequest[Seq[AudienceDeviceResponse]] =
-    ApiRequest[Seq[AudienceDeviceResponse]](ApiMethods.GET, baseUrl, "/api/{version}/audience/devices", "application/json")
+  def getDevices(includeInactive: Boolean): ApiRequest[Seq[AudienceDeviceResponse]] =
+    ApiRequest[Seq[AudienceDeviceResponse]](ApiMethods.GET, baseUrl, "/audience/devices", "application/json")
       .withQueryParam("includeInactive", includeInactive)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[AudienceDeviceResponse]](200)
       
 
@@ -232,12 +218,9 @@ class AudienceApi(baseUrl: String) {
    * 
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
-   * 
-   * @param version 
    */
-  def getExperiences(version: BigDecimal): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/audience/experiences", "application/json")
-      .withPathParam("version", version)
+  def getExperiences(): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/audience/experiences", "application/json")
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -247,15 +230,13 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AudienceResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceGroupingId The audience grouping id to return.
    */
-  def getGroupedAudiences(version: BigDecimal, accountId: Long, audienceGroupingId: String): ApiRequest[AudienceResponse] =
-    ApiRequest[AudienceResponse](ApiMethods.GET, baseUrl, "/api/{version}/audience/grouped/get", "application/json")
+  def getGroupedAudiences(accountId: Long, audienceGroupingId: String): ApiRequest[AudienceResponse] =
+    ApiRequest[AudienceResponse](ApiMethods.GET, baseUrl, "/audience/grouped/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("audienceGroupingId", audienceGroupingId)
-      .withPathParam("version", version)
       .withSuccessResponse[AudienceResponse](200)
       
 
@@ -265,17 +246,15 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferListResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account to match offers for.
    * @param limit the limit of the index
    * @param suggestionType the type of suggestion
    */
-  def listByAccount(version: BigDecimal, accountId: Long, limit: Int, suggestionType: String): ApiRequest[OfferListResponse] =
-    ApiRequest[OfferListResponse](ApiMethods.POST, baseUrl, "/api/{version}/audience/suggestion/list", "application/json")
+  def listByAccount(accountId: Long, limit: Int, suggestionType: String): ApiRequest[OfferListResponse] =
+    ApiRequest[OfferListResponse](ApiMethods.POST, baseUrl, "/audience/suggestion/list", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("limit", limit)
       .withQueryParam("suggestionType", suggestionType)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferListResponse](200)
       
 
@@ -285,7 +264,6 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferListResponse (successful operation)
    * 
-   * @param version 
    * @param limit this is the limit of the index
    * @param gender this is the gender to list offers by
    * @param age this is the age to list offers by
@@ -293,15 +271,14 @@ class AudienceApi(baseUrl: String) {
    * @param latitude this is the latitude to list offers by
    * @param longitude this is the longitude to list offers by
    */
-  def listByAudience(version: BigDecimal, limit: Int, gender: Option[String] = None, age: Option[Int] = None, categoryIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[OfferListResponse] =
-    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/api/{version}/audience/suggestion/offersByAudience", "application/json")
+  def listByAudience(limit: Int, gender: Option[String] = None, age: Option[Int] = None, categoryIds: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[OfferListResponse] =
+    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/audience/suggestion/offersByAudience", "application/json")
       .withQueryParam("gender", gender)
       .withQueryParam("age", age)
       .withQueryParam("categoryIds", categoryIds)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferListResponse](200)
       
 
@@ -311,17 +288,15 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : OfferListResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account to match offers for.
    * @param timeframe The timeframe in seconds of the latest suggestions
    * @param suggestionType The type of trigger suggestions to return
    */
-  def listLastestByAccount(version: BigDecimal, accountId: Long, timeframe: Int, suggestionType: String): ApiRequest[OfferListResponse] =
-    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/api/{version}/audience/suggestion/latest", "application/json")
+  def listLastestByAccount(accountId: Long, timeframe: Int, suggestionType: String): ApiRequest[OfferListResponse] =
+    ApiRequest[OfferListResponse](ApiMethods.GET, baseUrl, "/audience/suggestion/latest", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("timeframe", timeframe)
       .withQueryParam("suggestionType", suggestionType)
-      .withPathParam("version", version)
       .withSuccessResponse[OfferListResponse](200)
       
 
@@ -331,17 +306,15 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The account to match offers for.
    * @param latitude the latitude
    * @param longitude the longitude
    */
-  def sendByAccount(version: BigDecimal, accountId: Long, latitude: Double, longitude: Double): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/audience/suggestion/send", "application/json")
+  def sendByAccount(accountId: Long, latitude: Double, longitude: Double): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/audience/suggestion/send", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -351,7 +324,6 @@ class AudienceApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : AudienceResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceId The id of the audience to update.
    * @param name The name of the audience
@@ -384,8 +356,8 @@ class AudienceApi(baseUrl: String) {
    * @param trilaterationTypes Trilateration types
    * @param uniqueName If true, makes sure the audience name is unique
    */
-  def updateAudience(version: BigDecimal, accountId: Long, audienceId: Long, name: Option[String] = None, description: Option[String] = None, searchTags: Option[String] = None, gender: Option[String] = None, ageGroups: Option[String] = None, categoryIds: Option[String] = None, applicationIds: Option[String] = None, gameExperienceLevel: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None, active: Option[Boolean] = None, sendSuggestion: Option[Boolean] = None, startTimeOffset: Option[Int] = None, endTimeOffset: Option[Int] = None, associateDescription: Option[String] = None, associateType: Option[String] = None, associateId: Option[Long] = None, groupingId: Option[String] = None, metaData: Option[String] = None, visibility: Option[String] = None, audienceType: Option[String] = None, useOrder: Option[Boolean] = None, cohortRegionsData: Option[String] = None, appKey: Option[String] = None, trilaterationTypes: Option[String] = None, uniqueName: Option[Boolean] = None): ApiRequest[AudienceResponse] =
-    ApiRequest[AudienceResponse](ApiMethods.POST, baseUrl, "/api/{version}/audience/update", "application/json")
+  def updateAudience(accountId: Long, audienceId: Long, name: Option[String] = None, description: Option[String] = None, searchTags: Option[String] = None, gender: Option[String] = None, ageGroups: Option[String] = None, categoryIds: Option[String] = None, applicationIds: Option[String] = None, gameExperienceLevel: Option[String] = None, devices: Option[String] = None, deviceIds: Option[String] = None, deviceVersions: Option[String] = None, locations: Option[String] = None, radius: Option[String] = None, active: Option[Boolean] = None, sendSuggestion: Option[Boolean] = None, startTimeOffset: Option[Int] = None, endTimeOffset: Option[Int] = None, associateDescription: Option[String] = None, associateType: Option[String] = None, associateId: Option[Long] = None, groupingId: Option[String] = None, metaData: Option[String] = None, visibility: Option[String] = None, audienceType: Option[String] = None, useOrder: Option[Boolean] = None, cohortRegionsData: Option[String] = None, appKey: Option[String] = None, trilaterationTypes: Option[String] = None, uniqueName: Option[Boolean] = None): ApiRequest[AudienceResponse] =
+    ApiRequest[AudienceResponse](ApiMethods.POST, baseUrl, "/audience/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("audienceId", audienceId)
       .withQueryParam("name", name)
@@ -417,7 +389,6 @@ class AudienceApi(baseUrl: String) {
       .withQueryParam("appKey", appKey)
       .withQueryParam("trilaterationTypes", trilaterationTypes)
       .withQueryParam("uniqueName", uniqueName)
-      .withPathParam("version", version)
       .withSuccessResponse[AudienceResponse](200)
       
 

@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import java.io.File
 import org.openapitools.client.model.PaymentRequest
 import org.openapitools.client.model.ProfileResponse
@@ -22,7 +21,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object SecureAppApi {
 
-  def apply(baseUrl: String = "http://localhost") = new SecureAppApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new SecureAppApi(baseUrl)
 }
 
 class SecureAppApi(baseUrl: String) {
@@ -33,7 +32,6 @@ class SecureAppApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    * @param keyCert 
@@ -45,8 +43,8 @@ class SecureAppApi(baseUrl: String) {
    * @param biometricPosition The position for the biometric file uploaded
    * @param biometricPosition2 The position for each the biometric2 file uploaded
    */
-  def createSecureApplication(version: BigDecimal, accountId: Long, appKey: String, keyCert: File, trustStore: File, username: String, password: String, active: Option[Boolean] = None, biometricType: Option[String] = None, biometricPosition: Option[String] = None, biometricPosition2: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/secure/application/create", "application/json")
+  def createSecureApplication(accountId: Long, appKey: String, keyCert: File, trustStore: File, username: String, password: String, active: Option[Boolean] = None, biometricType: Option[String] = None, biometricPosition: Option[String] = None, biometricPosition2: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/secure/application/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("active", active)
@@ -57,7 +55,6 @@ class SecureAppApi(baseUrl: String) {
       .withQueryParam("biometricType", biometricType)
       .withQueryParam("biometricPosition", biometricPosition)
       .withQueryParam("biometricPosition2", biometricPosition2)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -67,15 +64,13 @@ class SecureAppApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    */
-  def deleteSecureApplication(version: BigDecimal, accountId: Long, appKey: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/secure/application/delete", "application/json")
+  def deleteSecureApplication(accountId: Long, appKey: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/secure/application/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -85,7 +80,6 @@ class SecureAppApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application making the request, defines what type and position is required to make a secure login the request.
    * @param biometricFile The data file used to perform authentication
    * @param deviceId The unique id of the device making the request
@@ -96,8 +90,8 @@ class SecureAppApi(baseUrl: String) {
    * @param latitude Used to update the user's current location
    * @param longitude Used to update the user's current location
    */
-  def loginSecure(version: BigDecimal, appKey: String, biometricFile: File, deviceId: Option[String] = None, biometricFile2: Option[File] = None, ageRestriction: Option[Int] = None, returnProfile: Option[Boolean] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/secure/login", "application/json")
+  def loginSecure(appKey: String, biometricFile: File, deviceId: Option[String] = None, biometricFile2: Option[File] = None, ageRestriction: Option[Int] = None, returnProfile: Option[Boolean] = None, responseFilters: Option[String] = None, latitude: Option[Double] = None, longitude: Option[Double] = None): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/secure/login", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("biometricFile", biometricFile)
@@ -107,7 +101,6 @@ class SecureAppApi(baseUrl: String) {
       .withQueryParam("responseFilters", responseFilters)
       .withQueryParam("latitude", latitude)
       .withQueryParam("longitude", longitude)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -117,13 +110,11 @@ class SecureAppApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : ProfileResponse (successful operation)
    * 
-   * @param version 
    * @param body The payment request object
    */
-  def purchaseSecure(version: BigDecimal, body: PaymentRequest): ApiRequest[ProfileResponse] =
-    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/api/{version}/secure/purchase", "application/json")
+  def purchaseSecure(body: PaymentRequest): ApiRequest[ProfileResponse] =
+    ApiRequest[ProfileResponse](ApiMethods.POST, baseUrl, "/secure/purchase", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[ProfileResponse](200)
       
 
@@ -133,15 +124,13 @@ class SecureAppApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    */
-  def resetSecure(version: BigDecimal, accountId: Long, appKey: String): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/secure/application/reset", "application/json")
+  def resetSecure(accountId: Long, appKey: String): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/secure/application/reset", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -151,7 +140,6 @@ class SecureAppApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    * @param active 
@@ -163,8 +151,8 @@ class SecureAppApi(baseUrl: String) {
    * @param biometricPosition The position for the biometric file uploaded
    * @param biometricPosition2 The position for each the biometric2 file uploaded
    */
-  def updateSecureApplication(version: BigDecimal, accountId: Long, appKey: String, active: Option[Boolean] = None, keyCert: Option[File] = None, trustStore: Option[File] = None, username: Option[String] = None, password: Option[String] = None, biometricType: Option[String] = None, biometricPosition: Option[String] = None, biometricPosition2: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/secure/application/update", "application/json")
+  def updateSecureApplication(accountId: Long, appKey: String, active: Option[Boolean] = None, keyCert: Option[File] = None, trustStore: Option[File] = None, username: Option[String] = None, password: Option[String] = None, biometricType: Option[String] = None, biometricPosition: Option[String] = None, biometricPosition2: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/secure/application/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("active", active)
@@ -175,7 +163,6 @@ class SecureAppApi(baseUrl: String) {
       .withQueryParam("biometricType", biometricType)
       .withQueryParam("biometricPosition", biometricPosition)
       .withQueryParam("biometricPosition2", biometricPosition2)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 

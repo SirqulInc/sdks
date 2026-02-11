@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.TriggerResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TriggerApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TriggerApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TriggerApi(baseUrl)
 }
 
 class TriggerApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class TriggerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TriggerResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user
    * @param name The name of the trigger
    * @param appKey The application to target
@@ -46,8 +44,8 @@ class TriggerApi(baseUrl: String) {
    * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
    * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
    */
-  def createTrigger(version: BigDecimal, accountId: Long, name: String, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, conditionalInput: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TriggerResponse] =
-    ApiRequest[TriggerResponse](ApiMethods.POST, baseUrl, "/api/{version}/trigger/create", "application/json")
+  def createTrigger(accountId: Long, name: String, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, conditionalInput: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TriggerResponse] =
+    ApiRequest[TriggerResponse](ApiMethods.POST, baseUrl, "/trigger/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("appKey", appKey)
@@ -61,7 +59,6 @@ class TriggerApi(baseUrl: String) {
       .withQueryParam("conditionalInput", conditionalInput)
       .withQueryParam("visibility", visibility)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[TriggerResponse](200)
       
 
@@ -71,15 +68,13 @@ class TriggerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param triggerId The id of the trigger to delete.
    */
-  def deleteTrigger(version: BigDecimal, accountId: Long, triggerId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/trigger/delete", "application/json")
+  def deleteTrigger(accountId: Long, triggerId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/trigger/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("triggerId", triggerId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -89,15 +84,13 @@ class TriggerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TriggerResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param triggerId The id of the Trigger to return.
    */
-  def getTrigger(version: BigDecimal, accountId: Long, triggerId: Long): ApiRequest[TriggerResponse] =
-    ApiRequest[TriggerResponse](ApiMethods.GET, baseUrl, "/api/{version}/trigger/get", "application/json")
+  def getTrigger(accountId: Long, triggerId: Long): ApiRequest[TriggerResponse] =
+    ApiRequest[TriggerResponse](ApiMethods.GET, baseUrl, "/trigger/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("triggerId", triggerId)
-      .withPathParam("version", version)
       .withSuccessResponse[TriggerResponse](200)
       
 
@@ -107,7 +100,6 @@ class TriggerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[TriggerResponse] (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param groupingId Filter results by a grouping identifier defined by the client
    * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers 
@@ -121,8 +113,8 @@ class TriggerApi(baseUrl: String) {
    * @param limit Limit the result to some number.
    * @param activeOnly Determines whether to return only active results
    */
-  def searchTriggers(version: BigDecimal, accountId: Long, groupingId: Option[String] = None, filter: Option[String] = None, statuses: Option[String] = None, templateTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[TriggerResponse]] =
-    ApiRequest[Seq[TriggerResponse]](ApiMethods.GET, baseUrl, "/api/{version}/trigger/search", "application/json")
+  def searchTriggers(accountId: Long, groupingId: Option[String] = None, filter: Option[String] = None, statuses: Option[String] = None, templateTypes: Option[String] = None, appKey: Option[String] = None, keyword: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None, activeOnly: Option[Boolean] = None): ApiRequest[Seq[TriggerResponse]] =
+    ApiRequest[Seq[TriggerResponse]](ApiMethods.GET, baseUrl, "/trigger/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("groupingId", groupingId)
       .withQueryParam("filter", filter)
@@ -135,7 +127,6 @@ class TriggerApi(baseUrl: String) {
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[TriggerResponse]](200)
       
 
@@ -145,7 +136,6 @@ class TriggerApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TriggerResponse (successful operation)
    * 
-   * @param version 
    * @param triggerId The trigger to update
    * @param accountId The logged in user
    * @param name The name of the trigger
@@ -161,8 +151,8 @@ class TriggerApi(baseUrl: String) {
    * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
    * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
    */
-  def updateTrigger(version: BigDecimal, triggerId: Long, accountId: Long, name: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, conditionalInput: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TriggerResponse] =
-    ApiRequest[TriggerResponse](ApiMethods.POST, baseUrl, "/api/{version}/trigger/update", "application/json")
+  def updateTrigger(triggerId: Long, accountId: Long, name: Option[String] = None, appKey: Option[String] = None, groupingId: Option[String] = None, endpointURL: Option[String] = None, payload: Option[String] = None, scheduledDate: Option[Long] = None, startDate: Option[Long] = None, endDate: Option[Long] = None, cronExpression: Option[String] = None, conditionalInput: Option[String] = None, visibility: Option[String] = None, active: Option[Boolean] = None): ApiRequest[TriggerResponse] =
+    ApiRequest[TriggerResponse](ApiMethods.POST, baseUrl, "/trigger/update", "application/json")
       .withQueryParam("triggerId", triggerId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
@@ -177,7 +167,6 @@ class TriggerApi(baseUrl: String) {
       .withQueryParam("conditionalInput", conditionalInput)
       .withQueryParam("visibility", visibility)
       .withQueryParam("active", active)
-      .withPathParam("version", version)
       .withSuccessResponse[TriggerResponse](200)
       
 

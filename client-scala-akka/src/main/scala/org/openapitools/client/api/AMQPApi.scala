@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.QueueResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.core._
@@ -20,7 +19,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object AMQPApi {
 
-  def apply(baseUrl: String = "http://localhost") = new AMQPApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new AMQPApi(baseUrl)
 }
 
 class AMQPApi(baseUrl: String) {
@@ -31,7 +30,6 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QueueResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
    * @param name The name of the queue to connect to
    * @param hostname The hostname of the server the queue is hosted on
@@ -47,8 +45,8 @@ class AMQPApi(baseUrl: String) {
    * @param workers The number of workers to generate 
    * @param useSSL Use SSL
    */
-  def consumerCreate(version: BigDecimal, appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: Option[String] = None, accountId: Option[Long] = None, port: Option[Int] = None, virtualHost: Option[String] = None, exchanger: Option[String] = None, exchangerType: Option[String] = None, workers: Option[Int] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
-    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/api/{version}/queue/consumer/create", "application/json")
+  def consumerCreate(appKey: String, name: String, hostname: String, username: String, password: String, dataMapping: String, deviceId: Option[String] = None, accountId: Option[Long] = None, port: Option[Int] = None, virtualHost: Option[String] = None, exchanger: Option[String] = None, exchangerType: Option[String] = None, workers: Option[Int] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
+    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/queue/consumer/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -63,7 +61,6 @@ class AMQPApi(baseUrl: String) {
       .withQueryParam("workers", workers)
       .withQueryParam("dataMapping", dataMapping)
       .withQueryParam("useSSL", useSSL)
-      .withPathParam("version", version)
       .withSuccessResponse[QueueResponse](200)
       
 
@@ -73,7 +70,6 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QueueResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
    * @param queueId The queue to update
    * @param dataMapping The data mapping information in the format of AMQPRequest
@@ -81,15 +77,14 @@ class AMQPApi(baseUrl: String) {
    * @param accountId The logged in user ID
    * @param useSSL Use SSL
    */
-  def consumerUpdate(version: BigDecimal, appKey: String, queueId: Long, dataMapping: String, deviceId: Option[String] = None, accountId: Option[Long] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
-    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/api/{version}/queue/consumer/update", "application/json")
+  def consumerUpdate(appKey: String, queueId: Long, dataMapping: String, deviceId: Option[String] = None, accountId: Option[Long] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
+    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/queue/consumer/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("queueId", queueId)
       .withQueryParam("dataMapping", dataMapping)
       .withQueryParam("useSSL", useSSL)
-      .withPathParam("version", version)
       .withSuccessResponse[QueueResponse](200)
       
 
@@ -99,7 +94,6 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QueueResponse (successful operation)
    * 
-   * @param version 
    * @param appKey The application key unique to each application.
    * @param name The name of the queue to create
    * @param deviceId The client deviceID
@@ -113,8 +107,8 @@ class AMQPApi(baseUrl: String) {
    * @param virtualHost The virtual host defined on the server to queue
    * @param useSSL Use SSL
    */
-  def queueCreate(version: BigDecimal, appKey: String, name: String, deviceId: Option[String] = None, accountId: Option[Long] = None, workers: Option[Int] = None, analyticTags: Option[String] = None, hostname: Option[String] = None, port: Option[Int] = None, username: Option[String] = None, password: Option[String] = None, virtualHost: Option[String] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
-    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/api/{version}/queue/create", "application/json")
+  def queueCreate(appKey: String, name: String, deviceId: Option[String] = None, accountId: Option[Long] = None, workers: Option[Int] = None, analyticTags: Option[String] = None, hostname: Option[String] = None, port: Option[Int] = None, username: Option[String] = None, password: Option[String] = None, virtualHost: Option[String] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
+    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/queue/create", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -127,7 +121,6 @@ class AMQPApi(baseUrl: String) {
       .withQueryParam("password", password)
       .withQueryParam("virtualHost", virtualHost)
       .withQueryParam("useSSL", useSSL)
-      .withPathParam("version", version)
       .withSuccessResponse[QueueResponse](200)
       
 
@@ -137,17 +130,15 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param queueId The id of the queue to find
    * @param deviceId The client device ID
    * @param accountId The logged in user ID
    */
-  def queueDelete(version: BigDecimal, queueId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/queue/delete", "application/json")
+  def queueDelete(queueId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/queue/delete", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("queueId", queueId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -157,7 +148,6 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QueueResponse (successful operation)
    * 
-   * @param version 
    * @param deviceId The client device ID
    * @param accountId The logged in user ID
    * @param queueId The id of the queue to find
@@ -166,8 +156,8 @@ class AMQPApi(baseUrl: String) {
    * @param hostname The hostname of the queue to find
    * @param virtualHost The virtual host of the queue to find
    */
-  def queueGet(version: BigDecimal, deviceId: Option[String] = None, accountId: Option[Long] = None, queueId: Option[Long] = None, appKey: Option[String] = None, name: Option[String] = None, hostname: Option[String] = None, virtualHost: Option[String] = None): ApiRequest[QueueResponse] =
-    ApiRequest[QueueResponse](ApiMethods.GET, baseUrl, "/api/{version}/queue/get", "application/json")
+  def queueGet(deviceId: Option[String] = None, accountId: Option[Long] = None, queueId: Option[Long] = None, appKey: Option[String] = None, name: Option[String] = None, hostname: Option[String] = None, virtualHost: Option[String] = None): ApiRequest[QueueResponse] =
+    ApiRequest[QueueResponse](ApiMethods.GET, baseUrl, "/queue/get", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("queueId", queueId)
@@ -175,7 +165,6 @@ class AMQPApi(baseUrl: String) {
       .withQueryParam("name", name)
       .withQueryParam("hostname", hostname)
       .withQueryParam("virtualHost", virtualHost)
-      .withPathParam("version", version)
       .withSuccessResponse[QueueResponse](200)
       
 
@@ -185,7 +174,6 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param message The payload to send to the queue
    * @param queueId The id of the queue to publish to
    * @param appKey The application key the queue was assigned to
@@ -193,15 +181,14 @@ class AMQPApi(baseUrl: String) {
    * @param hostname The hostname of the server the queue is hosted on
    * @param virtualHost The virtual host defined on the server to queue
    */
-  def queuePublish(version: BigDecimal, message: String, queueId: Option[Long] = None, appKey: Option[String] = None, name: Option[String] = None, hostname: Option[String] = None, virtualHost: Option[String] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/queue/publish", "application/json")
+  def queuePublish(message: String, queueId: Option[Long] = None, appKey: Option[String] = None, name: Option[String] = None, hostname: Option[String] = None, virtualHost: Option[String] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/queue/publish", "application/json")
       .withQueryParam("queueId", queueId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("name", name)
       .withQueryParam("hostname", hostname)
       .withQueryParam("virtualHost", virtualHost)
       .withQueryParam("message", message)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -211,7 +198,6 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QueueResponse (successful operation)
    * 
-   * @param version 
    * @param queueId The id of the queue to find
    * @param deviceId The client device ID
    * @param accountId The logged in user ID
@@ -219,15 +205,14 @@ class AMQPApi(baseUrl: String) {
    * @param start Start of the index
    * @param limit Limit of the index
    */
-  def queueSearch(version: BigDecimal, queueId: Option[Long] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[QueueResponse] =
-    ApiRequest[QueueResponse](ApiMethods.GET, baseUrl, "/api/{version}/queue/search", "application/json")
+  def queueSearch(queueId: Option[Long] = None, deviceId: Option[String] = None, accountId: Option[Long] = None, name: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[QueueResponse] =
+    ApiRequest[QueueResponse](ApiMethods.GET, baseUrl, "/queue/search", "application/json")
       .withQueryParam("queueId", queueId)
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("name", name)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[QueueResponse](200)
       
 
@@ -237,7 +222,6 @@ class AMQPApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : QueueResponse (successful operation)
    * 
-   * @param version 
    * @param queueId The id of the queue to update
    * @param deviceId The client deviceID
    * @param accountId The logged in user ID
@@ -251,8 +235,8 @@ class AMQPApi(baseUrl: String) {
    * @param virtualHost The virtual host defined on the server to queue
    * @param useSSL the SSL to use
    */
-  def queueUpdate(version: BigDecimal, queueId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, workers: Option[Int] = None, analyticTags: Option[String] = None, hostname: Option[String] = None, port: Option[Int] = None, username: Option[String] = None, password: Option[String] = None, virtualHost: Option[String] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
-    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/api/{version}/queue/update", "application/json")
+  def queueUpdate(queueId: Long, deviceId: Option[String] = None, accountId: Option[Long] = None, appKey: Option[String] = None, workers: Option[Int] = None, analyticTags: Option[String] = None, hostname: Option[String] = None, port: Option[Int] = None, username: Option[String] = None, password: Option[String] = None, virtualHost: Option[String] = None, useSSL: Option[Boolean] = None): ApiRequest[QueueResponse] =
+    ApiRequest[QueueResponse](ApiMethods.POST, baseUrl, "/queue/update", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
@@ -265,7 +249,6 @@ class AMQPApi(baseUrl: String) {
       .withQueryParam("password", password)
       .withQueryParam("virtualHost", virtualHost)
       .withQueryParam("useSSL", useSSL)
-      .withPathParam("version", version)
       .withSuccessResponse[QueueResponse](200)
       
 

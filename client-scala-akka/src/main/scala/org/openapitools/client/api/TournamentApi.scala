@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.MissionShortResponse
 import org.openapitools.client.model.SirqulResponse
 import org.openapitools.client.model.TournamentResponse
@@ -21,7 +20,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object TournamentApi {
 
-  def apply(baseUrl: String = "http://localhost") = new TournamentApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new TournamentApi(baseUrl)
 }
 
 class TournamentApi(baseUrl: String) {
@@ -32,7 +31,6 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TournamentResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The appKey the tournament is created for.
    * @param title The title of the tournament
@@ -69,8 +67,8 @@ class TournamentApi(baseUrl: String) {
    * @param winnerTag This sets what analytic tag is used when a winner is determined
    * @param tieTag This sets what analytic tag is used when a tie has occurred
    */
-  def createTournament(version: BigDecimal, accountId: Long, appKey: String, title: String, costToPlay: Int, startDate: Long, subType: Option[String] = None, imageAssetId: Option[Long] = None, secondsBetweenLevels: Option[Int] = None, secondsForTieBreaker: Option[Int] = None, secondsBetweenPacks: Option[Int] = None, maximumLevelLength: Option[Int] = None, costToPlayType: Option[String] = None, minimumToPlay: Option[Int] = None, startingLimit: Option[Int] = None, availableLimit: Option[Int] = None, description: Option[String] = None, metaData: Option[String] = None, audienceIds: Option[String] = None, active: Option[Boolean] = None, enableBuyBack: Option[Boolean] = None, offerIds: Option[String] = None, offerAssetId: Option[Long] = None, fixedReward: Option[Boolean] = None, splitReward: Option[String] = None, allocateTickets: Option[Boolean] = None, tournamentData: Option[String] = None, missionType: Option[String] = None, visibility: Option[String] = None, preliminaryGroups: Option[Int] = None, preliminaryGroupAdvancements: Option[String] = None, enableMultipleEntries: Option[Boolean] = None, enableMultipleVotes: Option[Boolean] = None, featured: Option[Boolean] = None, winnerTag: Option[String] = None, tieTag: Option[String] = None): ApiRequest[TournamentResponse] =
-    ApiRequest[TournamentResponse](ApiMethods.POST, baseUrl, "/api/{version}/tournament/create", "application/json")
+  def createTournament(accountId: Long, appKey: String, title: String, costToPlay: Int, startDate: Long, subType: Option[String] = None, imageAssetId: Option[Long] = None, secondsBetweenLevels: Option[Int] = None, secondsForTieBreaker: Option[Int] = None, secondsBetweenPacks: Option[Int] = None, maximumLevelLength: Option[Int] = None, costToPlayType: Option[String] = None, minimumToPlay: Option[Int] = None, startingLimit: Option[Int] = None, availableLimit: Option[Int] = None, description: Option[String] = None, metaData: Option[String] = None, audienceIds: Option[String] = None, active: Option[Boolean] = None, enableBuyBack: Option[Boolean] = None, offerIds: Option[String] = None, offerAssetId: Option[Long] = None, fixedReward: Option[Boolean] = None, splitReward: Option[String] = None, allocateTickets: Option[Boolean] = None, tournamentData: Option[String] = None, missionType: Option[String] = None, visibility: Option[String] = None, preliminaryGroups: Option[Int] = None, preliminaryGroupAdvancements: Option[String] = None, enableMultipleEntries: Option[Boolean] = None, enableMultipleVotes: Option[Boolean] = None, featured: Option[Boolean] = None, winnerTag: Option[String] = None, tieTag: Option[String] = None): ApiRequest[TournamentResponse] =
+    ApiRequest[TournamentResponse](ApiMethods.POST, baseUrl, "/tournament/create", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("title", title)
@@ -106,7 +104,6 @@ class TournamentApi(baseUrl: String) {
       .withQueryParam("featured", featured)
       .withQueryParam("winnerTag", winnerTag)
       .withQueryParam("tieTag", tieTag)
-      .withPathParam("version", version)
       .withSuccessResponse[TournamentResponse](200)
       
 
@@ -116,15 +113,13 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param missionId the id of the mission to delete
    */
-  def deleteTournament(version: BigDecimal, accountId: Long, missionId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/tournament/delete", "application/json")
+  def deleteTournament(accountId: Long, missionId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/tournament/delete", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -134,21 +129,19 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TournamentResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The id of the logged in user
    * @param missionId The id of the mission to return (either missionId or joinCode is required)
    * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required)
    * @param includeScores Determines which type of scores are returned. Possible values include: ALL, MINE
    * @param objectPreviewSize Determines the max number of game objects that will get returned for each game level response
    */
-  def getTournament(version: BigDecimal, accountId: Long, missionId: Option[Long] = None, joinCode: Option[String] = None, includeScores: Option[String] = None, objectPreviewSize: Option[Int] = None): ApiRequest[TournamentResponse] =
-    ApiRequest[TournamentResponse](ApiMethods.GET, baseUrl, "/api/{version}/tournament/get", "application/json")
+  def getTournament(accountId: Long, missionId: Option[Long] = None, joinCode: Option[String] = None, includeScores: Option[String] = None, objectPreviewSize: Option[Int] = None): ApiRequest[TournamentResponse] =
+    ApiRequest[TournamentResponse](ApiMethods.GET, baseUrl, "/tournament/get", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("joinCode", joinCode)
       .withQueryParam("includeScores", includeScores)
       .withQueryParam("objectPreviewSize", objectPreviewSize)
-      .withPathParam("version", version)
       .withSuccessResponse[TournamentResponse](200)
       
 
@@ -158,7 +151,6 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID
    * @param gameLevelId the game level id to filter results by
    * @param sortField the field to sort by
@@ -166,15 +158,14 @@ class TournamentApi(baseUrl: String) {
    * @param start the start index for pagination
    * @param limit the limit for pagination
    */
-  def searchObjects(version: BigDecimal, accountId: Long, gameLevelId: Long, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/tournament/object/search", "application/json")
+  def searchObjects(accountId: Long, gameLevelId: Long, sortField: Option[String] = None, descending: Option[Boolean] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/tournament/object/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("gameLevelId", gameLevelId)
       .withQueryParam("sortField", sortField)
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -184,7 +175,6 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the account ID
    * @param appKey the application key
    * @param status comma separated list of statuses to filter results by
@@ -194,8 +184,8 @@ class TournamentApi(baseUrl: String) {
    * @param start the start index for pagination
    * @param limit the limit for pagination
    */
-  def searchRounds(version: BigDecimal, accountId: Long, appKey: String, status: Option[String] = None, missionType: Option[String] = None, currentOnly: Option[Boolean] = None, visibilities: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/api/{version}/tournament/round/search", "application/json")
+  def searchRounds(accountId: Long, appKey: String, status: Option[String] = None, missionType: Option[String] = None, currentOnly: Option[Boolean] = None, visibilities: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.GET, baseUrl, "/tournament/round/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("status", status)
@@ -204,7 +194,6 @@ class TournamentApi(baseUrl: String) {
       .withQueryParam("visibilities", visibilities)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -214,7 +203,6 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : MissionShortResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The application key
    * @param keyword the keyword to search tournament on
@@ -228,8 +216,8 @@ class TournamentApi(baseUrl: String) {
    * @param start Start the result set at some index.
    * @param limit Limit the result to some number
    */
-  def searchTournaments(version: BigDecimal, accountId: Long, appKey: String, keyword: Option[String] = None, subType: Option[String] = None, includeInactive: Option[Boolean] = None, missionTypes: Option[String] = None, filter: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, visibility: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[MissionShortResponse] =
-    ApiRequest[MissionShortResponse](ApiMethods.GET, baseUrl, "/api/{version}/tournament/search", "application/json")
+  def searchTournaments(accountId: Long, appKey: String, keyword: Option[String] = None, subType: Option[String] = None, includeInactive: Option[Boolean] = None, missionTypes: Option[String] = None, filter: Option[String] = None, sortField: Option[String] = None, descending: Option[Boolean] = None, visibility: Option[String] = None, start: Option[Int] = None, limit: Option[Int] = None): ApiRequest[MissionShortResponse] =
+    ApiRequest[MissionShortResponse](ApiMethods.GET, baseUrl, "/tournament/search", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("keyword", keyword)
@@ -242,7 +230,6 @@ class TournamentApi(baseUrl: String) {
       .withQueryParam("visibility", visibility)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
-      .withPathParam("version", version)
       .withSuccessResponse[MissionShortResponse](200)
       
 
@@ -252,7 +239,6 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user account ID.
    * @param appKey The application key.
    * @param missionId The missionId to score for
@@ -261,8 +247,8 @@ class TournamentApi(baseUrl: String) {
    * @param scores a JSON Array of scores to submit for a tournament match ```json [   {     \"accountId\": 2,     \"points\": 3   },   {     \"accountId\": 1777662,     \"points\": 7   } ] ``` 
    * @param gameLevelId The gameLevelId to score for
    */
-  def submitTournamentScore(version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, scores: String, gameLevelId: Option[Long] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/tournament/score", "application/json")
+  def submitTournamentScore(accountId: Long, appKey: String, missionId: Long, gameId: Long, packId: Long, scores: String, gameLevelId: Option[Long] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/tournament/score", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("missionId", missionId)
@@ -270,7 +256,6 @@ class TournamentApi(baseUrl: String) {
       .withQueryParam("packId", packId)
       .withQueryParam("gameLevelId", gameLevelId)
       .withQueryParam("scores", scores)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -280,7 +265,6 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The application to target
    * @param missionId The tournament's primary id
@@ -288,15 +272,14 @@ class TournamentApi(baseUrl: String) {
    * @param deviceId The unique id of the device making the request (optional)
    * @param checkIfDeviceAlreadyVoted When true, check if the device already voted to prevent duplicate votes from the same device
    */
-  def submitTournamentVote(version: BigDecimal, accountId: Long, appKey: String, missionId: Long, gameObjectId: Long, deviceId: Option[String] = None, checkIfDeviceAlreadyVoted: Option[Boolean] = None): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/tournament/vote", "application/json")
+  def submitTournamentVote(accountId: Long, appKey: String, missionId: Long, gameObjectId: Long, deviceId: Option[String] = None, checkIfDeviceAlreadyVoted: Option[Boolean] = None): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/tournament/vote", "application/json")
       .withQueryParam("deviceId", deviceId)
       .withQueryParam("accountId", accountId)
       .withQueryParam("appKey", appKey)
       .withQueryParam("missionId", missionId)
       .withQueryParam("gameObjectId", gameObjectId)
       .withQueryParam("checkIfDeviceAlreadyVoted", checkIfDeviceAlreadyVoted)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -306,19 +289,17 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : SirqulResponse (successful operation)
    * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param missionId the id of the mission
    * @param packId the id of the pack
    * @param gameLevelId the id of the game level
    */
-  def substituteTournamentPlayer(version: BigDecimal, accountId: Long, missionId: Long, packId: Long, gameLevelId: Long): ApiRequest[SirqulResponse] =
-    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/api/{version}/tournament/substitute", "application/json")
+  def substituteTournamentPlayer(accountId: Long, missionId: Long, packId: Long, gameLevelId: Long): ApiRequest[SirqulResponse] =
+    ApiRequest[SirqulResponse](ApiMethods.POST, baseUrl, "/tournament/substitute", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("packId", packId)
       .withQueryParam("gameLevelId", gameLevelId)
-      .withPathParam("version", version)
       .withSuccessResponse[SirqulResponse](200)
       
 
@@ -328,7 +309,6 @@ class TournamentApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : TournamentResponse (successful operation)
    * 
-   * @param version 
    * @param accountId The logged in user.
    * @param missionId The mission/tournament to update
    * @param title The title of the tournament
@@ -364,8 +344,8 @@ class TournamentApi(baseUrl: String) {
    * @param winnerTag This sets what analytic tag is used when a winner is determined
    * @param tieTag This sets what analytic tag is used when a winner is determined
    */
-  def updateTournament(version: BigDecimal, accountId: Long, missionId: Long, title: Option[String] = None, subType: Option[String] = None, imageAssetId: Option[Long] = None, secondsBetweenLevels: Option[Int] = None, secondsForTieBreaker: Option[Int] = None, secondsBetweenPacks: Option[Int] = None, maximumLevelLength: Option[Int] = None, costToPlay: Option[Int] = None, costToPlayType: Option[String] = None, minimumToPlay: Option[Int] = None, startingLimit: Option[Int] = None, availableLimit: Option[Int] = None, description: Option[String] = None, metaData: Option[String] = None, startDate: Option[Long] = None, audienceIds: Option[String] = None, active: Option[Boolean] = None, enableBuyBack: Option[Boolean] = None, offerIds: Option[String] = None, offerAssetId: Option[Long] = None, fixedReward: Option[Boolean] = None, splitReward: Option[String] = None, allocateTickets: Option[Boolean] = None, tournamentData: Option[String] = None, visibility: Option[String] = None, preliminaryGroups: Option[Int] = None, preliminaryGroupAdvancements: Option[String] = None, enableMultipleEntries: Option[Boolean] = None, enableMultipleVotes: Option[Boolean] = None, featured: Option[Boolean] = None, winnerTag: Option[String] = None, tieTag: Option[String] = None): ApiRequest[TournamentResponse] =
-    ApiRequest[TournamentResponse](ApiMethods.POST, baseUrl, "/api/{version}/tournament/update", "application/json")
+  def updateTournament(accountId: Long, missionId: Long, title: Option[String] = None, subType: Option[String] = None, imageAssetId: Option[Long] = None, secondsBetweenLevels: Option[Int] = None, secondsForTieBreaker: Option[Int] = None, secondsBetweenPacks: Option[Int] = None, maximumLevelLength: Option[Int] = None, costToPlay: Option[Int] = None, costToPlayType: Option[String] = None, minimumToPlay: Option[Int] = None, startingLimit: Option[Int] = None, availableLimit: Option[Int] = None, description: Option[String] = None, metaData: Option[String] = None, startDate: Option[Long] = None, audienceIds: Option[String] = None, active: Option[Boolean] = None, enableBuyBack: Option[Boolean] = None, offerIds: Option[String] = None, offerAssetId: Option[Long] = None, fixedReward: Option[Boolean] = None, splitReward: Option[String] = None, allocateTickets: Option[Boolean] = None, tournamentData: Option[String] = None, visibility: Option[String] = None, preliminaryGroups: Option[Int] = None, preliminaryGroupAdvancements: Option[String] = None, enableMultipleEntries: Option[Boolean] = None, enableMultipleVotes: Option[Boolean] = None, featured: Option[Boolean] = None, winnerTag: Option[String] = None, tieTag: Option[String] = None): ApiRequest[TournamentResponse] =
+    ApiRequest[TournamentResponse](ApiMethods.POST, baseUrl, "/tournament/update", "application/json")
       .withQueryParam("accountId", accountId)
       .withQueryParam("missionId", missionId)
       .withQueryParam("title", title)
@@ -400,7 +380,6 @@ class TournamentApi(baseUrl: String) {
       .withQueryParam("featured", featured)
       .withQueryParam("winnerTag", winnerTag)
       .withQueryParam("tieTag", tieTag)
-      .withPathParam("version", version)
       .withSuccessResponse[TournamentResponse](200)
       
 

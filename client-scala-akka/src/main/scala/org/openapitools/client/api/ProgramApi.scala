@@ -11,7 +11,6 @@
  */
 package org.openapitools.client.api
 
-import java.math.BigDecimal
 import org.openapitools.client.model.Program
 import org.openapitools.client.core._
 import org.openapitools.client.core.CollectionFormats._
@@ -19,7 +18,7 @@ import org.openapitools.client.core.ApiKeyLocations._
 
 object ProgramApi {
 
-  def apply(baseUrl: String = "http://localhost") = new ProgramApi(baseUrl)
+  def apply(baseUrl: String = "https://dev.sirqul.com/api/3.18") = new ProgramApi(baseUrl)
 }
 
 class ProgramApi(baseUrl: String) {
@@ -30,13 +29,11 @@ class ProgramApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Program (successful operation)
    * 
-   * @param version 
    * @param body 
    */
-  def createProgram(version: BigDecimal, body: Option[Program] = None): ApiRequest[Program] =
-    ApiRequest[Program](ApiMethods.POST, baseUrl, "/api/{version}/program", "application/json")
+  def createProgram(body: Option[Program] = None): ApiRequest[Program] =
+    ApiRequest[Program](ApiMethods.POST, baseUrl, "/program", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withSuccessResponse[Program](200)
       
 
@@ -46,12 +43,10 @@ class ProgramApi(baseUrl: String) {
    * Expected answers:
    *   code 0 :  (successful operation)
    * 
-   * @param version 
    * @param id the id of the program
    */
-  def deleteProgram(version: BigDecimal, id: Long): ApiRequest[Unit] =
-    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/api/{version}/program/{id}", "application/json")
-      .withPathParam("version", version)
+  def deleteProgram(id: Long): ApiRequest[Unit] =
+    ApiRequest[Unit](ApiMethods.DELETE, baseUrl, "/program/{id}", "application/json")
       .withPathParam("id", id)
       .withDefaultErrorResponse[Unit]
       
@@ -62,12 +57,10 @@ class ProgramApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Program (successful operation)
    * 
-   * @param version 
    * @param id the id of the program
    */
-  def getProgram(version: BigDecimal, id: Long): ApiRequest[Program] =
-    ApiRequest[Program](ApiMethods.GET, baseUrl, "/api/{version}/program/{id}", "application/json")
-      .withPathParam("version", version)
+  def getProgram(id: Long): ApiRequest[Program] =
+    ApiRequest[Program](ApiMethods.GET, baseUrl, "/program/{id}", "application/json")
       .withPathParam("id", id)
       .withSuccessResponse[Program](200)
       
@@ -78,14 +71,12 @@ class ProgramApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Program (successful operation)
    * 
-   * @param version 
    * @param id the id of the program
    * @param body 
    */
-  def postProgram(version: BigDecimal, id: Long, body: Option[Program] = None): ApiRequest[Program] =
-    ApiRequest[Program](ApiMethods.POST, baseUrl, "/api/{version}/program/{id}", "application/json")
+  def postProgram(id: Long, body: Option[Program] = None): ApiRequest[Program] =
+    ApiRequest[Program](ApiMethods.POST, baseUrl, "/program/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Program](200)
       
@@ -96,14 +87,12 @@ class ProgramApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Program (successful operation)
    * 
-   * @param version 
    * @param id the id of the program
    * @param body 
    */
-  def putProgram(version: BigDecimal, id: Long, body: Option[Program] = None): ApiRequest[Program] =
-    ApiRequest[Program](ApiMethods.PUT, baseUrl, "/api/{version}/program/{id}", "application/json")
+  def putProgram(id: Long, body: Option[Program] = None): ApiRequest[Program] =
+    ApiRequest[Program](ApiMethods.PUT, baseUrl, "/program/{id}", "application/json")
       .withBody(body)
-      .withPathParam("version", version)
       .withPathParam("id", id)
       .withSuccessResponse[Program](200)
       
@@ -114,7 +103,6 @@ class ProgramApi(baseUrl: String) {
    * Expected answers:
    *   code 200 : Seq[Program] (successful operation)
    * 
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -122,15 +110,14 @@ class ProgramApi(baseUrl: String) {
    * @param activeOnly Return only active results
    * @param keyword The keyword to filter results by
    */
-  def searchPrograms(version: BigDecimal, sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, keyword: Option[String] = None): ApiRequest[Seq[Program]] =
-    ApiRequest[Seq[Program]](ApiMethods.GET, baseUrl, "/api/{version}/program", "application/json")
+  def searchPrograms(sortField: String, descending: Boolean, start: Int, limit: Int, activeOnly: Boolean, keyword: Option[String] = None): ApiRequest[Seq[Program]] =
+    ApiRequest[Seq[Program]](ApiMethods.GET, baseUrl, "/program", "application/json")
       .withQueryParam("keyword", keyword)
       .withQueryParam("sortField", sortField)
       .withQueryParam("descending", descending)
       .withQueryParam("start", start)
       .withQueryParam("limit", limit)
       .withQueryParam("activeOnly", activeOnly)
-      .withPathParam("version", version)
       .withSuccessResponse[Seq[Program]](200)
       
 
