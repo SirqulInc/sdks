@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Album
     # Create an Album.
-    # @param version [Float] 
     # @param title [String] the title of the album
     # @param cover_asset_nullable [Boolean] determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image
     # @param include_cover_in_asset_list [Boolean] determines whether the cover image should be added to the album asset list
@@ -70,14 +69,13 @@ module OpenapiClient
     # @option opts [String] :linked_object_type sets a linked object so that it can be returned as part of the album response
     # @option opts [Integer] :linked_object_id sets a linked object id so that it can be returned as part of the album response
     # @return [SearchResponse]
-    def add_album_collection(version, title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, opts = {})
-      data, _status_code, _headers = add_album_collection_with_http_info(version, title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, opts)
+    def add_album_collection(title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, opts = {})
+      data, _status_code, _headers = add_album_collection_with_http_info(title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, opts)
       data
     end
 
     # Create Album
     # Create an Album.
-    # @param version [Float] 
     # @param title [String] the title of the album
     # @param cover_asset_nullable [Boolean] determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image
     # @param include_cover_in_asset_list [Boolean] determines whether the cover image should be added to the album asset list
@@ -126,13 +124,9 @@ module OpenapiClient
     # @option opts [String] :linked_object_type sets a linked object so that it can be returned as part of the album response
     # @option opts [Integer] :linked_object_id sets a linked object id so that it can be returned as part of the album response
     # @return [Array<(SearchResponse, Integer, Hash)>] SearchResponse data, response status code and response headers
-    def add_album_collection_with_http_info(version, title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, opts = {})
+    def add_album_collection_with_http_info(title, cover_asset_nullable, include_cover_in_asset_list, public_read, public_write, public_delete, public_add, anonymous, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.add_album_collection ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.add_album_collection"
       end
       # verify the required parameter 'title' is set
       if @api_client.config.client_side_validation && title.nil?
@@ -175,7 +169,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"approval_status\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/album/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -262,7 +256,6 @@ module OpenapiClient
 
     # Add Album Users
     # Add users to an album as participants.
-    # @param version [Float] 
     # @param album_id [Integer] the album ID
     # @param include_friend_group [Boolean] determines whether to include all friends as participants
     # @param [Hash] opts the optional parameters
@@ -275,14 +268,13 @@ module OpenapiClient
     # @option opts [String] :connections comma separated list of connection IDs
     # @option opts [String] :connection_groups comma separated list of connection group IDs
     # @return [SirqulResponse]
-    def add_album_users(version, album_id, include_friend_group, opts = {})
-      data, _status_code, _headers = add_album_users_with_http_info(version, album_id, include_friend_group, opts)
+    def add_album_users(album_id, include_friend_group, opts = {})
+      data, _status_code, _headers = add_album_users_with_http_info(album_id, include_friend_group, opts)
       data
     end
 
     # Add Album Users
     # Add users to an album as participants.
-    # @param version [Float] 
     # @param album_id [Integer] the album ID
     # @param include_friend_group [Boolean] determines whether to include all friends as participants
     # @param [Hash] opts the optional parameters
@@ -295,13 +287,9 @@ module OpenapiClient
     # @option opts [String] :connections comma separated list of connection IDs
     # @option opts [String] :connection_groups comma separated list of connection group IDs
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def add_album_users_with_http_info(version, album_id, include_friend_group, opts = {})
+    def add_album_users_with_http_info(album_id, include_friend_group, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.add_album_users ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.add_album_users"
       end
       # verify the required parameter 'album_id' is set
       if @api_client.config.client_side_validation && album_id.nil?
@@ -312,7 +300,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'include_friend_group' when calling AlbumApi.add_album_users"
       end
       # resource path
-      local_var_path = '/api/{version}/album/user/add'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/user/add'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -363,7 +351,6 @@ module OpenapiClient
 
     # Approve Album
     # Sets the approval status of an Album.
-    # @param version [Float] 
     # @param album_id [Integer] The ID of the album
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id A unique ID given by the device (deviceId or accountId required)
@@ -371,14 +358,13 @@ module OpenapiClient
     # @option opts [String] :approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
     # @option opts [Boolean] :verified Sets whether the album should be marked as \&quot;verified\&quot;
     # @return [SirqulResponse]
-    def approve_album(version, album_id, opts = {})
-      data, _status_code, _headers = approve_album_with_http_info(version, album_id, opts)
+    def approve_album(album_id, opts = {})
+      data, _status_code, _headers = approve_album_with_http_info(album_id, opts)
       data
     end
 
     # Approve Album
     # Sets the approval status of an Album.
-    # @param version [Float] 
     # @param album_id [Integer] The ID of the album
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id A unique ID given by the device (deviceId or accountId required)
@@ -386,13 +372,9 @@ module OpenapiClient
     # @option opts [String] :approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
     # @option opts [Boolean] :verified Sets whether the album should be marked as \&quot;verified\&quot;
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def approve_album_with_http_info(version, album_id, opts = {})
+    def approve_album_with_http_info(album_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.approve_album ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.approve_album"
       end
       # verify the required parameter 'album_id' is set
       if @api_client.config.client_side_validation && album_id.nil?
@@ -403,7 +385,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"approval_status\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/album/approve'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/approve'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -449,7 +431,6 @@ module OpenapiClient
 
     #  Get Album
     # Get an Album.
-    # @param version [Float] 
     # @param return_nulls [Boolean] This parameter is deprecated.
     # @param album_id [Integer] the album to look up
     # @param [Hash] opts the optional parameters
@@ -461,14 +442,13 @@ module OpenapiClient
     # @option opts [Integer] :connection_preview_size returns the first X users/connections. To search on and paginate the remaining connections - please use the \&quot;/permissions/search\&quot; endpoint.
     # @option opts [Integer] :audience_preview_size returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint.
     # @return [AlbumFullResponse]
-    def get_album_collection(version, return_nulls, album_id, opts = {})
-      data, _status_code, _headers = get_album_collection_with_http_info(version, return_nulls, album_id, opts)
+    def get_album_collection(return_nulls, album_id, opts = {})
+      data, _status_code, _headers = get_album_collection_with_http_info(return_nulls, album_id, opts)
       data
     end
 
     #  Get Album
     # Get an Album.
-    # @param version [Float] 
     # @param return_nulls [Boolean] This parameter is deprecated.
     # @param album_id [Integer] the album to look up
     # @param [Hash] opts the optional parameters
@@ -480,13 +460,9 @@ module OpenapiClient
     # @option opts [Integer] :connection_preview_size returns the first X users/connections. To search on and paginate the remaining connections - please use the \&quot;/permissions/search\&quot; endpoint.
     # @option opts [Integer] :audience_preview_size returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint.
     # @return [Array<(AlbumFullResponse, Integer, Hash)>] AlbumFullResponse data, response status code and response headers
-    def get_album_collection_with_http_info(version, return_nulls, album_id, opts = {})
+    def get_album_collection_with_http_info(return_nulls, album_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.get_album_collection ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.get_album_collection"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -497,7 +473,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'album_id' when calling AlbumApi.get_album_collection"
       end
       # resource path
-      local_var_path = '/api/{version}/album/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -547,39 +523,33 @@ module OpenapiClient
 
     # Leave Album
     #  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-    # @param version [Float] 
     # @param album_id [Integer] the album ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def leave_album(version, album_id, opts = {})
-      data, _status_code, _headers = leave_album_with_http_info(version, album_id, opts)
+    def leave_album(album_id, opts = {})
+      data, _status_code, _headers = leave_album_with_http_info(album_id, opts)
       data
     end
 
     # Leave Album
     #  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-    # @param version [Float] 
     # @param album_id [Integer] the album ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def leave_album_with_http_info(version, album_id, opts = {})
+    def leave_album_with_http_info(album_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.leave_album ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.leave_album"
       end
       # verify the required parameter 'album_id' is set
       if @api_client.config.client_side_validation && album_id.nil?
         fail ArgumentError, "Missing the required parameter 'album_id' when calling AlbumApi.leave_album"
       end
       # resource path
-      local_var_path = '/api/{version}/album/user/leave'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/user/leave'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -623,39 +593,33 @@ module OpenapiClient
 
     # Delete Album
     # Deletes an Album
-    # @param version [Float] 
     # @param album_id [Integer] the album ID to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def remove_album(version, album_id, opts = {})
-      data, _status_code, _headers = remove_album_with_http_info(version, album_id, opts)
+    def remove_album(album_id, opts = {})
+      data, _status_code, _headers = remove_album_with_http_info(album_id, opts)
       data
     end
 
     # Delete Album
     # Deletes an Album
-    # @param version [Float] 
     # @param album_id [Integer] the album ID to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_album_with_http_info(version, album_id, opts = {})
+    def remove_album_with_http_info(album_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.remove_album ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.remove_album"
       end
       # verify the required parameter 'album_id' is set
       if @api_client.config.client_side_validation && album_id.nil?
         fail ArgumentError, "Missing the required parameter 'album_id' when calling AlbumApi.remove_album"
       end
       # resource path
-      local_var_path = '/api/{version}/album/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -699,7 +663,6 @@ module OpenapiClient
 
     # Remove Album Users
     # Remove participants of an album.
-    # @param version [Float] 
     # @param album_id [Integer] the album ID
     # @param remove_friend_group [Boolean] remove friend group
     # @param [Hash] opts the optional parameters
@@ -708,14 +671,13 @@ module OpenapiClient
     # @option opts [String] :connections comma separated list of connection IDs
     # @option opts [String] :connection_groups comma separated list of connection group IDs
     # @return [SirqulResponse]
-    def remove_album_users(version, album_id, remove_friend_group, opts = {})
-      data, _status_code, _headers = remove_album_users_with_http_info(version, album_id, remove_friend_group, opts)
+    def remove_album_users(album_id, remove_friend_group, opts = {})
+      data, _status_code, _headers = remove_album_users_with_http_info(album_id, remove_friend_group, opts)
       data
     end
 
     # Remove Album Users
     # Remove participants of an album.
-    # @param version [Float] 
     # @param album_id [Integer] the album ID
     # @param remove_friend_group [Boolean] remove friend group
     # @param [Hash] opts the optional parameters
@@ -724,13 +686,9 @@ module OpenapiClient
     # @option opts [String] :connections comma separated list of connection IDs
     # @option opts [String] :connection_groups comma separated list of connection group IDs
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_album_users_with_http_info(version, album_id, remove_friend_group, opts = {})
+    def remove_album_users_with_http_info(album_id, remove_friend_group, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.remove_album_users ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.remove_album_users"
       end
       # verify the required parameter 'album_id' is set
       if @api_client.config.client_side_validation && album_id.nil?
@@ -741,7 +699,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'remove_friend_group' when calling AlbumApi.remove_album_users"
       end
       # resource path
-      local_var_path = '/api/{version}/album/user/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/user/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -788,7 +746,6 @@ module OpenapiClient
 
     # Search Albums
     # Searches on Albums.
-    # @param version [Float] 
     # @param filter [String] a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
     # @param album_type_id [Integer] id of custom albumType
     # @param sub_type [String] filter albums with this album sub type
@@ -851,14 +808,13 @@ module OpenapiClient
     # @option opts [String] :search_expression Advanced search expression to be used by the server
     # @option opts [Boolean] :generate_albums If true and results are empty, attempt to generate albums via templates
     # @return [Array<AlbumFullResponse>]
-    def search_albums(version, filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, opts = {})
-      data, _status_code, _headers = search_albums_with_http_info(version, filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, opts)
+    def search_albums(filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, opts = {})
+      data, _status_code, _headers = search_albums_with_http_info(filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, opts)
       data
     end
 
     # Search Albums
     # Searches on Albums.
-    # @param version [Float] 
     # @param filter [String] a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
     # @param album_type_id [Integer] id of custom albumType
     # @param sub_type [String] filter albums with this album sub type
@@ -921,13 +877,9 @@ module OpenapiClient
     # @option opts [String] :search_expression Advanced search expression to be used by the server
     # @option opts [Boolean] :generate_albums If true and results are empty, attempt to generate albums via templates
     # @return [Array<(Array<AlbumFullResponse>, Integer, Hash)>] Array<AlbumFullResponse> data, response status code and response headers
-    def search_albums_with_http_info(version, filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, opts = {})
+    def search_albums_with_http_info(filter, album_type_id, sub_type, include_inactive, sort_field, descending, start, limit, range, include_liked, include_favorited, include_permissions, like_preview_size, asset_preview_size, note_preview_size, connection_preview_size, audience_preview_size, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.search_albums ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.search_albums"
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
@@ -998,7 +950,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'audience_preview_size' when calling AlbumApi.search_albums"
       end
       # resource path
-      local_var_path = '/api/{version}/album/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1099,7 +1051,6 @@ module OpenapiClient
 
     # Update Album
     # Update an Album.
-    # @param version [Float] 
     # @param album_id [Integer] the ID of the album to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -1147,14 +1098,13 @@ module OpenapiClient
     # @option opts [Integer] :linked_object_id sets a linked object id so that it can be returned as part of the album response
     # @option opts [Boolean] :index_now determines whether the album should be indexed immediately
     # @return [AlbumResponse]
-    def update_album_collection(version, album_id, opts = {})
-      data, _status_code, _headers = update_album_collection_with_http_info(version, album_id, opts)
+    def update_album_collection(album_id, opts = {})
+      data, _status_code, _headers = update_album_collection_with_http_info(album_id, opts)
       data
     end
 
     # Update Album
     # Update an Album.
-    # @param version [Float] 
     # @param album_id [Integer] the ID of the album to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -1202,13 +1152,9 @@ module OpenapiClient
     # @option opts [Integer] :linked_object_id sets a linked object id so that it can be returned as part of the album response
     # @option opts [Boolean] :index_now determines whether the album should be indexed immediately
     # @return [Array<(AlbumResponse, Integer, Hash)>] AlbumResponse data, response status code and response headers
-    def update_album_collection_with_http_info(version, album_id, opts = {})
+    def update_album_collection_with_http_info(album_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AlbumApi.update_album_collection ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AlbumApi.update_album_collection"
       end
       # verify the required parameter 'album_id' is set
       if @api_client.config.client_side_validation && album_id.nil?
@@ -1219,7 +1165,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/album/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/album/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

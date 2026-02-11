@@ -21,35 +21,29 @@ module OpenapiClient
     end
     # Approve Route
     # Approve a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to approve
     # @param [Hash] opts the optional parameters
     # @return [Route]
-    def approve_route(version, route_id, opts = {})
-      data, _status_code, _headers = approve_route_with_http_info(version, route_id, opts)
+    def approve_route(route_id, opts = {})
+      data, _status_code, _headers = approve_route_with_http_info(route_id, opts)
       data
     end
 
     # Approve Route
     # Approve a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to approve
     # @param [Hash] opts the optional parameters
     # @return [Array<(Route, Integer, Hash)>] Route data, response status code and response headers
-    def approve_route_with_http_info(version, route_id, opts = {})
+    def approve_route_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.approve_route ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.approve_route"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.approve_route"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/approve'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/approve'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -90,37 +84,31 @@ module OpenapiClient
 
     # Copy Route
     # Make an copy of the given route with optional overriding properties
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to duplicate
     # @param [Hash] opts the optional parameters
     # @option opts [Route] :body 
     # @return [Route]
-    def copy_route(version, route_id, opts = {})
-      data, _status_code, _headers = copy_route_with_http_info(version, route_id, opts)
+    def copy_route(route_id, opts = {})
+      data, _status_code, _headers = copy_route_with_http_info(route_id, opts)
       data
     end
 
     # Copy Route
     # Make an copy of the given route with optional overriding properties
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to duplicate
     # @param [Hash] opts the optional parameters
     # @option opts [Route] :body 
     # @return [Array<(Route, Integer, Hash)>] Route data, response status code and response headers
-    def copy_route_with_http_info(version, route_id, opts = {})
+    def copy_route_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.copy_route ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.copy_route"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.copy_route"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/copy'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/copy'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -161,31 +149,25 @@ module OpenapiClient
 
     # Create Route
     # Create new route
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Route] :body 
     # @return [Route]
-    def create_route(version, opts = {})
-      data, _status_code, _headers = create_route_with_http_info(version, opts)
+    def create_route(opts = {})
+      data, _status_code, _headers = create_route_with_http_info(opts)
       data
     end
 
     # Create Route
     # Create new route
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Route] :body 
     # @return [Array<(Route, Integer, Hash)>] Route data, response status code and response headers
-    def create_route_with_http_info(version, opts = {})
+    def create_route_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.create_route ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.create_route"
-      end
       # resource path
-      local_var_path = '/api/{version}/route'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/route'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -226,35 +208,29 @@ module OpenapiClient
 
     # Update Route Directions
     # Regenerate the directions of a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to update directions for
     # @param [Hash] opts the optional parameters
     # @return [Array<Direction>]
-    def create_route_directions(version, route_id, opts = {})
-      data, _status_code, _headers = create_route_directions_with_http_info(version, route_id, opts)
+    def create_route_directions(route_id, opts = {})
+      data, _status_code, _headers = create_route_directions_with_http_info(route_id, opts)
       data
     end
 
     # Update Route Directions
     # Regenerate the directions of a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to update directions for
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Direction>, Integer, Hash)>] Array<Direction> data, response status code and response headers
-    def create_route_directions_with_http_info(version, route_id, opts = {})
+    def create_route_directions_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.create_route_directions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.create_route_directions"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.create_route_directions"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/directions'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/directions'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -295,35 +271,29 @@ module OpenapiClient
 
     # Create Route Polyline
     # Update the polyline of the requested route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to create a polyline for
     # @param [Hash] opts the optional parameters
     # @return [Route]
-    def create_route_polyline(version, route_id, opts = {})
-      data, _status_code, _headers = create_route_polyline_with_http_info(version, route_id, opts)
+    def create_route_polyline(route_id, opts = {})
+      data, _status_code, _headers = create_route_polyline_with_http_info(route_id, opts)
       data
     end
 
     # Create Route Polyline
     # Update the polyline of the requested route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to create a polyline for
     # @param [Hash] opts the optional parameters
     # @return [Array<(Route, Integer, Hash)>] Route data, response status code and response headers
-    def create_route_polyline_with_http_info(version, route_id, opts = {})
+    def create_route_polyline_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.create_route_polyline ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.create_route_polyline"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.create_route_polyline"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/polyline'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/polyline'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -364,35 +334,29 @@ module OpenapiClient
 
     # Delete Route
     # Delete an existing route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_route(version, route_id, opts = {})
-      delete_route_with_http_info(version, route_id, opts)
+    def delete_route(route_id, opts = {})
+      delete_route_with_http_info(route_id, opts)
       nil
     end
 
     # Delete Route
     # Delete an existing route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_route_with_http_info(version, route_id, opts = {})
+    def delete_route_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.delete_route ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.delete_route"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.delete_route"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -431,35 +395,29 @@ module OpenapiClient
 
     # Disapprove Route
     # Disapprove a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to reject
     # @param [Hash] opts the optional parameters
     # @return [Route]
-    def disapprove_route(version, route_id, opts = {})
-      data, _status_code, _headers = disapprove_route_with_http_info(version, route_id, opts)
+    def disapprove_route(route_id, opts = {})
+      data, _status_code, _headers = disapprove_route_with_http_info(route_id, opts)
       data
     end
 
     # Disapprove Route
     # Disapprove a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to reject
     # @param [Hash] opts the optional parameters
     # @return [Array<(Route, Integer, Hash)>] Route data, response status code and response headers
-    def disapprove_route_with_http_info(version, route_id, opts = {})
+    def disapprove_route_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.disapprove_route ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.disapprove_route"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.disapprove_route"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/disapprove'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/disapprove'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -500,30 +458,24 @@ module OpenapiClient
 
     # Get Route
     # Get an existing route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get
     # @param show_inherited_properties [Boolean] return inherited properties from parent or not
     # @param [Hash] opts the optional parameters
     # @return [Route]
-    def get_route(version, route_id, show_inherited_properties, opts = {})
-      data, _status_code, _headers = get_route_with_http_info(version, route_id, show_inherited_properties, opts)
+    def get_route(route_id, show_inherited_properties, opts = {})
+      data, _status_code, _headers = get_route_with_http_info(route_id, show_inherited_properties, opts)
       data
     end
 
     # Get Route
     # Get an existing route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get
     # @param show_inherited_properties [Boolean] return inherited properties from parent or not
     # @param [Hash] opts the optional parameters
     # @return [Array<(Route, Integer, Hash)>] Route data, response status code and response headers
-    def get_route_with_http_info(version, route_id, show_inherited_properties, opts = {})
+    def get_route_with_http_info(route_id, show_inherited_properties, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.get_route ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.get_route"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
@@ -534,7 +486,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'show_inherited_properties' when calling RouteApi.get_route"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -576,35 +528,29 @@ module OpenapiClient
 
     # Get Route Directions
     # Get the directions of a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get directions for
     # @param [Hash] opts the optional parameters
     # @return [Array<Direction>]
-    def get_route_directions(version, route_id, opts = {})
-      data, _status_code, _headers = get_route_directions_with_http_info(version, route_id, opts)
+    def get_route_directions(route_id, opts = {})
+      data, _status_code, _headers = get_route_directions_with_http_info(route_id, opts)
       data
     end
 
     # Get Route Directions
     # Get the directions of a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get directions for
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Direction>, Integer, Hash)>] Array<Direction> data, response status code and response headers
-    def get_route_directions_with_http_info(version, route_id, opts = {})
+    def get_route_directions_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.get_route_directions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.get_route_directions"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.get_route_directions"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/directions'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/directions'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -645,35 +591,29 @@ module OpenapiClient
 
     # Get Route Shipments
     # Get the shipments on the requested route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get shipments for
     # @param [Hash] opts the optional parameters
     # @return [Array<Shipment>]
-    def get_route_shipments(version, route_id, opts = {})
-      data, _status_code, _headers = get_route_shipments_with_http_info(version, route_id, opts)
+    def get_route_shipments(route_id, opts = {})
+      data, _status_code, _headers = get_route_shipments_with_http_info(route_id, opts)
       data
     end
 
     # Get Route Shipments
     # Get the shipments on the requested route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get shipments for
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Shipment>, Integer, Hash)>] Array<Shipment> data, response status code and response headers
-    def get_route_shipments_with_http_info(version, route_id, opts = {})
+    def get_route_shipments_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.get_route_shipments ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.get_route_shipments"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.get_route_shipments"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/shipments'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/shipments'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -714,30 +654,24 @@ module OpenapiClient
 
     # Get Route Stop
     # Get the specific stop on a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get stops for
     # @param stop_id [Integer] the id of the specific stop on the route
     # @param [Hash] opts the optional parameters
     # @return [Stop]
-    def get_route_stop(version, route_id, stop_id, opts = {})
-      data, _status_code, _headers = get_route_stop_with_http_info(version, route_id, stop_id, opts)
+    def get_route_stop(route_id, stop_id, opts = {})
+      data, _status_code, _headers = get_route_stop_with_http_info(route_id, stop_id, opts)
       data
     end
 
     # Get Route Stop
     # Get the specific stop on a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to get stops for
     # @param stop_id [Integer] the id of the specific stop on the route
     # @param [Hash] opts the optional parameters
     # @return [Array<(Stop, Integer, Hash)>] Stop data, response status code and response headers
-    def get_route_stop_with_http_info(version, route_id, stop_id, opts = {})
+    def get_route_stop_with_http_info(route_id, stop_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.get_route_stop ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.get_route_stop"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
@@ -748,7 +682,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'stop_id' when calling RouteApi.get_route_stop"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/stop/{stopId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
+      local_var_path = '/route/{routeId}/stop/{stopId}'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -789,30 +723,24 @@ module OpenapiClient
 
     # Get Route Stops
     # The stops of the route requested
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param confirmed_only [Boolean] only get stops that have been confirmed or not
     # @param [Hash] opts the optional parameters
     # @return [Array<Stop>]
-    def get_route_stops(version, route_id, confirmed_only, opts = {})
-      data, _status_code, _headers = get_route_stops_with_http_info(version, route_id, confirmed_only, opts)
+    def get_route_stops(route_id, confirmed_only, opts = {})
+      data, _status_code, _headers = get_route_stops_with_http_info(route_id, confirmed_only, opts)
       data
     end
 
     # Get Route Stops
     # The stops of the route requested
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param confirmed_only [Boolean] only get stops that have been confirmed or not
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Stop>, Integer, Hash)>] Array<Stop> data, response status code and response headers
-    def get_route_stops_with_http_info(version, route_id, confirmed_only, opts = {})
+    def get_route_stops_with_http_info(route_id, confirmed_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.get_route_stops ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.get_route_stops"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
@@ -823,7 +751,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'confirmed_only' when calling RouteApi.get_route_stops"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/stops'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/stops'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -865,30 +793,24 @@ module OpenapiClient
 
     # Get Shipments At Stop
     # Get the list of shipments on the requested route at a stop
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param stop_id [Integer] the id of the stop to get shipments on
     # @param [Hash] opts the optional parameters
     # @return [Array<Shipment>]
-    def get_shipments_at_stop(version, route_id, stop_id, opts = {})
-      data, _status_code, _headers = get_shipments_at_stop_with_http_info(version, route_id, stop_id, opts)
+    def get_shipments_at_stop(route_id, stop_id, opts = {})
+      data, _status_code, _headers = get_shipments_at_stop_with_http_info(route_id, stop_id, opts)
       data
     end
 
     # Get Shipments At Stop
     # Get the list of shipments on the requested route at a stop
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param stop_id [Integer] the id of the stop to get shipments on
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Shipment>, Integer, Hash)>] Array<Shipment> data, response status code and response headers
-    def get_shipments_at_stop_with_http_info(version, route_id, stop_id, opts = {})
+    def get_shipments_at_stop_with_http_info(route_id, stop_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.get_shipments_at_stop ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.get_shipments_at_stop"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
@@ -899,7 +821,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'stop_id' when calling RouteApi.get_shipments_at_stop"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/stop/{stopId}/shipments'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
+      local_var_path = '/route/{routeId}/stop/{stopId}/shipments'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -940,35 +862,29 @@ module OpenapiClient
 
     # Optimize Route
     # Optimize a route. The optimization method based on how the server is configured.
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to optimize
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def optimize_route(version, route_id, opts = {})
-      optimize_route_with_http_info(version, route_id, opts)
+    def optimize_route(route_id, opts = {})
+      optimize_route_with_http_info(route_id, opts)
       nil
     end
 
     # Optimize Route
     # Optimize a route. The optimization method based on how the server is configured.
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to optimize
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def optimize_route_with_http_info(version, route_id, opts = {})
+    def optimize_route_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.optimize_route ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.optimize_route"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.optimize_route"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/optimize'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/optimize'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1007,30 +923,24 @@ module OpenapiClient
 
     # Delete Stop
     # Delete a stop on a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param stop_id [Integer] the id of the specific stop to delete on the route
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def remove_stop(version, route_id, stop_id, opts = {})
-      remove_stop_with_http_info(version, route_id, stop_id, opts)
+    def remove_stop(route_id, stop_id, opts = {})
+      remove_stop_with_http_info(route_id, stop_id, opts)
       nil
     end
 
     # Delete Stop
     # Delete a stop on a route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param stop_id [Integer] the id of the specific stop to delete on the route
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def remove_stop_with_http_info(version, route_id, stop_id, opts = {})
+    def remove_stop_with_http_info(route_id, stop_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.remove_stop ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.remove_stop"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
@@ -1041,7 +951,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'stop_id' when calling RouteApi.remove_stop"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/stop/{stopId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
+      local_var_path = '/route/{routeId}/stop/{stopId}'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1080,37 +990,31 @@ module OpenapiClient
 
     # Reorder Route Stops
     # Reordering the stops on the route with and update route distance, time, direction, and polyline
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @option opts [Array<Stop>] :body 
     # @return [Array<Stop>]
-    def reorder_route_stops_patch(version, route_id, opts = {})
-      data, _status_code, _headers = reorder_route_stops_patch_with_http_info(version, route_id, opts)
+    def reorder_route_stops_patch(route_id, opts = {})
+      data, _status_code, _headers = reorder_route_stops_patch_with_http_info(route_id, opts)
       data
     end
 
     # Reorder Route Stops
     # Reordering the stops on the route with and update route distance, time, direction, and polyline
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @option opts [Array<Stop>] :body 
     # @return [Array<(Array<Stop>, Integer, Hash)>] Array<Stop> data, response status code and response headers
-    def reorder_route_stops_patch_with_http_info(version, route_id, opts = {})
+    def reorder_route_stops_patch_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.reorder_route_stops_patch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.reorder_route_stops_patch"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.reorder_route_stops_patch"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/stops/reorder'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/stops/reorder'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1151,37 +1055,31 @@ module OpenapiClient
 
     # Reorder Route Stops
     # Reordering the stops on the route with and update route distance, time, direction, and polyline
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @option opts [Array<Stop>] :body 
     # @return [Array<Stop>]
-    def reorder_route_stops_post(version, route_id, opts = {})
-      data, _status_code, _headers = reorder_route_stops_post_with_http_info(version, route_id, opts)
+    def reorder_route_stops_post(route_id, opts = {})
+      data, _status_code, _headers = reorder_route_stops_post_with_http_info(route_id, opts)
       data
     end
 
     # Reorder Route Stops
     # Reordering the stops on the route with and update route distance, time, direction, and polyline
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @option opts [Array<Stop>] :body 
     # @return [Array<(Array<Stop>, Integer, Hash)>] Array<Stop> data, response status code and response headers
-    def reorder_route_stops_post_with_http_info(version, route_id, opts = {})
+    def reorder_route_stops_post_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.reorder_route_stops_post ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.reorder_route_stops_post"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.reorder_route_stops_post"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/stops/reorder'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}/stops/reorder'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1222,7 +1120,6 @@ module OpenapiClient
 
     # Search Routes
     # Search for routes.
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -1246,14 +1143,13 @@ module OpenapiClient
     # @option opts [Boolean] :valid Is valid or not
     # @option opts [Integer] :parent_id If it is a recurring route based on the parent route
     # @return [Array<Route>]
-    def search_routes(version, sort_field, descending, start, limit, active_only, includes_empty, root_only, show_inherited_properties, opts = {})
-      data, _status_code, _headers = search_routes_with_http_info(version, sort_field, descending, start, limit, active_only, includes_empty, root_only, show_inherited_properties, opts)
+    def search_routes(sort_field, descending, start, limit, active_only, includes_empty, root_only, show_inherited_properties, opts = {})
+      data, _status_code, _headers = search_routes_with_http_info(sort_field, descending, start, limit, active_only, includes_empty, root_only, show_inherited_properties, opts)
       data
     end
 
     # Search Routes
     # Search for routes.
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -1277,13 +1173,9 @@ module OpenapiClient
     # @option opts [Boolean] :valid Is valid or not
     # @option opts [Integer] :parent_id If it is a recurring route based on the parent route
     # @return [Array<(Array<Route>, Integer, Hash)>] Array<Route> data, response status code and response headers
-    def search_routes_with_http_info(version, sort_field, descending, start, limit, active_only, includes_empty, root_only, show_inherited_properties, opts = {})
+    def search_routes_with_http_info(sort_field, descending, start, limit, active_only, includes_empty, root_only, show_inherited_properties, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.search_routes ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.search_routes"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -1318,7 +1210,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'show_inherited_properties' when calling RouteApi.search_routes"
       end
       # resource path
-      local_var_path = '/api/{version}/route'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/route'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1380,30 +1272,24 @@ module OpenapiClient
 
     # Set Driver
     # Update the driver of the route.
-    # @param version [Float] 
     # @param id [Integer] the id of the route
     # @param driver_id [Integer] the id of the driver
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def set_driver(version, id, driver_id, opts = {})
-      set_driver_with_http_info(version, id, driver_id, opts)
+    def set_driver(id, driver_id, opts = {})
+      set_driver_with_http_info(id, driver_id, opts)
       nil
     end
 
     # Set Driver
     # Update the driver of the route.
-    # @param version [Float] 
     # @param id [Integer] the id of the route
     # @param driver_id [Integer] the id of the driver
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def set_driver_with_http_info(version, id, driver_id, opts = {})
+    def set_driver_with_http_info(id, driver_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.set_driver ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.set_driver"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -1414,7 +1300,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'driver_id' when calling RouteApi.set_driver"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{id}/driver/{driverId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'driverId' + '}', CGI.escape(driver_id.to_s))
+      local_var_path = '/route/{id}/driver/{driverId}'.sub('{' + 'id' + '}', CGI.escape(id.to_s)).sub('{' + 'driverId' + '}', CGI.escape(driver_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1453,37 +1339,31 @@ module OpenapiClient
 
     # Update Route
     # Update an existing route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @option opts [Route] :body 
     # @return [Route]
-    def update_route(version, route_id, opts = {})
-      data, _status_code, _headers = update_route_with_http_info(version, route_id, opts)
+    def update_route(route_id, opts = {})
+      data, _status_code, _headers = update_route_with_http_info(route_id, opts)
       data
     end
 
     # Update Route
     # Update an existing route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route
     # @param [Hash] opts the optional parameters
     # @option opts [Route] :body 
     # @return [Array<(Route, Integer, Hash)>] Route data, response status code and response headers
-    def update_route_with_http_info(version, route_id, opts = {})
+    def update_route_with_http_info(route_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.update_route ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.update_route"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_id' when calling RouteApi.update_route"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
+      local_var_path = '/route/{routeId}'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1524,32 +1404,26 @@ module OpenapiClient
 
     # Update Route Stop
     # Update a stop on a specified route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to update stops for
     # @param stop_id [Integer] the id of the specific stop to update on the route
     # @param [Hash] opts the optional parameters
     # @option opts [Stop] :body 
     # @return [nil]
-    def update_route_stop(version, route_id, stop_id, opts = {})
-      update_route_stop_with_http_info(version, route_id, stop_id, opts)
+    def update_route_stop(route_id, stop_id, opts = {})
+      update_route_stop_with_http_info(route_id, stop_id, opts)
       nil
     end
 
     # Update Route Stop
     # Update a stop on a specified route
-    # @param version [Float] 
     # @param route_id [Integer] the id of the route to update stops for
     # @param stop_id [Integer] the id of the specific stop to update on the route
     # @param [Hash] opts the optional parameters
     # @option opts [Stop] :body 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_route_stop_with_http_info(version, route_id, stop_id, opts = {})
+    def update_route_stop_with_http_info(route_id, stop_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteApi.update_route_stop ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteApi.update_route_stop"
       end
       # verify the required parameter 'route_id' is set
       if @api_client.config.client_side_validation && route_id.nil?
@@ -1560,7 +1434,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'stop_id' when calling RouteApi.update_route_stop"
       end
       # resource path
-      local_var_path = '/api/{version}/route/{routeId}/stop/{stopId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
+      local_var_path = '/route/{routeId}/stop/{stopId}'.sub('{' + 'routeId' + '}', CGI.escape(route_id.to_s)).sub('{' + 'stopId' + '}', CGI.escape(stop_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

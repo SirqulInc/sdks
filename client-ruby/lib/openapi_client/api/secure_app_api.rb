@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Secure Application
     # Create a secure application record.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param key_cert [File] 
@@ -34,14 +33,13 @@ module OpenapiClient
     # @option opts [String] :biometric_position The position for the biometric file uploaded (default to 'UNKNOWN')
     # @option opts [String] :biometric_position2 The position for each the biometric2 file uploaded (default to 'UNKNOWN')
     # @return [SirqulResponse]
-    def create_secure_application(version, account_id, app_key, key_cert, trust_store, username, password, opts = {})
-      data, _status_code, _headers = create_secure_application_with_http_info(version, account_id, app_key, key_cert, trust_store, username, password, opts)
+    def create_secure_application(account_id, app_key, key_cert, trust_store, username, password, opts = {})
+      data, _status_code, _headers = create_secure_application_with_http_info(account_id, app_key, key_cert, trust_store, username, password, opts)
       data
     end
 
     # Create Secure Application
     # Create a secure application record.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param key_cert [File] 
@@ -54,13 +52,9 @@ module OpenapiClient
     # @option opts [String] :biometric_position The position for the biometric file uploaded (default to 'UNKNOWN')
     # @option opts [String] :biometric_position2 The position for each the biometric2 file uploaded (default to 'UNKNOWN')
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def create_secure_application_with_http_info(version, account_id, app_key, key_cert, trust_store, username, password, opts = {})
+    def create_secure_application_with_http_info(account_id, app_key, key_cert, trust_store, username, password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecureAppApi.create_secure_application ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SecureAppApi.create_secure_application"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -99,7 +93,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"biometric_position2\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/secure/application/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/secure/application/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -150,30 +144,24 @@ module OpenapiClient
 
     # Delete Secure Application
     # Delete a secure application record.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_secure_application(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = delete_secure_application_with_http_info(version, account_id, app_key, opts)
+    def delete_secure_application(account_id, app_key, opts = {})
+      data, _status_code, _headers = delete_secure_application_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Delete Secure Application
     # Delete a secure application record.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_secure_application_with_http_info(version, account_id, app_key, opts = {})
+    def delete_secure_application_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecureAppApi.delete_secure_application ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SecureAppApi.delete_secure_application"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -184,7 +172,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling SecureAppApi.delete_secure_application"
       end
       # resource path
-      local_var_path = '/api/{version}/secure/application/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/secure/application/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -227,7 +215,6 @@ module OpenapiClient
 
     # Login Clear
     # Login via Clear.me. Creates a new account if logging in for the first time.
-    # @param version [Float] 
     # @param app_key [String] The application making the request, defines what type and position is required to make a secure login the request.
     # @param biometric_file [File] The data file used to perform authentication
     # @param [Hash] opts the optional parameters
@@ -239,14 +226,13 @@ module OpenapiClient
     # @option opts [Float] :latitude Used to update the user&#39;s current location
     # @option opts [Float] :longitude Used to update the user&#39;s current location
     # @return [ProfileResponse]
-    def login_secure(version, app_key, biometric_file, opts = {})
-      data, _status_code, _headers = login_secure_with_http_info(version, app_key, biometric_file, opts)
+    def login_secure(app_key, biometric_file, opts = {})
+      data, _status_code, _headers = login_secure_with_http_info(app_key, biometric_file, opts)
       data
     end
 
     # Login Clear
     # Login via Clear.me. Creates a new account if logging in for the first time.
-    # @param version [Float] 
     # @param app_key [String] The application making the request, defines what type and position is required to make a secure login the request.
     # @param biometric_file [File] The data file used to perform authentication
     # @param [Hash] opts the optional parameters
@@ -258,13 +244,9 @@ module OpenapiClient
     # @option opts [Float] :latitude Used to update the user&#39;s current location
     # @option opts [Float] :longitude Used to update the user&#39;s current location
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def login_secure_with_http_info(version, app_key, biometric_file, opts = {})
+    def login_secure_with_http_info(app_key, biometric_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecureAppApi.login_secure ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SecureAppApi.login_secure"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -275,7 +257,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'biometric_file' when calling SecureAppApi.login_secure"
       end
       # resource path
-      local_var_path = '/api/{version}/secure/login'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/secure/login'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -325,35 +307,29 @@ module OpenapiClient
 
     # Purchase Clear
     # Purchase via Clear.me. Creates a new account if purchasing for the first time.
-    # @param version [Float] 
     # @param body [PaymentRequest] The payment request object
     # @param [Hash] opts the optional parameters
     # @return [ProfileResponse]
-    def purchase_secure(version, body, opts = {})
-      data, _status_code, _headers = purchase_secure_with_http_info(version, body, opts)
+    def purchase_secure(body, opts = {})
+      data, _status_code, _headers = purchase_secure_with_http_info(body, opts)
       data
     end
 
     # Purchase Clear
     # Purchase via Clear.me. Creates a new account if purchasing for the first time.
-    # @param version [Float] 
     # @param body [PaymentRequest] The payment request object
     # @param [Hash] opts the optional parameters
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def purchase_secure_with_http_info(version, body, opts = {})
+    def purchase_secure_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecureAppApi.purchase_secure ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SecureAppApi.purchase_secure"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling SecureAppApi.purchase_secure"
       end
       # resource path
-      local_var_path = '/api/{version}/secure/purchase'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/secure/purchase'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -399,30 +375,24 @@ module OpenapiClient
 
     # Rest Secure Application
     # Reset a secure application client.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def reset_secure(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = reset_secure_with_http_info(version, account_id, app_key, opts)
+    def reset_secure(account_id, app_key, opts = {})
+      data, _status_code, _headers = reset_secure_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Rest Secure Application
     # Reset a secure application client.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def reset_secure_with_http_info(version, account_id, app_key, opts = {})
+    def reset_secure_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecureAppApi.reset_secure ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SecureAppApi.reset_secure"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -433,7 +403,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling SecureAppApi.reset_secure"
       end
       # resource path
-      local_var_path = '/api/{version}/secure/application/reset'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/secure/application/reset'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -476,7 +446,6 @@ module OpenapiClient
 
     # Update Secure Application
     # Update a secure application record.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param [Hash] opts the optional parameters
@@ -489,14 +458,13 @@ module OpenapiClient
     # @option opts [String] :biometric_position The position for the biometric file uploaded
     # @option opts [String] :biometric_position2 The position for each the biometric2 file uploaded
     # @return [SirqulResponse]
-    def update_secure_application(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = update_secure_application_with_http_info(version, account_id, app_key, opts)
+    def update_secure_application(account_id, app_key, opts = {})
+      data, _status_code, _headers = update_secure_application_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Update Secure Application
     # Update a secure application record.
-    # @param version [Float] 
     # @param account_id [Integer] The unique id of the user making the request
     # @param app_key [String] The application to secure
     # @param [Hash] opts the optional parameters
@@ -509,13 +477,9 @@ module OpenapiClient
     # @option opts [String] :biometric_position The position for the biometric file uploaded
     # @option opts [String] :biometric_position2 The position for each the biometric2 file uploaded
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_secure_application_with_http_info(version, account_id, app_key, opts = {})
+    def update_secure_application_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SecureAppApi.update_secure_application ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SecureAppApi.update_secure_application"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -538,7 +502,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"biometric_position2\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/secure/application/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/secure/application/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

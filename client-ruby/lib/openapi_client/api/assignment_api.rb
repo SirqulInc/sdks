@@ -21,37 +21,31 @@ module OpenapiClient
     end
     # Search Assignment Assignees
     # Search for avaiable users for creating or updating assignment.
-    # @param version [Float] 
     # @param account_id [Integer] The account id sending the request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to filter the returned results
     # @return [Array<AccountMiniResponse>]
-    def assigment_assignee_account_search(version, account_id, opts = {})
-      data, _status_code, _headers = assigment_assignee_account_search_with_http_info(version, account_id, opts)
+    def assigment_assignee_account_search(account_id, opts = {})
+      data, _status_code, _headers = assigment_assignee_account_search_with_http_info(account_id, opts)
       data
     end
 
     # Search Assignment Assignees
     # Search for avaiable users for creating or updating assignment.
-    # @param version [Float] 
     # @param account_id [Integer] The account id sending the request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to filter the returned results
     # @return [Array<(Array<AccountMiniResponse>, Integer, Hash)>] Array<AccountMiniResponse> data, response status code and response headers
-    def assigment_assignee_account_search_with_http_info(version, account_id, opts = {})
+    def assigment_assignee_account_search_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assigment_assignee_account_search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assigment_assignee_account_search"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling AssignmentApi.assigment_assignee_account_search"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/assignee/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/assignee/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -94,7 +88,6 @@ module OpenapiClient
 
     # Create Assignment
     # Create an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param name [String] the name for the assignment
     # @param assignee_account_id [Integer] the account id to assign to
@@ -104,14 +97,13 @@ module OpenapiClient
     # @option opts [String] :tags the tags
     # @option opts [Boolean] :active determines whether the assignment is active or inactive
     # @return [AssignmentResponse]
-    def assignment_create(version, account_id, name, assignee_account_id, opts = {})
-      data, _status_code, _headers = assignment_create_with_http_info(version, account_id, name, assignee_account_id, opts)
+    def assignment_create(account_id, name, assignee_account_id, opts = {})
+      data, _status_code, _headers = assignment_create_with_http_info(account_id, name, assignee_account_id, opts)
       data
     end
 
     # Create Assignment
     # Create an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param name [String] the name for the assignment
     # @param assignee_account_id [Integer] the account id to assign to
@@ -121,13 +113,9 @@ module OpenapiClient
     # @option opts [String] :tags the tags
     # @option opts [Boolean] :active determines whether the assignment is active or inactive
     # @return [Array<(AssignmentResponse, Integer, Hash)>] AssignmentResponse data, response status code and response headers
-    def assignment_create_with_http_info(version, account_id, name, assignee_account_id, opts = {})
+    def assignment_create_with_http_info(account_id, name, assignee_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_create ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_create"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -142,7 +130,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'assignee_account_id' when calling AssignmentApi.assignment_create"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -190,30 +178,24 @@ module OpenapiClient
 
     # Delete Assignment
     # Delete an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def assignment_delete(version, account_id, assignment_id, opts = {})
-      data, _status_code, _headers = assignment_delete_with_http_info(version, account_id, assignment_id, opts)
+    def assignment_delete(account_id, assignment_id, opts = {})
+      data, _status_code, _headers = assignment_delete_with_http_info(account_id, assignment_id, opts)
       data
     end
 
     # Delete Assignment
     # Delete an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def assignment_delete_with_http_info(version, account_id, assignment_id, opts = {})
+    def assignment_delete_with_http_info(account_id, assignment_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_delete ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_delete"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -224,7 +206,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'assignment_id' when calling AssignmentApi.assignment_delete"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -267,30 +249,24 @@ module OpenapiClient
 
     # Get Assignment
     # Get the details of an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
     # @return [AssignmentResponse]
-    def assignment_get(version, account_id, assignment_id, opts = {})
-      data, _status_code, _headers = assignment_get_with_http_info(version, account_id, assignment_id, opts)
+    def assignment_get(account_id, assignment_id, opts = {})
+      data, _status_code, _headers = assignment_get_with_http_info(account_id, assignment_id, opts)
       data
     end
 
     # Get Assignment
     # Get the details of an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
     # @return [Array<(AssignmentResponse, Integer, Hash)>] AssignmentResponse data, response status code and response headers
-    def assignment_get_with_http_info(version, account_id, assignment_id, opts = {})
+    def assignment_get_with_http_info(account_id, assignment_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_get ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_get"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -301,7 +277,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'assignment_id' when calling AssignmentApi.assignment_get"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -344,7 +320,6 @@ module OpenapiClient
 
     # Search Assignments
     # Search for assignments by the given parameters.
-    # @param version [Float] 
     # @param account_id [Integer] the account sending the request
     # @param sort_field [String] sort by table field
     # @param descending [Boolean] return results in descending order or not
@@ -358,14 +333,13 @@ module OpenapiClient
     # @option opts [String] :current_status_type filter results by assignment status
     # @option opts [String] :keyword filter results by keyword search that matches the assignee, creator, or retailer location name
     # @return [Array<AssignmentResponse>]
-    def assignment_search(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
-      data, _status_code, _headers = assignment_search_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts)
+    def assignment_search(account_id, sort_field, descending, active_only, start, limit, opts = {})
+      data, _status_code, _headers = assignment_search_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts)
       data
     end
 
     # Search Assignments
     # Search for assignments by the given parameters.
-    # @param version [Float] 
     # @param account_id [Integer] the account sending the request
     # @param sort_field [String] sort by table field
     # @param descending [Boolean] return results in descending order or not
@@ -379,13 +353,9 @@ module OpenapiClient
     # @option opts [String] :current_status_type filter results by assignment status
     # @option opts [String] :keyword filter results by keyword search that matches the assignee, creator, or retailer location name
     # @return [Array<(Array<AssignmentResponse>, Integer, Hash)>] Array<AssignmentResponse> data, response status code and response headers
-    def assignment_search_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
+    def assignment_search_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_search"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -421,7 +391,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"current_status_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -473,7 +443,6 @@ module OpenapiClient
 
     # Create Assignment Status
     # Create an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
@@ -487,14 +456,13 @@ module OpenapiClient
     # @option opts [Integer] :follow_up the date to follow up by
     # @option opts [Boolean] :active determines whether the assignment status is active or inactive
     # @return [AssignmentStatusResponse]
-    def assignment_status_create(version, account_id, assignment_id, opts = {})
-      data, _status_code, _headers = assignment_status_create_with_http_info(version, account_id, assignment_id, opts)
+    def assignment_status_create(account_id, assignment_id, opts = {})
+      data, _status_code, _headers = assignment_status_create_with_http_info(account_id, assignment_id, opts)
       data
     end
 
     # Create Assignment Status
     # Create an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
@@ -508,13 +476,9 @@ module OpenapiClient
     # @option opts [Integer] :follow_up the date to follow up by
     # @option opts [Boolean] :active determines whether the assignment status is active or inactive
     # @return [Array<(AssignmentStatusResponse, Integer, Hash)>] AssignmentStatusResponse data, response status code and response headers
-    def assignment_status_create_with_http_info(version, account_id, assignment_id, opts = {})
+    def assignment_status_create_with_http_info(account_id, assignment_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_status_create ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_status_create"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -545,7 +509,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"closure\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/status/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/status/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -597,30 +561,24 @@ module OpenapiClient
 
     # Deletes Assignment Status
     # Deletes an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_status_id [Integer] the assignment status id
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def assignment_status_delete(version, account_id, assignment_status_id, opts = {})
-      data, _status_code, _headers = assignment_status_delete_with_http_info(version, account_id, assignment_status_id, opts)
+    def assignment_status_delete(account_id, assignment_status_id, opts = {})
+      data, _status_code, _headers = assignment_status_delete_with_http_info(account_id, assignment_status_id, opts)
       data
     end
 
     # Deletes Assignment Status
     # Deletes an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_status_id [Integer] the assignment status id
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def assignment_status_delete_with_http_info(version, account_id, assignment_status_id, opts = {})
+    def assignment_status_delete_with_http_info(account_id, assignment_status_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_status_delete ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_status_delete"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -631,7 +589,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'assignment_status_id' when calling AssignmentApi.assignment_status_delete"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/status/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/status/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -674,30 +632,24 @@ module OpenapiClient
 
     # Get Assignment Status
     # Get an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_status_id [Integer] the assignment status id
     # @param [Hash] opts the optional parameters
     # @return [AssignmentStatusResponse]
-    def assignment_status_get(version, account_id, assignment_status_id, opts = {})
-      data, _status_code, _headers = assignment_status_get_with_http_info(version, account_id, assignment_status_id, opts)
+    def assignment_status_get(account_id, assignment_status_id, opts = {})
+      data, _status_code, _headers = assignment_status_get_with_http_info(account_id, assignment_status_id, opts)
       data
     end
 
     # Get Assignment Status
     # Get an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_status_id [Integer] the assignment status id
     # @param [Hash] opts the optional parameters
     # @return [Array<(AssignmentStatusResponse, Integer, Hash)>] AssignmentStatusResponse data, response status code and response headers
-    def assignment_status_get_with_http_info(version, account_id, assignment_status_id, opts = {})
+    def assignment_status_get_with_http_info(account_id, assignment_status_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_status_get ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_status_get"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -708,7 +660,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'assignment_status_id' when calling AssignmentApi.assignment_status_get"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/status/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/status/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -751,7 +703,6 @@ module OpenapiClient
 
     # Search Assignment Statuses
     # Search on assignment statuses.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param sort_field [String] the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -766,14 +717,13 @@ module OpenapiClient
     # @option opts [String] :status_type filter results by the status type
     # @option opts [String] :keyword filter results by keyword search
     # @return [Array<AssignmentStatusResponse>]
-    def assignment_status_search(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
-      data, _status_code, _headers = assignment_status_search_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts)
+    def assignment_status_search(account_id, sort_field, descending, active_only, start, limit, opts = {})
+      data, _status_code, _headers = assignment_status_search_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts)
       data
     end
 
     # Search Assignment Statuses
     # Search on assignment statuses.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param sort_field [String] the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -788,13 +738,9 @@ module OpenapiClient
     # @option opts [String] :status_type filter results by the status type
     # @option opts [String] :keyword filter results by keyword search
     # @return [Array<(Array<AssignmentStatusResponse>, Integer, Hash)>] Array<AssignmentStatusResponse> data, response status code and response headers
-    def assignment_status_search_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
+    def assignment_status_search_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_status_search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_status_search"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -830,7 +776,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"status_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/status/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/status/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -883,7 +829,6 @@ module OpenapiClient
 
     # Update Assignment Status
     # Updates an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_status_id [Integer] the assignment status id
     # @param [Hash] opts the optional parameters
@@ -897,14 +842,13 @@ module OpenapiClient
     # @option opts [Integer] :follow_up the date to follow up by
     # @option opts [Boolean] :active determines whether the assignment status is active or inactive
     # @return [AssignmentStatusResponse]
-    def assignment_status_update(version, account_id, assignment_status_id, opts = {})
-      data, _status_code, _headers = assignment_status_update_with_http_info(version, account_id, assignment_status_id, opts)
+    def assignment_status_update(account_id, assignment_status_id, opts = {})
+      data, _status_code, _headers = assignment_status_update_with_http_info(account_id, assignment_status_id, opts)
       data
     end
 
     # Update Assignment Status
     # Updates an assignment status.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_status_id [Integer] the assignment status id
     # @param [Hash] opts the optional parameters
@@ -918,13 +862,9 @@ module OpenapiClient
     # @option opts [Integer] :follow_up the date to follow up by
     # @option opts [Boolean] :active determines whether the assignment status is active or inactive
     # @return [Array<(AssignmentStatusResponse, Integer, Hash)>] AssignmentStatusResponse data, response status code and response headers
-    def assignment_status_update_with_http_info(version, account_id, assignment_status_id, opts = {})
+    def assignment_status_update_with_http_info(account_id, assignment_status_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_status_update ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_status_update"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -955,7 +895,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"closure\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/status/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/status/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1007,7 +947,6 @@ module OpenapiClient
 
     # Update Assignment
     # Updates an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
@@ -1018,14 +957,13 @@ module OpenapiClient
     # @option opts [String] :tags the tags
     # @option opts [Boolean] :active determines whether the assignment is active or inactive
     # @return [AssignmentResponse]
-    def assignment_update(version, account_id, assignment_id, opts = {})
-      data, _status_code, _headers = assignment_update_with_http_info(version, account_id, assignment_id, opts)
+    def assignment_update(account_id, assignment_id, opts = {})
+      data, _status_code, _headers = assignment_update_with_http_info(account_id, assignment_id, opts)
       data
     end
 
     # Update Assignment
     # Updates an assignment.
-    # @param version [Float] 
     # @param account_id [Integer] the user account id
     # @param assignment_id [Integer] the assignment id
     # @param [Hash] opts the optional parameters
@@ -1036,13 +974,9 @@ module OpenapiClient
     # @option opts [String] :tags the tags
     # @option opts [Boolean] :active determines whether the assignment is active or inactive
     # @return [Array<(AssignmentResponse, Integer, Hash)>] AssignmentResponse data, response status code and response headers
-    def assignment_update_with_http_info(version, account_id, assignment_id, opts = {})
+    def assignment_update_with_http_info(account_id, assignment_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssignmentApi.assignment_update ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssignmentApi.assignment_update"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1053,7 +987,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'assignment_id' when calling AssignmentApi.assignment_update"
       end
       # resource path
-      local_var_path = '/api/{version}/assignment/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/assignment/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Application
     # Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-    # @param version [Float] 
     # @param app_name [String] The name of the application
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
@@ -103,14 +102,13 @@ module OpenapiClient
     # @option opts [String] :twilio_sender_phone_number Twilio Sender Phone Number
     # @option opts [String] :open_ai_secret_key OpenAI Secret API Key
     # @return [ApplicationResponse]
-    def create_application(version, app_name, opts = {})
-      data, _status_code, _headers = create_application_with_http_info(version, app_name, opts)
+    def create_application(app_name, opts = {})
+      data, _status_code, _headers = create_application_with_http_info(app_name, opts)
       data
     end
 
     # Create Application
     # Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-    # @param version [Float] 
     # @param app_name [String] The name of the application
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
@@ -192,13 +190,9 @@ module OpenapiClient
     # @option opts [String] :twilio_sender_phone_number Twilio Sender Phone Number
     # @option opts [String] :open_ai_secret_key OpenAI Secret API Key
     # @return [Array<(ApplicationResponse, Integer, Hash)>] ApplicationResponse data, response status code and response headers
-    def create_application_with_http_info(version, app_name, opts = {})
+    def create_application_with_http_info(app_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.create_application ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.create_application"
       end
       # verify the required parameter 'app_name' is set
       if @api_client.config.client_side_validation && app_name.nil?
@@ -217,7 +211,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"trilat_processing_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/application/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -337,7 +331,6 @@ module OpenapiClient
 
     # Create Ad Placement
     # Creates a new ad placement for an application.
-    # @param version [Float] 
     # @param app_key [String] The appKey of the application the ad placement is for
     # @param size [String] The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
     # @param [Hash] opts the optional parameters
@@ -351,14 +344,13 @@ module OpenapiClient
     # @option opts [Integer] :default_image_id Default Image Id
     # @option opts [Boolean] :active Active
     # @return [PlacementResponse]
-    def create_application_placement(version, app_key, size, opts = {})
-      data, _status_code, _headers = create_application_placement_with_http_info(version, app_key, size, opts)
+    def create_application_placement(app_key, size, opts = {})
+      data, _status_code, _headers = create_application_placement_with_http_info(app_key, size, opts)
       data
     end
 
     # Create Ad Placement
     # Creates a new ad placement for an application.
-    # @param version [Float] 
     # @param app_key [String] The appKey of the application the ad placement is for
     # @param size [String] The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
     # @param [Hash] opts the optional parameters
@@ -372,13 +364,9 @@ module OpenapiClient
     # @option opts [Integer] :default_image_id Default Image Id
     # @option opts [Boolean] :active Active
     # @return [Array<(PlacementResponse, Integer, Hash)>] PlacementResponse data, response status code and response headers
-    def create_application_placement_with_http_info(version, app_key, size, opts = {})
+    def create_application_placement_with_http_info(app_key, size, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.create_application_placement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.create_application_placement"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -394,7 +382,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"size\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/application/placement/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/placement/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -446,33 +434,27 @@ module OpenapiClient
 
     # Delete Application
     # Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the application.
     # @option opts [String] :app_key The key of the application to be deleted
     # @return [SirqulResponse]
-    def delete_application(version, opts = {})
-      data, _status_code, _headers = delete_application_with_http_info(version, opts)
+    def delete_application(opts = {})
+      data, _status_code, _headers = delete_application_with_http_info(opts)
       data
     end
 
     # Delete Application
     # Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the application.
     # @option opts [String] :app_key The key of the application to be deleted
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_application_with_http_info(version, opts = {})
+    def delete_application_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.delete_application ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.delete_application"
-      end
       # resource path
-      local_var_path = '/api/{version}/application/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -515,39 +497,33 @@ module OpenapiClient
 
     # Delete Ad Placement
     # Deletes an ad placement for an application.
-    # @param version [Float] 
     # @param placement_id [Integer] The id of the placement to delete, the user must have rights to the application the ad placement is for
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [PlacementResponse]
-    def delete_application_placement(version, placement_id, opts = {})
-      data, _status_code, _headers = delete_application_placement_with_http_info(version, placement_id, opts)
+    def delete_application_placement(placement_id, opts = {})
+      data, _status_code, _headers = delete_application_placement_with_http_info(placement_id, opts)
       data
     end
 
     # Delete Ad Placement
     # Deletes an ad placement for an application.
-    # @param version [Float] 
     # @param placement_id [Integer] The id of the placement to delete, the user must have rights to the application the ad placement is for
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(PlacementResponse, Integer, Hash)>] PlacementResponse data, response status code and response headers
-    def delete_application_placement_with_http_info(version, placement_id, opts = {})
+    def delete_application_placement_with_http_info(placement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.delete_application_placement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.delete_application_placement"
       end
       # verify the required parameter 'placement_id' is set
       if @api_client.config.client_side_validation && placement_id.nil?
         fail ArgumentError, "Missing the required parameter 'placement_id' when calling ApplicationApi.delete_application_placement"
       end
       # resource path
-      local_var_path = '/api/{version}/application/placement/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/placement/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -591,33 +567,27 @@ module OpenapiClient
 
     # Get Application
     # Get a specific application by appKey
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The key of the application
     # @option opts [Integer] :application_id Application Id
     # @return [ApplicationResponse]
-    def get_application(version, opts = {})
-      data, _status_code, _headers = get_application_with_http_info(version, opts)
+    def get_application(opts = {})
+      data, _status_code, _headers = get_application_with_http_info(opts)
       data
     end
 
     # Get Application
     # Get a specific application by appKey
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The key of the application
     # @option opts [Integer] :application_id Application Id
     # @return [Array<(ApplicationResponse, Integer, Hash)>] ApplicationResponse data, response status code and response headers
-    def get_application_with_http_info(version, opts = {})
+    def get_application_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.get_application ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.get_application"
-      end
       # resource path
-      local_var_path = '/api/{version}/application/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -660,39 +630,33 @@ module OpenapiClient
 
     # Get Ad Placement
     # Get details of an ad placement
-    # @param version [Float] 
     # @param placement_id [Integer] The id of the placement
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [PlacementResponse]
-    def get_application_placement(version, placement_id, opts = {})
-      data, _status_code, _headers = get_application_placement_with_http_info(version, placement_id, opts)
+    def get_application_placement(placement_id, opts = {})
+      data, _status_code, _headers = get_application_placement_with_http_info(placement_id, opts)
       data
     end
 
     # Get Ad Placement
     # Get details of an ad placement
-    # @param version [Float] 
     # @param placement_id [Integer] The id of the placement
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(PlacementResponse, Integer, Hash)>] PlacementResponse data, response status code and response headers
-    def get_application_placement_with_http_info(version, placement_id, opts = {})
+    def get_application_placement_with_http_info(placement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.get_application_placement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.get_application_placement"
       end
       # verify the required parameter 'placement_id' is set
       if @api_client.config.client_side_validation && placement_id.nil?
         fail ArgumentError, "Missing the required parameter 'placement_id' when calling ApplicationApi.get_application_placement"
       end
       # resource path
-      local_var_path = '/api/{version}/application/placement/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/placement/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -736,29 +700,23 @@ module OpenapiClient
 
     # Get API versions
     # Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def get_application_versions(version, opts = {})
-      data, _status_code, _headers = get_application_versions_with_http_info(version, opts)
+    def get_application_versions(opts = {})
+      data, _status_code, _headers = get_application_versions_with_http_info(opts)
       data
     end
 
     # Get API versions
     # Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def get_application_versions_with_http_info(version, opts = {})
+    def get_application_versions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.get_application_versions ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.get_application_versions"
-      end
       # resource path
-      local_var_path = '/api/{version}/application/versions'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/versions'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -799,7 +757,6 @@ module OpenapiClient
 
     # Search Application Users
     # Get a list of users per application
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :q Q
@@ -810,14 +767,13 @@ module OpenapiClient
     # @option opts [Integer] :_l the limit of the index
     # @option opts [Integer] :limit The limit of the pagination (default to 20)
     # @return [AccountListResponse]
-    def get_unique_users_by_app(version, app_key, opts = {})
-      data, _status_code, _headers = get_unique_users_by_app_with_http_info(version, app_key, opts)
+    def get_unique_users_by_app(app_key, opts = {})
+      data, _status_code, _headers = get_unique_users_by_app_with_http_info(app_key, opts)
       data
     end
 
     # Search Application Users
     # Get a list of users per application
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :q Q
@@ -828,20 +784,16 @@ module OpenapiClient
     # @option opts [Integer] :_l the limit of the index
     # @option opts [Integer] :limit The limit of the pagination (default to 20)
     # @return [Array<(AccountListResponse, Integer, Hash)>] AccountListResponse data, response status code and response headers
-    def get_unique_users_by_app_with_http_info(version, app_key, opts = {})
+    def get_unique_users_by_app_with_http_info(app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.get_unique_users_by_app ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.get_unique_users_by_app"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ApplicationApi.get_unique_users_by_app"
       end
       # resource path
-      local_var_path = '/api/{version}/application/users'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/users'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -890,7 +842,6 @@ module OpenapiClient
 
     # List Applications
     # List active applications matching the criteria (as a consumer)
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the application owner/manager
     # @option opts [String] :q Q
@@ -913,14 +864,13 @@ module OpenapiClient
     # @option opts [Boolean] :has_object_store Only include applications with a object store (default is false) (default to false)
     # @option opts [Boolean] :active_only Return only active results (default to true)
     # @return [Array<ApplicationShortResponse>]
-    def list_applications(version, opts = {})
-      data, _status_code, _headers = list_applications_with_http_info(version, opts)
+    def list_applications(opts = {})
+      data, _status_code, _headers = list_applications_with_http_info(opts)
       data
     end
 
     # List Applications
     # List active applications matching the criteria (as a consumer)
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the application owner/manager
     # @option opts [String] :q Q
@@ -943,20 +893,16 @@ module OpenapiClient
     # @option opts [Boolean] :has_object_store Only include applications with a object store (default is false) (default to false)
     # @option opts [Boolean] :active_only Return only active results (default to true)
     # @return [Array<(Array<ApplicationShortResponse>, Integer, Hash)>] Array<ApplicationShortResponse> data, response status code and response headers
-    def list_applications_with_http_info(version, opts = {})
+    def list_applications_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.list_applications ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.list_applications"
       end
       allowable_values = ["CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "HAS_ADVERTISEMENTS", "PUBLIC_NOTIFICATIONS", "PLACEMENTS", "BILLABLE_ENTITY_ID", "BILLABLE_ENTITY_NAME", "RESPONSIBLE_DISPLAY", "TITLE", "NAME", "ABOUT", "DESCRIPTION", "APPLICATION_ID", "APP_TYPE", "GAME_TYPE", "BUNDLE_ID", "SCORING_TYPE", "LANDING_PAGE_URL", "EULA_VERSION", "BUILD_VERSION", "API_VERSION"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/application/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1017,7 +963,6 @@ module OpenapiClient
 
     # Search for Ad Placements
     # Searches placements for an application.
-    # @param version [Float] 
     # @param app_key [String] The key of the application
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
@@ -1025,14 +970,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start of the pagination (default to 0)
     # @option opts [Integer] :limit The limit of the pagination (default to 100)
     # @return [Array<PlacementResponse>]
-    def search_application_placement(version, app_key, opts = {})
-      data, _status_code, _headers = search_application_placement_with_http_info(version, app_key, opts)
+    def search_application_placement(app_key, opts = {})
+      data, _status_code, _headers = search_application_placement_with_http_info(app_key, opts)
       data
     end
 
     # Search for Ad Placements
     # Searches placements for an application.
-    # @param version [Float] 
     # @param app_key [String] The key of the application
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
@@ -1040,20 +984,16 @@ module OpenapiClient
     # @option opts [Integer] :start The start of the pagination (default to 0)
     # @option opts [Integer] :limit The limit of the pagination (default to 100)
     # @return [Array<(Array<PlacementResponse>, Integer, Hash)>] Array<PlacementResponse> data, response status code and response headers
-    def search_application_placement_with_http_info(version, app_key, opts = {})
+    def search_application_placement_with_http_info(app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.search_application_placement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.search_application_placement"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ApplicationApi.search_application_placement"
       end
       # resource path
-      local_var_path = '/api/{version}/application/placement/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/placement/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1099,7 +1039,6 @@ module OpenapiClient
 
     # Search for Application Settings
     # Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -1110,14 +1049,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit per result set for pagination (default to 20)
     # @return [ApplicationSettingsResponse]
-    def search_application_settings(version, opts = {})
-      data, _status_code, _headers = search_application_settings_with_http_info(version, opts)
+    def search_application_settings(opts = {})
+      data, _status_code, _headers = search_application_settings_with_http_info(opts)
       data
     end
 
     # Search for Application Settings
     # Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -1128,16 +1066,12 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit per result set for pagination (default to 20)
     # @return [Array<(ApplicationSettingsResponse, Integer, Hash)>] ApplicationSettingsResponse data, response status code and response headers
-    def search_application_settings_with_http_info(version, opts = {})
+    def search_application_settings_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.search_application_settings ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.search_application_settings"
-      end
       # resource path
-      local_var_path = '/api/{version}/application/settings/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/settings/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1186,7 +1120,6 @@ module OpenapiClient
 
     # Search Applications
     # Search for applications matching the criteria that the logged in user has access to
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -1205,14 +1138,13 @@ module OpenapiClient
     # @option opts [Boolean] :public_notifications Filter results on whether the application is available for public trigger notifications
     # @option opts [Boolean] :active_only Return only active results (default to false)
     # @return [Array<ApplicationResponse>]
-    def search_applications(version, opts = {})
-      data, _status_code, _headers = search_applications_with_http_info(version, opts)
+    def search_applications(opts = {})
+      data, _status_code, _headers = search_applications_with_http_info(opts)
       data
     end
 
     # Search Applications
     # Search for applications matching the criteria that the logged in user has access to
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -1231,20 +1163,16 @@ module OpenapiClient
     # @option opts [Boolean] :public_notifications Filter results on whether the application is available for public trigger notifications
     # @option opts [Boolean] :active_only Return only active results (default to false)
     # @return [Array<(Array<ApplicationResponse>, Integer, Hash)>] Array<ApplicationResponse> data, response status code and response headers
-    def search_applications_with_http_info(version, opts = {})
+    def search_applications_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.search_applications ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.search_applications"
       end
       allowable_values = ["CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "HAS_ADVERTISEMENTS", "PUBLIC_NOTIFICATIONS", "PLACEMENTS", "BILLABLE_ENTITY_ID", "BILLABLE_ENTITY_NAME", "RESPONSIBLE_DISPLAY", "TITLE", "NAME", "ABOUT", "DESCRIPTION", "APPLICATION_ID", "APP_TYPE", "GAME_TYPE", "BUNDLE_ID", "SCORING_TYPE", "LANDING_PAGE_URL", "EULA_VERSION", "BUILD_VERSION", "API_VERSION"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/application/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1301,7 +1229,6 @@ module OpenapiClient
 
     # Update Application
     # Update an application record
-    # @param version [Float] 
     # @param app_key [String] The application key for updating an existing application
     # @param app_name [String] The name of the application
     # @param [Hash] opts the optional parameters
@@ -1384,14 +1311,13 @@ module OpenapiClient
     # @option opts [String] :twilio_sender_phone_number Twilio Sender Phone Number
     # @option opts [String] :open_ai_secret_key OpenAI Secret API Key
     # @return [ApplicationResponse]
-    def update_application(version, app_key, app_name, opts = {})
-      data, _status_code, _headers = update_application_with_http_info(version, app_key, app_name, opts)
+    def update_application(app_key, app_name, opts = {})
+      data, _status_code, _headers = update_application_with_http_info(app_key, app_name, opts)
       data
     end
 
     # Update Application
     # Update an application record
-    # @param version [Float] 
     # @param app_key [String] The application key for updating an existing application
     # @param app_name [String] The name of the application
     # @param [Hash] opts the optional parameters
@@ -1474,13 +1400,9 @@ module OpenapiClient
     # @option opts [String] :twilio_sender_phone_number Twilio Sender Phone Number
     # @option opts [String] :open_ai_secret_key OpenAI Secret API Key
     # @return [Array<(ApplicationResponse, Integer, Hash)>] ApplicationResponse data, response status code and response headers
-    def update_application_with_http_info(version, app_key, app_name, opts = {})
+    def update_application_with_http_info(app_key, app_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.update_application ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.update_application"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -1503,7 +1425,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"trilat_processing_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/application/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1624,32 +1546,26 @@ module OpenapiClient
 
     # Change Appliation Status
     # Set the application's active flag to true/false. This effectively activates or deactivates the application.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the delete, must have rights to edit the application.
     # @param app_key [String] The key of the application to be deleted
     # @param active [Boolean] If true then set to active, false otherwise
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def update_application_active(version, account_id, app_key, active, opts = {})
-      data, _status_code, _headers = update_application_active_with_http_info(version, account_id, app_key, active, opts)
+    def update_application_active(account_id, app_key, active, opts = {})
+      data, _status_code, _headers = update_application_active_with_http_info(account_id, app_key, active, opts)
       data
     end
 
     # Change Appliation Status
     # Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the delete, must have rights to edit the application.
     # @param app_key [String] The key of the application to be deleted
     # @param active [Boolean] If true then set to active, false otherwise
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_application_active_with_http_info(version, account_id, app_key, active, opts = {})
+    def update_application_active_with_http_info(account_id, app_key, active, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.update_application_active ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.update_application_active"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1664,7 +1580,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active' when calling ApplicationApi.update_application_active"
       end
       # resource path
-      local_var_path = '/api/{version}/application/active'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/active'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1708,7 +1624,6 @@ module OpenapiClient
 
     # Update Ad Placement
     # Updates an ad placement for an application.
-    # @param version [Float] 
     # @param placement_id [Integer] The id of the placement to update, the user must have rights to the application the ad placement is for
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
@@ -1722,14 +1637,13 @@ module OpenapiClient
     # @option opts [Integer] :default_image_id Default Image Id
     # @option opts [Boolean] :active Active
     # @return [PlacementResponse]
-    def update_application_placement(version, placement_id, opts = {})
-      data, _status_code, _headers = update_application_placement_with_http_info(version, placement_id, opts)
+    def update_application_placement(placement_id, opts = {})
+      data, _status_code, _headers = update_application_placement_with_http_info(placement_id, opts)
       data
     end
 
     # Update Ad Placement
     # Updates an ad placement for an application.
-    # @param version [Float] 
     # @param placement_id [Integer] The id of the placement to update, the user must have rights to the application the ad placement is for
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
@@ -1743,13 +1657,9 @@ module OpenapiClient
     # @option opts [Integer] :default_image_id Default Image Id
     # @option opts [Boolean] :active Active
     # @return [Array<(PlacementResponse, Integer, Hash)>] PlacementResponse data, response status code and response headers
-    def update_application_placement_with_http_info(version, placement_id, opts = {})
+    def update_application_placement_with_http_info(placement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.update_application_placement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.update_application_placement"
       end
       # verify the required parameter 'placement_id' is set
       if @api_client.config.client_side_validation && placement_id.nil?
@@ -1760,7 +1670,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"size\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/application/placement/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/placement/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1812,41 +1722,35 @@ module OpenapiClient
 
     # Create Application Certificate
     # Uploads a certificate for an application that the user has access to.
-    # @param version [Float] 
     # @param app_key [String] The key of the application
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id Device Id
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the application.
     # @option opts [File] :certificate Certificate
     # @return [SirqulResponse]
-    def upload_application_certificate(version, app_key, opts = {})
-      data, _status_code, _headers = upload_application_certificate_with_http_info(version, app_key, opts)
+    def upload_application_certificate(app_key, opts = {})
+      data, _status_code, _headers = upload_application_certificate_with_http_info(app_key, opts)
       data
     end
 
     # Create Application Certificate
     # Uploads a certificate for an application that the user has access to.
-    # @param version [Float] 
     # @param app_key [String] The key of the application
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id Device Id
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the application.
     # @option opts [File] :certificate Certificate
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def upload_application_certificate_with_http_info(version, app_key, opts = {})
+    def upload_application_certificate_with_http_info(app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationApi.upload_application_certificate ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationApi.upload_application_certificate"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ApplicationApi.upload_application_certificate"
       end
       # resource path
-      local_var_path = '/api/{version}/application/certificate/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/application/certificate/create'
 
       # query parameters
       query_params = opts[:query_params] || {}

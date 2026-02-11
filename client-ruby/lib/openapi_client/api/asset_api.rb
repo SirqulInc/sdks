@@ -21,28 +21,22 @@ module OpenapiClient
     end
     # Download Asset
     # Downloads an asset from the server for assets that have been uploaded to the server.
-    # @param version [Float] 
     # @param filename [String] the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def asset_download(version, filename, opts = {})
-      data, _status_code, _headers = asset_download_with_http_info(version, filename, opts)
+    def asset_download(filename, opts = {})
+      data, _status_code, _headers = asset_download_with_http_info(filename, opts)
       data
     end
 
     # Download Asset
     # Downloads an asset from the server for assets that have been uploaded to the server.
-    # @param version [Float] 
     # @param filename [String] the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def asset_download_with_http_info(version, filename, opts = {})
+    def asset_download_with_http_info(filename, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.asset_download ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.asset_download"
       end
       # verify the required parameter 'filename' is set
       if @api_client.config.client_side_validation && filename.nil?
@@ -54,7 +48,7 @@ module OpenapiClient
       end
 
       # resource path
-      local_var_path = '/api/{version}/asset/download/{filename}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'filename' + '}', CGI.escape(filename.to_s))
+      local_var_path = '/asset/download/{filename}'.sub('{' + 'filename' + '}', CGI.escape(filename.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -95,7 +89,6 @@ module OpenapiClient
 
     # Convert Offer to Creative
     # Converts an offer image + text into a creative image.
-    # @param version [Float] 
     # @param offer_id [Integer] offer id used for inserting offer text/flavor
     # @param ad_size [String] the ad size used for selecting a format for the creative image
     # @param [Hash] opts the optional parameters
@@ -105,14 +98,13 @@ module OpenapiClient
     # @option opts [String] :background_size the size of the background
     # @option opts [String] :template the template to use
     # @return [AssetShortResponse]
-    def asset_morph(version, offer_id, ad_size, opts = {})
-      data, _status_code, _headers = asset_morph_with_http_info(version, offer_id, ad_size, opts)
+    def asset_morph(offer_id, ad_size, opts = {})
+      data, _status_code, _headers = asset_morph_with_http_info(offer_id, ad_size, opts)
       data
     end
 
     # Convert Offer to Creative
     # Converts an offer image + text into a creative image.
-    # @param version [Float] 
     # @param offer_id [Integer] offer id used for inserting offer text/flavor
     # @param ad_size [String] the ad size used for selecting a format for the creative image
     # @param [Hash] opts the optional parameters
@@ -122,13 +114,9 @@ module OpenapiClient
     # @option opts [String] :background_size the size of the background
     # @option opts [String] :template the template to use
     # @return [Array<(AssetShortResponse, Integer, Hash)>] AssetShortResponse data, response status code and response headers
-    def asset_morph_with_http_info(version, offer_id, ad_size, opts = {})
+    def asset_morph_with_http_info(offer_id, ad_size, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.asset_morph ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.asset_morph"
       end
       # verify the required parameter 'offer_id' is set
       if @api_client.config.client_side_validation && offer_id.nil?
@@ -144,7 +132,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"ad_size\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/asset/morph'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/asset/morph'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -192,7 +180,6 @@ module OpenapiClient
 
     # Create Asset
     # Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_nulls to return nulls
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -229,14 +216,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the latitude (optional)
     # @option opts [Float] :longitude the longitude (optional)
     # @return [AssetResponse]
-    def create_asset(version, opts = {})
-      data, _status_code, _headers = create_asset_with_http_info(version, opts)
+    def create_asset(opts = {})
+      data, _status_code, _headers = create_asset_with_http_info(opts)
       data
     end
 
     # Create Asset
     # Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_nulls to return nulls
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -273,16 +259,12 @@ module OpenapiClient
     # @option opts [Float] :latitude the latitude (optional)
     # @option opts [Float] :longitude the longitude (optional)
     # @return [Array<(AssetResponse, Integer, Hash)>] AssetResponse data, response status code and response headers
-    def create_asset_with_http_info(version, opts = {})
+    def create_asset_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.create_asset ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.create_asset"
-      end
       # resource path
-      local_var_path = '/api/{version}/asset/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/asset/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -357,7 +339,6 @@ module OpenapiClient
 
     # Delete Asset
     # Delete an asset.
-    # @param version [Float] 
     # @param asset_id [String] the id of the asset to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -365,14 +346,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def delete_asset(version, asset_id, opts = {})
-      data, _status_code, _headers = delete_asset_with_http_info(version, asset_id, opts)
+    def delete_asset(asset_id, opts = {})
+      data, _status_code, _headers = delete_asset_with_http_info(asset_id, opts)
       data
     end
 
     # Delete Asset
     # Delete an asset.
-    # @param version [Float] 
     # @param asset_id [String] the id of the asset to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -380,20 +360,16 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_asset_with_http_info(version, asset_id, opts = {})
+    def delete_asset_with_http_info(asset_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.delete_asset ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.delete_asset"
       end
       # verify the required parameter 'asset_id' is set
       if @api_client.config.client_side_validation && asset_id.nil?
         fail ArgumentError, "Missing the required parameter 'asset_id' when calling AssetApi.delete_asset"
       end
       # resource path
-      local_var_path = '/api/{version}/asset/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/asset/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -439,41 +415,35 @@ module OpenapiClient
 
     # Get Asset
     # Gets the full asset response including attached likes and notes.
-    # @param version [Float] 
     # @param asset_id [Integer] the asset ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
     # @option opts [Boolean] :note_descending determines whether the notes on the asset are in descending order (default to false)
     # @return [AssetFullResponse]
-    def get_asset(version, asset_id, opts = {})
-      data, _status_code, _headers = get_asset_with_http_info(version, asset_id, opts)
+    def get_asset(asset_id, opts = {})
+      data, _status_code, _headers = get_asset_with_http_info(asset_id, opts)
       data
     end
 
     # Get Asset
     # Gets the full asset response including attached likes and notes.
-    # @param version [Float] 
     # @param asset_id [Integer] the asset ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
     # @option opts [Boolean] :note_descending determines whether the notes on the asset are in descending order (default to false)
     # @return [Array<(AssetFullResponse, Integer, Hash)>] AssetFullResponse data, response status code and response headers
-    def get_asset_with_http_info(version, asset_id, opts = {})
+    def get_asset_with_http_info(asset_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.get_asset ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.get_asset"
       end
       # verify the required parameter 'asset_id' is set
       if @api_client.config.client_side_validation && asset_id.nil?
         fail ArgumentError, "Missing the required parameter 'asset_id' when calling AssetApi.get_asset"
       end
       # resource path
-      local_var_path = '/api/{version}/asset/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/asset/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -518,7 +488,6 @@ module OpenapiClient
 
     # Remove Asset from Collection
     # Remove assets from collections
-    # @param version [Float] 
     # @param asset_id [String] the id of the asset to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -529,14 +498,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def remove_asset(version, asset_id, opts = {})
-      data, _status_code, _headers = remove_asset_with_http_info(version, asset_id, opts)
+    def remove_asset(asset_id, opts = {})
+      data, _status_code, _headers = remove_asset_with_http_info(asset_id, opts)
       data
     end
 
     # Remove Asset from Collection
     # Remove assets from collections
-    # @param version [Float] 
     # @param asset_id [String] the id of the asset to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -547,20 +515,16 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_asset_with_http_info(version, asset_id, opts = {})
+    def remove_asset_with_http_info(asset_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.remove_asset ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.remove_asset"
       end
       # verify the required parameter 'asset_id' is set
       if @api_client.config.client_side_validation && asset_id.nil?
         fail ArgumentError, "Missing the required parameter 'asset_id' when calling AssetApi.remove_asset"
       end
       # resource path
-      local_var_path = '/api/{version}/asset/remove'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/asset/remove'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -609,7 +573,6 @@ module OpenapiClient
 
     # Search Assets
     # Searches for assets
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -636,14 +599,13 @@ module OpenapiClient
     # @option opts [String] :approval_status filter by approval status
     # @option opts [Integer] :assigned_account_id filter results by an assigned account id
     # @return [Array<AssetResponse>]
-    def search_assets(version, opts = {})
-      data, _status_code, _headers = search_assets_with_http_info(version, opts)
+    def search_assets(opts = {})
+      data, _status_code, _headers = search_assets_with_http_info(opts)
       data
     end
 
     # Search Assets
     # Searches for assets
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -670,16 +632,12 @@ module OpenapiClient
     # @option opts [String] :approval_status filter by approval status
     # @option opts [Integer] :assigned_account_id filter results by an assigned account id
     # @return [Array<(Array<AssetResponse>, Integer, Hash)>] Array<AssetResponse> data, response status code and response headers
-    def search_assets_with_http_info(version, opts = {})
+    def search_assets_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.search_assets ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.search_assets"
-      end
       # resource path
-      local_var_path = '/api/{version}/asset/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/asset/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -744,7 +702,6 @@ module OpenapiClient
 
     # Update Asset
     # Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-    # @param version [Float] 
     # @param asset_id [Integer] the ID of the asset to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -778,14 +735,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the asset&#39;s location
     # @option opts [Float] :longitude longitude used to update the asset&#39;s location
     # @return [SirqulResponse]
-    def update_asset(version, asset_id, opts = {})
-      data, _status_code, _headers = update_asset_with_http_info(version, asset_id, opts)
+    def update_asset(asset_id, opts = {})
+      data, _status_code, _headers = update_asset_with_http_info(asset_id, opts)
       data
     end
 
     # Update Asset
     # Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-    # @param version [Float] 
     # @param asset_id [Integer] the ID of the asset to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -819,20 +775,16 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the asset&#39;s location
     # @option opts [Float] :longitude longitude used to update the asset&#39;s location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_asset_with_http_info(version, asset_id, opts = {})
+    def update_asset_with_http_info(asset_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AssetApi.update_asset ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AssetApi.update_asset"
       end
       # verify the required parameter 'asset_id' is set
       if @api_client.config.client_side_validation && asset_id.nil?
         fail ArgumentError, "Missing the required parameter 'asset_id' when calling AssetApi.update_asset"
       end
       # resource path
-      local_var_path = '/api/{version}/asset/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/asset/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

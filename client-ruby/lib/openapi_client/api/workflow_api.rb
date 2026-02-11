@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Run Workflow
     # Runs a published executable workflow
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param workflow_id [Integer] the workflow to run
     # @param [Hash] opts the optional parameters
@@ -29,14 +28,13 @@ module OpenapiClient
     # @option opts [Integer] :version_code this runs a particular sku version on the workflow
     # @option opts [String] :parameters Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60; 
     # @return [SirqulResponse]
-    def run_workflow(version, account_id, workflow_id, opts = {})
-      data, _status_code, _headers = run_workflow_with_http_info(version, account_id, workflow_id, opts)
+    def run_workflow(account_id, workflow_id, opts = {})
+      data, _status_code, _headers = run_workflow_with_http_info(account_id, workflow_id, opts)
       data
     end
 
     # Run Workflow
     # Runs a published executable workflow
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param workflow_id [Integer] the workflow to run
     # @param [Hash] opts the optional parameters
@@ -44,13 +42,9 @@ module OpenapiClient
     # @option opts [Integer] :version_code this runs a particular sku version on the workflow
     # @option opts [String] :parameters Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60; 
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def run_workflow_with_http_info(version, account_id, workflow_id, opts = {})
+    def run_workflow_with_http_info(account_id, workflow_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WorkflowApi.run_workflow ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WorkflowApi.run_workflow"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -61,7 +55,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'workflow_id' when calling WorkflowApi.run_workflow"
       end
       # resource path
-      local_var_path = '/api/{version}/workflow/run'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/workflow/run'
 
       # query parameters
       query_params = opts[:query_params] || {}

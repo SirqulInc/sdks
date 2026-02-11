@@ -21,35 +21,29 @@ module OpenapiClient
     end
     # Check Disbursements
     # Checks the status of a captured disbrusement to see if it has been settled.
-    # @param version [Float] 
     # @param disbursement_id [Integer] the ID of the disbursement being checked on
     # @param [Hash] opts the optional parameters
     # @return [DisbursementResponse]
-    def check_disbursements(version, disbursement_id, opts = {})
-      data, _status_code, _headers = check_disbursements_with_http_info(version, disbursement_id, opts)
+    def check_disbursements(disbursement_id, opts = {})
+      data, _status_code, _headers = check_disbursements_with_http_info(disbursement_id, opts)
       data
     end
 
     # Check Disbursements
     # Checks the status of a captured disbrusement to see if it has been settled.
-    # @param version [Float] 
     # @param disbursement_id [Integer] the ID of the disbursement being checked on
     # @param [Hash] opts the optional parameters
     # @return [Array<(DisbursementResponse, Integer, Hash)>] DisbursementResponse data, response status code and response headers
-    def check_disbursements_with_http_info(version, disbursement_id, opts = {})
+    def check_disbursements_with_http_info(disbursement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DisbursementApi.check_disbursements ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DisbursementApi.check_disbursements"
       end
       # verify the required parameter 'disbursement_id' is set
       if @api_client.config.client_side_validation && disbursement_id.nil?
         fail ArgumentError, "Missing the required parameter 'disbursement_id' when calling DisbursementApi.check_disbursements"
       end
       # resource path
-      local_var_path = '/api/{version}/disbursement/check'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/disbursement/check'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -91,7 +85,6 @@ module OpenapiClient
 
     # Create Disbursement
     # Creates a Disbursement for sending money to a retailer
-    # @param version [Float] 
     # @param account_id [Integer] the ID of the logging in user (must be an EXECUTIVE account)
     # @param receiver_account_id [Integer] the ID of the account receiving the disbursement
     # @param original_sender_account_id [Integer] the ID of the original sender account
@@ -104,14 +97,13 @@ module OpenapiClient
     # @option opts [String] :external_id external ID, which can be used as a way to reference the disbursement
     # @option opts [String] :introspection_params This is for specifying parameters to make an http callback request for validating that the disbursement is valid
     # @return [DisbursementResponse]
-    def create_disbursement(version, account_id, receiver_account_id, original_sender_account_id, amount, provider, opts = {})
-      data, _status_code, _headers = create_disbursement_with_http_info(version, account_id, receiver_account_id, original_sender_account_id, amount, provider, opts)
+    def create_disbursement(account_id, receiver_account_id, original_sender_account_id, amount, provider, opts = {})
+      data, _status_code, _headers = create_disbursement_with_http_info(account_id, receiver_account_id, original_sender_account_id, amount, provider, opts)
       data
     end
 
     # Create Disbursement
     # Creates a Disbursement for sending money to a retailer
-    # @param version [Float] 
     # @param account_id [Integer] the ID of the logging in user (must be an EXECUTIVE account)
     # @param receiver_account_id [Integer] the ID of the account receiving the disbursement
     # @param original_sender_account_id [Integer] the ID of the original sender account
@@ -124,13 +116,9 @@ module OpenapiClient
     # @option opts [String] :external_id external ID, which can be used as a way to reference the disbursement
     # @option opts [String] :introspection_params This is for specifying parameters to make an http callback request for validating that the disbursement is valid
     # @return [Array<(DisbursementResponse, Integer, Hash)>] DisbursementResponse data, response status code and response headers
-    def create_disbursement_with_http_info(version, account_id, receiver_account_id, original_sender_account_id, amount, provider, opts = {})
+    def create_disbursement_with_http_info(account_id, receiver_account_id, original_sender_account_id, amount, provider, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DisbursementApi.create_disbursement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DisbursementApi.create_disbursement"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -158,7 +146,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/disbursement/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/disbursement/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -209,30 +197,24 @@ module OpenapiClient
 
     # Get Disbursement
     # Get Disbursement details
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param disbursement_id [Integer] the id of the disbursement
     # @param [Hash] opts the optional parameters
     # @return [DisbursementResponse]
-    def get_disbursement(version, account_id, disbursement_id, opts = {})
-      data, _status_code, _headers = get_disbursement_with_http_info(version, account_id, disbursement_id, opts)
+    def get_disbursement(account_id, disbursement_id, opts = {})
+      data, _status_code, _headers = get_disbursement_with_http_info(account_id, disbursement_id, opts)
       data
     end
 
     # Get Disbursement
     # Get Disbursement details
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param disbursement_id [Integer] the id of the disbursement
     # @param [Hash] opts the optional parameters
     # @return [Array<(DisbursementResponse, Integer, Hash)>] DisbursementResponse data, response status code and response headers
-    def get_disbursement_with_http_info(version, account_id, disbursement_id, opts = {})
+    def get_disbursement_with_http_info(account_id, disbursement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DisbursementApi.get_disbursement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DisbursementApi.get_disbursement"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -243,7 +225,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'disbursement_id' when calling DisbursementApi.get_disbursement"
       end
       # resource path
-      local_var_path = '/api/{version}/disbursement/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/disbursement/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -286,7 +268,6 @@ module OpenapiClient
 
     # Search Disbursements
     # Search Disbursements
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :receiver_account_id filter results by the id of the account receiving the disbursement
@@ -299,14 +280,13 @@ module OpenapiClient
     # @option opts [Boolean] :active_only search on disbursements that are active only (default to false)
     # @option opts [String] :external_id search results by this external ID (that can be used to reference the disbursement)
     # @return [Array<DisbursementResponse>]
-    def search_disbursements(version, account_id, opts = {})
-      data, _status_code, _headers = search_disbursements_with_http_info(version, account_id, opts)
+    def search_disbursements(account_id, opts = {})
+      data, _status_code, _headers = search_disbursements_with_http_info(account_id, opts)
       data
     end
 
     # Search Disbursements
     # Search Disbursements
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :receiver_account_id filter results by the id of the account receiving the disbursement
@@ -319,20 +299,16 @@ module OpenapiClient
     # @option opts [Boolean] :active_only search on disbursements that are active only (default to false)
     # @option opts [String] :external_id search results by this external ID (that can be used to reference the disbursement)
     # @return [Array<(Array<DisbursementResponse>, Integer, Hash)>] Array<DisbursementResponse> data, response status code and response headers
-    def search_disbursements_with_http_info(version, account_id, opts = {})
+    def search_disbursements_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DisbursementApi.search_disbursements ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DisbursementApi.search_disbursements"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling DisbursementApi.search_disbursements"
       end
       # resource path
-      local_var_path = '/api/{version}/disbursement/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/disbursement/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -383,7 +359,6 @@ module OpenapiClient
 
     # Update Disbursement
     # Update Disbursement
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param disbursement_id [Integer] the id of the disbursement being updated
     # @param [Hash] opts the optional parameters
@@ -396,14 +371,13 @@ module OpenapiClient
     # @option opts [Boolean] :_retry determines whether to try sending the disbursement again in the case of a previous failure
     # @option opts [String] :introspection_params for specifying parameters to make an http callback request for validating that the disbursement is valid
     # @return [DisbursementResponse]
-    def update_disbursement(version, account_id, disbursement_id, opts = {})
-      data, _status_code, _headers = update_disbursement_with_http_info(version, account_id, disbursement_id, opts)
+    def update_disbursement(account_id, disbursement_id, opts = {})
+      data, _status_code, _headers = update_disbursement_with_http_info(account_id, disbursement_id, opts)
       data
     end
 
     # Update Disbursement
     # Update Disbursement
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param disbursement_id [Integer] the id of the disbursement being updated
     # @param [Hash] opts the optional parameters
@@ -416,13 +390,9 @@ module OpenapiClient
     # @option opts [Boolean] :_retry determines whether to try sending the disbursement again in the case of a previous failure
     # @option opts [String] :introspection_params for specifying parameters to make an http callback request for validating that the disbursement is valid
     # @return [Array<(DisbursementResponse, Integer, Hash)>] DisbursementResponse data, response status code and response headers
-    def update_disbursement_with_http_info(version, account_id, disbursement_id, opts = {})
+    def update_disbursement_with_http_info(account_id, disbursement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DisbursementApi.update_disbursement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DisbursementApi.update_disbursement"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -437,7 +407,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"provider\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/disbursement/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/disbursement/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

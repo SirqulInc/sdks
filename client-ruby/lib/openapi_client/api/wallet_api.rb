@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Wallet Offers
     # Adds offers to the wallet
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -35,14 +34,13 @@ module OpenapiClient
     # @option opts [String] :app_key The application requesting the purchase, required when currencyType is TICKETS
     # @option opts [Integer] :status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
     # @return [Array<OfferTransactionResponse>]
-    def create_offer_transaction(version, opts = {})
-      data, _status_code, _headers = create_offer_transaction_with_http_info(version, opts)
+    def create_offer_transaction(opts = {})
+      data, _status_code, _headers = create_offer_transaction_with_http_info(opts)
       data
     end
 
     # Create Wallet Offers
     # Adds offers to the wallet
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -56,16 +54,12 @@ module OpenapiClient
     # @option opts [String] :app_key The application requesting the purchase, required when currencyType is TICKETS
     # @option opts [Integer] :status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
     # @return [Array<(Array<OfferTransactionResponse>, Integer, Hash)>] Array<OfferTransactionResponse> data, response status code and response headers
-    def create_offer_transaction_with_http_info(version, opts = {})
+    def create_offer_transaction_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WalletApi.create_offer_transaction ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WalletApi.create_offer_transaction"
-      end
       # resource path
-      local_var_path = '/api/{version}/wallet/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/wallet/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -117,39 +111,33 @@ module OpenapiClient
 
     # Delete Wallet Offer
     # Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-    # @param version [Float] 
     # @param transaction_id [Integer] The offer transaction id to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def delete_offer_transaction(version, transaction_id, opts = {})
-      data, _status_code, _headers = delete_offer_transaction_with_http_info(version, transaction_id, opts)
+    def delete_offer_transaction(transaction_id, opts = {})
+      data, _status_code, _headers = delete_offer_transaction_with_http_info(transaction_id, opts)
       data
     end
 
     # Delete Wallet Offer
     # Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-    # @param version [Float] 
     # @param transaction_id [Integer] The offer transaction id to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_offer_transaction_with_http_info(version, transaction_id, opts = {})
+    def delete_offer_transaction_with_http_info(transaction_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WalletApi.delete_offer_transaction ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WalletApi.delete_offer_transaction"
       end
       # verify the required parameter 'transaction_id' is set
       if @api_client.config.client_side_validation && transaction_id.nil?
         fail ArgumentError, "Missing the required parameter 'transaction_id' when calling WalletApi.delete_offer_transaction"
       end
       # resource path
-      local_var_path = '/api/{version}/wallet/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/wallet/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -192,7 +180,6 @@ module OpenapiClient
     end
 
     # Get Wallet Offer
-    # @param version [Float] 
     # @param transaction_id [Integer] The offer transaction id to get details of
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -202,13 +189,12 @@ module OpenapiClient
     # @option opts [Float] :longitude The latitude location of the user
     # @option opts [Boolean] :return_full_response Determines whether to return a detailed version of the response (default to true)
     # @return [OfferTransactionResponse]
-    def get_offer_transaction(version, transaction_id, opts = {})
-      data, _status_code, _headers = get_offer_transaction_with_http_info(version, transaction_id, opts)
+    def get_offer_transaction(transaction_id, opts = {})
+      data, _status_code, _headers = get_offer_transaction_with_http_info(transaction_id, opts)
       data
     end
 
     # Get Wallet Offer
-    # @param version [Float] 
     # @param transaction_id [Integer] The offer transaction id to get details of
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -218,20 +204,16 @@ module OpenapiClient
     # @option opts [Float] :longitude The latitude location of the user
     # @option opts [Boolean] :return_full_response Determines whether to return a detailed version of the response (default to true)
     # @return [Array<(OfferTransactionResponse, Integer, Hash)>] OfferTransactionResponse data, response status code and response headers
-    def get_offer_transaction_with_http_info(version, transaction_id, opts = {})
+    def get_offer_transaction_with_http_info(transaction_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WalletApi.get_offer_transaction ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WalletApi.get_offer_transaction"
       end
       # verify the required parameter 'transaction_id' is set
       if @api_client.config.client_side_validation && transaction_id.nil?
         fail ArgumentError, "Missing the required parameter 'transaction_id' when calling WalletApi.get_offer_transaction"
       end
       # resource path
-      local_var_path = '/api/{version}/wallet/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/wallet/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -279,7 +261,6 @@ module OpenapiClient
 
     # Preview Wallet Offers
     # Preview the final cost of a transaction without charging the user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -292,14 +273,13 @@ module OpenapiClient
     # @option opts [String] :meta_data External custom client defined data
     # @option opts [String] :app_key The application requesting the purchase, required when currencyType is TICKETS
     # @return [Array<OfferTransactionResponse>]
-    def preview_offer_transaction(version, opts = {})
-      data, _status_code, _headers = preview_offer_transaction_with_http_info(version, opts)
+    def preview_offer_transaction(opts = {})
+      data, _status_code, _headers = preview_offer_transaction_with_http_info(opts)
       data
     end
 
     # Preview Wallet Offers
     # Preview the final cost of a transaction without charging the user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -312,16 +292,12 @@ module OpenapiClient
     # @option opts [String] :meta_data External custom client defined data
     # @option opts [String] :app_key The application requesting the purchase, required when currencyType is TICKETS
     # @return [Array<(Array<OfferTransactionResponse>, Integer, Hash)>] Array<OfferTransactionResponse> data, response status code and response headers
-    def preview_offer_transaction_with_http_info(version, opts = {})
+    def preview_offer_transaction_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WalletApi.preview_offer_transaction ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WalletApi.preview_offer_transaction"
-      end
       # resource path
-      local_var_path = '/api/{version}/wallet/preview'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/wallet/preview'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -372,7 +348,6 @@ module OpenapiClient
 
     # Search Wallet Offers
     # Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -416,14 +391,13 @@ module OpenapiClient
     # @option opts [Integer] :recurring_expiration_since Filter results by the recurring billing expiration date
     # @option opts [Integer] :recurring_expiration_before Filter results by the recurring billing expiration date
     # @return [Array<OfferTransactionResponse>]
-    def search_offer_transactions(version, opts = {})
-      data, _status_code, _headers = search_offer_transactions_with_http_info(version, opts)
+    def search_offer_transactions(opts = {})
+      data, _status_code, _headers = search_offer_transactions_with_http_info(opts)
       data
     end
 
     # Search Wallet Offers
     # Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -467,13 +441,9 @@ module OpenapiClient
     # @option opts [Integer] :recurring_expiration_since Filter results by the recurring billing expiration date
     # @option opts [Integer] :recurring_expiration_before Filter results by the recurring billing expiration date
     # @return [Array<(Array<OfferTransactionResponse>, Integer, Hash)>] Array<OfferTransactionResponse> data, response status code and response headers
-    def search_offer_transactions_with_http_info(version, opts = {})
+    def search_offer_transactions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WalletApi.search_offer_transactions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WalletApi.search_offer_transactions"
       end
       allowable_values = ["VOUCHER", "COUPON", "PRODUCT", "MEDIA", "EVENT", "DEVICE"]
       if @api_client.config.client_side_validation && opts[:'offer_type'] && !allowable_values.include?(opts[:'offer_type'])
@@ -484,7 +454,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/wallet/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/wallet/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -566,7 +536,6 @@ module OpenapiClient
 
     # Update Wallet Offer
     # Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-    # @param version [Float] 
     # @param transaction_id [Integer] The offer transaction id to remove
     # @param status [Integer] The status value to change to (0 or 1)
     # @param [Hash] opts the optional parameters
@@ -582,14 +551,13 @@ module OpenapiClient
     # @option opts [Boolean] :return_full_response Determines whether to return a detailed version of the response (default to false)
     # @option opts [String] :exception_membership_offer_ids Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up
     # @return [OfferTransactionResponse]
-    def update_offer_transaction(version, transaction_id, status, opts = {})
-      data, _status_code, _headers = update_offer_transaction_with_http_info(version, transaction_id, status, opts)
+    def update_offer_transaction(transaction_id, status, opts = {})
+      data, _status_code, _headers = update_offer_transaction_with_http_info(transaction_id, status, opts)
       data
     end
 
     # Update Wallet Offer
     # Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-    # @param version [Float] 
     # @param transaction_id [Integer] The offer transaction id to remove
     # @param status [Integer] The status value to change to (0 or 1)
     # @param [Hash] opts the optional parameters
@@ -605,13 +573,9 @@ module OpenapiClient
     # @option opts [Boolean] :return_full_response Determines whether to return a detailed version of the response (default to false)
     # @option opts [String] :exception_membership_offer_ids Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up
     # @return [Array<(OfferTransactionResponse, Integer, Hash)>] OfferTransactionResponse data, response status code and response headers
-    def update_offer_transaction_with_http_info(version, transaction_id, status, opts = {})
+    def update_offer_transaction_with_http_info(transaction_id, status, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WalletApi.update_offer_transaction ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WalletApi.update_offer_transaction"
       end
       # verify the required parameter 'transaction_id' is set
       if @api_client.config.client_side_validation && transaction_id.nil?
@@ -622,7 +586,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'status' when calling WalletApi.update_offer_transaction"
       end
       # resource path
-      local_var_path = '/api/{version}/wallet/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/wallet/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

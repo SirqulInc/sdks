@@ -21,35 +21,29 @@ module OpenapiClient
     end
     # Get Stop
     # Get an existing stop
-    # @param version [Float] 
     # @param id [Integer] the id of the stop to get
     # @param [Hash] opts the optional parameters
     # @return [Stop]
-    def get_stop(version, id, opts = {})
-      data, _status_code, _headers = get_stop_with_http_info(version, id, opts)
+    def get_stop(id, opts = {})
+      data, _status_code, _headers = get_stop_with_http_info(id, opts)
       data
     end
 
     # Get Stop
     # Get an existing stop
-    # @param version [Float] 
     # @param id [Integer] the id of the stop to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(Stop, Integer, Hash)>] Stop data, response status code and response headers
-    def get_stop_with_http_info(version, id, opts = {})
+    def get_stop_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: StopApi.get_stop ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling StopApi.get_stop"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling StopApi.get_stop"
       end
       # resource path
-      local_var_path = '/api/{version}/stop/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/stop/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -90,37 +84,31 @@ module OpenapiClient
 
     # Update Stop
     # Update an existing stop
-    # @param version [Float] 
     # @param id [Integer] the id of the stop to update
     # @param [Hash] opts the optional parameters
     # @option opts [Stop] :body 
     # @return [Stop]
-    def update_stop(version, id, opts = {})
-      data, _status_code, _headers = update_stop_with_http_info(version, id, opts)
+    def update_stop(id, opts = {})
+      data, _status_code, _headers = update_stop_with_http_info(id, opts)
       data
     end
 
     # Update Stop
     # Update an existing stop
-    # @param version [Float] 
     # @param id [Integer] the id of the stop to update
     # @param [Hash] opts the optional parameters
     # @option opts [Stop] :body 
     # @return [Array<(Stop, Integer, Hash)>] Stop data, response status code and response headers
-    def update_stop_with_http_info(version, id, opts = {})
+    def update_stop_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: StopApi.update_stop ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling StopApi.update_stop"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling StopApi.update_stop"
       end
       # resource path
-      local_var_path = '/api/{version}/stop/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/stop/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

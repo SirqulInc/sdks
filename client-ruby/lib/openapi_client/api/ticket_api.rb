@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Get Ticket Count
     # Gets the ticket count.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the id of the device that owns the tickets
     # @option opts [Integer] :account_id the id of the account that owns the tickets
@@ -29,14 +28,13 @@ module OpenapiClient
     # @option opts [String] :app_key the applicationkey
     # @option opts [String] :ticket_type the type of ticket
     # @return [CountResponse]
-    def get_ticket_count(version, opts = {})
-      data, _status_code, _headers = get_ticket_count_with_http_info(version, opts)
+    def get_ticket_count(opts = {})
+      data, _status_code, _headers = get_ticket_count_with_http_info(opts)
       data
     end
 
     # Get Ticket Count
     # Gets the ticket count.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the id of the device that owns the tickets
     # @option opts [Integer] :account_id the id of the account that owns the tickets
@@ -44,16 +42,12 @@ module OpenapiClient
     # @option opts [String] :app_key the applicationkey
     # @option opts [String] :ticket_type the type of ticket
     # @return [Array<(CountResponse, Integer, Hash)>] CountResponse data, response status code and response headers
-    def get_ticket_count_with_http_info(version, opts = {})
+    def get_ticket_count_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TicketApi.get_ticket_count ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TicketApi.get_ticket_count"
-      end
       # resource path
-      local_var_path = '/api/{version}/ticket/count'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ticket/count'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -99,7 +93,6 @@ module OpenapiClient
 
     # Get Ticket List
     # Gets the list of tickets.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the id of the device that owns the tickets
     # @option opts [Integer] :account_id the id of the account that owns the tickets
@@ -111,14 +104,13 @@ module OpenapiClient
     # @option opts [String] :game_type 
     # @option opts [String] :app_key the application key
     # @return [TicketListResponse]
-    def get_ticket_list(version, opts = {})
-      data, _status_code, _headers = get_ticket_list_with_http_info(version, opts)
+    def get_ticket_list(opts = {})
+      data, _status_code, _headers = get_ticket_list_with_http_info(opts)
       data
     end
 
     # Get Ticket List
     # Gets the list of tickets.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the id of the device that owns the tickets
     # @option opts [Integer] :account_id the id of the account that owns the tickets
@@ -130,16 +122,12 @@ module OpenapiClient
     # @option opts [String] :game_type 
     # @option opts [String] :app_key the application key
     # @return [Array<(TicketListResponse, Integer, Hash)>] TicketListResponse data, response status code and response headers
-    def get_ticket_list_with_http_info(version, opts = {})
+    def get_ticket_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TicketApi.get_ticket_list ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TicketApi.get_ticket_list"
-      end
       # resource path
-      local_var_path = '/api/{version}/ticket/getList'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ticket/getList'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -189,7 +177,6 @@ module OpenapiClient
 
     # Gift Tickets
     # Gift tickets to another user.
-    # @param version [Float] 
     # @param receiver_account_id [Integer] the id of the account receiving the tickets
     # @param ticket_id [Integer] the id of the tickets
     # @param [Hash] opts the optional parameters
@@ -200,14 +187,13 @@ module OpenapiClient
     # @option opts [String] :game_type the type of game associated with the tickets
     # @option opts [String] :app_key the application key
     # @return [SirqulResponse]
-    def gift_purchase(version, receiver_account_id, ticket_id, opts = {})
-      data, _status_code, _headers = gift_purchase_with_http_info(version, receiver_account_id, ticket_id, opts)
+    def gift_purchase(receiver_account_id, ticket_id, opts = {})
+      data, _status_code, _headers = gift_purchase_with_http_info(receiver_account_id, ticket_id, opts)
       data
     end
 
     # Gift Tickets
     # Gift tickets to another user.
-    # @param version [Float] 
     # @param receiver_account_id [Integer] the id of the account receiving the tickets
     # @param ticket_id [Integer] the id of the tickets
     # @param [Hash] opts the optional parameters
@@ -218,13 +204,9 @@ module OpenapiClient
     # @option opts [String] :game_type the type of game associated with the tickets
     # @option opts [String] :app_key the application key
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def gift_purchase_with_http_info(version, receiver_account_id, ticket_id, opts = {})
+    def gift_purchase_with_http_info(receiver_account_id, ticket_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TicketApi.gift_purchase ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TicketApi.gift_purchase"
       end
       # verify the required parameter 'receiver_account_id' is set
       if @api_client.config.client_side_validation && receiver_account_id.nil?
@@ -235,7 +217,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'ticket_id' when calling TicketApi.gift_purchase"
       end
       # resource path
-      local_var_path = '/api/{version}/purchase/gift'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/purchase/gift'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -284,7 +266,6 @@ module OpenapiClient
 
     # Save Ticket
     # Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-    # @param version [Float] 
     # @param action_type [String] the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
     # @param ticket_object_type [String] the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
     # @param [Hash] opts the optional parameters
@@ -305,14 +286,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_profile_response if returnProfileResponse is false, will return an AppResponse with profile data if true
     # @option opts [String] :app_version the application version
     # @return [ProfileResponse]
-    def save_ticket(version, action_type, ticket_object_type, opts = {})
-      data, _status_code, _headers = save_ticket_with_http_info(version, action_type, ticket_object_type, opts)
+    def save_ticket(action_type, ticket_object_type, opts = {})
+      data, _status_code, _headers = save_ticket_with_http_info(action_type, ticket_object_type, opts)
       data
     end
 
     # Save Ticket
     # Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-    # @param version [Float] 
     # @param action_type [String] the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
     # @param ticket_object_type [String] the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
     # @param [Hash] opts the optional parameters
@@ -333,13 +313,9 @@ module OpenapiClient
     # @option opts [Boolean] :include_profile_response if returnProfileResponse is false, will return an AppResponse with profile data if true
     # @option opts [String] :app_version the application version
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def save_ticket_with_http_info(version, action_type, ticket_object_type, opts = {})
+    def save_ticket_with_http_info(action_type, ticket_object_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TicketApi.save_ticket ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TicketApi.save_ticket"
       end
       # verify the required parameter 'action_type' is set
       if @api_client.config.client_side_validation && action_type.nil?
@@ -350,7 +326,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'ticket_object_type' when calling TicketApi.save_ticket"
       end
       # resource path
-      local_var_path = '/api/{version}/ticket/save'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ticket/save'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -409,7 +385,6 @@ module OpenapiClient
 
     # Save Ticket with Reciept
     # Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-    # @param version [Float] 
     # @param action_type [String] the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
     # @param ticket_object_type [String] the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
     # @param receipt_data [File] the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -430,14 +405,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_profile_response if returnProfileResponse is false, will return an AppResponse with profile data if true
     # @option opts [String] :app_version the application version
     # @return [ProfileResponse]
-    def save_ticket_via_file_upload(version, action_type, ticket_object_type, receipt_data, opts = {})
-      data, _status_code, _headers = save_ticket_via_file_upload_with_http_info(version, action_type, ticket_object_type, receipt_data, opts)
+    def save_ticket_via_file_upload(action_type, ticket_object_type, receipt_data, opts = {})
+      data, _status_code, _headers = save_ticket_via_file_upload_with_http_info(action_type, ticket_object_type, receipt_data, opts)
       data
     end
 
     # Save Ticket with Reciept
     # Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-    # @param version [Float] 
     # @param action_type [String] the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
     # @param ticket_object_type [String] the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
     # @param receipt_data [File] the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -458,13 +432,9 @@ module OpenapiClient
     # @option opts [Boolean] :include_profile_response if returnProfileResponse is false, will return an AppResponse with profile data if true
     # @option opts [String] :app_version the application version
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def save_ticket_via_file_upload_with_http_info(version, action_type, ticket_object_type, receipt_data, opts = {})
+    def save_ticket_via_file_upload_with_http_info(action_type, ticket_object_type, receipt_data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TicketApi.save_ticket_via_file_upload ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TicketApi.save_ticket_via_file_upload"
       end
       # verify the required parameter 'action_type' is set
       if @api_client.config.client_side_validation && action_type.nil?
@@ -479,7 +449,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'receipt_data' when calling TicketApi.save_ticket_via_file_upload"
       end
       # resource path
-      local_var_path = '/api/{version}/ticket/save/fileUpload'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ticket/save/fileUpload'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -538,29 +508,23 @@ module OpenapiClient
 
     # Get Ticket Offers
     # Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [TicketOfferResponse]
-    def ticket_offers(version, opts = {})
-      data, _status_code, _headers = ticket_offers_with_http_info(version, opts)
+    def ticket_offers(opts = {})
+      data, _status_code, _headers = ticket_offers_with_http_info(opts)
       data
     end
 
     # Get Ticket Offers
     # Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(TicketOfferResponse, Integer, Hash)>] TicketOfferResponse data, response status code and response headers
-    def ticket_offers_with_http_info(version, opts = {})
+    def ticket_offers_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TicketApi.ticket_offers ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TicketApi.ticket_offers"
-      end
       # resource path
-      local_var_path = '/api/{version}/ticket/ticketoffers'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ticket/ticketoffers'
 
       # query parameters
       query_params = opts[:query_params] || {}

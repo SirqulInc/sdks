@@ -157,9 +157,9 @@ module OpenapiClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
-      @host = 'localhost'
-      @base_path = ''
+      @scheme = 'https'
+      @host = 'dev.sirqul.com'
+      @base_path = '/api/3.18'
       @server_index = nil
       @server_operation_index = {}
       @server_variables = {}
@@ -265,8 +265,14 @@ module OpenapiClient
     def server_settings
       [
         {
-          url: "",
+          url: "https://dev.sirqul.com/api/{version}",
           description: "No description provided",
+          variables: {
+            version: {
+                description: "No description provided",
+                default_value: "3.18",
+              }
+            }
         }
       ]
     end

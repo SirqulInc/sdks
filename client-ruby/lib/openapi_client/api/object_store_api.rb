@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Field
     # Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to add the field to
@@ -29,14 +28,13 @@ module OpenapiClient
     # @param field_type [String] field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY
     # @param [Hash] opts the optional parameters
     # @return [ObjectStoreResponse]
-    def add_field(version, account_id, app_key, object_name, field_name, field_type, opts = {})
-      data, _status_code, _headers = add_field_with_http_info(version, account_id, app_key, object_name, field_name, field_type, opts)
+    def add_field(account_id, app_key, object_name, field_name, field_type, opts = {})
+      data, _status_code, _headers = add_field_with_http_info(account_id, app_key, object_name, field_name, field_type, opts)
       data
     end
 
     # Create Field
     # Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to add the field to
@@ -44,13 +42,9 @@ module OpenapiClient
     # @param field_type [String] field type The field type to create, supported types are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY
     # @param [Hash] opts the optional parameters
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def add_field_with_http_info(version, account_id, app_key, object_name, field_name, field_type, opts = {})
+    def add_field_with_http_info(account_id, app_key, object_name, field_name, field_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.add_field ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.add_field"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -73,7 +67,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'field_type' when calling ObjectStoreApi.add_field"
       end
       # resource path
-      local_var_path = '/api/{version}/object/field/add'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/object/field/add'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -119,39 +113,33 @@ module OpenapiClient
 
     # Create Data
     # Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-    # @param version [Float] 
     # @param object_name [String] the name of the object to create data for
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id
     # @option opts [String] :body 
     # @return [ObjectStoreResponse]
-    def create_data(version, object_name, opts = {})
-      data, _status_code, _headers = create_data_with_http_info(version, object_name, opts)
+    def create_data(object_name, opts = {})
+      data, _status_code, _headers = create_data_with_http_info(object_name, opts)
       data
     end
 
     # Create Data
     # Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-    # @param version [Float] 
     # @param object_name [String] the name of the object to create data for
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id
     # @option opts [String] :body 
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def create_data_with_http_info(version, object_name, opts = {})
+    def create_data_with_http_info(object_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.create_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.create_data"
       end
       # verify the required parameter 'object_name' is set
       if @api_client.config.client_side_validation && object_name.nil?
         fail ArgumentError, "Missing the required parameter 'object_name' when calling ObjectStoreApi.create_data"
       end
       # resource path
-      local_var_path = '/api/{version}/object/data/{objectName}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s))
+      local_var_path = '/object/data/{objectName}'.sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -193,32 +181,26 @@ module OpenapiClient
 
     # Create Object
     # Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to create
     # @param [Hash] opts the optional parameters
     # @return [ObjectStoreResponse]
-    def create_object(version, account_id, app_key, object_name, opts = {})
-      data, _status_code, _headers = create_object_with_http_info(version, account_id, app_key, object_name, opts)
+    def create_object(account_id, app_key, object_name, opts = {})
+      data, _status_code, _headers = create_object_with_http_info(account_id, app_key, object_name, opts)
       data
     end
 
     # Create Object
     # Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to create
     # @param [Hash] opts the optional parameters
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def create_object_with_http_info(version, account_id, app_key, object_name, opts = {})
+    def create_object_with_http_info(account_id, app_key, object_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.create_object ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.create_object"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -233,7 +215,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'object_name' when calling ObjectStoreApi.create_object"
       end
       # resource path
-      local_var_path = '/api/{version}/object/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/object/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -277,32 +259,26 @@ module OpenapiClient
 
     # Delete Data
     # Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param object_id [String] objectId The id of the record to return
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the logged in user
     # @return [ObjectStoreResponse]
-    def delete_data(version, object_name, object_id, opts = {})
-      data, _status_code, _headers = delete_data_with_http_info(version, object_name, object_id, opts)
+    def delete_data(object_name, object_id, opts = {})
+      data, _status_code, _headers = delete_data_with_http_info(object_name, object_id, opts)
       data
     end
 
     # Delete Data
     # Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param object_id [String] objectId The id of the record to return
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the logged in user
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def delete_data_with_http_info(version, object_name, object_id, opts = {})
+    def delete_data_with_http_info(object_name, object_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.delete_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.delete_data"
       end
       # verify the required parameter 'object_name' is set
       if @api_client.config.client_side_validation && object_name.nil?
@@ -313,7 +289,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'object_id' when calling ObjectStoreApi.delete_data"
       end
       # resource path
-      local_var_path = '/api/{version}/object/data/{objectName}/{objectId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s)).sub('{' + 'objectId' + '}', CGI.escape(object_id.to_s))
+      local_var_path = '/object/data/{objectName}/{objectId}'.sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s)).sub('{' + 'objectId' + '}', CGI.escape(object_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -355,34 +331,28 @@ module OpenapiClient
 
     # Delete Field
     # Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to remove the field from
     # @param field_name [String] field name The name of the field to remove.
     # @param [Hash] opts the optional parameters
     # @return [ObjectStoreResponse]
-    def delete_field(version, account_id, app_key, object_name, field_name, opts = {})
-      data, _status_code, _headers = delete_field_with_http_info(version, account_id, app_key, object_name, field_name, opts)
+    def delete_field(account_id, app_key, object_name, field_name, opts = {})
+      data, _status_code, _headers = delete_field_with_http_info(account_id, app_key, object_name, field_name, opts)
       data
     end
 
     # Delete Field
     # Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to remove the field from
     # @param field_name [String] field name The name of the field to remove.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def delete_field_with_http_info(version, account_id, app_key, object_name, field_name, opts = {})
+    def delete_field_with_http_info(account_id, app_key, object_name, field_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.delete_field ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.delete_field"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -401,7 +371,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'field_name' when calling ObjectStoreApi.delete_field"
       end
       # resource path
-      local_var_path = '/api/{version}/object/field/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/object/field/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -446,32 +416,26 @@ module OpenapiClient
 
     # Delete Object
     # Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param app_key [String] the application key
     # @param object_name [String] the name of the object to delete
     # @param [Hash] opts the optional parameters
     # @return [ObjectStoreResponse]
-    def delete_object(version, account_id, app_key, object_name, opts = {})
-      data, _status_code, _headers = delete_object_with_http_info(version, account_id, app_key, object_name, opts)
+    def delete_object(account_id, app_key, object_name, opts = {})
+      data, _status_code, _headers = delete_object_with_http_info(account_id, app_key, object_name, opts)
       data
     end
 
     # Delete Object
     # Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param app_key [String] the application key
     # @param object_name [String] the name of the object to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def delete_object_with_http_info(version, account_id, app_key, object_name, opts = {})
+    def delete_object_with_http_info(account_id, app_key, object_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.delete_object ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.delete_object"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -486,7 +450,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'object_name' when calling ObjectStoreApi.delete_object"
       end
       # resource path
-      local_var_path = '/api/{version}/object/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/object/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -530,34 +494,28 @@ module OpenapiClient
 
     # Get Data
     # Get a specific record from a specified object.
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param object_id [String] objectId The id of the record to return
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the logged in user
     # @option opts [String] :include 
     # @return [ObjectStoreResponse]
-    def get_data(version, object_name, object_id, opts = {})
-      data, _status_code, _headers = get_data_with_http_info(version, object_name, object_id, opts)
+    def get_data(object_name, object_id, opts = {})
+      data, _status_code, _headers = get_data_with_http_info(object_name, object_id, opts)
       data
     end
 
     # Get Data
     # Get a specific record from a specified object.
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param object_id [String] objectId The id of the record to return
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the logged in user
     # @option opts [String] :include 
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def get_data_with_http_info(version, object_name, object_id, opts = {})
+    def get_data_with_http_info(object_name, object_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.get_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.get_data"
       end
       # verify the required parameter 'object_name' is set
       if @api_client.config.client_side_validation && object_name.nil?
@@ -568,7 +526,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'object_id' when calling ObjectStoreApi.get_data"
       end
       # resource path
-      local_var_path = '/api/{version}/object/data/{objectName}/{objectId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s)).sub('{' + 'objectId' + '}', CGI.escape(object_id.to_s))
+      local_var_path = '/object/data/{objectName}/{objectId}'.sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s)).sub('{' + 'objectId' + '}', CGI.escape(object_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -611,32 +569,26 @@ module OpenapiClient
 
     # Get Object
     # Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to get the definition for
     # @param [Hash] opts the optional parameters
     # @return [ObjectStoreResponse]
-    def get_object(version, account_id, app_key, object_name, opts = {})
-      data, _status_code, _headers = get_object_with_http_info(version, account_id, app_key, object_name, opts)
+    def get_object(account_id, app_key, object_name, opts = {})
+      data, _status_code, _headers = get_object_with_http_info(account_id, app_key, object_name, opts)
       data
     end
 
     # Get Object
     # Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param object_name [String] The name of the object to get the definition for
     # @param [Hash] opts the optional parameters
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def get_object_with_http_info(version, account_id, app_key, object_name, opts = {})
+    def get_object_with_http_info(account_id, app_key, object_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.get_object ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.get_object"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -651,7 +603,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'object_name' when calling ObjectStoreApi.get_object"
       end
       # resource path
-      local_var_path = '/api/{version}/object/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/object/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -695,7 +647,6 @@ module OpenapiClient
 
     # Search Data
     # Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param count [Boolean] If true just return the record count of the search. False (default) will return the actual records
     # @param start [Integer] The start of the pagination
@@ -706,14 +657,13 @@ module OpenapiClient
     # @option opts [String] :order The order of results; comma seperated list of field names. Illegal field names will be ignored. Direction by defualt is ascending. Prepend a minus to the field name to make that field descending.
     # @option opts [String] :include 
     # @return [ObjectStoreResponse]
-    def search_data(version, object_name, count, start, limit, opts = {})
-      data, _status_code, _headers = search_data_with_http_info(version, object_name, count, start, limit, opts)
+    def search_data(object_name, count, start, limit, opts = {})
+      data, _status_code, _headers = search_data_with_http_info(object_name, count, start, limit, opts)
       data
     end
 
     # Search Data
     # Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param count [Boolean] If true just return the record count of the search. False (default) will return the actual records
     # @param start [Integer] The start of the pagination
@@ -724,13 +674,9 @@ module OpenapiClient
     # @option opts [String] :order The order of results; comma seperated list of field names. Illegal field names will be ignored. Direction by defualt is ascending. Prepend a minus to the field name to make that field descending.
     # @option opts [String] :include 
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def search_data_with_http_info(version, object_name, count, start, limit, opts = {})
+    def search_data_with_http_info(object_name, count, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.search_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.search_data"
       end
       # verify the required parameter 'object_name' is set
       if @api_client.config.client_side_validation && object_name.nil?
@@ -749,7 +695,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ObjectStoreApi.search_data"
       end
       # resource path
-      local_var_path = '/api/{version}/object/data/{objectName}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s))
+      local_var_path = '/object/data/{objectName}'.sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -797,7 +743,6 @@ module OpenapiClient
 
     # Search Objects
     # Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param start [Integer] The start of the pagination
@@ -805,14 +750,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The name of the object(s) to search for, can be a partial match
     # @return [ObjectStoreResponse]
-    def search_object(version, account_id, app_key, start, limit, opts = {})
-      data, _status_code, _headers = search_object_with_http_info(version, account_id, app_key, start, limit, opts)
+    def search_object(account_id, app_key, start, limit, opts = {})
+      data, _status_code, _headers = search_object_with_http_info(account_id, app_key, start, limit, opts)
       data
     end
 
     # Search Objects
     # Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param app_key [String] The application key for updating an existing application
     # @param start [Integer] The start of the pagination
@@ -820,13 +764,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The name of the object(s) to search for, can be a partial match
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def search_object_with_http_info(version, account_id, app_key, start, limit, opts = {})
+    def search_object_with_http_info(account_id, app_key, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.search_object ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.search_object"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -845,7 +785,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ObjectStoreApi.search_object"
       end
       # resource path
-      local_var_path = '/api/{version}/object/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/object/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -891,34 +831,28 @@ module OpenapiClient
 
     # Update Data
     # Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param object_id [String] objectId The id of the record to return
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the logged in user
     # @option opts [String] :body 
     # @return [ObjectStoreResponse]
-    def update_data(version, object_name, object_id, opts = {})
-      data, _status_code, _headers = update_data_with_http_info(version, object_name, object_id, opts)
+    def update_data(object_name, object_id, opts = {})
+      data, _status_code, _headers = update_data_with_http_info(object_name, object_id, opts)
       data
     end
 
     # Update Data
     # Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-    # @param version [Float] 
     # @param object_name [String] The name of the object to search upon
     # @param object_id [String] objectId The id of the record to return
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the logged in user
     # @option opts [String] :body 
     # @return [Array<(ObjectStoreResponse, Integer, Hash)>] ObjectStoreResponse data, response status code and response headers
-    def update_data_with_http_info(version, object_name, object_id, opts = {})
+    def update_data_with_http_info(object_name, object_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ObjectStoreApi.update_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ObjectStoreApi.update_data"
       end
       # verify the required parameter 'object_name' is set
       if @api_client.config.client_side_validation && object_name.nil?
@@ -929,7 +863,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'object_id' when calling ObjectStoreApi.update_data"
       end
       # resource path
-      local_var_path = '/api/{version}/object/data/{objectName}/{objectId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s)).sub('{' + 'objectId' + '}', CGI.escape(object_id.to_s))
+      local_var_path = '/object/data/{objectName}/{objectId}'.sub('{' + 'objectName' + '}', CGI.escape(object_name.to_s)).sub('{' + 'objectId' + '}', CGI.escape(object_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

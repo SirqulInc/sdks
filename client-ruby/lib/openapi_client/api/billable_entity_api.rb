@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Billable
     # reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
@@ -36,14 +35,13 @@ module OpenapiClient
     # @option opts [String] :authorize_net_api_key Authorize Net Api Key
     # @option opts [String] :authorize_net_transaction_key Authorize Net Transaction Key
     # @return [BillableEntityResponse]
-    def create_billable_entity(version, opts = {})
-      data, _status_code, _headers = create_billable_entity_with_http_info(version, opts)
+    def create_billable_entity(opts = {})
+      data, _status_code, _headers = create_billable_entity_with_http_info(opts)
       data
     end
 
     # Create Billable
     # reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
@@ -58,16 +56,12 @@ module OpenapiClient
     # @option opts [String] :authorize_net_api_key Authorize Net Api Key
     # @option opts [String] :authorize_net_transaction_key Authorize Net Transaction Key
     # @return [Array<(BillableEntityResponse, Integer, Hash)>] BillableEntityResponse data, response status code and response headers
-    def create_billable_entity_with_http_info(version, opts = {})
+    def create_billable_entity_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillableEntityApi.create_billable_entity ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillableEntityApi.create_billable_entity"
-      end
       # resource path
-      local_var_path = '/api/{version}/billable/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billable/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -120,33 +114,27 @@ module OpenapiClient
 
     # Delete Billable
     # Mark the billable as deleted
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the billable entity.
     # @return [SirqulResponse]
-    def delete_billable_entity(version, opts = {})
-      data, _status_code, _headers = delete_billable_entity_with_http_info(version, opts)
+    def delete_billable_entity(opts = {})
+      data, _status_code, _headers = delete_billable_entity_with_http_info(opts)
       data
     end
 
     # Delete Billable
     # Mark the billable as deleted
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the billable entity.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_billable_entity_with_http_info(version, opts = {})
+    def delete_billable_entity_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillableEntityApi.delete_billable_entity ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillableEntityApi.delete_billable_entity"
-      end
       # resource path
-      local_var_path = '/api/{version}/billable/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billable/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -189,37 +177,31 @@ module OpenapiClient
 
     # Get Billable
     # Used to determine the associated BillableEntity of an account
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @option opts [Boolean] :include_counts Determines whether to include the retailer dash board counts into the response (default to false)
     # @option opts [Boolean] :include_payments Whether to enable payments or not (default to true)
     # @return [BillableEntityResponse]
-    def get_billable_entity(version, opts = {})
-      data, _status_code, _headers = get_billable_entity_with_http_info(version, opts)
+    def get_billable_entity(opts = {})
+      data, _status_code, _headers = get_billable_entity_with_http_info(opts)
       data
     end
 
     # Get Billable
     # Used to determine the associated BillableEntity of an account
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @option opts [Boolean] :include_counts Determines whether to include the retailer dash board counts into the response (default to false)
     # @option opts [Boolean] :include_payments Whether to enable payments or not (default to true)
     # @return [Array<(BillableEntityResponse, Integer, Hash)>] BillableEntityResponse data, response status code and response headers
-    def get_billable_entity_with_http_info(version, opts = {})
+    def get_billable_entity_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillableEntityApi.get_billable_entity ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillableEntityApi.get_billable_entity"
-      end
       # resource path
-      local_var_path = '/api/{version}/billable/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billable/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -264,7 +246,6 @@ module OpenapiClient
 
     # Update Billable
     # Updates the billable record for an account
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
@@ -279,14 +260,13 @@ module OpenapiClient
     # @option opts [String] :authorize_net_api_key Authorize Net Api Key of the billable entity
     # @option opts [String] :authorize_net_transaction_key Authorize Net Transaction Key of the billable entity
     # @return [BillableEntityResponse]
-    def update_billable_entity(version, opts = {})
-      data, _status_code, _headers = update_billable_entity_with_http_info(version, opts)
+    def update_billable_entity(opts = {})
+      data, _status_code, _headers = update_billable_entity_with_http_info(opts)
       data
     end
 
     # Update Billable
     # Updates the billable record for an account
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
@@ -301,16 +281,12 @@ module OpenapiClient
     # @option opts [String] :authorize_net_api_key Authorize Net Api Key of the billable entity
     # @option opts [String] :authorize_net_transaction_key Authorize Net Transaction Key of the billable entity
     # @return [Array<(BillableEntityResponse, Integer, Hash)>] BillableEntityResponse data, response status code and response headers
-    def update_billable_entity_with_http_info(version, opts = {})
+    def update_billable_entity_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillableEntityApi.update_billable_entity ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillableEntityApi.update_billable_entity"
-      end
       # resource path
-      local_var_path = '/api/{version}/billable/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billable/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,39 +21,33 @@ module OpenapiClient
     end
     # Process All Participant Feeds
     # Processes all supported participant feeds.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The application key used to identify the application
     # @option opts [Boolean] :use_short_name_as_id Whether to use short name as the participant ID
     # @return [SirqulResponse]
-    def process_all_participants(version, account_id, opts = {})
-      data, _status_code, _headers = process_all_participants_with_http_info(version, account_id, opts)
+    def process_all_participants(account_id, opts = {})
+      data, _status_code, _headers = process_all_participants_with_http_info(account_id, opts)
       data
     end
 
     # Process All Participant Feeds
     # Processes all supported participant feeds.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The application key used to identify the application
     # @option opts [Boolean] :use_short_name_as_id Whether to use short name as the participant ID
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def process_all_participants_with_http_info(version, account_id, opts = {})
+    def process_all_participants_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ParticipantsApi.process_all_participants ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ParticipantsApi.process_all_participants"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling ParticipantsApi.process_all_participants"
       end
       # resource path
-      local_var_path = '/api/{version}/participant/process/all'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/participant/process/all'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -97,7 +91,6 @@ module OpenapiClient
 
     # Process Participants Feed
     # Processes a participant feed or uploaded file for a specific league.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param league [String] The league identifier to process
     # @param [Hash] opts the optional parameters
@@ -105,14 +98,13 @@ module OpenapiClient
     # @option opts [Boolean] :use_short_name_as_id Whether to use short name as the participant ID
     # @option opts [File] :file Multipart file containing participant feed contents
     # @return [SirqulResponse]
-    def process_participants(version, account_id, league, opts = {})
-      data, _status_code, _headers = process_participants_with_http_info(version, account_id, league, opts)
+    def process_participants(account_id, league, opts = {})
+      data, _status_code, _headers = process_participants_with_http_info(account_id, league, opts)
       data
     end
 
     # Process Participants Feed
     # Processes a participant feed or uploaded file for a specific league.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param league [String] The league identifier to process
     # @param [Hash] opts the optional parameters
@@ -120,13 +112,9 @@ module OpenapiClient
     # @option opts [Boolean] :use_short_name_as_id Whether to use short name as the participant ID
     # @option opts [File] :file Multipart file containing participant feed contents
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def process_participants_with_http_info(version, account_id, league, opts = {})
+    def process_participants_with_http_info(account_id, league, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ParticipantsApi.process_participants ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ParticipantsApi.process_participants"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -137,7 +125,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'league' when calling ParticipantsApi.process_participants"
       end
       # resource path
-      local_var_path = '/api/{version}/participant/process'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/participant/process'
 
       # query parameters
       query_params = opts[:query_params] || {}

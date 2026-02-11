@@ -21,35 +21,29 @@ module OpenapiClient
     end
     # Cancel Shipment
     # Remove shipment from route
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to cancel
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def cancel_shipment(version, id, opts = {})
-      cancel_shipment_with_http_info(version, id, opts)
+    def cancel_shipment(id, opts = {})
+      cancel_shipment_with_http_info(id, opts)
       nil
     end
 
     # Cancel Shipment
     # Remove shipment from route
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to cancel
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def cancel_shipment_with_http_info(version, id, opts = {})
+    def cancel_shipment_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentApi.cancel_shipment ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentApi.cancel_shipment"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ShipmentApi.cancel_shipment"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/{id}/cancel'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/shipment/{id}/cancel'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -88,31 +82,25 @@ module OpenapiClient
 
     # Create Shipment
     # Create new shipment
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Shipment] :body 
     # @return [Shipment]
-    def create_shipment(version, opts = {})
-      data, _status_code, _headers = create_shipment_with_http_info(version, opts)
+    def create_shipment(opts = {})
+      data, _status_code, _headers = create_shipment_with_http_info(opts)
       data
     end
 
     # Create Shipment
     # Create new shipment
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Shipment] :body 
     # @return [Array<(Shipment, Integer, Hash)>] Shipment data, response status code and response headers
-    def create_shipment_with_http_info(version, opts = {})
+    def create_shipment_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentApi.create_shipment ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentApi.create_shipment"
-      end
       # resource path
-      local_var_path = '/api/{version}/shipment'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/shipment'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -153,35 +141,29 @@ module OpenapiClient
 
     # Delete Shipment
     # Delete an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to delete
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_shipment(version, id, opts = {})
-      delete_shipment_with_http_info(version, id, opts)
+    def delete_shipment(id, opts = {})
+      delete_shipment_with_http_info(id, opts)
       nil
     end
 
     # Delete Shipment
     # Delete an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_shipment_with_http_info(version, id, opts = {})
+    def delete_shipment_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentApi.delete_shipment ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentApi.delete_shipment"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ShipmentApi.delete_shipment"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/shipment/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -220,35 +202,29 @@ module OpenapiClient
 
     # Get Shipment
     # Get an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to get
     # @param [Hash] opts the optional parameters
     # @return [Shipment]
-    def get_shipment(version, id, opts = {})
-      data, _status_code, _headers = get_shipment_with_http_info(version, id, opts)
+    def get_shipment(id, opts = {})
+      data, _status_code, _headers = get_shipment_with_http_info(id, opts)
       data
     end
 
     # Get Shipment
     # Get an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(Shipment, Integer, Hash)>] Shipment data, response status code and response headers
-    def get_shipment_with_http_info(version, id, opts = {})
+    def get_shipment_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentApi.get_shipment ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentApi.get_shipment"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ShipmentApi.get_shipment"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/shipment/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -289,7 +265,6 @@ module OpenapiClient
 
     # Search Shipments
     # Search for shipments
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -300,14 +275,13 @@ module OpenapiClient
     # @option opts [Integer] :rider_id The rider associate to this shipment
     # @option opts [Integer] :route_id The route associate to this shipment
     # @return [Array<Shipment>]
-    def search_shipments(version, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_shipments_with_http_info(version, sort_field, descending, start, limit, active_only, opts)
+    def search_shipments(sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_shipments_with_http_info(sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Shipments
     # Search for shipments
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -318,13 +292,9 @@ module OpenapiClient
     # @option opts [Integer] :rider_id The rider associate to this shipment
     # @option opts [Integer] :route_id The route associate to this shipment
     # @return [Array<(Array<Shipment>, Integer, Hash)>] Array<Shipment> data, response status code and response headers
-    def search_shipments_with_http_info(version, sort_field, descending, start, limit, active_only, opts = {})
+    def search_shipments_with_http_info(sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentApi.search_shipments ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentApi.search_shipments"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -347,7 +317,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling ShipmentApi.search_shipments"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/shipment'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -396,37 +366,31 @@ module OpenapiClient
 
     # Update Shipment
     # Update an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to update
     # @param [Hash] opts the optional parameters
     # @option opts [Shipment] :body 
     # @return [Shipment]
-    def update_shipment(version, id, opts = {})
-      data, _status_code, _headers = update_shipment_with_http_info(version, id, opts)
+    def update_shipment(id, opts = {})
+      data, _status_code, _headers = update_shipment_with_http_info(id, opts)
       data
     end
 
     # Update Shipment
     # Update an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to update
     # @param [Hash] opts the optional parameters
     # @option opts [Shipment] :body 
     # @return [Array<(Shipment, Integer, Hash)>] Shipment data, response status code and response headers
-    def update_shipment_with_http_info(version, id, opts = {})
+    def update_shipment_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentApi.update_shipment ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentApi.update_shipment"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ShipmentApi.update_shipment"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/shipment/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -467,37 +431,31 @@ module OpenapiClient
 
     # Uupdate Shipment Status
     # Update status of an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to update status
     # @param [Hash] opts the optional parameters
     # @option opts [Hash<String, Boolean>] :body 
     # @return [nil]
-    def update_shipment_status(version, id, opts = {})
-      update_shipment_status_with_http_info(version, id, opts)
+    def update_shipment_status(id, opts = {})
+      update_shipment_status_with_http_info(id, opts)
       nil
     end
 
     # Uupdate Shipment Status
     # Update status of an existing shipment
-    # @param version [Float] 
     # @param id [Integer] the id of the shipment to update status
     # @param [Hash] opts the optional parameters
     # @option opts [Hash<String, Boolean>] :body 
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_shipment_status_with_http_info(version, id, opts = {})
+    def update_shipment_status_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentApi.update_shipment_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentApi.update_shipment_status"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ShipmentApi.update_shipment_status"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/{id}/status'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/shipment/{id}/status'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

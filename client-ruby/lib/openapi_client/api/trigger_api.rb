@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Trigger
     # Create a trigger
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user
     # @param name [String] The name of the trigger
     # @param [Hash] opts the optional parameters
@@ -37,14 +36,13 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Trigger is active or not (inactive Triggers are not processed) (default to true)
     # @return [TriggerResponse]
-    def create_trigger(version, account_id, name, opts = {})
-      data, _status_code, _headers = create_trigger_with_http_info(version, account_id, name, opts)
+    def create_trigger(account_id, name, opts = {})
+      data, _status_code, _headers = create_trigger_with_http_info(account_id, name, opts)
       data
     end
 
     # Create Trigger
     # Create a trigger
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user
     # @param name [String] The name of the trigger
     # @param [Hash] opts the optional parameters
@@ -60,13 +58,9 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Trigger is active or not (inactive Triggers are not processed) (default to true)
     # @return [Array<(TriggerResponse, Integer, Hash)>] TriggerResponse data, response status code and response headers
-    def create_trigger_with_http_info(version, account_id, name, opts = {})
+    def create_trigger_with_http_info(account_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TriggerApi.create_trigger ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TriggerApi.create_trigger"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -81,7 +75,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/trigger/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trigger/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -135,30 +129,24 @@ module OpenapiClient
 
     # Delete Trigger
     # Mark a trigger as deleted.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param trigger_id [Integer] The id of the trigger to delete.
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_trigger(version, account_id, trigger_id, opts = {})
-      data, _status_code, _headers = delete_trigger_with_http_info(version, account_id, trigger_id, opts)
+    def delete_trigger(account_id, trigger_id, opts = {})
+      data, _status_code, _headers = delete_trigger_with_http_info(account_id, trigger_id, opts)
       data
     end
 
     # Delete Trigger
     # Mark a trigger as deleted.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param trigger_id [Integer] The id of the trigger to delete.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_trigger_with_http_info(version, account_id, trigger_id, opts = {})
+    def delete_trigger_with_http_info(account_id, trigger_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TriggerApi.delete_trigger ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TriggerApi.delete_trigger"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -169,7 +157,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'trigger_id' when calling TriggerApi.delete_trigger"
       end
       # resource path
-      local_var_path = '/api/{version}/trigger/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trigger/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -212,30 +200,24 @@ module OpenapiClient
 
     # Get Trigger
     # Get a trigger
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param trigger_id [Integer] The id of the Trigger to return.
     # @param [Hash] opts the optional parameters
     # @return [TriggerResponse]
-    def get_trigger(version, account_id, trigger_id, opts = {})
-      data, _status_code, _headers = get_trigger_with_http_info(version, account_id, trigger_id, opts)
+    def get_trigger(account_id, trigger_id, opts = {})
+      data, _status_code, _headers = get_trigger_with_http_info(account_id, trigger_id, opts)
       data
     end
 
     # Get Trigger
     # Get a trigger
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param trigger_id [Integer] The id of the Trigger to return.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TriggerResponse, Integer, Hash)>] TriggerResponse data, response status code and response headers
-    def get_trigger_with_http_info(version, account_id, trigger_id, opts = {})
+    def get_trigger_with_http_info(account_id, trigger_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TriggerApi.get_trigger ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TriggerApi.get_trigger"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -246,7 +228,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'trigger_id' when calling TriggerApi.get_trigger"
       end
       # resource path
-      local_var_path = '/api/{version}/trigger/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trigger/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -289,7 +271,6 @@ module OpenapiClient
 
     # Search Triggers
     # Search for triggers
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grouping_id Filter results by a grouping identifier defined by the client
@@ -304,14 +285,13 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit the result to some number. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results (default to true)
     # @return [Array<TriggerResponse>]
-    def search_triggers(version, account_id, opts = {})
-      data, _status_code, _headers = search_triggers_with_http_info(version, account_id, opts)
+    def search_triggers(account_id, opts = {})
+      data, _status_code, _headers = search_triggers_with_http_info(account_id, opts)
       data
     end
 
     # Search Triggers
     # Search for triggers
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grouping_id Filter results by a grouping identifier defined by the client
@@ -326,20 +306,16 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit the result to some number. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results (default to true)
     # @return [Array<(Array<TriggerResponse>, Integer, Hash)>] Array<TriggerResponse> data, response status code and response headers
-    def search_triggers_with_http_info(version, account_id, opts = {})
+    def search_triggers_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TriggerApi.search_triggers ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TriggerApi.search_triggers"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling TriggerApi.search_triggers"
       end
       # resource path
-      local_var_path = '/api/{version}/trigger/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trigger/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -392,7 +368,6 @@ module OpenapiClient
 
     # Update Trigger
     # Update a trigger
-    # @param version [Float] 
     # @param trigger_id [Integer] The trigger to update
     # @param account_id [Integer] The logged in user
     # @param [Hash] opts the optional parameters
@@ -409,14 +384,13 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Trigger is active or not (inactive Triggers are not processed)
     # @return [TriggerResponse]
-    def update_trigger(version, trigger_id, account_id, opts = {})
-      data, _status_code, _headers = update_trigger_with_http_info(version, trigger_id, account_id, opts)
+    def update_trigger(trigger_id, account_id, opts = {})
+      data, _status_code, _headers = update_trigger_with_http_info(trigger_id, account_id, opts)
       data
     end
 
     # Update Trigger
     # Update a trigger
-    # @param version [Float] 
     # @param trigger_id [Integer] The trigger to update
     # @param account_id [Integer] The logged in user
     # @param [Hash] opts the optional parameters
@@ -433,13 +407,9 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Trigger is active or not (inactive Triggers are not processed)
     # @return [Array<(TriggerResponse, Integer, Hash)>] TriggerResponse data, response status code and response headers
-    def update_trigger_with_http_info(version, trigger_id, account_id, opts = {})
+    def update_trigger_with_http_info(trigger_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TriggerApi.update_trigger ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TriggerApi.update_trigger"
       end
       # verify the required parameter 'trigger_id' is set
       if @api_client.config.client_side_validation && trigger_id.nil?
@@ -454,7 +424,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/trigger/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trigger/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,31 +21,25 @@ module OpenapiClient
     end
     # Create Trip
     # Create a new trip
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Trip]
-    def create_trip(version, opts = {})
-      data, _status_code, _headers = create_trip_with_http_info(version, opts)
+    def create_trip(opts = {})
+      data, _status_code, _headers = create_trip_with_http_info(opts)
       data
     end
 
     # Create Trip
     # Create a new trip
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def create_trip_with_http_info(version, opts = {})
+    def create_trip_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.create_trip ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.create_trip"
-      end
       # resource path
-      local_var_path = '/api/{version}/trip'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trip'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -86,35 +80,29 @@ module OpenapiClient
 
     # Delete Trip
     # Delete an existing trip
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to delete
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete(version, id, opts = {})
-      delete_with_http_info(version, id, opts)
+    def delete(id, opts = {})
+      delete_with_http_info(id, opts)
       nil
     end
 
     # Delete Trip
     # Delete an existing trip
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_with_http_info(version, id, opts = {})
+    def delete_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.delete ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.delete"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.delete"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -153,30 +141,24 @@ module OpenapiClient
 
     # Set Trip Preference Driver
     # Update trip preference to drive, also create a route and assign the trip to the route
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param recurrence [Boolean] the frequency of the trip (e.g. weekly, until 2018-08-09)
     # @param [Hash] opts the optional parameters
     # @return [Trip]
-    def drive_trip(version, id, recurrence, opts = {})
-      data, _status_code, _headers = drive_trip_with_http_info(version, id, recurrence, opts)
+    def drive_trip(id, recurrence, opts = {})
+      data, _status_code, _headers = drive_trip_with_http_info(id, recurrence, opts)
       data
     end
 
     # Set Trip Preference Driver
     # Update trip preference to drive, also create a route and assign the trip to the route
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param recurrence [Boolean] the frequency of the trip (e.g. weekly, until 2018-08-09)
     # @param [Hash] opts the optional parameters
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def drive_trip_with_http_info(version, id, recurrence, opts = {})
+    def drive_trip_with_http_info(id, recurrence, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.drive_trip ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.drive_trip"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -187,7 +169,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'recurrence' when calling TripApi.drive_trip"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/drive'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/drive'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -229,30 +211,24 @@ module OpenapiClient
 
     # Set Trip Preference Flexible
     # Update trip preference to flexible.
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param recurrence [Boolean] the frequency of the trip (e.g. weekly, until 2018-08-09)
     # @param [Hash] opts the optional parameters
     # @return [Trip]
-    def flexible_trip(version, id, recurrence, opts = {})
-      data, _status_code, _headers = flexible_trip_with_http_info(version, id, recurrence, opts)
+    def flexible_trip(id, recurrence, opts = {})
+      data, _status_code, _headers = flexible_trip_with_http_info(id, recurrence, opts)
       data
     end
 
     # Set Trip Preference Flexible
     # Update trip preference to flexible.
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param recurrence [Boolean] the frequency of the trip (e.g. weekly, until 2018-08-09)
     # @param [Hash] opts the optional parameters
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def flexible_trip_with_http_info(version, id, recurrence, opts = {})
+    def flexible_trip_with_http_info(id, recurrence, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.flexible_trip ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.flexible_trip"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -263,7 +239,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'recurrence' when calling TripApi.flexible_trip"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/flexible'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/flexible'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -305,35 +281,29 @@ module OpenapiClient
 
     # Get Trip
     # Get an existing trip
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to get
     # @param [Hash] opts the optional parameters
     # @return [Trip]
-    def get_trip(version, id, opts = {})
-      data, _status_code, _headers = get_trip_with_http_info(version, id, opts)
+    def get_trip(id, opts = {})
+      data, _status_code, _headers = get_trip_with_http_info(id, opts)
       data
     end
 
     # Get Trip
     # Get an existing trip
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def get_trip_with_http_info(version, id, opts = {})
+    def get_trip_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.get_trip ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.get_trip"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.get_trip"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -374,7 +344,6 @@ module OpenapiClient
 
     # Get Trip Matches
     # Get matching trips of specific trip
-    # @param version [Float] 
     # @param id [Integer] The id The id of the trip to search for matches for
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -385,14 +354,13 @@ module OpenapiClient
     # @option opts [Boolean] :matched_has_route Only return matchings that already have route assigned
     # @option opts [Boolean] :matched_has_driver Only return matchings that already have driver assigned
     # @return [Array<Trip>]
-    def get_trip_matches(version, id, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = get_trip_matches_with_http_info(version, id, sort_field, descending, start, limit, active_only, opts)
+    def get_trip_matches(id, sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = get_trip_matches_with_http_info(id, sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Get Trip Matches
     # Get matching trips of specific trip
-    # @param version [Float] 
     # @param id [Integer] The id The id of the trip to search for matches for
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -403,13 +371,9 @@ module OpenapiClient
     # @option opts [Boolean] :matched_has_route Only return matchings that already have route assigned
     # @option opts [Boolean] :matched_has_driver Only return matchings that already have driver assigned
     # @return [Array<(Array<Trip>, Integer, Hash)>] Array<Trip> data, response status code and response headers
-    def get_trip_matches_with_http_info(version, id, sort_field, descending, start, limit, active_only, opts = {})
+    def get_trip_matches_with_http_info(id, sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.get_trip_matches ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.get_trip_matches"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -436,7 +400,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling TripApi.get_trip_matches"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/match'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/match'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -484,35 +448,29 @@ module OpenapiClient
 
     # Process Trip Matches
     # Process trip matching, assign trips with no route to matched trips with route.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :start_date The lower bound date to process matchings
     # @option opts [Integer] :end_date The upper bound date to process matchings
     # @option opts [Integer] :trip_id the id of the trip to process
     # @return [Array<Trip>]
-    def process_trip_matches(version, opts = {})
-      data, _status_code, _headers = process_trip_matches_with_http_info(version, opts)
+    def process_trip_matches(opts = {})
+      data, _status_code, _headers = process_trip_matches_with_http_info(opts)
       data
     end
 
     # Process Trip Matches
     # Process trip matching, assign trips with no route to matched trips with route.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :start_date The lower bound date to process matchings
     # @option opts [Integer] :end_date The upper bound date to process matchings
     # @option opts [Integer] :trip_id the id of the trip to process
     # @return [Array<(Array<Trip>, Integer, Hash)>] Array<Trip> data, response status code and response headers
-    def process_trip_matches_with_http_info(version, opts = {})
+    def process_trip_matches_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.process_trip_matches ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.process_trip_matches"
-      end
       # resource path
-      local_var_path = '/api/{version}/trip/match/process'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trip/match/process'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -556,30 +514,24 @@ module OpenapiClient
 
     # Set Trip Preference Rider
     # Update trip preference to ride.
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param recurrence [Boolean] the frequency of the trip (e.g. weekly, until 2018-08-09)
     # @param [Hash] opts the optional parameters
     # @return [Trip]
-    def ride(version, id, recurrence, opts = {})
-      data, _status_code, _headers = ride_with_http_info(version, id, recurrence, opts)
+    def ride(id, recurrence, opts = {})
+      data, _status_code, _headers = ride_with_http_info(id, recurrence, opts)
       data
     end
 
     # Set Trip Preference Rider
     # Update trip preference to ride.
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param recurrence [Boolean] the frequency of the trip (e.g. weekly, until 2018-08-09)
     # @param [Hash] opts the optional parameters
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def ride_with_http_info(version, id, recurrence, opts = {})
+    def ride_with_http_info(id, recurrence, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.ride ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.ride"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -590,7 +542,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'recurrence' when calling TripApi.ride"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/ride'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/ride'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -632,7 +584,6 @@ module OpenapiClient
 
     # Search Trips
     # Search for trips
-    # @param version [Float] 
     # @param account_id [Integer] The owner of the trips
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -644,14 +595,13 @@ module OpenapiClient
     # @option opts [Integer] :end_date The upper bound limit of time
     # @option opts [Boolean] :has_notifications whether to search on trips that have notifications or not
     # @return [Array<Trip>]
-    def search(version, account_id, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_with_http_info(version, account_id, sort_field, descending, start, limit, active_only, opts)
+    def search(account_id, sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_with_http_info(account_id, sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Trips
     # Search for trips
-    # @param version [Float] 
     # @param account_id [Integer] The owner of the trips
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -663,13 +613,9 @@ module OpenapiClient
     # @option opts [Integer] :end_date The upper bound limit of time
     # @option opts [Boolean] :has_notifications whether to search on trips that have notifications or not
     # @return [Array<(Array<Trip>, Integer, Hash)>] Array<Trip> data, response status code and response headers
-    def search_with_http_info(version, account_id, sort_field, descending, start, limit, active_only, opts = {})
+    def search_with_http_info(account_id, sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.search"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -696,7 +642,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling TripApi.search"
       end
       # resource path
-      local_var_path = '/api/{version}/trip'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trip'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -746,7 +692,6 @@ module OpenapiClient
 
     # Search Trips
     # Search for trips with matching information.
-    # @param version [Float] 
     # @param account_id [Integer] The owner of the trips
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -759,14 +704,13 @@ module OpenapiClient
     # @option opts [Boolean] :matched_has_route Only return matchings that already have route assigned
     # @option opts [Boolean] :matched_has_driver Only return matchings that already have driver assigned
     # @return [Array<Trip>]
-    def search_trips(version, account_id, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_trips_with_http_info(version, account_id, sort_field, descending, start, limit, active_only, opts)
+    def search_trips(account_id, sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_trips_with_http_info(account_id, sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Trips
     # Search for trips with matching information.
-    # @param version [Float] 
     # @param account_id [Integer] The owner of the trips
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -779,13 +723,9 @@ module OpenapiClient
     # @option opts [Boolean] :matched_has_route Only return matchings that already have route assigned
     # @option opts [Boolean] :matched_has_driver Only return matchings that already have driver assigned
     # @return [Array<(Array<Trip>, Integer, Hash)>] Array<Trip> data, response status code and response headers
-    def search_trips_with_http_info(version, account_id, sort_field, descending, start, limit, active_only, opts = {})
+    def search_trips_with_http_info(account_id, sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.search_trips ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.search_trips"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -812,7 +752,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling TripApi.search_trips"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/match'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trip/match'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -862,36 +802,30 @@ module OpenapiClient
     end
 
     # Update Trip Locations
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to update locations for
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Trip]
-    def update_locations(version, id, opts = {})
-      data, _status_code, _headers = update_locations_with_http_info(version, id, opts)
+    def update_locations(id, opts = {})
+      data, _status_code, _headers = update_locations_with_http_info(id, opts)
       data
     end
 
     # Update Trip Locations
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to update locations for
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def update_locations_with_http_info(version, id, opts = {})
+    def update_locations_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.update_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.update_locations"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.update_locations"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/locations'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/locations'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -931,36 +865,30 @@ module OpenapiClient
     end
 
     # Update Recurrence Locations
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<Trip>]
-    def update_recurrence_locations(version, id, opts = {})
-      data, _status_code, _headers = update_recurrence_locations_with_http_info(version, id, opts)
+    def update_recurrence_locations(id, opts = {})
+      data, _status_code, _headers = update_recurrence_locations_with_http_info(id, opts)
       data
     end
 
     # Update Recurrence Locations
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<(Array<Trip>, Integer, Hash)>] Array<Trip> data, response status code and response headers
-    def update_recurrence_locations_with_http_info(version, id, opts = {})
+    def update_recurrence_locations_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.update_recurrence_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.update_recurrence_locations"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.update_recurrence_locations"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/locations/recurrence'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/locations/recurrence'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1000,36 +928,30 @@ module OpenapiClient
     end
 
     # Update Recurrence Shipments
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<Trip>]
-    def update_recurrence_shipments(version, id, opts = {})
-      data, _status_code, _headers = update_recurrence_shipments_with_http_info(version, id, opts)
+    def update_recurrence_shipments(id, opts = {})
+      data, _status_code, _headers = update_recurrence_shipments_with_http_info(id, opts)
       data
     end
 
     # Update Recurrence Shipments
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<(Array<Trip>, Integer, Hash)>] Array<Trip> data, response status code and response headers
-    def update_recurrence_shipments_with_http_info(version, id, opts = {})
+    def update_recurrence_shipments_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.update_recurrence_shipments ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.update_recurrence_shipments"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.update_recurrence_shipments"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/shipments/recurrence'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/shipments/recurrence'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1069,36 +991,30 @@ module OpenapiClient
     end
 
     # Update Trip Shipments
-    # @param version [Float] 
     # @param id [Integer] the id of the trip shipments to update
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Trip]
-    def update_shipments(version, id, opts = {})
-      data, _status_code, _headers = update_shipments_with_http_info(version, id, opts)
+    def update_shipments(id, opts = {})
+      data, _status_code, _headers = update_shipments_with_http_info(id, opts)
       data
     end
 
     # Update Trip Shipments
-    # @param version [Float] 
     # @param id [Integer] the id of the trip shipments to update
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def update_shipments_with_http_info(version, id, opts = {})
+    def update_shipments_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.update_shipments ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.update_shipments"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.update_shipments"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}/shipments'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}/shipments'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1139,37 +1055,31 @@ module OpenapiClient
 
     # Update Trip
     # Update an existing trip. Does not support recurring trip update.
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to update
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Trip]
-    def update_trip(version, id, opts = {})
-      data, _status_code, _headers = update_trip_with_http_info(version, id, opts)
+    def update_trip(id, opts = {})
+      data, _status_code, _headers = update_trip_with_http_info(id, opts)
       data
     end
 
     # Update Trip
     # Update an existing trip. Does not support recurring trip update.
-    # @param version [Float] 
     # @param id [Integer] the id of the trip to update
     # @param [Hash] opts the optional parameters
     # @option opts [Trip] :body 
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def update_trip_with_http_info(version, id, opts = {})
+    def update_trip_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.update_trip ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.update_trip"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.update_trip"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/trip/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1210,37 +1120,31 @@ module OpenapiClient
 
     # Trip Notifications
     # Update the trip notifications
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param [Hash] opts the optional parameters
     # @option opts [String] :notifications the notifications to update on the trip
     # @return [Trip]
-    def update_trip_notifications(version, id, opts = {})
-      data, _status_code, _headers = update_trip_notifications_with_http_info(version, id, opts)
+    def update_trip_notifications(id, opts = {})
+      data, _status_code, _headers = update_trip_notifications_with_http_info(id, opts)
       data
     end
 
     # Trip Notifications
     # Update the trip notifications
-    # @param version [Float] 
     # @param id [Integer] the id of the trip
     # @param [Hash] opts the optional parameters
     # @option opts [String] :notifications the notifications to update on the trip
     # @return [Array<(Trip, Integer, Hash)>] Trip data, response status code and response headers
-    def update_trip_notifications_with_http_info(version, id, opts = {})
+    def update_trip_notifications_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TripApi.update_trip_notifications ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TripApi.update_trip_notifications"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling TripApi.update_trip_notifications"
       end
       # resource path
-      local_var_path = '/api/{version}/trip/notifications'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/trip/notifications'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Offline Report
     # Create an entry for the batch for offline report
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user for passing account related params
     # @param status [String] the status of the report
     # @param preview_limit [Integer] the limit on how much you can preview of the batch report
@@ -35,14 +34,13 @@ module OpenapiClient
     # @option opts [String] :description the description of the batch report
     # @option opts [String] :page_url 
     # @return [ReportBatchResponse]
-    def create_batch(version, account_id, status, preview_limit, opts = {})
-      data, _status_code, _headers = create_batch_with_http_info(version, account_id, status, preview_limit, opts)
+    def create_batch(account_id, status, preview_limit, opts = {})
+      data, _status_code, _headers = create_batch_with_http_info(account_id, status, preview_limit, opts)
       data
     end
 
     # Create Offline Report
     # Create an entry for the batch for offline report
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user for passing account related params
     # @param status [String] the status of the report
     # @param preview_limit [Integer] the limit on how much you can preview of the batch report
@@ -56,13 +54,9 @@ module OpenapiClient
     # @option opts [String] :description the description of the batch report
     # @option opts [String] :page_url 
     # @return [Array<(ReportBatchResponse, Integer, Hash)>] ReportBatchResponse data, response status code and response headers
-    def create_batch_with_http_info(version, account_id, status, preview_limit, opts = {})
+    def create_batch_with_http_info(account_id, status, preview_limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportingApi.create_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReportingApi.create_batch"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -82,7 +76,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'preview_limit' when calling ReportingApi.create_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/report/batch/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/report/batch/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -134,31 +128,25 @@ module OpenapiClient
 
     # Create Offline Report
     # Create an entry for the batch for offline report
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<RegionLegSummary>] :body 
     # @return [ReportRegionLegSummaryBatchResponse]
-    def create_region_leg_summary_batch(version, opts = {})
-      data, _status_code, _headers = create_region_leg_summary_batch_with_http_info(version, opts)
+    def create_region_leg_summary_batch(opts = {})
+      data, _status_code, _headers = create_region_leg_summary_batch_with_http_info(opts)
       data
     end
 
     # Create Offline Report
     # Create an entry for the batch for offline report
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<RegionLegSummary>] :body 
     # @return [Array<(ReportRegionLegSummaryBatchResponse, Integer, Hash)>] ReportRegionLegSummaryBatchResponse data, response status code and response headers
-    def create_region_leg_summary_batch_with_http_info(version, opts = {})
+    def create_region_leg_summary_batch_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportingApi.create_region_leg_summary_batch ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReportingApi.create_region_leg_summary_batch"
-      end
       # resource path
-      local_var_path = '/api/{version}/report/region/summary/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/report/region/summary/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -199,30 +187,24 @@ module OpenapiClient
 
     # Delete Offline Report
     # Deletes a batch report.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param batch_id [Integer] the id of the batch to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_batch(version, account_id, batch_id, opts = {})
-      data, _status_code, _headers = delete_batch_with_http_info(version, account_id, batch_id, opts)
+    def delete_batch(account_id, batch_id, opts = {})
+      data, _status_code, _headers = delete_batch_with_http_info(account_id, batch_id, opts)
       data
     end
 
     # Delete Offline Report
     # Deletes a batch report.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param batch_id [Integer] the id of the batch to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_batch_with_http_info(version, account_id, batch_id, opts = {})
+    def delete_batch_with_http_info(account_id, batch_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportingApi.delete_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReportingApi.delete_batch"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -233,7 +215,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'batch_id' when calling ReportingApi.delete_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/report/batch/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/report/batch/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -276,32 +258,26 @@ module OpenapiClient
 
     # Get Offline Report
     # Checks status of batch report.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param batch_id [Integer] returned by /report/batch/create
     # @param all_results [Boolean] whether to return all batch results or not
     # @param [Hash] opts the optional parameters
     # @return [ReportBatchResponse]
-    def get_report_batch(version, account_id, batch_id, all_results, opts = {})
-      data, _status_code, _headers = get_report_batch_with_http_info(version, account_id, batch_id, all_results, opts)
+    def get_report_batch(account_id, batch_id, all_results, opts = {})
+      data, _status_code, _headers = get_report_batch_with_http_info(account_id, batch_id, all_results, opts)
       data
     end
 
     # Get Offline Report
     # Checks status of batch report.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param batch_id [Integer] returned by /report/batch/create
     # @param all_results [Boolean] whether to return all batch results or not
     # @param [Hash] opts the optional parameters
     # @return [Array<(ReportBatchResponse, Integer, Hash)>] ReportBatchResponse data, response status code and response headers
-    def get_report_batch_with_http_info(version, account_id, batch_id, all_results, opts = {})
+    def get_report_batch_with_http_info(account_id, batch_id, all_results, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportingApi.get_report_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReportingApi.get_report_batch"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -316,7 +292,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'all_results' when calling ReportingApi.get_report_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/report/batch/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/report/batch/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -360,7 +336,6 @@ module OpenapiClient
 
     # Run Report
     #  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
-    # @param version [Float] 
     # @param desc [Boolean] If true then descending order, false is ascending
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user for passing account related params
@@ -371,14 +346,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The limit of the pagination
     # @option opts [String] :response_format Determines what response format to return. Options are: JSON or CSV
     # @return [ReportResponse]
-    def run_report(version, desc, opts = {})
-      data, _status_code, _headers = run_report_with_http_info(version, desc, opts)
+    def run_report(desc, opts = {})
+      data, _status_code, _headers = run_report_with_http_info(desc, opts)
       data
     end
 
     # Run Report
     #  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-    # @param version [Float] 
     # @param desc [Boolean] If true then descending order, false is ascending
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user for passing account related params
@@ -389,13 +363,9 @@ module OpenapiClient
     # @option opts [Integer] :limit The limit of the pagination
     # @option opts [String] :response_format Determines what response format to return. Options are: JSON or CSV
     # @return [Array<(ReportResponse, Integer, Hash)>] ReportResponse data, response status code and response headers
-    def run_report_with_http_info(version, desc, opts = {})
+    def run_report_with_http_info(desc, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportingApi.run_report ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReportingApi.run_report"
       end
       # verify the required parameter 'desc' is set
       if @api_client.config.client_side_validation && desc.nil?
@@ -406,7 +376,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/report/run'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/report/run'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -455,7 +425,6 @@ module OpenapiClient
 
     # Search Offline Reports
     # Retrieves batches for a user..
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account logged in
     # @param start [Integer] the start of the index and/or pagination
     # @param limit [Integer] the limit of the index and/or pagination
@@ -467,14 +436,13 @@ module OpenapiClient
     # @option opts [Integer] :start_date the start date of the report batch to search on
     # @option opts [Integer] :end_date the end date of the report batch to search on
     # @return [Array<ReportBatchResponse>]
-    def search_batch(version, account_id, start, limit, opts = {})
-      data, _status_code, _headers = search_batch_with_http_info(version, account_id, start, limit, opts)
+    def search_batch(account_id, start, limit, opts = {})
+      data, _status_code, _headers = search_batch_with_http_info(account_id, start, limit, opts)
       data
     end
 
     # Search Offline Reports
     # Retrieves batches for a user..
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account logged in
     # @param start [Integer] the start of the index and/or pagination
     # @param limit [Integer] the limit of the index and/or pagination
@@ -486,13 +454,9 @@ module OpenapiClient
     # @option opts [Integer] :start_date the start date of the report batch to search on
     # @option opts [Integer] :end_date the end date of the report batch to search on
     # @return [Array<(Array<ReportBatchResponse>, Integer, Hash)>] Array<ReportBatchResponse> data, response status code and response headers
-    def search_batch_with_http_info(version, account_id, start, limit, opts = {})
+    def search_batch_with_http_info(account_id, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReportingApi.search_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReportingApi.search_batch"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -511,7 +475,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/report/batch/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/report/batch/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Credential
     # This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-    # @param version [Float] 
     # @param third_party_id [String] the third party user account id
     # @param third_party_token [String] the access token to authenticate with (ex: username or fb token or phone number)
     # @param network_uid [String] the access provider to authenticate against
@@ -41,14 +40,13 @@ module OpenapiClient
     # @option opts [String] :audience_ids_to_add audience ids to add to the account
     # @option opts [String] :audience_ids_to_remove audience ids to remove from the account
     # @return [ProfileResponse]
-    def create_credential(version, third_party_id, third_party_token, network_uid, app_key, opts = {})
-      data, _status_code, _headers = create_credential_with_http_info(version, third_party_id, third_party_token, network_uid, app_key, opts)
+    def create_credential(third_party_id, third_party_token, network_uid, app_key, opts = {})
+      data, _status_code, _headers = create_credential_with_http_info(third_party_id, third_party_token, network_uid, app_key, opts)
       data
     end
 
     # Create Credential
     # This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-    # @param version [Float] 
     # @param third_party_id [String] the third party user account id
     # @param third_party_token [String] the access token to authenticate with (ex: username or fb token or phone number)
     # @param network_uid [String] the access provider to authenticate against
@@ -68,13 +66,9 @@ module OpenapiClient
     # @option opts [String] :audience_ids_to_add audience ids to add to the account
     # @option opts [String] :audience_ids_to_remove audience ids to remove from the account
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def create_credential_with_http_info(version, third_party_id, third_party_token, network_uid, app_key, opts = {})
+    def create_credential_with_http_info(third_party_id, third_party_token, network_uid, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.create_credential ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.create_credential"
       end
       # verify the required parameter 'third_party_id' is set
       if @api_client.config.client_side_validation && third_party_id.nil?
@@ -93,7 +87,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ThirdPartyCredentialsApi.create_credential"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/credential/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/credential/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -151,7 +145,6 @@ module OpenapiClient
 
     # Create Network
     # Creates a custom third party network.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param name [String] The name of the network
     # @param enable_introspection [Boolean] Whether the network uses introspection calls
@@ -171,14 +164,13 @@ module OpenapiClient
     # @option opts [String] :oauth_secret_key OAuth secret key
     # @option opts [String] :body 
     # @return [ThirdPartyNetworkResponse]
-    def create_network(version, account_id, name, enable_introspection, opts = {})
-      data, _status_code, _headers = create_network_with_http_info(version, account_id, name, enable_introspection, opts)
+    def create_network(account_id, name, enable_introspection, opts = {})
+      data, _status_code, _headers = create_network_with_http_info(account_id, name, enable_introspection, opts)
       data
     end
 
     # Create Network
     # Creates a custom third party network.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param name [String] The name of the network
     # @param enable_introspection [Boolean] Whether the network uses introspection calls
@@ -198,13 +190,9 @@ module OpenapiClient
     # @option opts [String] :oauth_secret_key OAuth secret key
     # @option opts [String] :body 
     # @return [Array<(ThirdPartyNetworkResponse, Integer, Hash)>] ThirdPartyNetworkResponse data, response status code and response headers
-    def create_network_with_http_info(version, account_id, name, enable_introspection, opts = {})
+    def create_network_with_http_info(account_id, name, enable_introspection, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.create_network ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.create_network"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -219,7 +207,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'enable_introspection' when calling ThirdPartyCredentialsApi.create_network"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/network/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/network/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -276,34 +264,28 @@ module OpenapiClient
 
     # Delete Credential
     # Delete a third party network on a Sirqul account.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param network_uid [String] The third party network identifier
     # @param third_party_id [String] The third party user id
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_credential(version, account_id, network_uid, third_party_id, app_key, opts = {})
-      data, _status_code, _headers = delete_credential_with_http_info(version, account_id, network_uid, third_party_id, app_key, opts)
+    def delete_credential(account_id, network_uid, third_party_id, app_key, opts = {})
+      data, _status_code, _headers = delete_credential_with_http_info(account_id, network_uid, third_party_id, app_key, opts)
       data
     end
 
     # Delete Credential
     # Delete a third party network on a Sirqul account.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param network_uid [String] The third party network identifier
     # @param third_party_id [String] The third party user id
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_credential_with_http_info(version, account_id, network_uid, third_party_id, app_key, opts = {})
+    def delete_credential_with_http_info(account_id, network_uid, third_party_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.delete_credential ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.delete_credential"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -322,7 +304,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ThirdPartyCredentialsApi.delete_credential"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/credential/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/credential/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -367,30 +349,24 @@ module OpenapiClient
 
     # Delete Network
     # Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param network_uid [String] The unique identifier for the third party network defined by Sirqul
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_network(version, account_id, network_uid, opts = {})
-      data, _status_code, _headers = delete_network_with_http_info(version, account_id, network_uid, opts)
+    def delete_network(account_id, network_uid, opts = {})
+      data, _status_code, _headers = delete_network_with_http_info(account_id, network_uid, opts)
       data
     end
 
     # Delete Network
     # Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param network_uid [String] The unique identifier for the third party network defined by Sirqul
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_network_with_http_info(version, account_id, network_uid, opts = {})
+    def delete_network_with_http_info(account_id, network_uid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.delete_network ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.delete_network"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -401,7 +377,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'network_uid' when calling ThirdPartyCredentialsApi.delete_network"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/network/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/network/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -444,7 +420,6 @@ module OpenapiClient
 
     # Get Credential
     # Gets the account information given a third party token.
-    # @param version [Float] 
     # @param network_uid [String] the access provider to authenticate against
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -462,14 +437,13 @@ module OpenapiClient
     # @option opts [String] :audience_ids_to_remove audience ids to remove from the account
     # @option opts [Integer] :referral_account_id account id of the referrer (inviter-invitee relationship)
     # @return [ProfileResponse]
-    def get_credential(version, network_uid, app_key, opts = {})
-      data, _status_code, _headers = get_credential_with_http_info(version, network_uid, app_key, opts)
+    def get_credential(network_uid, app_key, opts = {})
+      data, _status_code, _headers = get_credential_with_http_info(network_uid, app_key, opts)
       data
     end
 
     # Get Credential
     # Gets the account information given a third party token.
-    # @param version [Float] 
     # @param network_uid [String] the access provider to authenticate against
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -487,13 +461,9 @@ module OpenapiClient
     # @option opts [String] :audience_ids_to_remove audience ids to remove from the account
     # @option opts [Integer] :referral_account_id account id of the referrer (inviter-invitee relationship)
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def get_credential_with_http_info(version, network_uid, app_key, opts = {})
+    def get_credential_with_http_info(network_uid, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.get_credential ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.get_credential"
       end
       # verify the required parameter 'network_uid' is set
       if @api_client.config.client_side_validation && network_uid.nil?
@@ -504,7 +474,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ThirdPartyCredentialsApi.get_credential"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/credential/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/credential/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -560,30 +530,24 @@ module OpenapiClient
 
     # Get Network
     # Get the details of a third party network. Only the network owners and managers have access to this.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param network_uid [String] The unique identifier for the third party network defined by Sirqul
     # @param [Hash] opts the optional parameters
     # @return [ThirdPartyNetworkResponse]
-    def get_network(version, account_id, network_uid, opts = {})
-      data, _status_code, _headers = get_network_with_http_info(version, account_id, network_uid, opts)
+    def get_network(account_id, network_uid, opts = {})
+      data, _status_code, _headers = get_network_with_http_info(account_id, network_uid, opts)
       data
     end
 
     # Get Network
     # Get the details of a third party network. Only the network owners and managers have access to this.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param network_uid [String] The unique identifier for the third party network defined by Sirqul
     # @param [Hash] opts the optional parameters
     # @return [Array<(ThirdPartyNetworkResponse, Integer, Hash)>] ThirdPartyNetworkResponse data, response status code and response headers
-    def get_network_with_http_info(version, account_id, network_uid, opts = {})
+    def get_network_with_http_info(account_id, network_uid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.get_network ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.get_network"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -594,7 +558,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'network_uid' when calling ThirdPartyCredentialsApi.get_network"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/network/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/network/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -637,7 +601,6 @@ module OpenapiClient
 
     # Search Credentials
     # Search on a user's linked third party networks.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword used to search on the third party name and network string
@@ -646,14 +609,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start of the pagination (default to 0)
     # @option opts [Integer] :limit The limit of the pagination (default to 20)
     # @return [Array<ThirdPartyCredentialResponse>]
-    def search_credentials(version, account_id, opts = {})
-      data, _status_code, _headers = search_credentials_with_http_info(version, account_id, opts)
+    def search_credentials(account_id, opts = {})
+      data, _status_code, _headers = search_credentials_with_http_info(account_id, opts)
       data
     end
 
     # Search Credentials
     # Search on a user&#39;s linked third party networks.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword used to search on the third party name and network string
@@ -662,20 +624,16 @@ module OpenapiClient
     # @option opts [Integer] :start The start of the pagination (default to 0)
     # @option opts [Integer] :limit The limit of the pagination (default to 20)
     # @return [Array<(Array<ThirdPartyCredentialResponse>, Integer, Hash)>] Array<ThirdPartyCredentialResponse> data, response status code and response headers
-    def search_credentials_with_http_info(version, account_id, opts = {})
+    def search_credentials_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.search_credentials ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.search_credentials"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling ThirdPartyCredentialsApi.search_credentials"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/credential/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/credential/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -722,7 +680,6 @@ module OpenapiClient
 
     # Search Networks
     # Search on supported third party networks and custom networks from external users.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param sort_field [String] The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
     # @param descending [Boolean] The order to return the search results
@@ -733,14 +690,13 @@ module OpenapiClient
     # @option opts [String] :keyword The keyword used to search on the network name and description fields
     # @option opts [Boolean] :filter_billable Determines whether to only return applications that the user has access to
     # @return [Array<ThirdPartyNetworkShortResponse>]
-    def search_networks(version, account_id, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_networks_with_http_info(version, account_id, sort_field, descending, start, limit, active_only, opts)
+    def search_networks(account_id, sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_networks_with_http_info(account_id, sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Networks
     # Search on supported third party networks and custom networks from external users.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param sort_field [String] The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
     # @param descending [Boolean] The order to return the search results
@@ -751,13 +707,9 @@ module OpenapiClient
     # @option opts [String] :keyword The keyword used to search on the network name and description fields
     # @option opts [Boolean] :filter_billable Determines whether to only return applications that the user has access to
     # @return [Array<(Array<ThirdPartyNetworkShortResponse>, Integer, Hash)>] Array<ThirdPartyNetworkShortResponse> data, response status code and response headers
-    def search_networks_with_http_info(version, account_id, sort_field, descending, start, limit, active_only, opts = {})
+    def search_networks_with_http_info(account_id, sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.search_networks ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.search_networks"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -789,7 +741,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling ThirdPartyCredentialsApi.search_networks"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/network/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/network/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -838,7 +790,6 @@ module OpenapiClient
 
     # Send MFA Challenge
     # Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-    # @param version [Float] 
     # @param network_uid [String] the third party network provider that has MFA enabled
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -846,14 +797,13 @@ module OpenapiClient
     # @option opts [Integer] :third_party_credential_id optional id of the existing third party credential
     # @option opts [String] :device_id the unique id of the device making the request
     # @return [SirqulResponse]
-    def send_mfa_challenge(version, network_uid, app_key, opts = {})
-      data, _status_code, _headers = send_mfa_challenge_with_http_info(version, network_uid, app_key, opts)
+    def send_mfa_challenge(network_uid, app_key, opts = {})
+      data, _status_code, _headers = send_mfa_challenge_with_http_info(network_uid, app_key, opts)
       data
     end
 
     # Send MFA Challenge
     # Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-    # @param version [Float] 
     # @param network_uid [String] the third party network provider that has MFA enabled
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -861,13 +811,9 @@ module OpenapiClient
     # @option opts [Integer] :third_party_credential_id optional id of the existing third party credential
     # @option opts [String] :device_id the unique id of the device making the request
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def send_mfa_challenge_with_http_info(version, network_uid, app_key, opts = {})
+    def send_mfa_challenge_with_http_info(network_uid, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.send_mfa_challenge ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.send_mfa_challenge"
       end
       # verify the required parameter 'network_uid' is set
       if @api_client.config.client_side_validation && network_uid.nil?
@@ -878,7 +824,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ThirdPartyCredentialsApi.send_mfa_challenge"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/credential/mfa/send'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/credential/mfa/send'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -924,7 +870,6 @@ module OpenapiClient
 
     # Update Credential
     # Updates a third-party login for an account.
-    # @param version [Float] 
     # @param network_uid [String] the access provider to authenticate against
     # @param third_party_id [String] the third party user account id
     # @param app_key [String] the application key
@@ -936,14 +881,13 @@ module OpenapiClient
     # @option opts [String] :meta_data External custom client defined data
     # @option opts [String] :third_party_refresh_token optional refresh token for the third party
     # @return [ProfileResponse]
-    def update_credential(version, network_uid, third_party_id, app_key, opts = {})
-      data, _status_code, _headers = update_credential_with_http_info(version, network_uid, third_party_id, app_key, opts)
+    def update_credential(network_uid, third_party_id, app_key, opts = {})
+      data, _status_code, _headers = update_credential_with_http_info(network_uid, third_party_id, app_key, opts)
       data
     end
 
     # Update Credential
     # Updates a third-party login for an account.
-    # @param version [Float] 
     # @param network_uid [String] the access provider to authenticate against
     # @param third_party_id [String] the third party user account id
     # @param app_key [String] the application key
@@ -955,13 +899,9 @@ module OpenapiClient
     # @option opts [String] :meta_data External custom client defined data
     # @option opts [String] :third_party_refresh_token optional refresh token for the third party
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def update_credential_with_http_info(version, network_uid, third_party_id, app_key, opts = {})
+    def update_credential_with_http_info(network_uid, third_party_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.update_credential ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.update_credential"
       end
       # verify the required parameter 'network_uid' is set
       if @api_client.config.client_side_validation && network_uid.nil?
@@ -976,7 +916,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ThirdPartyCredentialsApi.update_credential"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/credential/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/credential/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1026,7 +966,6 @@ module OpenapiClient
 
     # Update Network
     # Updates a custom third party network. Only the network owners and managers have access to this.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param network_uid [String] The unique identifier for the third party network defined by Sirqul
     # @param [Hash] opts the optional parameters
@@ -1047,14 +986,13 @@ module OpenapiClient
     # @option opts [String] :oauth_secret_key OAuth secret key
     # @option opts [String] :body 
     # @return [ThirdPartyNetworkResponse]
-    def update_network(version, account_id, network_uid, opts = {})
-      data, _status_code, _headers = update_network_with_http_info(version, account_id, network_uid, opts)
+    def update_network(account_id, network_uid, opts = {})
+      data, _status_code, _headers = update_network_with_http_info(account_id, network_uid, opts)
       data
     end
 
     # Update Network
     # Updates a custom third party network. Only the network owners and managers have access to this.
-    # @param version [Float] 
     # @param account_id [Integer] The account id making the request
     # @param network_uid [String] The unique identifier for the third party network defined by Sirqul
     # @param [Hash] opts the optional parameters
@@ -1075,13 +1013,9 @@ module OpenapiClient
     # @option opts [String] :oauth_secret_key OAuth secret key
     # @option opts [String] :body 
     # @return [Array<(ThirdPartyNetworkResponse, Integer, Hash)>] ThirdPartyNetworkResponse data, response status code and response headers
-    def update_network_with_http_info(version, account_id, network_uid, opts = {})
+    def update_network_with_http_info(account_id, network_uid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThirdPartyCredentialsApi.update_network ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThirdPartyCredentialsApi.update_network"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1092,7 +1026,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'network_uid' when calling ThirdPartyCredentialsApi.update_network"
       end
       # resource path
-      local_var_path = '/api/{version}/thirdparty/network/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/thirdparty/network/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

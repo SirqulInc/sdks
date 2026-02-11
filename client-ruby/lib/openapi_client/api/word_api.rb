@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Word
     # Create a word by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param word [String] The text of the word.
     # @param definition [String] The definition of the word.
@@ -33,14 +32,13 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [WordzWordResponse]
-    def create_word(version, account_id, word, definition, active, allocate_tickets, ticket_count, opts = {})
-      data, _status_code, _headers = create_word_with_http_info(version, account_id, word, definition, active, allocate_tickets, ticket_count, opts)
+    def create_word(account_id, word, definition, active, allocate_tickets, ticket_count, opts = {})
+      data, _status_code, _headers = create_word_with_http_info(account_id, word, definition, active, allocate_tickets, ticket_count, opts)
       data
     end
 
     # Create Word
     # Create a word by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param word [String] The text of the word.
     # @param definition [String] The definition of the word.
@@ -52,13 +50,9 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [Array<(WordzWordResponse, Integer, Hash)>] WordzWordResponse data, response status code and response headers
-    def create_word_with_http_info(version, account_id, word, definition, active, allocate_tickets, ticket_count, opts = {})
+    def create_word_with_http_info(account_id, word, definition, active, allocate_tickets, ticket_count, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WordApi.create_word ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WordApi.create_word"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -85,7 +79,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'ticket_count' when calling WordApi.create_word"
       end
       # resource path
-      local_var_path = '/api/{version}/game/word/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/word/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -135,30 +129,24 @@ module OpenapiClient
 
     # Delete Word
     # Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-    # @param version [Float] 
     # @param word_id [Integer] The id of the word to delete.
     # @param account_id [Integer] The account vor validating permission
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_word(version, word_id, account_id, opts = {})
-      data, _status_code, _headers = delete_word_with_http_info(version, word_id, account_id, opts)
+    def delete_word(word_id, account_id, opts = {})
+      data, _status_code, _headers = delete_word_with_http_info(word_id, account_id, opts)
       data
     end
 
     # Delete Word
     # Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-    # @param version [Float] 
     # @param word_id [Integer] The id of the word to delete.
     # @param account_id [Integer] The account vor validating permission
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_word_with_http_info(version, word_id, account_id, opts = {})
+    def delete_word_with_http_info(word_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WordApi.delete_word ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WordApi.delete_word"
       end
       # verify the required parameter 'word_id' is set
       if @api_client.config.client_side_validation && word_id.nil?
@@ -169,7 +157,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling WordApi.delete_word"
       end
       # resource path
-      local_var_path = '/api/{version}/game/word/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/word/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -212,30 +200,24 @@ module OpenapiClient
 
     # Get Word
     # Get a word by the given id.
-    # @param version [Float] 
     # @param word_id [Integer] The id of the word to get.
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @return [WordzWordResponse]
-    def get_word(version, word_id, account_id, opts = {})
-      data, _status_code, _headers = get_word_with_http_info(version, word_id, account_id, opts)
+    def get_word(word_id, account_id, opts = {})
+      data, _status_code, _headers = get_word_with_http_info(word_id, account_id, opts)
       data
     end
 
     # Get Word
     # Get a word by the given id.
-    # @param version [Float] 
     # @param word_id [Integer] The id of the word to get.
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @return [Array<(WordzWordResponse, Integer, Hash)>] WordzWordResponse data, response status code and response headers
-    def get_word_with_http_info(version, word_id, account_id, opts = {})
+    def get_word_with_http_info(word_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WordApi.get_word ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WordApi.get_word"
       end
       # verify the required parameter 'word_id' is set
       if @api_client.config.client_side_validation && word_id.nil?
@@ -246,7 +228,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling WordApi.get_word"
       end
       # resource path
-      local_var_path = '/api/{version}/game/word/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/word/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -289,7 +271,6 @@ module OpenapiClient
 
     # Search Words
     # Search for words by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param sort_field [String] The column to sort the search on
     # @param descending [Boolean] The order to return the search results
@@ -299,14 +280,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword for searching words with matching definition or word text.
     # @return [Array<WordzWordResponse>]
-    def get_words(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
-      data, _status_code, _headers = get_words_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts)
+    def get_words(account_id, sort_field, descending, active_only, start, limit, opts = {})
+      data, _status_code, _headers = get_words_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts)
       data
     end
 
     # Search Words
     # Search for words by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param sort_field [String] The column to sort the search on
     # @param descending [Boolean] The order to return the search results
@@ -316,13 +296,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword for searching words with matching definition or word text.
     # @return [Array<(Array<WordzWordResponse>, Integer, Hash)>] Array<WordzWordResponse> data, response status code and response headers
-    def get_words_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
+    def get_words_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WordApi.get_words ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WordApi.get_words"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -349,7 +325,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling WordApi.get_words"
       end
       # resource path
-      local_var_path = '/api/{version}/game/word/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/word/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -397,7 +373,6 @@ module OpenapiClient
 
     # Update Word
     # Update a word by the given params.
-    # @param version [Float] 
     # @param word_id [Integer] The id of the word to update.
     # @param account_id [Integer] The logged in user.
     # @param ticket_count [Integer] The number of tickets to reward
@@ -410,14 +385,13 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [WordzWordResponse]
-    def update_word(version, word_id, account_id, ticket_count, opts = {})
-      data, _status_code, _headers = update_word_with_http_info(version, word_id, account_id, ticket_count, opts)
+    def update_word(word_id, account_id, ticket_count, opts = {})
+      data, _status_code, _headers = update_word_with_http_info(word_id, account_id, ticket_count, opts)
       data
     end
 
     # Update Word
     # Update a word by the given params.
-    # @param version [Float] 
     # @param word_id [Integer] The id of the word to update.
     # @param account_id [Integer] The logged in user.
     # @param ticket_count [Integer] The number of tickets to reward
@@ -430,13 +404,9 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [Array<(WordzWordResponse, Integer, Hash)>] WordzWordResponse data, response status code and response headers
-    def update_word_with_http_info(version, word_id, account_id, ticket_count, opts = {})
+    def update_word_with_http_info(word_id, account_id, ticket_count, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WordApi.update_word ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WordApi.update_word"
       end
       # verify the required parameter 'word_id' is set
       if @api_client.config.client_side_validation && word_id.nil?
@@ -451,7 +421,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'ticket_count' when calling WordApi.update_word"
       end
       # resource path
-      local_var_path = '/api/{version}/game/word/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/word/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Task
     # Create a Task
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the task
     # @param [Hash] opts the optional parameters
@@ -36,14 +35,13 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Task is active or not (inactive Tasks are not processed) (default to true)
     # @return [TaskResponse]
-    def create_task(version, account_id, name, opts = {})
-      data, _status_code, _headers = create_task_with_http_info(version, account_id, name, opts)
+    def create_task(account_id, name, opts = {})
+      data, _status_code, _headers = create_task_with_http_info(account_id, name, opts)
       data
     end
 
     # Create Task
     # Create a Task
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the task
     # @param [Hash] opts the optional parameters
@@ -58,13 +56,9 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Task is active or not (inactive Tasks are not processed) (default to true)
     # @return [Array<(TaskResponse, Integer, Hash)>] TaskResponse data, response status code and response headers
-    def create_task_with_http_info(version, account_id, name, opts = {})
+    def create_task_with_http_info(account_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TaskApi.create_task ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TaskApi.create_task"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -79,7 +73,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/task/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/task/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -132,30 +126,24 @@ module OpenapiClient
 
     # Delete Task
     # Delete a Task
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param task_id [Integer] The id of the Task to delete.
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_task(version, account_id, task_id, opts = {})
-      data, _status_code, _headers = delete_task_with_http_info(version, account_id, task_id, opts)
+    def delete_task(account_id, task_id, opts = {})
+      data, _status_code, _headers = delete_task_with_http_info(account_id, task_id, opts)
       data
     end
 
     # Delete Task
     # Delete a Task
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param task_id [Integer] The id of the Task to delete.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_task_with_http_info(version, account_id, task_id, opts = {})
+    def delete_task_with_http_info(account_id, task_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TaskApi.delete_task ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TaskApi.delete_task"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -166,7 +154,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'task_id' when calling TaskApi.delete_task"
       end
       # resource path
-      local_var_path = '/api/{version}/task/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/task/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -209,30 +197,24 @@ module OpenapiClient
 
     # Get Task
     # Get a Task
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param task_id [Integer] The id of the Task to return.
     # @param [Hash] opts the optional parameters
     # @return [TaskResponse]
-    def get_task(version, account_id, task_id, opts = {})
-      data, _status_code, _headers = get_task_with_http_info(version, account_id, task_id, opts)
+    def get_task(account_id, task_id, opts = {})
+      data, _status_code, _headers = get_task_with_http_info(account_id, task_id, opts)
       data
     end
 
     # Get Task
     # Get a Task
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param task_id [Integer] The id of the Task to return.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TaskResponse, Integer, Hash)>] TaskResponse data, response status code and response headers
-    def get_task_with_http_info(version, account_id, task_id, opts = {})
+    def get_task_with_http_info(account_id, task_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TaskApi.get_task ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TaskApi.get_task"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -243,7 +225,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'task_id' when calling TaskApi.get_task"
       end
       # resource path
-      local_var_path = '/api/{version}/task/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/task/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -286,7 +268,6 @@ module OpenapiClient
 
     # Search Tasks
     # Search on Tasks
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grouping_id Filter results by a grouping identifier defined by the client
@@ -301,14 +282,13 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit the result to some number. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results (default to true)
     # @return [Array<TaskResponse>]
-    def search_tasks(version, account_id, opts = {})
-      data, _status_code, _headers = search_tasks_with_http_info(version, account_id, opts)
+    def search_tasks(account_id, opts = {})
+      data, _status_code, _headers = search_tasks_with_http_info(account_id, opts)
       data
     end
 
     # Search Tasks
     # Search on Tasks
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grouping_id Filter results by a grouping identifier defined by the client
@@ -323,20 +303,16 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit the result to some number. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results (default to true)
     # @return [Array<(Array<TaskResponse>, Integer, Hash)>] Array<TaskResponse> data, response status code and response headers
-    def search_tasks_with_http_info(version, account_id, opts = {})
+    def search_tasks_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TaskApi.search_tasks ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TaskApi.search_tasks"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling TaskApi.search_tasks"
       end
       # resource path
-      local_var_path = '/api/{version}/task/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/task/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -389,7 +365,6 @@ module OpenapiClient
 
     # Update Task
     # Update a Task
-    # @param version [Float] 
     # @param task_id [Integer] Task Id
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
@@ -405,14 +380,13 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Task is active or not (inactive Tasks are not processed)
     # @return [TaskResponse]
-    def update_task(version, task_id, account_id, opts = {})
-      data, _status_code, _headers = update_task_with_http_info(version, task_id, account_id, opts)
+    def update_task(task_id, account_id, opts = {})
+      data, _status_code, _headers = update_task_with_http_info(task_id, account_id, opts)
       data
     end
 
     # Update Task
     # Update a Task
-    # @param version [Float] 
     # @param task_id [Integer] Task Id
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
@@ -428,13 +402,9 @@ module OpenapiClient
     # @option opts [String] :visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)
     # @option opts [Boolean] :active Sets whether the Task is active or not (inactive Tasks are not processed)
     # @return [Array<(TaskResponse, Integer, Hash)>] TaskResponse data, response status code and response headers
-    def update_task_with_http_info(version, task_id, account_id, opts = {})
+    def update_task_with_http_info(task_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TaskApi.update_task ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TaskApi.update_task"
       end
       # verify the required parameter 'task_id' is set
       if @api_client.config.client_side_validation && task_id.nil?
@@ -449,7 +419,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/task/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/task/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

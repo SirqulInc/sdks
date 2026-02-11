@@ -21,30 +21,24 @@ module OpenapiClient
     end
     # Add Preview
     # Enable this ad for preview for this account.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param creative_id [Integer] The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def add_preview(version, account_id, creative_id, opts = {})
-      data, _status_code, _headers = add_preview_with_http_info(version, account_id, creative_id, opts)
+    def add_preview(account_id, creative_id, opts = {})
+      data, _status_code, _headers = add_preview_with_http_info(account_id, creative_id, opts)
       data
     end
 
     # Add Preview
     # Enable this ad for preview for this account.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param creative_id [Integer] The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def add_preview_with_http_info(version, account_id, creative_id, opts = {})
+    def add_preview_with_http_info(account_id, creative_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.add_preview ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.add_preview"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -55,7 +49,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'creative_id' when calling CreativeApi.add_preview"
       end
       # resource path
-      local_var_path = '/api/{version}/creative/addpreview'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/creative/addpreview'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -98,7 +92,6 @@ module OpenapiClient
 
     # Find Missions
     # Get a set of ad filtered by the parameters provided.
-    # @param version [Float] 
     # @param app_key [String] The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     # @param randomize [Boolean] return a random set of results, default is true. If false returns in nature order.
     # @param targeted_ads_only [Boolean] return only ads targets to the specific app, no global ads.
@@ -117,14 +110,13 @@ module OpenapiClient
     # @option opts [Boolean] :allocates_tickets If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both.
     # @option opts [String] :mission_ids return only ads from the specified campaigns.
     # @return [Array<MissionResponse>]
-    def ads_find(version, app_key, randomize, targeted_ads_only, opts = {})
-      data, _status_code, _headers = ads_find_with_http_info(version, app_key, randomize, targeted_ads_only, opts)
+    def ads_find(app_key, randomize, targeted_ads_only, opts = {})
+      data, _status_code, _headers = ads_find_with_http_info(app_key, randomize, targeted_ads_only, opts)
       data
     end
 
     # Find Missions
     # Get a set of ad filtered by the parameters provided.
-    # @param version [Float] 
     # @param app_key [String] The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     # @param randomize [Boolean] return a random set of results, default is true. If false returns in nature order.
     # @param targeted_ads_only [Boolean] return only ads targets to the specific app, no global ads.
@@ -143,13 +135,9 @@ module OpenapiClient
     # @option opts [Boolean] :allocates_tickets If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both.
     # @option opts [String] :mission_ids return only ads from the specified campaigns.
     # @return [Array<(Array<MissionResponse>, Integer, Hash)>] Array<MissionResponse> data, response status code and response headers
-    def ads_find_with_http_info(version, app_key, randomize, targeted_ads_only, opts = {})
+    def ads_find_with_http_info(app_key, randomize, targeted_ads_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.ads_find ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.ads_find"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -164,7 +152,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'targeted_ads_only' when calling CreativeApi.ads_find"
       end
       # resource path
-      local_var_path = '/api/{version}/ads/find'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ads/find'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -221,7 +209,6 @@ module OpenapiClient
 
     # Create Creative
     # Create a creative
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the level.
     # @param active [Boolean] If true set the game level as active. Default is false.
@@ -239,14 +226,13 @@ module OpenapiClient
     # @option opts [Integer] :mission_id Assign the creative to a campaign for timing and audience matching.
     # @option opts [Integer] :offer_id the id of the offer
     # @return [CreativeResponse]
-    def create_creative(version, account_id, name, active, wait_for_asset, opts = {})
-      data, _status_code, _headers = create_creative_with_http_info(version, account_id, name, active, wait_for_asset, opts)
+    def create_creative(account_id, name, active, wait_for_asset, opts = {})
+      data, _status_code, _headers = create_creative_with_http_info(account_id, name, active, wait_for_asset, opts)
       data
     end
 
     # Create Creative
     # Create a creative
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the level.
     # @param active [Boolean] If true set the game level as active. Default is false.
@@ -264,13 +250,9 @@ module OpenapiClient
     # @option opts [Integer] :mission_id Assign the creative to a campaign for timing and audience matching.
     # @option opts [Integer] :offer_id the id of the offer
     # @return [Array<(CreativeResponse, Integer, Hash)>] CreativeResponse data, response status code and response headers
-    def create_creative_with_http_info(version, account_id, name, active, wait_for_asset, opts = {})
+    def create_creative_with_http_info(account_id, name, active, wait_for_asset, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.create_creative ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.create_creative"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -289,7 +271,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'wait_for_asset' when calling CreativeApi.create_creative"
       end
       # resource path
-      local_var_path = '/api/{version}/creative/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/creative/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -345,30 +327,24 @@ module OpenapiClient
 
     # Delete Creative
     # Delete a creative
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param creative_id [Integer] the id of the creative to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_creative(version, account_id, creative_id, opts = {})
-      data, _status_code, _headers = delete_creative_with_http_info(version, account_id, creative_id, opts)
+    def delete_creative(account_id, creative_id, opts = {})
+      data, _status_code, _headers = delete_creative_with_http_info(account_id, creative_id, opts)
       data
     end
 
     # Delete Creative
     # Delete a creative
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param creative_id [Integer] the id of the creative to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_creative_with_http_info(version, account_id, creative_id, opts = {})
+    def delete_creative_with_http_info(account_id, creative_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.delete_creative ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.delete_creative"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -379,7 +355,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'creative_id' when calling CreativeApi.delete_creative"
       end
       # resource path
-      local_var_path = '/api/{version}/creative/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/creative/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -422,30 +398,24 @@ module OpenapiClient
 
     # Get Creative
     # Get a creative
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param creative_id [Integer] the ID of the creative to get
     # @param [Hash] opts the optional parameters
     # @return [CreativeResponse]
-    def get_creative(version, account_id, creative_id, opts = {})
-      data, _status_code, _headers = get_creative_with_http_info(version, account_id, creative_id, opts)
+    def get_creative(account_id, creative_id, opts = {})
+      data, _status_code, _headers = get_creative_with_http_info(account_id, creative_id, opts)
       data
     end
 
     # Get Creative
     # Get a creative
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param creative_id [Integer] the ID of the creative to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(CreativeResponse, Integer, Hash)>] CreativeResponse data, response status code and response headers
-    def get_creative_with_http_info(version, account_id, creative_id, opts = {})
+    def get_creative_with_http_info(account_id, creative_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.get_creative ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.get_creative"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -456,7 +426,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'creative_id' when calling CreativeApi.get_creative"
       end
       # resource path
-      local_var_path = '/api/{version}/creative/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/creative/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -499,7 +469,6 @@ module OpenapiClient
 
     # Search Creatives
     # Get a list of levels for an application, just those the account has permissions to view.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] the application key
     # @param start [Integer] Start the result set at some index.
@@ -508,14 +477,13 @@ module OpenapiClient
     # @option opts [Integer] :mission_id Creatives contained in the provided mission.
     # @option opts [String] :keyword Match the keyword to the owner name or level name.
     # @return [Array<CreativeResponse>]
-    def get_creatives_by_application(version, account_id, app_key, start, limit, opts = {})
-      data, _status_code, _headers = get_creatives_by_application_with_http_info(version, account_id, app_key, start, limit, opts)
+    def get_creatives_by_application(account_id, app_key, start, limit, opts = {})
+      data, _status_code, _headers = get_creatives_by_application_with_http_info(account_id, app_key, start, limit, opts)
       data
     end
 
     # Search Creatives
     # Get a list of levels for an application, just those the account has permissions to view.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] the application key
     # @param start [Integer] Start the result set at some index.
@@ -524,13 +492,9 @@ module OpenapiClient
     # @option opts [Integer] :mission_id Creatives contained in the provided mission.
     # @option opts [String] :keyword Match the keyword to the owner name or level name.
     # @return [Array<(Array<CreativeResponse>, Integer, Hash)>] Array<CreativeResponse> data, response status code and response headers
-    def get_creatives_by_application_with_http_info(version, account_id, app_key, start, limit, opts = {})
+    def get_creatives_by_application_with_http_info(account_id, app_key, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.get_creatives_by_application ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.get_creatives_by_application"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -549,7 +513,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling CreativeApi.get_creatives_by_application"
       end
       # resource path
-      local_var_path = '/api/{version}/creative/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/creative/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -596,30 +560,24 @@ module OpenapiClient
 
     # Remove Preview
     # Remove this ad for preview for this account.
-    # @param version [Float] 
     # @param account_id [Integer] the ID of the logged in user
     # @param creative_id [Integer] the ID of the creative to remove preview
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def remove_preview(version, account_id, creative_id, opts = {})
-      data, _status_code, _headers = remove_preview_with_http_info(version, account_id, creative_id, opts)
+    def remove_preview(account_id, creative_id, opts = {})
+      data, _status_code, _headers = remove_preview_with_http_info(account_id, creative_id, opts)
       data
     end
 
     # Remove Preview
     # Remove this ad for preview for this account.
-    # @param version [Float] 
     # @param account_id [Integer] the ID of the logged in user
     # @param creative_id [Integer] the ID of the creative to remove preview
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_preview_with_http_info(version, account_id, creative_id, opts = {})
+    def remove_preview_with_http_info(account_id, creative_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.remove_preview ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.remove_preview"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -630,7 +588,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'creative_id' when calling CreativeApi.remove_preview"
       end
       # resource path
-      local_var_path = '/api/{version}/creative/removepreview'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/creative/removepreview'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -673,7 +631,6 @@ module OpenapiClient
 
     # Update Creative
     # Update a creative
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param creative_id [Integer] the creative Id to upate.
     # @param [Hash] opts the optional parameters
@@ -690,14 +647,13 @@ module OpenapiClient
     # @option opts [String] :app_version The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives.
     # @option opts [Integer] :mission_id Assign the creative to a campaign for timing and audience matching.
     # @return [CreativeResponse]
-    def update_creative(version, account_id, creative_id, opts = {})
-      data, _status_code, _headers = update_creative_with_http_info(version, account_id, creative_id, opts)
+    def update_creative(account_id, creative_id, opts = {})
+      data, _status_code, _headers = update_creative_with_http_info(account_id, creative_id, opts)
       data
     end
 
     # Update Creative
     # Update a creative
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param creative_id [Integer] the creative Id to upate.
     # @param [Hash] opts the optional parameters
@@ -714,13 +670,9 @@ module OpenapiClient
     # @option opts [String] :app_version The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives.
     # @option opts [Integer] :mission_id Assign the creative to a campaign for timing and audience matching.
     # @return [Array<(CreativeResponse, Integer, Hash)>] CreativeResponse data, response status code and response headers
-    def update_creative_with_http_info(version, account_id, creative_id, opts = {})
+    def update_creative_with_http_info(account_id, creative_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CreativeApi.update_creative ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CreativeApi.update_creative"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -731,7 +683,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'creative_id' when calling CreativeApi.update_creative"
       end
       # resource path
-      local_var_path = '/api/{version}/creative/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/creative/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

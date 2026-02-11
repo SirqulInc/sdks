@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Rating
     # This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-    # @param version [Float] 
     # @param ratable_type [String] The ratable object type {RETAILER_LOCATION}
     # @param ratable_id [Integer] The id of the ratable object
     # @param rating_value [Integer] The integer value of 0-100
@@ -35,14 +34,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [RatingResponse]
-    def create_rating(version, ratable_type, ratable_id, rating_value, opts = {})
-      data, _status_code, _headers = create_rating_with_http_info(version, ratable_type, ratable_id, rating_value, opts)
+    def create_rating(ratable_type, ratable_id, rating_value, opts = {})
+      data, _status_code, _headers = create_rating_with_http_info(ratable_type, ratable_id, rating_value, opts)
       data
     end
 
     # Create Rating
     # This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-    # @param version [Float] 
     # @param ratable_type [String] The ratable object type {RETAILER_LOCATION}
     # @param ratable_id [Integer] The id of the ratable object
     # @param rating_value [Integer] The integer value of 0-100
@@ -56,13 +54,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [Array<(RatingResponse, Integer, Hash)>] RatingResponse data, response status code and response headers
-    def create_rating_with_http_info(version, ratable_type, ratable_id, rating_value, opts = {})
+    def create_rating_with_http_info(ratable_type, ratable_id, rating_value, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RatingApi.create_rating ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RatingApi.create_rating"
       end
       # verify the required parameter 'ratable_type' is set
       if @api_client.config.client_side_validation && ratable_type.nil?
@@ -77,7 +71,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'rating_value' when calling RatingApi.create_rating"
       end
       # resource path
-      local_var_path = '/api/{version}/rating/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/rating/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -129,39 +123,33 @@ module OpenapiClient
 
     # Delete Rating
     # Sets a rating as deleted.
-    # @param version [Float] 
     # @param rating_id [Integer] The ID of the rating to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @return [SirqulResponse]
-    def delete_rating(version, rating_id, opts = {})
-      data, _status_code, _headers = delete_rating_with_http_info(version, rating_id, opts)
+    def delete_rating(rating_id, opts = {})
+      data, _status_code, _headers = delete_rating_with_http_info(rating_id, opts)
       data
     end
 
     # Delete Rating
     # Sets a rating as deleted.
-    # @param version [Float] 
     # @param rating_id [Integer] The ID of the rating to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_rating_with_http_info(version, rating_id, opts = {})
+    def delete_rating_with_http_info(rating_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RatingApi.delete_rating ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RatingApi.delete_rating"
       end
       # verify the required parameter 'rating_id' is set
       if @api_client.config.client_side_validation && rating_id.nil?
         fail ArgumentError, "Missing the required parameter 'rating_id' when calling RatingApi.delete_rating"
       end
       # resource path
-      local_var_path = '/api/{version}/rating/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/rating/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -205,7 +193,6 @@ module OpenapiClient
 
     # Search Location Rating Indexes
     # Search for retailer locations by averages near you.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :category_ids Comma separated list of category ids to filter the results by
     # @option opts [String] :keyword The keyword used to search
@@ -225,14 +212,13 @@ module OpenapiClient
     # @option opts [Boolean] :return_categories whether to return the categories or not
     # @option opts [Boolean] :return_filters whether to return the filters or not
     # @return [Array<RatingIndexResponse>]
-    def search_location_rating_indexes(version, opts = {})
-      data, _status_code, _headers = search_location_rating_indexes_with_http_info(version, opts)
+    def search_location_rating_indexes(opts = {})
+      data, _status_code, _headers = search_location_rating_indexes_with_http_info(opts)
       data
     end
 
     # Search Location Rating Indexes
     # Search for retailer locations by averages near you.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :category_ids Comma separated list of category ids to filter the results by
     # @option opts [String] :keyword The keyword used to search
@@ -252,13 +238,9 @@ module OpenapiClient
     # @option opts [Boolean] :return_categories whether to return the categories or not
     # @option opts [Boolean] :return_filters whether to return the filters or not
     # @return [Array<(Array<RatingIndexResponse>, Integer, Hash)>] Array<RatingIndexResponse> data, response status code and response headers
-    def search_location_rating_indexes_with_http_info(version, opts = {})
+    def search_location_rating_indexes_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RatingApi.search_location_rating_indexes ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RatingApi.search_location_rating_indexes"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "RATABLE_TYPE", "RATABLE_ID", "RATABLE_DISPLAY", "CATEGORY_ID", "CATEGORY_NAME", "CATEGORY_SHORT_NAME", "CATEGORY_DISPLAY", "COUNT", "SUMMATION", "AVERAGE", "VALUE"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
@@ -269,7 +251,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"distance_unit\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/location/rating/index/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location/rating/index/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -327,7 +309,6 @@ module OpenapiClient
 
     # Search Rating Indexes
     # Search for ratable items by averages.
-    # @param version [Float] 
     # @param ratable_type [String] Filter results by a ratable type {RETAILER_LOCATION}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ratable_ids Comma separated list of ratable ids to filter the resuts by
@@ -343,14 +324,13 @@ module OpenapiClient
     # @option opts [Boolean] :return_ratable Determines whether to return the ratable object in the response
     # @option opts [Boolean] :return_overall_rating Determines whether to return the overall rating record instead
     # @return [Array<RatingIndexResponse>]
-    def search_rating_indexes(version, ratable_type, opts = {})
-      data, _status_code, _headers = search_rating_indexes_with_http_info(version, ratable_type, opts)
+    def search_rating_indexes(ratable_type, opts = {})
+      data, _status_code, _headers = search_rating_indexes_with_http_info(ratable_type, opts)
       data
     end
 
     # Search Rating Indexes
     # Search for ratable items by averages.
-    # @param version [Float] 
     # @param ratable_type [String] Filter results by a ratable type {RETAILER_LOCATION}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ratable_ids Comma separated list of ratable ids to filter the resuts by
@@ -366,13 +346,9 @@ module OpenapiClient
     # @option opts [Boolean] :return_ratable Determines whether to return the ratable object in the response
     # @option opts [Boolean] :return_overall_rating Determines whether to return the overall rating record instead
     # @return [Array<(Array<RatingIndexResponse>, Integer, Hash)>] Array<RatingIndexResponse> data, response status code and response headers
-    def search_rating_indexes_with_http_info(version, ratable_type, opts = {})
+    def search_rating_indexes_with_http_info(ratable_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RatingApi.search_rating_indexes ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RatingApi.search_rating_indexes"
       end
       # verify the required parameter 'ratable_type' is set
       if @api_client.config.client_side_validation && ratable_type.nil?
@@ -388,7 +364,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/rating/index/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/rating/index/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -442,7 +418,6 @@ module OpenapiClient
 
     # Search Ratings
     # Search for ratings on a ratable object.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -456,14 +431,13 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<RatingResponse>]
-    def search_ratings(version, opts = {})
-      data, _status_code, _headers = search_ratings_with_http_info(version, opts)
+    def search_ratings(opts = {})
+      data, _status_code, _headers = search_ratings_with_http_info(opts)
       data
     end
 
     # Search Ratings
     # Search for ratings on a ratable object.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -477,20 +451,16 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<(Array<RatingResponse>, Integer, Hash)>] Array<RatingResponse> data, response status code and response headers
-    def search_ratings_with_http_info(version, opts = {})
+    def search_ratings_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RatingApi.search_ratings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RatingApi.search_ratings"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "OWNER_DISPLAY", "RATABLE_TYPE", "RATABLE_ID", "RATABLE_DISPLAY", "CATEGORY_ID", "CATEGORY_NAME", "CATEGORY_SHORT_NAME", "CATEGORY_DISPLAY", "VALUE"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/rating/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/rating/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -542,7 +512,6 @@ module OpenapiClient
 
     # Update Rating
     # Update an existing rating. Only the creator of the rating have permission to update.
-    # @param version [Float] 
     # @param rating_id [Integer] The id of the rating (Note: this is not the ratable object id)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -555,14 +524,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [RatingResponse]
-    def update_rating(version, rating_id, opts = {})
-      data, _status_code, _headers = update_rating_with_http_info(version, rating_id, opts)
+    def update_rating(rating_id, opts = {})
+      data, _status_code, _headers = update_rating_with_http_info(rating_id, opts)
       data
     end
 
     # Update Rating
     # Update an existing rating. Only the creator of the rating have permission to update.
-    # @param version [Float] 
     # @param rating_id [Integer] The id of the rating (Note: this is not the ratable object id)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -575,20 +543,16 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [Array<(RatingResponse, Integer, Hash)>] RatingResponse data, response status code and response headers
-    def update_rating_with_http_info(version, rating_id, opts = {})
+    def update_rating_with_http_info(rating_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RatingApi.update_rating ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RatingApi.update_rating"
       end
       # verify the required parameter 'rating_id' is set
       if @api_client.config.client_side_validation && rating_id.nil?
         fail ArgumentError, "Missing the required parameter 'rating_id' when calling RatingApi.update_rating"
       end
       # resource path
-      local_var_path = '/api/{version}/rating/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/rating/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

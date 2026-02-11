@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Scheduled Notification
     # This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the scheduled notification
     # @param type [String] The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -58,14 +57,13 @@ module OpenapiClient
     # @option opts [String] :deep_link_uri The payload deep link URI that can be used by the client app to direct users to a screen in the app
     # @option opts [Boolean] :send_to_all Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
     # @return [ScheduledNotificationFullResponse]
-    def create_scheduled_notification(version, account_id, name, type, message, opts = {})
-      data, _status_code, _headers = create_scheduled_notification_with_http_info(version, account_id, name, type, message, opts)
+    def create_scheduled_notification(account_id, name, type, message, opts = {})
+      data, _status_code, _headers = create_scheduled_notification_with_http_info(account_id, name, type, message, opts)
       data
     end
 
     # Create Scheduled Notification
     # This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the scheduled notification
     # @param type [String] The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -102,13 +100,9 @@ module OpenapiClient
     # @option opts [String] :deep_link_uri The payload deep link URI that can be used by the client app to direct users to a screen in the app
     # @option opts [Boolean] :send_to_all Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
     # @return [Array<(ScheduledNotificationFullResponse, Integer, Hash)>] ScheduledNotificationFullResponse data, response status code and response headers
-    def create_scheduled_notification_with_http_info(version, account_id, name, type, message, opts = {})
+    def create_scheduled_notification_with_http_info(account_id, name, type, message, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScheduledNotificationApi.create_scheduled_notification ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScheduledNotificationApi.create_scheduled_notification"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -131,7 +125,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/schedule/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/schedule/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -206,32 +200,26 @@ module OpenapiClient
 
     # Delete Scheduled Notification
     # This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param scheduled_notification_id [Integer] the id of the scheduled notification to delete
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
     # @return [ScheduledNotificationFullResponse]
-    def delete_scheduled_notification(version, account_id, scheduled_notification_id, opts = {})
-      data, _status_code, _headers = delete_scheduled_notification_with_http_info(version, account_id, scheduled_notification_id, opts)
+    def delete_scheduled_notification(account_id, scheduled_notification_id, opts = {})
+      data, _status_code, _headers = delete_scheduled_notification_with_http_info(account_id, scheduled_notification_id, opts)
       data
     end
 
     # Delete Scheduled Notification
     # This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param scheduled_notification_id [Integer] the id of the scheduled notification to delete
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :delete_by_grouping_id If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.
     # @return [Array<(ScheduledNotificationFullResponse, Integer, Hash)>] ScheduledNotificationFullResponse data, response status code and response headers
-    def delete_scheduled_notification_with_http_info(version, account_id, scheduled_notification_id, opts = {})
+    def delete_scheduled_notification_with_http_info(account_id, scheduled_notification_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScheduledNotificationApi.delete_scheduled_notification ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScheduledNotificationApi.delete_scheduled_notification"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -242,7 +230,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'scheduled_notification_id' when calling ScheduledNotificationApi.delete_scheduled_notification"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/schedule/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/schedule/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -286,30 +274,24 @@ module OpenapiClient
 
     # Get Scheduled Notification
     # Get a ScheduledNotification
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account logged in
     # @param scheduled_notification_id [Integer] the id of the scheduled notification to get
     # @param [Hash] opts the optional parameters
     # @return [ScheduledNotificationFullResponse]
-    def get_scheduled_notification(version, account_id, scheduled_notification_id, opts = {})
-      data, _status_code, _headers = get_scheduled_notification_with_http_info(version, account_id, scheduled_notification_id, opts)
+    def get_scheduled_notification(account_id, scheduled_notification_id, opts = {})
+      data, _status_code, _headers = get_scheduled_notification_with_http_info(account_id, scheduled_notification_id, opts)
       data
     end
 
     # Get Scheduled Notification
     # Get a ScheduledNotification
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account logged in
     # @param scheduled_notification_id [Integer] the id of the scheduled notification to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(ScheduledNotificationFullResponse, Integer, Hash)>] ScheduledNotificationFullResponse data, response status code and response headers
-    def get_scheduled_notification_with_http_info(version, account_id, scheduled_notification_id, opts = {})
+    def get_scheduled_notification_with_http_info(account_id, scheduled_notification_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScheduledNotificationApi.get_scheduled_notification ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScheduledNotificationApi.get_scheduled_notification"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -320,7 +302,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'scheduled_notification_id' when calling ScheduledNotificationApi.get_scheduled_notification"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/schedule/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/schedule/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -363,7 +345,6 @@ module OpenapiClient
 
     # Generate Schedule Notifications
     # Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The application to target
     # @param report_name [String] The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -374,14 +355,13 @@ module OpenapiClient
     # @option opts [String] :report_params The parameters of the report used to identify events in a json structure, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;: \&quot;value\&quot;,   \&quot;number\&quot;: 3.345,   \&quot;date\&quot;: \&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60; 
     # @option opts [String] :type The type of scheduled notification; supported values are: MOBILE_NOTIFICATION
     # @return [SirqulResponse]
-    def schedule_notification_listings(version, account_id, app_key, report_name, message, offset, recipient_report_id, opts = {})
-      data, _status_code, _headers = schedule_notification_listings_with_http_info(version, account_id, app_key, report_name, message, offset, recipient_report_id, opts)
+    def schedule_notification_listings(account_id, app_key, report_name, message, offset, recipient_report_id, opts = {})
+      data, _status_code, _headers = schedule_notification_listings_with_http_info(account_id, app_key, report_name, message, offset, recipient_report_id, opts)
       data
     end
 
     # Generate Schedule Notifications
     # Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The application to target
     # @param report_name [String] The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -392,13 +372,9 @@ module OpenapiClient
     # @option opts [String] :report_params The parameters of the report used to identify events in a json structure, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;: \&quot;value\&quot;,   \&quot;number\&quot;: 3.345,   \&quot;date\&quot;: \&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60; 
     # @option opts [String] :type The type of scheduled notification; supported values are: MOBILE_NOTIFICATION
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def schedule_notification_listings_with_http_info(version, account_id, app_key, report_name, message, offset, recipient_report_id, opts = {})
+    def schedule_notification_listings_with_http_info(account_id, app_key, report_name, message, offset, recipient_report_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScheduledNotificationApi.schedule_notification_listings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScheduledNotificationApi.schedule_notification_listings"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -425,7 +401,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'recipient_report_id' when calling ScheduledNotificationApi.schedule_notification_listings"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/schedule/generate'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/schedule/generate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -474,7 +450,6 @@ module OpenapiClient
 
     # Search Scheduled Notifications
     # This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grouping_id Filter results by a grouping identifier defined by the client
@@ -497,14 +472,13 @@ module OpenapiClient
     # @option opts [Boolean] :group_by_grouping_id Determines whether to group results with the same groupingId together.
     # @option opts [Boolean] :return_audience_account_count If true, include audience account counts in the response
     # @return [ScheduledNotificationFullResponse]
-    def search_scheduled_notifications(version, account_id, opts = {})
-      data, _status_code, _headers = search_scheduled_notifications_with_http_info(version, account_id, opts)
+    def search_scheduled_notifications(account_id, opts = {})
+      data, _status_code, _headers = search_scheduled_notifications_with_http_info(account_id, opts)
       data
     end
 
     # Search Scheduled Notifications
     # This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :grouping_id Filter results by a grouping identifier defined by the client
@@ -527,20 +501,16 @@ module OpenapiClient
     # @option opts [Boolean] :group_by_grouping_id Determines whether to group results with the same groupingId together.
     # @option opts [Boolean] :return_audience_account_count If true, include audience account counts in the response
     # @return [Array<(ScheduledNotificationFullResponse, Integer, Hash)>] ScheduledNotificationFullResponse data, response status code and response headers
-    def search_scheduled_notifications_with_http_info(version, account_id, opts = {})
+    def search_scheduled_notifications_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScheduledNotificationApi.search_scheduled_notifications ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScheduledNotificationApi.search_scheduled_notifications"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling ScheduledNotificationApi.search_scheduled_notifications"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/schedule/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/schedule/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -601,7 +571,6 @@ module OpenapiClient
 
     # Update Scheduled Notification
     # This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-    # @param version [Float] 
     # @param scheduled_notification_id [Integer] The id of scheduled notification to update
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
@@ -642,14 +611,13 @@ module OpenapiClient
     # @option opts [String] :deep_link_uri The payload deep link URI that can be used by the client app to direct users to a screen in the app
     # @option opts [Boolean] :send_to_all Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
     # @return [ScheduledNotificationFullResponse]
-    def update_scheduled_notification(version, scheduled_notification_id, account_id, opts = {})
-      data, _status_code, _headers = update_scheduled_notification_with_http_info(version, scheduled_notification_id, account_id, opts)
+    def update_scheduled_notification(scheduled_notification_id, account_id, opts = {})
+      data, _status_code, _headers = update_scheduled_notification_with_http_info(scheduled_notification_id, account_id, opts)
       data
     end
 
     # Update Scheduled Notification
     # This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-    # @param version [Float] 
     # @param scheduled_notification_id [Integer] The id of scheduled notification to update
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
@@ -690,13 +658,9 @@ module OpenapiClient
     # @option opts [String] :deep_link_uri The payload deep link URI that can be used by the client app to direct users to a screen in the app
     # @option opts [Boolean] :send_to_all Determines whether to send to all users of the app if set to true for push notifications (appKey is required)
     # @return [Array<(ScheduledNotificationFullResponse, Integer, Hash)>] ScheduledNotificationFullResponse data, response status code and response headers
-    def update_scheduled_notification_with_http_info(version, scheduled_notification_id, account_id, opts = {})
+    def update_scheduled_notification_with_http_info(scheduled_notification_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScheduledNotificationApi.update_scheduled_notification ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScheduledNotificationApi.update_scheduled_notification"
       end
       # verify the required parameter 'scheduled_notification_id' is set
       if @api_client.config.client_side_validation && scheduled_notification_id.nil?
@@ -711,7 +675,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/schedule/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/schedule/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

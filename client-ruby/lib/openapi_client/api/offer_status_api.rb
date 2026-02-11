@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Offer Status
     # Create an offer status record
-    # @param version [Float] 
     # @param name [String] The name of the status
     # @param code [Integer] The status code, must be unique 
     # @param [Hash] opts the optional parameters
@@ -34,14 +33,13 @@ module OpenapiClient
     # @option opts [Boolean] :active The active status (default to true)
     # @option opts [String] :application_ids The applications to associate the status with, if null then for all.
     # @return [OfferTransactionStatusResponse]
-    def create_offer_transaction_status(version, name, code, opts = {})
-      data, _status_code, _headers = create_offer_transaction_status_with_http_info(version, name, code, opts)
+    def create_offer_transaction_status(name, code, opts = {})
+      data, _status_code, _headers = create_offer_transaction_status_with_http_info(name, code, opts)
       data
     end
 
     # Create Offer Status
     # Create an offer status record
-    # @param version [Float] 
     # @param name [String] The name of the status
     # @param code [Integer] The status code, must be unique 
     # @param [Hash] opts the optional parameters
@@ -54,13 +52,9 @@ module OpenapiClient
     # @option opts [Boolean] :active The active status (default to true)
     # @option opts [String] :application_ids The applications to associate the status with, if null then for all.
     # @return [Array<(OfferTransactionStatusResponse, Integer, Hash)>] OfferTransactionStatusResponse data, response status code and response headers
-    def create_offer_transaction_status_with_http_info(version, name, code, opts = {})
+    def create_offer_transaction_status_with_http_info(name, code, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferStatusApi.create_offer_transaction_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferStatusApi.create_offer_transaction_status"
       end
       # verify the required parameter 'name' is set
       if @api_client.config.client_side_validation && name.nil?
@@ -71,7 +65,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'code' when calling OfferStatusApi.create_offer_transaction_status"
       end
       # resource path
-      local_var_path = '/api/{version}/offer/status/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/status/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -122,7 +116,6 @@ module OpenapiClient
 
     # Delete Offer Status
     # Mark an offer status record as deleted
-    # @param version [Float] 
     # @param status_id [Integer] The id of the record to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -130,14 +123,13 @@ module OpenapiClient
     # @option opts [Float] :latitude Used to update the user&#39;s current location
     # @option opts [Float] :longitude Used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def delete_offer_transaction_status(version, status_id, opts = {})
-      data, _status_code, _headers = delete_offer_transaction_status_with_http_info(version, status_id, opts)
+    def delete_offer_transaction_status(status_id, opts = {})
+      data, _status_code, _headers = delete_offer_transaction_status_with_http_info(status_id, opts)
       data
     end
 
     # Delete Offer Status
     # Mark an offer status record as deleted
-    # @param version [Float] 
     # @param status_id [Integer] The id of the record to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -145,20 +137,16 @@ module OpenapiClient
     # @option opts [Float] :latitude Used to update the user&#39;s current location
     # @option opts [Float] :longitude Used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_offer_transaction_status_with_http_info(version, status_id, opts = {})
+    def delete_offer_transaction_status_with_http_info(status_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferStatusApi.delete_offer_transaction_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferStatusApi.delete_offer_transaction_status"
       end
       # verify the required parameter 'status_id' is set
       if @api_client.config.client_side_validation && status_id.nil?
         fail ArgumentError, "Missing the required parameter 'status_id' when calling OfferStatusApi.delete_offer_transaction_status"
       end
       # resource path
-      local_var_path = '/api/{version}/offer/status/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/status/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -204,7 +192,6 @@ module OpenapiClient
 
     # Get Offer Status
     # Get an offer status record
-    # @param version [Float] 
     # @param status_id [Integer] The id of the record to get 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -212,14 +199,13 @@ module OpenapiClient
     # @option opts [Float] :latitude Used to update the user&#39;s current location
     # @option opts [Float] :longitude Used to update the user&#39;s current location
     # @return [OfferTransactionStatusResponse]
-    def get_offer_transaction_status(version, status_id, opts = {})
-      data, _status_code, _headers = get_offer_transaction_status_with_http_info(version, status_id, opts)
+    def get_offer_transaction_status(status_id, opts = {})
+      data, _status_code, _headers = get_offer_transaction_status_with_http_info(status_id, opts)
       data
     end
 
     # Get Offer Status
     # Get an offer status record
-    # @param version [Float] 
     # @param status_id [Integer] The id of the record to get 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -227,20 +213,16 @@ module OpenapiClient
     # @option opts [Float] :latitude Used to update the user&#39;s current location
     # @option opts [Float] :longitude Used to update the user&#39;s current location
     # @return [Array<(OfferTransactionStatusResponse, Integer, Hash)>] OfferTransactionStatusResponse data, response status code and response headers
-    def get_offer_transaction_status_with_http_info(version, status_id, opts = {})
+    def get_offer_transaction_status_with_http_info(status_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferStatusApi.get_offer_transaction_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferStatusApi.get_offer_transaction_status"
       end
       # verify the required parameter 'status_id' is set
       if @api_client.config.client_side_validation && status_id.nil?
         fail ArgumentError, "Missing the required parameter 'status_id' when calling OfferStatusApi.get_offer_transaction_status"
       end
       # resource path
-      local_var_path = '/api/{version}/offer/status/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/status/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -286,7 +268,6 @@ module OpenapiClient
 
     # Search Offer Status
     # Search for the available offer statuses
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -301,14 +282,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The limit for pagination (default to 20)
     # @option opts [Boolean] :include_inactive If true include inactive items (default to false)
     # @return [Array<OfferTransactionStatusResponse>]
-    def search_offer_transaction_statuses(version, opts = {})
-      data, _status_code, _headers = search_offer_transaction_statuses_with_http_info(version, opts)
+    def search_offer_transaction_statuses(opts = {})
+      data, _status_code, _headers = search_offer_transaction_statuses_with_http_info(opts)
       data
     end
 
     # Search Offer Status
     # Search for the available offer statuses
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -323,20 +303,16 @@ module OpenapiClient
     # @option opts [Integer] :limit The limit for pagination (default to 20)
     # @option opts [Boolean] :include_inactive If true include inactive items (default to false)
     # @return [Array<(Array<OfferTransactionStatusResponse>, Integer, Hash)>] Array<OfferTransactionStatusResponse> data, response status code and response headers
-    def search_offer_transaction_statuses_with_http_info(version, opts = {})
+    def search_offer_transaction_statuses_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferStatusApi.search_offer_transaction_statuses ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferStatusApi.search_offer_transaction_statuses"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "NAME", "DESCRIPTION", "CODE", "ROLE"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/offer/status/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/status/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -389,7 +365,6 @@ module OpenapiClient
 
     # Update Offer Status
     # Update an offer status record
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -403,14 +378,13 @@ module OpenapiClient
     # @option opts [Boolean] :active The active status
     # @option opts [String] :application_ids The applications to associate the status with, if null then for all.
     # @return [OfferTransactionStatusResponse]
-    def update_offer_transaction_status(version, opts = {})
-      data, _status_code, _headers = update_offer_transaction_status_with_http_info(version, opts)
+    def update_offer_transaction_status(opts = {})
+      data, _status_code, _headers = update_offer_transaction_status_with_http_info(opts)
       data
     end
 
     # Update Offer Status
     # Update an offer status record
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -424,16 +398,12 @@ module OpenapiClient
     # @option opts [Boolean] :active The active status
     # @option opts [String] :application_ids The applications to associate the status with, if null then for all.
     # @return [Array<(OfferTransactionStatusResponse, Integer, Hash)>] OfferTransactionStatusResponse data, response status code and response headers
-    def update_offer_transaction_status_with_http_info(version, opts = {})
+    def update_offer_transaction_status_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferStatusApi.update_offer_transaction_status ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferStatusApi.update_offer_transaction_status"
-      end
       # resource path
-      local_var_path = '/api/{version}/offer/status/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/status/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

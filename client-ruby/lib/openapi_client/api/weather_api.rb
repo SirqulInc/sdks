@@ -21,37 +21,31 @@ module OpenapiClient
     end
     # Search Weather
     # Search the weather forcast for the next 5 days
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :region_id Region Id
     # @option opts [Float] :latitude Latitude
     # @option opts [Float] :longitude Longitude
     # @option opts [Integer] :timezone_offset Timezone Offset (default to -6)
     # @return [WeatherResponse]
-    def search_weather(version, opts = {})
-      data, _status_code, _headers = search_weather_with_http_info(version, opts)
+    def search_weather(opts = {})
+      data, _status_code, _headers = search_weather_with_http_info(opts)
       data
     end
 
     # Search Weather
     # Search the weather forcast for the next 5 days
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :region_id Region Id
     # @option opts [Float] :latitude Latitude
     # @option opts [Float] :longitude Longitude
     # @option opts [Integer] :timezone_offset Timezone Offset (default to -6)
     # @return [Array<(WeatherResponse, Integer, Hash)>] WeatherResponse data, response status code and response headers
-    def search_weather_with_http_info(version, opts = {})
+    def search_weather_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: WeatherApi.search_weather ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling WeatherApi.search_weather"
-      end
       # resource path
-      local_var_path = '/api/{version}/weather/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/weather/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

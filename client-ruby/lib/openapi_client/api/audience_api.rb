@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Audience
     # Create a user defined audience.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the audience
     # @param [Hash] opts the optional parameters
@@ -53,14 +52,13 @@ module OpenapiClient
     # @option opts [String] :trilateration_types Trilateration types
     # @option opts [Boolean] :unique_name If true, makes sure the audience name is unique
     # @return [AudienceResponse]
-    def create_audience(version, account_id, name, opts = {})
-      data, _status_code, _headers = create_audience_with_http_info(version, account_id, name, opts)
+    def create_audience(account_id, name, opts = {})
+      data, _status_code, _headers = create_audience_with_http_info(account_id, name, opts)
       data
     end
 
     # Create Audience
     # Create a user defined audience.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the audience
     # @param [Hash] opts the optional parameters
@@ -92,13 +90,9 @@ module OpenapiClient
     # @option opts [String] :trilateration_types Trilateration types
     # @option opts [Boolean] :unique_name If true, makes sure the audience name is unique
     # @return [Array<(AudienceResponse, Integer, Hash)>] AudienceResponse data, response status code and response headers
-    def create_audience_with_http_info(version, account_id, name, opts = {})
+    def create_audience_with_http_info(account_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.create_audience ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.create_audience"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -109,7 +103,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'name' when calling AudienceApi.create_audience"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -179,30 +173,24 @@ module OpenapiClient
 
     # Delete Audience
     # Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_id [Integer] The id of the audience to delete.
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_audience(version, account_id, audience_id, opts = {})
-      data, _status_code, _headers = delete_audience_with_http_info(version, account_id, audience_id, opts)
+    def delete_audience(account_id, audience_id, opts = {})
+      data, _status_code, _headers = delete_audience_with_http_info(account_id, audience_id, opts)
       data
     end
 
     # Delete Audience
     # Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_id [Integer] The id of the audience to delete.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_audience_with_http_info(version, account_id, audience_id, opts = {})
+    def delete_audience_with_http_info(account_id, audience_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.delete_audience ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.delete_audience"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -213,7 +201,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'audience_id' when calling AudienceApi.delete_audience"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -256,29 +244,23 @@ module OpenapiClient
 
     # Get Age Groups
     # Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [Array<AgeGroupResponse>]
-    def get_age_groups(version, opts = {})
-      data, _status_code, _headers = get_age_groups_with_http_info(version, opts)
+    def get_age_groups(opts = {})
+      data, _status_code, _headers = get_age_groups_with_http_info(opts)
       data
     end
 
     # Get Age Groups
     # Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AgeGroupResponse>, Integer, Hash)>] Array<AgeGroupResponse> data, response status code and response headers
-    def get_age_groups_with_http_info(version, opts = {})
+    def get_age_groups_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.get_age_groups ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.get_age_groups"
-      end
       # resource path
-      local_var_path = '/api/{version}/audience/ageGroups'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/ageGroups'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -319,7 +301,6 @@ module OpenapiClient
 
     # Get Audience
     # Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_id [Integer] The id of the audience to return.
     # @param [Hash] opts the optional parameters
@@ -328,14 +309,13 @@ module OpenapiClient
     # @option opts [Boolean] :return_album_count (boolean) set to true to include the albumCount associated with current audience of the current app (default to false)
     # @option opts [String] :album_types_for_count (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
     # @return [AudienceResponse]
-    def get_audience(version, account_id, audience_id, opts = {})
-      data, _status_code, _headers = get_audience_with_http_info(version, account_id, audience_id, opts)
+    def get_audience(account_id, audience_id, opts = {})
+      data, _status_code, _headers = get_audience_with_http_info(account_id, audience_id, opts)
       data
     end
 
     # Get Audience
     # Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_id [Integer] The id of the audience to return.
     # @param [Hash] opts the optional parameters
@@ -344,13 +324,9 @@ module OpenapiClient
     # @option opts [Boolean] :return_album_count (boolean) set to true to include the albumCount associated with current audience of the current app (default to false)
     # @option opts [String] :album_types_for_count (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
     # @return [Array<(AudienceResponse, Integer, Hash)>] AudienceResponse data, response status code and response headers
-    def get_audience_with_http_info(version, account_id, audience_id, opts = {})
+    def get_audience_with_http_info(account_id, audience_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.get_audience ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.get_audience"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -361,7 +337,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'audience_id' when calling AudienceApi.get_audience"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -408,7 +384,6 @@ module OpenapiClient
 
     # Search Audiences
     # Get the list audiences owned by the account
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The logged in user.
     # @option opts [String] :album_ids Comma separated list of album IDs to filter results with
@@ -430,14 +405,13 @@ module OpenapiClient
     # @option opts [Boolean] :return_album_count (boolean) set to true to include the albumCount associated with current audience of the current app (default to false)
     # @option opts [String] :album_types_for_count (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
     # @return [Array<SearchResponse>]
-    def get_audience_list(version, opts = {})
-      data, _status_code, _headers = get_audience_list_with_http_info(version, opts)
+    def get_audience_list(opts = {})
+      data, _status_code, _headers = get_audience_list_with_http_info(opts)
       data
     end
 
     # Search Audiences
     # Get the list audiences owned by the account
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The logged in user.
     # @option opts [String] :album_ids Comma separated list of album IDs to filter results with
@@ -459,20 +433,16 @@ module OpenapiClient
     # @option opts [Boolean] :return_album_count (boolean) set to true to include the albumCount associated with current audience of the current app (default to false)
     # @option opts [String] :album_types_for_count (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
     # @return [Array<(Array<SearchResponse>, Integer, Hash)>] Array<SearchResponse> data, response status code and response headers
-    def get_audience_list_with_http_info(version, opts = {})
+    def get_audience_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.get_audience_list ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.get_audience_list"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "NAME", "DESCRIPTION", "SEND_SUGGESTION", "OWNER_ID", "OWNER_DISPLAY", "GENDER"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -532,35 +502,29 @@ module OpenapiClient
 
     # Get Devices
     # Gets the list of available devices that can be selected by consumers and retailers.
-    # @param version [Float] 
     # @param include_inactive [Boolean] If true return inactive record as well. default is false.
     # @param [Hash] opts the optional parameters
     # @return [Array<AudienceDeviceResponse>]
-    def get_devices(version, include_inactive, opts = {})
-      data, _status_code, _headers = get_devices_with_http_info(version, include_inactive, opts)
+    def get_devices(include_inactive, opts = {})
+      data, _status_code, _headers = get_devices_with_http_info(include_inactive, opts)
       data
     end
 
     # Get Devices
     # Gets the list of available devices that can be selected by consumers and retailers.
-    # @param version [Float] 
     # @param include_inactive [Boolean] If true return inactive record as well. default is false.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AudienceDeviceResponse>, Integer, Hash)>] Array<AudienceDeviceResponse> data, response status code and response headers
-    def get_devices_with_http_info(version, include_inactive, opts = {})
+    def get_devices_with_http_info(include_inactive, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.get_devices ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.get_devices"
       end
       # verify the required parameter 'include_inactive' is set
       if @api_client.config.client_side_validation && include_inactive.nil?
         fail ArgumentError, "Missing the required parameter 'include_inactive' when calling AudienceApi.get_devices"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/devices'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/devices'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -602,29 +566,23 @@ module OpenapiClient
 
     # Get Experiences
     # Gets the list of available experiences that can be selected by consumers and retailers.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def get_experiences(version, opts = {})
-      data, _status_code, _headers = get_experiences_with_http_info(version, opts)
+    def get_experiences(opts = {})
+      data, _status_code, _headers = get_experiences_with_http_info(opts)
       data
     end
 
     # Get Experiences
     # Gets the list of available experiences that can be selected by consumers and retailers.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def get_experiences_with_http_info(version, opts = {})
+    def get_experiences_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.get_experiences ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.get_experiences"
-      end
       # resource path
-      local_var_path = '/api/{version}/audience/experiences'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/experiences'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -665,30 +623,24 @@ module OpenapiClient
 
     # Get GroupedAudiences
     # Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_grouping_id [String] The audience grouping id to return.
     # @param [Hash] opts the optional parameters
     # @return [AudienceResponse]
-    def get_grouped_audiences(version, account_id, audience_grouping_id, opts = {})
-      data, _status_code, _headers = get_grouped_audiences_with_http_info(version, account_id, audience_grouping_id, opts)
+    def get_grouped_audiences(account_id, audience_grouping_id, opts = {})
+      data, _status_code, _headers = get_grouped_audiences_with_http_info(account_id, audience_grouping_id, opts)
       data
     end
 
     # Get GroupedAudiences
     # Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_grouping_id [String] The audience grouping id to return.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AudienceResponse, Integer, Hash)>] AudienceResponse data, response status code and response headers
-    def get_grouped_audiences_with_http_info(version, account_id, audience_grouping_id, opts = {})
+    def get_grouped_audiences_with_http_info(account_id, audience_grouping_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.get_grouped_audiences ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.get_grouped_audiences"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -699,7 +651,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'audience_grouping_id' when calling AudienceApi.get_grouped_audiences"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/grouped/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/grouped/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -742,32 +694,26 @@ module OpenapiClient
 
     # List Suggestions by Audience
     # List either Missions or Offers that the user matches the assigned audience.
-    # @param version [Float] 
     # @param account_id [Integer] The account to match offers for.
     # @param limit [Integer] the limit of the index
     # @param suggestion_type [String] the type of suggestion
     # @param [Hash] opts the optional parameters
     # @return [OfferListResponse]
-    def list_by_account(version, account_id, limit, suggestion_type, opts = {})
-      data, _status_code, _headers = list_by_account_with_http_info(version, account_id, limit, suggestion_type, opts)
+    def list_by_account(account_id, limit, suggestion_type, opts = {})
+      data, _status_code, _headers = list_by_account_with_http_info(account_id, limit, suggestion_type, opts)
       data
     end
 
     # List Suggestions by Audience
     # List either Missions or Offers that the user matches the assigned audience.
-    # @param version [Float] 
     # @param account_id [Integer] The account to match offers for.
     # @param limit [Integer] the limit of the index
     # @param suggestion_type [String] the type of suggestion
     # @param [Hash] opts the optional parameters
     # @return [Array<(OfferListResponse, Integer, Hash)>] OfferListResponse data, response status code and response headers
-    def list_by_account_with_http_info(version, account_id, limit, suggestion_type, opts = {})
+    def list_by_account_with_http_info(account_id, limit, suggestion_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.list_by_account ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.list_by_account"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -782,7 +728,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'suggestion_type' when calling AudienceApi.list_by_account"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/suggestion/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/suggestion/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -826,7 +772,6 @@ module OpenapiClient
 
     # List Offers by Audience
     # Get a list of offer locations based on audience information provided.
-    # @param version [Float] 
     # @param limit [Integer] this is the limit of the index
     # @param [Hash] opts the optional parameters
     # @option opts [String] :gender this is the gender to list offers by
@@ -835,14 +780,13 @@ module OpenapiClient
     # @option opts [Float] :latitude this is the latitude to list offers by
     # @option opts [Float] :longitude this is the longitude to list offers by
     # @return [OfferListResponse]
-    def list_by_audience(version, limit, opts = {})
-      data, _status_code, _headers = list_by_audience_with_http_info(version, limit, opts)
+    def list_by_audience(limit, opts = {})
+      data, _status_code, _headers = list_by_audience_with_http_info(limit, opts)
       data
     end
 
     # List Offers by Audience
     # Get a list of offer locations based on audience information provided.
-    # @param version [Float] 
     # @param limit [Integer] this is the limit of the index
     # @param [Hash] opts the optional parameters
     # @option opts [String] :gender this is the gender to list offers by
@@ -851,20 +795,16 @@ module OpenapiClient
     # @option opts [Float] :latitude this is the latitude to list offers by
     # @option opts [Float] :longitude this is the longitude to list offers by
     # @return [Array<(OfferListResponse, Integer, Hash)>] OfferListResponse data, response status code and response headers
-    def list_by_audience_with_http_info(version, limit, opts = {})
+    def list_by_audience_with_http_info(limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.list_by_audience ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.list_by_audience"
       end
       # verify the required parameter 'limit' is set
       if @api_client.config.client_side_validation && limit.nil?
         fail ArgumentError, "Missing the required parameter 'limit' when calling AudienceApi.list_by_audience"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/suggestion/offersByAudience'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/suggestion/offersByAudience'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -911,32 +851,26 @@ module OpenapiClient
 
     # List Sent Suggestions 
     # Return list of recent trigger suggestions that have been sent to the user.
-    # @param version [Float] 
     # @param account_id [Integer] The account to match offers for.
     # @param timeframe [Integer] The timeframe in seconds of the latest suggestions
     # @param suggestion_type [String] The type of trigger suggestions to return
     # @param [Hash] opts the optional parameters
     # @return [OfferListResponse]
-    def list_lastest_by_account(version, account_id, timeframe, suggestion_type, opts = {})
-      data, _status_code, _headers = list_lastest_by_account_with_http_info(version, account_id, timeframe, suggestion_type, opts)
+    def list_lastest_by_account(account_id, timeframe, suggestion_type, opts = {})
+      data, _status_code, _headers = list_lastest_by_account_with_http_info(account_id, timeframe, suggestion_type, opts)
       data
     end
 
     # List Sent Suggestions 
     # Return list of recent trigger suggestions that have been sent to the user.
-    # @param version [Float] 
     # @param account_id [Integer] The account to match offers for.
     # @param timeframe [Integer] The timeframe in seconds of the latest suggestions
     # @param suggestion_type [String] The type of trigger suggestions to return
     # @param [Hash] opts the optional parameters
     # @return [Array<(OfferListResponse, Integer, Hash)>] OfferListResponse data, response status code and response headers
-    def list_lastest_by_account_with_http_info(version, account_id, timeframe, suggestion_type, opts = {})
+    def list_lastest_by_account_with_http_info(account_id, timeframe, suggestion_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.list_lastest_by_account ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.list_lastest_by_account"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -951,7 +885,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'suggestion_type' when calling AudienceApi.list_lastest_by_account"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/suggestion/latest'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/suggestion/latest'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -995,32 +929,26 @@ module OpenapiClient
 
     # Send Suggestions
     # Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-    # @param version [Float] 
     # @param account_id [Integer] The account to match offers for.
     # @param latitude [Float] the latitude
     # @param longitude [Float] the longitude
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def send_by_account(version, account_id, latitude, longitude, opts = {})
-      data, _status_code, _headers = send_by_account_with_http_info(version, account_id, latitude, longitude, opts)
+    def send_by_account(account_id, latitude, longitude, opts = {})
+      data, _status_code, _headers = send_by_account_with_http_info(account_id, latitude, longitude, opts)
       data
     end
 
     # Send Suggestions
     # Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-    # @param version [Float] 
     # @param account_id [Integer] The account to match offers for.
     # @param latitude [Float] the latitude
     # @param longitude [Float] the longitude
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def send_by_account_with_http_info(version, account_id, latitude, longitude, opts = {})
+    def send_by_account_with_http_info(account_id, latitude, longitude, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.send_by_account ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.send_by_account"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1035,7 +963,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'longitude' when calling AudienceApi.send_by_account"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/suggestion/send'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/suggestion/send'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1079,7 +1007,6 @@ module OpenapiClient
 
     # Update Audience
     # Update a user defined audience.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_id [Integer] The id of the audience to update.
     # @param [Hash] opts the optional parameters
@@ -1113,14 +1040,13 @@ module OpenapiClient
     # @option opts [String] :trilateration_types Trilateration types
     # @option opts [Boolean] :unique_name If true, makes sure the audience name is unique
     # @return [AudienceResponse]
-    def update_audience(version, account_id, audience_id, opts = {})
-      data, _status_code, _headers = update_audience_with_http_info(version, account_id, audience_id, opts)
+    def update_audience(account_id, audience_id, opts = {})
+      data, _status_code, _headers = update_audience_with_http_info(account_id, audience_id, opts)
       data
     end
 
     # Update Audience
     # Update a user defined audience.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param audience_id [Integer] The id of the audience to update.
     # @param [Hash] opts the optional parameters
@@ -1154,13 +1080,9 @@ module OpenapiClient
     # @option opts [String] :trilateration_types Trilateration types
     # @option opts [Boolean] :unique_name If true, makes sure the audience name is unique
     # @return [Array<(AudienceResponse, Integer, Hash)>] AudienceResponse data, response status code and response headers
-    def update_audience_with_http_info(version, account_id, audience_id, opts = {})
+    def update_audience_with_http_info(account_id, audience_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AudienceApi.update_audience ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AudienceApi.update_audience"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1171,7 +1093,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'audience_id' when calling AudienceApi.update_audience"
       end
       # resource path
-      local_var_path = '/api/{version}/audience/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/audience/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create a Game
     # Create a Game.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The logged in user.
     # @option opts [String] :app_key The game application key to save the level for.
@@ -31,14 +30,13 @@ module OpenapiClient
     # @option opts [String] :pack_ids comma separated String of pack Ids that will associate with the game.
     # @option opts [Boolean] :include_game_data Show more details in response.
     # @return [GameResponse]
-    def create_game(version, opts = {})
-      data, _status_code, _headers = create_game_with_http_info(version, opts)
+    def create_game(opts = {})
+      data, _status_code, _headers = create_game_with_http_info(opts)
       data
     end
 
     # Create a Game
     # Create a Game.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The logged in user.
     # @option opts [String] :app_key The game application key to save the level for.
@@ -48,16 +46,12 @@ module OpenapiClient
     # @option opts [String] :pack_ids comma separated String of pack Ids that will associate with the game.
     # @option opts [Boolean] :include_game_data Show more details in response.
     # @return [Array<(GameResponse, Integer, Hash)>] GameResponse data, response status code and response headers
-    def create_game_with_http_info(version, opts = {})
+    def create_game_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameApi.create_game ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameApi.create_game"
-      end
       # resource path
-      local_var_path = '/api/{version}/game/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -105,30 +99,24 @@ module OpenapiClient
 
     # Delete a Game
     # Delete a game.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param game_id [Integer] the updating game&#39;s id.
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_game(version, account_id, game_id, opts = {})
-      data, _status_code, _headers = delete_game_with_http_info(version, account_id, game_id, opts)
+    def delete_game(account_id, game_id, opts = {})
+      data, _status_code, _headers = delete_game_with_http_info(account_id, game_id, opts)
       data
     end
 
     # Delete a Game
     # Delete a game.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param game_id [Integer] the updating game&#39;s id.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_game_with_http_info(version, account_id, game_id, opts = {})
+    def delete_game_with_http_info(account_id, game_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameApi.delete_game ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameApi.delete_game"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -139,7 +127,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'game_id' when calling GameApi.delete_game"
       end
       # resource path
-      local_var_path = '/api/{version}/game/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -182,32 +170,26 @@ module OpenapiClient
 
     # Get a Game by id
     # Get a Game by id.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param game_id [Integer] the updating game&#39;s id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_game_data If true include the game level data, otherwise don&#39;t. default is false.
     # @return [GameResponse]
-    def get_game(version, account_id, game_id, opts = {})
-      data, _status_code, _headers = get_game_with_http_info(version, account_id, game_id, opts)
+    def get_game(account_id, game_id, opts = {})
+      data, _status_code, _headers = get_game_with_http_info(account_id, game_id, opts)
       data
     end
 
     # Get a Game by id
     # Get a Game by id.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param game_id [Integer] the updating game&#39;s id.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_game_data If true include the game level data, otherwise don&#39;t. default is false.
     # @return [Array<(GameResponse, Integer, Hash)>] GameResponse data, response status code and response headers
-    def get_game_with_http_info(version, account_id, game_id, opts = {})
+    def get_game_with_http_info(account_id, game_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameApi.get_game ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameApi.get_game"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -218,7 +200,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'game_id' when calling GameApi.get_game"
       end
       # resource path
-      local_var_path = '/api/{version}/game/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -262,7 +244,6 @@ module OpenapiClient
 
     # Search a Game
     # Get a list of games for an application, just those the account has permissions to view.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] the application key
     # @param start [Integer] Start the result set at some index.
@@ -273,14 +254,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_game_data more details in response
     # @option opts [Boolean] :include_inactive more details in response
     # @return [GameResponse]
-    def search_games(version, account_id, app_key, start, limit, opts = {})
-      data, _status_code, _headers = search_games_with_http_info(version, account_id, app_key, start, limit, opts)
+    def search_games(account_id, app_key, start, limit, opts = {})
+      data, _status_code, _headers = search_games_with_http_info(account_id, app_key, start, limit, opts)
       data
     end
 
     # Search a Game
     # Get a list of games for an application, just those the account has permissions to view.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] the application key
     # @param start [Integer] Start the result set at some index.
@@ -291,13 +271,9 @@ module OpenapiClient
     # @option opts [Boolean] :include_game_data more details in response
     # @option opts [Boolean] :include_inactive more details in response
     # @return [Array<(GameResponse, Integer, Hash)>] GameResponse data, response status code and response headers
-    def search_games_with_http_info(version, account_id, app_key, start, limit, opts = {})
+    def search_games_with_http_info(account_id, app_key, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameApi.search_games ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameApi.search_games"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -316,7 +292,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling GameApi.search_games"
       end
       # resource path
-      local_var_path = '/api/{version}/game/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -365,7 +341,6 @@ module OpenapiClient
 
     # Update a Game
     # Update a Game
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The logged in user.
     # @option opts [Integer] :game_id the updating game&#39;s id
@@ -376,14 +351,13 @@ module OpenapiClient
     # @option opts [String] :pack_ids comma separated String of pack Ids that will associate with the game.
     # @option opts [Boolean] :include_game_data show more details in response.
     # @return [GameResponse]
-    def update_game(version, opts = {})
-      data, _status_code, _headers = update_game_with_http_info(version, opts)
+    def update_game(opts = {})
+      data, _status_code, _headers = update_game_with_http_info(opts)
       data
     end
 
     # Update a Game
     # Update a Game
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The logged in user.
     # @option opts [Integer] :game_id the updating game&#39;s id
@@ -394,16 +368,12 @@ module OpenapiClient
     # @option opts [String] :pack_ids comma separated String of pack Ids that will associate with the game.
     # @option opts [Boolean] :include_game_data show more details in response.
     # @return [Array<(GameResponse, Integer, Hash)>] GameResponse data, response status code and response headers
-    def update_game_with_http_info(version, opts = {})
+    def update_game_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameApi.update_game ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameApi.update_game"
-      end
       # resource path
-      local_var_path = '/api/{version}/game/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

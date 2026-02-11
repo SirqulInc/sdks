@@ -21,37 +21,31 @@ module OpenapiClient
     end
     # Create Dependent
     # Create dependent of the account
-    # @param version [Float] 
     # @param account_id [Integer] the id of the parent account to create a dependent for
     # @param [Hash] opts the optional parameters
     # @option opts [Account] :body 
     # @return [SirqulResponse]
-    def create(version, account_id, opts = {})
-      data, _status_code, _headers = create_with_http_info(version, account_id, opts)
+    def create(account_id, opts = {})
+      data, _status_code, _headers = create_with_http_info(account_id, opts)
       data
     end
 
     # Create Dependent
     # Create dependent of the account
-    # @param version [Float] 
     # @param account_id [Integer] the id of the parent account to create a dependent for
     # @param [Hash] opts the optional parameters
     # @option opts [Account] :body 
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def create_with_http_info(version, account_id, opts = {})
+    def create_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DependentApi.create ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DependentApi.create"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling DependentApi.create"
       end
       # resource path
-      local_var_path = '/api/{version}/cargo/dependent/{accountId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'accountId' + '}', CGI.escape(account_id.to_s))
+      local_var_path = '/cargo/dependent/{accountId}'.sub('{' + 'accountId' + '}', CGI.escape(account_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -92,35 +86,29 @@ module OpenapiClient
 
     # Get dependent list of an account
     # Get the dependent list of an account
-    # @param version [Float] 
     # @param account_id [Integer] the id of the parent account to get a list of dependents
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def get_dependents(version, account_id, opts = {})
-      data, _status_code, _headers = get_dependents_with_http_info(version, account_id, opts)
+    def get_dependents(account_id, opts = {})
+      data, _status_code, _headers = get_dependents_with_http_info(account_id, opts)
       data
     end
 
     # Get dependent list of an account
     # Get the dependent list of an account
-    # @param version [Float] 
     # @param account_id [Integer] the id of the parent account to get a list of dependents
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def get_dependents_with_http_info(version, account_id, opts = {})
+    def get_dependents_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DependentApi.get_dependents ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DependentApi.get_dependents"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling DependentApi.get_dependents"
       end
       # resource path
-      local_var_path = '/api/{version}/cargo/dependent/{accountId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'accountId' + '}', CGI.escape(account_id.to_s))
+      local_var_path = '/cargo/dependent/{accountId}'.sub('{' + 'accountId' + '}', CGI.escape(account_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -161,30 +149,24 @@ module OpenapiClient
 
     # Delete Dependent
     # Delete the Dependent
-    # @param version [Float] 
     # @param account_id [Integer] the id of the parent account tied to the dependent
     # @param dependent_id [Integer] the id of the dependent to delete
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def remove_dependent(version, account_id, dependent_id, opts = {})
-      remove_dependent_with_http_info(version, account_id, dependent_id, opts)
+    def remove_dependent(account_id, dependent_id, opts = {})
+      remove_dependent_with_http_info(account_id, dependent_id, opts)
       nil
     end
 
     # Delete Dependent
     # Delete the Dependent
-    # @param version [Float] 
     # @param account_id [Integer] the id of the parent account tied to the dependent
     # @param dependent_id [Integer] the id of the dependent to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def remove_dependent_with_http_info(version, account_id, dependent_id, opts = {})
+    def remove_dependent_with_http_info(account_id, dependent_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: DependentApi.remove_dependent ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling DependentApi.remove_dependent"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -195,7 +177,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'dependent_id' when calling DependentApi.remove_dependent"
       end
       # resource path
-      local_var_path = '/api/{version}/cargo/dependent/{accountId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'accountId' + '}', CGI.escape(account_id.to_s)).sub('{' + 'dependentId' + '}', CGI.escape(dependent_id.to_s))
+      local_var_path = '/cargo/dependent/{accountId}'.sub('{' + 'accountId' + '}', CGI.escape(account_id.to_s)).sub('{' + 'dependentId' + '}', CGI.escape(dependent_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

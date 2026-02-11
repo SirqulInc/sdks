@@ -21,37 +21,31 @@ module OpenapiClient
     end
     # Create Vehicle
     # Create new vehicle
-    # @param version [Float] 
     # @param vehicle [String] A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [Vehicle] :body 
     # @return [Vehicle]
-    def create_vehicle(version, vehicle, opts = {})
-      data, _status_code, _headers = create_vehicle_with_http_info(version, vehicle, opts)
+    def create_vehicle(vehicle, opts = {})
+      data, _status_code, _headers = create_vehicle_with_http_info(vehicle, opts)
       data
     end
 
     # Create Vehicle
     # Create new vehicle
-    # @param version [Float] 
     # @param vehicle [String] A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [Vehicle] :body 
     # @return [Array<(Vehicle, Integer, Hash)>] Vehicle data, response status code and response headers
-    def create_vehicle_with_http_info(version, vehicle, opts = {})
+    def create_vehicle_with_http_info(vehicle, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VehicleApi.create_vehicle ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VehicleApi.create_vehicle"
       end
       # verify the required parameter 'vehicle' is set
       if @api_client.config.client_side_validation && vehicle.nil?
         fail ArgumentError, "Missing the required parameter 'vehicle' when calling VehicleApi.create_vehicle"
       end
       # resource path
-      local_var_path = '/api/{version}/vehicle'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vehicle'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -93,35 +87,29 @@ module OpenapiClient
 
     # Delete Vehicle
     # Delete an existing vehicle
-    # @param version [Float] 
     # @param id [Integer] The id of the vehicle to delete
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_vehicle(version, id, opts = {})
-      delete_vehicle_with_http_info(version, id, opts)
+    def delete_vehicle(id, opts = {})
+      delete_vehicle_with_http_info(id, opts)
       nil
     end
 
     # Delete Vehicle
     # Delete an existing vehicle
-    # @param version [Float] 
     # @param id [Integer] The id of the vehicle to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_vehicle_with_http_info(version, id, opts = {})
+    def delete_vehicle_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VehicleApi.delete_vehicle ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VehicleApi.delete_vehicle"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling VehicleApi.delete_vehicle"
       end
       # resource path
-      local_var_path = '/api/{version}/vehicle/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/vehicle/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -160,35 +148,29 @@ module OpenapiClient
 
     # Get Vehicle
     # Get an existing vehicle
-    # @param version [Float] 
     # @param id [Integer] The id of the vehicle requested
     # @param [Hash] opts the optional parameters
     # @return [Vehicle]
-    def get_vehicle(version, id, opts = {})
-      data, _status_code, _headers = get_vehicle_with_http_info(version, id, opts)
+    def get_vehicle(id, opts = {})
+      data, _status_code, _headers = get_vehicle_with_http_info(id, opts)
       data
     end
 
     # Get Vehicle
     # Get an existing vehicle
-    # @param version [Float] 
     # @param id [Integer] The id of the vehicle requested
     # @param [Hash] opts the optional parameters
     # @return [Array<(Vehicle, Integer, Hash)>] Vehicle data, response status code and response headers
-    def get_vehicle_with_http_info(version, id, opts = {})
+    def get_vehicle_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VehicleApi.get_vehicle ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VehicleApi.get_vehicle"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling VehicleApi.get_vehicle"
       end
       # resource path
-      local_var_path = '/api/{version}/vehicle/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/vehicle/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -229,7 +211,6 @@ module OpenapiClient
 
     # Search Vehicle
     # Search for vehicles
-    # @param version [Float] 
     # @param hub_id [Integer] Filter by service hub
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -239,14 +220,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to search for
     # @return [Array<Vehicle>]
-    def search_vehicle(version, hub_id, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_vehicle_with_http_info(version, hub_id, sort_field, descending, start, limit, active_only, opts)
+    def search_vehicle(hub_id, sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_vehicle_with_http_info(hub_id, sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Vehicle
     # Search for vehicles
-    # @param version [Float] 
     # @param hub_id [Integer] Filter by service hub
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -256,13 +236,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to search for
     # @return [Array<(Array<Vehicle>, Integer, Hash)>] Array<Vehicle> data, response status code and response headers
-    def search_vehicle_with_http_info(version, hub_id, sort_field, descending, start, limit, active_only, opts = {})
+    def search_vehicle_with_http_info(hub_id, sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VehicleApi.search_vehicle ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VehicleApi.search_vehicle"
       end
       # verify the required parameter 'hub_id' is set
       if @api_client.config.client_side_validation && hub_id.nil?
@@ -289,7 +265,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling VehicleApi.search_vehicle"
       end
       # resource path
-      local_var_path = '/api/{version}/vehicle'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vehicle'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -337,32 +313,26 @@ module OpenapiClient
 
     # Update Vehicle
     # Update an existing vehicle
-    # @param version [Float] 
     # @param id [Integer] The id of the vehicle to update
     # @param vehicle [String] A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [Vehicle] :body 
     # @return [Vehicle]
-    def update_vehicle(version, id, vehicle, opts = {})
-      data, _status_code, _headers = update_vehicle_with_http_info(version, id, vehicle, opts)
+    def update_vehicle(id, vehicle, opts = {})
+      data, _status_code, _headers = update_vehicle_with_http_info(id, vehicle, opts)
       data
     end
 
     # Update Vehicle
     # Update an existing vehicle
-    # @param version [Float] 
     # @param id [Integer] The id of the vehicle to update
     # @param vehicle [String] A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [Vehicle] :body 
     # @return [Array<(Vehicle, Integer, Hash)>] Vehicle data, response status code and response headers
-    def update_vehicle_with_http_info(version, id, vehicle, opts = {})
+    def update_vehicle_with_http_info(id, vehicle, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VehicleApi.update_vehicle ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VehicleApi.update_vehicle"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -373,7 +343,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vehicle' when calling VehicleApi.update_vehicle"
       end
       # resource path
-      local_var_path = '/api/{version}/vehicle/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/vehicle/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

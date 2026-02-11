@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Accept Invite
     # Allows a user to accept an invite. The user could also become the inviter's friend.
-    # @param version [Float] 
     # @param token [String] the invite token
     # @param account_id [Integer] the accountId of the user who is accepting the invite
     # @param [Hash] opts the optional parameters
@@ -38,14 +37,13 @@ module OpenapiClient
     # @option opts [Boolean] :auto_favorite_offer_location whether to mark the offer location as favorited automatically after invite is accepted (default to false)
     # @option opts [Boolean] :auto_favorite_retailer_location whether to mark the retailer location as favorited automatically after invite is accepted (default to false)
     # @return [ConsumerInviteResponse]
-    def accept_invite(version, token, account_id, opts = {})
-      data, _status_code, _headers = accept_invite_with_http_info(version, token, account_id, opts)
+    def accept_invite(token, account_id, opts = {})
+      data, _status_code, _headers = accept_invite_with_http_info(token, account_id, opts)
       data
     end
 
     # Accept Invite
     # Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-    # @param version [Float] 
     # @param token [String] the invite token
     # @param account_id [Integer] the accountId of the user who is accepting the invite
     # @param [Hash] opts the optional parameters
@@ -62,13 +60,9 @@ module OpenapiClient
     # @option opts [Boolean] :auto_favorite_offer_location whether to mark the offer location as favorited automatically after invite is accepted (default to false)
     # @option opts [Boolean] :auto_favorite_retailer_location whether to mark the retailer location as favorited automatically after invite is accepted (default to false)
     # @return [Array<(ConsumerInviteResponse, Integer, Hash)>] ConsumerInviteResponse data, response status code and response headers
-    def accept_invite_with_http_info(version, token, account_id, opts = {})
+    def accept_invite_with_http_info(token, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.accept_invite ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.accept_invite"
       end
       # verify the required parameter 'token' is set
       if @api_client.config.client_side_validation && token.nil?
@@ -79,7 +73,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling InviteApi.accept_invite"
       end
       # resource path
-      local_var_path = '/api/{version}/invite/accept'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/accept'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -134,7 +128,6 @@ module OpenapiClient
 
     # Invite to Contest
     # Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -144,14 +137,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [InviteResponse]
-    def album_contest_invite(version, opts = {})
-      data, _status_code, _headers = album_contest_invite_with_http_info(version, opts)
+    def album_contest_invite(opts = {})
+      data, _status_code, _headers = album_contest_invite_with_http_info(opts)
       data
     end
 
     # Invite to Contest
     # Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -161,16 +153,12 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def album_contest_invite_with_http_info(version, opts = {})
+    def album_contest_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.album_contest_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.album_contest_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/invite/albumContest'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/albumContest'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -218,7 +206,6 @@ module OpenapiClient
 
     # Invite to Collection
     # Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -228,14 +215,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [InviteResponse]
-    def album_invite(version, opts = {})
-      data, _status_code, _headers = album_invite_with_http_info(version, opts)
+    def album_invite(opts = {})
+      data, _status_code, _headers = album_invite_with_http_info(opts)
       data
     end
 
     # Invite to Collection
     # Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -245,16 +231,12 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def album_invite_with_http_info(version, opts = {})
+    def album_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.album_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.album_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/invite/album'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/album'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -302,7 +284,6 @@ module OpenapiClient
 
     # Invite to Event
     # Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param listing_id [Integer] The ID of the event listing
@@ -310,14 +291,13 @@ module OpenapiClient
     # @option opts [String] :receiver_account_ids the account ID of a Sirqul user they would like to share an event with
     # @option opts [Integer] :retailer_location_id The retailer location id of where the event will take place
     # @return [InviteResponse]
-    def event_invite(version, account_id, app_key, listing_id, opts = {})
-      data, _status_code, _headers = event_invite_with_http_info(version, account_id, app_key, listing_id, opts)
+    def event_invite(account_id, app_key, listing_id, opts = {})
+      data, _status_code, _headers = event_invite_with_http_info(account_id, app_key, listing_id, opts)
       data
     end
 
     # Invite to Event
     # Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param listing_id [Integer] The ID of the event listing
@@ -325,13 +305,9 @@ module OpenapiClient
     # @option opts [String] :receiver_account_ids the account ID of a Sirqul user they would like to share an event with
     # @option opts [Integer] :retailer_location_id The retailer location id of where the event will take place
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def event_invite_with_http_info(version, account_id, app_key, listing_id, opts = {})
+    def event_invite_with_http_info(account_id, app_key, listing_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.event_invite ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.event_invite"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -346,7 +322,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'listing_id' when calling InviteApi.event_invite"
       end
       # resource path
-      local_var_path = '/api/{version}/invite/event'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/event'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -392,7 +368,6 @@ module OpenapiClient
 
     # Invite to Game Level
     # Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -402,14 +377,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [InviteResponse]
-    def game_invite(version, opts = {})
-      data, _status_code, _headers = game_invite_with_http_info(version, opts)
+    def game_invite(opts = {})
+      data, _status_code, _headers = game_invite_with_http_info(opts)
       data
     end
 
     # Invite to Game Level
     # Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -419,16 +393,12 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def game_invite_with_http_info(version, opts = {})
+    def game_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.game_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.game_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/invite/gameLevel'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/gameLevel'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -476,7 +446,6 @@ module OpenapiClient
 
     # Get Invite
     # This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id Account ID of the user if they are logged in
     # @option opts [String] :token the invite token
@@ -488,14 +457,13 @@ module OpenapiClient
     # @option opts [Integer] :retailer_location_id retailer location id to match the invite against (if applicable)
     # @option opts [String] :app_key the application key
     # @return [SirqulResponse]
-    def get_invite(version, opts = {})
-      data, _status_code, _headers = get_invite_with_http_info(version, opts)
+    def get_invite(opts = {})
+      data, _status_code, _headers = get_invite_with_http_info(opts)
       data
     end
 
     # Get Invite
     # This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id Account ID of the user if they are logged in
     # @option opts [String] :token the invite token
@@ -507,16 +475,12 @@ module OpenapiClient
     # @option opts [Integer] :retailer_location_id retailer location id to match the invite against (if applicable)
     # @option opts [String] :app_key the application key
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def get_invite_with_http_info(version, opts = {})
+    def get_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.get_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.get_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/invite/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -566,7 +530,6 @@ module OpenapiClient
 
     # Invite to Mission
     # Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -576,14 +539,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [InviteResponse]
-    def mission_invite(version, opts = {})
-      data, _status_code, _headers = mission_invite_with_http_info(version, opts)
+    def mission_invite(opts = {})
+      data, _status_code, _headers = mission_invite_with_http_info(opts)
       data
     end
 
     # Invite to Mission
     # Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account ID of the user (deviceId or accountId required)
@@ -593,16 +555,12 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def mission_invite_with_http_info(version, opts = {})
+    def mission_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.mission_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.mission_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/invite/mission'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/mission'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -650,32 +608,26 @@ module OpenapiClient
 
     # Invite to Offer
     # Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param offer_id [Integer] the ID of the offer used to invite to favorite
     # @param [Hash] opts the optional parameters
     # @return [InviteResponse]
-    def offer_invite(version, account_id, app_key, offer_id, opts = {})
-      data, _status_code, _headers = offer_invite_with_http_info(version, account_id, app_key, offer_id, opts)
+    def offer_invite(account_id, app_key, offer_id, opts = {})
+      data, _status_code, _headers = offer_invite_with_http_info(account_id, app_key, offer_id, opts)
       data
     end
 
     # Invite to Offer
     # Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param offer_id [Integer] the ID of the offer used to invite to favorite
     # @param [Hash] opts the optional parameters
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def offer_invite_with_http_info(version, account_id, app_key, offer_id, opts = {})
+    def offer_invite_with_http_info(account_id, app_key, offer_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.offer_invite ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.offer_invite"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -690,7 +642,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'offer_id' when calling InviteApi.offer_invite"
       end
       # resource path
-      local_var_path = '/api/{version}/invite/offer'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/offer'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -734,32 +686,26 @@ module OpenapiClient
 
     # Invite to Offer Location
     # Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param offer_location_id [Integer] the id of the offer location to share
     # @param [Hash] opts the optional parameters
     # @return [InviteResponse]
-    def offer_location_invite(version, account_id, app_key, offer_location_id, opts = {})
-      data, _status_code, _headers = offer_location_invite_with_http_info(version, account_id, app_key, offer_location_id, opts)
+    def offer_location_invite(account_id, app_key, offer_location_id, opts = {})
+      data, _status_code, _headers = offer_location_invite_with_http_info(account_id, app_key, offer_location_id, opts)
       data
     end
 
     # Invite to Offer Location
     # Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param offer_location_id [Integer] the id of the offer location to share
     # @param [Hash] opts the optional parameters
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def offer_location_invite_with_http_info(version, account_id, app_key, offer_location_id, opts = {})
+    def offer_location_invite_with_http_info(account_id, app_key, offer_location_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.offer_location_invite ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.offer_location_invite"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -774,7 +720,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'offer_location_id' when calling InviteApi.offer_location_invite"
       end
       # resource path
-      local_var_path = '/api/{version}/invite/offerLocation'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/offerLocation'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -818,34 +764,28 @@ module OpenapiClient
 
     # Invite to Retailer Location
     # Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param retailer_location_id [Integer] The retailer location id of where the event will take place
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :album_id Optional album id to link with the invite
     # @return [InviteResponse]
-    def retailer_location_invite(version, account_id, app_key, retailer_location_id, opts = {})
-      data, _status_code, _headers = retailer_location_invite_with_http_info(version, account_id, app_key, retailer_location_id, opts)
+    def retailer_location_invite(account_id, app_key, retailer_location_id, opts = {})
+      data, _status_code, _headers = retailer_location_invite_with_http_info(account_id, app_key, retailer_location_id, opts)
       data
     end
 
     # Invite to Retailer Location
     # Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user making the share
     # @param app_key [String] the application key
     # @param retailer_location_id [Integer] The retailer location id of where the event will take place
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :album_id Optional album id to link with the invite
     # @return [Array<(InviteResponse, Integer, Hash)>] InviteResponse data, response status code and response headers
-    def retailer_location_invite_with_http_info(version, account_id, app_key, retailer_location_id, opts = {})
+    def retailer_location_invite_with_http_info(account_id, app_key, retailer_location_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InviteApi.retailer_location_invite ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling InviteApi.retailer_location_invite"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -860,7 +800,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'retailer_location_id' when calling InviteApi.retailer_location_invite"
       end
       # resource path
-      local_var_path = '/api/{version}/invite/retailerLocation'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/invite/retailerLocation'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,31 +21,25 @@ module OpenapiClient
     end
     # Create Route Setting
     # Create a new route setting
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [RouteSettings] :body 
     # @return [RouteSettings]
-    def create_route_settings(version, opts = {})
-      data, _status_code, _headers = create_route_settings_with_http_info(version, opts)
+    def create_route_settings(opts = {})
+      data, _status_code, _headers = create_route_settings_with_http_info(opts)
       data
     end
 
     # Create Route Setting
     # Create a new route setting
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [RouteSettings] :body 
     # @return [Array<(RouteSettings, Integer, Hash)>] RouteSettings data, response status code and response headers
-    def create_route_settings_with_http_info(version, opts = {})
+    def create_route_settings_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteSettingApi.create_route_settings ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteSettingApi.create_route_settings"
-      end
       # resource path
-      local_var_path = '/api/{version}/route/setting'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/route/setting'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -86,35 +80,29 @@ module OpenapiClient
 
     # Delete Route Setting
     # Delete an existing route setting
-    # @param version [Float] 
     # @param route_settings_id [Integer] the id of the route setting to delete
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def delete_route_settings(version, route_settings_id, opts = {})
-      data, _status_code, _headers = delete_route_settings_with_http_info(version, route_settings_id, opts)
+    def delete_route_settings(route_settings_id, opts = {})
+      data, _status_code, _headers = delete_route_settings_with_http_info(route_settings_id, opts)
       data
     end
 
     # Delete Route Setting
     # Delete an existing route setting
-    # @param version [Float] 
     # @param route_settings_id [Integer] the id of the route setting to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def delete_route_settings_with_http_info(version, route_settings_id, opts = {})
+    def delete_route_settings_with_http_info(route_settings_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteSettingApi.delete_route_settings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteSettingApi.delete_route_settings"
       end
       # verify the required parameter 'route_settings_id' is set
       if @api_client.config.client_side_validation && route_settings_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_settings_id' when calling RouteSettingApi.delete_route_settings"
       end
       # resource path
-      local_var_path = '/api/{version}/route/setting/{routeSettingsId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeSettingsId' + '}', CGI.escape(route_settings_id.to_s))
+      local_var_path = '/route/setting/{routeSettingsId}'.sub('{' + 'routeSettingsId' + '}', CGI.escape(route_settings_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -155,35 +143,29 @@ module OpenapiClient
 
     # Get Route Setting
     # Get an existing route settings
-    # @param version [Float] 
     # @param route_settings_id [Integer] the id of the route settings to get
     # @param [Hash] opts the optional parameters
     # @return [RouteSettings]
-    def get_route_settings(version, route_settings_id, opts = {})
-      data, _status_code, _headers = get_route_settings_with_http_info(version, route_settings_id, opts)
+    def get_route_settings(route_settings_id, opts = {})
+      data, _status_code, _headers = get_route_settings_with_http_info(route_settings_id, opts)
       data
     end
 
     # Get Route Setting
     # Get an existing route settings
-    # @param version [Float] 
     # @param route_settings_id [Integer] the id of the route settings to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(RouteSettings, Integer, Hash)>] RouteSettings data, response status code and response headers
-    def get_route_settings_with_http_info(version, route_settings_id, opts = {})
+    def get_route_settings_with_http_info(route_settings_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteSettingApi.get_route_settings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteSettingApi.get_route_settings"
       end
       # verify the required parameter 'route_settings_id' is set
       if @api_client.config.client_side_validation && route_settings_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_settings_id' when calling RouteSettingApi.get_route_settings"
       end
       # resource path
-      local_var_path = '/api/{version}/route/setting/{routeSettingsId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeSettingsId' + '}', CGI.escape(route_settings_id.to_s))
+      local_var_path = '/route/setting/{routeSettingsId}'.sub('{' + 'routeSettingsId' + '}', CGI.escape(route_settings_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -224,7 +206,6 @@ module OpenapiClient
 
     # Search Route Settings
     # Search for route settings
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -235,14 +216,13 @@ module OpenapiClient
     # @option opts [Integer] :program_id The program that the route belongs under
     # @option opts [String] :keyword The keyword to search for the route
     # @return [Array<RouteSettings>]
-    def search_route_settings(version, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_route_settings_with_http_info(version, sort_field, descending, start, limit, active_only, opts)
+    def search_route_settings(sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_route_settings_with_http_info(sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Route Settings
     # Search for route settings
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -253,13 +233,9 @@ module OpenapiClient
     # @option opts [Integer] :program_id The program that the route belongs under
     # @option opts [String] :keyword The keyword to search for the route
     # @return [Array<(Array<RouteSettings>, Integer, Hash)>] Array<RouteSettings> data, response status code and response headers
-    def search_route_settings_with_http_info(version, sort_field, descending, start, limit, active_only, opts = {})
+    def search_route_settings_with_http_info(sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteSettingApi.search_route_settings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteSettingApi.search_route_settings"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -282,7 +258,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling RouteSettingApi.search_route_settings"
       end
       # resource path
-      local_var_path = '/api/{version}/route/setting'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/route/setting'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -331,37 +307,31 @@ module OpenapiClient
 
     # Update Route Setting
     # Update an existing route setting
-    # @param version [Float] 
     # @param route_settings_id [Integer] the id of the route settings to update
     # @param [Hash] opts the optional parameters
     # @option opts [RouteSettings] :body 
     # @return [RouteSettings]
-    def update_route_settings(version, route_settings_id, opts = {})
-      data, _status_code, _headers = update_route_settings_with_http_info(version, route_settings_id, opts)
+    def update_route_settings(route_settings_id, opts = {})
+      data, _status_code, _headers = update_route_settings_with_http_info(route_settings_id, opts)
       data
     end
 
     # Update Route Setting
     # Update an existing route setting
-    # @param version [Float] 
     # @param route_settings_id [Integer] the id of the route settings to update
     # @param [Hash] opts the optional parameters
     # @option opts [RouteSettings] :body 
     # @return [Array<(RouteSettings, Integer, Hash)>] RouteSettings data, response status code and response headers
-    def update_route_settings_with_http_info(version, route_settings_id, opts = {})
+    def update_route_settings_with_http_info(route_settings_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RouteSettingApi.update_route_settings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RouteSettingApi.update_route_settings"
       end
       # verify the required parameter 'route_settings_id' is set
       if @api_client.config.client_side_validation && route_settings_id.nil?
         fail ArgumentError, "Missing the required parameter 'route_settings_id' when calling RouteSettingApi.update_route_settings"
       end
       # resource path
-      local_var_path = '/api/{version}/route/setting/{routeSettingsId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'routeSettingsId' + '}', CGI.escape(route_settings_id.to_s))
+      local_var_path = '/route/setting/{routeSettingsId}'.sub('{' + 'routeSettingsId' + '}', CGI.escape(route_settings_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

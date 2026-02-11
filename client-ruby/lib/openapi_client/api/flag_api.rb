@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Flag
     # Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-    # @param version [Float] 
     # @param flagable_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     # @param flagable_id [Integer] The flagable object id
     # @param [Hash] opts the optional parameters
@@ -31,14 +30,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [SirqulResponse]
-    def create_flag(version, flagable_type, flagable_id, opts = {})
-      data, _status_code, _headers = create_flag_with_http_info(version, flagable_type, flagable_id, opts)
+    def create_flag(flagable_type, flagable_id, opts = {})
+      data, _status_code, _headers = create_flag_with_http_info(flagable_type, flagable_id, opts)
       data
     end
 
     # Create Flag
     # Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-    # @param version [Float] 
     # @param flagable_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     # @param flagable_id [Integer] The flagable object id
     # @param [Hash] opts the optional parameters
@@ -48,13 +46,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def create_flag_with_http_info(version, flagable_type, flagable_id, opts = {})
+    def create_flag_with_http_info(flagable_type, flagable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FlagApi.create_flag ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FlagApi.create_flag"
       end
       # verify the required parameter 'flagable_type' is set
       if @api_client.config.client_side_validation && flagable_type.nil?
@@ -65,7 +59,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'flagable_id' when calling FlagApi.create_flag"
       end
       # resource path
-      local_var_path = '/api/{version}/flag/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/flag/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -113,7 +107,6 @@ module OpenapiClient
 
     # Delete Flag
     # Deletes a flag.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
@@ -122,14 +115,13 @@ module OpenapiClient
     # @option opts [String] :flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     # @option opts [Integer] :flagable_id The flagable object id
     # @return [SirqulResponse]
-    def delete_flag(version, opts = {})
-      data, _status_code, _headers = delete_flag_with_http_info(version, opts)
+    def delete_flag(opts = {})
+      data, _status_code, _headers = delete_flag_with_http_info(opts)
       data
     end
 
     # Delete Flag
     # Deletes a flag.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
@@ -138,16 +130,12 @@ module OpenapiClient
     # @option opts [String] :flagable_type The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     # @option opts [Integer] :flagable_id The flagable object id
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_flag_with_http_info(version, opts = {})
+    def delete_flag_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FlagApi.delete_flag ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FlagApi.delete_flag"
-      end
       # resource path
-      local_var_path = '/api/{version}/flag/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/flag/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -194,7 +182,6 @@ module OpenapiClient
 
     # Get Flag
     # Gets the details on whether the user has flagged a particular flagable object.
-    # @param version [Float] 
     # @param flagable_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     # @param flagable_id [Integer] The flagable object id
     # @param [Hash] opts the optional parameters
@@ -203,14 +190,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [FlagResponse]
-    def get_flag(version, flagable_type, flagable_id, opts = {})
-      data, _status_code, _headers = get_flag_with_http_info(version, flagable_type, flagable_id, opts)
+    def get_flag(flagable_type, flagable_id, opts = {})
+      data, _status_code, _headers = get_flag_with_http_info(flagable_type, flagable_id, opts)
       data
     end
 
     # Get Flag
     # Gets the details on whether the user has flagged a particular flagable object.
-    # @param version [Float] 
     # @param flagable_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
     # @param flagable_id [Integer] The flagable object id
     # @param [Hash] opts the optional parameters
@@ -219,13 +205,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [Array<(FlagResponse, Integer, Hash)>] FlagResponse data, response status code and response headers
-    def get_flag_with_http_info(version, flagable_type, flagable_id, opts = {})
+    def get_flag_with_http_info(flagable_type, flagable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FlagApi.get_flag ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FlagApi.get_flag"
       end
       # verify the required parameter 'flagable_type' is set
       if @api_client.config.client_side_validation && flagable_type.nil?
@@ -236,7 +218,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'flagable_id' when calling FlagApi.get_flag"
       end
       # resource path
-      local_var_path = '/api/{version}/flag/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/flag/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -283,30 +265,24 @@ module OpenapiClient
 
     # Get Flag Threshold
     # Get the flag threshold value on an object type for a particular application.
-    # @param version [Float] 
     # @param item_being_flagged_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @return [CountResponse]
-    def get_flag_threshold(version, item_being_flagged_type, app_key, opts = {})
-      data, _status_code, _headers = get_flag_threshold_with_http_info(version, item_being_flagged_type, app_key, opts)
+    def get_flag_threshold(item_being_flagged_type, app_key, opts = {})
+      data, _status_code, _headers = get_flag_threshold_with_http_info(item_being_flagged_type, app_key, opts)
       data
     end
 
     # Get Flag Threshold
     # Get the flag threshold value on an object type for a particular application.
-    # @param version [Float] 
     # @param item_being_flagged_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @return [Array<(CountResponse, Integer, Hash)>] CountResponse data, response status code and response headers
-    def get_flag_threshold_with_http_info(version, item_being_flagged_type, app_key, opts = {})
+    def get_flag_threshold_with_http_info(item_being_flagged_type, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FlagApi.get_flag_threshold ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FlagApi.get_flag_threshold"
       end
       # verify the required parameter 'item_being_flagged_type' is set
       if @api_client.config.client_side_validation && item_being_flagged_type.nil?
@@ -317,7 +293,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling FlagApi.get_flag_threshold"
       end
       # resource path
-      local_var_path = '/api/{version}/flag/threshold/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/flag/threshold/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -360,7 +336,6 @@ module OpenapiClient
 
     # Update Flag Threshold
     # Update the flag threshold on an object type for a particular application.
-    # @param version [Float] 
     # @param item_being_flagged_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     # @param threshold [Integer] The threshold value
     # @param app_key [String] The application key
@@ -368,14 +343,13 @@ module OpenapiClient
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @return [CountResponse]
-    def update_flag_threshold(version, item_being_flagged_type, threshold, app_key, opts = {})
-      data, _status_code, _headers = update_flag_threshold_with_http_info(version, item_being_flagged_type, threshold, app_key, opts)
+    def update_flag_threshold(item_being_flagged_type, threshold, app_key, opts = {})
+      data, _status_code, _headers = update_flag_threshold_with_http_info(item_being_flagged_type, threshold, app_key, opts)
       data
     end
 
     # Update Flag Threshold
     # Update the flag threshold on an object type for a particular application.
-    # @param version [Float] 
     # @param item_being_flagged_type [String] The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
     # @param threshold [Integer] The threshold value
     # @param app_key [String] The application key
@@ -383,13 +357,9 @@ module OpenapiClient
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @return [Array<(CountResponse, Integer, Hash)>] CountResponse data, response status code and response headers
-    def update_flag_threshold_with_http_info(version, item_being_flagged_type, threshold, app_key, opts = {})
+    def update_flag_threshold_with_http_info(item_being_flagged_type, threshold, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FlagApi.update_flag_threshold ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FlagApi.update_flag_threshold"
       end
       # verify the required parameter 'item_being_flagged_type' is set
       if @api_client.config.client_side_validation && item_being_flagged_type.nil?
@@ -404,7 +374,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling FlagApi.update_flag_threshold"
       end
       # resource path
-      local_var_path = '/api/{version}/flag/threshold/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/flag/threshold/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

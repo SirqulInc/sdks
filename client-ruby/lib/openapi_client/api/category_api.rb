@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Search Categories by Distance
     # Search for categories by distance.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [String] :keyword The keyword string to search on
@@ -44,14 +43,13 @@ module OpenapiClient
     # @option opts [Float] :longitude the longitude of where the search is centered on
     # @option opts [Float] :range the maximum range the category can be from the center
     # @return [Array<CategoryResponse>]
-    def category_distance_search(version, opts = {})
-      data, _status_code, _headers = category_distance_search_with_http_info(version, opts)
+    def category_distance_search(opts = {})
+      data, _status_code, _headers = category_distance_search_with_http_info(opts)
       data
     end
 
     # Search Categories by Distance
     # Search for categories by distance.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [String] :keyword The keyword string to search on
@@ -74,13 +72,9 @@ module OpenapiClient
     # @option opts [Float] :longitude the longitude of where the search is centered on
     # @option opts [Float] :range the maximum range the category can be from the center
     # @return [Array<(Array<CategoryResponse>, Integer, Hash)>] Array<CategoryResponse> data, response status code and response headers
-    def category_distance_search_with_http_info(version, opts = {})
+    def category_distance_search_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoryApi.category_distance_search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CategoryApi.category_distance_search"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "NAME", "DISPLAY"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
@@ -91,7 +85,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_group\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/category/distancesearch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/category/distancesearch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -152,7 +146,6 @@ module OpenapiClient
 
     # Create Category
     # Create a new category.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the target application)
     # @param name [String] The name of the category
     # @param [Hash] opts the optional parameters
@@ -169,14 +162,13 @@ module OpenapiClient
     # @option opts [String] :meta_data external custom client defined data
     # @option opts [String] :search_tags user defined strings for searching
     # @return [CategoryTreeResponse]
-    def create_category(version, account_id, name, opts = {})
-      data, _status_code, _headers = create_category_with_http_info(version, account_id, name, opts)
+    def create_category(account_id, name, opts = {})
+      data, _status_code, _headers = create_category_with_http_info(account_id, name, opts)
       data
     end
 
     # Create Category
     # Create a new category.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the target application)
     # @param name [String] The name of the category
     # @param [Hash] opts the optional parameters
@@ -193,13 +185,9 @@ module OpenapiClient
     # @option opts [String] :meta_data external custom client defined data
     # @option opts [String] :search_tags user defined strings for searching
     # @return [Array<(CategoryTreeResponse, Integer, Hash)>] CategoryTreeResponse data, response status code and response headers
-    def create_category_with_http_info(version, account_id, name, opts = {})
+    def create_category_with_http_info(account_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoryApi.create_category ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CategoryApi.create_category"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -210,7 +198,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'name' when calling CategoryApi.create_category"
       end
       # resource path
-      local_var_path = '/api/{version}/category/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/category/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -265,30 +253,24 @@ module OpenapiClient
 
     # Delete Category
     # Delete a category.
-    # @param version [Float] 
     # @param account_id [Integer] the ID of the account
     # @param category_id [Integer] the ID of the category
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_category(version, account_id, category_id, opts = {})
-      data, _status_code, _headers = delete_category_with_http_info(version, account_id, category_id, opts)
+    def delete_category(account_id, category_id, opts = {})
+      data, _status_code, _headers = delete_category_with_http_info(account_id, category_id, opts)
       data
     end
 
     # Delete Category
     # Delete a category.
-    # @param version [Float] 
     # @param account_id [Integer] the ID of the account
     # @param category_id [Integer] the ID of the category
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_category_with_http_info(version, account_id, category_id, opts = {})
+    def delete_category_with_http_info(account_id, category_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoryApi.delete_category ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CategoryApi.delete_category"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -299,7 +281,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoryApi.delete_category"
       end
       # resource path
-      local_var_path = '/api/{version}/category/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/category/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -342,34 +324,28 @@ module OpenapiClient
 
     # Duplicate Category
     # Duplicate a category, including all its children.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the target application)
     # @param category_id [Integer] The category ID to duplicate (includes all children)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The application to assign the new category to, may be different then the application the source category is assigned to
     # @option opts [Integer] :parent_category_id The parent category ID to add the target category to.
     # @return [CategoryTreeResponse]
-    def duplicate_category(version, account_id, category_id, opts = {})
-      data, _status_code, _headers = duplicate_category_with_http_info(version, account_id, category_id, opts)
+    def duplicate_category(account_id, category_id, opts = {})
+      data, _status_code, _headers = duplicate_category_with_http_info(account_id, category_id, opts)
       data
     end
 
     # Duplicate Category
     # Duplicate a category, including all its children.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the target application)
     # @param category_id [Integer] The category ID to duplicate (includes all children)
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The application to assign the new category to, may be different then the application the source category is assigned to
     # @option opts [Integer] :parent_category_id The parent category ID to add the target category to.
     # @return [Array<(CategoryTreeResponse, Integer, Hash)>] CategoryTreeResponse data, response status code and response headers
-    def duplicate_category_with_http_info(version, account_id, category_id, opts = {})
+    def duplicate_category_with_http_info(account_id, category_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoryApi.duplicate_category ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CategoryApi.duplicate_category"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -380,7 +356,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoryApi.duplicate_category"
       end
       # resource path
-      local_var_path = '/api/{version}/category/duplicate'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/category/duplicate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -425,37 +401,31 @@ module OpenapiClient
 
     # Get Category
     # Get the details of a specific category. Recursively include all child categories and their children.
-    # @param version [Float] 
     # @param category_id [Integer] the ID of the category
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (default to true)
     # @return [CategoryTreeResponse]
-    def get_category(version, category_id, opts = {})
-      data, _status_code, _headers = get_category_with_http_info(version, category_id, opts)
+    def get_category(category_id, opts = {})
+      data, _status_code, _headers = get_category_with_http_info(category_id, opts)
       data
     end
 
     # Get Category
     # Get the details of a specific category. Recursively include all child categories and their children.
-    # @param version [Float] 
     # @param category_id [Integer] the ID of the category
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_external Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (default to true)
     # @return [Array<(CategoryTreeResponse, Integer, Hash)>] CategoryTreeResponse data, response status code and response headers
-    def get_category_with_http_info(version, category_id, opts = {})
+    def get_category_with_http_info(category_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoryApi.get_category ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CategoryApi.get_category"
       end
       # verify the required parameter 'category_id' is set
       if @api_client.config.client_side_validation && category_id.nil?
         fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoryApi.get_category"
       end
       # resource path
-      local_var_path = '/api/{version}/category/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/category/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -498,7 +468,6 @@ module OpenapiClient
 
     # Search Categories
     # Search for categories.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [String] :keyword The string to search on
@@ -522,14 +491,13 @@ module OpenapiClient
     # @option opts [Integer] :search_depth When searching by a specific parent category (to return sub children), this determines the number of child layers to search in. The minimum is 1, the maximum is 4. (default to 4)
     # @option opts [String] :search_mode The search index mode to use (e.g. OPENSEARCH or RDS)
     # @return [Array<CategoryResponse>]
-    def search_categories(version, opts = {})
-      data, _status_code, _headers = search_categories_with_http_info(version, opts)
+    def search_categories(opts = {})
+      data, _status_code, _headers = search_categories_with_http_info(opts)
       data
     end
 
     # Search Categories
     # Search for categories.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [String] :keyword The string to search on
@@ -553,13 +521,9 @@ module OpenapiClient
     # @option opts [Integer] :search_depth When searching by a specific parent category (to return sub children), this determines the number of child layers to search in. The minimum is 1, the maximum is 4. (default to 4)
     # @option opts [String] :search_mode The search index mode to use (e.g. OPENSEARCH or RDS)
     # @return [Array<(Array<CategoryResponse>, Integer, Hash)>] Array<CategoryResponse> data, response status code and response headers
-    def search_categories_with_http_info(version, opts = {})
+    def search_categories_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoryApi.search_categories ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CategoryApi.search_categories"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "NAME", "DISPLAY"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
@@ -570,7 +534,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_group\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/category/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/category/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -632,7 +596,6 @@ module OpenapiClient
 
     # Update Category
     # Update a category.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param category_id [Integer] The ID of the category to edit
     # @param [Hash] opts the optional parameters
@@ -649,14 +612,13 @@ module OpenapiClient
     # @option opts [String] :meta_data external custom client defined data
     # @option opts [String] :search_tags user defined strings for searching
     # @return [CategoryTreeResponse]
-    def update_category(version, account_id, category_id, opts = {})
-      data, _status_code, _headers = update_category_with_http_info(version, account_id, category_id, opts)
+    def update_category(account_id, category_id, opts = {})
+      data, _status_code, _headers = update_category_with_http_info(account_id, category_id, opts)
       data
     end
 
     # Update Category
     # Update a category.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param category_id [Integer] The ID of the category to edit
     # @param [Hash] opts the optional parameters
@@ -673,13 +635,9 @@ module OpenapiClient
     # @option opts [String] :meta_data external custom client defined data
     # @option opts [String] :search_tags user defined strings for searching
     # @return [Array<(CategoryTreeResponse, Integer, Hash)>] CategoryTreeResponse data, response status code and response headers
-    def update_category_with_http_info(version, account_id, category_id, opts = {})
+    def update_category_with_http_info(account_id, category_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CategoryApi.update_category ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CategoryApi.update_category"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -690,7 +648,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'category_id' when calling CategoryApi.update_category"
       end
       # resource path
-      local_var_path = '/api/{version}/category/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/category/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

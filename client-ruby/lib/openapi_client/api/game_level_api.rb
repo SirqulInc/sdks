@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Game Level
     # Create a game level. Currently does NOT support game objects.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the level.
     # @param game_data [String] The game level data: xml, json, or other text based format.
@@ -50,14 +49,13 @@ module OpenapiClient
     # @option opts [Integer] :offer_id id of the offer
     # @option opts [String] :meta_data external custom client defined data
     # @return [GameLevelResponse]
-    def create_game_level(version, account_id, name, game_data, game_data_suffix, opts = {})
-      data, _status_code, _headers = create_game_level_with_http_info(version, account_id, name, game_data, game_data_suffix, opts)
+    def create_game_level(account_id, name, game_data, game_data_suffix, opts = {})
+      data, _status_code, _headers = create_game_level_with_http_info(account_id, name, game_data, game_data_suffix, opts)
       data
     end
 
     # Create Game Level
     # Create a game level. Currently does NOT support game objects.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the level.
     # @param game_data [String] The game level data: xml, json, or other text based format.
@@ -86,13 +84,9 @@ module OpenapiClient
     # @option opts [Integer] :offer_id id of the offer
     # @option opts [String] :meta_data external custom client defined data
     # @return [Array<(GameLevelResponse, Integer, Hash)>] GameLevelResponse data, response status code and response headers
-    def create_game_level_with_http_info(version, account_id, name, game_data, game_data_suffix, opts = {})
+    def create_game_level_with_http_info(account_id, name, game_data, game_data_suffix, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.create_game_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.create_game_level"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -111,7 +105,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'game_data_suffix' when calling GameLevelApi.create_game_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -178,30 +172,24 @@ module OpenapiClient
 
     # Delete Game Level
     # Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param level_id [Integer] The id of the level to return.
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_game_level(version, account_id, level_id, opts = {})
-      data, _status_code, _headers = delete_game_level_with_http_info(version, account_id, level_id, opts)
+    def delete_game_level(account_id, level_id, opts = {})
+      data, _status_code, _headers = delete_game_level_with_http_info(account_id, level_id, opts)
       data
     end
 
     # Delete Game Level
     # Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param level_id [Integer] The id of the level to return.
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_game_level_with_http_info(version, account_id, level_id, opts = {})
+    def delete_game_level_with_http_info(account_id, level_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.delete_game_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.delete_game_level"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -212,7 +200,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'level_id' when calling GameLevelApi.delete_game_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -255,32 +243,26 @@ module OpenapiClient
 
     # Get Game Level
     # Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param level_id [Integer] The id of the level to return.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_game_data If true include the game level data, otherwise don&#39;t. default is false.
     # @return [GameLevelResponse]
-    def get_game_level(version, account_id, level_id, opts = {})
-      data, _status_code, _headers = get_game_level_with_http_info(version, account_id, level_id, opts)
+    def get_game_level(account_id, level_id, opts = {})
+      data, _status_code, _headers = get_game_level_with_http_info(account_id, level_id, opts)
       data
     end
 
     # Get Game Level
     # Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param level_id [Integer] The id of the level to return.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :include_game_data If true include the game level data, otherwise don&#39;t. default is false.
     # @return [Array<(GameLevelResponse, Integer, Hash)>] GameLevelResponse data, response status code and response headers
-    def get_game_level_with_http_info(version, account_id, level_id, opts = {})
+    def get_game_level_with_http_info(account_id, level_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.get_game_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.get_game_level"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -291,7 +273,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'level_id' when calling GameLevelApi.get_game_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -335,7 +317,6 @@ module OpenapiClient
 
     # Search Game Levels
     # Get a list of levels for an application, just those the account has permissions to view.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -348,14 +329,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_game_data If true include the game level data, otherwise don&#39;t. default is false.
     # @option opts [String] :filters 
     # @return [GameLevelListResponse]
-    def get_game_levels_by_application(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = get_game_levels_by_application_with_http_info(version, account_id, app_key, opts)
+    def get_game_levels_by_application(account_id, app_key, opts = {})
+      data, _status_code, _headers = get_game_levels_by_application_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Search Game Levels
     # Get a list of levels for an application, just those the account has permissions to view.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -368,13 +348,9 @@ module OpenapiClient
     # @option opts [Boolean] :include_game_data If true include the game level data, otherwise don&#39;t. default is false.
     # @option opts [String] :filters 
     # @return [Array<(GameLevelListResponse, Integer, Hash)>] GameLevelListResponse data, response status code and response headers
-    def get_game_levels_by_application_with_http_info(version, account_id, app_key, opts = {})
+    def get_game_levels_by_application_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.get_game_levels_by_application ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.get_game_levels_by_application"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -385,7 +361,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling GameLevelApi.get_game_levels_by_application"
       end
       # resource path
-      local_var_path = '/api/{version}/level/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -436,7 +412,6 @@ module OpenapiClient
 
     # Search Game Level by Billable Entity
     # Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key the application key
@@ -447,14 +422,13 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [GameLevelResponse]
-    def get_game_levels_by_billable_entity(version, account_id, opts = {})
-      data, _status_code, _headers = get_game_levels_by_billable_entity_with_http_info(version, account_id, opts)
+    def get_game_levels_by_billable_entity(account_id, opts = {})
+      data, _status_code, _headers = get_game_levels_by_billable_entity_with_http_info(account_id, opts)
       data
     end
 
     # Search Game Level by Billable Entity
     # Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key the application key
@@ -465,13 +439,9 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<(GameLevelResponse, Integer, Hash)>] GameLevelResponse data, response status code and response headers
-    def get_game_levels_by_billable_entity_with_http_info(version, account_id, opts = {})
+    def get_game_levels_by_billable_entity_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.get_game_levels_by_billable_entity ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.get_game_levels_by_billable_entity"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -482,7 +452,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/level/searchByBillableEntity'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/searchByBillableEntity'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -531,30 +501,24 @@ module OpenapiClient
 
     # Get Level Questions
     # Get questions within a level.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to get questions from
     # @param account_id [Integer] the id of the logged in user
     # @param [Hash] opts the optional parameters
     # @return [QuestionResponse]
-    def get_questions_in_level(version, level_id, account_id, opts = {})
-      data, _status_code, _headers = get_questions_in_level_with_http_info(version, level_id, account_id, opts)
+    def get_questions_in_level(level_id, account_id, opts = {})
+      data, _status_code, _headers = get_questions_in_level_with_http_info(level_id, account_id, opts)
       data
     end
 
     # Get Level Questions
     # Get questions within a level.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to get questions from
     # @param account_id [Integer] the id of the logged in user
     # @param [Hash] opts the optional parameters
     # @return [Array<(QuestionResponse, Integer, Hash)>] QuestionResponse data, response status code and response headers
-    def get_questions_in_level_with_http_info(version, level_id, account_id, opts = {})
+    def get_questions_in_level_with_http_info(level_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.get_questions_in_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.get_questions_in_level"
       end
       # verify the required parameter 'level_id' is set
       if @api_client.config.client_side_validation && level_id.nil?
@@ -565,7 +529,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling GameLevelApi.get_questions_in_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/questions/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/questions/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -608,30 +572,24 @@ module OpenapiClient
 
     # Get Level Words
     # Get words within a level.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to get words for
     # @param account_id [Integer] the id of the logged in user
     # @param [Hash] opts the optional parameters
     # @return [WordzWordResponse]
-    def get_words_in_level(version, level_id, account_id, opts = {})
-      data, _status_code, _headers = get_words_in_level_with_http_info(version, level_id, account_id, opts)
+    def get_words_in_level(level_id, account_id, opts = {})
+      data, _status_code, _headers = get_words_in_level_with_http_info(level_id, account_id, opts)
       data
     end
 
     # Get Level Words
     # Get words within a level.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to get words for
     # @param account_id [Integer] the id of the logged in user
     # @param [Hash] opts the optional parameters
     # @return [Array<(WordzWordResponse, Integer, Hash)>] WordzWordResponse data, response status code and response headers
-    def get_words_in_level_with_http_info(version, level_id, account_id, opts = {})
+    def get_words_in_level_with_http_info(level_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.get_words_in_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.get_words_in_level"
       end
       # verify the required parameter 'level_id' is set
       if @api_client.config.client_side_validation && level_id.nil?
@@ -642,7 +600,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling GameLevelApi.get_words_in_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/words/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/words/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -685,7 +643,6 @@ module OpenapiClient
 
     # Update Game Level
     # Update a game level. Currently does NOT support game objects.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param level_id [Integer] If update then include the level Id.
     # @param [Hash] opts the optional parameters
@@ -715,14 +672,13 @@ module OpenapiClient
     # @option opts [Integer] :offer_id 
     # @option opts [String] :meta_data external custom client defined data
     # @return [GameLevelResponse]
-    def update_game_level(version, account_id, level_id, opts = {})
-      data, _status_code, _headers = update_game_level_with_http_info(version, account_id, level_id, opts)
+    def update_game_level(account_id, level_id, opts = {})
+      data, _status_code, _headers = update_game_level_with_http_info(account_id, level_id, opts)
       data
     end
 
     # Update Game Level
     # Update a game level. Currently does NOT support game objects.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param level_id [Integer] If update then include the level Id.
     # @param [Hash] opts the optional parameters
@@ -752,13 +708,9 @@ module OpenapiClient
     # @option opts [Integer] :offer_id 
     # @option opts [String] :meta_data external custom client defined data
     # @return [Array<(GameLevelResponse, Integer, Hash)>] GameLevelResponse data, response status code and response headers
-    def update_game_level_with_http_info(version, account_id, level_id, opts = {})
+    def update_game_level_with_http_info(account_id, level_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.update_game_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.update_game_level"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -769,7 +721,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'level_id' when calling GameLevelApi.update_game_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -837,32 +789,26 @@ module OpenapiClient
 
     # Update Level Questions
     # Updates a level with question game objects.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to update questions on
     # @param account_id [Integer] the id of the logged in user
     # @param question_ids [String] the IDs of the questions to update
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def update_questions_in_level(version, level_id, account_id, question_ids, opts = {})
-      data, _status_code, _headers = update_questions_in_level_with_http_info(version, level_id, account_id, question_ids, opts)
+    def update_questions_in_level(level_id, account_id, question_ids, opts = {})
+      data, _status_code, _headers = update_questions_in_level_with_http_info(level_id, account_id, question_ids, opts)
       data
     end
 
     # Update Level Questions
     # Updates a level with question game objects.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to update questions on
     # @param account_id [Integer] the id of the logged in user
     # @param question_ids [String] the IDs of the questions to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_questions_in_level_with_http_info(version, level_id, account_id, question_ids, opts = {})
+    def update_questions_in_level_with_http_info(level_id, account_id, question_ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.update_questions_in_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.update_questions_in_level"
       end
       # verify the required parameter 'level_id' is set
       if @api_client.config.client_side_validation && level_id.nil?
@@ -877,7 +823,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'question_ids' when calling GameLevelApi.update_questions_in_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/questions/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/questions/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -921,32 +867,26 @@ module OpenapiClient
 
     # Update Level Words
     # Updates a level with word game objects.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to update words for
     # @param account_id [Integer] the id of the logged in user
     # @param word_ids [String] the ids of the words to update for the level
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def update_words_in_level(version, level_id, account_id, word_ids, opts = {})
-      data, _status_code, _headers = update_words_in_level_with_http_info(version, level_id, account_id, word_ids, opts)
+    def update_words_in_level(level_id, account_id, word_ids, opts = {})
+      data, _status_code, _headers = update_words_in_level_with_http_info(level_id, account_id, word_ids, opts)
       data
     end
 
     # Update Level Words
     # Updates a level with word game objects.
-    # @param version [Float] 
     # @param level_id [Integer] the id of the level to update words for
     # @param account_id [Integer] the id of the logged in user
     # @param word_ids [String] the ids of the words to update for the level
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_words_in_level_with_http_info(version, level_id, account_id, word_ids, opts = {})
+    def update_words_in_level_with_http_info(level_id, account_id, word_ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GameLevelApi.update_words_in_level ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling GameLevelApi.update_words_in_level"
       end
       # verify the required parameter 'level_id' is set
       if @api_client.config.client_side_validation && level_id.nil?
@@ -961,7 +901,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'word_ids' when calling GameLevelApi.update_words_in_level"
       end
       # resource path
-      local_var_path = '/api/{version}/level/words/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/level/words/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

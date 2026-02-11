@@ -21,32 +21,26 @@ module OpenapiClient
     end
     # Generate images with OpenAI
     # Generate images with OpenAI.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param _post_body [String] Post Body Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [WrappedProxyItemResponse]
-    def image_generation(version, account_id, _post_body, opts = {})
-      data, _status_code, _headers = image_generation_with_http_info(version, account_id, _post_body, opts)
+    def image_generation(account_id, _post_body, opts = {})
+      data, _status_code, _headers = image_generation_with_http_info(account_id, _post_body, opts)
       data
     end
 
     # Generate images with OpenAI
     # Generate images with OpenAI.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param _post_body [String] Post Body Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(WrappedProxyItemResponse, Integer, Hash)>] WrappedProxyItemResponse data, response status code and response headers
-    def image_generation_with_http_info(version, account_id, _post_body, opts = {})
+    def image_generation_with_http_info(account_id, _post_body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OpenAIApi.image_generation ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OpenAIApi.image_generation"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -57,7 +51,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter '_post_body' when calling OpenAIApi.image_generation"
       end
       # resource path
-      local_var_path = '/api/{version}/openai/v1/images/generations'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/openai/v1/images/generations'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,30 +21,24 @@ module OpenapiClient
     end
     # Create Stripe Checkout Session
     # Create a Stripe checkout session
-    # @param version [Float] 
     # @param app_key [String] Sirqul Application Key
     # @param stripe_parameters [String] Stripe Parameters
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def create_stripe_checkout_session(version, app_key, stripe_parameters, opts = {})
-      data, _status_code, _headers = create_stripe_checkout_session_with_http_info(version, app_key, stripe_parameters, opts)
+    def create_stripe_checkout_session(app_key, stripe_parameters, opts = {})
+      data, _status_code, _headers = create_stripe_checkout_session_with_http_info(app_key, stripe_parameters, opts)
       data
     end
 
     # Create Stripe Checkout Session
     # Create a Stripe checkout session
-    # @param version [Float] 
     # @param app_key [String] Sirqul Application Key
     # @param stripe_parameters [String] Stripe Parameters
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def create_stripe_checkout_session_with_http_info(version, app_key, stripe_parameters, opts = {})
+    def create_stripe_checkout_session_with_http_info(app_key, stripe_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: StripeApi.create_stripe_checkout_session ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling StripeApi.create_stripe_checkout_session"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -55,7 +49,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'stripe_parameters' when calling StripeApi.create_stripe_checkout_session"
       end
       # resource path
-      local_var_path = '/api/{version}/stripe/checkout/session/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/stripe/checkout/session/create'
 
       # query parameters
       query_params = opts[:query_params] || {}

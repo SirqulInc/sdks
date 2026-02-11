@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Notification Template
     # Create a notification template. Developers will only be able to create notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user.
     # @param conduit [String] Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
     # @param title [String] title of the notification template
@@ -31,14 +30,13 @@ module OpenapiClient
     # @option opts [String] :event Filter results by event.
     # @option opts [String] :tags tags associated with the note template
     # @return [NotificationTemplateResponse]
-    def create_notification_template(version, account_id, conduit, title, body, opts = {})
-      data, _status_code, _headers = create_notification_template_with_http_info(version, account_id, conduit, title, body, opts)
+    def create_notification_template(account_id, conduit, title, body, opts = {})
+      data, _status_code, _headers = create_notification_template_with_http_info(account_id, conduit, title, body, opts)
       data
     end
 
     # Create Notification Template
     # Create a notification template. Developers will only be able to create notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user.
     # @param conduit [String] Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
     # @param title [String] title of the notification template
@@ -48,13 +46,9 @@ module OpenapiClient
     # @option opts [String] :event Filter results by event.
     # @option opts [String] :tags tags associated with the note template
     # @return [Array<(NotificationTemplateResponse, Integer, Hash)>] NotificationTemplateResponse data, response status code and response headers
-    def create_notification_template_with_http_info(version, account_id, conduit, title, body, opts = {})
+    def create_notification_template_with_http_info(account_id, conduit, title, body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.create_notification_template ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.create_notification_template"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -73,7 +67,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'body' when calling NotificationApi.create_notification_template"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/template/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/template/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -121,32 +115,26 @@ module OpenapiClient
 
     # Create or update blocked notification settings
     # Create or update blocked notification settings
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param data [String] batch data payload (application specific)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @return [BlockedNotificationResponse]
-    def create_or_update_blocked_notifications(version, app_key, data, opts = {})
-      data, _status_code, _headers = create_or_update_blocked_notifications_with_http_info(version, app_key, data, opts)
+    def create_or_update_blocked_notifications(app_key, data, opts = {})
+      data, _status_code, _headers = create_or_update_blocked_notifications_with_http_info(app_key, data, opts)
       data
     end
 
     # Create or update blocked notification settings
     # Create or update blocked notification settings
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param data [String] batch data payload (application specific)
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @return [Array<(BlockedNotificationResponse, Integer, Hash)>] BlockedNotificationResponse data, response status code and response headers
-    def create_or_update_blocked_notifications_with_http_info(version, app_key, data, opts = {})
+    def create_or_update_blocked_notifications_with_http_info(app_key, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.create_or_update_blocked_notifications ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.create_or_update_blocked_notifications"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -157,7 +145,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'data' when calling NotificationApi.create_or_update_blocked_notifications"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/blocked/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/blocked/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -201,30 +189,24 @@ module OpenapiClient
 
     # Delete Notification Template
     # Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param notification_template_id [Integer] the id of the notification template to delete
     # @param [Hash] opts the optional parameters
     # @return [NotificationTemplateResponse]
-    def delete_notification_template(version, account_id, notification_template_id, opts = {})
-      data, _status_code, _headers = delete_notification_template_with_http_info(version, account_id, notification_template_id, opts)
+    def delete_notification_template(account_id, notification_template_id, opts = {})
+      data, _status_code, _headers = delete_notification_template_with_http_info(account_id, notification_template_id, opts)
       data
     end
 
     # Delete Notification Template
     # Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param notification_template_id [Integer] the id of the notification template to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(NotificationTemplateResponse, Integer, Hash)>] NotificationTemplateResponse data, response status code and response headers
-    def delete_notification_template_with_http_info(version, account_id, notification_template_id, opts = {})
+    def delete_notification_template_with_http_info(account_id, notification_template_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.delete_notification_template ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.delete_notification_template"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -235,7 +217,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'notification_template_id' when calling NotificationApi.delete_notification_template"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/template/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/template/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -278,30 +260,24 @@ module OpenapiClient
 
     # Get Notification Template
     # Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param notification_template_id [Integer] the id of the notification template to get
     # @param [Hash] opts the optional parameters
     # @return [NotificationTemplateResponse]
-    def get_notification_template(version, account_id, notification_template_id, opts = {})
-      data, _status_code, _headers = get_notification_template_with_http_info(version, account_id, notification_template_id, opts)
+    def get_notification_template(account_id, notification_template_id, opts = {})
+      data, _status_code, _headers = get_notification_template_with_http_info(account_id, notification_template_id, opts)
       data
     end
 
     # Get Notification Template
     # Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param notification_template_id [Integer] the id of the notification template to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(NotificationTemplateResponse, Integer, Hash)>] NotificationTemplateResponse data, response status code and response headers
-    def get_notification_template_with_http_info(version, account_id, notification_template_id, opts = {})
+    def get_notification_template_with_http_info(account_id, notification_template_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.get_notification_template ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.get_notification_template"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -312,7 +288,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'notification_template_id' when calling NotificationApi.get_notification_template"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/template/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/template/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -355,7 +331,6 @@ module OpenapiClient
 
     # Get Notifications
     # Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -379,14 +354,13 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination
     # @return [NotificationMessageListResponse]
-    def get_notifications(version, opts = {})
-      data, _status_code, _headers = get_notifications_with_http_info(version, opts)
+    def get_notifications(opts = {})
+      data, _status_code, _headers = get_notifications_with_http_info(opts)
       data
     end
 
     # Get Notifications
     # Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -410,16 +384,12 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination
     # @return [Array<(NotificationMessageListResponse, Integer, Hash)>] NotificationMessageListResponse data, response status code and response headers
-    def get_notifications_with_http_info(version, opts = {})
+    def get_notifications_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.get_notifications ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.get_notifications"
-      end
       # resource path
-      local_var_path = '/api/{version}/notification/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -481,7 +451,6 @@ module OpenapiClient
 
     # Register Notification Token
     # Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-    # @param version [Float] 
     # @param token [String] A token that is generated by the device to sign requests for the notification service providers
     # @param push_type [String] The type of push notification. Possible values include: APNS, GCM
     # @param [Hash] opts the optional parameters
@@ -494,14 +463,13 @@ module OpenapiClient
     # @option opts [Float] :latitude Latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude Longitude used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def register_notification_token(version, token, push_type, opts = {})
-      data, _status_code, _headers = register_notification_token_with_http_info(version, token, push_type, opts)
+    def register_notification_token(token, push_type, opts = {})
+      data, _status_code, _headers = register_notification_token_with_http_info(token, push_type, opts)
       data
     end
 
     # Register Notification Token
     # Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-    # @param version [Float] 
     # @param token [String] A token that is generated by the device to sign requests for the notification service providers
     # @param push_type [String] The type of push notification. Possible values include: APNS, GCM
     # @param [Hash] opts the optional parameters
@@ -514,13 +482,9 @@ module OpenapiClient
     # @option opts [Float] :latitude Latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude Longitude used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def register_notification_token_with_http_info(version, token, push_type, opts = {})
+    def register_notification_token_with_http_info(token, push_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.register_notification_token ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.register_notification_token"
       end
       # verify the required parameter 'token' is set
       if @api_client.config.client_side_validation && token.nil?
@@ -536,7 +500,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"push_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/token'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/token'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -587,7 +551,6 @@ module OpenapiClient
 
     # Search on the user's blocked notification settings
     # Search on the user's blocked notification settings
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
@@ -602,14 +565,13 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination
     # @return [BlockedNotificationResponse]
-    def search_blocked_notifications(version, app_key, opts = {})
-      data, _status_code, _headers = search_blocked_notifications_with_http_info(version, app_key, opts)
+    def search_blocked_notifications(app_key, opts = {})
+      data, _status_code, _headers = search_blocked_notifications_with_http_info(app_key, opts)
       data
     end
 
     # Search on the user&#39;s blocked notification settings
     # Search on the user&#39;s blocked notification settings
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
@@ -624,20 +586,16 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination
     # @return [Array<(BlockedNotificationResponse, Integer, Hash)>] BlockedNotificationResponse data, response status code and response headers
-    def search_blocked_notifications_with_http_info(version, app_key, opts = {})
+    def search_blocked_notifications_with_http_info(app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.search_blocked_notifications ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.search_blocked_notifications"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
         fail ArgumentError, "Missing the required parameter 'app_key' when calling NotificationApi.search_blocked_notifications"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/blocked/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/blocked/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -690,7 +648,6 @@ module OpenapiClient
 
     # Search Notification Templates
     # Search for notification templates on owned applications.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user.
     # @param sort_field [String] Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.
     # @param descending [Boolean] Specified whether the results are returned in descending or ascending order.
@@ -704,14 +661,13 @@ module OpenapiClient
     # @option opts [Boolean] :reserved_only Returns only templates that use reserved events.
     # @option opts [String] :keyword Filter results by keyword on the title, tags.
     # @return [NotificationTemplateResponse]
-    def search_notification_template(version, account_id, sort_field, descending, start, limit, opts = {})
-      data, _status_code, _headers = search_notification_template_with_http_info(version, account_id, sort_field, descending, start, limit, opts)
+    def search_notification_template(account_id, sort_field, descending, start, limit, opts = {})
+      data, _status_code, _headers = search_notification_template_with_http_info(account_id, sort_field, descending, start, limit, opts)
       data
     end
 
     # Search Notification Templates
     # Search for notification templates on owned applications.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user.
     # @param sort_field [String] Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.
     # @param descending [Boolean] Specified whether the results are returned in descending or ascending order.
@@ -725,13 +681,9 @@ module OpenapiClient
     # @option opts [Boolean] :reserved_only Returns only templates that use reserved events.
     # @option opts [String] :keyword Filter results by keyword on the title, tags.
     # @return [Array<(NotificationTemplateResponse, Integer, Hash)>] NotificationTemplateResponse data, response status code and response headers
-    def search_notification_template_with_http_info(version, account_id, sort_field, descending, start, limit, opts = {})
+    def search_notification_template_with_http_info(account_id, sort_field, descending, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.search_notification_template ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.search_notification_template"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -754,7 +706,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling NotificationApi.search_notification_template"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/template/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/template/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -806,7 +758,6 @@ module OpenapiClient
 
     # Search for Recipients
     # Search for application users to send notifications.
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
@@ -822,14 +773,13 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination (hard limit of 1000)
     # @return [Array<NotificationRecipientResponse>]
-    def search_recipients(version, sort_field, opts = {})
-      data, _status_code, _headers = search_recipients_with_http_info(version, sort_field, opts)
+    def search_recipients(sort_field, opts = {})
+      data, _status_code, _headers = search_recipients_with_http_info(sort_field, opts)
       data
     end
 
     # Search for Recipients
     # Search for application users to send notifications.
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
@@ -845,13 +795,9 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination (hard limit of 1000)
     # @return [Array<(Array<NotificationRecipientResponse>, Integer, Hash)>] Array<NotificationRecipientResponse> data, response status code and response headers
-    def search_recipients_with_http_info(version, sort_field, opts = {})
+    def search_recipients_with_http_info(sort_field, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.search_recipients ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.search_recipients"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -863,7 +809,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/recipient/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/recipient/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -917,7 +863,6 @@ module OpenapiClient
 
     # Search for Recipients (Counts/Grouped)
     # Search for application users to send notifications (count/grouped variant).
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -932,14 +877,13 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination
     # @return [NotificationRecipientResponseListResponse]
-    def search_recipients_count(version, opts = {})
-      data, _status_code, _headers = search_recipients_count_with_http_info(version, opts)
+    def search_recipients_count(opts = {})
+      data, _status_code, _headers = search_recipients_count_with_http_info(opts)
       data
     end
 
     # Search for Recipients (Counts/Grouped)
     # Search for application users to send notifications (count/grouped variant).
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -954,16 +898,12 @@ module OpenapiClient
     # @option opts [Integer] :start start of the pagination
     # @option opts [Integer] :limit limit of the pagination
     # @return [Array<(NotificationRecipientResponseListResponse, Integer, Hash)>] NotificationRecipientResponseListResponse data, response status code and response headers
-    def search_recipients_count_with_http_info(version, opts = {})
+    def search_recipients_count_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.search_recipients_count ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.search_recipients_count"
-      end
       # resource path
-      local_var_path = '/api/{version}/notification/recipient/search/count'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/recipient/search/count'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1016,7 +956,6 @@ module OpenapiClient
 
     # Send Batch Notifications
     # Send notifications to all users of an application. Only someone with permissions to the application can do this.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the application owner/manager
     # @param app_key [String] The application key for updating an existing application
     # @param custom_message [String] Message string that will be displayed in on the notification
@@ -1028,14 +967,13 @@ module OpenapiClient
     # @option opts [Integer] :parent_id Default notification pay-load field (usage is dependent on the app and the type of event)
     # @option opts [String] :parent_type Default notification pay-load field (usage is dependent on the app and the type of event)
     # @return [SirqulResponse]
-    def send_batch_notifications(version, account_id, app_key, custom_message, opts = {})
-      data, _status_code, _headers = send_batch_notifications_with_http_info(version, account_id, app_key, custom_message, opts)
+    def send_batch_notifications(account_id, app_key, custom_message, opts = {})
+      data, _status_code, _headers = send_batch_notifications_with_http_info(account_id, app_key, custom_message, opts)
       data
     end
 
     # Send Batch Notifications
     # Send notifications to all users of an application. Only someone with permissions to the application can do this.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the application owner/manager
     # @param app_key [String] The application key for updating an existing application
     # @param custom_message [String] Message string that will be displayed in on the notification
@@ -1047,13 +985,9 @@ module OpenapiClient
     # @option opts [Integer] :parent_id Default notification pay-load field (usage is dependent on the app and the type of event)
     # @option opts [String] :parent_type Default notification pay-load field (usage is dependent on the app and the type of event)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def send_batch_notifications_with_http_info(version, account_id, app_key, custom_message, opts = {})
+    def send_batch_notifications_with_http_info(account_id, app_key, custom_message, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.send_batch_notifications ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.send_batch_notifications"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1068,7 +1002,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'custom_message' when calling NotificationApi.send_batch_notifications"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1118,7 +1052,6 @@ module OpenapiClient
 
     # Send Custom Notifications
     # Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -1139,14 +1072,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def send_custom_notifications(version, opts = {})
-      data, _status_code, _headers = send_custom_notifications_with_http_info(version, opts)
+    def send_custom_notifications(opts = {})
+      data, _status_code, _headers = send_custom_notifications_with_http_info(opts)
       data
     end
 
     # Send Custom Notifications
     # Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -1167,16 +1099,12 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def send_custom_notifications_with_http_info(version, opts = {})
+    def send_custom_notifications_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.send_custom_notifications ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.send_custom_notifications"
-      end
       # resource path
-      local_var_path = '/api/{version}/notification/custom'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/custom'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1235,7 +1163,6 @@ module OpenapiClient
 
     # Update Notification Template
     # Update a notification template. Developers will only be able to update notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user.
     # @param notification_template_id [Integer] The notification template ID to update.
     # @param [Hash] opts the optional parameters
@@ -1243,14 +1170,13 @@ module OpenapiClient
     # @option opts [String] :body The body of the message.
     # @option opts [String] :tags The search tags on the template used during search queries.
     # @return [NotificationTemplateResponse]
-    def update_notification_template(version, account_id, notification_template_id, opts = {})
-      data, _status_code, _headers = update_notification_template_with_http_info(version, account_id, notification_template_id, opts)
+    def update_notification_template(account_id, notification_template_id, opts = {})
+      data, _status_code, _headers = update_notification_template_with_http_info(account_id, notification_template_id, opts)
       data
     end
 
     # Update Notification Template
     # Update a notification template. Developers will only be able to update notification templates for their own applications.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user.
     # @param notification_template_id [Integer] The notification template ID to update.
     # @param [Hash] opts the optional parameters
@@ -1258,13 +1184,9 @@ module OpenapiClient
     # @option opts [String] :body The body of the message.
     # @option opts [String] :tags The search tags on the template used during search queries.
     # @return [Array<(NotificationTemplateResponse, Integer, Hash)>] NotificationTemplateResponse data, response status code and response headers
-    def update_notification_template_with_http_info(version, account_id, notification_template_id, opts = {})
+    def update_notification_template_with_http_info(account_id, notification_template_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NotificationApi.update_notification_template ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NotificationApi.update_notification_template"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1275,7 +1197,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'notification_template_id' when calling NotificationApi.update_notification_template"
       end
       # resource path
-      local_var_path = '/api/{version}/notification/template/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/notification/template/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

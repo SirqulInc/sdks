@@ -21,31 +21,25 @@ module OpenapiClient
     end
     # Create new location
     # Create a new location from a real object location.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Location] :body 
     # @return [SirqulResponse]
-    def create_location_v2(version, opts = {})
-      data, _status_code, _headers = create_location_v2_with_http_info(version, opts)
+    def create_location_v2(opts = {})
+      data, _status_code, _headers = create_location_v2_with_http_info(opts)
       data
     end
 
     # Create new location
     # Create a new location from a real object location.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Location] :body 
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def create_location_v2_with_http_info(version, opts = {})
+    def create_location_v2_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LocationApiV2Api.create_location_v2 ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LocationApiV2Api.create_location_v2"
-      end
       # resource path
-      local_var_path = '/api/{version}/location'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -86,37 +80,31 @@ module OpenapiClient
 
     # Update an existing location
     # Update an existing location
-    # @param version [Float] 
     # @param id [Integer] the id of the location to update
     # @param [Hash] opts the optional parameters
     # @option opts [Location] :body 
     # @return [SirqulResponse]
-    def update_location_v2(version, id, opts = {})
-      data, _status_code, _headers = update_location_v2_with_http_info(version, id, opts)
+    def update_location_v2(id, opts = {})
+      data, _status_code, _headers = update_location_v2_with_http_info(id, opts)
       data
     end
 
     # Update an existing location
     # Update an existing location
-    # @param version [Float] 
     # @param id [Integer] the id of the location to update
     # @param [Hash] opts the optional parameters
     # @option opts [Location] :body 
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_location_v2_with_http_info(version, id, opts = {})
+    def update_location_v2_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LocationApiV2Api.update_location_v2 ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LocationApiV2Api.update_location_v2"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling LocationApiV2Api.update_location_v2"
       end
       # resource path
-      local_var_path = '/api/{version}/location/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/location/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

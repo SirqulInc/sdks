@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create/Update Theme
     # Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-    # @param version [Float] 
     # @param public_read [Boolean] determines whether the theme&#39;s participants have read permissions
     # @param public_write [Boolean] determines whether the theme&#39;s participants have write permissions
     # @param public_delete [Boolean] determines whether the theme&#39;s participants have delete permissions
@@ -51,14 +50,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [ThemeDescriptorResponse]
-    def add_or_update_theme_descriptor(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, opts = {})
-      data, _status_code, _headers = add_or_update_theme_descriptor_with_http_info(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, opts)
+    def add_or_update_theme_descriptor(public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, opts = {})
+      data, _status_code, _headers = add_or_update_theme_descriptor_with_http_info(public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, opts)
       data
     end
 
     # Create/Update Theme
     # Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-    # @param version [Float] 
     # @param public_read [Boolean] determines whether the theme&#39;s participants have read permissions
     # @param public_write [Boolean] determines whether the theme&#39;s participants have write permissions
     # @param public_delete [Boolean] determines whether the theme&#39;s participants have delete permissions
@@ -88,13 +86,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(ThemeDescriptorResponse, Integer, Hash)>] ThemeDescriptorResponse data, response status code and response headers
-    def add_or_update_theme_descriptor_with_http_info(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, opts = {})
+    def add_or_update_theme_descriptor_with_http_info(public_read, public_write, public_delete, public_add, visibility, include_friend_group, complete_with_default_values, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThemeDescriptorApi.add_or_update_theme_descriptor ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThemeDescriptorApi.add_or_update_theme_descriptor"
       end
       # verify the required parameter 'public_read' is set
       if @api_client.config.client_side_validation && public_read.nil?
@@ -130,7 +124,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'complete_with_default_values' when calling ThemeDescriptorApi.add_or_update_theme_descriptor"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/theme'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/theme'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -198,7 +192,6 @@ module OpenapiClient
 
     # Get Theme
     # Gets a theme.
-    # @param version [Float] 
     # @param theme_descriptor_id [Integer] the theme id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -207,14 +200,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [PurchaseItemListResponse]
-    def get_theme_descriptor(version, theme_descriptor_id, opts = {})
-      data, _status_code, _headers = get_theme_descriptor_with_http_info(version, theme_descriptor_id, opts)
+    def get_theme_descriptor(theme_descriptor_id, opts = {})
+      data, _status_code, _headers = get_theme_descriptor_with_http_info(theme_descriptor_id, opts)
       data
     end
 
     # Get Theme
     # Gets a theme.
-    # @param version [Float] 
     # @param theme_descriptor_id [Integer] the theme id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -223,20 +215,16 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(PurchaseItemListResponse, Integer, Hash)>] PurchaseItemListResponse data, response status code and response headers
-    def get_theme_descriptor_with_http_info(version, theme_descriptor_id, opts = {})
+    def get_theme_descriptor_with_http_info(theme_descriptor_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThemeDescriptorApi.get_theme_descriptor ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThemeDescriptorApi.get_theme_descriptor"
       end
       # verify the required parameter 'theme_descriptor_id' is set
       if @api_client.config.client_side_validation && theme_descriptor_id.nil?
         fail ArgumentError, "Missing the required parameter 'theme_descriptor_id' when calling ThemeDescriptorApi.get_theme_descriptor"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/theme/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/theme/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -283,7 +271,6 @@ module OpenapiClient
 
     # Search Themes
     # Searches for themes.
-    # @param version [Float] 
     # @param filter [String] a comma separated list of Ownership
     # @param sort_field [String] the field to sort by. See ThemeDescriptorApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -304,14 +291,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [PurchaseItemListResponse]
-    def get_theme_descriptors(version, filter, sort_field, descending, start, limit, opts = {})
-      data, _status_code, _headers = get_theme_descriptors_with_http_info(version, filter, sort_field, descending, start, limit, opts)
+    def get_theme_descriptors(filter, sort_field, descending, start, limit, opts = {})
+      data, _status_code, _headers = get_theme_descriptors_with_http_info(filter, sort_field, descending, start, limit, opts)
       data
     end
 
     # Search Themes
     # Searches for themes.
-    # @param version [Float] 
     # @param filter [String] a comma separated list of Ownership
     # @param sort_field [String] the field to sort by. See ThemeDescriptorApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -332,13 +318,9 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(PurchaseItemListResponse, Integer, Hash)>] PurchaseItemListResponse data, response status code and response headers
-    def get_theme_descriptors_with_http_info(version, filter, sort_field, descending, start, limit, opts = {})
+    def get_theme_descriptors_with_http_info(filter, sort_field, descending, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThemeDescriptorApi.get_theme_descriptors ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThemeDescriptorApi.get_theme_descriptors"
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
@@ -361,7 +343,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ThemeDescriptorApi.get_theme_descriptors"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/theme/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/theme/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -420,7 +402,6 @@ module OpenapiClient
 
     # Delete Theme
     # Removes a theme.
-    # @param version [Float] 
     # @param theme_descriptor_id [Integer] the theme id to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
@@ -429,14 +410,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def remove_theme_descriptor(version, theme_descriptor_id, opts = {})
-      data, _status_code, _headers = remove_theme_descriptor_with_http_info(version, theme_descriptor_id, opts)
+    def remove_theme_descriptor(theme_descriptor_id, opts = {})
+      data, _status_code, _headers = remove_theme_descriptor_with_http_info(theme_descriptor_id, opts)
       data
     end
 
     # Delete Theme
     # Removes a theme.
-    # @param version [Float] 
     # @param theme_descriptor_id [Integer] the theme id to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
@@ -445,20 +425,16 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_theme_descriptor_with_http_info(version, theme_descriptor_id, opts = {})
+    def remove_theme_descriptor_with_http_info(theme_descriptor_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ThemeDescriptorApi.remove_theme_descriptor ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ThemeDescriptorApi.remove_theme_descriptor"
       end
       # verify the required parameter 'theme_descriptor_id' is set
       if @api_client.config.client_side_validation && theme_descriptor_id.nil?
         fail ArgumentError, "Missing the required parameter 'theme_descriptor_id' when calling ThemeDescriptorApi.remove_theme_descriptor"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/theme/remove'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/theme/remove'
 
       # query parameters
       query_params = opts[:query_params] || {}

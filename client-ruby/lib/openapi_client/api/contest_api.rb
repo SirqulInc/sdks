@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create or Update Contest
     # Creates or updates a contest.
-    # @param version [Float] 
     # @param public_read [Boolean] determines whether the contest&#39;s participants has read permissions
     # @param public_write [Boolean] determines whether the contest&#39;s participants has write permissions
     # @param public_delete [Boolean] determines whether the contest&#39;s participants has delete permissions
@@ -49,14 +48,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [AlbumContestResponse]
-    def add_or_update_album_contest(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, opts = {})
-      data, _status_code, _headers = add_or_update_album_contest_with_http_info(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, opts)
+    def add_or_update_album_contest(public_read, public_write, public_delete, public_add, visibility, include_friend_group, opts = {})
+      data, _status_code, _headers = add_or_update_album_contest_with_http_info(public_read, public_write, public_delete, public_add, visibility, include_friend_group, opts)
       data
     end
 
     # Create or Update Contest
     # Creates or updates a contest.
-    # @param version [Float] 
     # @param public_read [Boolean] determines whether the contest&#39;s participants has read permissions
     # @param public_write [Boolean] determines whether the contest&#39;s participants has write permissions
     # @param public_delete [Boolean] determines whether the contest&#39;s participants has delete permissions
@@ -84,13 +82,9 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(AlbumContestResponse, Integer, Hash)>] AlbumContestResponse data, response status code and response headers
-    def add_or_update_album_contest_with_http_info(version, public_read, public_write, public_delete, public_add, visibility, include_friend_group, opts = {})
+    def add_or_update_album_contest_with_http_info(public_read, public_write, public_delete, public_add, visibility, include_friend_group, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContestApi.add_or_update_album_contest ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ContestApi.add_or_update_album_contest"
       end
       # verify the required parameter 'public_read' is set
       if @api_client.config.client_side_validation && public_read.nil?
@@ -122,7 +116,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'include_friend_group' when calling ContestApi.add_or_update_album_contest"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/album/contest'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/album/contest'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -188,34 +182,28 @@ module OpenapiClient
 
     # Approve Contest
     # Sets the approval status of a contest.
-    # @param version [Float] 
     # @param album_contest_id [Integer] The ID of the album contest
     # @param approval_status [String] The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id A unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def approve_album_contest(version, album_contest_id, approval_status, opts = {})
-      data, _status_code, _headers = approve_album_contest_with_http_info(version, album_contest_id, approval_status, opts)
+    def approve_album_contest(album_contest_id, approval_status, opts = {})
+      data, _status_code, _headers = approve_album_contest_with_http_info(album_contest_id, approval_status, opts)
       data
     end
 
     # Approve Contest
     # Sets the approval status of a contest.
-    # @param version [Float] 
     # @param album_contest_id [Integer] The ID of the album contest
     # @param approval_status [String] The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id A unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def approve_album_contest_with_http_info(version, album_contest_id, approval_status, opts = {})
+    def approve_album_contest_with_http_info(album_contest_id, approval_status, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContestApi.approve_album_contest ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ContestApi.approve_album_contest"
       end
       # verify the required parameter 'album_contest_id' is set
       if @api_client.config.client_side_validation && album_contest_id.nil?
@@ -231,7 +219,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"approval_status\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/album/contest/approve'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/album/contest/approve'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -276,7 +264,6 @@ module OpenapiClient
 
     # Delete Contest
     # Deletes a contest.
-    # @param version [Float] 
     # @param album_contest_id [Integer] the album contest ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -284,14 +271,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def delete_contest(version, album_contest_id, opts = {})
-      data, _status_code, _headers = delete_contest_with_http_info(version, album_contest_id, opts)
+    def delete_contest(album_contest_id, opts = {})
+      data, _status_code, _headers = delete_contest_with_http_info(album_contest_id, opts)
       data
     end
 
     # Delete Contest
     # Deletes a contest.
-    # @param version [Float] 
     # @param album_contest_id [Integer] the album contest ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -299,20 +285,16 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_contest_with_http_info(version, album_contest_id, opts = {})
+    def delete_contest_with_http_info(album_contest_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContestApi.delete_contest ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ContestApi.delete_contest"
       end
       # verify the required parameter 'album_contest_id' is set
       if @api_client.config.client_side_validation && album_contest_id.nil?
         fail ArgumentError, "Missing the required parameter 'album_contest_id' when calling ContestApi.delete_contest"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/album/contest/remove'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/album/contest/remove'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -358,7 +340,6 @@ module OpenapiClient
 
     # Get Contest
     # Gets the contest object including the likes and notes
-    # @param version [Float] 
     # @param album_contest_id [Integer] the album contest ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -366,14 +347,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [AlbumContestResponse]
-    def get_album_contest(version, album_contest_id, opts = {})
-      data, _status_code, _headers = get_album_contest_with_http_info(version, album_contest_id, opts)
+    def get_album_contest(album_contest_id, opts = {})
+      data, _status_code, _headers = get_album_contest_with_http_info(album_contest_id, opts)
       data
     end
 
     # Get Contest
     # Gets the contest object including the likes and notes
-    # @param version [Float] 
     # @param album_contest_id [Integer] the album contest ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique ID given by the device (deviceId or accountId required)
@@ -381,20 +361,16 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(AlbumContestResponse, Integer, Hash)>] AlbumContestResponse data, response status code and response headers
-    def get_album_contest_with_http_info(version, album_contest_id, opts = {})
+    def get_album_contest_with_http_info(album_contest_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContestApi.get_album_contest ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ContestApi.get_album_contest"
       end
       # verify the required parameter 'album_contest_id' is set
       if @api_client.config.client_side_validation && album_contest_id.nil?
         fail ArgumentError, "Missing the required parameter 'album_contest_id' when calling ContestApi.get_album_contest"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/album/contest/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/album/contest/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -440,7 +416,6 @@ module OpenapiClient
 
     # Search Contests
     # Searches on contests.
-    # @param version [Float] 
     # @param filter [String] a comma separated list of Ownership
     # @param sort_field [String] the field to sort by. See AlbumContestApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -462,14 +437,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [AlbumContestListResponse]
-    def get_album_contests(version, filter, sort_field, descending, start, limit, opts = {})
-      data, _status_code, _headers = get_album_contests_with_http_info(version, filter, sort_field, descending, start, limit, opts)
+    def get_album_contests(filter, sort_field, descending, start, limit, opts = {})
+      data, _status_code, _headers = get_album_contests_with_http_info(filter, sort_field, descending, start, limit, opts)
       data
     end
 
     # Search Contests
     # Searches on contests.
-    # @param version [Float] 
     # @param filter [String] a comma separated list of Ownership
     # @param sort_field [String] the field to sort by. See AlbumContestApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -491,13 +465,9 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(AlbumContestListResponse, Integer, Hash)>] AlbumContestListResponse data, response status code and response headers
-    def get_album_contests_with_http_info(version, filter, sort_field, descending, start, limit, opts = {})
+    def get_album_contests_with_http_info(filter, sort_field, descending, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContestApi.get_album_contests ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ContestApi.get_album_contests"
       end
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
@@ -520,7 +490,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ContestApi.get_album_contests"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/album/contest/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/album/contest/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -580,7 +550,6 @@ module OpenapiClient
 
     # Vote on Contest
     # Vote on a collection in a contest.
-    # @param version [Float] 
     # @param album_contest_id [Integer] the album contest ID
     # @param album_id [Integer] the ID of the album to vote on
     # @param [Hash] opts the optional parameters
@@ -590,14 +559,13 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [AlbumContestResponse]
-    def vote_on_album_contest(version, album_contest_id, album_id, opts = {})
-      data, _status_code, _headers = vote_on_album_contest_with_http_info(version, album_contest_id, album_id, opts)
+    def vote_on_album_contest(album_contest_id, album_id, opts = {})
+      data, _status_code, _headers = vote_on_album_contest_with_http_info(album_contest_id, album_id, opts)
       data
     end
 
     # Vote on Contest
     # Vote on a collection in a contest.
-    # @param version [Float] 
     # @param album_contest_id [Integer] the album contest ID
     # @param album_id [Integer] the ID of the album to vote on
     # @param [Hash] opts the optional parameters
@@ -607,13 +575,9 @@ module OpenapiClient
     # @option opts [Float] :latitude latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude longitude used to update the user&#39;s current location
     # @return [Array<(AlbumContestResponse, Integer, Hash)>] AlbumContestResponse data, response status code and response headers
-    def vote_on_album_contest_with_http_info(version, album_contest_id, album_id, opts = {})
+    def vote_on_album_contest_with_http_info(album_contest_id, album_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ContestApi.vote_on_album_contest ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ContestApi.vote_on_album_contest"
       end
       # verify the required parameter 'album_contest_id' is set
       if @api_client.config.client_side_validation && album_contest_id.nil?
@@ -624,7 +588,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'album_id' when calling ContestApi.vote_on_album_contest"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/album/contest/vote'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/album/contest/vote'
 
       # query parameters
       query_params = opts[:query_params] || {}

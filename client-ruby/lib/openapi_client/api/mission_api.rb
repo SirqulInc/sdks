@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Mission
     # Create a user defined mission.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param title [String] The title of the mission
     # @param [Hash] opts the optional parameters
@@ -50,14 +49,13 @@ module OpenapiClient
     # @option opts [String] :locations List of lat/long pairs for mission locations
     # @option opts [String] :radius Comma separated list of radii for locations
     # @return [MissionResponse]
-    def create_mission(version, account_id, title, opts = {})
-      data, _status_code, _headers = create_mission_with_http_info(version, account_id, title, opts)
+    def create_mission(account_id, title, opts = {})
+      data, _status_code, _headers = create_mission_with_http_info(account_id, title, opts)
       data
     end
 
     # Create Mission
     # Create a user defined mission.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param title [String] The title of the mission
     # @param [Hash] opts the optional parameters
@@ -86,13 +84,9 @@ module OpenapiClient
     # @option opts [String] :locations List of lat/long pairs for mission locations
     # @option opts [String] :radius Comma separated list of radii for locations
     # @return [Array<(MissionResponse, Integer, Hash)>] MissionResponse data, response status code and response headers
-    def create_mission_with_http_info(version, account_id, title, opts = {})
+    def create_mission_with_http_info(account_id, title, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.create_mission ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.create_mission"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -103,7 +97,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'title' when calling MissionApi.create_mission"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -170,30 +164,24 @@ module OpenapiClient
 
     # Delete Mission
     # Delete a mission.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param mission_id [Integer] the id of the mission to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_mission(version, account_id, mission_id, opts = {})
-      data, _status_code, _headers = delete_mission_with_http_info(version, account_id, mission_id, opts)
+    def delete_mission(account_id, mission_id, opts = {})
+      data, _status_code, _headers = delete_mission_with_http_info(account_id, mission_id, opts)
       data
     end
 
     # Delete Mission
     # Delete a mission.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param mission_id [Integer] the id of the mission to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_mission_with_http_info(version, account_id, mission_id, opts = {})
+    def delete_mission_with_http_info(account_id, mission_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.delete_mission ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.delete_mission"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -204,7 +192,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'mission_id' when calling MissionApi.delete_mission"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -247,7 +235,6 @@ module OpenapiClient
 
     # Find Missions
     # Get a set of ad filtered by the parameters provided.
-    # @param version [Float] 
     # @param app_key [String] The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
@@ -269,14 +256,13 @@ module OpenapiClient
     # @option opts [String] :mission_ids return only ads from the specified campaigns.
     # @option opts [String] :audience_operator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
     # @return [MissionResponse]
-    def find_missions(version, app_key, opts = {})
-      data, _status_code, _headers = find_missions_with_http_info(version, app_key, opts)
+    def find_missions(app_key, opts = {})
+      data, _status_code, _headers = find_missions_with_http_info(app_key, opts)
       data
     end
 
     # Find Missions
     # Get a set of ad filtered by the parameters provided.
-    # @param version [Float] 
     # @param app_key [String] The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
@@ -298,20 +284,16 @@ module OpenapiClient
     # @option opts [String] :mission_ids return only ads from the specified campaigns.
     # @option opts [String] :audience_operator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
     # @return [Array<(MissionResponse, Integer, Hash)>] MissionResponse data, response status code and response headers
-    def find_missions_with_http_info(version, app_key, opts = {})
+    def find_missions_with_http_info(app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.find_missions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.find_missions"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
         fail ArgumentError, "Missing the required parameter 'app_key' when calling MissionApi.find_missions"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/find'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/find'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -371,32 +353,26 @@ module OpenapiClient
 
     # Get Mission
     # Get a mission.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param mission_id [Integer] The id of the mission to return.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_creative Return creatives associated with the mission when true
     # @return [MissionResponse]
-    def get_mission(version, account_id, mission_id, opts = {})
-      data, _status_code, _headers = get_mission_with_http_info(version, account_id, mission_id, opts)
+    def get_mission(account_id, mission_id, opts = {})
+      data, _status_code, _headers = get_mission_with_http_info(account_id, mission_id, opts)
       data
     end
 
     # Get Mission
     # Get a mission.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param mission_id [Integer] The id of the mission to return.
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_creative Return creatives associated with the mission when true
     # @return [Array<(MissionResponse, Integer, Hash)>] MissionResponse data, response status code and response headers
-    def get_mission_with_http_info(version, account_id, mission_id, opts = {})
+    def get_mission_with_http_info(account_id, mission_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.get_mission ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.get_mission"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -407,7 +383,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'mission_id' when calling MissionApi.get_mission"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -451,7 +427,6 @@ module OpenapiClient
 
     # Import Mission
     # Create a mission using a source item such as an offer location.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param latitude [Float] The current location of the requesting device
     # @param longitude [Float] The current location of the requesting device
@@ -462,14 +437,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The total number of records to return. Default is 20.
     # @option opts [String] :ad_size the size of the ad
     # @return [SirqulResponse]
-    def import_mission(version, account_id, latitude, longitude, app_key, opts = {})
-      data, _status_code, _headers = import_mission_with_http_info(version, account_id, latitude, longitude, app_key, opts)
+    def import_mission(account_id, latitude, longitude, app_key, opts = {})
+      data, _status_code, _headers = import_mission_with_http_info(account_id, latitude, longitude, app_key, opts)
       data
     end
 
     # Import Mission
     # Create a mission using a source item such as an offer location.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param latitude [Float] The current location of the requesting device
     # @param longitude [Float] The current location of the requesting device
@@ -480,13 +454,9 @@ module OpenapiClient
     # @option opts [Integer] :limit The total number of records to return. Default is 20.
     # @option opts [String] :ad_size the size of the ad
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def import_mission_with_http_info(version, account_id, latitude, longitude, app_key, opts = {})
+    def import_mission_with_http_info(account_id, latitude, longitude, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.import_mission ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.import_mission"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -509,7 +479,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"ad_size\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/import'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/import'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -558,32 +528,26 @@ module OpenapiClient
 
     # Search Mission Formats
     # Searches on pre-defined mission formats
-    # @param version [Float] 
     # @param start [Integer] The starting index in the result set to return. Default is 0.
     # @param limit [Integer] The total number of records to return. Default is 20.
     # @param active_only [Boolean] Determines whether to return only active results. Default is false.
     # @param [Hash] opts the optional parameters
     # @return [Array<MissionFormatResponse>]
-    def search_mission_formats(version, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_mission_formats_with_http_info(version, start, limit, active_only, opts)
+    def search_mission_formats(start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_mission_formats_with_http_info(start, limit, active_only, opts)
       data
     end
 
     # Search Mission Formats
     # Searches on pre-defined mission formats
-    # @param version [Float] 
     # @param start [Integer] The starting index in the result set to return. Default is 0.
     # @param limit [Integer] The total number of records to return. Default is 20.
     # @param active_only [Boolean] Determines whether to return only active results. Default is false.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<MissionFormatResponse>, Integer, Hash)>] Array<MissionFormatResponse> data, response status code and response headers
-    def search_mission_formats_with_http_info(version, start, limit, active_only, opts = {})
+    def search_mission_formats_with_http_info(start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.search_mission_formats ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.search_mission_formats"
       end
       # verify the required parameter 'start' is set
       if @api_client.config.client_side_validation && start.nil?
@@ -598,7 +562,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling MissionApi.search_mission_formats"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/format/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/format/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -642,7 +606,6 @@ module OpenapiClient
 
     # Search Missions
     # Get the list missions available to the account.  
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword Filter by keyword
@@ -656,14 +619,13 @@ module OpenapiClient
     # @option opts [String] :sort_field The field to sort the search on (for example TITLE)
     # @option opts [Boolean] :descending Whether to sort in descending order (default true)
     # @return [Array<MissionResponse>]
-    def search_missions(version, account_id, opts = {})
-      data, _status_code, _headers = search_missions_with_http_info(version, account_id, opts)
+    def search_missions(account_id, opts = {})
+      data, _status_code, _headers = search_missions_with_http_info(account_id, opts)
       data
     end
 
     # Search Missions
     # Get the list missions available to the account.  
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword Filter by keyword
@@ -677,20 +639,16 @@ module OpenapiClient
     # @option opts [String] :sort_field The field to sort the search on (for example TITLE)
     # @option opts [Boolean] :descending Whether to sort in descending order (default true)
     # @return [Array<(Array<MissionResponse>, Integer, Hash)>] Array<MissionResponse> data, response status code and response headers
-    def search_missions_with_http_info(version, account_id, opts = {})
+    def search_missions_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.search_missions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.search_missions"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling MissionApi.search_missions"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -742,7 +700,6 @@ module OpenapiClient
 
     # Search Missions by Billable Entity
     # Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword Filter by keyword
@@ -755,14 +712,13 @@ module OpenapiClient
     # @option opts [String] :sort_field The field to sort the search on (for example TITLE)
     # @option opts [Boolean] :descending Whether to sort in descending order (default true)
     # @return [Array<MissionResponse>]
-    def search_missions_by_billable_entity(version, account_id, opts = {})
-      data, _status_code, _headers = search_missions_by_billable_entity_with_http_info(version, account_id, opts)
+    def search_missions_by_billable_entity(account_id, opts = {})
+      data, _status_code, _headers = search_missions_by_billable_entity_with_http_info(account_id, opts)
       data
     end
 
     # Search Missions by Billable Entity
     # Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword Filter by keyword
@@ -775,20 +731,16 @@ module OpenapiClient
     # @option opts [String] :sort_field The field to sort the search on (for example TITLE)
     # @option opts [Boolean] :descending Whether to sort in descending order (default true)
     # @return [Array<(Array<MissionResponse>, Integer, Hash)>] Array<MissionResponse> data, response status code and response headers
-    def search_missions_by_billable_entity_with_http_info(version, account_id, opts = {})
+    def search_missions_by_billable_entity_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.search_missions_by_billable_entity ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.search_missions_by_billable_entity"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling MissionApi.search_missions_by_billable_entity"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/searchByBillableEntity'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/searchByBillableEntity'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -839,7 +791,6 @@ module OpenapiClient
 
     # Update Mission
     # Update a mission.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param mission_id [Integer] The id of the mission to update.
     # @param [Hash] opts the optional parameters
@@ -867,14 +818,13 @@ module OpenapiClient
     # @option opts [String] :locations List of lat/long pairs for mission locations
     # @option opts [String] :radius Comma separated list of radii for locations
     # @return [MissionResponse]
-    def update_mission(version, account_id, mission_id, opts = {})
-      data, _status_code, _headers = update_mission_with_http_info(version, account_id, mission_id, opts)
+    def update_mission(account_id, mission_id, opts = {})
+      data, _status_code, _headers = update_mission_with_http_info(account_id, mission_id, opts)
       data
     end
 
     # Update Mission
     # Update a mission.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param mission_id [Integer] The id of the mission to update.
     # @param [Hash] opts the optional parameters
@@ -902,13 +852,9 @@ module OpenapiClient
     # @option opts [String] :locations List of lat/long pairs for mission locations
     # @option opts [String] :radius Comma separated list of radii for locations
     # @return [Array<(MissionResponse, Integer, Hash)>] MissionResponse data, response status code and response headers
-    def update_mission_with_http_info(version, account_id, mission_id, opts = {})
+    def update_mission_with_http_info(account_id, mission_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionApi.update_mission ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionApi.update_mission"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -919,7 +865,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'mission_id' when calling MissionApi.update_mission"
       end
       # resource path
-      local_var_path = '/api/{version}/mission/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

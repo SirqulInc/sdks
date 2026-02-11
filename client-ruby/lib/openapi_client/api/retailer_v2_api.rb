@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Get Retailer
     # Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-    # @param version [Float] 
     # @param retailer_id [Integer] the id of the retailer
     # @param active_only [Boolean] whether to return results that are active only or all
     # @param [Hash] opts the optional parameters
@@ -30,14 +29,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination (default to 0)
     # @option opts [Integer] :limit the limit of the index and/or pagination (default to 20)
     # @return [SirqulResponse]
-    def get_retaokiler(version, retailer_id, active_only, opts = {})
-      data, _status_code, _headers = get_retaokiler_with_http_info(version, retailer_id, active_only, opts)
+    def get_retaokiler(retailer_id, active_only, opts = {})
+      data, _status_code, _headers = get_retaokiler_with_http_info(retailer_id, active_only, opts)
       data
     end
 
     # Get Retailer
     # Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-    # @param version [Float] 
     # @param retailer_id [Integer] the id of the retailer
     # @param active_only [Boolean] whether to return results that are active only or all
     # @param [Hash] opts the optional parameters
@@ -46,13 +44,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination (default to 0)
     # @option opts [Integer] :limit the limit of the index and/or pagination (default to 20)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def get_retaokiler_with_http_info(version, retailer_id, active_only, opts = {})
+    def get_retaokiler_with_http_info(retailer_id, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerV2Api.get_retaokiler ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerV2Api.get_retaokiler"
       end
       # verify the required parameter 'retailer_id' is set
       if @api_client.config.client_side_validation && retailer_id.nil?
@@ -63,7 +57,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling RetailerV2Api.get_retaokiler"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Mission Invite
     # Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -29,14 +28,13 @@ module OpenapiClient
     # @option opts [String] :join_code code to be entered for user to join the mission
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [MissionResponse]
-    def create_mission_invite(version, opts = {})
-      data, _status_code, _headers = create_mission_invite_with_http_info(version, opts)
+    def create_mission_invite(opts = {})
+      data, _status_code, _headers = create_mission_invite_with_http_info(opts)
       data
     end
 
     # Create Mission Invite
     # Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -44,16 +42,12 @@ module OpenapiClient
     # @option opts [String] :join_code code to be entered for user to join the mission
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [Array<(MissionResponse, Integer, Hash)>] MissionResponse data, response status code and response headers
-    def create_mission_invite_with_http_info(version, opts = {})
+    def create_mission_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionInviteApi.create_mission_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionInviteApi.create_mission_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/mission/invite/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/invite/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -99,7 +93,6 @@ module OpenapiClient
 
     # Delete Mission Invite
     # Update the mission invite status to quit.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -107,14 +100,13 @@ module OpenapiClient
     # @option opts [Integer] :mission_invite_id The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [SirqulResponse]
-    def delete_mission_invite(version, opts = {})
-      data, _status_code, _headers = delete_mission_invite_with_http_info(version, opts)
+    def delete_mission_invite(opts = {})
+      data, _status_code, _headers = delete_mission_invite_with_http_info(opts)
       data
     end
 
     # Delete Mission Invite
     # Update the mission invite status to quit.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -122,16 +114,12 @@ module OpenapiClient
     # @option opts [Integer] :mission_invite_id The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_mission_invite_with_http_info(version, opts = {})
+    def delete_mission_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionInviteApi.delete_mission_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionInviteApi.delete_mission_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/mission/invite/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/invite/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -177,7 +165,6 @@ module OpenapiClient
 
     # Get Mission Invite
     # Get the mission invite. An account can only be invited to a mission one time.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -186,14 +173,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @option opts [String] :include_scores include the scores with the mission
     # @return [MissionResponse]
-    def get_mission_invite(version, opts = {})
-      data, _status_code, _headers = get_mission_invite_with_http_info(version, opts)
+    def get_mission_invite(opts = {})
+      data, _status_code, _headers = get_mission_invite_with_http_info(opts)
       data
     end
 
     # Get Mission Invite
     # Get the mission invite. An account can only be invited to a mission one time.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -202,16 +188,12 @@ module OpenapiClient
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @option opts [String] :include_scores include the scores with the mission
     # @return [Array<(MissionResponse, Integer, Hash)>] MissionResponse data, response status code and response headers
-    def get_mission_invite_with_http_info(version, opts = {})
+    def get_mission_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionInviteApi.get_mission_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionInviteApi.get_mission_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/mission/invite/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/invite/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -258,7 +240,6 @@ module OpenapiClient
 
     # Search Mission Invites
     # Get a list of mission invites that the account has.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -274,14 +255,13 @@ module OpenapiClient
     # @option opts [Boolean] :filter_by_billable filter results by the account&#39;s billable
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [Array<MissionResponse>]
-    def search_mission_invites(version, opts = {})
-      data, _status_code, _headers = search_mission_invites_with_http_info(version, opts)
+    def search_mission_invites(opts = {})
+      data, _status_code, _headers = search_mission_invites_with_http_info(opts)
       data
     end
 
     # Search Mission Invites
     # Get a list of mission invites that the account has.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -297,16 +277,12 @@ module OpenapiClient
     # @option opts [Boolean] :filter_by_billable filter results by the account&#39;s billable
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [Array<(Array<MissionResponse>, Integer, Hash)>] Array<MissionResponse> data, response status code and response headers
-    def search_mission_invites_with_http_info(version, opts = {})
+    def search_mission_invites_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionInviteApi.search_mission_invites ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionInviteApi.search_mission_invites"
-      end
       # resource path
-      local_var_path = '/api/{version}/mission/invite/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/invite/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -360,7 +336,6 @@ module OpenapiClient
 
     # Update Mission Invite
     # Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -374,14 +349,13 @@ module OpenapiClient
     # @option opts [Integer] :permissionable_id The id of the content being submitted.
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [MissionResponse]
-    def update_mission_invite(version, opts = {})
-      data, _status_code, _headers = update_mission_invite_with_http_info(version, opts)
+    def update_mission_invite(opts = {})
+      data, _status_code, _headers = update_mission_invite_with_http_info(opts)
       data
     end
 
     # Update Mission Invite
     # Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required).
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
@@ -395,16 +369,12 @@ module OpenapiClient
     # @option opts [Integer] :permissionable_id The id of the content being submitted.
     # @option opts [Boolean] :include_game_data Include the game level data with the mission.
     # @return [Array<(MissionResponse, Integer, Hash)>] MissionResponse data, response status code and response headers
-    def update_mission_invite_with_http_info(version, opts = {})
+    def update_mission_invite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MissionInviteApi.update_mission_invite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MissionInviteApi.update_mission_invite"
-      end
       # resource path
-      local_var_path = '/api/{version}/mission/invite/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/mission/invite/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

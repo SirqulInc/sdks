@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Attend Event
     #  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id (deviceId or accountId required)
@@ -34,14 +33,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The location of the status update
     # @option opts [Float] :longitude The location of the status update
     # @return [OfferResponse]
-    def attend_event(version, opts = {})
-      data, _status_code, _headers = attend_event_with_http_info(version, opts)
+    def attend_event(opts = {})
+      data, _status_code, _headers = attend_event_with_http_info(opts)
       data
     end
 
     # Attend Event
     #  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id (deviceId or accountId required)
@@ -54,16 +52,12 @@ module OpenapiClient
     # @option opts [Float] :latitude The location of the status update
     # @option opts [Float] :longitude The location of the status update
     # @return [Array<(OfferResponse, Integer, Hash)>] OfferResponse data, response status code and response headers
-    def attend_event_with_http_info(version, opts = {})
+    def attend_event_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventApi.attend_event ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EventApi.attend_event"
-      end
       # resource path
-      local_var_path = '/api/{version}/event/attend'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/event/attend'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -114,7 +108,6 @@ module OpenapiClient
 
     # Create Event
     # Create a private event to share with associates.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param title [String] The event title
     # @param [Hash] opts the optional parameters
@@ -129,14 +122,13 @@ module OpenapiClient
     # @option opts [Integer] :redeemable_end The event end date/time
     # @option opts [String] :meta_data external custom client defined data
     # @return [OfferResponse]
-    def create_event(version, account_id, title, opts = {})
-      data, _status_code, _headers = create_event_with_http_info(version, account_id, title, opts)
+    def create_event(account_id, title, opts = {})
+      data, _status_code, _headers = create_event_with_http_info(account_id, title, opts)
       data
     end
 
     # Create Event
     # Create a private event to share with associates.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param title [String] The event title
     # @param [Hash] opts the optional parameters
@@ -151,13 +143,9 @@ module OpenapiClient
     # @option opts [Integer] :redeemable_end The event end date/time
     # @option opts [String] :meta_data external custom client defined data
     # @return [Array<(OfferResponse, Integer, Hash)>] OfferResponse data, response status code and response headers
-    def create_event_with_http_info(version, account_id, title, opts = {})
+    def create_event_with_http_info(account_id, title, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventApi.create_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EventApi.create_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -168,7 +156,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'title' when calling EventApi.create_event"
       end
       # resource path
-      local_var_path = '/api/{version}/event/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/event/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -221,30 +209,24 @@ module OpenapiClient
 
     # Delete Event
     # Delete an event that the user has permissions to.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param event_id [Integer] the id of the event to update
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_event(version, account_id, event_id, opts = {})
-      data, _status_code, _headers = delete_event_with_http_info(version, account_id, event_id, opts)
+    def delete_event(account_id, event_id, opts = {})
+      data, _status_code, _headers = delete_event_with_http_info(account_id, event_id, opts)
       data
     end
 
     # Delete Event
     # Delete an event that the user has permissions to.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param event_id [Integer] the id of the event to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_event_with_http_info(version, account_id, event_id, opts = {})
+    def delete_event_with_http_info(account_id, event_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventApi.delete_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EventApi.delete_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -255,7 +237,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'event_id' when calling EventApi.delete_event"
       end
       # resource path
-      local_var_path = '/api/{version}/event/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/event/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -298,30 +280,24 @@ module OpenapiClient
 
     # Get Event
     # Get an event.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param event_id [Integer] The id of the event to return
     # @param [Hash] opts the optional parameters
     # @return [OfferResponse]
-    def get_event(version, account_id, event_id, opts = {})
-      data, _status_code, _headers = get_event_with_http_info(version, account_id, event_id, opts)
+    def get_event(account_id, event_id, opts = {})
+      data, _status_code, _headers = get_event_with_http_info(account_id, event_id, opts)
       data
     end
 
     # Get Event
     # Get an event.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param event_id [Integer] The id of the event to return
     # @param [Hash] opts the optional parameters
     # @return [Array<(OfferResponse, Integer, Hash)>] OfferResponse data, response status code and response headers
-    def get_event_with_http_info(version, account_id, event_id, opts = {})
+    def get_event_with_http_info(account_id, event_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventApi.get_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EventApi.get_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -332,7 +308,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'event_id' when calling EventApi.get_event"
       end
       # resource path
-      local_var_path = '/api/{version}/event/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/event/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -375,7 +351,6 @@ module OpenapiClient
 
     # Search Event Attendance
     # Searches on event type transactions. This can be used to see who is attending an event.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -397,14 +372,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination
     # @option opts [Integer] :limit The limit for pagination
     # @return [Array<EventAttendanceResponse>]
-    def search_event_transactions(version, opts = {})
-      data, _status_code, _headers = search_event_transactions_with_http_info(version, opts)
+    def search_event_transactions(opts = {})
+      data, _status_code, _headers = search_event_transactions_with_http_info(opts)
       data
     end
 
     # Search Event Attendance
     # Searches on event type transactions. This can be used to see who is attending an event.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -426,20 +400,16 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination
     # @option opts [Integer] :limit The limit for pagination
     # @return [Array<(Array<EventAttendanceResponse>, Integer, Hash)>] Array<EventAttendanceResponse> data, response status code and response headers
-    def search_event_transactions_with_http_info(version, opts = {})
+    def search_event_transactions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventApi.search_event_transactions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EventApi.search_event_transactions"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "ACTIVATED", "EXPIRES", "TITLE", "SUBTITLE", "DETAILS", "OFFER_TYPE", "SPECIAL_OFFER_TYPE", "OFFER_VISIBILITY", "REDEEMABLE_START", "REDEEMABLE_END", "CUSTOMER_ID", "CUSTOMER_DISPLAY", "RETAILER_ID", "RETAILER_NAME", "RETAILER_LOCATION_ID", "RETAILER_LOCATION_NAME", "BILLABLE_ENTITY_ID", "BILLABLE_ENTITY_NAME", "RESPONSIBLE_DISPLAY"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/event/attendance/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/event/attendance/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -499,7 +469,6 @@ module OpenapiClient
 
     # Search Events
     # Searches on events that the account has access to.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword used to search
@@ -515,14 +484,13 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<OfferShortResponse>]
-    def search_events(version, account_id, opts = {})
-      data, _status_code, _headers = search_events_with_http_info(version, account_id, opts)
+    def search_events(account_id, opts = {})
+      data, _status_code, _headers = search_events_with_http_info(account_id, opts)
       data
     end
 
     # Search Events
     # Searches on events that the account has access to.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword used to search
@@ -538,13 +506,9 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<(Array<OfferShortResponse>, Integer, Hash)>] Array<OfferShortResponse> data, response status code and response headers
-    def search_events_with_http_info(version, account_id, opts = {})
+    def search_events_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventApi.search_events ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EventApi.search_events"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -555,7 +519,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/event/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/event/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -609,7 +573,6 @@ module OpenapiClient
 
     # Update Event
     # Update a private event to share with associates.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param event_id [Integer] The id of the event to update
     # @param [Hash] opts the optional parameters
@@ -624,14 +587,13 @@ module OpenapiClient
     # @option opts [Integer] :redeemable_start The event start date/time
     # @option opts [Integer] :redeemable_end The event end date/time
     # @return [OfferResponse]
-    def update_event(version, account_id, event_id, opts = {})
-      data, _status_code, _headers = update_event_with_http_info(version, account_id, event_id, opts)
+    def update_event(account_id, event_id, opts = {})
+      data, _status_code, _headers = update_event_with_http_info(account_id, event_id, opts)
       data
     end
 
     # Update Event
     # Update a private event to share with associates.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param event_id [Integer] The id of the event to update
     # @param [Hash] opts the optional parameters
@@ -646,13 +608,9 @@ module OpenapiClient
     # @option opts [Integer] :redeemable_start The event start date/time
     # @option opts [Integer] :redeemable_end The event end date/time
     # @return [Array<(OfferResponse, Integer, Hash)>] OfferResponse data, response status code and response headers
-    def update_event_with_http_info(version, account_id, event_id, opts = {})
+    def update_event_with_http_info(account_id, event_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EventApi.update_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EventApi.update_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -663,7 +621,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'event_id' when calling EventApi.update_event"
       end
       # resource path
-      local_var_path = '/api/{version}/event/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/event/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

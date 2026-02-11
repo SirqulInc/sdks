@@ -21,31 +21,25 @@ module OpenapiClient
     end
     # Create Program
     # Create a new program
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Program] :body 
     # @return [Program]
-    def create_program(version, opts = {})
-      data, _status_code, _headers = create_program_with_http_info(version, opts)
+    def create_program(opts = {})
+      data, _status_code, _headers = create_program_with_http_info(opts)
       data
     end
 
     # Create Program
     # Create a new program
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Program] :body 
     # @return [Array<(Program, Integer, Hash)>] Program data, response status code and response headers
-    def create_program_with_http_info(version, opts = {})
+    def create_program_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProgramApi.create_program ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ProgramApi.create_program"
-      end
       # resource path
-      local_var_path = '/api/{version}/program'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/program'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -86,35 +80,29 @@ module OpenapiClient
 
     # Delete Program
     # Delete an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_program(version, id, opts = {})
-      delete_program_with_http_info(version, id, opts)
+    def delete_program(id, opts = {})
+      delete_program_with_http_info(id, opts)
       nil
     end
 
     # Delete Program
     # Delete an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_program_with_http_info(version, id, opts = {})
+    def delete_program_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProgramApi.delete_program ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ProgramApi.delete_program"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ProgramApi.delete_program"
       end
       # resource path
-      local_var_path = '/api/{version}/program/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/program/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -153,35 +141,29 @@ module OpenapiClient
 
     # Get Program
     # Get an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @return [Program]
-    def get_program(version, id, opts = {})
-      data, _status_code, _headers = get_program_with_http_info(version, id, opts)
+    def get_program(id, opts = {})
+      data, _status_code, _headers = get_program_with_http_info(id, opts)
       data
     end
 
     # Get Program
     # Get an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @return [Array<(Program, Integer, Hash)>] Program data, response status code and response headers
-    def get_program_with_http_info(version, id, opts = {})
+    def get_program_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProgramApi.get_program ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ProgramApi.get_program"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ProgramApi.get_program"
       end
       # resource path
-      local_var_path = '/api/{version}/program/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/program/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -222,37 +204,31 @@ module OpenapiClient
 
     # Update Program
     # Update an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @option opts [Program] :body 
     # @return [Program]
-    def post_program(version, id, opts = {})
-      data, _status_code, _headers = post_program_with_http_info(version, id, opts)
+    def post_program(id, opts = {})
+      data, _status_code, _headers = post_program_with_http_info(id, opts)
       data
     end
 
     # Update Program
     # Update an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @option opts [Program] :body 
     # @return [Array<(Program, Integer, Hash)>] Program data, response status code and response headers
-    def post_program_with_http_info(version, id, opts = {})
+    def post_program_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProgramApi.post_program ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ProgramApi.post_program"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ProgramApi.post_program"
       end
       # resource path
-      local_var_path = '/api/{version}/program/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/program/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -293,37 +269,31 @@ module OpenapiClient
 
     # Update Program
     # Update an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @option opts [Program] :body 
     # @return [Program]
-    def put_program(version, id, opts = {})
-      data, _status_code, _headers = put_program_with_http_info(version, id, opts)
+    def put_program(id, opts = {})
+      data, _status_code, _headers = put_program_with_http_info(id, opts)
       data
     end
 
     # Update Program
     # Update an existing program
-    # @param version [Float] 
     # @param id [Integer] the id of the program
     # @param [Hash] opts the optional parameters
     # @option opts [Program] :body 
     # @return [Array<(Program, Integer, Hash)>] Program data, response status code and response headers
-    def put_program_with_http_info(version, id, opts = {})
+    def put_program_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProgramApi.put_program ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ProgramApi.put_program"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ProgramApi.put_program"
       end
       # resource path
-      local_var_path = '/api/{version}/program/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/program/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -364,7 +334,6 @@ module OpenapiClient
 
     # Search Programs
     # Search for programs
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -373,14 +342,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to filter results by
     # @return [Array<Program>]
-    def search_programs(version, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_programs_with_http_info(version, sort_field, descending, start, limit, active_only, opts)
+    def search_programs(sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_programs_with_http_info(sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Programs
     # Search for programs
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -389,13 +357,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to filter results by
     # @return [Array<(Array<Program>, Integer, Hash)>] Array<Program> data, response status code and response headers
-    def search_programs_with_http_info(version, sort_field, descending, start, limit, active_only, opts = {})
+    def search_programs_with_http_info(sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ProgramApi.search_programs ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ProgramApi.search_programs"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -418,7 +382,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling ProgramApi.search_programs"
       end
       # resource path
-      local_var_path = '/api/{version}/program'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/program'
 
       # query parameters
       query_params = opts[:query_params] || {}

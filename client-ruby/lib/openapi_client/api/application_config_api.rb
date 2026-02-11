@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create AppConfig
     # Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param app_key [String] The application key that the newly created applicationConfig will be associated to
     # @param config_version [String] The application configuration, has to be unique within the application
@@ -31,14 +30,13 @@ module OpenapiClient
     # @option opts [Integer] :retailer_location_id The retailer location id for retailer location specific configurations
     # @option opts [String] :udid The device udid for device specific configurations
     # @return [ApplicationConfigResponse]
-    def create_application_config(version, account_id, app_key, config_version, asset_id, opts = {})
-      data, _status_code, _headers = create_application_config_with_http_info(version, account_id, app_key, config_version, asset_id, opts)
+    def create_application_config(account_id, app_key, config_version, asset_id, opts = {})
+      data, _status_code, _headers = create_application_config_with_http_info(account_id, app_key, config_version, asset_id, opts)
       data
     end
 
     # Create AppConfig
     # Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param app_key [String] The application key that the newly created applicationConfig will be associated to
     # @param config_version [String] The application configuration, has to be unique within the application
@@ -48,13 +46,9 @@ module OpenapiClient
     # @option opts [Integer] :retailer_location_id The retailer location id for retailer location specific configurations
     # @option opts [String] :udid The device udid for device specific configurations
     # @return [Array<(ApplicationConfigResponse, Integer, Hash)>] ApplicationConfigResponse data, response status code and response headers
-    def create_application_config_with_http_info(version, account_id, app_key, config_version, asset_id, opts = {})
+    def create_application_config_with_http_info(account_id, app_key, config_version, asset_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationConfigApi.create_application_config ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationConfigApi.create_application_config"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -73,7 +67,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'asset_id' when calling ApplicationConfigApi.create_application_config"
       end
       # resource path
-      local_var_path = '/api/{version}/appconfig/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/appconfig/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -121,30 +115,24 @@ module OpenapiClient
 
     # Delete AppConfig
     # Mark the application configuration for deletion.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param config_id [Integer] The config ID of the application configuration to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_application_config(version, account_id, config_id, opts = {})
-      data, _status_code, _headers = delete_application_config_with_http_info(version, account_id, config_id, opts)
+    def delete_application_config(account_id, config_id, opts = {})
+      data, _status_code, _headers = delete_application_config_with_http_info(account_id, config_id, opts)
       data
     end
 
     # Delete AppConfig
     # Mark the application configuration for deletion.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param config_id [Integer] The config ID of the application configuration to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_application_config_with_http_info(version, account_id, config_id, opts = {})
+    def delete_application_config_with_http_info(account_id, config_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationConfigApi.delete_application_config ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationConfigApi.delete_application_config"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -155,7 +143,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'config_id' when calling ApplicationConfigApi.delete_application_config"
       end
       # resource path
-      local_var_path = '/api/{version}/appconfig/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/appconfig/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -198,30 +186,24 @@ module OpenapiClient
 
     # Get AppConfig
     # Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param config_id [Integer] The config ID of the application configuration
     # @param [Hash] opts the optional parameters
     # @return [ApplicationConfigResponse]
-    def get_application_config(version, account_id, config_id, opts = {})
-      data, _status_code, _headers = get_application_config_with_http_info(version, account_id, config_id, opts)
+    def get_application_config(account_id, config_id, opts = {})
+      data, _status_code, _headers = get_application_config_with_http_info(account_id, config_id, opts)
       data
     end
 
     # Get AppConfig
     # Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param config_id [Integer] The config ID of the application configuration
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApplicationConfigResponse, Integer, Hash)>] ApplicationConfigResponse data, response status code and response headers
-    def get_application_config_with_http_info(version, account_id, config_id, opts = {})
+    def get_application_config_with_http_info(account_id, config_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationConfigApi.get_application_config ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationConfigApi.get_application_config"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -232,7 +214,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'config_id' when calling ApplicationConfigApi.get_application_config"
       end
       # resource path
-      local_var_path = '/api/{version}/appconfig/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/appconfig/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -275,7 +257,6 @@ module OpenapiClient
 
     # Get AppConfig by Version
     # Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param config_version [String] The version of the application configuration
     # @param [Hash] opts the optional parameters
@@ -284,14 +265,13 @@ module OpenapiClient
     # @option opts [String] :udid Only returns only returns the config that matches the given device udid
     # @option opts [Boolean] :allow_older_versions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (default to false)
     # @return [ApplicationConfigResponse]
-    def get_application_config_by_config_version(version, app_key, config_version, opts = {})
-      data, _status_code, _headers = get_application_config_by_config_version_with_http_info(version, app_key, config_version, opts)
+    def get_application_config_by_config_version(app_key, config_version, opts = {})
+      data, _status_code, _headers = get_application_config_by_config_version_with_http_info(app_key, config_version, opts)
       data
     end
 
     # Get AppConfig by Version
     # Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-    # @param version [Float] 
     # @param app_key [String] The application key
     # @param config_version [String] The version of the application configuration
     # @param [Hash] opts the optional parameters
@@ -300,13 +280,9 @@ module OpenapiClient
     # @option opts [String] :udid Only returns only returns the config that matches the given device udid
     # @option opts [Boolean] :allow_older_versions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (default to false)
     # @return [Array<(ApplicationConfigResponse, Integer, Hash)>] ApplicationConfigResponse data, response status code and response headers
-    def get_application_config_by_config_version_with_http_info(version, app_key, config_version, opts = {})
+    def get_application_config_by_config_version_with_http_info(app_key, config_version, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationConfigApi.get_application_config_by_config_version ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationConfigApi.get_application_config_by_config_version"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -317,7 +293,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'config_version' when calling ApplicationConfigApi.get_application_config_by_config_version"
       end
       # resource path
-      local_var_path = '/api/{version}/appconfig/getbyversion'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/appconfig/getbyversion'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -364,7 +340,6 @@ module OpenapiClient
 
     # Search AppConfigs
     # Gets all versions of application configurations in a particular app by the given appKey.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
@@ -377,14 +352,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit for pagination (There is a hard limit of 100) (default to 20)
     # @return [Array<ApplicationConfigResponse>]
-    def search_application_config(version, account_id, opts = {})
-      data, _status_code, _headers = search_application_config_with_http_info(version, account_id, opts)
+    def search_application_config(account_id, opts = {})
+      data, _status_code, _headers = search_application_config_with_http_info(account_id, opts)
       data
     end
 
     # Search AppConfigs
     # Gets all versions of application configurations in a particular app by the given appKey.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
@@ -397,20 +371,16 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit for pagination (There is a hard limit of 100) (default to 20)
     # @return [Array<(Array<ApplicationConfigResponse>, Integer, Hash)>] Array<ApplicationConfigResponse> data, response status code and response headers
-    def search_application_config_with_http_info(version, account_id, opts = {})
+    def search_application_config_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationConfigApi.search_application_config ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationConfigApi.search_application_config"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling ApplicationConfigApi.search_application_config"
       end
       # resource path
-      local_var_path = '/api/{version}/appconfig/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/appconfig/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -461,7 +431,6 @@ module OpenapiClient
 
     # Update AppConfig
     # pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param config_id [Integer] The config ID of the application configuration to update
     # @param [Hash] opts the optional parameters
@@ -472,14 +441,13 @@ module OpenapiClient
     # @option opts [Integer] :retailer_location_id The retailer location id for retailer location specific configurations
     # @option opts [String] :udid The device udid for device specific configurations
     # @return [ApplicationConfigResponse]
-    def update_application_config(version, account_id, config_id, opts = {})
-      data, _status_code, _headers = update_application_config_with_http_info(version, account_id, config_id, opts)
+    def update_application_config(account_id, config_id, opts = {})
+      data, _status_code, _headers = update_application_config_with_http_info(account_id, config_id, opts)
       data
     end
 
     # Update AppConfig
     # pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-    # @param version [Float] 
     # @param account_id [Integer] The account ID of the user
     # @param config_id [Integer] The config ID of the application configuration to update
     # @param [Hash] opts the optional parameters
@@ -490,13 +458,9 @@ module OpenapiClient
     # @option opts [Integer] :retailer_location_id The retailer location id for retailer location specific configurations
     # @option opts [String] :udid The device udid for device specific configurations
     # @return [Array<(ApplicationConfigResponse, Integer, Hash)>] ApplicationConfigResponse data, response status code and response headers
-    def update_application_config_with_http_info(version, account_id, config_id, opts = {})
+    def update_application_config_with_http_info(account_id, config_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ApplicationConfigApi.update_application_config ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ApplicationConfigApi.update_application_config"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -507,7 +471,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'config_id' when calling ApplicationConfigApi.update_application_config"
       end
       # resource path
-      local_var_path = '/api/{version}/appconfig/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/appconfig/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

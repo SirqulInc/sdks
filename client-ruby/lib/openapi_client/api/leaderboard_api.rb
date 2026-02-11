@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     # Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user creating the leaderboard.
     # @option opts [String] :app_key The application key
@@ -37,14 +36,13 @@ module OpenapiClient
     # @option opts [String] :description leaderboard&#39;s description
     # @option opts [String] :meta_data custom meta data for the leaderboard
     # @return [LeaderboardResponse]
-    def create_leaderboard(version, opts = {})
-      data, _status_code, _headers = create_leaderboard_with_http_info(version, opts)
+    def create_leaderboard(opts = {})
+      data, _status_code, _headers = create_leaderboard_with_http_info(opts)
       data
     end
 
     # Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     # Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user creating the leaderboard.
     # @option opts [String] :app_key The application key
@@ -60,16 +58,12 @@ module OpenapiClient
     # @option opts [String] :description leaderboard&#39;s description
     # @option opts [String] :meta_data custom meta data for the leaderboard
     # @return [Array<(LeaderboardResponse, Integer, Hash)>] LeaderboardResponse data, response status code and response headers
-    def create_leaderboard_with_http_info(version, opts = {})
+    def create_leaderboard_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeaderboardApi.create_leaderboard ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LeaderboardApi.create_leaderboard"
-      end
       # resource path
-      local_var_path = '/api/{version}/leaderboard/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/leaderboard/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -123,37 +117,31 @@ module OpenapiClient
 
     # Delete the Leader Board
     # Removes a leader board id.
-    # @param version [Float] 
     # @param leaderboard_id [Integer] The leaderboard id to delete.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user making the request.
     # @return [SirqulResponse]
-    def delete_leaderboard(version, leaderboard_id, opts = {})
-      data, _status_code, _headers = delete_leaderboard_with_http_info(version, leaderboard_id, opts)
+    def delete_leaderboard(leaderboard_id, opts = {})
+      data, _status_code, _headers = delete_leaderboard_with_http_info(leaderboard_id, opts)
       data
     end
 
     # Delete the Leader Board
     # Removes a leader board id.
-    # @param version [Float] 
     # @param leaderboard_id [Integer] The leaderboard id to delete.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user making the request.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_leaderboard_with_http_info(version, leaderboard_id, opts = {})
+    def delete_leaderboard_with_http_info(leaderboard_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeaderboardApi.delete_leaderboard ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LeaderboardApi.delete_leaderboard"
       end
       # verify the required parameter 'leaderboard_id' is set
       if @api_client.config.client_side_validation && leaderboard_id.nil?
         fail ArgumentError, "Missing the required parameter 'leaderboard_id' when calling LeaderboardApi.delete_leaderboard"
       end
       # resource path
-      local_var_path = '/api/{version}/leaderboard/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/leaderboard/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -196,39 +184,33 @@ module OpenapiClient
 
     # Read a leaderboard by id and retrieve the matching ranking list
     # Read a leaderboard by id and retrieve the matching ranking list
-    # @param version [Float] 
     # @param leaderboard_id [Integer] The leaderboard id.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id A valid account.
     # @option opts [Boolean] :include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list
     # @return [LeaderboardResponse]
-    def get_leaderboard(version, leaderboard_id, opts = {})
-      data, _status_code, _headers = get_leaderboard_with_http_info(version, leaderboard_id, opts)
+    def get_leaderboard(leaderboard_id, opts = {})
+      data, _status_code, _headers = get_leaderboard_with_http_info(leaderboard_id, opts)
       data
     end
 
     # Read a leaderboard by id and retrieve the matching ranking list
     # Read a leaderboard by id and retrieve the matching ranking list
-    # @param version [Float] 
     # @param leaderboard_id [Integer] The leaderboard id.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id A valid account.
     # @option opts [Boolean] :include_full_ranking_list set to true if need to return the leaderboard&#39;s full ranking list
     # @return [Array<(LeaderboardResponse, Integer, Hash)>] LeaderboardResponse data, response status code and response headers
-    def get_leaderboard_with_http_info(version, leaderboard_id, opts = {})
+    def get_leaderboard_with_http_info(leaderboard_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeaderboardApi.get_leaderboard ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LeaderboardApi.get_leaderboard"
       end
       # verify the required parameter 'leaderboard_id' is set
       if @api_client.config.client_side_validation && leaderboard_id.nil?
         fail ArgumentError, "Missing the required parameter 'leaderboard_id' when calling LeaderboardApi.get_leaderboard"
       end
       # resource path
-      local_var_path = '/api/{version}/leaderboard/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/leaderboard/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -272,7 +254,6 @@ module OpenapiClient
 
     # Search leaderboard and retrieve the matching ranking list
     # Search leaderboard and retrieve the matching ranking list
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user requesting the search.
     # @option opts [String] :app_key The application key.
@@ -287,14 +268,13 @@ module OpenapiClient
     # @option opts [Integer] :start Start the result set at some index.
     # @option opts [Integer] :limit Limit the result to some number.
     # @return [LeaderboardResponse]
-    def search_leaderboards(version, opts = {})
-      data, _status_code, _headers = search_leaderboards_with_http_info(version, opts)
+    def search_leaderboards(opts = {})
+      data, _status_code, _headers = search_leaderboards_with_http_info(opts)
       data
     end
 
     # Search leaderboard and retrieve the matching ranking list
     # Search leaderboard and retrieve the matching ranking list
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user requesting the search.
     # @option opts [String] :app_key The application key.
@@ -309,16 +289,12 @@ module OpenapiClient
     # @option opts [Integer] :start Start the result set at some index.
     # @option opts [Integer] :limit Limit the result to some number.
     # @return [Array<(LeaderboardResponse, Integer, Hash)>] LeaderboardResponse data, response status code and response headers
-    def search_leaderboards_with_http_info(version, opts = {})
+    def search_leaderboards_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeaderboardApi.search_leaderboards ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LeaderboardApi.search_leaderboards"
-      end
       # resource path
-      local_var_path = '/api/{version}/leaderboard/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/leaderboard/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -371,7 +347,6 @@ module OpenapiClient
 
     # Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     # Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    # @param version [Float] 
     # @param leaderboard_id [Integer] The leaderboard id to update.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user updating the leaderboard.
@@ -389,14 +364,13 @@ module OpenapiClient
     # @option opts [String] :description leaderboard&#39;s description
     # @option opts [String] :meta_data custom meta data for the leaderboard
     # @return [LeaderboardResponse]
-    def update_leaderboard(version, leaderboard_id, opts = {})
-      data, _status_code, _headers = update_leaderboard_with_http_info(version, leaderboard_id, opts)
+    def update_leaderboard(leaderboard_id, opts = {})
+      data, _status_code, _headers = update_leaderboard_with_http_info(leaderboard_id, opts)
       data
     end
 
     # Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     # Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-    # @param version [Float] 
     # @param leaderboard_id [Integer] The leaderboard id to update.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user updating the leaderboard.
@@ -414,20 +388,16 @@ module OpenapiClient
     # @option opts [String] :description leaderboard&#39;s description
     # @option opts [String] :meta_data custom meta data for the leaderboard
     # @return [Array<(LeaderboardResponse, Integer, Hash)>] LeaderboardResponse data, response status code and response headers
-    def update_leaderboard_with_http_info(version, leaderboard_id, opts = {})
+    def update_leaderboard_with_http_info(leaderboard_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LeaderboardApi.update_leaderboard ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LeaderboardApi.update_leaderboard"
       end
       # verify the required parameter 'leaderboard_id' is set
       if @api_client.config.client_side_validation && leaderboard_id.nil?
         fail ArgumentError, "Missing the required parameter 'leaderboard_id' when calling LeaderboardApi.update_leaderboard"
       end
       # resource path
-      local_var_path = '/api/{version}/leaderboard/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/leaderboard/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

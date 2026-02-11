@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Listing
     # Creates a listing.
-    # @param version [Float] 
     # @param account_id [Integer] the user&#39;s account ID
     # @param name [String] the name of the listing
     # @param [Hash] opts the optional parameters
@@ -38,14 +37,13 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets the active flag
     # @option opts [String] :meta_data external custom client defined data
     # @return [ListingFullResponse]
-    def create_listing(version, account_id, name, opts = {})
-      data, _status_code, _headers = create_listing_with_http_info(version, account_id, name, opts)
+    def create_listing(account_id, name, opts = {})
+      data, _status_code, _headers = create_listing_with_http_info(account_id, name, opts)
       data
     end
 
     # Create Listing
     # Creates a listing.
-    # @param version [Float] 
     # @param account_id [Integer] the user&#39;s account ID
     # @param name [String] the name of the listing
     # @param [Hash] opts the optional parameters
@@ -62,13 +60,9 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets the active flag
     # @option opts [String] :meta_data external custom client defined data
     # @return [Array<(ListingFullResponse, Integer, Hash)>] ListingFullResponse data, response status code and response headers
-    def create_listing_with_http_info(version, account_id, name, opts = {})
+    def create_listing_with_http_info(account_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListingApi.create_listing ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ListingApi.create_listing"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -79,7 +73,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'name' when calling ListingApi.create_listing"
       end
       # resource path
-      local_var_path = '/api/{version}/listing/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/listing/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -134,30 +128,24 @@ module OpenapiClient
 
     # Delete Listing
     # Delete a listing.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param listing_id [Integer] the id of the listing to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_listing(version, account_id, listing_id, opts = {})
-      data, _status_code, _headers = delete_listing_with_http_info(version, account_id, listing_id, opts)
+    def delete_listing(account_id, listing_id, opts = {})
+      data, _status_code, _headers = delete_listing_with_http_info(account_id, listing_id, opts)
       data
     end
 
     # Delete Listing
     # Delete a listing.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param listing_id [Integer] the id of the listing to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_listing_with_http_info(version, account_id, listing_id, opts = {})
+    def delete_listing_with_http_info(account_id, listing_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListingApi.delete_listing ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ListingApi.delete_listing"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -168,7 +156,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'listing_id' when calling ListingApi.delete_listing"
       end
       # resource path
-      local_var_path = '/api/{version}/listing/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/listing/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -211,35 +199,29 @@ module OpenapiClient
 
     # Get Listing
     # Get a listing by id.
-    # @param version [Float] 
     # @param listing_id [Integer] the id of the listing to get
     # @param [Hash] opts the optional parameters
     # @return [ListingFullResponse]
-    def get_listing(version, listing_id, opts = {})
-      data, _status_code, _headers = get_listing_with_http_info(version, listing_id, opts)
+    def get_listing(listing_id, opts = {})
+      data, _status_code, _headers = get_listing_with_http_info(listing_id, opts)
       data
     end
 
     # Get Listing
     # Get a listing by id.
-    # @param version [Float] 
     # @param listing_id [Integer] the id of the listing to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(ListingFullResponse, Integer, Hash)>] ListingFullResponse data, response status code and response headers
-    def get_listing_with_http_info(version, listing_id, opts = {})
+    def get_listing_with_http_info(listing_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListingApi.get_listing ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ListingApi.get_listing"
       end
       # verify the required parameter 'listing_id' is set
       if @api_client.config.client_side_validation && listing_id.nil?
         fail ArgumentError, "Missing the required parameter 'listing_id' when calling ListingApi.get_listing"
       end
       # resource path
-      local_var_path = '/api/{version}/listing/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/listing/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -281,7 +263,6 @@ module OpenapiClient
 
     # Search Listings
     # Search for event listings from the start time to end time
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @option opts [String] :keyword search the event name and description for this keyword
@@ -299,14 +280,13 @@ module OpenapiClient
     # @option opts [String] :external_id2 secondary external identifier used by a third party
     # @option opts [String] :external_group_id external group identifier used by a third party
     # @return [Array<ListingResponse>]
-    def search_listing(version, opts = {})
-      data, _status_code, _headers = search_listing_with_http_info(version, opts)
+    def search_listing(opts = {})
+      data, _status_code, _headers = search_listing_with_http_info(opts)
       data
     end
 
     # Search Listings
     # Search for event listings from the start time to end time
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @option opts [String] :keyword search the event name and description for this keyword
@@ -324,16 +304,12 @@ module OpenapiClient
     # @option opts [String] :external_id2 secondary external identifier used by a third party
     # @option opts [String] :external_group_id external group identifier used by a third party
     # @return [Array<(Array<ListingResponse>, Integer, Hash)>] Array<ListingResponse> data, response status code and response headers
-    def search_listing_with_http_info(version, opts = {})
+    def search_listing_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListingApi.search_listing ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ListingApi.search_listing"
-      end
       # resource path
-      local_var_path = '/api/{version}/listing/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/listing/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -389,7 +365,6 @@ module OpenapiClient
 
     # Summary Listing
     # Search for a list of summary listings from the start time up to 8 days out.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @option opts [Integer] :start_date the start date to search from
@@ -397,14 +372,13 @@ module OpenapiClient
     # @option opts [Integer] :days_to_include how far out to search, in days (default to 15)
     # @option opts [Boolean] :use_listing_order_ids determines whether to use configured listing order ids (default to true)
     # @return [Array<ListingGroupResponse>]
-    def summary_listing(version, opts = {})
-      data, _status_code, _headers = summary_listing_with_http_info(version, opts)
+    def summary_listing(opts = {})
+      data, _status_code, _headers = summary_listing_with_http_info(opts)
       data
     end
 
     # Summary Listing
     # Search for a list of summary listings from the start time up to 8 days out.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @option opts [Integer] :start_date the start date to search from
@@ -412,16 +386,12 @@ module OpenapiClient
     # @option opts [Integer] :days_to_include how far out to search, in days (default to 15)
     # @option opts [Boolean] :use_listing_order_ids determines whether to use configured listing order ids (default to true)
     # @return [Array<(Array<ListingGroupResponse>, Integer, Hash)>] Array<ListingGroupResponse> data, response status code and response headers
-    def summary_listing_with_http_info(version, opts = {})
+    def summary_listing_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListingApi.summary_listing ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ListingApi.summary_listing"
-      end
       # resource path
-      local_var_path = '/api/{version}/listing/summary'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/listing/summary'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -467,7 +437,6 @@ module OpenapiClient
 
     # Update Listing
     # Updates a listing.
-    # @param version [Float] 
     # @param account_id [Integer] the user&#39;s account ID
     # @param listing_id [Integer] the listing to update
     # @param [Hash] opts the optional parameters
@@ -485,14 +454,13 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets the active flag
     # @option opts [String] :meta_data external custom client defined data
     # @return [ListingFullResponse]
-    def update_listing(version, account_id, listing_id, opts = {})
-      data, _status_code, _headers = update_listing_with_http_info(version, account_id, listing_id, opts)
+    def update_listing(account_id, listing_id, opts = {})
+      data, _status_code, _headers = update_listing_with_http_info(account_id, listing_id, opts)
       data
     end
 
     # Update Listing
     # Updates a listing.
-    # @param version [Float] 
     # @param account_id [Integer] the user&#39;s account ID
     # @param listing_id [Integer] the listing to update
     # @param [Hash] opts the optional parameters
@@ -510,13 +478,9 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets the active flag
     # @option opts [String] :meta_data external custom client defined data
     # @return [Array<(ListingFullResponse, Integer, Hash)>] ListingFullResponse data, response status code and response headers
-    def update_listing_with_http_info(version, account_id, listing_id, opts = {})
+    def update_listing_with_http_info(account_id, listing_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListingApi.update_listing ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ListingApi.update_listing"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -527,7 +491,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'listing_id' when calling ListingApi.update_listing"
       end
       # resource path
-      local_var_path = '/api/{version}/listing/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/listing/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

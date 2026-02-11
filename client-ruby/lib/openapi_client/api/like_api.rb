@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Like
     # Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-    # @param version [Float] 
     # @param likable_type [String] The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     # @param likable_id [Integer] The id of the likable object
     # @param [Hash] opts the optional parameters
@@ -36,14 +35,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [LikableResponse]
-    def register_like(version, likable_type, likable_id, opts = {})
-      data, _status_code, _headers = register_like_with_http_info(version, likable_type, likable_id, opts)
+    def register_like(likable_type, likable_id, opts = {})
+      data, _status_code, _headers = register_like_with_http_info(likable_type, likable_id, opts)
       data
     end
 
     # Create Like
     # Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-    # @param version [Float] 
     # @param likable_type [String] The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     # @param likable_id [Integer] The id of the likable object
     # @param [Hash] opts the optional parameters
@@ -58,13 +56,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [Array<(LikableResponse, Integer, Hash)>] LikableResponse data, response status code and response headers
-    def register_like_with_http_info(version, likable_type, likable_id, opts = {})
+    def register_like_with_http_info(likable_type, likable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LikeApi.register_like ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LikeApi.register_like"
       end
       # verify the required parameter 'likable_type' is set
       if @api_client.config.client_side_validation && likable_type.nil?
@@ -75,7 +69,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'likable_id' when calling LikeApi.register_like"
       end
       # resource path
-      local_var_path = '/api/{version}/like'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/like'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -128,7 +122,6 @@ module OpenapiClient
 
     # Delete Like
     # Removes a like. This will make the user \"neutral\".
-    # @param version [Float] 
     # @param likable_type [String] The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     # @param likable_id [Integer] The id of the likable object
     # @param [Hash] opts the optional parameters
@@ -137,14 +130,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [LikableResponse]
-    def remove_like(version, likable_type, likable_id, opts = {})
-      data, _status_code, _headers = remove_like_with_http_info(version, likable_type, likable_id, opts)
+    def remove_like(likable_type, likable_id, opts = {})
+      data, _status_code, _headers = remove_like_with_http_info(likable_type, likable_id, opts)
       data
     end
 
     # Delete Like
     # Removes a like. This will make the user \&quot;neutral\&quot;.
-    # @param version [Float] 
     # @param likable_type [String] The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     # @param likable_id [Integer] The id of the likable object
     # @param [Hash] opts the optional parameters
@@ -153,13 +145,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current location of the user
     # @option opts [Float] :longitude The current location of the user
     # @return [Array<(LikableResponse, Integer, Hash)>] LikableResponse data, response status code and response headers
-    def remove_like_with_http_info(version, likable_type, likable_id, opts = {})
+    def remove_like_with_http_info(likable_type, likable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LikeApi.remove_like ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LikeApi.remove_like"
       end
       # verify the required parameter 'likable_type' is set
       if @api_client.config.client_side_validation && likable_type.nil?
@@ -170,7 +158,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'likable_id' when calling LikeApi.remove_like"
       end
       # resource path
-      local_var_path = '/api/{version}/like/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/like/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -217,7 +205,6 @@ module OpenapiClient
 
     # Search Likes
     # Search for likes on a likable object.
-    # @param version [Float] 
     # @param likable_type [String] The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     # @param likable_id [Integer] The id of the likable object
     # @param [Hash] opts the optional parameters
@@ -231,14 +218,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [SearchResponse]
-    def search_likes(version, likable_type, likable_id, opts = {})
-      data, _status_code, _headers = search_likes_with_http_info(version, likable_type, likable_id, opts)
+    def search_likes(likable_type, likable_id, opts = {})
+      data, _status_code, _headers = search_likes_with_http_info(likable_type, likable_id, opts)
       data
     end
 
     # Search Likes
     # Search for likes on a likable object.
-    # @param version [Float] 
     # @param likable_type [String] The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
     # @param likable_id [Integer] The id of the likable object
     # @param [Hash] opts the optional parameters
@@ -252,13 +238,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [Array<(SearchResponse, Integer, Hash)>] SearchResponse data, response status code and response headers
-    def search_likes_with_http_info(version, likable_type, likable_id, opts = {})
+    def search_likes_with_http_info(likable_type, likable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LikeApi.search_likes ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LikeApi.search_likes"
       end
       # verify the required parameter 'likable_type' is set
       if @api_client.config.client_side_validation && likable_type.nil?
@@ -269,7 +251,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'likable_id' when calling LikeApi.search_likes"
       end
       # resource path
-      local_var_path = '/api/{version}/like/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/like/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

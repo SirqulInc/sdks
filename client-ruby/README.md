@@ -63,7 +63,6 @@ Please follow the [installation](#installation) procedure and then run the follo
 require 'openapi_client'
 
 api_instance = OpenapiClient::AMQPApi.new
-version = 3.16 # Float | 
 app_key = 'app_key_example' # String | The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 name = 'name_example' # String | The name of the queue to connect to
 hostname = 'hostname_example' # String | The hostname of the server the queue is hosted on
@@ -83,7 +82,7 @@ opts = {
 
 begin
   #Create Consumer
-  result = api_instance.consumer_create(version, app_key, name, hostname, username, password, data_mapping, opts)
+  result = api_instance.consumer_create(app_key, name, hostname, username, password, data_mapping, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling AMQPApi->consumer_create: #{e}"
@@ -93,693 +92,693 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://dev.sirqul.com/api/3.18*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenapiClient::AMQPApi* | [**consumer_create**](docs/AMQPApi.md#consumer_create) | **POST** /api/{version}/queue/consumer/create | Create Consumer
-*OpenapiClient::AMQPApi* | [**consumer_update**](docs/AMQPApi.md#consumer_update) | **POST** /api/{version}/queue/consumer/update | Update Consumer
-*OpenapiClient::AMQPApi* | [**queue_create**](docs/AMQPApi.md#queue_create) | **POST** /api/{version}/queue/create | Create Queue
-*OpenapiClient::AMQPApi* | [**queue_delete**](docs/AMQPApi.md#queue_delete) | **POST** /api/{version}/queue/delete | Delete Queue
-*OpenapiClient::AMQPApi* | [**queue_get**](docs/AMQPApi.md#queue_get) | **GET** /api/{version}/queue/get | Get Queue
-*OpenapiClient::AMQPApi* | [**queue_publish**](docs/AMQPApi.md#queue_publish) | **POST** /api/{version}/queue/publish | Publish Queue
-*OpenapiClient::AMQPApi* | [**queue_search**](docs/AMQPApi.md#queue_search) | **GET** /api/{version}/queue/search | Search Queue
-*OpenapiClient::AMQPApi* | [**queue_update**](docs/AMQPApi.md#queue_update) | **POST** /api/{version}/queue/update | Update Queue
-*OpenapiClient::AccountApi* | [**account_location_search**](docs/AccountApi.md#account_location_search) | **GET** /api/{version}/account/search | Search Accounts by Location
-*OpenapiClient::AccountApi* | [**block_account**](docs/AccountApi.md#block_account) | **POST** /api/{version}/account/block | Block Account
-*OpenapiClient::AccountApi* | [**create_account**](docs/AccountApi.md#create_account) | **POST** /api/{version}/account/create | Create Account
-*OpenapiClient::AccountApi* | [**edit_account**](docs/AccountApi.md#edit_account) | **POST** /api/{version}/account/profile/update | Update Account
-*OpenapiClient::AccountApi* | [**edit_username**](docs/AccountApi.md#edit_username) | **POST** /api/{version}/account/username/update | Update Username and Email
-*OpenapiClient::AccountApi* | [**get_account**](docs/AccountApi.md#get_account) | **GET** /api/{version}/account/profile/get | Get Account
-*OpenapiClient::AccountApi* | [**get_profile_assets**](docs/AccountApi.md#get_profile_assets) | **GET** /api/{version}/account/profile/assets | Get Profile Assets
-*OpenapiClient::AccountApi* | [**get_referral_list**](docs/AccountApi.md#get_referral_list) | **GET** /api/{version}/account/referral/list | Search Accounts
-*OpenapiClient::AccountApi* | [**get_settings**](docs/AccountApi.md#get_settings) | **GET** /api/{version}/account/settings/get | Get Account Settings
-*OpenapiClient::AccountApi* | [**login_delegate**](docs/AccountApi.md#login_delegate) | **POST** /api/{version}/account/login/delegate | Login as Account
-*OpenapiClient::AccountApi* | [**login_general**](docs/AccountApi.md#login_general) | **POST** /api/{version}/account/login | Login Account
-*OpenapiClient::AccountApi* | [**login_username**](docs/AccountApi.md#login_username) | **POST** /api/{version}/account/get | Login Account (Username)
-*OpenapiClient::AccountApi* | [**logout**](docs/AccountApi.md#logout) | **POST** /api/{version}/account/logout | Logout Account
-*OpenapiClient::AccountApi* | [**merge_account**](docs/AccountApi.md#merge_account) | **POST** /api/{version}/account/merge | Merge Account
-*OpenapiClient::AccountApi* | [**password_change**](docs/AccountApi.md#password_change) | **POST** /api/{version}/account/passwordchange | Update Password
-*OpenapiClient::AccountApi* | [**password_reset**](docs/AccountApi.md#password_reset) | **POST** /api/{version}/account/passwordreset | Reset Password
-*OpenapiClient::AccountApi* | [**request_password_reset**](docs/AccountApi.md#request_password_reset) | **POST** /api/{version}/account/requestpasswordreset | Request Password Reset
-*OpenapiClient::AccountApi* | [**request_validate_account**](docs/AccountApi.md#request_validate_account) | **POST** /api/{version}/account/requestValidateAccount | Send Validation Request
-*OpenapiClient::AccountApi* | [**search_accounts**](docs/AccountApi.md#search_accounts) | **GET** /api/{version}/account/profile/search | Search Accounts
-*OpenapiClient::AccountApi* | [**secure_login**](docs/AccountApi.md#secure_login) | **POST** /api/{version}/account/login/validate | Login Account (Encrypted Username)
-*OpenapiClient::AccountApi* | [**secure_signup**](docs/AccountApi.md#secure_signup) | **POST** /api/{version}/account/create/validate | Create Account (Encrypted Username)
-*OpenapiClient::AccountApi* | [**set_match_token**](docs/AccountApi.md#set_match_token) | **POST** /api/{version}/consumer/profile/matchToken | Save Match Token
-*OpenapiClient::AccountApi* | [**update_actve_status**](docs/AccountApi.md#update_actve_status) | **POST** /api/{version}/account/active/update | Update Account Active Status
-*OpenapiClient::AccountApi* | [**update_location**](docs/AccountApi.md#update_location) | **POST** /api/{version}/account/location/update | Update Location
-*OpenapiClient::AccountApi* | [**update_settings**](docs/AccountApi.md#update_settings) | **POST** /api/{version}/account/settings/update | Update Account Settings
-*OpenapiClient::AccountApi* | [**validate_account_signup**](docs/AccountApi.md#validate_account_signup) | **POST** /api/{version}/account/validateAccountSignup | Save Validation Status
-*OpenapiClient::AccountApi* | [**validate_password_reset**](docs/AccountApi.md#validate_password_reset) | **POST** /api/{version}/account/validatepasswordreset | Validate Password Reset Token
-*OpenapiClient::AchievementApi* | [**api_version_achievement_tier_search_post**](docs/AchievementApi.md#api_version_achievement_tier_search_post) | **POST** /api/{version}/achievement/tier/search | Searches an Achievement Tier
-*OpenapiClient::AchievementApi* | [**create_achievement**](docs/AchievementApi.md#create_achievement) | **POST** /api/{version}/achievement/create | Create Achievement
-*OpenapiClient::AchievementApi* | [**create_achievement_tier**](docs/AchievementApi.md#create_achievement_tier) | **POST** /api/{version}/achievement/tier/create | Create Achievement Tier
-*OpenapiClient::AchievementApi* | [**delete_achievement**](docs/AchievementApi.md#delete_achievement) | **POST** /api/{version}/achievement/delete | Delete Achievement
-*OpenapiClient::AchievementApi* | [**delete_achievement_tier**](docs/AchievementApi.md#delete_achievement_tier) | **POST** /api/{version}/achievement/tier/delete | Delete Achievement Tier
-*OpenapiClient::AchievementApi* | [**get_achievement**](docs/AchievementApi.md#get_achievement) | **GET** /api/{version}/achievement/get | Get Achievement
-*OpenapiClient::AchievementApi* | [**get_achievement_tier**](docs/AchievementApi.md#get_achievement_tier) | **POST** /api/{version}/achievement/tier/get | Gets an achievement tier
-*OpenapiClient::AchievementApi* | [**get_user_achievements**](docs/AchievementApi.md#get_user_achievements) | **GET** /api/{version}/achievement/progress/get | Get Achievement Progress
-*OpenapiClient::AchievementApi* | [**list_achievement_tags**](docs/AchievementApi.md#list_achievement_tags) | **GET** /api/{version}/achievement/tag/list | List Achievement Tags
-*OpenapiClient::AchievementApi* | [**list_achievements**](docs/AchievementApi.md#list_achievements) | **GET** /api/{version}/achievement/list | List Achievements
-*OpenapiClient::AchievementApi* | [**search_achievements**](docs/AchievementApi.md#search_achievements) | **GET** /api/{version}/achievement/search | Search Achievements
-*OpenapiClient::AchievementApi* | [**update_achievement**](docs/AchievementApi.md#update_achievement) | **POST** /api/{version}/achievement/update | Update Achievement
-*OpenapiClient::AchievementApi* | [**update_achievement_tier**](docs/AchievementApi.md#update_achievement_tier) | **POST** /api/{version}/achievement/tier/update | Update Achievement Tier
-*OpenapiClient::AchievementApi* | [**update_user_achievement**](docs/AchievementApi.md#update_user_achievement) | **POST** /api/{version}/achievement/progress/update | Update Achievement Progress
-*OpenapiClient::ActivityApi* | [**create_entity_reference**](docs/ActivityApi.md#create_entity_reference) | **POST** /api/{version}/entity/reference | Create an entity reference.
-*OpenapiClient::AlbumApi* | [**add_album_collection**](docs/AlbumApi.md#add_album_collection) | **POST** /api/{version}/album/create | Create Album
-*OpenapiClient::AlbumApi* | [**add_album_users**](docs/AlbumApi.md#add_album_users) | **POST** /api/{version}/album/user/add | Add Album Users
-*OpenapiClient::AlbumApi* | [**approve_album**](docs/AlbumApi.md#approve_album) | **POST** /api/{version}/album/approve | Approve Album
-*OpenapiClient::AlbumApi* | [**get_album_collection**](docs/AlbumApi.md#get_album_collection) | **GET** /api/{version}/album/get |  Get Album
-*OpenapiClient::AlbumApi* | [**leave_album**](docs/AlbumApi.md#leave_album) | **POST** /api/{version}/album/user/leave | Leave Album
-*OpenapiClient::AlbumApi* | [**remove_album**](docs/AlbumApi.md#remove_album) | **POST** /api/{version}/album/delete | Delete Album
-*OpenapiClient::AlbumApi* | [**remove_album_users**](docs/AlbumApi.md#remove_album_users) | **POST** /api/{version}/album/user/delete | Remove Album Users
-*OpenapiClient::AlbumApi* | [**search_albums**](docs/AlbumApi.md#search_albums) | **GET** /api/{version}/album/search | Search Albums
-*OpenapiClient::AlbumApi* | [**update_album_collection**](docs/AlbumApi.md#update_album_collection) | **POST** /api/{version}/album/update | Update Album
-*OpenapiClient::AnalyticsApi* | [**activities**](docs/AnalyticsApi.md#activities) | **GET** /api/{version}/analytics/useractivity | Get User Activity
-*OpenapiClient::AnalyticsApi* | [**aggregated_filtered_usage**](docs/AnalyticsApi.md#aggregated_filtered_usage) | **GET** /api/{version}/analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
-*OpenapiClient::AnalyticsApi* | [**filtered_usage**](docs/AnalyticsApi.md#filtered_usage) | **GET** /api/{version}/analytics/filteredUsage | Get Filtered Usage
-*OpenapiClient::AnalyticsApi* | [**usage**](docs/AnalyticsApi.md#usage) | **POST** /api/{version}/analytics/usage | Create Usage Record
-*OpenapiClient::AnalyticsApi* | [**usage_batch**](docs/AnalyticsApi.md#usage_batch) | **POST** /api/{version}/analytics/usage/batch | Create Multiple Usage Records
-*OpenapiClient::AppDataApi* | [**get_app_data**](docs/AppDataApi.md#get_app_data) | **GET** /api/{version}/app/get | Get App Data
-*OpenapiClient::AppDataApi* | [**post_app_data**](docs/AppDataApi.md#post_app_data) | **POST** /api/{version}/app/post | Create App Data
-*OpenapiClient::AppDataApi* | [**regen_app_data**](docs/AppDataApi.md#regen_app_data) | **POST** /api/{version}/app/regen | Regenerate App Data
-*OpenapiClient::ApplicationApi* | [**create_application**](docs/ApplicationApi.md#create_application) | **POST** /api/{version}/application/create | Create Application
-*OpenapiClient::ApplicationApi* | [**create_application_placement**](docs/ApplicationApi.md#create_application_placement) | **POST** /api/{version}/application/placement/create | Create Ad Placement
-*OpenapiClient::ApplicationApi* | [**delete_application**](docs/ApplicationApi.md#delete_application) | **POST** /api/{version}/application/delete | Delete Application
-*OpenapiClient::ApplicationApi* | [**delete_application_placement**](docs/ApplicationApi.md#delete_application_placement) | **POST** /api/{version}/application/placement/delete | Delete Ad Placement
-*OpenapiClient::ApplicationApi* | [**get_application**](docs/ApplicationApi.md#get_application) | **GET** /api/{version}/application/get | Get Application
-*OpenapiClient::ApplicationApi* | [**get_application_placement**](docs/ApplicationApi.md#get_application_placement) | **GET** /api/{version}/application/placement/get | Get Ad Placement
-*OpenapiClient::ApplicationApi* | [**get_application_versions**](docs/ApplicationApi.md#get_application_versions) | **GET** /api/{version}/application/versions | Get API versions
-*OpenapiClient::ApplicationApi* | [**get_unique_users_by_app**](docs/ApplicationApi.md#get_unique_users_by_app) | **GET** /api/{version}/application/users | Search Application Users
-*OpenapiClient::ApplicationApi* | [**list_applications**](docs/ApplicationApi.md#list_applications) | **GET** /api/{version}/application/list | List Applications
-*OpenapiClient::ApplicationApi* | [**search_application_placement**](docs/ApplicationApi.md#search_application_placement) | **GET** /api/{version}/application/placement/search | Search for Ad Placements
-*OpenapiClient::ApplicationApi* | [**search_application_settings**](docs/ApplicationApi.md#search_application_settings) | **GET** /api/{version}/application/settings/search | Search for Application Settings
-*OpenapiClient::ApplicationApi* | [**search_applications**](docs/ApplicationApi.md#search_applications) | **GET** /api/{version}/application/search | Search Applications
-*OpenapiClient::ApplicationApi* | [**update_application**](docs/ApplicationApi.md#update_application) | **POST** /api/{version}/application/update | Update Application
-*OpenapiClient::ApplicationApi* | [**update_application_active**](docs/ApplicationApi.md#update_application_active) | **POST** /api/{version}/application/active | Change Appliation Status
-*OpenapiClient::ApplicationApi* | [**update_application_placement**](docs/ApplicationApi.md#update_application_placement) | **POST** /api/{version}/application/placement/update | Update Ad Placement
-*OpenapiClient::ApplicationApi* | [**upload_application_certificate**](docs/ApplicationApi.md#upload_application_certificate) | **POST** /api/{version}/application/certificate/create | Create Application Certificate
-*OpenapiClient::ApplicationConfigApi* | [**create_application_config**](docs/ApplicationConfigApi.md#create_application_config) | **POST** /api/{version}/appconfig/create | Create AppConfig
-*OpenapiClient::ApplicationConfigApi* | [**delete_application_config**](docs/ApplicationConfigApi.md#delete_application_config) | **POST** /api/{version}/appconfig/delete | Delete AppConfig
-*OpenapiClient::ApplicationConfigApi* | [**get_application_config**](docs/ApplicationConfigApi.md#get_application_config) | **GET** /api/{version}/appconfig/get | Get AppConfig
-*OpenapiClient::ApplicationConfigApi* | [**get_application_config_by_config_version**](docs/ApplicationConfigApi.md#get_application_config_by_config_version) | **GET** /api/{version}/appconfig/getbyversion | Get AppConfig by Version
-*OpenapiClient::ApplicationConfigApi* | [**search_application_config**](docs/ApplicationConfigApi.md#search_application_config) | **GET** /api/{version}/appconfig/search | Search AppConfigs
-*OpenapiClient::ApplicationConfigApi* | [**update_application_config**](docs/ApplicationConfigApi.md#update_application_config) | **POST** /api/{version}/appconfig/update | Update AppConfig
-*OpenapiClient::AssetApi* | [**asset_download**](docs/AssetApi.md#asset_download) | **GET** /api/{version}/asset/download/{filename} | Download Asset
-*OpenapiClient::AssetApi* | [**asset_morph**](docs/AssetApi.md#asset_morph) | **POST** /api/{version}/asset/morph | Convert Offer to Creative
-*OpenapiClient::AssetApi* | [**create_asset**](docs/AssetApi.md#create_asset) | **POST** /api/{version}/asset/create | Create Asset
-*OpenapiClient::AssetApi* | [**delete_asset**](docs/AssetApi.md#delete_asset) | **POST** /api/{version}/asset/delete | Delete Asset
-*OpenapiClient::AssetApi* | [**get_asset**](docs/AssetApi.md#get_asset) | **GET** /api/{version}/asset/get | Get Asset
-*OpenapiClient::AssetApi* | [**remove_asset**](docs/AssetApi.md#remove_asset) | **POST** /api/{version}/asset/remove | Remove Asset from Collection
-*OpenapiClient::AssetApi* | [**search_assets**](docs/AssetApi.md#search_assets) | **GET** /api/{version}/asset/search | Search Assets
-*OpenapiClient::AssetApi* | [**update_asset**](docs/AssetApi.md#update_asset) | **POST** /api/{version}/asset/update | Update Asset
-*OpenapiClient::AssignmentApi* | [**assigment_assignee_account_search**](docs/AssignmentApi.md#assigment_assignee_account_search) | **GET** /api/{version}/assignment/assignee/search | Search Assignment Assignees
-*OpenapiClient::AssignmentApi* | [**assignment_create**](docs/AssignmentApi.md#assignment_create) | **POST** /api/{version}/assignment/create | Create Assignment
-*OpenapiClient::AssignmentApi* | [**assignment_delete**](docs/AssignmentApi.md#assignment_delete) | **POST** /api/{version}/assignment/delete | Delete Assignment
-*OpenapiClient::AssignmentApi* | [**assignment_get**](docs/AssignmentApi.md#assignment_get) | **GET** /api/{version}/assignment/get | Get Assignment
-*OpenapiClient::AssignmentApi* | [**assignment_search**](docs/AssignmentApi.md#assignment_search) | **GET** /api/{version}/assignment/search | Search Assignments
-*OpenapiClient::AssignmentApi* | [**assignment_status_create**](docs/AssignmentApi.md#assignment_status_create) | **POST** /api/{version}/assignment/status/create | Create Assignment Status
-*OpenapiClient::AssignmentApi* | [**assignment_status_delete**](docs/AssignmentApi.md#assignment_status_delete) | **POST** /api/{version}/assignment/status/delete | Deletes Assignment Status
-*OpenapiClient::AssignmentApi* | [**assignment_status_get**](docs/AssignmentApi.md#assignment_status_get) | **GET** /api/{version}/assignment/status/get | Get Assignment Status
-*OpenapiClient::AssignmentApi* | [**assignment_status_search**](docs/AssignmentApi.md#assignment_status_search) | **GET** /api/{version}/assignment/status/search | Search Assignment Statuses
-*OpenapiClient::AssignmentApi* | [**assignment_status_update**](docs/AssignmentApi.md#assignment_status_update) | **POST** /api/{version}/assignment/status/update | Update Assignment Status
-*OpenapiClient::AssignmentApi* | [**assignment_update**](docs/AssignmentApi.md#assignment_update) | **POST** /api/{version}/assignment/update | Update Assignment
-*OpenapiClient::AudienceApi* | [**create_audience**](docs/AudienceApi.md#create_audience) | **POST** /api/{version}/audience/create | Create Audience
-*OpenapiClient::AudienceApi* | [**delete_audience**](docs/AudienceApi.md#delete_audience) | **POST** /api/{version}/audience/delete | Delete Audience
-*OpenapiClient::AudienceApi* | [**get_age_groups**](docs/AudienceApi.md#get_age_groups) | **GET** /api/{version}/audience/ageGroups | Get Age Groups
-*OpenapiClient::AudienceApi* | [**get_audience**](docs/AudienceApi.md#get_audience) | **GET** /api/{version}/audience/get | Get Audience
-*OpenapiClient::AudienceApi* | [**get_audience_list**](docs/AudienceApi.md#get_audience_list) | **GET** /api/{version}/audience/search | Search Audiences
-*OpenapiClient::AudienceApi* | [**get_devices**](docs/AudienceApi.md#get_devices) | **GET** /api/{version}/audience/devices | Get Devices
-*OpenapiClient::AudienceApi* | [**get_experiences**](docs/AudienceApi.md#get_experiences) | **GET** /api/{version}/audience/experiences | Get Experiences
-*OpenapiClient::AudienceApi* | [**get_grouped_audiences**](docs/AudienceApi.md#get_grouped_audiences) | **GET** /api/{version}/audience/grouped/get | Get GroupedAudiences
-*OpenapiClient::AudienceApi* | [**list_by_account**](docs/AudienceApi.md#list_by_account) | **POST** /api/{version}/audience/suggestion/list | List Suggestions by Audience
-*OpenapiClient::AudienceApi* | [**list_by_audience**](docs/AudienceApi.md#list_by_audience) | **GET** /api/{version}/audience/suggestion/offersByAudience | List Offers by Audience
-*OpenapiClient::AudienceApi* | [**list_lastest_by_account**](docs/AudienceApi.md#list_lastest_by_account) | **GET** /api/{version}/audience/suggestion/latest | List Sent Suggestions 
-*OpenapiClient::AudienceApi* | [**send_by_account**](docs/AudienceApi.md#send_by_account) | **POST** /api/{version}/audience/suggestion/send | Send Suggestions
-*OpenapiClient::AudienceApi* | [**update_audience**](docs/AudienceApi.md#update_audience) | **POST** /api/{version}/audience/update | Update Audience
-*OpenapiClient::BidApi* | [**create_bid**](docs/BidApi.md#create_bid) | **POST** /api/{version}/bid/create | Create Bid
-*OpenapiClient::BidApi* | [**delete_bid**](docs/BidApi.md#delete_bid) | **POST** /api/{version}/bid/delete | Delete Bid
-*OpenapiClient::BidApi* | [**get_bid**](docs/BidApi.md#get_bid) | **GET** /api/{version}/bid/get | Get Bid
-*OpenapiClient::BidApi* | [**update_bid**](docs/BidApi.md#update_bid) | **POST** /api/{version}/bid/update | Update Bid
-*OpenapiClient::BillableEntityApi* | [**create_billable_entity**](docs/BillableEntityApi.md#create_billable_entity) | **POST** /api/{version}/billable/create | Create Billable
-*OpenapiClient::BillableEntityApi* | [**delete_billable_entity**](docs/BillableEntityApi.md#delete_billable_entity) | **POST** /api/{version}/billable/delete | Delete Billable
-*OpenapiClient::BillableEntityApi* | [**get_billable_entity**](docs/BillableEntityApi.md#get_billable_entity) | **GET** /api/{version}/billable/get | Get Billable
-*OpenapiClient::BillableEntityApi* | [**update_billable_entity**](docs/BillableEntityApi.md#update_billable_entity) | **POST** /api/{version}/billable/update | Update Billable
-*OpenapiClient::BillingInfoApi* | [**add_payment_method**](docs/BillingInfoApi.md#add_payment_method) | **POST** /api/{version}/billing/update | Update Payment Method
-*OpenapiClient::BillingInfoApi* | [**create_payment_method**](docs/BillingInfoApi.md#create_payment_method) | **POST** /api/{version}/billing/create | Create Payment Method
-*OpenapiClient::BillingInfoApi* | [**create_smart_contract**](docs/BillingInfoApi.md#create_smart_contract) | **POST** /api/{version}/billing/crypto/transfer | Create Smart Contract
-*OpenapiClient::BillingInfoApi* | [**get_crypto_balance**](docs/BillingInfoApi.md#get_crypto_balance) | **GET** /api/{version}/billing/crypto/get | Get Crypto Balances
-*OpenapiClient::BillingInfoApi* | [**get_payment_method**](docs/BillingInfoApi.md#get_payment_method) | **GET** /api/{version}/billing/get | Get Payment Method
-*OpenapiClient::BillingInfoApi* | [**search_payment_method**](docs/BillingInfoApi.md#search_payment_method) | **GET** /api/{version}/billing/search | Search Payment Methods
-*OpenapiClient::CSVImportApi* | [**get_status_csv**](docs/CSVImportApi.md#get_status_csv) | **GET** /api/{version}/csvimport/batch/status/details | Detail Status
-*OpenapiClient::CSVImportApi* | [**list_status_csv**](docs/CSVImportApi.md#list_status_csv) | **GET** /api/{version}/csvimport/batch/list | Search Status
-*OpenapiClient::CSVImportApi* | [**status_csv**](docs/CSVImportApi.md#status_csv) | **GET** /api/{version}/csvimport/batch/status | Batch Status
-*OpenapiClient::CSVImportApi* | [**upload_csv**](docs/CSVImportApi.md#upload_csv) | **POST** /api/{version}/csvimport/upload | Upload CSV
-*OpenapiClient::CargoTypeApi* | [**create_cargo_type**](docs/CargoTypeApi.md#create_cargo_type) | **POST** /api/{version}/cargo/type | Create Cargo Type
-*OpenapiClient::CargoTypeApi* | [**delete_cargo_type**](docs/CargoTypeApi.md#delete_cargo_type) | **DELETE** /api/{version}/cargo/type/{cargoTypeId} | Delete Cargo Type
-*OpenapiClient::CargoTypeApi* | [**get_cargo_type**](docs/CargoTypeApi.md#get_cargo_type) | **GET** /api/{version}/cargo/type/{cargoTypeId} | Get Cargo Type
-*OpenapiClient::CargoTypeApi* | [**search_cargo_types**](docs/CargoTypeApi.md#search_cargo_types) | **GET** /api/{version}/cargo/type | Search Cargo Type
-*OpenapiClient::CargoTypeApi* | [**update_cargo_type**](docs/CargoTypeApi.md#update_cargo_type) | **PUT** /api/{version}/cargo/type/{cargoTypeId} | Update Cargo Type
-*OpenapiClient::CarrierApi* | [**search_carriers**](docs/CarrierApi.md#search_carriers) | **GET** /api/{version}/carrier/search | Search Carriers
-*OpenapiClient::CategoryApi* | [**category_distance_search**](docs/CategoryApi.md#category_distance_search) | **GET** /api/{version}/category/distancesearch | Search Categories by Distance
-*OpenapiClient::CategoryApi* | [**create_category**](docs/CategoryApi.md#create_category) | **POST** /api/{version}/category/create | Create Category
-*OpenapiClient::CategoryApi* | [**delete_category**](docs/CategoryApi.md#delete_category) | **POST** /api/{version}/category/delete | Delete Category
-*OpenapiClient::CategoryApi* | [**duplicate_category**](docs/CategoryApi.md#duplicate_category) | **POST** /api/{version}/category/duplicate | Duplicate Category
-*OpenapiClient::CategoryApi* | [**get_category**](docs/CategoryApi.md#get_category) | **GET** /api/{version}/category/get | Get Category
-*OpenapiClient::CategoryApi* | [**search_categories**](docs/CategoryApi.md#search_categories) | **GET** /api/{version}/category/search | Search Categories
-*OpenapiClient::CategoryApi* | [**update_category**](docs/CategoryApi.md#update_category) | **POST** /api/{version}/category/update | Update Category
-*OpenapiClient::ConnectionApi* | [**add_connection_to_group**](docs/ConnectionApi.md#add_connection_to_group) | **POST** /api/{version}/consumer/connection/group/addConnection | Add Connection
-*OpenapiClient::ConnectionApi* | [**add_connections_to_group**](docs/ConnectionApi.md#add_connections_to_group) | **POST** /api/{version}/connection/group/addConnections | Add Connections
-*OpenapiClient::ConnectionApi* | [**add_sub_groups**](docs/ConnectionApi.md#add_sub_groups) | **POST** /api/{version}/consumer/connection/group/addSubGroup | Add Connection Groups
-*OpenapiClient::ConnectionApi* | [**create_or_update_connection**](docs/ConnectionApi.md#create_or_update_connection) | **POST** /api/{version}/consumer/connection/add | Create or Update Connection
-*OpenapiClient::ConnectionApi* | [**create_or_update_group**](docs/ConnectionApi.md#create_or_update_group) | **POST** /api/{version}/consumer/connection/group | Create or Update Connection Group
-*OpenapiClient::ConnectionApi* | [**follow_accept**](docs/ConnectionApi.md#follow_accept) | **POST** /api/{version}/consumer/follow/accept | Accept Follow Request
-*OpenapiClient::ConnectionApi* | [**follow_reject**](docs/ConnectionApi.md#follow_reject) | **POST** /api/{version}/consumer/follow/reject | Reject Follow Request
-*OpenapiClient::ConnectionApi* | [**follow_remove**](docs/ConnectionApi.md#follow_remove) | **POST** /api/{version}/consumer/follow/remove | Remove Follower / Unfollow
-*OpenapiClient::ConnectionApi* | [**follow_request**](docs/ConnectionApi.md#follow_request) | **POST** /api/{version}/consumer/follow/request | Send Follow Request
-*OpenapiClient::ConnectionApi* | [**friend_accept**](docs/ConnectionApi.md#friend_accept) | **POST** /api/{version}/consumer/friend/accept | Accept Friend
-*OpenapiClient::ConnectionApi* | [**friend_reject**](docs/ConnectionApi.md#friend_reject) | **POST** /api/{version}/consumer/friend/reject | Decline Friend
-*OpenapiClient::ConnectionApi* | [**friend_remove**](docs/ConnectionApi.md#friend_remove) | **POST** /api/{version}/consumer/friend/remove | Delete Friend
-*OpenapiClient::ConnectionApi* | [**friend_request**](docs/ConnectionApi.md#friend_request) | **POST** /api/{version}/consumer/friend/request | Request Friend
-*OpenapiClient::ConnectionApi* | [**get_connection_sent_friend_requests**](docs/ConnectionApi.md#get_connection_sent_friend_requests) | **GET** /api/{version}/consumer/connection/getRequested | Get Sent Friend Requests
-*OpenapiClient::ConnectionApi* | [**get_connections**](docs/ConnectionApi.md#get_connections) | **GET** /api/{version}/consumer/connection/get | Search Connections
-*OpenapiClient::ConnectionApi* | [**get_group_details**](docs/ConnectionApi.md#get_group_details) | **GET** /api/{version}/consumer/connection/group/details/get | Get Connection Group
-*OpenapiClient::ConnectionApi* | [**group_search**](docs/ConnectionApi.md#group_search) | **GET** /api/{version}/connection/group/search | Search Connection Groups
-*OpenapiClient::ConnectionApi* | [**remove_connection_from_group**](docs/ConnectionApi.md#remove_connection_from_group) | **POST** /api/{version}/consumer/connection/group/removeConnection | Delete Connection
-*OpenapiClient::ConnectionApi* | [**remove_connections_from_group**](docs/ConnectionApi.md#remove_connections_from_group) | **POST** /api/{version}/connection/group/removeConnections | Remove Connections
-*OpenapiClient::ConnectionApi* | [**remove_group**](docs/ConnectionApi.md#remove_group) | **POST** /api/{version}/consumer/connection/group/remove | Delete Connection Group
-*OpenapiClient::ConnectionApi* | [**remove_sub_groups**](docs/ConnectionApi.md#remove_sub_groups) | **POST** /api/{version}/consumer/connection/group/removeSubGroup | Remove Connection Groups
-*OpenapiClient::ConnectionApi* | [**search_connections**](docs/ConnectionApi.md#search_connections) | **GET** /api/{version}/connection/search | Search Possible Connections
-*OpenapiClient::ContestApi* | [**add_or_update_album_contest**](docs/ContestApi.md#add_or_update_album_contest) | **POST** /api/{version}/consumer/album/contest | Create or Update Contest
-*OpenapiClient::ContestApi* | [**approve_album_contest**](docs/ContestApi.md#approve_album_contest) | **POST** /api/{version}/consumer/album/contest/approve | Approve Contest
-*OpenapiClient::ContestApi* | [**delete_contest**](docs/ContestApi.md#delete_contest) | **POST** /api/{version}/consumer/album/contest/remove | Delete Contest
-*OpenapiClient::ContestApi* | [**get_album_contest**](docs/ContestApi.md#get_album_contest) | **GET** /api/{version}/consumer/album/contest/get | Get Contest
-*OpenapiClient::ContestApi* | [**get_album_contests**](docs/ContestApi.md#get_album_contests) | **GET** /api/{version}/consumer/album/contest/search | Search Contests
-*OpenapiClient::ContestApi* | [**vote_on_album_contest**](docs/ContestApi.md#vote_on_album_contest) | **POST** /api/{version}/consumer/album/contest/vote | Vote on Contest
-*OpenapiClient::CreativeApi* | [**add_preview**](docs/CreativeApi.md#add_preview) | **POST** /api/{version}/creative/addpreview | Add Preview
-*OpenapiClient::CreativeApi* | [**ads_find**](docs/CreativeApi.md#ads_find) | **GET** /api/{version}/ads/find | Find Missions
-*OpenapiClient::CreativeApi* | [**create_creative**](docs/CreativeApi.md#create_creative) | **POST** /api/{version}/creative/create | Create Creative
-*OpenapiClient::CreativeApi* | [**delete_creative**](docs/CreativeApi.md#delete_creative) | **POST** /api/{version}/creative/delete | Delete Creative
-*OpenapiClient::CreativeApi* | [**get_creative**](docs/CreativeApi.md#get_creative) | **GET** /api/{version}/creative/get | Get Creative
-*OpenapiClient::CreativeApi* | [**get_creatives_by_application**](docs/CreativeApi.md#get_creatives_by_application) | **GET** /api/{version}/creative/search | Search Creatives
-*OpenapiClient::CreativeApi* | [**remove_preview**](docs/CreativeApi.md#remove_preview) | **POST** /api/{version}/creative/removepreview | Remove Preview
-*OpenapiClient::CreativeApi* | [**update_creative**](docs/CreativeApi.md#update_creative) | **POST** /api/{version}/creative/update | Update Creative
-*OpenapiClient::DependentApi* | [**create**](docs/DependentApi.md#create) | **PUT** /api/{version}/cargo/dependent/{accountId} | Create Dependent
-*OpenapiClient::DependentApi* | [**get_dependents**](docs/DependentApi.md#get_dependents) | **GET** /api/{version}/cargo/dependent/{accountId} | Get dependent list of an account
-*OpenapiClient::DependentApi* | [**remove_dependent**](docs/DependentApi.md#remove_dependent) | **DELETE** /api/{version}/cargo/dependent/{accountId} | Delete Dependent
-*OpenapiClient::DisbursementApi* | [**check_disbursements**](docs/DisbursementApi.md#check_disbursements) | **GET** /api/{version}/disbursement/check | Check Disbursements
-*OpenapiClient::DisbursementApi* | [**create_disbursement**](docs/DisbursementApi.md#create_disbursement) | **POST** /api/{version}/disbursement/create | Create Disbursement
-*OpenapiClient::DisbursementApi* | [**get_disbursement**](docs/DisbursementApi.md#get_disbursement) | **GET** /api/{version}/disbursement/get | Get Disbursement
-*OpenapiClient::DisbursementApi* | [**search_disbursements**](docs/DisbursementApi.md#search_disbursements) | **GET** /api/{version}/disbursement/search | Search Disbursements
-*OpenapiClient::DisbursementApi* | [**update_disbursement**](docs/DisbursementApi.md#update_disbursement) | **POST** /api/{version}/disbursement/update | Update Disbursement
-*OpenapiClient::EmployeeApi* | [**assign_employee**](docs/EmployeeApi.md#assign_employee) | **POST** /api/{version}/employee/assign | Assign Employee
-*OpenapiClient::EmployeeApi* | [**assign_to_location_employee**](docs/EmployeeApi.md#assign_to_location_employee) | **POST** /api/{version}/employee/assignToLocation | Assign Employee to Location
-*OpenapiClient::EmployeeApi* | [**create_employee**](docs/EmployeeApi.md#create_employee) | **POST** /api/{version}/employee/create | Create Employee
-*OpenapiClient::EmployeeApi* | [**delete_employee**](docs/EmployeeApi.md#delete_employee) | **POST** /api/{version}/employee/delete | Delete Employee
-*OpenapiClient::EmployeeApi* | [**get_employee**](docs/EmployeeApi.md#get_employee) | **POST** /api/{version}/employee/get | Get Employee
-*OpenapiClient::EmployeeApi* | [**search_employees**](docs/EmployeeApi.md#search_employees) | **POST** /api/{version}/employee/search | Search Employees
-*OpenapiClient::EmployeeApi* | [**unassign_employee**](docs/EmployeeApi.md#unassign_employee) | **POST** /api/{version}/employee/unassign | Unassign Employee
-*OpenapiClient::EmployeeApi* | [**update_employee**](docs/EmployeeApi.md#update_employee) | **POST** /api/{version}/employee/update | Update Employee
-*OpenapiClient::EventApi* | [**attend_event**](docs/EventApi.md#attend_event) | **POST** /api/{version}/event/attend | Attend Event
-*OpenapiClient::EventApi* | [**create_event**](docs/EventApi.md#create_event) | **POST** /api/{version}/event/create | Create Event
-*OpenapiClient::EventApi* | [**delete_event**](docs/EventApi.md#delete_event) | **POST** /api/{version}/event/delete | Delete Event
-*OpenapiClient::EventApi* | [**get_event**](docs/EventApi.md#get_event) | **GET** /api/{version}/event/get | Get Event
-*OpenapiClient::EventApi* | [**search_event_transactions**](docs/EventApi.md#search_event_transactions) | **GET** /api/{version}/event/attendance/search | Search Event Attendance
-*OpenapiClient::EventApi* | [**search_events**](docs/EventApi.md#search_events) | **GET** /api/{version}/event/search | Search Events
-*OpenapiClient::EventApi* | [**update_event**](docs/EventApi.md#update_event) | **POST** /api/{version}/event/update | Update Event
-*OpenapiClient::FacebookApi* | [**get_token**](docs/FacebookApi.md#get_token) | **GET** /api/{version}/facebook/getfbtoken | Get Facebook Token
-*OpenapiClient::FacebookApi* | [**graph_interface**](docs/FacebookApi.md#graph_interface) | **POST** /api/{version}/facebook/graph | Post to Facebook
-*OpenapiClient::FavoriteApi* | [**add_favorite**](docs/FavoriteApi.md#add_favorite) | **POST** /api/{version}/favorite/create | Create Favorite
-*OpenapiClient::FavoriteApi* | [**delete_favorite**](docs/FavoriteApi.md#delete_favorite) | **POST** /api/{version}/favorite/delete | Delete Favorite
-*OpenapiClient::FavoriteApi* | [**get_favorite**](docs/FavoriteApi.md#get_favorite) | **GET** /api/{version}/favorite/get | Get Favorite
-*OpenapiClient::FavoriteApi* | [**search_favorites**](docs/FavoriteApi.md#search_favorites) | **GET** /api/{version}/favorite/search | Search Favorites
-*OpenapiClient::FavoriteApi* | [**who_has_favorited**](docs/FavoriteApi.md#who_has_favorited) | **GET** /api/{version}/favorite/whois | Who has Favorited
-*OpenapiClient::FilterApi* | [**create_filter**](docs/FilterApi.md#create_filter) | **POST** /api/{version}/filter/create | Create Filter
-*OpenapiClient::FilterApi* | [**delete_filter**](docs/FilterApi.md#delete_filter) | **POST** /api/{version}/filter/delete | Delete Filter
-*OpenapiClient::FilterApi* | [**get_filter**](docs/FilterApi.md#get_filter) | **GET** /api/{version}/filter/get | Get Filter
-*OpenapiClient::FilterApi* | [**search_filters**](docs/FilterApi.md#search_filters) | **GET** /api/{version}/filter/search | Search Filters
-*OpenapiClient::FilterApi* | [**update_filter**](docs/FilterApi.md#update_filter) | **POST** /api/{version}/filter/update | Update Filter
-*OpenapiClient::FlagApi* | [**create_flag**](docs/FlagApi.md#create_flag) | **POST** /api/{version}/flag/create | Create Flag
-*OpenapiClient::FlagApi* | [**delete_flag**](docs/FlagApi.md#delete_flag) | **POST** /api/{version}/flag/delete | Delete Flag
-*OpenapiClient::FlagApi* | [**get_flag**](docs/FlagApi.md#get_flag) | **GET** /api/{version}/flag/get | Get Flag
-*OpenapiClient::FlagApi* | [**get_flag_threshold**](docs/FlagApi.md#get_flag_threshold) | **GET** /api/{version}/flag/threshold/get | Get Flag Threshold
-*OpenapiClient::FlagApi* | [**update_flag_threshold**](docs/FlagApi.md#update_flag_threshold) | **POST** /api/{version}/flag/threshold/update | Update Flag Threshold
-*OpenapiClient::GameApi* | [**create_game**](docs/GameApi.md#create_game) | **POST** /api/{version}/game/create | Create a Game
-*OpenapiClient::GameApi* | [**delete_game**](docs/GameApi.md#delete_game) | **POST** /api/{version}/game/delete | Delete a Game
-*OpenapiClient::GameApi* | [**get_game**](docs/GameApi.md#get_game) | **GET** /api/{version}/game/get | Get a Game by id
-*OpenapiClient::GameApi* | [**search_games**](docs/GameApi.md#search_games) | **GET** /api/{version}/game/search | Search a Game
-*OpenapiClient::GameApi* | [**update_game**](docs/GameApi.md#update_game) | **POST** /api/{version}/game/update | Update a Game
-*OpenapiClient::GameLevelApi* | [**create_game_level**](docs/GameLevelApi.md#create_game_level) | **POST** /api/{version}/level/create | Create Game Level
-*OpenapiClient::GameLevelApi* | [**delete_game_level**](docs/GameLevelApi.md#delete_game_level) | **POST** /api/{version}/level/delete | Delete Game Level
-*OpenapiClient::GameLevelApi* | [**get_game_level**](docs/GameLevelApi.md#get_game_level) | **GET** /api/{version}/level/get | Get Game Level
-*OpenapiClient::GameLevelApi* | [**get_game_levels_by_application**](docs/GameLevelApi.md#get_game_levels_by_application) | **GET** /api/{version}/level/search | Search Game Levels
-*OpenapiClient::GameLevelApi* | [**get_game_levels_by_billable_entity**](docs/GameLevelApi.md#get_game_levels_by_billable_entity) | **GET** /api/{version}/level/searchByBillableEntity | Search Game Level by Billable Entity
-*OpenapiClient::GameLevelApi* | [**get_questions_in_level**](docs/GameLevelApi.md#get_questions_in_level) | **GET** /api/{version}/level/questions/get | Get Level Questions
-*OpenapiClient::GameLevelApi* | [**get_words_in_level**](docs/GameLevelApi.md#get_words_in_level) | **GET** /api/{version}/level/words/get | Get Level Words
-*OpenapiClient::GameLevelApi* | [**update_game_level**](docs/GameLevelApi.md#update_game_level) | **POST** /api/{version}/level/update | Update Game Level
-*OpenapiClient::GameLevelApi* | [**update_questions_in_level**](docs/GameLevelApi.md#update_questions_in_level) | **POST** /api/{version}/level/questions/update | Update Level Questions
-*OpenapiClient::GameLevelApi* | [**update_words_in_level**](docs/GameLevelApi.md#update_words_in_level) | **POST** /api/{version}/level/words/update | Update Level Words
-*OpenapiClient::InviteApi* | [**accept_invite**](docs/InviteApi.md#accept_invite) | **POST** /api/{version}/invite/accept | Accept Invite
-*OpenapiClient::InviteApi* | [**album_contest_invite**](docs/InviteApi.md#album_contest_invite) | **POST** /api/{version}/invite/albumContest | Invite to Contest
-*OpenapiClient::InviteApi* | [**album_invite**](docs/InviteApi.md#album_invite) | **POST** /api/{version}/invite/album | Invite to Collection
-*OpenapiClient::InviteApi* | [**event_invite**](docs/InviteApi.md#event_invite) | **POST** /api/{version}/invite/event | Invite to Event
-*OpenapiClient::InviteApi* | [**game_invite**](docs/InviteApi.md#game_invite) | **POST** /api/{version}/invite/gameLevel | Invite to Game Level
-*OpenapiClient::InviteApi* | [**get_invite**](docs/InviteApi.md#get_invite) | **GET** /api/{version}/invite/get | Get Invite
-*OpenapiClient::InviteApi* | [**mission_invite**](docs/InviteApi.md#mission_invite) | **POST** /api/{version}/invite/mission | Invite to Mission
-*OpenapiClient::InviteApi* | [**offer_invite**](docs/InviteApi.md#offer_invite) | **POST** /api/{version}/invite/offer | Invite to Offer
-*OpenapiClient::InviteApi* | [**offer_location_invite**](docs/InviteApi.md#offer_location_invite) | **POST** /api/{version}/invite/offerLocation | Invite to Offer Location
-*OpenapiClient::InviteApi* | [**retailer_location_invite**](docs/InviteApi.md#retailer_location_invite) | **POST** /api/{version}/invite/retailerLocation | Invite to Retailer Location
-*OpenapiClient::LeaderboardApi* | [**create_leaderboard**](docs/LeaderboardApi.md#create_leaderboard) | **POST** /api/{version}/leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*OpenapiClient::LeaderboardApi* | [**delete_leaderboard**](docs/LeaderboardApi.md#delete_leaderboard) | **POST** /api/{version}/leaderboard/delete | Delete the Leader Board
-*OpenapiClient::LeaderboardApi* | [**get_leaderboard**](docs/LeaderboardApi.md#get_leaderboard) | **GET** /api/{version}/leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
-*OpenapiClient::LeaderboardApi* | [**search_leaderboards**](docs/LeaderboardApi.md#search_leaderboards) | **GET** /api/{version}/leaderboard/search | Search leaderboard and retrieve the matching ranking list
-*OpenapiClient::LeaderboardApi* | [**update_leaderboard**](docs/LeaderboardApi.md#update_leaderboard) | **POST** /api/{version}/leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*OpenapiClient::LikeApi* | [**register_like**](docs/LikeApi.md#register_like) | **POST** /api/{version}/like | Create Like
-*OpenapiClient::LikeApi* | [**remove_like**](docs/LikeApi.md#remove_like) | **POST** /api/{version}/like/delete | Delete Like
-*OpenapiClient::LikeApi* | [**search_likes**](docs/LikeApi.md#search_likes) | **GET** /api/{version}/like/search | Search Likes
-*OpenapiClient::ListingApi* | [**create_listing**](docs/ListingApi.md#create_listing) | **POST** /api/{version}/listing/create | Create Listing
-*OpenapiClient::ListingApi* | [**delete_listing**](docs/ListingApi.md#delete_listing) | **POST** /api/{version}/listing/delete | Delete Listing
-*OpenapiClient::ListingApi* | [**get_listing**](docs/ListingApi.md#get_listing) | **GET** /api/{version}/listing/get | Get Listing
-*OpenapiClient::ListingApi* | [**search_listing**](docs/ListingApi.md#search_listing) | **GET** /api/{version}/listing/search | Search Listings
-*OpenapiClient::ListingApi* | [**summary_listing**](docs/ListingApi.md#summary_listing) | **GET** /api/{version}/listing/summary | Summary Listing
-*OpenapiClient::ListingApi* | [**update_listing**](docs/ListingApi.md#update_listing) | **POST** /api/{version}/listing/update | Update Listing
-*OpenapiClient::LocationApi* | [**cache_trilateration_data**](docs/LocationApi.md#cache_trilateration_data) | **POST** /api/{version}/location/trilaterate/cache | Create Trilateration Data with File
-*OpenapiClient::LocationApi* | [**cache_trilateration_data_gzip**](docs/LocationApi.md#cache_trilateration_data_gzip) | **POST** /api/{version}/location/trilaterate/cache/submit | Create Trilateration Data with Rest
-*OpenapiClient::LocationApi* | [**get_location_by_ip**](docs/LocationApi.md#get_location_by_ip) | **GET** /api/{version}/location/ip | Get Location by IP
-*OpenapiClient::LocationApi* | [**get_location_by_trilateration**](docs/LocationApi.md#get_location_by_trilateration) | **GET** /api/{version}/account/location/trilaterate | Get Location by Trilateration
-*OpenapiClient::LocationApi* | [**get_locations**](docs/LocationApi.md#get_locations) | **GET** /api/{version}/location/search | Search Regions or Postal Codes
-*OpenapiClient::LocationApiV2Api* | [**create_location_v2**](docs/LocationApiV2Api.md#create_location_v2) | **POST** /api/{version}/location | Create new location
-*OpenapiClient::LocationApiV2Api* | [**update_location_v2**](docs/LocationApiV2Api.md#update_location_v2) | **POST** /api/{version}/location/{id} | Update an existing location
-*OpenapiClient::MediaApi* | [**create_media**](docs/MediaApi.md#create_media) | **POST** /api/{version}/media/create | Create Media
-*OpenapiClient::MediaApi* | [**delete_media**](docs/MediaApi.md#delete_media) | **POST** /api/{version}/media/delete | Delete Media
-*OpenapiClient::MediaApi* | [**get_media**](docs/MediaApi.md#get_media) | **GET** /api/{version}/media/get | Media Get
-*OpenapiClient::MediaApi* | [**search_media**](docs/MediaApi.md#search_media) | **GET** /api/{version}/media/search | Search Media
-*OpenapiClient::MediaApi* | [**update_media**](docs/MediaApi.md#update_media) | **POST** /api/{version}/media/update | Update Media
-*OpenapiClient::MissionApi* | [**create_mission**](docs/MissionApi.md#create_mission) | **POST** /api/{version}/mission/create | Create Mission
-*OpenapiClient::MissionApi* | [**delete_mission**](docs/MissionApi.md#delete_mission) | **POST** /api/{version}/mission/delete | Delete Mission
-*OpenapiClient::MissionApi* | [**find_missions**](docs/MissionApi.md#find_missions) | **GET** /api/{version}/mission/find | Find Missions
-*OpenapiClient::MissionApi* | [**get_mission**](docs/MissionApi.md#get_mission) | **GET** /api/{version}/mission/get | Get Mission
-*OpenapiClient::MissionApi* | [**import_mission**](docs/MissionApi.md#import_mission) | **POST** /api/{version}/mission/import | Import Mission
-*OpenapiClient::MissionApi* | [**search_mission_formats**](docs/MissionApi.md#search_mission_formats) | **GET** /api/{version}/mission/format/search | Search Mission Formats
-*OpenapiClient::MissionApi* | [**search_missions**](docs/MissionApi.md#search_missions) | **GET** /api/{version}/mission/search | Search Missions
-*OpenapiClient::MissionApi* | [**search_missions_by_billable_entity**](docs/MissionApi.md#search_missions_by_billable_entity) | **GET** /api/{version}/mission/searchByBillableEntity | Search Missions by Billable Entity
-*OpenapiClient::MissionApi* | [**update_mission**](docs/MissionApi.md#update_mission) | **POST** /api/{version}/mission/update | Update Mission
-*OpenapiClient::MissionInviteApi* | [**create_mission_invite**](docs/MissionInviteApi.md#create_mission_invite) | **POST** /api/{version}/mission/invite/create | Create Mission Invite
-*OpenapiClient::MissionInviteApi* | [**delete_mission_invite**](docs/MissionInviteApi.md#delete_mission_invite) | **POST** /api/{version}/mission/invite/delete | Delete Mission Invite
-*OpenapiClient::MissionInviteApi* | [**get_mission_invite**](docs/MissionInviteApi.md#get_mission_invite) | **GET** /api/{version}/mission/invite/get | Get Mission Invite
-*OpenapiClient::MissionInviteApi* | [**search_mission_invites**](docs/MissionInviteApi.md#search_mission_invites) | **GET** /api/{version}/mission/invite/search | Search Mission Invites
-*OpenapiClient::MissionInviteApi* | [**update_mission_invite**](docs/MissionInviteApi.md#update_mission_invite) | **POST** /api/{version}/mission/invite/update | Update Mission Invite
-*OpenapiClient::NoteApi* | [**batch_operation**](docs/NoteApi.md#batch_operation) | **POST** /api/{version}/note/batch | Batch Note Operation
-*OpenapiClient::NoteApi* | [**create_note**](docs/NoteApi.md#create_note) | **POST** /api/{version}/note/create | Create Note
-*OpenapiClient::NoteApi* | [**delete_note**](docs/NoteApi.md#delete_note) | **POST** /api/{version}/note/delete | Delete Note
-*OpenapiClient::NoteApi* | [**get_note**](docs/NoteApi.md#get_note) | **POST** /api/{version}/note/get | Get Note
-*OpenapiClient::NoteApi* | [**search_notes**](docs/NoteApi.md#search_notes) | **POST** /api/{version}/note/search | Search Notes
-*OpenapiClient::NoteApi* | [**update_note**](docs/NoteApi.md#update_note) | **POST** /api/{version}/note/update | Update Note
-*OpenapiClient::NotificationApi* | [**create_notification_template**](docs/NotificationApi.md#create_notification_template) | **POST** /api/{version}/notification/template/create | Create Notification Template
-*OpenapiClient::NotificationApi* | [**create_or_update_blocked_notifications**](docs/NotificationApi.md#create_or_update_blocked_notifications) | **POST** /api/{version}/notification/blocked/batch | Create or update blocked notification settings
-*OpenapiClient::NotificationApi* | [**delete_notification_template**](docs/NotificationApi.md#delete_notification_template) | **POST** /api/{version}/notification/template/delete | Delete Notification Template
-*OpenapiClient::NotificationApi* | [**get_notification_template**](docs/NotificationApi.md#get_notification_template) | **GET** /api/{version}/notification/template/get | Get Notification Template
-*OpenapiClient::NotificationApi* | [**get_notifications**](docs/NotificationApi.md#get_notifications) | **GET** /api/{version}/notification/search | Get Notifications
-*OpenapiClient::NotificationApi* | [**register_notification_token**](docs/NotificationApi.md#register_notification_token) | **POST** /api/{version}/notification/token | Register Notification Token
-*OpenapiClient::NotificationApi* | [**search_blocked_notifications**](docs/NotificationApi.md#search_blocked_notifications) | **GET** /api/{version}/notification/blocked/search | Search on the user's blocked notification settings
-*OpenapiClient::NotificationApi* | [**search_notification_template**](docs/NotificationApi.md#search_notification_template) | **GET** /api/{version}/notification/template/search | Search Notification Templates
-*OpenapiClient::NotificationApi* | [**search_recipients**](docs/NotificationApi.md#search_recipients) | **GET** /api/{version}/notification/recipient/search | Search for Recipients
-*OpenapiClient::NotificationApi* | [**search_recipients_count**](docs/NotificationApi.md#search_recipients_count) | **GET** /api/{version}/notification/recipient/search/count | Search for Recipients (Counts/Grouped)
-*OpenapiClient::NotificationApi* | [**send_batch_notifications**](docs/NotificationApi.md#send_batch_notifications) | **POST** /api/{version}/notification/batch | Send Batch Notifications
-*OpenapiClient::NotificationApi* | [**send_custom_notifications**](docs/NotificationApi.md#send_custom_notifications) | **POST** /api/{version}/notification/custom | Send Custom Notifications
-*OpenapiClient::NotificationApi* | [**update_notification_template**](docs/NotificationApi.md#update_notification_template) | **POST** /api/{version}/notification/template/update | Update Notification Template
-*OpenapiClient::ObjectStoreApi* | [**add_field**](docs/ObjectStoreApi.md#add_field) | **POST** /api/{version}/object/field/add | Create Field
-*OpenapiClient::ObjectStoreApi* | [**create_data**](docs/ObjectStoreApi.md#create_data) | **POST** /api/{version}/object/data/{objectName} | Create Data
-*OpenapiClient::ObjectStoreApi* | [**create_object**](docs/ObjectStoreApi.md#create_object) | **POST** /api/{version}/object/create | Create Object
-*OpenapiClient::ObjectStoreApi* | [**delete_data**](docs/ObjectStoreApi.md#delete_data) | **DELETE** /api/{version}/object/data/{objectName}/{objectId} | Delete Data
-*OpenapiClient::ObjectStoreApi* | [**delete_field**](docs/ObjectStoreApi.md#delete_field) | **POST** /api/{version}/object/field/delete | Delete Field
-*OpenapiClient::ObjectStoreApi* | [**delete_object**](docs/ObjectStoreApi.md#delete_object) | **POST** /api/{version}/object/delete | Delete Object
-*OpenapiClient::ObjectStoreApi* | [**get_data**](docs/ObjectStoreApi.md#get_data) | **GET** /api/{version}/object/data/{objectName}/{objectId} | Get Data
-*OpenapiClient::ObjectStoreApi* | [**get_object**](docs/ObjectStoreApi.md#get_object) | **GET** /api/{version}/object/get | Get Object
-*OpenapiClient::ObjectStoreApi* | [**search_data**](docs/ObjectStoreApi.md#search_data) | **GET** /api/{version}/object/data/{objectName} | Search Data
-*OpenapiClient::ObjectStoreApi* | [**search_object**](docs/ObjectStoreApi.md#search_object) | **GET** /api/{version}/object/search | Search Objects
-*OpenapiClient::ObjectStoreApi* | [**update_data**](docs/ObjectStoreApi.md#update_data) | **PUT** /api/{version}/object/data/{objectName}/{objectId} | Update Data
-*OpenapiClient::OfferApi* | [**batch_update_offer_locations**](docs/OfferApi.md#batch_update_offer_locations) | **POST** /api/{version}/retailer/offer/location/batchUpdate | Update Offer Locations
-*OpenapiClient::OfferApi* | [**create_offer**](docs/OfferApi.md#create_offer) | **POST** /api/{version}/retailer/offer/create | Create Offer
-*OpenapiClient::OfferApi* | [**delete_offer**](docs/OfferApi.md#delete_offer) | **POST** /api/{version}/retailer/offer/delete | Delete Offer
-*OpenapiClient::OfferApi* | [**delete_offer_location**](docs/OfferApi.md#delete_offer_location) | **POST** /api/{version}/retailer/offer/location/delete | Delete Offer Location
-*OpenapiClient::OfferApi* | [**get_offer**](docs/OfferApi.md#get_offer) | **GET** /api/{version}/retailer/offer/get | Get Offer
-*OpenapiClient::OfferApi* | [**get_offer_details**](docs/OfferApi.md#get_offer_details) | **GET** /api/{version}/offer/get | Get Offer
-*OpenapiClient::OfferApi* | [**get_offer_list_counts**](docs/OfferApi.md#get_offer_list_counts) | **GET** /api/{version}/offer/lists/count | Get Offers (Counts)
-*OpenapiClient::OfferApi* | [**get_offer_location**](docs/OfferApi.md#get_offer_location) | **GET** /api/{version}/offer/location/get | Get Offer Location
-*OpenapiClient::OfferApi* | [**get_offer_locations_for_retailers**](docs/OfferApi.md#get_offer_locations_for_retailers) | **GET** /api/{version}/retailer/offer/location/search | Search Offer Locations
-*OpenapiClient::OfferApi* | [**get_offers_for_retailers**](docs/OfferApi.md#get_offers_for_retailers) | **GET** /api/{version}/retailer/offer/search | Search Offers
-*OpenapiClient::OfferApi* | [**redeem_offer_transaction**](docs/OfferApi.md#redeem_offer_transaction) | **POST** /api/{version}/retailer/offer/transaction/update | Update Offer Transaction
-*OpenapiClient::OfferApi* | [**search_offer_transactions_for_retailers**](docs/OfferApi.md#search_offer_transactions_for_retailers) | **GET** /api/{version}/retailer/offer/transaction/search | Search Offer Transactions
-*OpenapiClient::OfferApi* | [**search_offers_for_consumer**](docs/OfferApi.md#search_offers_for_consumer) | **GET** /api/{version}/offer/lists | Search Offers
-*OpenapiClient::OfferApi* | [**top_offer_transactions**](docs/OfferApi.md#top_offer_transactions) | **GET** /api/{version}/offer/top | Get Offers (Top)
-*OpenapiClient::OfferApi* | [**update_offer**](docs/OfferApi.md#update_offer) | **POST** /api/{version}/retailer/offer/update | Update Offer
-*OpenapiClient::OfferApi* | [**update_offer_status**](docs/OfferApi.md#update_offer_status) | **POST** /api/{version}/retailer/offer/status | Activate Offer
-*OpenapiClient::OfferStatusApi* | [**create_offer_transaction_status**](docs/OfferStatusApi.md#create_offer_transaction_status) | **POST** /api/{version}/offer/status/create | Create Offer Status
-*OpenapiClient::OfferStatusApi* | [**delete_offer_transaction_status**](docs/OfferStatusApi.md#delete_offer_transaction_status) | **POST** /api/{version}/offer/status/delete | Delete Offer Status
-*OpenapiClient::OfferStatusApi* | [**get_offer_transaction_status**](docs/OfferStatusApi.md#get_offer_transaction_status) | **GET** /api/{version}/offer/status/get | Get Offer Status
-*OpenapiClient::OfferStatusApi* | [**search_offer_transaction_statuses**](docs/OfferStatusApi.md#search_offer_transaction_statuses) | **GET** /api/{version}/offer/status/search | Search Offer Status
-*OpenapiClient::OfferStatusApi* | [**update_offer_transaction_status**](docs/OfferStatusApi.md#update_offer_transaction_status) | **POST** /api/{version}/offer/status/update | Update Offer Status
-*OpenapiClient::OpenAIApi* | [**image_generation**](docs/OpenAIApi.md#image_generation) | **POST** /api/{version}/openai/v1/images/generations | Generate images with OpenAI
-*OpenapiClient::OptimizeApi* | [**get_optimization_result**](docs/OptimizeApi.md#get_optimization_result) | **GET** /api/{version}/optimize/result/{batchID} | Get Optimization Result
-*OpenapiClient::OptimizeApi* | [**request_optimization**](docs/OptimizeApi.md#request_optimization) | **POST** /api/{version}/optimize/request | Request Optimization
-*OpenapiClient::OrsonApi* | [**add_movie**](docs/OrsonApi.md#add_movie) | **POST** /api/{version}/orson/ai/addMovie | Add Movie
-*OpenapiClient::OrsonApi* | [**ai_docs**](docs/OrsonApi.md#ai_docs) | **GET** /api/{version}/orson/ai/docs | Search Docs
-*OpenapiClient::OrsonApi* | [**ai_find_images**](docs/OrsonApi.md#ai_find_images) | **GET** /api/{version}/orson/ai/img | Find images
-*OpenapiClient::OrsonApi* | [**ai_tags**](docs/OrsonApi.md#ai_tags) | **GET** /api/{version}/orson/ai/tags | Search Tags
-*OpenapiClient::OrsonApi* | [**ai_text**](docs/OrsonApi.md#ai_text) | **GET** /api/{version}/orson/ai/text | Search Text
-*OpenapiClient::OrsonApi* | [**batch**](docs/OrsonApi.md#batch) | **POST** /api/{version}/orson/ai/batch | Batch Analysis
-*OpenapiClient::OrsonApi* | [**create_instant_episode**](docs/OrsonApi.md#create_instant_episode) | **POST** /api/{version}/orson/stories/episodes/instant | Creates an instant episode
-*OpenapiClient::OrsonApi* | [**create_voice_canvas**](docs/OrsonApi.md#create_voice_canvas) | **POST** /api/{version}/orson/ai/voiceCanvas | Create VoiceCanvas images
-*OpenapiClient::OrsonApi* | [**emotion**](docs/OrsonApi.md#emotion) | **POST** /api/{version}/orson/ai/emotion | Detect emotions
-*OpenapiClient::OrsonApi* | [**get_add_movie_result**](docs/OrsonApi.md#get_add_movie_result) | **GET** /api/{version}/orson/ai/addMovie/{requestId} | Get Add Movie Result
-*OpenapiClient::OrsonApi* | [**get_batch**](docs/OrsonApi.md#get_batch) | **GET** /api/{version}/orson/ai/batch/{requestId} | Get Batch Analysis Results
-*OpenapiClient::OrsonApi* | [**get_emotion**](docs/OrsonApi.md#get_emotion) | **GET** /api/{version}/orson/ai/emotion/{requestId} | Get Emotion Results
-*OpenapiClient::OrsonApi* | [**get_episode_status**](docs/OrsonApi.md#get_episode_status) | **GET** /api/{version}/orson/stories/episodes/{episodeId}/status | Check episode status
-*OpenapiClient::OrsonApi* | [**get_render_status**](docs/OrsonApi.md#get_render_status) | **GET** /api/{version}/orson/stories/renders/{renderId}/status | Check episode status
-*OpenapiClient::OrsonApi* | [**get_stt**](docs/OrsonApi.md#get_stt) | **GET** /api/{version}/orson/ai/stt/{requestId} | Get Speach to Text Result
-*OpenapiClient::OrsonApi* | [**get_tech_tune**](docs/OrsonApi.md#get_tech_tune) | **GET** /api/{version}/orson/ai/techTune/{requestId} | Get TechTune Results
-*OpenapiClient::OrsonApi* | [**get_topics**](docs/OrsonApi.md#get_topics) | **GET** /api/{version}/orson/ai/topics/{requestId} | Get Topics
-*OpenapiClient::OrsonApi* | [**get_tts**](docs/OrsonApi.md#get_tts) | **GET** /api/{version}/orson/ai/tts/{requestId} | Get Text to Speach Result
-*OpenapiClient::OrsonApi* | [**get_voice_canvas**](docs/OrsonApi.md#get_voice_canvas) | **GET** /api/{version}/orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
-*OpenapiClient::OrsonApi* | [**start_video_render**](docs/OrsonApi.md#start_video_render) | **POST** /api/{version}/orson/stories/renders | Starts a StoryStitch video render
-*OpenapiClient::OrsonApi* | [**stt**](docs/OrsonApi.md#stt) | **POST** /api/{version}/orson/ai/stt | Speach to Text
-*OpenapiClient::OrsonApi* | [**summarize_topics**](docs/OrsonApi.md#summarize_topics) | **POST** /api/{version}/orson/ai/topics | Summarize Topics
-*OpenapiClient::OrsonApi* | [**tech_tune**](docs/OrsonApi.md#tech_tune) | **POST** /api/{version}/orson/ai/techTune | Detect Technical Issues
-*OpenapiClient::OrsonApi* | [**tts**](docs/OrsonApi.md#tts) | **POST** /api/{version}/orson/ai/tts | Text to Speach
-*OpenapiClient::PackApi* | [**create_pack**](docs/PackApi.md#create_pack) | **POST** /api/{version}/pack/create | Create Pack
-*OpenapiClient::PackApi* | [**delete_pack**](docs/PackApi.md#delete_pack) | **POST** /api/{version}/pack/delete | Delete Pack
-*OpenapiClient::PackApi* | [**get_pack**](docs/PackApi.md#get_pack) | **GET** /api/{version}/pack/get | Get Pack
-*OpenapiClient::PackApi* | [**search_packs**](docs/PackApi.md#search_packs) | **GET** /api/{version}/pack/search | Search Packs
-*OpenapiClient::PackApi* | [**update_pack**](docs/PackApi.md#update_pack) | **POST** /api/{version}/pack/update | Update Pack
-*OpenapiClient::ParticipantsApi* | [**process_all_participants**](docs/ParticipantsApi.md#process_all_participants) | **POST** /api/{version}/participant/process/all | Process All Participant Feeds
-*OpenapiClient::ParticipantsApi* | [**process_participants**](docs/ParticipantsApi.md#process_participants) | **POST** /api/{version}/participant/process | Process Participants Feed
-*OpenapiClient::PathingApi* | [**compute_path**](docs/PathingApi.md#compute_path) | **GET** /api/{version}/pathing/compute | Calculate Path
-*OpenapiClient::PostalCodeApi* | [**create_postal_code**](docs/PostalCodeApi.md#create_postal_code) | **POST** /api/{version}/postalCode/create | Create Postal Code
-*OpenapiClient::PostalCodeApi* | [**delete_postal_code**](docs/PostalCodeApi.md#delete_postal_code) | **POST** /api/{version}/postalCode/delete | Delete Postal Code
-*OpenapiClient::PostalCodeApi* | [**get_postal_code**](docs/PostalCodeApi.md#get_postal_code) | **GET** /api/{version}/postalCode/get | Get Postal Code
-*OpenapiClient::PostalCodeApi* | [**get_postal_codes**](docs/PostalCodeApi.md#get_postal_codes) | **GET** /api/{version}/postalCode/search | Search Postal Codes
-*OpenapiClient::PostalCodeApi* | [**update_postal_code**](docs/PostalCodeApi.md#update_postal_code) | **POST** /api/{version}/postalCode/update | Update Postal Code
-*OpenapiClient::PreviewPersonaApi* | [**create_persona**](docs/PreviewPersonaApi.md#create_persona) | **POST** /api/{version}/persona/create | Create Persona
-*OpenapiClient::PreviewPersonaApi* | [**delete_persona**](docs/PreviewPersonaApi.md#delete_persona) | **POST** /api/{version}/persona/delete | Delete Persona
-*OpenapiClient::PreviewPersonaApi* | [**get_persona_list**](docs/PreviewPersonaApi.md#get_persona_list) | **GET** /api/{version}/persona/get | Get Persona
-*OpenapiClient::PreviewPersonaApi* | [**search_persona**](docs/PreviewPersonaApi.md#search_persona) | **GET** /api/{version}/persona/search | Search Personas
-*OpenapiClient::PreviewPersonaApi* | [**update_persona**](docs/PreviewPersonaApi.md#update_persona) | **POST** /api/{version}/persona/update | Update Persona
-*OpenapiClient::ProgramApi* | [**create_program**](docs/ProgramApi.md#create_program) | **POST** /api/{version}/program | Create Program
-*OpenapiClient::ProgramApi* | [**delete_program**](docs/ProgramApi.md#delete_program) | **DELETE** /api/{version}/program/{id} | Delete Program
-*OpenapiClient::ProgramApi* | [**get_program**](docs/ProgramApi.md#get_program) | **GET** /api/{version}/program/{id} | Get Program
-*OpenapiClient::ProgramApi* | [**post_program**](docs/ProgramApi.md#post_program) | **POST** /api/{version}/program/{id} | Update Program
-*OpenapiClient::ProgramApi* | [**put_program**](docs/ProgramApi.md#put_program) | **PUT** /api/{version}/program/{id} | Update Program
-*OpenapiClient::ProgramApi* | [**search_programs**](docs/ProgramApi.md#search_programs) | **GET** /api/{version}/program | Search Programs
-*OpenapiClient::PurchaseItemApi* | [**create_purchase_item**](docs/PurchaseItemApi.md#create_purchase_item) | **POST** /api/{version}/purchase/create | Create Purchase
-*OpenapiClient::PurchaseItemApi* | [**delete_purchase_item**](docs/PurchaseItemApi.md#delete_purchase_item) | **POST** /api/{version}/purchase/delete | Delete Purchase
-*OpenapiClient::PurchaseItemApi* | [**get_purchase_item**](docs/PurchaseItemApi.md#get_purchase_item) | **GET** /api/{version}/purchase/get | Get Purchase
-*OpenapiClient::PurchaseItemApi* | [**search_purchase_items**](docs/PurchaseItemApi.md#search_purchase_items) | **GET** /api/{version}/purchase/search | Search Purchases
-*OpenapiClient::PurchaseItemApi* | [**update_purchase_item**](docs/PurchaseItemApi.md#update_purchase_item) | **POST** /api/{version}/purchase/update | Update Purchase
-*OpenapiClient::PurchaseOrderApi* | [**create_order**](docs/PurchaseOrderApi.md#create_order) | **POST** /api/{version}/order/create | Create Order
-*OpenapiClient::PurchaseOrderApi* | [**delete_order**](docs/PurchaseOrderApi.md#delete_order) | **POST** /api/{version}/order/delete | Delete Order
-*OpenapiClient::PurchaseOrderApi* | [**get_order**](docs/PurchaseOrderApi.md#get_order) | **GET** /api/{version}/order/get | Get Order
-*OpenapiClient::PurchaseOrderApi* | [**preview_order**](docs/PurchaseOrderApi.md#preview_order) | **POST** /api/{version}/order/preview | Preview Order
-*OpenapiClient::PurchaseOrderApi* | [**search_orders**](docs/PurchaseOrderApi.md#search_orders) | **GET** /api/{version}/order/search | Search Orders
-*OpenapiClient::PurchaseOrderApi* | [**update_order**](docs/PurchaseOrderApi.md#update_order) | **POST** /api/{version}/order/update | Update Order
-*OpenapiClient::QuestionApi* | [**create_question**](docs/QuestionApi.md#create_question) | **POST** /api/{version}/game/question/create | Create Question
-*OpenapiClient::QuestionApi* | [**delete_question**](docs/QuestionApi.md#delete_question) | **POST** /api/{version}/game/question/delete | Delete Question
-*OpenapiClient::QuestionApi* | [**get_question**](docs/QuestionApi.md#get_question) | **GET** /api/{version}/game/question/get | Get Question
-*OpenapiClient::QuestionApi* | [**search_questions**](docs/QuestionApi.md#search_questions) | **GET** /api/{version}/game/question/search | Search Questions
-*OpenapiClient::QuestionApi* | [**update_question**](docs/QuestionApi.md#update_question) | **POST** /api/{version}/game/question/update | Update Question
-*OpenapiClient::RankingApi* | [**get_historical_rankings**](docs/RankingApi.md#get_historical_rankings) | **GET** /api/{version}/ranking/historical/search | Search Historical Rankings
-*OpenapiClient::RankingApi* | [**get_rankings**](docs/RankingApi.md#get_rankings) | **GET** /api/{version}/ranking/search | Search Rankings
-*OpenapiClient::RankingApi* | [**get_user_rank**](docs/RankingApi.md#get_user_rank) | **POST** /api/{version}/ranking/personal/ranks | Get Personal Rankings
-*OpenapiClient::RankingApi* | [**override_user_rank**](docs/RankingApi.md#override_user_rank) | **POST** /api/{version}/ranking/override | Override User Rank
-*OpenapiClient::RankingApi* | [**update_rankings**](docs/RankingApi.md#update_rankings) | **POST** /api/{version}/ranking/update | Update Ranking
-*OpenapiClient::RatingApi* | [**create_rating**](docs/RatingApi.md#create_rating) | **POST** /api/{version}/rating/create | Create Rating
-*OpenapiClient::RatingApi* | [**delete_rating**](docs/RatingApi.md#delete_rating) | **POST** /api/{version}/rating/delete | Delete Rating
-*OpenapiClient::RatingApi* | [**search_location_rating_indexes**](docs/RatingApi.md#search_location_rating_indexes) | **GET** /api/{version}/location/rating/index/search | Search Location Rating Indexes
-*OpenapiClient::RatingApi* | [**search_rating_indexes**](docs/RatingApi.md#search_rating_indexes) | **GET** /api/{version}/rating/index/search | Search Rating Indexes
-*OpenapiClient::RatingApi* | [**search_ratings**](docs/RatingApi.md#search_ratings) | **GET** /api/{version}/rating/search | Search Ratings
-*OpenapiClient::RatingApi* | [**update_rating**](docs/RatingApi.md#update_rating) | **POST** /api/{version}/rating/update | Update Rating
-*OpenapiClient::RegionApi* | [**create_region**](docs/RegionApi.md#create_region) | **POST** /api/{version}/region/create | Create Region
-*OpenapiClient::RegionApi* | [**delete_region**](docs/RegionApi.md#delete_region) | **POST** /api/{version}/region/delete | Delete Region
-*OpenapiClient::RegionApi* | [**get_region**](docs/RegionApi.md#get_region) | **GET** /api/{version}/region/get | Get Region
-*OpenapiClient::RegionApi* | [**search_regions**](docs/RegionApi.md#search_regions) | **GET** /api/{version}/region/search | Search Regions
-*OpenapiClient::RegionApi* | [**update_region**](docs/RegionApi.md#update_region) | **POST** /api/{version}/region/update | Update Region
-*OpenapiClient::ReportingApi* | [**create_batch**](docs/ReportingApi.md#create_batch) | **POST** /api/{version}/report/batch/create | Create Offline Report
-*OpenapiClient::ReportingApi* | [**create_region_leg_summary_batch**](docs/ReportingApi.md#create_region_leg_summary_batch) | **POST** /api/{version}/report/region/summary/batch | Create Offline Report
-*OpenapiClient::ReportingApi* | [**delete_batch**](docs/ReportingApi.md#delete_batch) | **POST** /api/{version}/report/batch/delete | Delete Offline Report
-*OpenapiClient::ReportingApi* | [**get_report_batch**](docs/ReportingApi.md#get_report_batch) | **GET** /api/{version}/report/batch/get | Get Offline Report
-*OpenapiClient::ReportingApi* | [**run_report**](docs/ReportingApi.md#run_report) | **POST** /api/{version}/report/run | Run Report
-*OpenapiClient::ReportingApi* | [**search_batch**](docs/ReportingApi.md#search_batch) | **GET** /api/{version}/report/batch/search | Search Offline Reports
-*OpenapiClient::ReservationApi* | [**create_reservation**](docs/ReservationApi.md#create_reservation) | **POST** /api/{version}/reservation/create | Create Reservation
-*OpenapiClient::ReservationApi* | [**delete_reservation**](docs/ReservationApi.md#delete_reservation) | **POST** /api/{version}/reservation/delete | Delete Reservation
-*OpenapiClient::ReservationApi* | [**reservable_availability**](docs/ReservationApi.md#reservable_availability) | **POST** /api/{version}/reservable/availability/update | Update Availability
-*OpenapiClient::ReservationApi* | [**search_availability**](docs/ReservationApi.md#search_availability) | **GET** /api/{version}/reservable/availability/search | Search Availability
-*OpenapiClient::ReservationApi* | [**search_reservations**](docs/ReservationApi.md#search_reservations) | **GET** /api/{version}/reservation/search | Search Reservations
-*OpenapiClient::ReservationApi* | [**search_schedule**](docs/ReservationApi.md#search_schedule) | **GET** /api/{version}/reservable/schedule/search | Search Schedule
-*OpenapiClient::RetailerApi* | [**create_retailer**](docs/RetailerApi.md#create_retailer) | **POST** /api/{version}/retailer/create | Create Retailer
-*OpenapiClient::RetailerApi* | [**delete_retailer**](docs/RetailerApi.md#delete_retailer) | **POST** /api/{version}/retailer/delete | Delete Retailer
-*OpenapiClient::RetailerApi* | [**get_retailer**](docs/RetailerApi.md#get_retailer) | **GET** /api/{version}/retailer/get | Get Retailer
-*OpenapiClient::RetailerApi* | [**get_retailers**](docs/RetailerApi.md#get_retailers) | **GET** /api/{version}/retailer/search | Search Retailers
-*OpenapiClient::RetailerApi* | [**retailer_login_check**](docs/RetailerApi.md#retailer_login_check) | **POST** /api/{version}/retailer/login | Login Retailer
-*OpenapiClient::RetailerApi* | [**update_retailer**](docs/RetailerApi.md#update_retailer) | **POST** /api/{version}/retailer/update | Update Retailer
-*OpenapiClient::RetailerLocationApi* | [**create_retailer_location_consumer**](docs/RetailerLocationApi.md#create_retailer_location_consumer) | **POST** /api/{version}/location/create | Create Retailer Location (Consumer)
-*OpenapiClient::RetailerLocationApi* | [**create_retailer_locations**](docs/RetailerLocationApi.md#create_retailer_locations) | **POST** /api/{version}/retailer/location/create | Create Retailer Location
-*OpenapiClient::RetailerLocationApi* | [**delete_retailer_location**](docs/RetailerLocationApi.md#delete_retailer_location) | **POST** /api/{version}/retailer/location/delete | Delete Retailer Location
-*OpenapiClient::RetailerLocationApi* | [**get_retailer_location**](docs/RetailerLocationApi.md#get_retailer_location) | **GET** /api/{version}/retailer/location/get | Get Retailer Location
-*OpenapiClient::RetailerLocationApi* | [**get_retailer_location_consumer**](docs/RetailerLocationApi.md#get_retailer_location_consumer) | **GET** /api/{version}/location/get | Get Retailer Location (Consumer)
-*OpenapiClient::RetailerLocationApi* | [**indexed_retailer_location_distance_search**](docs/RetailerLocationApi.md#indexed_retailer_location_distance_search) | **GET** /api/{version}/retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
-*OpenapiClient::RetailerLocationApi* | [**indexed_retailer_location_search**](docs/RetailerLocationApi.md#indexed_retailer_location_search) | **GET** /api/{version}/retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
-*OpenapiClient::RetailerLocationApi* | [**search_retailer_locations**](docs/RetailerLocationApi.md#search_retailer_locations) | **GET** /api/{version}/retailer/location/search | Search Retailer Locations (Owned)
-*OpenapiClient::RetailerLocationApi* | [**update_retailer_locations**](docs/RetailerLocationApi.md#update_retailer_locations) | **POST** /api/{version}/retailer/location/update | Update Retailer Location
-*OpenapiClient::RetailerV2Api* | [**get_retaokiler**](docs/RetailerV2Api.md#get_retaokiler) | **GET** /api/{version}/retailer | Get Retailer
-*OpenapiClient::RouteApi* | [**approve_route**](docs/RouteApi.md#approve_route) | **POST** /api/{version}/route/{routeId}/approve | Approve Route
-*OpenapiClient::RouteApi* | [**copy_route**](docs/RouteApi.md#copy_route) | **POST** /api/{version}/route/{routeId}/copy | Copy Route
-*OpenapiClient::RouteApi* | [**create_route**](docs/RouteApi.md#create_route) | **POST** /api/{version}/route | Create Route
-*OpenapiClient::RouteApi* | [**create_route_directions**](docs/RouteApi.md#create_route_directions) | **PUT** /api/{version}/route/{routeId}/directions | Update Route Directions
-*OpenapiClient::RouteApi* | [**create_route_polyline**](docs/RouteApi.md#create_route_polyline) | **PUT** /api/{version}/route/{routeId}/polyline | Create Route Polyline
-*OpenapiClient::RouteApi* | [**delete_route**](docs/RouteApi.md#delete_route) | **DELETE** /api/{version}/route/{routeId} | Delete Route
-*OpenapiClient::RouteApi* | [**disapprove_route**](docs/RouteApi.md#disapprove_route) | **POST** /api/{version}/route/{routeId}/disapprove | Disapprove Route
-*OpenapiClient::RouteApi* | [**get_route**](docs/RouteApi.md#get_route) | **GET** /api/{version}/route/{routeId} | Get Route
-*OpenapiClient::RouteApi* | [**get_route_directions**](docs/RouteApi.md#get_route_directions) | **GET** /api/{version}/route/{routeId}/directions | Get Route Directions
-*OpenapiClient::RouteApi* | [**get_route_shipments**](docs/RouteApi.md#get_route_shipments) | **GET** /api/{version}/route/{routeId}/shipments | Get Route Shipments
-*OpenapiClient::RouteApi* | [**get_route_stop**](docs/RouteApi.md#get_route_stop) | **GET** /api/{version}/route/{routeId}/stop/{stopId} | Get Route Stop
-*OpenapiClient::RouteApi* | [**get_route_stops**](docs/RouteApi.md#get_route_stops) | **GET** /api/{version}/route/{routeId}/stops | Get Route Stops
-*OpenapiClient::RouteApi* | [**get_shipments_at_stop**](docs/RouteApi.md#get_shipments_at_stop) | **GET** /api/{version}/route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
-*OpenapiClient::RouteApi* | [**optimize_route**](docs/RouteApi.md#optimize_route) | **POST** /api/{version}/route/{routeId}/optimize | Optimize Route
-*OpenapiClient::RouteApi* | [**remove_stop**](docs/RouteApi.md#remove_stop) | **DELETE** /api/{version}/route/{routeId}/stop/{stopId} | Delete Stop
-*OpenapiClient::RouteApi* | [**reorder_route_stops_patch**](docs/RouteApi.md#reorder_route_stops_patch) | **PATCH** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*OpenapiClient::RouteApi* | [**reorder_route_stops_post**](docs/RouteApi.md#reorder_route_stops_post) | **POST** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*OpenapiClient::RouteApi* | [**search_routes**](docs/RouteApi.md#search_routes) | **GET** /api/{version}/route | Search Routes
-*OpenapiClient::RouteApi* | [**set_driver**](docs/RouteApi.md#set_driver) | **POST** /api/{version}/route/{id}/driver/{driverId} | Set Driver
-*OpenapiClient::RouteApi* | [**update_route**](docs/RouteApi.md#update_route) | **PUT** /api/{version}/route/{routeId} | Update Route
-*OpenapiClient::RouteApi* | [**update_route_stop**](docs/RouteApi.md#update_route_stop) | **PUT** /api/{version}/route/{routeId}/stop/{stopId} | Update Route Stop
-*OpenapiClient::RouteSettingApi* | [**create_route_settings**](docs/RouteSettingApi.md#create_route_settings) | **POST** /api/{version}/route/setting | Create Route Setting
-*OpenapiClient::RouteSettingApi* | [**delete_route_settings**](docs/RouteSettingApi.md#delete_route_settings) | **DELETE** /api/{version}/route/setting/{routeSettingsId} | Delete Route Setting
-*OpenapiClient::RouteSettingApi* | [**get_route_settings**](docs/RouteSettingApi.md#get_route_settings) | **GET** /api/{version}/route/setting/{routeSettingsId} | Get Route Setting
-*OpenapiClient::RouteSettingApi* | [**search_route_settings**](docs/RouteSettingApi.md#search_route_settings) | **GET** /api/{version}/route/setting | Search Route Settings
-*OpenapiClient::RouteSettingApi* | [**update_route_settings**](docs/RouteSettingApi.md#update_route_settings) | **PUT** /api/{version}/route/setting/{routeSettingsId} | Update Route Setting
-*OpenapiClient::RoutingApi* | [**compute_routing**](docs/RoutingApi.md#compute_routing) | **POST** /api/{version}/routing/compute | Compute Route
-*OpenapiClient::ScheduledNotificationApi* | [**create_scheduled_notification**](docs/ScheduledNotificationApi.md#create_scheduled_notification) | **POST** /api/{version}/notification/schedule/create | Create Scheduled Notification
-*OpenapiClient::ScheduledNotificationApi* | [**delete_scheduled_notification**](docs/ScheduledNotificationApi.md#delete_scheduled_notification) | **POST** /api/{version}/notification/schedule/delete | Delete Scheduled Notification
-*OpenapiClient::ScheduledNotificationApi* | [**get_scheduled_notification**](docs/ScheduledNotificationApi.md#get_scheduled_notification) | **GET** /api/{version}/notification/schedule/get | Get Scheduled Notification
-*OpenapiClient::ScheduledNotificationApi* | [**schedule_notification_listings**](docs/ScheduledNotificationApi.md#schedule_notification_listings) | **POST** /api/{version}/notification/schedule/generate | Generate Schedule Notifications
-*OpenapiClient::ScheduledNotificationApi* | [**search_scheduled_notifications**](docs/ScheduledNotificationApi.md#search_scheduled_notifications) | **GET** /api/{version}/notification/schedule/search | Search Scheduled Notifications
-*OpenapiClient::ScheduledNotificationApi* | [**update_scheduled_notification**](docs/ScheduledNotificationApi.md#update_scheduled_notification) | **POST** /api/{version}/notification/schedule/update | Update Scheduled Notification
-*OpenapiClient::ScoreApi* | [**create_score**](docs/ScoreApi.md#create_score) | **POST** /api/{version}/score/create | Create Score
-*OpenapiClient::ScoreApi* | [**get_score**](docs/ScoreApi.md#get_score) | **GET** /api/{version}/score/get | Get Score
-*OpenapiClient::ScoreApi* | [**search_scores**](docs/ScoreApi.md#search_scores) | **GET** /api/{version}/score/search | Search Score
-*OpenapiClient::SecureAppApi* | [**create_secure_application**](docs/SecureAppApi.md#create_secure_application) | **POST** /api/{version}/secure/application/create | Create Secure Application
-*OpenapiClient::SecureAppApi* | [**delete_secure_application**](docs/SecureAppApi.md#delete_secure_application) | **POST** /api/{version}/secure/application/delete | Delete Secure Application
-*OpenapiClient::SecureAppApi* | [**login_secure**](docs/SecureAppApi.md#login_secure) | **POST** /api/{version}/secure/login | Login Clear
-*OpenapiClient::SecureAppApi* | [**purchase_secure**](docs/SecureAppApi.md#purchase_secure) | **POST** /api/{version}/secure/purchase | Purchase Clear
-*OpenapiClient::SecureAppApi* | [**reset_secure**](docs/SecureAppApi.md#reset_secure) | **POST** /api/{version}/secure/application/reset | Rest Secure Application
-*OpenapiClient::SecureAppApi* | [**update_secure_application**](docs/SecureAppApi.md#update_secure_application) | **POST** /api/{version}/secure/application/update | Update Secure Application
-*OpenapiClient::ServiceHubApi* | [**create_service_hub**](docs/ServiceHubApi.md#create_service_hub) | **POST** /api/{version}/hub | Create Service Hub
-*OpenapiClient::ServiceHubApi* | [**delete_service_hub**](docs/ServiceHubApi.md#delete_service_hub) | **DELETE** /api/{version}/hub/{id} | Delete Service Hub
-*OpenapiClient::ServiceHubApi* | [**get_service_hub**](docs/ServiceHubApi.md#get_service_hub) | **GET** /api/{version}/hub/{id} | Get Service Hub
-*OpenapiClient::ServiceHubApi* | [**post_service_hub**](docs/ServiceHubApi.md#post_service_hub) | **POST** /api/{version}/hub/{id} | Update Service Hub
-*OpenapiClient::ServiceHubApi* | [**put_service_hub**](docs/ServiceHubApi.md#put_service_hub) | **PUT** /api/{version}/hub/{id} | Update Service Hub
-*OpenapiClient::ServiceHubApi* | [**search_service_hubs**](docs/ServiceHubApi.md#search_service_hubs) | **GET** /api/{version}/hub | Search Service Hubs
-*OpenapiClient::ShipmentApi* | [**cancel_shipment**](docs/ShipmentApi.md#cancel_shipment) | **POST** /api/{version}/shipment/{id}/cancel | Cancel Shipment
-*OpenapiClient::ShipmentApi* | [**create_shipment**](docs/ShipmentApi.md#create_shipment) | **POST** /api/{version}/shipment | Create Shipment
-*OpenapiClient::ShipmentApi* | [**delete_shipment**](docs/ShipmentApi.md#delete_shipment) | **DELETE** /api/{version}/shipment/{id} | Delete Shipment
-*OpenapiClient::ShipmentApi* | [**get_shipment**](docs/ShipmentApi.md#get_shipment) | **GET** /api/{version}/shipment/{id} | Get Shipment
-*OpenapiClient::ShipmentApi* | [**search_shipments**](docs/ShipmentApi.md#search_shipments) | **GET** /api/{version}/shipment | Search Shipments
-*OpenapiClient::ShipmentApi* | [**update_shipment**](docs/ShipmentApi.md#update_shipment) | **PUT** /api/{version}/shipment/{id} | Update Shipment
-*OpenapiClient::ShipmentApi* | [**update_shipment_status**](docs/ShipmentApi.md#update_shipment_status) | **POST** /api/{version}/shipment/{id}/status | Uupdate Shipment Status
-*OpenapiClient::ShipmentBatchApi* | [**create_shipment_batch**](docs/ShipmentBatchApi.md#create_shipment_batch) | **POST** /api/{version}/shipment/batch | Create Shipment Batch
-*OpenapiClient::ShipmentBatchApi* | [**delete_shipment_batch**](docs/ShipmentBatchApi.md#delete_shipment_batch) | **DELETE** /api/{version}/shipment/batch/{batchId} | Delete Shipment Batch
-*OpenapiClient::ShipmentBatchApi* | [**get_shipment_batch**](docs/ShipmentBatchApi.md#get_shipment_batch) | **GET** /api/{version}/shipment/batch/{batchId} | Get Shipment Batch
-*OpenapiClient::ShipmentBatchApi* | [**get_shipment_batch_status**](docs/ShipmentBatchApi.md#get_shipment_batch_status) | **GET** /api/{version}/shipment/batch/{batchId}/status | Get Shipment Batch Status
-*OpenapiClient::ShipmentBatchApi* | [**search_shipment_batch**](docs/ShipmentBatchApi.md#search_shipment_batch) | **GET** /api/{version}/shipment/batch | Search Shipment Batch
-*OpenapiClient::SimulationApi* | [**simulation**](docs/SimulationApi.md#simulation) | **POST** /api/{version}/simulation/routing | Routing Simulation
-*OpenapiClient::StopApi* | [**get_stop**](docs/StopApi.md#get_stop) | **GET** /api/{version}/stop/{id} | Get Stop
-*OpenapiClient::StopApi* | [**update_stop**](docs/StopApi.md#update_stop) | **PUT** /api/{version}/stop/{id} | Update Stop
-*OpenapiClient::StripeApi* | [**create_stripe_checkout_session**](docs/StripeApi.md#create_stripe_checkout_session) | **POST** /api/{version}/stripe/checkout/session/create | Create Stripe Checkout Session
-*OpenapiClient::SubscriptionApi* | [**create_subscription**](docs/SubscriptionApi.md#create_subscription) | **POST** /api/{version}/subscription/create | Create Subscription
-*OpenapiClient::SubscriptionApi* | [**delete_subscription**](docs/SubscriptionApi.md#delete_subscription) | **POST** /api/{version}/subscription/delete | Delete Subscription
-*OpenapiClient::SubscriptionApi* | [**get_subscription**](docs/SubscriptionApi.md#get_subscription) | **GET** /api/{version}/subscription/get | Get Subscription
-*OpenapiClient::SubscriptionApi* | [**get_subscription_plan**](docs/SubscriptionApi.md#get_subscription_plan) | **GET** /api/{version}/subscription/plan/get | Get Subscription Plan
-*OpenapiClient::SubscriptionApi* | [**get_subscription_plans**](docs/SubscriptionApi.md#get_subscription_plans) | **GET** /api/{version}/subscription/plan/list | List Subscription Plans
-*OpenapiClient::SubscriptionApi* | [**get_subscription_usage**](docs/SubscriptionApi.md#get_subscription_usage) | **GET** /api/{version}/subscription/usage/get | Get Subscription Usage
-*OpenapiClient::SubscriptionApi* | [**update_subscription**](docs/SubscriptionApi.md#update_subscription) | **POST** /api/{version}/subscription/update | Update Subscription
-*OpenapiClient::TaskApi* | [**create_task**](docs/TaskApi.md#create_task) | **POST** /api/{version}/task/create | Create Task
-*OpenapiClient::TaskApi* | [**delete_task**](docs/TaskApi.md#delete_task) | **POST** /api/{version}/task/delete | Delete Task
-*OpenapiClient::TaskApi* | [**get_task**](docs/TaskApi.md#get_task) | **GET** /api/{version}/task/get | Get Task
-*OpenapiClient::TaskApi* | [**search_tasks**](docs/TaskApi.md#search_tasks) | **GET** /api/{version}/task/search | Search Tasks
-*OpenapiClient::TaskApi* | [**update_task**](docs/TaskApi.md#update_task) | **POST** /api/{version}/task/update | Update Task
-*OpenapiClient::TerritoryApi* | [**create_territory**](docs/TerritoryApi.md#create_territory) | **POST** /api/{version}/territory/create | Create Territory
-*OpenapiClient::TerritoryApi* | [**delete_territory**](docs/TerritoryApi.md#delete_territory) | **POST** /api/{version}/territory/delete | Delete Territory
-*OpenapiClient::TerritoryApi* | [**get_territory**](docs/TerritoryApi.md#get_territory) | **GET** /api/{version}/territory/get | Get Territory
-*OpenapiClient::TerritoryApi* | [**search_territories**](docs/TerritoryApi.md#search_territories) | **GET** /api/{version}/territory/search | Search Territories
-*OpenapiClient::TerritoryApi* | [**update_territory**](docs/TerritoryApi.md#update_territory) | **POST** /api/{version}/territory/update | Update Territory
-*OpenapiClient::ThemeDescriptorApi* | [**add_or_update_theme_descriptor**](docs/ThemeDescriptorApi.md#add_or_update_theme_descriptor) | **POST** /api/{version}/consumer/theme | Create/Update Theme
-*OpenapiClient::ThemeDescriptorApi* | [**get_theme_descriptor**](docs/ThemeDescriptorApi.md#get_theme_descriptor) | **GET** /api/{version}/consumer/theme/get | Get Theme
-*OpenapiClient::ThemeDescriptorApi* | [**get_theme_descriptors**](docs/ThemeDescriptorApi.md#get_theme_descriptors) | **GET** /api/{version}/consumer/theme/search | Search Themes
-*OpenapiClient::ThemeDescriptorApi* | [**remove_theme_descriptor**](docs/ThemeDescriptorApi.md#remove_theme_descriptor) | **POST** /api/{version}/consumer/theme/remove | Delete Theme
-*OpenapiClient::ThirdPartyCredentialsApi* | [**create_credential**](docs/ThirdPartyCredentialsApi.md#create_credential) | **POST** /api/{version}/thirdparty/credential/create | Create Credential
-*OpenapiClient::ThirdPartyCredentialsApi* | [**create_network**](docs/ThirdPartyCredentialsApi.md#create_network) | **POST** /api/{version}/thirdparty/network/create | Create Network
-*OpenapiClient::ThirdPartyCredentialsApi* | [**delete_credential**](docs/ThirdPartyCredentialsApi.md#delete_credential) | **POST** /api/{version}/thirdparty/credential/delete | Delete Credential
-*OpenapiClient::ThirdPartyCredentialsApi* | [**delete_network**](docs/ThirdPartyCredentialsApi.md#delete_network) | **POST** /api/{version}/thirdparty/network/delete | Delete Network
-*OpenapiClient::ThirdPartyCredentialsApi* | [**get_credential**](docs/ThirdPartyCredentialsApi.md#get_credential) | **POST** /api/{version}/thirdparty/credential/get | Get Credential
-*OpenapiClient::ThirdPartyCredentialsApi* | [**get_network**](docs/ThirdPartyCredentialsApi.md#get_network) | **GET** /api/{version}/thirdparty/network/get | Get Network
-*OpenapiClient::ThirdPartyCredentialsApi* | [**search_credentials**](docs/ThirdPartyCredentialsApi.md#search_credentials) | **GET** /api/{version}/thirdparty/credential/search | Search Credentials
-*OpenapiClient::ThirdPartyCredentialsApi* | [**search_networks**](docs/ThirdPartyCredentialsApi.md#search_networks) | **GET** /api/{version}/thirdparty/network/search | Search Networks
-*OpenapiClient::ThirdPartyCredentialsApi* | [**send_mfa_challenge**](docs/ThirdPartyCredentialsApi.md#send_mfa_challenge) | **POST** /api/{version}/thirdparty/credential/mfa/send | Send MFA Challenge
-*OpenapiClient::ThirdPartyCredentialsApi* | [**update_credential**](docs/ThirdPartyCredentialsApi.md#update_credential) | **POST** /api/{version}/thirdparty/credential/update | Update Credential
-*OpenapiClient::ThirdPartyCredentialsApi* | [**update_network**](docs/ThirdPartyCredentialsApi.md#update_network) | **POST** /api/{version}/thirdparty/network/update | Update Network
-*OpenapiClient::TicketApi* | [**get_ticket_count**](docs/TicketApi.md#get_ticket_count) | **GET** /api/{version}/ticket/count | Get Ticket Count
-*OpenapiClient::TicketApi* | [**get_ticket_list**](docs/TicketApi.md#get_ticket_list) | **GET** /api/{version}/ticket/getList | Get Ticket List
-*OpenapiClient::TicketApi* | [**gift_purchase**](docs/TicketApi.md#gift_purchase) | **POST** /api/{version}/purchase/gift | Gift Tickets
-*OpenapiClient::TicketApi* | [**save_ticket**](docs/TicketApi.md#save_ticket) | **POST** /api/{version}/ticket/save | Save Ticket
-*OpenapiClient::TicketApi* | [**save_ticket_via_file_upload**](docs/TicketApi.md#save_ticket_via_file_upload) | **POST** /api/{version}/ticket/save/fileUpload | Save Ticket with Reciept
-*OpenapiClient::TicketApi* | [**ticket_offers**](docs/TicketApi.md#ticket_offers) | **GET** /api/{version}/ticket/ticketoffers | Get Ticket Offers
-*OpenapiClient::TournamentApi* | [**create_tournament**](docs/TournamentApi.md#create_tournament) | **POST** /api/{version}/tournament/create | Create Tournament
-*OpenapiClient::TournamentApi* | [**delete_tournament**](docs/TournamentApi.md#delete_tournament) | **POST** /api/{version}/tournament/delete | Delete Tournament
-*OpenapiClient::TournamentApi* | [**get_tournament**](docs/TournamentApi.md#get_tournament) | **GET** /api/{version}/tournament/get | Get Tournament
-*OpenapiClient::TournamentApi* | [**search_objects**](docs/TournamentApi.md#search_objects) | **GET** /api/{version}/tournament/object/search | Search Tournament Objects
-*OpenapiClient::TournamentApi* | [**search_rounds**](docs/TournamentApi.md#search_rounds) | **GET** /api/{version}/tournament/round/search | Search Tournament Rounds
-*OpenapiClient::TournamentApi* | [**search_tournaments**](docs/TournamentApi.md#search_tournaments) | **GET** /api/{version}/tournament/search | Search Tournaments
-*OpenapiClient::TournamentApi* | [**submit_tournament_score**](docs/TournamentApi.md#submit_tournament_score) | **POST** /api/{version}/tournament/score | Submit Tournament Score
-*OpenapiClient::TournamentApi* | [**submit_tournament_vote**](docs/TournamentApi.md#submit_tournament_vote) | **POST** /api/{version}/tournament/vote | Submit a vote for a multi-stage album tournament.
-*OpenapiClient::TournamentApi* | [**substitute_tournament_player**](docs/TournamentApi.md#substitute_tournament_player) | **POST** /api/{version}/tournament/substitute | Substitute Tournament Player
-*OpenapiClient::TournamentApi* | [**update_tournament**](docs/TournamentApi.md#update_tournament) | **POST** /api/{version}/tournament/update | Update Tournament
-*OpenapiClient::TrackingApi* | [**batch_save_tracking**](docs/TrackingApi.md#batch_save_tracking) | **POST** /api/{version}/tracking/batch/create | Create Batch Tracking
-*OpenapiClient::TrackingApi* | [**get_predicted_locations**](docs/TrackingApi.md#get_predicted_locations) | **GET** /api/{version}/tracking/predicted/get | Get Predicted Locations
-*OpenapiClient::TrackingApi* | [**get_predicted_path**](docs/TrackingApi.md#get_predicted_path) | **GET** /api/{version}/tracking/path/get | Get Tracking Path
-*OpenapiClient::TrackingApi* | [**get_preferred_locations**](docs/TrackingApi.md#get_preferred_locations) | **GET** /api/{version}/tracking/preferred/search | Search Preferred Locations
-*OpenapiClient::TrackingApi* | [**get_tracking_legs**](docs/TrackingApi.md#get_tracking_legs) | **GET** /api/{version}/tracking/search | Search Tracking
-*OpenapiClient::TrackingApi* | [**save_tracking_leg**](docs/TrackingApi.md#save_tracking_leg) | **POST** /api/{version}/tracking/leg/create | Create Tracking Leg
-*OpenapiClient::TrackingApi* | [**save_tracking_step**](docs/TrackingApi.md#save_tracking_step) | **POST** /api/{version}/tracking/step/create | Create Tracking Step
-*OpenapiClient::TrackingApi* | [**search_accounts_with_tracking_legs**](docs/TrackingApi.md#search_accounts_with_tracking_legs) | **GET** /api/{version}/tracking/list | List Tracking
-*OpenapiClient::TrackingApi* | [**search_tracking_legs**](docs/TrackingApi.md#search_tracking_legs) | **GET** /api/{version}/tracking/searchByBillable | Search Tracking (Billable)
-*OpenapiClient::TriggerApi* | [**create_trigger**](docs/TriggerApi.md#create_trigger) | **POST** /api/{version}/trigger/create | Create Trigger
-*OpenapiClient::TriggerApi* | [**delete_trigger**](docs/TriggerApi.md#delete_trigger) | **POST** /api/{version}/trigger/delete | Delete Trigger
-*OpenapiClient::TriggerApi* | [**get_trigger**](docs/TriggerApi.md#get_trigger) | **GET** /api/{version}/trigger/get | Get Trigger
-*OpenapiClient::TriggerApi* | [**search_triggers**](docs/TriggerApi.md#search_triggers) | **GET** /api/{version}/trigger/search | Search Triggers
-*OpenapiClient::TriggerApi* | [**update_trigger**](docs/TriggerApi.md#update_trigger) | **POST** /api/{version}/trigger/update | Update Trigger
-*OpenapiClient::TripApi* | [**create_trip**](docs/TripApi.md#create_trip) | **POST** /api/{version}/trip | Create Trip
-*OpenapiClient::TripApi* | [**delete**](docs/TripApi.md#delete) | **DELETE** /api/{version}/trip/{id} | Delete Trip
-*OpenapiClient::TripApi* | [**drive_trip**](docs/TripApi.md#drive_trip) | **POST** /api/{version}/trip/{id}/drive | Set Trip Preference Driver
-*OpenapiClient::TripApi* | [**flexible_trip**](docs/TripApi.md#flexible_trip) | **POST** /api/{version}/trip/{id}/flexible | Set Trip Preference Flexible
-*OpenapiClient::TripApi* | [**get_trip**](docs/TripApi.md#get_trip) | **GET** /api/{version}/trip/{id} | Get Trip
-*OpenapiClient::TripApi* | [**get_trip_matches**](docs/TripApi.md#get_trip_matches) | **GET** /api/{version}/trip/{id}/match | Get Trip Matches
-*OpenapiClient::TripApi* | [**process_trip_matches**](docs/TripApi.md#process_trip_matches) | **POST** /api/{version}/trip/match/process | Process Trip Matches
-*OpenapiClient::TripApi* | [**ride**](docs/TripApi.md#ride) | **POST** /api/{version}/trip/{id}/ride | Set Trip Preference Rider
-*OpenapiClient::TripApi* | [**search**](docs/TripApi.md#search) | **GET** /api/{version}/trip | Search Trips
-*OpenapiClient::TripApi* | [**search_trips**](docs/TripApi.md#search_trips) | **GET** /api/{version}/trip/match | Search Trips
-*OpenapiClient::TripApi* | [**update_locations**](docs/TripApi.md#update_locations) | **POST** /api/{version}/trip/{id}/locations | Update Trip Locations
-*OpenapiClient::TripApi* | [**update_recurrence_locations**](docs/TripApi.md#update_recurrence_locations) | **POST** /api/{version}/trip/{id}/locations/recurrence | Update Recurrence Locations
-*OpenapiClient::TripApi* | [**update_recurrence_shipments**](docs/TripApi.md#update_recurrence_shipments) | **POST** /api/{version}/trip/{id}/shipments/recurrence | Update Recurrence Shipments
-*OpenapiClient::TripApi* | [**update_shipments**](docs/TripApi.md#update_shipments) | **POST** /api/{version}/trip/{id}/shipments | Update Trip Shipments
-*OpenapiClient::TripApi* | [**update_trip**](docs/TripApi.md#update_trip) | **PUT** /api/{version}/trip/{id} | Update Trip
-*OpenapiClient::TripApi* | [**update_trip_notifications**](docs/TripApi.md#update_trip_notifications) | **POST** /api/{version}/trip/notifications | Trip Notifications
-*OpenapiClient::TwilioApi* | [**sms_buy_offer**](docs/TwilioApi.md#sms_buy_offer) | **POST** /api/{version}/sms/buyoffer/{appKey} | Buy Offer by SMS
-*OpenapiClient::TwitterApi* | [**authorize_twitter**](docs/TwitterApi.md#authorize_twitter) | **POST** /api/{version}/twitter/authorize | Authorize Twitter
-*OpenapiClient::TwitterApi* | [**login_twitter**](docs/TwitterApi.md#login_twitter) | **POST** /api/{version}/twitter/login | Login Twitter
-*OpenapiClient::UserPermissionsApi* | [**add_users_to_permissionable**](docs/UserPermissionsApi.md#add_users_to_permissionable) | **POST** /api/{version}/consumer/permissions/add | Add User
-*OpenapiClient::UserPermissionsApi* | [**approve_permissionable**](docs/UserPermissionsApi.md#approve_permissionable) | **POST** /api/{version}/permissionable/approve | Approve Permissionable
-*OpenapiClient::UserPermissionsApi* | [**leave_from_permissionable**](docs/UserPermissionsApi.md#leave_from_permissionable) | **POST** /api/{version}/consumer/permissions/leave | Leave
-*OpenapiClient::UserPermissionsApi* | [**remove_users_from_permissionable**](docs/UserPermissionsApi.md#remove_users_from_permissionable) | **POST** /api/{version}/consumer/permissions/remove | Remove User
-*OpenapiClient::UserPermissionsApi* | [**search_permissionables**](docs/UserPermissionsApi.md#search_permissionables) | **GET** /api/{version}/permissions/search | Search Permissionables
-*OpenapiClient::UserPermissionsApi* | [**search_permissionables_following_distance**](docs/UserPermissionsApi.md#search_permissionables_following_distance) | **GET** /api/{version}/permissions/distancesearch | Search Permissionables by Distnace
-*OpenapiClient::VatomApi* | [**create_following**](docs/VatomApi.md#create_following) | **POST** /api/{version}/vatom/me/rels/following/create | Create following
-*OpenapiClient::VatomApi* | [**create_space**](docs/VatomApi.md#create_space) | **POST** /api/{version}/vatom/b/spaces/create | Create Vatom Space
-*OpenapiClient::VatomApi* | [**create_vatom_event**](docs/VatomApi.md#create_vatom_event) | **POST** /api/{version}/vatom/b/events/create | Create Vatom Event
-*OpenapiClient::VatomApi* | [**delete_following**](docs/VatomApi.md#delete_following) | **POST** /api/{version}/vatom/me/rels/following/delete | Delete following
-*OpenapiClient::VatomApi* | [**delete_points_balance**](docs/VatomApi.md#delete_points_balance) | **POST** /api/{version}/vatom/b/campaign/points/delete | Reset All Points Balance
-*OpenapiClient::VatomApi* | [**delete_space**](docs/VatomApi.md#delete_space) | **POST** /api/{version}/vatom/b/spaces/delete | Delete Vatom Space
-*OpenapiClient::VatomApi* | [**delete_vatom_event**](docs/VatomApi.md#delete_vatom_event) | **POST** /api/{version}/vatom/b/events/delete | Delete Vatom Event
-*OpenapiClient::VatomApi* | [**delete_vatom_nft**](docs/VatomApi.md#delete_vatom_nft) | **POST** /api/{version}/vatom/vatoms/delete | Delete Vatom NFT
-*OpenapiClient::VatomApi* | [**execute_action_on_nft**](docs/VatomApi.md#execute_action_on_nft) | **POST** /api/{version}/vatom/vatoms/execute-action | Execute Action on NFT
-*OpenapiClient::VatomApi* | [**geomap_search**](docs/VatomApi.md#geomap_search) | **GET** /api/{version}/vatom/vatoms/geo-map/search | Search Vatom Geo Map
-*OpenapiClient::VatomApi* | [**get_business_behaviors**](docs/VatomApi.md#get_business_behaviors) | **GET** /api/{version}/vatom/b/behaviors | Get Vatom Business Behaviors
-*OpenapiClient::VatomApi* | [**get_business_coins_balance**](docs/VatomApi.md#get_business_coins_balance) | **GET** /api/{version}/vatom/b/coins/get | Get the coins for a Business
-*OpenapiClient::VatomApi* | [**get_business_ids**](docs/VatomApi.md#get_business_ids) | **GET** /api/{version}/vatom/me/businesses | Get the user business ids
-*OpenapiClient::VatomApi* | [**get_business_info**](docs/VatomApi.md#get_business_info) | **GET** /api/{version}/vatom/b/get | Get Vatom Business Info
-*OpenapiClient::VatomApi* | [**get_business_users**](docs/VatomApi.md#get_business_users) | **GET** /api/{version}/vatom/b/users | Get Vatom Business Users
-*OpenapiClient::VatomApi* | [**get_campaign_group_entities**](docs/VatomApi.md#get_campaign_group_entities) | **GET** /api/{version}/vatom/b/campaign-groups/entities | Get Campaign Group Entities
-*OpenapiClient::VatomApi* | [**get_campaign_group_rules**](docs/VatomApi.md#get_campaign_group_rules) | **GET** /api/{version}/vatom/b/campaign-groups/rules | Get Campaign Group Rules
-*OpenapiClient::VatomApi* | [**get_campaign_group_stats**](docs/VatomApi.md#get_campaign_group_stats) | **GET** /api/{version}/vatom/b/campaign-groups/stats | Get Campaign Group Stats
-*OpenapiClient::VatomApi* | [**get_campaign_info**](docs/VatomApi.md#get_campaign_info) | **GET** /api/{version}/vatom/b/campaign-groups/get | Get Campaign Info
-*OpenapiClient::VatomApi* | [**get_event_guest_list**](docs/VatomApi.md#get_event_guest_list) | **GET** /api/{version}/vatom/b/events/guests/get | Get Vatom Event Guest List
-*OpenapiClient::VatomApi* | [**get_inventory**](docs/VatomApi.md#get_inventory) | **GET** /api/{version}/vatom/me/inventory | Get Vatom User's Inventory
-*OpenapiClient::VatomApi* | [**get_my_following**](docs/VatomApi.md#get_my_following) | **GET** /api/{version}/vatom/me/rels/following | Get following
-*OpenapiClient::VatomApi* | [**get_points_balance**](docs/VatomApi.md#get_points_balance) | **GET** /api/{version}/vatom/u/campaign/points/get | Get Points Balance
-*OpenapiClient::VatomApi* | [**get_points_balance_as_business**](docs/VatomApi.md#get_points_balance_as_business) | **GET** /api/{version}/vatom/b/campaign/u/points/get | Get Points Balance as Business
-*OpenapiClient::VatomApi* | [**get_space**](docs/VatomApi.md#get_space) | **GET** /api/{version}/vatom/b/spaces/get | Get Vatom Space
-*OpenapiClient::VatomApi* | [**get_user_coins_as_business**](docs/VatomApi.md#get_user_coins_as_business) | **GET** /api/{version}/vatom/b/users/coins/get | Get the coins for a user (as a Business)
-*OpenapiClient::VatomApi* | [**get_user_coins_balance**](docs/VatomApi.md#get_user_coins_balance) | **GET** /api/{version}/vatom/u/coins/get | Gets the coins balance for a Vatom User
-*OpenapiClient::VatomApi* | [**get_user_followers**](docs/VatomApi.md#get_user_followers) | **GET** /api/{version}/vatom/users/rels/followers | Get user followers
-*OpenapiClient::VatomApi* | [**get_user_following**](docs/VatomApi.md#get_user_following) | **GET** /api/{version}/vatom/users/rels/following | Get user following
-*OpenapiClient::VatomApi* | [**get_user_info**](docs/VatomApi.md#get_user_info) | **GET** /api/{version}/vatom/user/get | Get User Info
-*OpenapiClient::VatomApi* | [**get_user_profile**](docs/VatomApi.md#get_user_profile) | **GET** /api/{version}/vatom/me/get | Get Vatom User Profile
-*OpenapiClient::VatomApi* | [**get_vatom_event**](docs/VatomApi.md#get_vatom_event) | **GET** /api/{version}/vatom/b/events/get | Get Vatom Event
-*OpenapiClient::VatomApi* | [**get_vatom_nft**](docs/VatomApi.md#get_vatom_nft) | **GET** /api/{version}/vatom/vatoms/get | Get Vatom NFT Details
-*OpenapiClient::VatomApi* | [**list_communities**](docs/VatomApi.md#list_communities) | **GET** /api/{version}/vatom/b/communities/search | List Vatom Communities
-*OpenapiClient::VatomApi* | [**list_events**](docs/VatomApi.md#list_events) | **GET** /api/{version}/vatom/b/events/search | List Vatom Events
-*OpenapiClient::VatomApi* | [**list_spaces**](docs/VatomApi.md#list_spaces) | **GET** /api/{version}/vatom/b/spaces/search | List Vatom Spaces
-*OpenapiClient::VatomApi* | [**list_user_coin_transactions**](docs/VatomApi.md#list_user_coin_transactions) | **GET** /api/{version}/vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
-*OpenapiClient::VatomApi* | [**list_user_coin_transactions_as_business**](docs/VatomApi.md#list_user_coin_transactions_as_business) | **GET** /api/{version}/vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
-*OpenapiClient::VatomApi* | [**perform_action_on_nft**](docs/VatomApi.md#perform_action_on_nft) | **POST** /api/{version}/vatom/me/vatoms/actions | Perform Action on NFT
-*OpenapiClient::VatomApi* | [**redeem_nft**](docs/VatomApi.md#redeem_nft) | **POST** /api/{version}/vatom/b/redemptions | Redeem NFT
-*OpenapiClient::VatomApi* | [**redeem_user_coins_as_business**](docs/VatomApi.md#redeem_user_coins_as_business) | **POST** /api/{version}/vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
-*OpenapiClient::VatomApi* | [**search_businesses**](docs/VatomApi.md#search_businesses) | **GET** /api/{version}/vatom/b/search | Search for Vatom Businesses
-*OpenapiClient::VatomApi* | [**search_campaign_groups**](docs/VatomApi.md#search_campaign_groups) | **GET** /api/{version}/vatom/b/campaign-groups/search | Search Campaign Groups
-*OpenapiClient::VatomApi* | [**search_identities**](docs/VatomApi.md#search_identities) | **GET** /api/{version}/vatom/me/identities/search | Search User Identities
-*OpenapiClient::VatomApi* | [**search_inventory**](docs/VatomApi.md#search_inventory) | **GET** /api/{version}/vatom/user-inventory/search | Search Vatom User's Inventory
-*OpenapiClient::VatomApi* | [**send_nft**](docs/VatomApi.md#send_nft) | **POST** /api/{version}/vatom/b/campaigns/send | Send NFT
-*OpenapiClient::VatomApi* | [**set_points_balance_as_business**](docs/VatomApi.md#set_points_balance_as_business) | **POST** /api/{version}/vatom/b/campaign/u/points/update | Set Points Balance as Business
-*OpenapiClient::VatomApi* | [**transfer_user_coins**](docs/VatomApi.md#transfer_user_coins) | **POST** /api/{version}/vatom/u/coins/transfer | Transfer coins from Vatom Users
-*OpenapiClient::VatomApi* | [**update_business_coins**](docs/VatomApi.md#update_business_coins) | **POST** /api/{version}/vatom/b/coins/update | Fund coins for a Business
-*OpenapiClient::VatomApi* | [**update_event_guest_list**](docs/VatomApi.md#update_event_guest_list) | **POST** /api/{version}/vatom/b/events/guests/update | Update Vatom Event Guest List
-*OpenapiClient::VatomApi* | [**update_space**](docs/VatomApi.md#update_space) | **POST** /api/{version}/vatom/b/spaces/update | Update Vatom Space
-*OpenapiClient::VatomApi* | [**update_user_coins_as_business**](docs/VatomApi.md#update_user_coins_as_business) | **POST** /api/{version}/vatom/b/users/coins/update | Update the coins for a user (as a Business)
-*OpenapiClient::VatomApi* | [**update_user_profile**](docs/VatomApi.md#update_user_profile) | **POST** /api/{version}/vatom/me/update | Update Vatom User Profile
-*OpenapiClient::VatomApi* | [**update_vatom_event**](docs/VatomApi.md#update_vatom_event) | **POST** /api/{version}/vatom/b/events/update | Update Vatom Event
-*OpenapiClient::VehicleApi* | [**create_vehicle**](docs/VehicleApi.md#create_vehicle) | **POST** /api/{version}/vehicle | Create Vehicle
-*OpenapiClient::VehicleApi* | [**delete_vehicle**](docs/VehicleApi.md#delete_vehicle) | **DELETE** /api/{version}/vehicle/{id} | Delete Vehicle
-*OpenapiClient::VehicleApi* | [**get_vehicle**](docs/VehicleApi.md#get_vehicle) | **GET** /api/{version}/vehicle/{id} | Get Vehicle
-*OpenapiClient::VehicleApi* | [**search_vehicle**](docs/VehicleApi.md#search_vehicle) | **GET** /api/{version}/vehicle | Search Vehicle
-*OpenapiClient::VehicleApi* | [**update_vehicle**](docs/VehicleApi.md#update_vehicle) | **PUT** /api/{version}/vehicle/{id} | Update Vehicle
-*OpenapiClient::VehicleTypeApi* | [**create_vehicle_type**](docs/VehicleTypeApi.md#create_vehicle_type) | **POST** /api/{version}/vehicle/type | Create Vehicle Type
-*OpenapiClient::VehicleTypeApi* | [**delete_vehicle_type**](docs/VehicleTypeApi.md#delete_vehicle_type) | **DELETE** /api/{version}/vehicle/type/{vehicleTypeId} | Delete Vehicle Type
-*OpenapiClient::VehicleTypeApi* | [**get_vehicle_type**](docs/VehicleTypeApi.md#get_vehicle_type) | **GET** /api/{version}/vehicle/type/{vehicleTypeId} | Get Vehicle Type
-*OpenapiClient::VehicleTypeApi* | [**search_vehicle_types**](docs/VehicleTypeApi.md#search_vehicle_types) | **GET** /api/{version}/vehicle/type | Search Vehicle Type
-*OpenapiClient::VehicleTypeApi* | [**update_vehicle_type**](docs/VehicleTypeApi.md#update_vehicle_type) | **PUT** /api/{version}/vehicle/type/{vehicleTypeId} | Update Vehicle Type
-*OpenapiClient::WalletApi* | [**create_offer_transaction**](docs/WalletApi.md#create_offer_transaction) | **POST** /api/{version}/wallet/create | Create Wallet Offers
-*OpenapiClient::WalletApi* | [**delete_offer_transaction**](docs/WalletApi.md#delete_offer_transaction) | **POST** /api/{version}/wallet/delete | Delete Wallet Offer
-*OpenapiClient::WalletApi* | [**get_offer_transaction**](docs/WalletApi.md#get_offer_transaction) | **GET** /api/{version}/wallet/get | Get Wallet Offer
-*OpenapiClient::WalletApi* | [**preview_offer_transaction**](docs/WalletApi.md#preview_offer_transaction) | **POST** /api/{version}/wallet/preview | Preview Wallet Offers
-*OpenapiClient::WalletApi* | [**search_offer_transactions**](docs/WalletApi.md#search_offer_transactions) | **GET** /api/{version}/wallet/search | Search Wallet Offers
-*OpenapiClient::WalletApi* | [**update_offer_transaction**](docs/WalletApi.md#update_offer_transaction) | **POST** /api/{version}/wallet/update | Update Wallet Offer
-*OpenapiClient::WeatherApi* | [**search_weather**](docs/WeatherApi.md#search_weather) | **GET** /api/{version}/weather/search | Search Weather
-*OpenapiClient::WordApi* | [**create_word**](docs/WordApi.md#create_word) | **POST** /api/{version}/game/word/create | Create Word
-*OpenapiClient::WordApi* | [**delete_word**](docs/WordApi.md#delete_word) | **DELETE** /api/{version}/game/word/delete | Delete Word
-*OpenapiClient::WordApi* | [**get_word**](docs/WordApi.md#get_word) | **GET** /api/{version}/game/word/get | Get Word
-*OpenapiClient::WordApi* | [**get_words**](docs/WordApi.md#get_words) | **GET** /api/{version}/game/word/search | Search Words
-*OpenapiClient::WordApi* | [**update_word**](docs/WordApi.md#update_word) | **POST** /api/{version}/game/word/update | Update Word
-*OpenapiClient::WorkflowApi* | [**run_workflow**](docs/WorkflowApi.md#run_workflow) | **POST** /api/{version}/workflow/run | Run Workflow
+*OpenapiClient::AMQPApi* | [**consumer_create**](docs/AMQPApi.md#consumer_create) | **POST** /queue/consumer/create | Create Consumer
+*OpenapiClient::AMQPApi* | [**consumer_update**](docs/AMQPApi.md#consumer_update) | **POST** /queue/consumer/update | Update Consumer
+*OpenapiClient::AMQPApi* | [**queue_create**](docs/AMQPApi.md#queue_create) | **POST** /queue/create | Create Queue
+*OpenapiClient::AMQPApi* | [**queue_delete**](docs/AMQPApi.md#queue_delete) | **POST** /queue/delete | Delete Queue
+*OpenapiClient::AMQPApi* | [**queue_get**](docs/AMQPApi.md#queue_get) | **GET** /queue/get | Get Queue
+*OpenapiClient::AMQPApi* | [**queue_publish**](docs/AMQPApi.md#queue_publish) | **POST** /queue/publish | Publish Queue
+*OpenapiClient::AMQPApi* | [**queue_search**](docs/AMQPApi.md#queue_search) | **GET** /queue/search | Search Queue
+*OpenapiClient::AMQPApi* | [**queue_update**](docs/AMQPApi.md#queue_update) | **POST** /queue/update | Update Queue
+*OpenapiClient::AccountApi* | [**account_location_search**](docs/AccountApi.md#account_location_search) | **GET** /account/search | Search Accounts by Location
+*OpenapiClient::AccountApi* | [**block_account**](docs/AccountApi.md#block_account) | **POST** /account/block | Block Account
+*OpenapiClient::AccountApi* | [**create_account**](docs/AccountApi.md#create_account) | **POST** /account/create | Create Account
+*OpenapiClient::AccountApi* | [**edit_account**](docs/AccountApi.md#edit_account) | **POST** /account/profile/update | Update Account
+*OpenapiClient::AccountApi* | [**edit_username**](docs/AccountApi.md#edit_username) | **POST** /account/username/update | Update Username and Email
+*OpenapiClient::AccountApi* | [**get_account**](docs/AccountApi.md#get_account) | **GET** /account/profile/get | Get Account
+*OpenapiClient::AccountApi* | [**get_profile_assets**](docs/AccountApi.md#get_profile_assets) | **GET** /account/profile/assets | Get Profile Assets
+*OpenapiClient::AccountApi* | [**get_referral_list**](docs/AccountApi.md#get_referral_list) | **GET** /account/referral/list | Search Accounts
+*OpenapiClient::AccountApi* | [**get_settings**](docs/AccountApi.md#get_settings) | **GET** /account/settings/get | Get Account Settings
+*OpenapiClient::AccountApi* | [**login_delegate**](docs/AccountApi.md#login_delegate) | **POST** /account/login/delegate | Login as Account
+*OpenapiClient::AccountApi* | [**login_general**](docs/AccountApi.md#login_general) | **POST** /account/login | Login Account
+*OpenapiClient::AccountApi* | [**login_username**](docs/AccountApi.md#login_username) | **POST** /account/get | Login Account (Username)
+*OpenapiClient::AccountApi* | [**logout**](docs/AccountApi.md#logout) | **POST** /account/logout | Logout Account
+*OpenapiClient::AccountApi* | [**merge_account**](docs/AccountApi.md#merge_account) | **POST** /account/merge | Merge Account
+*OpenapiClient::AccountApi* | [**password_change**](docs/AccountApi.md#password_change) | **POST** /account/passwordchange | Update Password
+*OpenapiClient::AccountApi* | [**password_reset**](docs/AccountApi.md#password_reset) | **POST** /account/passwordreset | Reset Password
+*OpenapiClient::AccountApi* | [**request_password_reset**](docs/AccountApi.md#request_password_reset) | **POST** /account/requestpasswordreset | Request Password Reset
+*OpenapiClient::AccountApi* | [**request_validate_account**](docs/AccountApi.md#request_validate_account) | **POST** /account/requestValidateAccount | Send Validation Request
+*OpenapiClient::AccountApi* | [**search_accounts**](docs/AccountApi.md#search_accounts) | **GET** /account/profile/search | Search Accounts
+*OpenapiClient::AccountApi* | [**secure_login**](docs/AccountApi.md#secure_login) | **POST** /account/login/validate | Login Account (Encrypted Username)
+*OpenapiClient::AccountApi* | [**secure_signup**](docs/AccountApi.md#secure_signup) | **POST** /account/create/validate | Create Account (Encrypted Username)
+*OpenapiClient::AccountApi* | [**set_match_token**](docs/AccountApi.md#set_match_token) | **POST** /consumer/profile/matchToken | Save Match Token
+*OpenapiClient::AccountApi* | [**update_actve_status**](docs/AccountApi.md#update_actve_status) | **POST** /account/active/update | Update Account Active Status
+*OpenapiClient::AccountApi* | [**update_location**](docs/AccountApi.md#update_location) | **POST** /account/location/update | Update Location
+*OpenapiClient::AccountApi* | [**update_settings**](docs/AccountApi.md#update_settings) | **POST** /account/settings/update | Update Account Settings
+*OpenapiClient::AccountApi* | [**validate_account_signup**](docs/AccountApi.md#validate_account_signup) | **POST** /account/validateAccountSignup | Save Validation Status
+*OpenapiClient::AccountApi* | [**validate_password_reset**](docs/AccountApi.md#validate_password_reset) | **POST** /account/validatepasswordreset | Validate Password Reset Token
+*OpenapiClient::AchievementApi* | [**achievement_tier_search_post**](docs/AchievementApi.md#achievement_tier_search_post) | **POST** /achievement/tier/search | Searches an Achievement Tier
+*OpenapiClient::AchievementApi* | [**create_achievement**](docs/AchievementApi.md#create_achievement) | **POST** /achievement/create | Create Achievement
+*OpenapiClient::AchievementApi* | [**create_achievement_tier**](docs/AchievementApi.md#create_achievement_tier) | **POST** /achievement/tier/create | Create Achievement Tier
+*OpenapiClient::AchievementApi* | [**delete_achievement**](docs/AchievementApi.md#delete_achievement) | **POST** /achievement/delete | Delete Achievement
+*OpenapiClient::AchievementApi* | [**delete_achievement_tier**](docs/AchievementApi.md#delete_achievement_tier) | **POST** /achievement/tier/delete | Delete Achievement Tier
+*OpenapiClient::AchievementApi* | [**get_achievement**](docs/AchievementApi.md#get_achievement) | **GET** /achievement/get | Get Achievement
+*OpenapiClient::AchievementApi* | [**get_achievement_tier**](docs/AchievementApi.md#get_achievement_tier) | **POST** /achievement/tier/get | Gets an achievement tier
+*OpenapiClient::AchievementApi* | [**get_user_achievements**](docs/AchievementApi.md#get_user_achievements) | **GET** /achievement/progress/get | Get Achievement Progress
+*OpenapiClient::AchievementApi* | [**list_achievement_tags**](docs/AchievementApi.md#list_achievement_tags) | **GET** /achievement/tag/list | List Achievement Tags
+*OpenapiClient::AchievementApi* | [**list_achievements**](docs/AchievementApi.md#list_achievements) | **GET** /achievement/list | List Achievements
+*OpenapiClient::AchievementApi* | [**search_achievements**](docs/AchievementApi.md#search_achievements) | **GET** /achievement/search | Search Achievements
+*OpenapiClient::AchievementApi* | [**update_achievement**](docs/AchievementApi.md#update_achievement) | **POST** /achievement/update | Update Achievement
+*OpenapiClient::AchievementApi* | [**update_achievement_tier**](docs/AchievementApi.md#update_achievement_tier) | **POST** /achievement/tier/update | Update Achievement Tier
+*OpenapiClient::AchievementApi* | [**update_user_achievement**](docs/AchievementApi.md#update_user_achievement) | **POST** /achievement/progress/update | Update Achievement Progress
+*OpenapiClient::ActivityApi* | [**create_entity_reference**](docs/ActivityApi.md#create_entity_reference) | **POST** /entity/reference | Create an entity reference.
+*OpenapiClient::AlbumApi* | [**add_album_collection**](docs/AlbumApi.md#add_album_collection) | **POST** /album/create | Create Album
+*OpenapiClient::AlbumApi* | [**add_album_users**](docs/AlbumApi.md#add_album_users) | **POST** /album/user/add | Add Album Users
+*OpenapiClient::AlbumApi* | [**approve_album**](docs/AlbumApi.md#approve_album) | **POST** /album/approve | Approve Album
+*OpenapiClient::AlbumApi* | [**get_album_collection**](docs/AlbumApi.md#get_album_collection) | **GET** /album/get |  Get Album
+*OpenapiClient::AlbumApi* | [**leave_album**](docs/AlbumApi.md#leave_album) | **POST** /album/user/leave | Leave Album
+*OpenapiClient::AlbumApi* | [**remove_album**](docs/AlbumApi.md#remove_album) | **POST** /album/delete | Delete Album
+*OpenapiClient::AlbumApi* | [**remove_album_users**](docs/AlbumApi.md#remove_album_users) | **POST** /album/user/delete | Remove Album Users
+*OpenapiClient::AlbumApi* | [**search_albums**](docs/AlbumApi.md#search_albums) | **GET** /album/search | Search Albums
+*OpenapiClient::AlbumApi* | [**update_album_collection**](docs/AlbumApi.md#update_album_collection) | **POST** /album/update | Update Album
+*OpenapiClient::AnalyticsApi* | [**activities**](docs/AnalyticsApi.md#activities) | **GET** /analytics/useractivity | Get User Activity
+*OpenapiClient::AnalyticsApi* | [**aggregated_filtered_usage**](docs/AnalyticsApi.md#aggregated_filtered_usage) | **GET** /analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
+*OpenapiClient::AnalyticsApi* | [**filtered_usage**](docs/AnalyticsApi.md#filtered_usage) | **GET** /analytics/filteredUsage | Get Filtered Usage
+*OpenapiClient::AnalyticsApi* | [**usage**](docs/AnalyticsApi.md#usage) | **POST** /analytics/usage | Create Usage Record
+*OpenapiClient::AnalyticsApi* | [**usage_batch**](docs/AnalyticsApi.md#usage_batch) | **POST** /analytics/usage/batch | Create Multiple Usage Records
+*OpenapiClient::AppDataApi* | [**get_app_data**](docs/AppDataApi.md#get_app_data) | **GET** /app/get | Get App Data
+*OpenapiClient::AppDataApi* | [**post_app_data**](docs/AppDataApi.md#post_app_data) | **POST** /app/post | Create App Data
+*OpenapiClient::AppDataApi* | [**regen_app_data**](docs/AppDataApi.md#regen_app_data) | **POST** /app/regen | Regenerate App Data
+*OpenapiClient::ApplicationApi* | [**create_application**](docs/ApplicationApi.md#create_application) | **POST** /application/create | Create Application
+*OpenapiClient::ApplicationApi* | [**create_application_placement**](docs/ApplicationApi.md#create_application_placement) | **POST** /application/placement/create | Create Ad Placement
+*OpenapiClient::ApplicationApi* | [**delete_application**](docs/ApplicationApi.md#delete_application) | **POST** /application/delete | Delete Application
+*OpenapiClient::ApplicationApi* | [**delete_application_placement**](docs/ApplicationApi.md#delete_application_placement) | **POST** /application/placement/delete | Delete Ad Placement
+*OpenapiClient::ApplicationApi* | [**get_application**](docs/ApplicationApi.md#get_application) | **GET** /application/get | Get Application
+*OpenapiClient::ApplicationApi* | [**get_application_placement**](docs/ApplicationApi.md#get_application_placement) | **GET** /application/placement/get | Get Ad Placement
+*OpenapiClient::ApplicationApi* | [**get_application_versions**](docs/ApplicationApi.md#get_application_versions) | **GET** /application/versions | Get API versions
+*OpenapiClient::ApplicationApi* | [**get_unique_users_by_app**](docs/ApplicationApi.md#get_unique_users_by_app) | **GET** /application/users | Search Application Users
+*OpenapiClient::ApplicationApi* | [**list_applications**](docs/ApplicationApi.md#list_applications) | **GET** /application/list | List Applications
+*OpenapiClient::ApplicationApi* | [**search_application_placement**](docs/ApplicationApi.md#search_application_placement) | **GET** /application/placement/search | Search for Ad Placements
+*OpenapiClient::ApplicationApi* | [**search_application_settings**](docs/ApplicationApi.md#search_application_settings) | **GET** /application/settings/search | Search for Application Settings
+*OpenapiClient::ApplicationApi* | [**search_applications**](docs/ApplicationApi.md#search_applications) | **GET** /application/search | Search Applications
+*OpenapiClient::ApplicationApi* | [**update_application**](docs/ApplicationApi.md#update_application) | **POST** /application/update | Update Application
+*OpenapiClient::ApplicationApi* | [**update_application_active**](docs/ApplicationApi.md#update_application_active) | **POST** /application/active | Change Appliation Status
+*OpenapiClient::ApplicationApi* | [**update_application_placement**](docs/ApplicationApi.md#update_application_placement) | **POST** /application/placement/update | Update Ad Placement
+*OpenapiClient::ApplicationApi* | [**upload_application_certificate**](docs/ApplicationApi.md#upload_application_certificate) | **POST** /application/certificate/create | Create Application Certificate
+*OpenapiClient::ApplicationConfigApi* | [**create_application_config**](docs/ApplicationConfigApi.md#create_application_config) | **POST** /appconfig/create | Create AppConfig
+*OpenapiClient::ApplicationConfigApi* | [**delete_application_config**](docs/ApplicationConfigApi.md#delete_application_config) | **POST** /appconfig/delete | Delete AppConfig
+*OpenapiClient::ApplicationConfigApi* | [**get_application_config**](docs/ApplicationConfigApi.md#get_application_config) | **GET** /appconfig/get | Get AppConfig
+*OpenapiClient::ApplicationConfigApi* | [**get_application_config_by_config_version**](docs/ApplicationConfigApi.md#get_application_config_by_config_version) | **GET** /appconfig/getbyversion | Get AppConfig by Version
+*OpenapiClient::ApplicationConfigApi* | [**search_application_config**](docs/ApplicationConfigApi.md#search_application_config) | **GET** /appconfig/search | Search AppConfigs
+*OpenapiClient::ApplicationConfigApi* | [**update_application_config**](docs/ApplicationConfigApi.md#update_application_config) | **POST** /appconfig/update | Update AppConfig
+*OpenapiClient::AssetApi* | [**asset_download**](docs/AssetApi.md#asset_download) | **GET** /asset/download/{filename} | Download Asset
+*OpenapiClient::AssetApi* | [**asset_morph**](docs/AssetApi.md#asset_morph) | **POST** /asset/morph | Convert Offer to Creative
+*OpenapiClient::AssetApi* | [**create_asset**](docs/AssetApi.md#create_asset) | **POST** /asset/create | Create Asset
+*OpenapiClient::AssetApi* | [**delete_asset**](docs/AssetApi.md#delete_asset) | **POST** /asset/delete | Delete Asset
+*OpenapiClient::AssetApi* | [**get_asset**](docs/AssetApi.md#get_asset) | **GET** /asset/get | Get Asset
+*OpenapiClient::AssetApi* | [**remove_asset**](docs/AssetApi.md#remove_asset) | **POST** /asset/remove | Remove Asset from Collection
+*OpenapiClient::AssetApi* | [**search_assets**](docs/AssetApi.md#search_assets) | **GET** /asset/search | Search Assets
+*OpenapiClient::AssetApi* | [**update_asset**](docs/AssetApi.md#update_asset) | **POST** /asset/update | Update Asset
+*OpenapiClient::AssignmentApi* | [**assigment_assignee_account_search**](docs/AssignmentApi.md#assigment_assignee_account_search) | **GET** /assignment/assignee/search | Search Assignment Assignees
+*OpenapiClient::AssignmentApi* | [**assignment_create**](docs/AssignmentApi.md#assignment_create) | **POST** /assignment/create | Create Assignment
+*OpenapiClient::AssignmentApi* | [**assignment_delete**](docs/AssignmentApi.md#assignment_delete) | **POST** /assignment/delete | Delete Assignment
+*OpenapiClient::AssignmentApi* | [**assignment_get**](docs/AssignmentApi.md#assignment_get) | **GET** /assignment/get | Get Assignment
+*OpenapiClient::AssignmentApi* | [**assignment_search**](docs/AssignmentApi.md#assignment_search) | **GET** /assignment/search | Search Assignments
+*OpenapiClient::AssignmentApi* | [**assignment_status_create**](docs/AssignmentApi.md#assignment_status_create) | **POST** /assignment/status/create | Create Assignment Status
+*OpenapiClient::AssignmentApi* | [**assignment_status_delete**](docs/AssignmentApi.md#assignment_status_delete) | **POST** /assignment/status/delete | Deletes Assignment Status
+*OpenapiClient::AssignmentApi* | [**assignment_status_get**](docs/AssignmentApi.md#assignment_status_get) | **GET** /assignment/status/get | Get Assignment Status
+*OpenapiClient::AssignmentApi* | [**assignment_status_search**](docs/AssignmentApi.md#assignment_status_search) | **GET** /assignment/status/search | Search Assignment Statuses
+*OpenapiClient::AssignmentApi* | [**assignment_status_update**](docs/AssignmentApi.md#assignment_status_update) | **POST** /assignment/status/update | Update Assignment Status
+*OpenapiClient::AssignmentApi* | [**assignment_update**](docs/AssignmentApi.md#assignment_update) | **POST** /assignment/update | Update Assignment
+*OpenapiClient::AudienceApi* | [**create_audience**](docs/AudienceApi.md#create_audience) | **POST** /audience/create | Create Audience
+*OpenapiClient::AudienceApi* | [**delete_audience**](docs/AudienceApi.md#delete_audience) | **POST** /audience/delete | Delete Audience
+*OpenapiClient::AudienceApi* | [**get_age_groups**](docs/AudienceApi.md#get_age_groups) | **GET** /audience/ageGroups | Get Age Groups
+*OpenapiClient::AudienceApi* | [**get_audience**](docs/AudienceApi.md#get_audience) | **GET** /audience/get | Get Audience
+*OpenapiClient::AudienceApi* | [**get_audience_list**](docs/AudienceApi.md#get_audience_list) | **GET** /audience/search | Search Audiences
+*OpenapiClient::AudienceApi* | [**get_devices**](docs/AudienceApi.md#get_devices) | **GET** /audience/devices | Get Devices
+*OpenapiClient::AudienceApi* | [**get_experiences**](docs/AudienceApi.md#get_experiences) | **GET** /audience/experiences | Get Experiences
+*OpenapiClient::AudienceApi* | [**get_grouped_audiences**](docs/AudienceApi.md#get_grouped_audiences) | **GET** /audience/grouped/get | Get GroupedAudiences
+*OpenapiClient::AudienceApi* | [**list_by_account**](docs/AudienceApi.md#list_by_account) | **POST** /audience/suggestion/list | List Suggestions by Audience
+*OpenapiClient::AudienceApi* | [**list_by_audience**](docs/AudienceApi.md#list_by_audience) | **GET** /audience/suggestion/offersByAudience | List Offers by Audience
+*OpenapiClient::AudienceApi* | [**list_lastest_by_account**](docs/AudienceApi.md#list_lastest_by_account) | **GET** /audience/suggestion/latest | List Sent Suggestions 
+*OpenapiClient::AudienceApi* | [**send_by_account**](docs/AudienceApi.md#send_by_account) | **POST** /audience/suggestion/send | Send Suggestions
+*OpenapiClient::AudienceApi* | [**update_audience**](docs/AudienceApi.md#update_audience) | **POST** /audience/update | Update Audience
+*OpenapiClient::BidApi* | [**create_bid**](docs/BidApi.md#create_bid) | **POST** /bid/create | Create Bid
+*OpenapiClient::BidApi* | [**delete_bid**](docs/BidApi.md#delete_bid) | **POST** /bid/delete | Delete Bid
+*OpenapiClient::BidApi* | [**get_bid**](docs/BidApi.md#get_bid) | **GET** /bid/get | Get Bid
+*OpenapiClient::BidApi* | [**update_bid**](docs/BidApi.md#update_bid) | **POST** /bid/update | Update Bid
+*OpenapiClient::BillableEntityApi* | [**create_billable_entity**](docs/BillableEntityApi.md#create_billable_entity) | **POST** /billable/create | Create Billable
+*OpenapiClient::BillableEntityApi* | [**delete_billable_entity**](docs/BillableEntityApi.md#delete_billable_entity) | **POST** /billable/delete | Delete Billable
+*OpenapiClient::BillableEntityApi* | [**get_billable_entity**](docs/BillableEntityApi.md#get_billable_entity) | **GET** /billable/get | Get Billable
+*OpenapiClient::BillableEntityApi* | [**update_billable_entity**](docs/BillableEntityApi.md#update_billable_entity) | **POST** /billable/update | Update Billable
+*OpenapiClient::BillingInfoApi* | [**add_payment_method**](docs/BillingInfoApi.md#add_payment_method) | **POST** /billing/update | Update Payment Method
+*OpenapiClient::BillingInfoApi* | [**create_payment_method**](docs/BillingInfoApi.md#create_payment_method) | **POST** /billing/create | Create Payment Method
+*OpenapiClient::BillingInfoApi* | [**create_smart_contract**](docs/BillingInfoApi.md#create_smart_contract) | **POST** /billing/crypto/transfer | Create Smart Contract
+*OpenapiClient::BillingInfoApi* | [**get_crypto_balance**](docs/BillingInfoApi.md#get_crypto_balance) | **GET** /billing/crypto/get | Get Crypto Balances
+*OpenapiClient::BillingInfoApi* | [**get_payment_method**](docs/BillingInfoApi.md#get_payment_method) | **GET** /billing/get | Get Payment Method
+*OpenapiClient::BillingInfoApi* | [**search_payment_method**](docs/BillingInfoApi.md#search_payment_method) | **GET** /billing/search | Search Payment Methods
+*OpenapiClient::CSVImportApi* | [**get_status_csv**](docs/CSVImportApi.md#get_status_csv) | **GET** /csvimport/batch/status/details | Detail Status
+*OpenapiClient::CSVImportApi* | [**list_status_csv**](docs/CSVImportApi.md#list_status_csv) | **GET** /csvimport/batch/list | Search Status
+*OpenapiClient::CSVImportApi* | [**status_csv**](docs/CSVImportApi.md#status_csv) | **GET** /csvimport/batch/status | Batch Status
+*OpenapiClient::CSVImportApi* | [**upload_csv**](docs/CSVImportApi.md#upload_csv) | **POST** /csvimport/upload | Upload CSV
+*OpenapiClient::CargoTypeApi* | [**create_cargo_type**](docs/CargoTypeApi.md#create_cargo_type) | **POST** /cargo/type | Create Cargo Type
+*OpenapiClient::CargoTypeApi* | [**delete_cargo_type**](docs/CargoTypeApi.md#delete_cargo_type) | **DELETE** /cargo/type/{cargoTypeId} | Delete Cargo Type
+*OpenapiClient::CargoTypeApi* | [**get_cargo_type**](docs/CargoTypeApi.md#get_cargo_type) | **GET** /cargo/type/{cargoTypeId} | Get Cargo Type
+*OpenapiClient::CargoTypeApi* | [**search_cargo_types**](docs/CargoTypeApi.md#search_cargo_types) | **GET** /cargo/type | Search Cargo Type
+*OpenapiClient::CargoTypeApi* | [**update_cargo_type**](docs/CargoTypeApi.md#update_cargo_type) | **PUT** /cargo/type/{cargoTypeId} | Update Cargo Type
+*OpenapiClient::CarrierApi* | [**search_carriers**](docs/CarrierApi.md#search_carriers) | **GET** /carrier/search | Search Carriers
+*OpenapiClient::CategoryApi* | [**category_distance_search**](docs/CategoryApi.md#category_distance_search) | **GET** /category/distancesearch | Search Categories by Distance
+*OpenapiClient::CategoryApi* | [**create_category**](docs/CategoryApi.md#create_category) | **POST** /category/create | Create Category
+*OpenapiClient::CategoryApi* | [**delete_category**](docs/CategoryApi.md#delete_category) | **POST** /category/delete | Delete Category
+*OpenapiClient::CategoryApi* | [**duplicate_category**](docs/CategoryApi.md#duplicate_category) | **POST** /category/duplicate | Duplicate Category
+*OpenapiClient::CategoryApi* | [**get_category**](docs/CategoryApi.md#get_category) | **GET** /category/get | Get Category
+*OpenapiClient::CategoryApi* | [**search_categories**](docs/CategoryApi.md#search_categories) | **GET** /category/search | Search Categories
+*OpenapiClient::CategoryApi* | [**update_category**](docs/CategoryApi.md#update_category) | **POST** /category/update | Update Category
+*OpenapiClient::ConnectionApi* | [**add_connection_to_group**](docs/ConnectionApi.md#add_connection_to_group) | **POST** /consumer/connection/group/addConnection | Add Connection
+*OpenapiClient::ConnectionApi* | [**add_connections_to_group**](docs/ConnectionApi.md#add_connections_to_group) | **POST** /connection/group/addConnections | Add Connections
+*OpenapiClient::ConnectionApi* | [**add_sub_groups**](docs/ConnectionApi.md#add_sub_groups) | **POST** /consumer/connection/group/addSubGroup | Add Connection Groups
+*OpenapiClient::ConnectionApi* | [**create_or_update_connection**](docs/ConnectionApi.md#create_or_update_connection) | **POST** /consumer/connection/add | Create or Update Connection
+*OpenapiClient::ConnectionApi* | [**create_or_update_group**](docs/ConnectionApi.md#create_or_update_group) | **POST** /consumer/connection/group | Create or Update Connection Group
+*OpenapiClient::ConnectionApi* | [**follow_accept**](docs/ConnectionApi.md#follow_accept) | **POST** /consumer/follow/accept | Accept Follow Request
+*OpenapiClient::ConnectionApi* | [**follow_reject**](docs/ConnectionApi.md#follow_reject) | **POST** /consumer/follow/reject | Reject Follow Request
+*OpenapiClient::ConnectionApi* | [**follow_remove**](docs/ConnectionApi.md#follow_remove) | **POST** /consumer/follow/remove | Remove Follower / Unfollow
+*OpenapiClient::ConnectionApi* | [**follow_request**](docs/ConnectionApi.md#follow_request) | **POST** /consumer/follow/request | Send Follow Request
+*OpenapiClient::ConnectionApi* | [**friend_accept**](docs/ConnectionApi.md#friend_accept) | **POST** /consumer/friend/accept | Accept Friend
+*OpenapiClient::ConnectionApi* | [**friend_reject**](docs/ConnectionApi.md#friend_reject) | **POST** /consumer/friend/reject | Decline Friend
+*OpenapiClient::ConnectionApi* | [**friend_remove**](docs/ConnectionApi.md#friend_remove) | **POST** /consumer/friend/remove | Delete Friend
+*OpenapiClient::ConnectionApi* | [**friend_request**](docs/ConnectionApi.md#friend_request) | **POST** /consumer/friend/request | Request Friend
+*OpenapiClient::ConnectionApi* | [**get_connection_sent_friend_requests**](docs/ConnectionApi.md#get_connection_sent_friend_requests) | **GET** /consumer/connection/getRequested | Get Sent Friend Requests
+*OpenapiClient::ConnectionApi* | [**get_connections**](docs/ConnectionApi.md#get_connections) | **GET** /consumer/connection/get | Search Connections
+*OpenapiClient::ConnectionApi* | [**get_group_details**](docs/ConnectionApi.md#get_group_details) | **GET** /consumer/connection/group/details/get | Get Connection Group
+*OpenapiClient::ConnectionApi* | [**group_search**](docs/ConnectionApi.md#group_search) | **GET** /connection/group/search | Search Connection Groups
+*OpenapiClient::ConnectionApi* | [**remove_connection_from_group**](docs/ConnectionApi.md#remove_connection_from_group) | **POST** /consumer/connection/group/removeConnection | Delete Connection
+*OpenapiClient::ConnectionApi* | [**remove_connections_from_group**](docs/ConnectionApi.md#remove_connections_from_group) | **POST** /connection/group/removeConnections | Remove Connections
+*OpenapiClient::ConnectionApi* | [**remove_group**](docs/ConnectionApi.md#remove_group) | **POST** /consumer/connection/group/remove | Delete Connection Group
+*OpenapiClient::ConnectionApi* | [**remove_sub_groups**](docs/ConnectionApi.md#remove_sub_groups) | **POST** /consumer/connection/group/removeSubGroup | Remove Connection Groups
+*OpenapiClient::ConnectionApi* | [**search_connections**](docs/ConnectionApi.md#search_connections) | **GET** /connection/search | Search Possible Connections
+*OpenapiClient::ContestApi* | [**add_or_update_album_contest**](docs/ContestApi.md#add_or_update_album_contest) | **POST** /consumer/album/contest | Create or Update Contest
+*OpenapiClient::ContestApi* | [**approve_album_contest**](docs/ContestApi.md#approve_album_contest) | **POST** /consumer/album/contest/approve | Approve Contest
+*OpenapiClient::ContestApi* | [**delete_contest**](docs/ContestApi.md#delete_contest) | **POST** /consumer/album/contest/remove | Delete Contest
+*OpenapiClient::ContestApi* | [**get_album_contest**](docs/ContestApi.md#get_album_contest) | **GET** /consumer/album/contest/get | Get Contest
+*OpenapiClient::ContestApi* | [**get_album_contests**](docs/ContestApi.md#get_album_contests) | **GET** /consumer/album/contest/search | Search Contests
+*OpenapiClient::ContestApi* | [**vote_on_album_contest**](docs/ContestApi.md#vote_on_album_contest) | **POST** /consumer/album/contest/vote | Vote on Contest
+*OpenapiClient::CreativeApi* | [**add_preview**](docs/CreativeApi.md#add_preview) | **POST** /creative/addpreview | Add Preview
+*OpenapiClient::CreativeApi* | [**ads_find**](docs/CreativeApi.md#ads_find) | **GET** /ads/find | Find Missions
+*OpenapiClient::CreativeApi* | [**create_creative**](docs/CreativeApi.md#create_creative) | **POST** /creative/create | Create Creative
+*OpenapiClient::CreativeApi* | [**delete_creative**](docs/CreativeApi.md#delete_creative) | **POST** /creative/delete | Delete Creative
+*OpenapiClient::CreativeApi* | [**get_creative**](docs/CreativeApi.md#get_creative) | **GET** /creative/get | Get Creative
+*OpenapiClient::CreativeApi* | [**get_creatives_by_application**](docs/CreativeApi.md#get_creatives_by_application) | **GET** /creative/search | Search Creatives
+*OpenapiClient::CreativeApi* | [**remove_preview**](docs/CreativeApi.md#remove_preview) | **POST** /creative/removepreview | Remove Preview
+*OpenapiClient::CreativeApi* | [**update_creative**](docs/CreativeApi.md#update_creative) | **POST** /creative/update | Update Creative
+*OpenapiClient::DependentApi* | [**create**](docs/DependentApi.md#create) | **PUT** /cargo/dependent/{accountId} | Create Dependent
+*OpenapiClient::DependentApi* | [**get_dependents**](docs/DependentApi.md#get_dependents) | **GET** /cargo/dependent/{accountId} | Get dependent list of an account
+*OpenapiClient::DependentApi* | [**remove_dependent**](docs/DependentApi.md#remove_dependent) | **DELETE** /cargo/dependent/{accountId} | Delete Dependent
+*OpenapiClient::DisbursementApi* | [**check_disbursements**](docs/DisbursementApi.md#check_disbursements) | **GET** /disbursement/check | Check Disbursements
+*OpenapiClient::DisbursementApi* | [**create_disbursement**](docs/DisbursementApi.md#create_disbursement) | **POST** /disbursement/create | Create Disbursement
+*OpenapiClient::DisbursementApi* | [**get_disbursement**](docs/DisbursementApi.md#get_disbursement) | **GET** /disbursement/get | Get Disbursement
+*OpenapiClient::DisbursementApi* | [**search_disbursements**](docs/DisbursementApi.md#search_disbursements) | **GET** /disbursement/search | Search Disbursements
+*OpenapiClient::DisbursementApi* | [**update_disbursement**](docs/DisbursementApi.md#update_disbursement) | **POST** /disbursement/update | Update Disbursement
+*OpenapiClient::EmployeeApi* | [**assign_employee**](docs/EmployeeApi.md#assign_employee) | **POST** /employee/assign | Assign Employee
+*OpenapiClient::EmployeeApi* | [**assign_to_location_employee**](docs/EmployeeApi.md#assign_to_location_employee) | **POST** /employee/assignToLocation | Assign Employee to Location
+*OpenapiClient::EmployeeApi* | [**create_employee**](docs/EmployeeApi.md#create_employee) | **POST** /employee/create | Create Employee
+*OpenapiClient::EmployeeApi* | [**delete_employee**](docs/EmployeeApi.md#delete_employee) | **POST** /employee/delete | Delete Employee
+*OpenapiClient::EmployeeApi* | [**get_employee**](docs/EmployeeApi.md#get_employee) | **POST** /employee/get | Get Employee
+*OpenapiClient::EmployeeApi* | [**search_employees**](docs/EmployeeApi.md#search_employees) | **POST** /employee/search | Search Employees
+*OpenapiClient::EmployeeApi* | [**unassign_employee**](docs/EmployeeApi.md#unassign_employee) | **POST** /employee/unassign | Unassign Employee
+*OpenapiClient::EmployeeApi* | [**update_employee**](docs/EmployeeApi.md#update_employee) | **POST** /employee/update | Update Employee
+*OpenapiClient::EventApi* | [**attend_event**](docs/EventApi.md#attend_event) | **POST** /event/attend | Attend Event
+*OpenapiClient::EventApi* | [**create_event**](docs/EventApi.md#create_event) | **POST** /event/create | Create Event
+*OpenapiClient::EventApi* | [**delete_event**](docs/EventApi.md#delete_event) | **POST** /event/delete | Delete Event
+*OpenapiClient::EventApi* | [**get_event**](docs/EventApi.md#get_event) | **GET** /event/get | Get Event
+*OpenapiClient::EventApi* | [**search_event_transactions**](docs/EventApi.md#search_event_transactions) | **GET** /event/attendance/search | Search Event Attendance
+*OpenapiClient::EventApi* | [**search_events**](docs/EventApi.md#search_events) | **GET** /event/search | Search Events
+*OpenapiClient::EventApi* | [**update_event**](docs/EventApi.md#update_event) | **POST** /event/update | Update Event
+*OpenapiClient::FacebookApi* | [**get_token**](docs/FacebookApi.md#get_token) | **GET** /facebook/getfbtoken | Get Facebook Token
+*OpenapiClient::FacebookApi* | [**graph_interface**](docs/FacebookApi.md#graph_interface) | **POST** /facebook/graph | Post to Facebook
+*OpenapiClient::FavoriteApi* | [**add_favorite**](docs/FavoriteApi.md#add_favorite) | **POST** /favorite/create | Create Favorite
+*OpenapiClient::FavoriteApi* | [**delete_favorite**](docs/FavoriteApi.md#delete_favorite) | **POST** /favorite/delete | Delete Favorite
+*OpenapiClient::FavoriteApi* | [**get_favorite**](docs/FavoriteApi.md#get_favorite) | **GET** /favorite/get | Get Favorite
+*OpenapiClient::FavoriteApi* | [**search_favorites**](docs/FavoriteApi.md#search_favorites) | **GET** /favorite/search | Search Favorites
+*OpenapiClient::FavoriteApi* | [**who_has_favorited**](docs/FavoriteApi.md#who_has_favorited) | **GET** /favorite/whois | Who has Favorited
+*OpenapiClient::FilterApi* | [**create_filter**](docs/FilterApi.md#create_filter) | **POST** /filter/create | Create Filter
+*OpenapiClient::FilterApi* | [**delete_filter**](docs/FilterApi.md#delete_filter) | **POST** /filter/delete | Delete Filter
+*OpenapiClient::FilterApi* | [**get_filter**](docs/FilterApi.md#get_filter) | **GET** /filter/get | Get Filter
+*OpenapiClient::FilterApi* | [**search_filters**](docs/FilterApi.md#search_filters) | **GET** /filter/search | Search Filters
+*OpenapiClient::FilterApi* | [**update_filter**](docs/FilterApi.md#update_filter) | **POST** /filter/update | Update Filter
+*OpenapiClient::FlagApi* | [**create_flag**](docs/FlagApi.md#create_flag) | **POST** /flag/create | Create Flag
+*OpenapiClient::FlagApi* | [**delete_flag**](docs/FlagApi.md#delete_flag) | **POST** /flag/delete | Delete Flag
+*OpenapiClient::FlagApi* | [**get_flag**](docs/FlagApi.md#get_flag) | **GET** /flag/get | Get Flag
+*OpenapiClient::FlagApi* | [**get_flag_threshold**](docs/FlagApi.md#get_flag_threshold) | **GET** /flag/threshold/get | Get Flag Threshold
+*OpenapiClient::FlagApi* | [**update_flag_threshold**](docs/FlagApi.md#update_flag_threshold) | **POST** /flag/threshold/update | Update Flag Threshold
+*OpenapiClient::GameApi* | [**create_game**](docs/GameApi.md#create_game) | **POST** /game/create | Create a Game
+*OpenapiClient::GameApi* | [**delete_game**](docs/GameApi.md#delete_game) | **POST** /game/delete | Delete a Game
+*OpenapiClient::GameApi* | [**get_game**](docs/GameApi.md#get_game) | **GET** /game/get | Get a Game by id
+*OpenapiClient::GameApi* | [**search_games**](docs/GameApi.md#search_games) | **GET** /game/search | Search a Game
+*OpenapiClient::GameApi* | [**update_game**](docs/GameApi.md#update_game) | **POST** /game/update | Update a Game
+*OpenapiClient::GameLevelApi* | [**create_game_level**](docs/GameLevelApi.md#create_game_level) | **POST** /level/create | Create Game Level
+*OpenapiClient::GameLevelApi* | [**delete_game_level**](docs/GameLevelApi.md#delete_game_level) | **POST** /level/delete | Delete Game Level
+*OpenapiClient::GameLevelApi* | [**get_game_level**](docs/GameLevelApi.md#get_game_level) | **GET** /level/get | Get Game Level
+*OpenapiClient::GameLevelApi* | [**get_game_levels_by_application**](docs/GameLevelApi.md#get_game_levels_by_application) | **GET** /level/search | Search Game Levels
+*OpenapiClient::GameLevelApi* | [**get_game_levels_by_billable_entity**](docs/GameLevelApi.md#get_game_levels_by_billable_entity) | **GET** /level/searchByBillableEntity | Search Game Level by Billable Entity
+*OpenapiClient::GameLevelApi* | [**get_questions_in_level**](docs/GameLevelApi.md#get_questions_in_level) | **GET** /level/questions/get | Get Level Questions
+*OpenapiClient::GameLevelApi* | [**get_words_in_level**](docs/GameLevelApi.md#get_words_in_level) | **GET** /level/words/get | Get Level Words
+*OpenapiClient::GameLevelApi* | [**update_game_level**](docs/GameLevelApi.md#update_game_level) | **POST** /level/update | Update Game Level
+*OpenapiClient::GameLevelApi* | [**update_questions_in_level**](docs/GameLevelApi.md#update_questions_in_level) | **POST** /level/questions/update | Update Level Questions
+*OpenapiClient::GameLevelApi* | [**update_words_in_level**](docs/GameLevelApi.md#update_words_in_level) | **POST** /level/words/update | Update Level Words
+*OpenapiClient::InviteApi* | [**accept_invite**](docs/InviteApi.md#accept_invite) | **POST** /invite/accept | Accept Invite
+*OpenapiClient::InviteApi* | [**album_contest_invite**](docs/InviteApi.md#album_contest_invite) | **POST** /invite/albumContest | Invite to Contest
+*OpenapiClient::InviteApi* | [**album_invite**](docs/InviteApi.md#album_invite) | **POST** /invite/album | Invite to Collection
+*OpenapiClient::InviteApi* | [**event_invite**](docs/InviteApi.md#event_invite) | **POST** /invite/event | Invite to Event
+*OpenapiClient::InviteApi* | [**game_invite**](docs/InviteApi.md#game_invite) | **POST** /invite/gameLevel | Invite to Game Level
+*OpenapiClient::InviteApi* | [**get_invite**](docs/InviteApi.md#get_invite) | **GET** /invite/get | Get Invite
+*OpenapiClient::InviteApi* | [**mission_invite**](docs/InviteApi.md#mission_invite) | **POST** /invite/mission | Invite to Mission
+*OpenapiClient::InviteApi* | [**offer_invite**](docs/InviteApi.md#offer_invite) | **POST** /invite/offer | Invite to Offer
+*OpenapiClient::InviteApi* | [**offer_location_invite**](docs/InviteApi.md#offer_location_invite) | **POST** /invite/offerLocation | Invite to Offer Location
+*OpenapiClient::InviteApi* | [**retailer_location_invite**](docs/InviteApi.md#retailer_location_invite) | **POST** /invite/retailerLocation | Invite to Retailer Location
+*OpenapiClient::LeaderboardApi* | [**create_leaderboard**](docs/LeaderboardApi.md#create_leaderboard) | **POST** /leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*OpenapiClient::LeaderboardApi* | [**delete_leaderboard**](docs/LeaderboardApi.md#delete_leaderboard) | **POST** /leaderboard/delete | Delete the Leader Board
+*OpenapiClient::LeaderboardApi* | [**get_leaderboard**](docs/LeaderboardApi.md#get_leaderboard) | **GET** /leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
+*OpenapiClient::LeaderboardApi* | [**search_leaderboards**](docs/LeaderboardApi.md#search_leaderboards) | **GET** /leaderboard/search | Search leaderboard and retrieve the matching ranking list
+*OpenapiClient::LeaderboardApi* | [**update_leaderboard**](docs/LeaderboardApi.md#update_leaderboard) | **POST** /leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*OpenapiClient::LikeApi* | [**register_like**](docs/LikeApi.md#register_like) | **POST** /like | Create Like
+*OpenapiClient::LikeApi* | [**remove_like**](docs/LikeApi.md#remove_like) | **POST** /like/delete | Delete Like
+*OpenapiClient::LikeApi* | [**search_likes**](docs/LikeApi.md#search_likes) | **GET** /like/search | Search Likes
+*OpenapiClient::ListingApi* | [**create_listing**](docs/ListingApi.md#create_listing) | **POST** /listing/create | Create Listing
+*OpenapiClient::ListingApi* | [**delete_listing**](docs/ListingApi.md#delete_listing) | **POST** /listing/delete | Delete Listing
+*OpenapiClient::ListingApi* | [**get_listing**](docs/ListingApi.md#get_listing) | **GET** /listing/get | Get Listing
+*OpenapiClient::ListingApi* | [**search_listing**](docs/ListingApi.md#search_listing) | **GET** /listing/search | Search Listings
+*OpenapiClient::ListingApi* | [**summary_listing**](docs/ListingApi.md#summary_listing) | **GET** /listing/summary | Summary Listing
+*OpenapiClient::ListingApi* | [**update_listing**](docs/ListingApi.md#update_listing) | **POST** /listing/update | Update Listing
+*OpenapiClient::LocationApi* | [**cache_trilateration_data**](docs/LocationApi.md#cache_trilateration_data) | **POST** /location/trilaterate/cache | Create Trilateration Data with File
+*OpenapiClient::LocationApi* | [**cache_trilateration_data_gzip**](docs/LocationApi.md#cache_trilateration_data_gzip) | **POST** /location/trilaterate/cache/submit | Create Trilateration Data with Rest
+*OpenapiClient::LocationApi* | [**get_location_by_ip**](docs/LocationApi.md#get_location_by_ip) | **GET** /location/ip | Get Location by IP
+*OpenapiClient::LocationApi* | [**get_location_by_trilateration**](docs/LocationApi.md#get_location_by_trilateration) | **GET** /account/location/trilaterate | Get Location by Trilateration
+*OpenapiClient::LocationApi* | [**get_locations**](docs/LocationApi.md#get_locations) | **GET** /location/search | Search Regions or Postal Codes
+*OpenapiClient::LocationApiV2Api* | [**create_location_v2**](docs/LocationApiV2Api.md#create_location_v2) | **POST** /location | Create new location
+*OpenapiClient::LocationApiV2Api* | [**update_location_v2**](docs/LocationApiV2Api.md#update_location_v2) | **POST** /location/{id} | Update an existing location
+*OpenapiClient::MediaApi* | [**create_media**](docs/MediaApi.md#create_media) | **POST** /media/create | Create Media
+*OpenapiClient::MediaApi* | [**delete_media**](docs/MediaApi.md#delete_media) | **POST** /media/delete | Delete Media
+*OpenapiClient::MediaApi* | [**get_media**](docs/MediaApi.md#get_media) | **GET** /media/get | Media Get
+*OpenapiClient::MediaApi* | [**search_media**](docs/MediaApi.md#search_media) | **GET** /media/search | Search Media
+*OpenapiClient::MediaApi* | [**update_media**](docs/MediaApi.md#update_media) | **POST** /media/update | Update Media
+*OpenapiClient::MissionApi* | [**create_mission**](docs/MissionApi.md#create_mission) | **POST** /mission/create | Create Mission
+*OpenapiClient::MissionApi* | [**delete_mission**](docs/MissionApi.md#delete_mission) | **POST** /mission/delete | Delete Mission
+*OpenapiClient::MissionApi* | [**find_missions**](docs/MissionApi.md#find_missions) | **GET** /mission/find | Find Missions
+*OpenapiClient::MissionApi* | [**get_mission**](docs/MissionApi.md#get_mission) | **GET** /mission/get | Get Mission
+*OpenapiClient::MissionApi* | [**import_mission**](docs/MissionApi.md#import_mission) | **POST** /mission/import | Import Mission
+*OpenapiClient::MissionApi* | [**search_mission_formats**](docs/MissionApi.md#search_mission_formats) | **GET** /mission/format/search | Search Mission Formats
+*OpenapiClient::MissionApi* | [**search_missions**](docs/MissionApi.md#search_missions) | **GET** /mission/search | Search Missions
+*OpenapiClient::MissionApi* | [**search_missions_by_billable_entity**](docs/MissionApi.md#search_missions_by_billable_entity) | **GET** /mission/searchByBillableEntity | Search Missions by Billable Entity
+*OpenapiClient::MissionApi* | [**update_mission**](docs/MissionApi.md#update_mission) | **POST** /mission/update | Update Mission
+*OpenapiClient::MissionInviteApi* | [**create_mission_invite**](docs/MissionInviteApi.md#create_mission_invite) | **POST** /mission/invite/create | Create Mission Invite
+*OpenapiClient::MissionInviteApi* | [**delete_mission_invite**](docs/MissionInviteApi.md#delete_mission_invite) | **POST** /mission/invite/delete | Delete Mission Invite
+*OpenapiClient::MissionInviteApi* | [**get_mission_invite**](docs/MissionInviteApi.md#get_mission_invite) | **GET** /mission/invite/get | Get Mission Invite
+*OpenapiClient::MissionInviteApi* | [**search_mission_invites**](docs/MissionInviteApi.md#search_mission_invites) | **GET** /mission/invite/search | Search Mission Invites
+*OpenapiClient::MissionInviteApi* | [**update_mission_invite**](docs/MissionInviteApi.md#update_mission_invite) | **POST** /mission/invite/update | Update Mission Invite
+*OpenapiClient::NoteApi* | [**batch_operation**](docs/NoteApi.md#batch_operation) | **POST** /note/batch | Batch Note Operation
+*OpenapiClient::NoteApi* | [**create_note**](docs/NoteApi.md#create_note) | **POST** /note/create | Create Note
+*OpenapiClient::NoteApi* | [**delete_note**](docs/NoteApi.md#delete_note) | **POST** /note/delete | Delete Note
+*OpenapiClient::NoteApi* | [**get_note**](docs/NoteApi.md#get_note) | **POST** /note/get | Get Note
+*OpenapiClient::NoteApi* | [**search_notes**](docs/NoteApi.md#search_notes) | **POST** /note/search | Search Notes
+*OpenapiClient::NoteApi* | [**update_note**](docs/NoteApi.md#update_note) | **POST** /note/update | Update Note
+*OpenapiClient::NotificationApi* | [**create_notification_template**](docs/NotificationApi.md#create_notification_template) | **POST** /notification/template/create | Create Notification Template
+*OpenapiClient::NotificationApi* | [**create_or_update_blocked_notifications**](docs/NotificationApi.md#create_or_update_blocked_notifications) | **POST** /notification/blocked/batch | Create or update blocked notification settings
+*OpenapiClient::NotificationApi* | [**delete_notification_template**](docs/NotificationApi.md#delete_notification_template) | **POST** /notification/template/delete | Delete Notification Template
+*OpenapiClient::NotificationApi* | [**get_notification_template**](docs/NotificationApi.md#get_notification_template) | **GET** /notification/template/get | Get Notification Template
+*OpenapiClient::NotificationApi* | [**get_notifications**](docs/NotificationApi.md#get_notifications) | **GET** /notification/search | Get Notifications
+*OpenapiClient::NotificationApi* | [**register_notification_token**](docs/NotificationApi.md#register_notification_token) | **POST** /notification/token | Register Notification Token
+*OpenapiClient::NotificationApi* | [**search_blocked_notifications**](docs/NotificationApi.md#search_blocked_notifications) | **GET** /notification/blocked/search | Search on the user's blocked notification settings
+*OpenapiClient::NotificationApi* | [**search_notification_template**](docs/NotificationApi.md#search_notification_template) | **GET** /notification/template/search | Search Notification Templates
+*OpenapiClient::NotificationApi* | [**search_recipients**](docs/NotificationApi.md#search_recipients) | **GET** /notification/recipient/search | Search for Recipients
+*OpenapiClient::NotificationApi* | [**search_recipients_count**](docs/NotificationApi.md#search_recipients_count) | **GET** /notification/recipient/search/count | Search for Recipients (Counts/Grouped)
+*OpenapiClient::NotificationApi* | [**send_batch_notifications**](docs/NotificationApi.md#send_batch_notifications) | **POST** /notification/batch | Send Batch Notifications
+*OpenapiClient::NotificationApi* | [**send_custom_notifications**](docs/NotificationApi.md#send_custom_notifications) | **POST** /notification/custom | Send Custom Notifications
+*OpenapiClient::NotificationApi* | [**update_notification_template**](docs/NotificationApi.md#update_notification_template) | **POST** /notification/template/update | Update Notification Template
+*OpenapiClient::ObjectStoreApi* | [**add_field**](docs/ObjectStoreApi.md#add_field) | **POST** /object/field/add | Create Field
+*OpenapiClient::ObjectStoreApi* | [**create_data**](docs/ObjectStoreApi.md#create_data) | **POST** /object/data/{objectName} | Create Data
+*OpenapiClient::ObjectStoreApi* | [**create_object**](docs/ObjectStoreApi.md#create_object) | **POST** /object/create | Create Object
+*OpenapiClient::ObjectStoreApi* | [**delete_data**](docs/ObjectStoreApi.md#delete_data) | **DELETE** /object/data/{objectName}/{objectId} | Delete Data
+*OpenapiClient::ObjectStoreApi* | [**delete_field**](docs/ObjectStoreApi.md#delete_field) | **POST** /object/field/delete | Delete Field
+*OpenapiClient::ObjectStoreApi* | [**delete_object**](docs/ObjectStoreApi.md#delete_object) | **POST** /object/delete | Delete Object
+*OpenapiClient::ObjectStoreApi* | [**get_data**](docs/ObjectStoreApi.md#get_data) | **GET** /object/data/{objectName}/{objectId} | Get Data
+*OpenapiClient::ObjectStoreApi* | [**get_object**](docs/ObjectStoreApi.md#get_object) | **GET** /object/get | Get Object
+*OpenapiClient::ObjectStoreApi* | [**search_data**](docs/ObjectStoreApi.md#search_data) | **GET** /object/data/{objectName} | Search Data
+*OpenapiClient::ObjectStoreApi* | [**search_object**](docs/ObjectStoreApi.md#search_object) | **GET** /object/search | Search Objects
+*OpenapiClient::ObjectStoreApi* | [**update_data**](docs/ObjectStoreApi.md#update_data) | **PUT** /object/data/{objectName}/{objectId} | Update Data
+*OpenapiClient::OfferApi* | [**batch_update_offer_locations**](docs/OfferApi.md#batch_update_offer_locations) | **POST** /retailer/offer/location/batchUpdate | Update Offer Locations
+*OpenapiClient::OfferApi* | [**create_offer**](docs/OfferApi.md#create_offer) | **POST** /retailer/offer/create | Create Offer
+*OpenapiClient::OfferApi* | [**delete_offer**](docs/OfferApi.md#delete_offer) | **POST** /retailer/offer/delete | Delete Offer
+*OpenapiClient::OfferApi* | [**delete_offer_location**](docs/OfferApi.md#delete_offer_location) | **POST** /retailer/offer/location/delete | Delete Offer Location
+*OpenapiClient::OfferApi* | [**get_offer**](docs/OfferApi.md#get_offer) | **GET** /retailer/offer/get | Get Offer
+*OpenapiClient::OfferApi* | [**get_offer_details**](docs/OfferApi.md#get_offer_details) | **GET** /offer/get | Get Offer
+*OpenapiClient::OfferApi* | [**get_offer_list_counts**](docs/OfferApi.md#get_offer_list_counts) | **GET** /offer/lists/count | Get Offers (Counts)
+*OpenapiClient::OfferApi* | [**get_offer_location**](docs/OfferApi.md#get_offer_location) | **GET** /offer/location/get | Get Offer Location
+*OpenapiClient::OfferApi* | [**get_offer_locations_for_retailers**](docs/OfferApi.md#get_offer_locations_for_retailers) | **GET** /retailer/offer/location/search | Search Offer Locations
+*OpenapiClient::OfferApi* | [**get_offers_for_retailers**](docs/OfferApi.md#get_offers_for_retailers) | **GET** /retailer/offer/search | Search Offers
+*OpenapiClient::OfferApi* | [**redeem_offer_transaction**](docs/OfferApi.md#redeem_offer_transaction) | **POST** /retailer/offer/transaction/update | Update Offer Transaction
+*OpenapiClient::OfferApi* | [**search_offer_transactions_for_retailers**](docs/OfferApi.md#search_offer_transactions_for_retailers) | **GET** /retailer/offer/transaction/search | Search Offer Transactions
+*OpenapiClient::OfferApi* | [**search_offers_for_consumer**](docs/OfferApi.md#search_offers_for_consumer) | **GET** /offer/lists | Search Offers
+*OpenapiClient::OfferApi* | [**top_offer_transactions**](docs/OfferApi.md#top_offer_transactions) | **GET** /offer/top | Get Offers (Top)
+*OpenapiClient::OfferApi* | [**update_offer**](docs/OfferApi.md#update_offer) | **POST** /retailer/offer/update | Update Offer
+*OpenapiClient::OfferApi* | [**update_offer_status**](docs/OfferApi.md#update_offer_status) | **POST** /retailer/offer/status | Activate Offer
+*OpenapiClient::OfferStatusApi* | [**create_offer_transaction_status**](docs/OfferStatusApi.md#create_offer_transaction_status) | **POST** /offer/status/create | Create Offer Status
+*OpenapiClient::OfferStatusApi* | [**delete_offer_transaction_status**](docs/OfferStatusApi.md#delete_offer_transaction_status) | **POST** /offer/status/delete | Delete Offer Status
+*OpenapiClient::OfferStatusApi* | [**get_offer_transaction_status**](docs/OfferStatusApi.md#get_offer_transaction_status) | **GET** /offer/status/get | Get Offer Status
+*OpenapiClient::OfferStatusApi* | [**search_offer_transaction_statuses**](docs/OfferStatusApi.md#search_offer_transaction_statuses) | **GET** /offer/status/search | Search Offer Status
+*OpenapiClient::OfferStatusApi* | [**update_offer_transaction_status**](docs/OfferStatusApi.md#update_offer_transaction_status) | **POST** /offer/status/update | Update Offer Status
+*OpenapiClient::OpenAIApi* | [**image_generation**](docs/OpenAIApi.md#image_generation) | **POST** /openai/v1/images/generations | Generate images with OpenAI
+*OpenapiClient::OptimizeApi* | [**get_optimization_result**](docs/OptimizeApi.md#get_optimization_result) | **GET** /optimize/result/{batchID} | Get Optimization Result
+*OpenapiClient::OptimizeApi* | [**request_optimization**](docs/OptimizeApi.md#request_optimization) | **POST** /optimize/request | Request Optimization
+*OpenapiClient::OrsonApi* | [**add_movie**](docs/OrsonApi.md#add_movie) | **POST** /orson/ai/addMovie | Add Movie
+*OpenapiClient::OrsonApi* | [**ai_docs**](docs/OrsonApi.md#ai_docs) | **GET** /orson/ai/docs | Search Docs
+*OpenapiClient::OrsonApi* | [**ai_find_images**](docs/OrsonApi.md#ai_find_images) | **GET** /orson/ai/img | Find images
+*OpenapiClient::OrsonApi* | [**ai_tags**](docs/OrsonApi.md#ai_tags) | **GET** /orson/ai/tags | Search Tags
+*OpenapiClient::OrsonApi* | [**ai_text**](docs/OrsonApi.md#ai_text) | **GET** /orson/ai/text | Search Text
+*OpenapiClient::OrsonApi* | [**batch**](docs/OrsonApi.md#batch) | **POST** /orson/ai/batch | Batch Analysis
+*OpenapiClient::OrsonApi* | [**create_instant_episode**](docs/OrsonApi.md#create_instant_episode) | **POST** /orson/stories/episodes/instant | Creates an instant episode
+*OpenapiClient::OrsonApi* | [**create_voice_canvas**](docs/OrsonApi.md#create_voice_canvas) | **POST** /orson/ai/voiceCanvas | Create VoiceCanvas images
+*OpenapiClient::OrsonApi* | [**emotion**](docs/OrsonApi.md#emotion) | **POST** /orson/ai/emotion | Detect emotions
+*OpenapiClient::OrsonApi* | [**get_add_movie_result**](docs/OrsonApi.md#get_add_movie_result) | **GET** /orson/ai/addMovie/{requestId} | Get Add Movie Result
+*OpenapiClient::OrsonApi* | [**get_batch**](docs/OrsonApi.md#get_batch) | **GET** /orson/ai/batch/{requestId} | Get Batch Analysis Results
+*OpenapiClient::OrsonApi* | [**get_emotion**](docs/OrsonApi.md#get_emotion) | **GET** /orson/ai/emotion/{requestId} | Get Emotion Results
+*OpenapiClient::OrsonApi* | [**get_episode_status**](docs/OrsonApi.md#get_episode_status) | **GET** /orson/stories/episodes/{episodeId}/status | Check episode status
+*OpenapiClient::OrsonApi* | [**get_render_status**](docs/OrsonApi.md#get_render_status) | **GET** /orson/stories/renders/{renderId}/status | Check episode status
+*OpenapiClient::OrsonApi* | [**get_stt**](docs/OrsonApi.md#get_stt) | **GET** /orson/ai/stt/{requestId} | Get Speach to Text Result
+*OpenapiClient::OrsonApi* | [**get_tech_tune**](docs/OrsonApi.md#get_tech_tune) | **GET** /orson/ai/techTune/{requestId} | Get TechTune Results
+*OpenapiClient::OrsonApi* | [**get_topics**](docs/OrsonApi.md#get_topics) | **GET** /orson/ai/topics/{requestId} | Get Topics
+*OpenapiClient::OrsonApi* | [**get_tts**](docs/OrsonApi.md#get_tts) | **GET** /orson/ai/tts/{requestId} | Get Text to Speach Result
+*OpenapiClient::OrsonApi* | [**get_voice_canvas**](docs/OrsonApi.md#get_voice_canvas) | **GET** /orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
+*OpenapiClient::OrsonApi* | [**start_video_render**](docs/OrsonApi.md#start_video_render) | **POST** /orson/stories/renders | Starts a StoryStitch video render
+*OpenapiClient::OrsonApi* | [**stt**](docs/OrsonApi.md#stt) | **POST** /orson/ai/stt | Speach to Text
+*OpenapiClient::OrsonApi* | [**summarize_topics**](docs/OrsonApi.md#summarize_topics) | **POST** /orson/ai/topics | Summarize Topics
+*OpenapiClient::OrsonApi* | [**tech_tune**](docs/OrsonApi.md#tech_tune) | **POST** /orson/ai/techTune | Detect Technical Issues
+*OpenapiClient::OrsonApi* | [**tts**](docs/OrsonApi.md#tts) | **POST** /orson/ai/tts | Text to Speach
+*OpenapiClient::PackApi* | [**create_pack**](docs/PackApi.md#create_pack) | **POST** /pack/create | Create Pack
+*OpenapiClient::PackApi* | [**delete_pack**](docs/PackApi.md#delete_pack) | **POST** /pack/delete | Delete Pack
+*OpenapiClient::PackApi* | [**get_pack**](docs/PackApi.md#get_pack) | **GET** /pack/get | Get Pack
+*OpenapiClient::PackApi* | [**search_packs**](docs/PackApi.md#search_packs) | **GET** /pack/search | Search Packs
+*OpenapiClient::PackApi* | [**update_pack**](docs/PackApi.md#update_pack) | **POST** /pack/update | Update Pack
+*OpenapiClient::ParticipantsApi* | [**process_all_participants**](docs/ParticipantsApi.md#process_all_participants) | **POST** /participant/process/all | Process All Participant Feeds
+*OpenapiClient::ParticipantsApi* | [**process_participants**](docs/ParticipantsApi.md#process_participants) | **POST** /participant/process | Process Participants Feed
+*OpenapiClient::PathingApi* | [**compute_path**](docs/PathingApi.md#compute_path) | **GET** /pathing/compute | Calculate Path
+*OpenapiClient::PostalCodeApi* | [**create_postal_code**](docs/PostalCodeApi.md#create_postal_code) | **POST** /postalCode/create | Create Postal Code
+*OpenapiClient::PostalCodeApi* | [**delete_postal_code**](docs/PostalCodeApi.md#delete_postal_code) | **POST** /postalCode/delete | Delete Postal Code
+*OpenapiClient::PostalCodeApi* | [**get_postal_code**](docs/PostalCodeApi.md#get_postal_code) | **GET** /postalCode/get | Get Postal Code
+*OpenapiClient::PostalCodeApi* | [**get_postal_codes**](docs/PostalCodeApi.md#get_postal_codes) | **GET** /postalCode/search | Search Postal Codes
+*OpenapiClient::PostalCodeApi* | [**update_postal_code**](docs/PostalCodeApi.md#update_postal_code) | **POST** /postalCode/update | Update Postal Code
+*OpenapiClient::PreviewPersonaApi* | [**create_persona**](docs/PreviewPersonaApi.md#create_persona) | **POST** /persona/create | Create Persona
+*OpenapiClient::PreviewPersonaApi* | [**delete_persona**](docs/PreviewPersonaApi.md#delete_persona) | **POST** /persona/delete | Delete Persona
+*OpenapiClient::PreviewPersonaApi* | [**get_persona_list**](docs/PreviewPersonaApi.md#get_persona_list) | **GET** /persona/get | Get Persona
+*OpenapiClient::PreviewPersonaApi* | [**search_persona**](docs/PreviewPersonaApi.md#search_persona) | **GET** /persona/search | Search Personas
+*OpenapiClient::PreviewPersonaApi* | [**update_persona**](docs/PreviewPersonaApi.md#update_persona) | **POST** /persona/update | Update Persona
+*OpenapiClient::ProgramApi* | [**create_program**](docs/ProgramApi.md#create_program) | **POST** /program | Create Program
+*OpenapiClient::ProgramApi* | [**delete_program**](docs/ProgramApi.md#delete_program) | **DELETE** /program/{id} | Delete Program
+*OpenapiClient::ProgramApi* | [**get_program**](docs/ProgramApi.md#get_program) | **GET** /program/{id} | Get Program
+*OpenapiClient::ProgramApi* | [**post_program**](docs/ProgramApi.md#post_program) | **POST** /program/{id} | Update Program
+*OpenapiClient::ProgramApi* | [**put_program**](docs/ProgramApi.md#put_program) | **PUT** /program/{id} | Update Program
+*OpenapiClient::ProgramApi* | [**search_programs**](docs/ProgramApi.md#search_programs) | **GET** /program | Search Programs
+*OpenapiClient::PurchaseItemApi* | [**create_purchase_item**](docs/PurchaseItemApi.md#create_purchase_item) | **POST** /purchase/create | Create Purchase
+*OpenapiClient::PurchaseItemApi* | [**delete_purchase_item**](docs/PurchaseItemApi.md#delete_purchase_item) | **POST** /purchase/delete | Delete Purchase
+*OpenapiClient::PurchaseItemApi* | [**get_purchase_item**](docs/PurchaseItemApi.md#get_purchase_item) | **GET** /purchase/get | Get Purchase
+*OpenapiClient::PurchaseItemApi* | [**search_purchase_items**](docs/PurchaseItemApi.md#search_purchase_items) | **GET** /purchase/search | Search Purchases
+*OpenapiClient::PurchaseItemApi* | [**update_purchase_item**](docs/PurchaseItemApi.md#update_purchase_item) | **POST** /purchase/update | Update Purchase
+*OpenapiClient::PurchaseOrderApi* | [**create_order**](docs/PurchaseOrderApi.md#create_order) | **POST** /order/create | Create Order
+*OpenapiClient::PurchaseOrderApi* | [**delete_order**](docs/PurchaseOrderApi.md#delete_order) | **POST** /order/delete | Delete Order
+*OpenapiClient::PurchaseOrderApi* | [**get_order**](docs/PurchaseOrderApi.md#get_order) | **GET** /order/get | Get Order
+*OpenapiClient::PurchaseOrderApi* | [**preview_order**](docs/PurchaseOrderApi.md#preview_order) | **POST** /order/preview | Preview Order
+*OpenapiClient::PurchaseOrderApi* | [**search_orders**](docs/PurchaseOrderApi.md#search_orders) | **GET** /order/search | Search Orders
+*OpenapiClient::PurchaseOrderApi* | [**update_order**](docs/PurchaseOrderApi.md#update_order) | **POST** /order/update | Update Order
+*OpenapiClient::QuestionApi* | [**create_question**](docs/QuestionApi.md#create_question) | **POST** /game/question/create | Create Question
+*OpenapiClient::QuestionApi* | [**delete_question**](docs/QuestionApi.md#delete_question) | **POST** /game/question/delete | Delete Question
+*OpenapiClient::QuestionApi* | [**get_question**](docs/QuestionApi.md#get_question) | **GET** /game/question/get | Get Question
+*OpenapiClient::QuestionApi* | [**search_questions**](docs/QuestionApi.md#search_questions) | **GET** /game/question/search | Search Questions
+*OpenapiClient::QuestionApi* | [**update_question**](docs/QuestionApi.md#update_question) | **POST** /game/question/update | Update Question
+*OpenapiClient::RankingApi* | [**get_historical_rankings**](docs/RankingApi.md#get_historical_rankings) | **GET** /ranking/historical/search | Search Historical Rankings
+*OpenapiClient::RankingApi* | [**get_rankings**](docs/RankingApi.md#get_rankings) | **GET** /ranking/search | Search Rankings
+*OpenapiClient::RankingApi* | [**get_user_rank**](docs/RankingApi.md#get_user_rank) | **POST** /ranking/personal/ranks | Get Personal Rankings
+*OpenapiClient::RankingApi* | [**override_user_rank**](docs/RankingApi.md#override_user_rank) | **POST** /ranking/override | Override User Rank
+*OpenapiClient::RankingApi* | [**update_rankings**](docs/RankingApi.md#update_rankings) | **POST** /ranking/update | Update Ranking
+*OpenapiClient::RatingApi* | [**create_rating**](docs/RatingApi.md#create_rating) | **POST** /rating/create | Create Rating
+*OpenapiClient::RatingApi* | [**delete_rating**](docs/RatingApi.md#delete_rating) | **POST** /rating/delete | Delete Rating
+*OpenapiClient::RatingApi* | [**search_location_rating_indexes**](docs/RatingApi.md#search_location_rating_indexes) | **GET** /location/rating/index/search | Search Location Rating Indexes
+*OpenapiClient::RatingApi* | [**search_rating_indexes**](docs/RatingApi.md#search_rating_indexes) | **GET** /rating/index/search | Search Rating Indexes
+*OpenapiClient::RatingApi* | [**search_ratings**](docs/RatingApi.md#search_ratings) | **GET** /rating/search | Search Ratings
+*OpenapiClient::RatingApi* | [**update_rating**](docs/RatingApi.md#update_rating) | **POST** /rating/update | Update Rating
+*OpenapiClient::RegionApi* | [**create_region**](docs/RegionApi.md#create_region) | **POST** /region/create | Create Region
+*OpenapiClient::RegionApi* | [**delete_region**](docs/RegionApi.md#delete_region) | **POST** /region/delete | Delete Region
+*OpenapiClient::RegionApi* | [**get_region**](docs/RegionApi.md#get_region) | **GET** /region/get | Get Region
+*OpenapiClient::RegionApi* | [**search_regions**](docs/RegionApi.md#search_regions) | **GET** /region/search | Search Regions
+*OpenapiClient::RegionApi* | [**update_region**](docs/RegionApi.md#update_region) | **POST** /region/update | Update Region
+*OpenapiClient::ReportingApi* | [**create_batch**](docs/ReportingApi.md#create_batch) | **POST** /report/batch/create | Create Offline Report
+*OpenapiClient::ReportingApi* | [**create_region_leg_summary_batch**](docs/ReportingApi.md#create_region_leg_summary_batch) | **POST** /report/region/summary/batch | Create Offline Report
+*OpenapiClient::ReportingApi* | [**delete_batch**](docs/ReportingApi.md#delete_batch) | **POST** /report/batch/delete | Delete Offline Report
+*OpenapiClient::ReportingApi* | [**get_report_batch**](docs/ReportingApi.md#get_report_batch) | **GET** /report/batch/get | Get Offline Report
+*OpenapiClient::ReportingApi* | [**run_report**](docs/ReportingApi.md#run_report) | **POST** /report/run | Run Report
+*OpenapiClient::ReportingApi* | [**search_batch**](docs/ReportingApi.md#search_batch) | **GET** /report/batch/search | Search Offline Reports
+*OpenapiClient::ReservationApi* | [**create_reservation**](docs/ReservationApi.md#create_reservation) | **POST** /reservation/create | Create Reservation
+*OpenapiClient::ReservationApi* | [**delete_reservation**](docs/ReservationApi.md#delete_reservation) | **POST** /reservation/delete | Delete Reservation
+*OpenapiClient::ReservationApi* | [**reservable_availability**](docs/ReservationApi.md#reservable_availability) | **POST** /reservable/availability/update | Update Availability
+*OpenapiClient::ReservationApi* | [**search_availability**](docs/ReservationApi.md#search_availability) | **GET** /reservable/availability/search | Search Availability
+*OpenapiClient::ReservationApi* | [**search_reservations**](docs/ReservationApi.md#search_reservations) | **GET** /reservation/search | Search Reservations
+*OpenapiClient::ReservationApi* | [**search_schedule**](docs/ReservationApi.md#search_schedule) | **GET** /reservable/schedule/search | Search Schedule
+*OpenapiClient::RetailerApi* | [**create_retailer**](docs/RetailerApi.md#create_retailer) | **POST** /retailer/create | Create Retailer
+*OpenapiClient::RetailerApi* | [**delete_retailer**](docs/RetailerApi.md#delete_retailer) | **POST** /retailer/delete | Delete Retailer
+*OpenapiClient::RetailerApi* | [**get_retailer**](docs/RetailerApi.md#get_retailer) | **GET** /retailer/get | Get Retailer
+*OpenapiClient::RetailerApi* | [**get_retailers**](docs/RetailerApi.md#get_retailers) | **GET** /retailer/search | Search Retailers
+*OpenapiClient::RetailerApi* | [**retailer_login_check**](docs/RetailerApi.md#retailer_login_check) | **POST** /retailer/login | Login Retailer
+*OpenapiClient::RetailerApi* | [**update_retailer**](docs/RetailerApi.md#update_retailer) | **POST** /retailer/update | Update Retailer
+*OpenapiClient::RetailerLocationApi* | [**create_retailer_location_consumer**](docs/RetailerLocationApi.md#create_retailer_location_consumer) | **POST** /location/create | Create Retailer Location (Consumer)
+*OpenapiClient::RetailerLocationApi* | [**create_retailer_locations**](docs/RetailerLocationApi.md#create_retailer_locations) | **POST** /retailer/location/create | Create Retailer Location
+*OpenapiClient::RetailerLocationApi* | [**delete_retailer_location**](docs/RetailerLocationApi.md#delete_retailer_location) | **POST** /retailer/location/delete | Delete Retailer Location
+*OpenapiClient::RetailerLocationApi* | [**get_retailer_location**](docs/RetailerLocationApi.md#get_retailer_location) | **GET** /retailer/location/get | Get Retailer Location
+*OpenapiClient::RetailerLocationApi* | [**get_retailer_location_consumer**](docs/RetailerLocationApi.md#get_retailer_location_consumer) | **GET** /location/get | Get Retailer Location (Consumer)
+*OpenapiClient::RetailerLocationApi* | [**indexed_retailer_location_distance_search**](docs/RetailerLocationApi.md#indexed_retailer_location_distance_search) | **GET** /retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
+*OpenapiClient::RetailerLocationApi* | [**indexed_retailer_location_search**](docs/RetailerLocationApi.md#indexed_retailer_location_search) | **GET** /retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
+*OpenapiClient::RetailerLocationApi* | [**search_retailer_locations**](docs/RetailerLocationApi.md#search_retailer_locations) | **GET** /retailer/location/search | Search Retailer Locations (Owned)
+*OpenapiClient::RetailerLocationApi* | [**update_retailer_locations**](docs/RetailerLocationApi.md#update_retailer_locations) | **POST** /retailer/location/update | Update Retailer Location
+*OpenapiClient::RetailerV2Api* | [**get_retaokiler**](docs/RetailerV2Api.md#get_retaokiler) | **GET** /retailer | Get Retailer
+*OpenapiClient::RouteApi* | [**approve_route**](docs/RouteApi.md#approve_route) | **POST** /route/{routeId}/approve | Approve Route
+*OpenapiClient::RouteApi* | [**copy_route**](docs/RouteApi.md#copy_route) | **POST** /route/{routeId}/copy | Copy Route
+*OpenapiClient::RouteApi* | [**create_route**](docs/RouteApi.md#create_route) | **POST** /route | Create Route
+*OpenapiClient::RouteApi* | [**create_route_directions**](docs/RouteApi.md#create_route_directions) | **PUT** /route/{routeId}/directions | Update Route Directions
+*OpenapiClient::RouteApi* | [**create_route_polyline**](docs/RouteApi.md#create_route_polyline) | **PUT** /route/{routeId}/polyline | Create Route Polyline
+*OpenapiClient::RouteApi* | [**delete_route**](docs/RouteApi.md#delete_route) | **DELETE** /route/{routeId} | Delete Route
+*OpenapiClient::RouteApi* | [**disapprove_route**](docs/RouteApi.md#disapprove_route) | **POST** /route/{routeId}/disapprove | Disapprove Route
+*OpenapiClient::RouteApi* | [**get_route**](docs/RouteApi.md#get_route) | **GET** /route/{routeId} | Get Route
+*OpenapiClient::RouteApi* | [**get_route_directions**](docs/RouteApi.md#get_route_directions) | **GET** /route/{routeId}/directions | Get Route Directions
+*OpenapiClient::RouteApi* | [**get_route_shipments**](docs/RouteApi.md#get_route_shipments) | **GET** /route/{routeId}/shipments | Get Route Shipments
+*OpenapiClient::RouteApi* | [**get_route_stop**](docs/RouteApi.md#get_route_stop) | **GET** /route/{routeId}/stop/{stopId} | Get Route Stop
+*OpenapiClient::RouteApi* | [**get_route_stops**](docs/RouteApi.md#get_route_stops) | **GET** /route/{routeId}/stops | Get Route Stops
+*OpenapiClient::RouteApi* | [**get_shipments_at_stop**](docs/RouteApi.md#get_shipments_at_stop) | **GET** /route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
+*OpenapiClient::RouteApi* | [**optimize_route**](docs/RouteApi.md#optimize_route) | **POST** /route/{routeId}/optimize | Optimize Route
+*OpenapiClient::RouteApi* | [**remove_stop**](docs/RouteApi.md#remove_stop) | **DELETE** /route/{routeId}/stop/{stopId} | Delete Stop
+*OpenapiClient::RouteApi* | [**reorder_route_stops_patch**](docs/RouteApi.md#reorder_route_stops_patch) | **PATCH** /route/{routeId}/stops/reorder | Reorder Route Stops
+*OpenapiClient::RouteApi* | [**reorder_route_stops_post**](docs/RouteApi.md#reorder_route_stops_post) | **POST** /route/{routeId}/stops/reorder | Reorder Route Stops
+*OpenapiClient::RouteApi* | [**search_routes**](docs/RouteApi.md#search_routes) | **GET** /route | Search Routes
+*OpenapiClient::RouteApi* | [**set_driver**](docs/RouteApi.md#set_driver) | **POST** /route/{id}/driver/{driverId} | Set Driver
+*OpenapiClient::RouteApi* | [**update_route**](docs/RouteApi.md#update_route) | **PUT** /route/{routeId} | Update Route
+*OpenapiClient::RouteApi* | [**update_route_stop**](docs/RouteApi.md#update_route_stop) | **PUT** /route/{routeId}/stop/{stopId} | Update Route Stop
+*OpenapiClient::RouteSettingApi* | [**create_route_settings**](docs/RouteSettingApi.md#create_route_settings) | **POST** /route/setting | Create Route Setting
+*OpenapiClient::RouteSettingApi* | [**delete_route_settings**](docs/RouteSettingApi.md#delete_route_settings) | **DELETE** /route/setting/{routeSettingsId} | Delete Route Setting
+*OpenapiClient::RouteSettingApi* | [**get_route_settings**](docs/RouteSettingApi.md#get_route_settings) | **GET** /route/setting/{routeSettingsId} | Get Route Setting
+*OpenapiClient::RouteSettingApi* | [**search_route_settings**](docs/RouteSettingApi.md#search_route_settings) | **GET** /route/setting | Search Route Settings
+*OpenapiClient::RouteSettingApi* | [**update_route_settings**](docs/RouteSettingApi.md#update_route_settings) | **PUT** /route/setting/{routeSettingsId} | Update Route Setting
+*OpenapiClient::RoutingApi* | [**compute_routing**](docs/RoutingApi.md#compute_routing) | **POST** /routing/compute | Compute Route
+*OpenapiClient::ScheduledNotificationApi* | [**create_scheduled_notification**](docs/ScheduledNotificationApi.md#create_scheduled_notification) | **POST** /notification/schedule/create | Create Scheduled Notification
+*OpenapiClient::ScheduledNotificationApi* | [**delete_scheduled_notification**](docs/ScheduledNotificationApi.md#delete_scheduled_notification) | **POST** /notification/schedule/delete | Delete Scheduled Notification
+*OpenapiClient::ScheduledNotificationApi* | [**get_scheduled_notification**](docs/ScheduledNotificationApi.md#get_scheduled_notification) | **GET** /notification/schedule/get | Get Scheduled Notification
+*OpenapiClient::ScheduledNotificationApi* | [**schedule_notification_listings**](docs/ScheduledNotificationApi.md#schedule_notification_listings) | **POST** /notification/schedule/generate | Generate Schedule Notifications
+*OpenapiClient::ScheduledNotificationApi* | [**search_scheduled_notifications**](docs/ScheduledNotificationApi.md#search_scheduled_notifications) | **GET** /notification/schedule/search | Search Scheduled Notifications
+*OpenapiClient::ScheduledNotificationApi* | [**update_scheduled_notification**](docs/ScheduledNotificationApi.md#update_scheduled_notification) | **POST** /notification/schedule/update | Update Scheduled Notification
+*OpenapiClient::ScoreApi* | [**create_score**](docs/ScoreApi.md#create_score) | **POST** /score/create | Create Score
+*OpenapiClient::ScoreApi* | [**get_score**](docs/ScoreApi.md#get_score) | **GET** /score/get | Get Score
+*OpenapiClient::ScoreApi* | [**search_scores**](docs/ScoreApi.md#search_scores) | **GET** /score/search | Search Score
+*OpenapiClient::SecureAppApi* | [**create_secure_application**](docs/SecureAppApi.md#create_secure_application) | **POST** /secure/application/create | Create Secure Application
+*OpenapiClient::SecureAppApi* | [**delete_secure_application**](docs/SecureAppApi.md#delete_secure_application) | **POST** /secure/application/delete | Delete Secure Application
+*OpenapiClient::SecureAppApi* | [**login_secure**](docs/SecureAppApi.md#login_secure) | **POST** /secure/login | Login Clear
+*OpenapiClient::SecureAppApi* | [**purchase_secure**](docs/SecureAppApi.md#purchase_secure) | **POST** /secure/purchase | Purchase Clear
+*OpenapiClient::SecureAppApi* | [**reset_secure**](docs/SecureAppApi.md#reset_secure) | **POST** /secure/application/reset | Rest Secure Application
+*OpenapiClient::SecureAppApi* | [**update_secure_application**](docs/SecureAppApi.md#update_secure_application) | **POST** /secure/application/update | Update Secure Application
+*OpenapiClient::ServiceHubApi* | [**create_service_hub**](docs/ServiceHubApi.md#create_service_hub) | **POST** /hub | Create Service Hub
+*OpenapiClient::ServiceHubApi* | [**delete_service_hub**](docs/ServiceHubApi.md#delete_service_hub) | **DELETE** /hub/{id} | Delete Service Hub
+*OpenapiClient::ServiceHubApi* | [**get_service_hub**](docs/ServiceHubApi.md#get_service_hub) | **GET** /hub/{id} | Get Service Hub
+*OpenapiClient::ServiceHubApi* | [**post_service_hub**](docs/ServiceHubApi.md#post_service_hub) | **POST** /hub/{id} | Update Service Hub
+*OpenapiClient::ServiceHubApi* | [**put_service_hub**](docs/ServiceHubApi.md#put_service_hub) | **PUT** /hub/{id} | Update Service Hub
+*OpenapiClient::ServiceHubApi* | [**search_service_hubs**](docs/ServiceHubApi.md#search_service_hubs) | **GET** /hub | Search Service Hubs
+*OpenapiClient::ShipmentApi* | [**cancel_shipment**](docs/ShipmentApi.md#cancel_shipment) | **POST** /shipment/{id}/cancel | Cancel Shipment
+*OpenapiClient::ShipmentApi* | [**create_shipment**](docs/ShipmentApi.md#create_shipment) | **POST** /shipment | Create Shipment
+*OpenapiClient::ShipmentApi* | [**delete_shipment**](docs/ShipmentApi.md#delete_shipment) | **DELETE** /shipment/{id} | Delete Shipment
+*OpenapiClient::ShipmentApi* | [**get_shipment**](docs/ShipmentApi.md#get_shipment) | **GET** /shipment/{id} | Get Shipment
+*OpenapiClient::ShipmentApi* | [**search_shipments**](docs/ShipmentApi.md#search_shipments) | **GET** /shipment | Search Shipments
+*OpenapiClient::ShipmentApi* | [**update_shipment**](docs/ShipmentApi.md#update_shipment) | **PUT** /shipment/{id} | Update Shipment
+*OpenapiClient::ShipmentApi* | [**update_shipment_status**](docs/ShipmentApi.md#update_shipment_status) | **POST** /shipment/{id}/status | Uupdate Shipment Status
+*OpenapiClient::ShipmentBatchApi* | [**create_shipment_batch**](docs/ShipmentBatchApi.md#create_shipment_batch) | **POST** /shipment/batch | Create Shipment Batch
+*OpenapiClient::ShipmentBatchApi* | [**delete_shipment_batch**](docs/ShipmentBatchApi.md#delete_shipment_batch) | **DELETE** /shipment/batch/{batchId} | Delete Shipment Batch
+*OpenapiClient::ShipmentBatchApi* | [**get_shipment_batch**](docs/ShipmentBatchApi.md#get_shipment_batch) | **GET** /shipment/batch/{batchId} | Get Shipment Batch
+*OpenapiClient::ShipmentBatchApi* | [**get_shipment_batch_status**](docs/ShipmentBatchApi.md#get_shipment_batch_status) | **GET** /shipment/batch/{batchId}/status | Get Shipment Batch Status
+*OpenapiClient::ShipmentBatchApi* | [**search_shipment_batch**](docs/ShipmentBatchApi.md#search_shipment_batch) | **GET** /shipment/batch | Search Shipment Batch
+*OpenapiClient::SimulationApi* | [**simulation**](docs/SimulationApi.md#simulation) | **POST** /simulation/routing | Routing Simulation
+*OpenapiClient::StopApi* | [**get_stop**](docs/StopApi.md#get_stop) | **GET** /stop/{id} | Get Stop
+*OpenapiClient::StopApi* | [**update_stop**](docs/StopApi.md#update_stop) | **PUT** /stop/{id} | Update Stop
+*OpenapiClient::StripeApi* | [**create_stripe_checkout_session**](docs/StripeApi.md#create_stripe_checkout_session) | **POST** /stripe/checkout/session/create | Create Stripe Checkout Session
+*OpenapiClient::SubscriptionApi* | [**create_subscription**](docs/SubscriptionApi.md#create_subscription) | **POST** /subscription/create | Create Subscription
+*OpenapiClient::SubscriptionApi* | [**delete_subscription**](docs/SubscriptionApi.md#delete_subscription) | **POST** /subscription/delete | Delete Subscription
+*OpenapiClient::SubscriptionApi* | [**get_subscription**](docs/SubscriptionApi.md#get_subscription) | **GET** /subscription/get | Get Subscription
+*OpenapiClient::SubscriptionApi* | [**get_subscription_plan**](docs/SubscriptionApi.md#get_subscription_plan) | **GET** /subscription/plan/get | Get Subscription Plan
+*OpenapiClient::SubscriptionApi* | [**get_subscription_plans**](docs/SubscriptionApi.md#get_subscription_plans) | **GET** /subscription/plan/list | List Subscription Plans
+*OpenapiClient::SubscriptionApi* | [**get_subscription_usage**](docs/SubscriptionApi.md#get_subscription_usage) | **GET** /subscription/usage/get | Get Subscription Usage
+*OpenapiClient::SubscriptionApi* | [**update_subscription**](docs/SubscriptionApi.md#update_subscription) | **POST** /subscription/update | Update Subscription
+*OpenapiClient::TaskApi* | [**create_task**](docs/TaskApi.md#create_task) | **POST** /task/create | Create Task
+*OpenapiClient::TaskApi* | [**delete_task**](docs/TaskApi.md#delete_task) | **POST** /task/delete | Delete Task
+*OpenapiClient::TaskApi* | [**get_task**](docs/TaskApi.md#get_task) | **GET** /task/get | Get Task
+*OpenapiClient::TaskApi* | [**search_tasks**](docs/TaskApi.md#search_tasks) | **GET** /task/search | Search Tasks
+*OpenapiClient::TaskApi* | [**update_task**](docs/TaskApi.md#update_task) | **POST** /task/update | Update Task
+*OpenapiClient::TerritoryApi* | [**create_territory**](docs/TerritoryApi.md#create_territory) | **POST** /territory/create | Create Territory
+*OpenapiClient::TerritoryApi* | [**delete_territory**](docs/TerritoryApi.md#delete_territory) | **POST** /territory/delete | Delete Territory
+*OpenapiClient::TerritoryApi* | [**get_territory**](docs/TerritoryApi.md#get_territory) | **GET** /territory/get | Get Territory
+*OpenapiClient::TerritoryApi* | [**search_territories**](docs/TerritoryApi.md#search_territories) | **GET** /territory/search | Search Territories
+*OpenapiClient::TerritoryApi* | [**update_territory**](docs/TerritoryApi.md#update_territory) | **POST** /territory/update | Update Territory
+*OpenapiClient::ThemeDescriptorApi* | [**add_or_update_theme_descriptor**](docs/ThemeDescriptorApi.md#add_or_update_theme_descriptor) | **POST** /consumer/theme | Create/Update Theme
+*OpenapiClient::ThemeDescriptorApi* | [**get_theme_descriptor**](docs/ThemeDescriptorApi.md#get_theme_descriptor) | **GET** /consumer/theme/get | Get Theme
+*OpenapiClient::ThemeDescriptorApi* | [**get_theme_descriptors**](docs/ThemeDescriptorApi.md#get_theme_descriptors) | **GET** /consumer/theme/search | Search Themes
+*OpenapiClient::ThemeDescriptorApi* | [**remove_theme_descriptor**](docs/ThemeDescriptorApi.md#remove_theme_descriptor) | **POST** /consumer/theme/remove | Delete Theme
+*OpenapiClient::ThirdPartyCredentialsApi* | [**create_credential**](docs/ThirdPartyCredentialsApi.md#create_credential) | **POST** /thirdparty/credential/create | Create Credential
+*OpenapiClient::ThirdPartyCredentialsApi* | [**create_network**](docs/ThirdPartyCredentialsApi.md#create_network) | **POST** /thirdparty/network/create | Create Network
+*OpenapiClient::ThirdPartyCredentialsApi* | [**delete_credential**](docs/ThirdPartyCredentialsApi.md#delete_credential) | **POST** /thirdparty/credential/delete | Delete Credential
+*OpenapiClient::ThirdPartyCredentialsApi* | [**delete_network**](docs/ThirdPartyCredentialsApi.md#delete_network) | **POST** /thirdparty/network/delete | Delete Network
+*OpenapiClient::ThirdPartyCredentialsApi* | [**get_credential**](docs/ThirdPartyCredentialsApi.md#get_credential) | **POST** /thirdparty/credential/get | Get Credential
+*OpenapiClient::ThirdPartyCredentialsApi* | [**get_network**](docs/ThirdPartyCredentialsApi.md#get_network) | **GET** /thirdparty/network/get | Get Network
+*OpenapiClient::ThirdPartyCredentialsApi* | [**search_credentials**](docs/ThirdPartyCredentialsApi.md#search_credentials) | **GET** /thirdparty/credential/search | Search Credentials
+*OpenapiClient::ThirdPartyCredentialsApi* | [**search_networks**](docs/ThirdPartyCredentialsApi.md#search_networks) | **GET** /thirdparty/network/search | Search Networks
+*OpenapiClient::ThirdPartyCredentialsApi* | [**send_mfa_challenge**](docs/ThirdPartyCredentialsApi.md#send_mfa_challenge) | **POST** /thirdparty/credential/mfa/send | Send MFA Challenge
+*OpenapiClient::ThirdPartyCredentialsApi* | [**update_credential**](docs/ThirdPartyCredentialsApi.md#update_credential) | **POST** /thirdparty/credential/update | Update Credential
+*OpenapiClient::ThirdPartyCredentialsApi* | [**update_network**](docs/ThirdPartyCredentialsApi.md#update_network) | **POST** /thirdparty/network/update | Update Network
+*OpenapiClient::TicketApi* | [**get_ticket_count**](docs/TicketApi.md#get_ticket_count) | **GET** /ticket/count | Get Ticket Count
+*OpenapiClient::TicketApi* | [**get_ticket_list**](docs/TicketApi.md#get_ticket_list) | **GET** /ticket/getList | Get Ticket List
+*OpenapiClient::TicketApi* | [**gift_purchase**](docs/TicketApi.md#gift_purchase) | **POST** /purchase/gift | Gift Tickets
+*OpenapiClient::TicketApi* | [**save_ticket**](docs/TicketApi.md#save_ticket) | **POST** /ticket/save | Save Ticket
+*OpenapiClient::TicketApi* | [**save_ticket_via_file_upload**](docs/TicketApi.md#save_ticket_via_file_upload) | **POST** /ticket/save/fileUpload | Save Ticket with Reciept
+*OpenapiClient::TicketApi* | [**ticket_offers**](docs/TicketApi.md#ticket_offers) | **GET** /ticket/ticketoffers | Get Ticket Offers
+*OpenapiClient::TournamentApi* | [**create_tournament**](docs/TournamentApi.md#create_tournament) | **POST** /tournament/create | Create Tournament
+*OpenapiClient::TournamentApi* | [**delete_tournament**](docs/TournamentApi.md#delete_tournament) | **POST** /tournament/delete | Delete Tournament
+*OpenapiClient::TournamentApi* | [**get_tournament**](docs/TournamentApi.md#get_tournament) | **GET** /tournament/get | Get Tournament
+*OpenapiClient::TournamentApi* | [**search_objects**](docs/TournamentApi.md#search_objects) | **GET** /tournament/object/search | Search Tournament Objects
+*OpenapiClient::TournamentApi* | [**search_rounds**](docs/TournamentApi.md#search_rounds) | **GET** /tournament/round/search | Search Tournament Rounds
+*OpenapiClient::TournamentApi* | [**search_tournaments**](docs/TournamentApi.md#search_tournaments) | **GET** /tournament/search | Search Tournaments
+*OpenapiClient::TournamentApi* | [**submit_tournament_score**](docs/TournamentApi.md#submit_tournament_score) | **POST** /tournament/score | Submit Tournament Score
+*OpenapiClient::TournamentApi* | [**submit_tournament_vote**](docs/TournamentApi.md#submit_tournament_vote) | **POST** /tournament/vote | Submit a vote for a multi-stage album tournament.
+*OpenapiClient::TournamentApi* | [**substitute_tournament_player**](docs/TournamentApi.md#substitute_tournament_player) | **POST** /tournament/substitute | Substitute Tournament Player
+*OpenapiClient::TournamentApi* | [**update_tournament**](docs/TournamentApi.md#update_tournament) | **POST** /tournament/update | Update Tournament
+*OpenapiClient::TrackingApi* | [**batch_save_tracking**](docs/TrackingApi.md#batch_save_tracking) | **POST** /tracking/batch/create | Create Batch Tracking
+*OpenapiClient::TrackingApi* | [**get_predicted_locations**](docs/TrackingApi.md#get_predicted_locations) | **GET** /tracking/predicted/get | Get Predicted Locations
+*OpenapiClient::TrackingApi* | [**get_predicted_path**](docs/TrackingApi.md#get_predicted_path) | **GET** /tracking/path/get | Get Tracking Path
+*OpenapiClient::TrackingApi* | [**get_preferred_locations**](docs/TrackingApi.md#get_preferred_locations) | **GET** /tracking/preferred/search | Search Preferred Locations
+*OpenapiClient::TrackingApi* | [**get_tracking_legs**](docs/TrackingApi.md#get_tracking_legs) | **GET** /tracking/search | Search Tracking
+*OpenapiClient::TrackingApi* | [**save_tracking_leg**](docs/TrackingApi.md#save_tracking_leg) | **POST** /tracking/leg/create | Create Tracking Leg
+*OpenapiClient::TrackingApi* | [**save_tracking_step**](docs/TrackingApi.md#save_tracking_step) | **POST** /tracking/step/create | Create Tracking Step
+*OpenapiClient::TrackingApi* | [**search_accounts_with_tracking_legs**](docs/TrackingApi.md#search_accounts_with_tracking_legs) | **GET** /tracking/list | List Tracking
+*OpenapiClient::TrackingApi* | [**search_tracking_legs**](docs/TrackingApi.md#search_tracking_legs) | **GET** /tracking/searchByBillable | Search Tracking (Billable)
+*OpenapiClient::TriggerApi* | [**create_trigger**](docs/TriggerApi.md#create_trigger) | **POST** /trigger/create | Create Trigger
+*OpenapiClient::TriggerApi* | [**delete_trigger**](docs/TriggerApi.md#delete_trigger) | **POST** /trigger/delete | Delete Trigger
+*OpenapiClient::TriggerApi* | [**get_trigger**](docs/TriggerApi.md#get_trigger) | **GET** /trigger/get | Get Trigger
+*OpenapiClient::TriggerApi* | [**search_triggers**](docs/TriggerApi.md#search_triggers) | **GET** /trigger/search | Search Triggers
+*OpenapiClient::TriggerApi* | [**update_trigger**](docs/TriggerApi.md#update_trigger) | **POST** /trigger/update | Update Trigger
+*OpenapiClient::TripApi* | [**create_trip**](docs/TripApi.md#create_trip) | **POST** /trip | Create Trip
+*OpenapiClient::TripApi* | [**delete**](docs/TripApi.md#delete) | **DELETE** /trip/{id} | Delete Trip
+*OpenapiClient::TripApi* | [**drive_trip**](docs/TripApi.md#drive_trip) | **POST** /trip/{id}/drive | Set Trip Preference Driver
+*OpenapiClient::TripApi* | [**flexible_trip**](docs/TripApi.md#flexible_trip) | **POST** /trip/{id}/flexible | Set Trip Preference Flexible
+*OpenapiClient::TripApi* | [**get_trip**](docs/TripApi.md#get_trip) | **GET** /trip/{id} | Get Trip
+*OpenapiClient::TripApi* | [**get_trip_matches**](docs/TripApi.md#get_trip_matches) | **GET** /trip/{id}/match | Get Trip Matches
+*OpenapiClient::TripApi* | [**process_trip_matches**](docs/TripApi.md#process_trip_matches) | **POST** /trip/match/process | Process Trip Matches
+*OpenapiClient::TripApi* | [**ride**](docs/TripApi.md#ride) | **POST** /trip/{id}/ride | Set Trip Preference Rider
+*OpenapiClient::TripApi* | [**search**](docs/TripApi.md#search) | **GET** /trip | Search Trips
+*OpenapiClient::TripApi* | [**search_trips**](docs/TripApi.md#search_trips) | **GET** /trip/match | Search Trips
+*OpenapiClient::TripApi* | [**update_locations**](docs/TripApi.md#update_locations) | **POST** /trip/{id}/locations | Update Trip Locations
+*OpenapiClient::TripApi* | [**update_recurrence_locations**](docs/TripApi.md#update_recurrence_locations) | **POST** /trip/{id}/locations/recurrence | Update Recurrence Locations
+*OpenapiClient::TripApi* | [**update_recurrence_shipments**](docs/TripApi.md#update_recurrence_shipments) | **POST** /trip/{id}/shipments/recurrence | Update Recurrence Shipments
+*OpenapiClient::TripApi* | [**update_shipments**](docs/TripApi.md#update_shipments) | **POST** /trip/{id}/shipments | Update Trip Shipments
+*OpenapiClient::TripApi* | [**update_trip**](docs/TripApi.md#update_trip) | **PUT** /trip/{id} | Update Trip
+*OpenapiClient::TripApi* | [**update_trip_notifications**](docs/TripApi.md#update_trip_notifications) | **POST** /trip/notifications | Trip Notifications
+*OpenapiClient::TwilioApi* | [**sms_buy_offer**](docs/TwilioApi.md#sms_buy_offer) | **POST** /sms/buyoffer/{appKey} | Buy Offer by SMS
+*OpenapiClient::TwitterApi* | [**authorize_twitter**](docs/TwitterApi.md#authorize_twitter) | **POST** /twitter/authorize | Authorize Twitter
+*OpenapiClient::TwitterApi* | [**login_twitter**](docs/TwitterApi.md#login_twitter) | **POST** /twitter/login | Login Twitter
+*OpenapiClient::UserPermissionsApi* | [**add_users_to_permissionable**](docs/UserPermissionsApi.md#add_users_to_permissionable) | **POST** /consumer/permissions/add | Add User
+*OpenapiClient::UserPermissionsApi* | [**approve_permissionable**](docs/UserPermissionsApi.md#approve_permissionable) | **POST** /permissionable/approve | Approve Permissionable
+*OpenapiClient::UserPermissionsApi* | [**leave_from_permissionable**](docs/UserPermissionsApi.md#leave_from_permissionable) | **POST** /consumer/permissions/leave | Leave
+*OpenapiClient::UserPermissionsApi* | [**remove_users_from_permissionable**](docs/UserPermissionsApi.md#remove_users_from_permissionable) | **POST** /consumer/permissions/remove | Remove User
+*OpenapiClient::UserPermissionsApi* | [**search_permissionables**](docs/UserPermissionsApi.md#search_permissionables) | **GET** /permissions/search | Search Permissionables
+*OpenapiClient::UserPermissionsApi* | [**search_permissionables_following_distance**](docs/UserPermissionsApi.md#search_permissionables_following_distance) | **GET** /permissions/distancesearch | Search Permissionables by Distnace
+*OpenapiClient::VatomApi* | [**create_following**](docs/VatomApi.md#create_following) | **POST** /vatom/me/rels/following/create | Create following
+*OpenapiClient::VatomApi* | [**create_space**](docs/VatomApi.md#create_space) | **POST** /vatom/b/spaces/create | Create Vatom Space
+*OpenapiClient::VatomApi* | [**create_vatom_event**](docs/VatomApi.md#create_vatom_event) | **POST** /vatom/b/events/create | Create Vatom Event
+*OpenapiClient::VatomApi* | [**delete_following**](docs/VatomApi.md#delete_following) | **POST** /vatom/me/rels/following/delete | Delete following
+*OpenapiClient::VatomApi* | [**delete_points_balance**](docs/VatomApi.md#delete_points_balance) | **POST** /vatom/b/campaign/points/delete | Reset All Points Balance
+*OpenapiClient::VatomApi* | [**delete_space**](docs/VatomApi.md#delete_space) | **POST** /vatom/b/spaces/delete | Delete Vatom Space
+*OpenapiClient::VatomApi* | [**delete_vatom_event**](docs/VatomApi.md#delete_vatom_event) | **POST** /vatom/b/events/delete | Delete Vatom Event
+*OpenapiClient::VatomApi* | [**delete_vatom_nft**](docs/VatomApi.md#delete_vatom_nft) | **POST** /vatom/vatoms/delete | Delete Vatom NFT
+*OpenapiClient::VatomApi* | [**execute_action_on_nft**](docs/VatomApi.md#execute_action_on_nft) | **POST** /vatom/vatoms/execute-action | Execute Action on NFT
+*OpenapiClient::VatomApi* | [**geomap_search**](docs/VatomApi.md#geomap_search) | **GET** /vatom/vatoms/geo-map/search | Search Vatom Geo Map
+*OpenapiClient::VatomApi* | [**get_business_behaviors**](docs/VatomApi.md#get_business_behaviors) | **GET** /vatom/b/behaviors | Get Vatom Business Behaviors
+*OpenapiClient::VatomApi* | [**get_business_coins_balance**](docs/VatomApi.md#get_business_coins_balance) | **GET** /vatom/b/coins/get | Get the coins for a Business
+*OpenapiClient::VatomApi* | [**get_business_ids**](docs/VatomApi.md#get_business_ids) | **GET** /vatom/me/businesses | Get the user business ids
+*OpenapiClient::VatomApi* | [**get_business_info**](docs/VatomApi.md#get_business_info) | **GET** /vatom/b/get | Get Vatom Business Info
+*OpenapiClient::VatomApi* | [**get_business_users**](docs/VatomApi.md#get_business_users) | **GET** /vatom/b/users | Get Vatom Business Users
+*OpenapiClient::VatomApi* | [**get_campaign_group_entities**](docs/VatomApi.md#get_campaign_group_entities) | **GET** /vatom/b/campaign-groups/entities | Get Campaign Group Entities
+*OpenapiClient::VatomApi* | [**get_campaign_group_rules**](docs/VatomApi.md#get_campaign_group_rules) | **GET** /vatom/b/campaign-groups/rules | Get Campaign Group Rules
+*OpenapiClient::VatomApi* | [**get_campaign_group_stats**](docs/VatomApi.md#get_campaign_group_stats) | **GET** /vatom/b/campaign-groups/stats | Get Campaign Group Stats
+*OpenapiClient::VatomApi* | [**get_campaign_info**](docs/VatomApi.md#get_campaign_info) | **GET** /vatom/b/campaign-groups/get | Get Campaign Info
+*OpenapiClient::VatomApi* | [**get_event_guest_list**](docs/VatomApi.md#get_event_guest_list) | **GET** /vatom/b/events/guests/get | Get Vatom Event Guest List
+*OpenapiClient::VatomApi* | [**get_inventory**](docs/VatomApi.md#get_inventory) | **GET** /vatom/me/inventory | Get Vatom User's Inventory
+*OpenapiClient::VatomApi* | [**get_my_following**](docs/VatomApi.md#get_my_following) | **GET** /vatom/me/rels/following | Get following
+*OpenapiClient::VatomApi* | [**get_points_balance**](docs/VatomApi.md#get_points_balance) | **GET** /vatom/u/campaign/points/get | Get Points Balance
+*OpenapiClient::VatomApi* | [**get_points_balance_as_business**](docs/VatomApi.md#get_points_balance_as_business) | **GET** /vatom/b/campaign/u/points/get | Get Points Balance as Business
+*OpenapiClient::VatomApi* | [**get_space**](docs/VatomApi.md#get_space) | **GET** /vatom/b/spaces/get | Get Vatom Space
+*OpenapiClient::VatomApi* | [**get_user_coins_as_business**](docs/VatomApi.md#get_user_coins_as_business) | **GET** /vatom/b/users/coins/get | Get the coins for a user (as a Business)
+*OpenapiClient::VatomApi* | [**get_user_coins_balance**](docs/VatomApi.md#get_user_coins_balance) | **GET** /vatom/u/coins/get | Gets the coins balance for a Vatom User
+*OpenapiClient::VatomApi* | [**get_user_followers**](docs/VatomApi.md#get_user_followers) | **GET** /vatom/users/rels/followers | Get user followers
+*OpenapiClient::VatomApi* | [**get_user_following**](docs/VatomApi.md#get_user_following) | **GET** /vatom/users/rels/following | Get user following
+*OpenapiClient::VatomApi* | [**get_user_info**](docs/VatomApi.md#get_user_info) | **GET** /vatom/user/get | Get User Info
+*OpenapiClient::VatomApi* | [**get_user_profile**](docs/VatomApi.md#get_user_profile) | **GET** /vatom/me/get | Get Vatom User Profile
+*OpenapiClient::VatomApi* | [**get_vatom_event**](docs/VatomApi.md#get_vatom_event) | **GET** /vatom/b/events/get | Get Vatom Event
+*OpenapiClient::VatomApi* | [**get_vatom_nft**](docs/VatomApi.md#get_vatom_nft) | **GET** /vatom/vatoms/get | Get Vatom NFT Details
+*OpenapiClient::VatomApi* | [**list_communities**](docs/VatomApi.md#list_communities) | **GET** /vatom/b/communities/search | List Vatom Communities
+*OpenapiClient::VatomApi* | [**list_events**](docs/VatomApi.md#list_events) | **GET** /vatom/b/events/search | List Vatom Events
+*OpenapiClient::VatomApi* | [**list_spaces**](docs/VatomApi.md#list_spaces) | **GET** /vatom/b/spaces/search | List Vatom Spaces
+*OpenapiClient::VatomApi* | [**list_user_coin_transactions**](docs/VatomApi.md#list_user_coin_transactions) | **GET** /vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
+*OpenapiClient::VatomApi* | [**list_user_coin_transactions_as_business**](docs/VatomApi.md#list_user_coin_transactions_as_business) | **GET** /vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
+*OpenapiClient::VatomApi* | [**perform_action_on_nft**](docs/VatomApi.md#perform_action_on_nft) | **POST** /vatom/me/vatoms/actions | Perform Action on NFT
+*OpenapiClient::VatomApi* | [**redeem_nft**](docs/VatomApi.md#redeem_nft) | **POST** /vatom/b/redemptions | Redeem NFT
+*OpenapiClient::VatomApi* | [**redeem_user_coins_as_business**](docs/VatomApi.md#redeem_user_coins_as_business) | **POST** /vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
+*OpenapiClient::VatomApi* | [**search_businesses**](docs/VatomApi.md#search_businesses) | **GET** /vatom/b/search | Search for Vatom Businesses
+*OpenapiClient::VatomApi* | [**search_campaign_groups**](docs/VatomApi.md#search_campaign_groups) | **GET** /vatom/b/campaign-groups/search | Search Campaign Groups
+*OpenapiClient::VatomApi* | [**search_identities**](docs/VatomApi.md#search_identities) | **GET** /vatom/me/identities/search | Search User Identities
+*OpenapiClient::VatomApi* | [**search_inventory**](docs/VatomApi.md#search_inventory) | **GET** /vatom/user-inventory/search | Search Vatom User's Inventory
+*OpenapiClient::VatomApi* | [**send_nft**](docs/VatomApi.md#send_nft) | **POST** /vatom/b/campaigns/send | Send NFT
+*OpenapiClient::VatomApi* | [**set_points_balance_as_business**](docs/VatomApi.md#set_points_balance_as_business) | **POST** /vatom/b/campaign/u/points/update | Set Points Balance as Business
+*OpenapiClient::VatomApi* | [**transfer_user_coins**](docs/VatomApi.md#transfer_user_coins) | **POST** /vatom/u/coins/transfer | Transfer coins from Vatom Users
+*OpenapiClient::VatomApi* | [**update_business_coins**](docs/VatomApi.md#update_business_coins) | **POST** /vatom/b/coins/update | Fund coins for a Business
+*OpenapiClient::VatomApi* | [**update_event_guest_list**](docs/VatomApi.md#update_event_guest_list) | **POST** /vatom/b/events/guests/update | Update Vatom Event Guest List
+*OpenapiClient::VatomApi* | [**update_space**](docs/VatomApi.md#update_space) | **POST** /vatom/b/spaces/update | Update Vatom Space
+*OpenapiClient::VatomApi* | [**update_user_coins_as_business**](docs/VatomApi.md#update_user_coins_as_business) | **POST** /vatom/b/users/coins/update | Update the coins for a user (as a Business)
+*OpenapiClient::VatomApi* | [**update_user_profile**](docs/VatomApi.md#update_user_profile) | **POST** /vatom/me/update | Update Vatom User Profile
+*OpenapiClient::VatomApi* | [**update_vatom_event**](docs/VatomApi.md#update_vatom_event) | **POST** /vatom/b/events/update | Update Vatom Event
+*OpenapiClient::VehicleApi* | [**create_vehicle**](docs/VehicleApi.md#create_vehicle) | **POST** /vehicle | Create Vehicle
+*OpenapiClient::VehicleApi* | [**delete_vehicle**](docs/VehicleApi.md#delete_vehicle) | **DELETE** /vehicle/{id} | Delete Vehicle
+*OpenapiClient::VehicleApi* | [**get_vehicle**](docs/VehicleApi.md#get_vehicle) | **GET** /vehicle/{id} | Get Vehicle
+*OpenapiClient::VehicleApi* | [**search_vehicle**](docs/VehicleApi.md#search_vehicle) | **GET** /vehicle | Search Vehicle
+*OpenapiClient::VehicleApi* | [**update_vehicle**](docs/VehicleApi.md#update_vehicle) | **PUT** /vehicle/{id} | Update Vehicle
+*OpenapiClient::VehicleTypeApi* | [**create_vehicle_type**](docs/VehicleTypeApi.md#create_vehicle_type) | **POST** /vehicle/type | Create Vehicle Type
+*OpenapiClient::VehicleTypeApi* | [**delete_vehicle_type**](docs/VehicleTypeApi.md#delete_vehicle_type) | **DELETE** /vehicle/type/{vehicleTypeId} | Delete Vehicle Type
+*OpenapiClient::VehicleTypeApi* | [**get_vehicle_type**](docs/VehicleTypeApi.md#get_vehicle_type) | **GET** /vehicle/type/{vehicleTypeId} | Get Vehicle Type
+*OpenapiClient::VehicleTypeApi* | [**search_vehicle_types**](docs/VehicleTypeApi.md#search_vehicle_types) | **GET** /vehicle/type | Search Vehicle Type
+*OpenapiClient::VehicleTypeApi* | [**update_vehicle_type**](docs/VehicleTypeApi.md#update_vehicle_type) | **PUT** /vehicle/type/{vehicleTypeId} | Update Vehicle Type
+*OpenapiClient::WalletApi* | [**create_offer_transaction**](docs/WalletApi.md#create_offer_transaction) | **POST** /wallet/create | Create Wallet Offers
+*OpenapiClient::WalletApi* | [**delete_offer_transaction**](docs/WalletApi.md#delete_offer_transaction) | **POST** /wallet/delete | Delete Wallet Offer
+*OpenapiClient::WalletApi* | [**get_offer_transaction**](docs/WalletApi.md#get_offer_transaction) | **GET** /wallet/get | Get Wallet Offer
+*OpenapiClient::WalletApi* | [**preview_offer_transaction**](docs/WalletApi.md#preview_offer_transaction) | **POST** /wallet/preview | Preview Wallet Offers
+*OpenapiClient::WalletApi* | [**search_offer_transactions**](docs/WalletApi.md#search_offer_transactions) | **GET** /wallet/search | Search Wallet Offers
+*OpenapiClient::WalletApi* | [**update_offer_transaction**](docs/WalletApi.md#update_offer_transaction) | **POST** /wallet/update | Update Wallet Offer
+*OpenapiClient::WeatherApi* | [**search_weather**](docs/WeatherApi.md#search_weather) | **GET** /weather/search | Search Weather
+*OpenapiClient::WordApi* | [**create_word**](docs/WordApi.md#create_word) | **POST** /game/word/create | Create Word
+*OpenapiClient::WordApi* | [**delete_word**](docs/WordApi.md#delete_word) | **DELETE** /game/word/delete | Delete Word
+*OpenapiClient::WordApi* | [**get_word**](docs/WordApi.md#get_word) | **GET** /game/word/get | Get Word
+*OpenapiClient::WordApi* | [**get_words**](docs/WordApi.md#get_words) | **GET** /game/word/search | Search Words
+*OpenapiClient::WordApi* | [**update_word**](docs/WordApi.md#update_word) | **POST** /game/word/update | Update Word
+*OpenapiClient::WorkflowApi* | [**run_workflow**](docs/WorkflowApi.md#run_workflow) | **POST** /workflow/run | Run Workflow
 
 
 ## Documentation for Models

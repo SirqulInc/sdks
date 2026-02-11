@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Add Connection
     # Adds a connection to a group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the group id
     # @param [Hash] opts the optional parameters
@@ -33,14 +32,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [SirqulResponse]
-    def add_connection_to_group(version, return_nulls, group_id, opts = {})
-      data, _status_code, _headers = add_connection_to_group_with_http_info(version, return_nulls, group_id, opts)
+    def add_connection_to_group(return_nulls, group_id, opts = {})
+      data, _status_code, _headers = add_connection_to_group_with_http_info(return_nulls, group_id, opts)
       data
     end
 
     # Add Connection
     # Adds a connection to a group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the group id
     # @param [Hash] opts the optional parameters
@@ -52,13 +50,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def add_connection_to_group_with_http_info(version, return_nulls, group_id, opts = {})
+    def add_connection_to_group_with_http_info(return_nulls, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.add_connection_to_group ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.add_connection_to_group"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -69,7 +63,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'group_id' when calling ConnectionApi.add_connection_to_group"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/group/addConnection'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/group/addConnection'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -119,7 +113,6 @@ module OpenapiClient
 
     # Add Connections
     # Adds a list of connections to a group.
-    # @param version [Float] 
     # @param connection_group_id [Integer] the connection group ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -129,14 +122,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [SirqulResponse]
-    def add_connections_to_group(version, connection_group_id, opts = {})
-      data, _status_code, _headers = add_connections_to_group_with_http_info(version, connection_group_id, opts)
+    def add_connections_to_group(connection_group_id, opts = {})
+      data, _status_code, _headers = add_connections_to_group_with_http_info(connection_group_id, opts)
       data
     end
 
     # Add Connections
     # Adds a list of connections to a group.
-    # @param version [Float] 
     # @param connection_group_id [Integer] the connection group ID
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -146,20 +138,16 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def add_connections_to_group_with_http_info(version, connection_group_id, opts = {})
+    def add_connections_to_group_with_http_info(connection_group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.add_connections_to_group ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.add_connections_to_group"
       end
       # verify the required parameter 'connection_group_id' is set
       if @api_client.config.client_side_validation && connection_group_id.nil?
         fail ArgumentError, "Missing the required parameter 'connection_group_id' when calling ConnectionApi.add_connections_to_group"
       end
       # resource path
-      local_var_path = '/api/{version}/connection/group/addConnections'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/connection/group/addConnections'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -207,7 +195,6 @@ module OpenapiClient
 
     # Add Connection Groups
     # Add sub groups to a group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the parent group id
     # @param sub_group_ids [String] comma separated list of group IDs to add to the parent group
@@ -217,14 +204,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [ConnectionGroupResponse]
-    def add_sub_groups(version, return_nulls, group_id, sub_group_ids, opts = {})
-      data, _status_code, _headers = add_sub_groups_with_http_info(version, return_nulls, group_id, sub_group_ids, opts)
+    def add_sub_groups(return_nulls, group_id, sub_group_ids, opts = {})
+      data, _status_code, _headers = add_sub_groups_with_http_info(return_nulls, group_id, sub_group_ids, opts)
       data
     end
 
     # Add Connection Groups
     # Add sub groups to a group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the parent group id
     # @param sub_group_ids [String] comma separated list of group IDs to add to the parent group
@@ -234,13 +220,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(ConnectionGroupResponse, Integer, Hash)>] ConnectionGroupResponse data, response status code and response headers
-    def add_sub_groups_with_http_info(version, return_nulls, group_id, sub_group_ids, opts = {})
+    def add_sub_groups_with_http_info(return_nulls, group_id, sub_group_ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.add_sub_groups ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.add_sub_groups"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -255,7 +237,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'sub_group_ids' when calling ConnectionApi.add_sub_groups"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/group/addSubGroup'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/group/addSubGroup'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -303,7 +285,6 @@ module OpenapiClient
 
     # Create or Update Connection
     # Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -320,14 +301,13 @@ module OpenapiClient
     # @option opts [Boolean] :is_following determines whether the user is following this account
     # @option opts [Boolean] :connection_response whether to return the connection response or not
     # @return [ConnectionResponse]
-    def create_or_update_connection(version, opts = {})
-      data, _status_code, _headers = create_or_update_connection_with_http_info(version, opts)
+    def create_or_update_connection(opts = {})
+      data, _status_code, _headers = create_or_update_connection_with_http_info(opts)
       data
     end
 
     # Create or Update Connection
     # Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -344,16 +324,12 @@ module OpenapiClient
     # @option opts [Boolean] :is_following determines whether the user is following this account
     # @option opts [Boolean] :connection_response whether to return the connection response or not
     # @return [Array<(ConnectionResponse, Integer, Hash)>] ConnectionResponse data, response status code and response headers
-    def create_or_update_connection_with_http_info(version, opts = {})
+    def create_or_update_connection_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.create_or_update_connection ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.create_or_update_connection"
-      end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/add'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/add'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -408,7 +384,6 @@ module OpenapiClient
 
     # Create or Update Connection Group
     # Creates a new private group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -425,14 +400,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the latitude of the group
     # @option opts [Float] :longitude the longitude of the group
     # @return [SirqulResponse]
-    def create_or_update_group(version, return_nulls, opts = {})
-      data, _status_code, _headers = create_or_update_group_with_http_info(version, return_nulls, opts)
+    def create_or_update_group(return_nulls, opts = {})
+      data, _status_code, _headers = create_or_update_group_with_http_info(return_nulls, opts)
       data
     end
 
     # Create or Update Connection Group
     # Creates a new private group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -449,20 +423,16 @@ module OpenapiClient
     # @option opts [Float] :latitude the latitude of the group
     # @option opts [Float] :longitude the longitude of the group
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def create_or_update_group_with_http_info(version, return_nulls, opts = {})
+    def create_or_update_group_with_http_info(return_nulls, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.create_or_update_group ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.create_or_update_group"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
         fail ArgumentError, "Missing the required parameter 'return_nulls' when calling ConnectionApi.create_or_update_group"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/group'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/group'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -517,32 +487,26 @@ module OpenapiClient
 
     # Accept Follow Request
     # Accept someone's follow request.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who initiated the follow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def follow_accept(version, account_id, connection_account_id, app_key, opts = {})
-      data, _status_code, _headers = follow_accept_with_http_info(version, account_id, connection_account_id, app_key, opts)
+    def follow_accept(account_id, connection_account_id, app_key, opts = {})
+      data, _status_code, _headers = follow_accept_with_http_info(account_id, connection_account_id, app_key, opts)
       data
     end
 
     # Accept Follow Request
     # Accept someone&#39;s follow request.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who initiated the follow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def follow_accept_with_http_info(version, account_id, connection_account_id, app_key, opts = {})
+    def follow_accept_with_http_info(account_id, connection_account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.follow_accept ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.follow_accept"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -557,7 +521,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ConnectionApi.follow_accept"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/follow/accept'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/follow/accept'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -601,32 +565,26 @@ module OpenapiClient
 
     # Reject Follow Request
     # Reject someone's follow request or remove them as a follower.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who initiated the follow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def follow_reject(version, account_id, connection_account_id, app_key, opts = {})
-      data, _status_code, _headers = follow_reject_with_http_info(version, account_id, connection_account_id, app_key, opts)
+    def follow_reject(account_id, connection_account_id, app_key, opts = {})
+      data, _status_code, _headers = follow_reject_with_http_info(account_id, connection_account_id, app_key, opts)
       data
     end
 
     # Reject Follow Request
     # Reject someone&#39;s follow request or remove them as a follower.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who initiated the follow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def follow_reject_with_http_info(version, account_id, connection_account_id, app_key, opts = {})
+    def follow_reject_with_http_info(account_id, connection_account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.follow_reject ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.follow_reject"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -641,7 +599,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ConnectionApi.follow_reject"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/follow/reject'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/follow/reject'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -685,32 +643,26 @@ module OpenapiClient
 
     # Remove Follower / Unfollow
     # Unfollow someone you are following or remove them as a follower.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who you want to unfollow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def follow_remove(version, account_id, connection_account_id, app_key, opts = {})
-      data, _status_code, _headers = follow_remove_with_http_info(version, account_id, connection_account_id, app_key, opts)
+    def follow_remove(account_id, connection_account_id, app_key, opts = {})
+      data, _status_code, _headers = follow_remove_with_http_info(account_id, connection_account_id, app_key, opts)
       data
     end
 
     # Remove Follower / Unfollow
     # Unfollow someone you are following or remove them as a follower.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who you want to unfollow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def follow_remove_with_http_info(version, account_id, connection_account_id, app_key, opts = {})
+    def follow_remove_with_http_info(account_id, connection_account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.follow_remove ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.follow_remove"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -725,7 +677,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ConnectionApi.follow_remove"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/follow/remove'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/follow/remove'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -769,34 +721,28 @@ module OpenapiClient
 
     # Send Follow Request
     # Send a request to follow someone.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who you want to follow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :approval_needed determines if the other user needs to confirm the follow request (default to true)
     # @return [SirqulResponse]
-    def follow_request(version, account_id, connection_account_id, app_key, opts = {})
-      data, _status_code, _headers = follow_request_with_http_info(version, account_id, connection_account_id, app_key, opts)
+    def follow_request(account_id, connection_account_id, app_key, opts = {})
+      data, _status_code, _headers = follow_request_with_http_info(account_id, connection_account_id, app_key, opts)
       data
     end
 
     # Send Follow Request
     # Send a request to follow someone.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param connection_account_id [Integer] the account ID of the user who you want to follow
     # @param app_key [String] the application key for sending notifications
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :approval_needed determines if the other user needs to confirm the follow request (default to true)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def follow_request_with_http_info(version, account_id, connection_account_id, app_key, opts = {})
+    def follow_request_with_http_info(account_id, connection_account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.follow_request ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.follow_request"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -811,7 +757,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ConnectionApi.follow_request"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/follow/request'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/follow/request'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -856,7 +802,6 @@ module OpenapiClient
 
     # Accept Friend
     # Accept a friend request and optionally sends a notification.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the friend&#39;s account id
     # @param notify_friend [Boolean] determines whether to send a notification to the afflicting party
     # @param [Hash] opts the optional parameters
@@ -866,14 +811,13 @@ module OpenapiClient
     # @option opts [String] :app_key the application key
     # @option opts [String] :notification_message optional message to send in a notification
     # @return [SirqulResponse]
-    def friend_accept(version, friend_account_id, notify_friend, opts = {})
-      data, _status_code, _headers = friend_accept_with_http_info(version, friend_account_id, notify_friend, opts)
+    def friend_accept(friend_account_id, notify_friend, opts = {})
+      data, _status_code, _headers = friend_accept_with_http_info(friend_account_id, notify_friend, opts)
       data
     end
 
     # Accept Friend
     # Accept a friend request and optionally sends a notification.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the friend&#39;s account id
     # @param notify_friend [Boolean] determines whether to send a notification to the afflicting party
     # @param [Hash] opts the optional parameters
@@ -883,13 +827,9 @@ module OpenapiClient
     # @option opts [String] :app_key the application key
     # @option opts [String] :notification_message optional message to send in a notification
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def friend_accept_with_http_info(version, friend_account_id, notify_friend, opts = {})
+    def friend_accept_with_http_info(friend_account_id, notify_friend, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.friend_accept ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.friend_accept"
       end
       # verify the required parameter 'friend_account_id' is set
       if @api_client.config.client_side_validation && friend_account_id.nil?
@@ -900,7 +840,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'notify_friend' when calling ConnectionApi.friend_accept"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/friend/accept'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/friend/accept'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -948,7 +888,6 @@ module OpenapiClient
 
     # Decline Friend
     # Request a friend request and optionally sends a notification.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the friend&#39;s account id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -958,14 +897,13 @@ module OpenapiClient
     # @option opts [Boolean] :notify_friend determines whether to send a notification to the afflicting party
     # @option opts [String] :notification_message optional message to send in a notification
     # @return [SirqulResponse]
-    def friend_reject(version, friend_account_id, opts = {})
-      data, _status_code, _headers = friend_reject_with_http_info(version, friend_account_id, opts)
+    def friend_reject(friend_account_id, opts = {})
+      data, _status_code, _headers = friend_reject_with_http_info(friend_account_id, opts)
       data
     end
 
     # Decline Friend
     # Request a friend request and optionally sends a notification.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the friend&#39;s account id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -975,20 +913,16 @@ module OpenapiClient
     # @option opts [Boolean] :notify_friend determines whether to send a notification to the afflicting party
     # @option opts [String] :notification_message optional message to send in a notification
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def friend_reject_with_http_info(version, friend_account_id, opts = {})
+    def friend_reject_with_http_info(friend_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.friend_reject ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.friend_reject"
       end
       # verify the required parameter 'friend_account_id' is set
       if @api_client.config.client_side_validation && friend_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'friend_account_id' when calling ConnectionApi.friend_reject"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/friend/reject'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/friend/reject'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1036,7 +970,6 @@ module OpenapiClient
 
     # Delete Friend
     # Removes a friend from the user's friends list.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the account ID of the friend to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1044,14 +977,13 @@ module OpenapiClient
     # @option opts [Boolean] :notify_friend optionally notifies the connection that they have been removed as a friend
     # @option opts [Boolean] :remove_from_groups optionally removes the connection from the user&#39;s groups
     # @return [SirqulResponse]
-    def friend_remove(version, friend_account_id, opts = {})
-      data, _status_code, _headers = friend_remove_with_http_info(version, friend_account_id, opts)
+    def friend_remove(friend_account_id, opts = {})
+      data, _status_code, _headers = friend_remove_with_http_info(friend_account_id, opts)
       data
     end
 
     # Delete Friend
     # Removes a friend from the user&#39;s friends list.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the account ID of the friend to remove
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1059,20 +991,16 @@ module OpenapiClient
     # @option opts [Boolean] :notify_friend optionally notifies the connection that they have been removed as a friend
     # @option opts [Boolean] :remove_from_groups optionally removes the connection from the user&#39;s groups
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def friend_remove_with_http_info(version, friend_account_id, opts = {})
+    def friend_remove_with_http_info(friend_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.friend_remove ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.friend_remove"
       end
       # verify the required parameter 'friend_account_id' is set
       if @api_client.config.client_side_validation && friend_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'friend_account_id' when calling ConnectionApi.friend_remove"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/friend/remove'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/friend/remove'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1118,7 +1046,6 @@ module OpenapiClient
 
     # Request Friend
     # Sends a friend request notification to another user.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the friend&#39;s account id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1127,14 +1054,13 @@ module OpenapiClient
     # @option opts [String] :app_key the application key
     # @option opts [String] :notification_message optional message to send in a notification
     # @return [SirqulResponse]
-    def friend_request(version, friend_account_id, opts = {})
-      data, _status_code, _headers = friend_request_with_http_info(version, friend_account_id, opts)
+    def friend_request(friend_account_id, opts = {})
+      data, _status_code, _headers = friend_request_with_http_info(friend_account_id, opts)
       data
     end
 
     # Request Friend
     # Sends a friend request notification to another user.
-    # @param version [Float] 
     # @param friend_account_id [Integer] the friend&#39;s account id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1143,20 +1069,16 @@ module OpenapiClient
     # @option opts [String] :app_key the application key
     # @option opts [String] :notification_message optional message to send in a notification
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def friend_request_with_http_info(version, friend_account_id, opts = {})
+    def friend_request_with_http_info(friend_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.friend_request ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.friend_request"
       end
       # verify the required parameter 'friend_account_id' is set
       if @api_client.config.client_side_validation && friend_account_id.nil?
         fail ArgumentError, "Missing the required parameter 'friend_account_id' when calling ConnectionApi.friend_request"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/friend/request'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/friend/request'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1203,33 +1125,27 @@ module OpenapiClient
 
     # Get Sent Friend Requests
     # Gets the connection sent friend requests.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the ID of the device
     # @option opts [Integer] :account_id the id of the account
     # @return [ConnectionListResponse]
-    def get_connection_sent_friend_requests(version, opts = {})
-      data, _status_code, _headers = get_connection_sent_friend_requests_with_http_info(version, opts)
+    def get_connection_sent_friend_requests(opts = {})
+      data, _status_code, _headers = get_connection_sent_friend_requests_with_http_info(opts)
       data
     end
 
     # Get Sent Friend Requests
     # Gets the connection sent friend requests.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the ID of the device
     # @option opts [Integer] :account_id the id of the account
     # @return [Array<(ConnectionListResponse, Integer, Hash)>] ConnectionListResponse data, response status code and response headers
-    def get_connection_sent_friend_requests_with_http_info(version, opts = {})
+    def get_connection_sent_friend_requests_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.get_connection_sent_friend_requests ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.get_connection_sent_friend_requests"
-      end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/getRequested'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/getRequested'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1272,7 +1188,6 @@ module OpenapiClient
 
     # Search Connections
     # Gets the connections.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param filter [String] a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
     # @param sort_field [String] sorts the response list by ConnectionApiMap
@@ -1290,14 +1205,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [ConnectionListResponse]
-    def get_connections(version, return_nulls, filter, sort_field, descending, start, limit, opts = {})
-      data, _status_code, _headers = get_connections_with_http_info(version, return_nulls, filter, sort_field, descending, start, limit, opts)
+    def get_connections(return_nulls, filter, sort_field, descending, start, limit, opts = {})
+      data, _status_code, _headers = get_connections_with_http_info(return_nulls, filter, sort_field, descending, start, limit, opts)
       data
     end
 
     # Search Connections
     # Gets the connections.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param filter [String] a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
     # @param sort_field [String] sorts the response list by ConnectionApiMap
@@ -1315,13 +1229,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(ConnectionListResponse, Integer, Hash)>] ConnectionListResponse data, response status code and response headers
-    def get_connections_with_http_info(version, return_nulls, filter, sort_field, descending, start, limit, opts = {})
+    def get_connections_with_http_info(return_nulls, filter, sort_field, descending, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.get_connections ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.get_connections"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -1348,7 +1258,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ConnectionApi.get_connections"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1403,7 +1313,6 @@ module OpenapiClient
     end
 
     # Get Connection Group
-    # @param version [Float] 
     # @param combine_connections [Boolean] whether to combine connections or not
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1412,13 +1321,12 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [ConnectionGroupResponse]
-    def get_group_details(version, combine_connections, opts = {})
-      data, _status_code, _headers = get_group_details_with_http_info(version, combine_connections, opts)
+    def get_group_details(combine_connections, opts = {})
+      data, _status_code, _headers = get_group_details_with_http_info(combine_connections, opts)
       data
     end
 
     # Get Connection Group
-    # @param version [Float] 
     # @param combine_connections [Boolean] whether to combine connections or not
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1427,20 +1335,16 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(ConnectionGroupResponse, Integer, Hash)>] ConnectionGroupResponse data, response status code and response headers
-    def get_group_details_with_http_info(version, combine_connections, opts = {})
+    def get_group_details_with_http_info(combine_connections, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.get_group_details ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.get_group_details"
       end
       # verify the required parameter 'combine_connections' is set
       if @api_client.config.client_side_validation && combine_connections.nil?
         fail ArgumentError, "Missing the required parameter 'combine_connections' when calling ConnectionApi.get_group_details"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/group/details/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/group/details/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1487,7 +1391,6 @@ module OpenapiClient
 
     # Search Connection Groups
     # Gets a user's private groups and default groups.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort by
     # @param descending [Boolean] whether to return results in descending or ascending order
     # @param active_only [Boolean] to search on active only or not
@@ -1500,14 +1403,13 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :keyword keyword search string
     # @return [Array<ConnectionInfoResponse>]
-    def group_search(version, sort_field, descending, active_only, start, limit, opts = {})
-      data, _status_code, _headers = group_search_with_http_info(version, sort_field, descending, active_only, start, limit, opts)
+    def group_search(sort_field, descending, active_only, start, limit, opts = {})
+      data, _status_code, _headers = group_search_with_http_info(sort_field, descending, active_only, start, limit, opts)
       data
     end
 
     # Search Connection Groups
     # Gets a user&#39;s private groups and default groups.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort by
     # @param descending [Boolean] whether to return results in descending or ascending order
     # @param active_only [Boolean] to search on active only or not
@@ -1520,13 +1422,9 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :keyword keyword search string
     # @return [Array<(Array<ConnectionInfoResponse>, Integer, Hash)>] Array<ConnectionInfoResponse> data, response status code and response headers
-    def group_search_with_http_info(version, sort_field, descending, active_only, start, limit, opts = {})
+    def group_search_with_http_info(sort_field, descending, active_only, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.group_search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.group_search"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -1554,7 +1452,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ConnectionApi.group_search"
       end
       # resource path
-      local_var_path = '/api/{version}/connection/group/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/connection/group/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1605,7 +1503,6 @@ module OpenapiClient
 
     # Delete Connection
     # Removes the connection from group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the group id
     # @param [Hash] opts the optional parameters
@@ -1617,14 +1514,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [SirqulResponse]
-    def remove_connection_from_group(version, return_nulls, group_id, opts = {})
-      data, _status_code, _headers = remove_connection_from_group_with_http_info(version, return_nulls, group_id, opts)
+    def remove_connection_from_group(return_nulls, group_id, opts = {})
+      data, _status_code, _headers = remove_connection_from_group_with_http_info(return_nulls, group_id, opts)
       data
     end
 
     # Delete Connection
     # Removes the connection from group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the group id
     # @param [Hash] opts the optional parameters
@@ -1636,13 +1532,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_connection_from_group_with_http_info(version, return_nulls, group_id, opts = {})
+    def remove_connection_from_group_with_http_info(return_nulls, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.remove_connection_from_group ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.remove_connection_from_group"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -1653,7 +1545,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'group_id' when calling ConnectionApi.remove_connection_from_group"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/group/removeConnection'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/group/removeConnection'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1703,7 +1595,6 @@ module OpenapiClient
 
     # Remove Connections
     # Remove a list of connections from a group.
-    # @param version [Float] 
     # @param connection_group_id [Integer] connection group id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1713,14 +1604,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [SirqulResponse]
-    def remove_connections_from_group(version, connection_group_id, opts = {})
-      data, _status_code, _headers = remove_connections_from_group_with_http_info(version, connection_group_id, opts)
+    def remove_connections_from_group(connection_group_id, opts = {})
+      data, _status_code, _headers = remove_connections_from_group_with_http_info(connection_group_id, opts)
       data
     end
 
     # Remove Connections
     # Remove a list of connections from a group.
-    # @param version [Float] 
     # @param connection_group_id [Integer] connection group id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -1730,20 +1620,16 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_connections_from_group_with_http_info(version, connection_group_id, opts = {})
+    def remove_connections_from_group_with_http_info(connection_group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.remove_connections_from_group ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.remove_connections_from_group"
       end
       # verify the required parameter 'connection_group_id' is set
       if @api_client.config.client_side_validation && connection_group_id.nil?
         fail ArgumentError, "Missing the required parameter 'connection_group_id' when calling ConnectionApi.remove_connections_from_group"
       end
       # resource path
-      local_var_path = '/api/{version}/connection/group/removeConnections'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/connection/group/removeConnections'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1791,7 +1677,6 @@ module OpenapiClient
 
     # Delete Connection Group
     # Remove a user's group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the group id
     # @param [Hash] opts the optional parameters
@@ -1800,14 +1685,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [SirqulResponse]
-    def remove_group(version, return_nulls, group_id, opts = {})
-      data, _status_code, _headers = remove_group_with_http_info(version, return_nulls, group_id, opts)
+    def remove_group(return_nulls, group_id, opts = {})
+      data, _status_code, _headers = remove_group_with_http_info(return_nulls, group_id, opts)
       data
     end
 
     # Delete Connection Group
     # Remove a user&#39;s group.
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the group id
     # @param [Hash] opts the optional parameters
@@ -1816,13 +1700,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_group_with_http_info(version, return_nulls, group_id, opts = {})
+    def remove_group_with_http_info(return_nulls, group_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.remove_group ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.remove_group"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -1833,7 +1713,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'group_id' when calling ConnectionApi.remove_group"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/group/remove'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/group/remove'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1880,7 +1760,6 @@ module OpenapiClient
 
     # Remove Connection Groups
     # Remove sub groups from a group
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the parent group id
     # @param sub_group_ids [String] comma separated list of group IDs to remove from the parent group
@@ -1890,14 +1769,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [SirqulResponse]
-    def remove_sub_groups(version, return_nulls, group_id, sub_group_ids, opts = {})
-      data, _status_code, _headers = remove_sub_groups_with_http_info(version, return_nulls, group_id, sub_group_ids, opts)
+    def remove_sub_groups(return_nulls, group_id, sub_group_ids, opts = {})
+      data, _status_code, _headers = remove_sub_groups_with_http_info(return_nulls, group_id, sub_group_ids, opts)
       data
     end
 
     # Remove Connection Groups
     # Remove sub groups from a group
-    # @param version [Float] 
     # @param return_nulls [Boolean] whether to return nulls or not
     # @param group_id [Integer] the parent group id
     # @param sub_group_ids [String] comma separated list of group IDs to remove from the parent group
@@ -1907,13 +1785,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_sub_groups_with_http_info(version, return_nulls, group_id, sub_group_ids, opts = {})
+    def remove_sub_groups_with_http_info(return_nulls, group_id, sub_group_ids, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.remove_sub_groups ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.remove_sub_groups"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -1928,7 +1802,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'sub_group_ids' when calling ConnectionApi.remove_sub_groups"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/connection/group/removeSubGroup'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/connection/group/removeSubGroup'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1976,7 +1850,6 @@ module OpenapiClient
 
     # Search Possible Connections
     # Search for accounts that the user may not have a connection with.
-    # @param version [Float] 
     # @param return_nulls [Boolean] return all json attributes if true. defualt is true.
     # @param start [Integer] start index of the pagination
     # @param limit [Integer] limit of the pagination
@@ -1994,14 +1867,13 @@ module OpenapiClient
     # @option opts [String] :sort_field the field to sort on
     # @option opts [Boolean] :has_location whether the search has location or not
     # @return [ConnectionListResponse]
-    def search_connections(version, return_nulls, start, limit, opts = {})
-      data, _status_code, _headers = search_connections_with_http_info(version, return_nulls, start, limit, opts)
+    def search_connections(return_nulls, start, limit, opts = {})
+      data, _status_code, _headers = search_connections_with_http_info(return_nulls, start, limit, opts)
       data
     end
 
     # Search Possible Connections
     # Search for accounts that the user may not have a connection with.
-    # @param version [Float] 
     # @param return_nulls [Boolean] return all json attributes if true. defualt is true.
     # @param start [Integer] start index of the pagination
     # @param limit [Integer] limit of the pagination
@@ -2019,13 +1891,9 @@ module OpenapiClient
     # @option opts [String] :sort_field the field to sort on
     # @option opts [Boolean] :has_location whether the search has location or not
     # @return [Array<(ConnectionListResponse, Integer, Hash)>] ConnectionListResponse data, response status code and response headers
-    def search_connections_with_http_info(version, return_nulls, start, limit, opts = {})
+    def search_connections_with_http_info(return_nulls, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ConnectionApi.search_connections ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ConnectionApi.search_connections"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -2040,7 +1908,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ConnectionApi.search_connections"
       end
       # resource path
-      local_var_path = '/api/{version}/connection/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/connection/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,31 +21,25 @@ module OpenapiClient
     end
     # Create Service Hub
     # Create new service hub
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceHub] :body 
     # @return [ServiceHub]
-    def create_service_hub(version, opts = {})
-      data, _status_code, _headers = create_service_hub_with_http_info(version, opts)
+    def create_service_hub(opts = {})
+      data, _status_code, _headers = create_service_hub_with_http_info(opts)
       data
     end
 
     # Create Service Hub
     # Create new service hub
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceHub] :body 
     # @return [Array<(ServiceHub, Integer, Hash)>] ServiceHub data, response status code and response headers
-    def create_service_hub_with_http_info(version, opts = {})
+    def create_service_hub_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceHubApi.create_service_hub ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ServiceHubApi.create_service_hub"
-      end
       # resource path
-      local_var_path = '/api/{version}/hub'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/hub'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -86,35 +80,29 @@ module OpenapiClient
 
     # Delete Service Hub
     # Delete an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub to delete
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_service_hub(version, id, opts = {})
-      delete_service_hub_with_http_info(version, id, opts)
+    def delete_service_hub(id, opts = {})
+      delete_service_hub_with_http_info(id, opts)
       nil
     end
 
     # Delete Service Hub
     # Delete an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_service_hub_with_http_info(version, id, opts = {})
+    def delete_service_hub_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceHubApi.delete_service_hub ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ServiceHubApi.delete_service_hub"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ServiceHubApi.delete_service_hub"
       end
       # resource path
-      local_var_path = '/api/{version}/hub/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/hub/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -153,35 +141,29 @@ module OpenapiClient
 
     # Get Service Hub
     # Get an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub to get
     # @param [Hash] opts the optional parameters
     # @return [Object]
-    def get_service_hub(version, id, opts = {})
-      data, _status_code, _headers = get_service_hub_with_http_info(version, id, opts)
+    def get_service_hub(id, opts = {})
+      data, _status_code, _headers = get_service_hub_with_http_info(id, opts)
       data
     end
 
     # Get Service Hub
     # Get an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def get_service_hub_with_http_info(version, id, opts = {})
+    def get_service_hub_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceHubApi.get_service_hub ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ServiceHubApi.get_service_hub"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ServiceHubApi.get_service_hub"
       end
       # resource path
-      local_var_path = '/api/{version}/hub/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/hub/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -222,37 +204,31 @@ module OpenapiClient
 
     # Update Service Hub
     # Update an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceHub] :body 
     # @return [ServiceHub]
-    def post_service_hub(version, id, opts = {})
-      data, _status_code, _headers = post_service_hub_with_http_info(version, id, opts)
+    def post_service_hub(id, opts = {})
+      data, _status_code, _headers = post_service_hub_with_http_info(id, opts)
       data
     end
 
     # Update Service Hub
     # Update an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceHub] :body 
     # @return [Array<(ServiceHub, Integer, Hash)>] ServiceHub data, response status code and response headers
-    def post_service_hub_with_http_info(version, id, opts = {})
+    def post_service_hub_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceHubApi.post_service_hub ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ServiceHubApi.post_service_hub"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ServiceHubApi.post_service_hub"
       end
       # resource path
-      local_var_path = '/api/{version}/hub/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/hub/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -293,37 +269,31 @@ module OpenapiClient
 
     # Update Service Hub
     # Update an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceHub] :body 
     # @return [ServiceHub]
-    def put_service_hub(version, id, opts = {})
-      data, _status_code, _headers = put_service_hub_with_http_info(version, id, opts)
+    def put_service_hub(id, opts = {})
+      data, _status_code, _headers = put_service_hub_with_http_info(id, opts)
       data
     end
 
     # Update Service Hub
     # Update an existing service hub
-    # @param version [Float] 
     # @param id [Integer] the id of the service hub
     # @param [Hash] opts the optional parameters
     # @option opts [ServiceHub] :body 
     # @return [Array<(ServiceHub, Integer, Hash)>] ServiceHub data, response status code and response headers
-    def put_service_hub_with_http_info(version, id, opts = {})
+    def put_service_hub_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceHubApi.put_service_hub ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ServiceHubApi.put_service_hub"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling ServiceHubApi.put_service_hub"
       end
       # resource path
-      local_var_path = '/api/{version}/hub/{id}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'id' + '}', CGI.escape(id.to_s))
+      local_var_path = '/hub/{id}'.sub('{' + 'id' + '}', CGI.escape(id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -364,7 +334,6 @@ module OpenapiClient
 
     # Search Service Hubs
     # Search for service hubs.
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -374,14 +343,13 @@ module OpenapiClient
     # @option opts [String] :keyword The keyword to search for
     # @option opts [Integer] :retailer_id The retailer belongs to
     # @return [Array<ServiceHub>]
-    def search_service_hubs(version, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_service_hubs_with_http_info(version, sort_field, descending, start, limit, active_only, opts)
+    def search_service_hubs(sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_service_hubs_with_http_info(sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Service Hubs
     # Search for service hubs.
-    # @param version [Float] 
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
     # @param start [Integer] The start index for pagination
@@ -391,13 +359,9 @@ module OpenapiClient
     # @option opts [String] :keyword The keyword to search for
     # @option opts [Integer] :retailer_id The retailer belongs to
     # @return [Array<(Array<ServiceHub>, Integer, Hash)>] Array<ServiceHub> data, response status code and response headers
-    def search_service_hubs_with_http_info(version, sort_field, descending, start, limit, active_only, opts = {})
+    def search_service_hubs_with_http_info(sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ServiceHubApi.search_service_hubs ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ServiceHubApi.search_service_hubs"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -420,7 +384,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling ServiceHubApi.search_service_hubs"
       end
       # resource path
-      local_var_path = '/api/{version}/hub'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/hub'
 
       # query parameters
       query_params = opts[:query_params] || {}

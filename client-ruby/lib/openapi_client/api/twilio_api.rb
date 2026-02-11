@@ -21,34 +21,28 @@ module OpenapiClient
     end
     # Buy Offer by SMS
     # Recieve an SMS payload from Twillio to purchase an offer.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param body [String] the message of the text
     # @param from [String] the sender of the sms
     # @param currency_type [String] the type of currency
     # @param [Hash] opts the optional parameters
     # @return [TwiMLResponse]
-    def sms_buy_offer(version, app_key, body, from, currency_type, opts = {})
-      data, _status_code, _headers = sms_buy_offer_with_http_info(version, app_key, body, from, currency_type, opts)
+    def sms_buy_offer(app_key, body, from, currency_type, opts = {})
+      data, _status_code, _headers = sms_buy_offer_with_http_info(app_key, body, from, currency_type, opts)
       data
     end
 
     # Buy Offer by SMS
     # Recieve an SMS payload from Twillio to purchase an offer.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param body [String] the message of the text
     # @param from [String] the sender of the sms
     # @param currency_type [String] the type of currency
     # @param [Hash] opts the optional parameters
     # @return [Array<(TwiMLResponse, Integer, Hash)>] TwiMLResponse data, response status code and response headers
-    def sms_buy_offer_with_http_info(version, app_key, body, from, currency_type, opts = {})
+    def sms_buy_offer_with_http_info(app_key, body, from, currency_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TwilioApi.sms_buy_offer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TwilioApi.sms_buy_offer"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -67,7 +61,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'currency_type' when calling TwilioApi.sms_buy_offer"
       end
       # resource path
-      local_var_path = '/api/{version}/sms/buyoffer/{appKey}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'appKey' + '}', CGI.escape(app_key.to_s))
+      local_var_path = '/sms/buyoffer/{appKey}'.sub('{' + 'appKey' + '}', CGI.escape(app_key.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

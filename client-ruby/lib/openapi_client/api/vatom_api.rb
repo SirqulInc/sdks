@@ -21,32 +21,26 @@ module OpenapiClient
     end
     # Create following
     # Create following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def create_following(version, account_id, vatom_parameters, opts = {})
-      create_following_with_http_info(version, account_id, vatom_parameters, opts)
+    def create_following(account_id, vatom_parameters, opts = {})
+      create_following_with_http_info(account_id, vatom_parameters, opts)
       nil
     end
 
     # Create following
     # Create following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def create_following_with_http_info(version, account_id, vatom_parameters, opts = {})
+    def create_following_with_http_info(account_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.create_following ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.create_following"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -57,7 +51,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.create_following"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/rels/following/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/rels/following/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -99,34 +93,28 @@ module OpenapiClient
 
     # Create Vatom Space
     # Create a Vatom space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def create_space(version, account_id, app_key, vatom_parameters, opts = {})
-      create_space_with_http_info(version, account_id, app_key, vatom_parameters, opts)
+    def create_space(account_id, app_key, vatom_parameters, opts = {})
+      create_space_with_http_info(account_id, app_key, vatom_parameters, opts)
       nil
     end
 
     # Create Vatom Space
     # Create a Vatom space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def create_space_with_http_info(version, account_id, app_key, vatom_parameters, opts = {})
+    def create_space_with_http_info(account_id, app_key, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.create_space ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.create_space"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -141,7 +129,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.create_space"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/spaces/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/spaces/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -184,34 +172,28 @@ module OpenapiClient
 
     # Create Vatom Event
     # Create a Vatom event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def create_vatom_event(version, account_id, app_key, vatom_parameters, opts = {})
-      create_vatom_event_with_http_info(version, account_id, app_key, vatom_parameters, opts)
+    def create_vatom_event(account_id, app_key, vatom_parameters, opts = {})
+      create_vatom_event_with_http_info(account_id, app_key, vatom_parameters, opts)
       nil
     end
 
     # Create Vatom Event
     # Create a Vatom event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def create_vatom_event_with_http_info(version, account_id, app_key, vatom_parameters, opts = {})
+    def create_vatom_event_with_http_info(account_id, app_key, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.create_vatom_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.create_vatom_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -226,7 +208,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.create_vatom_event"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/events/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/events/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -269,32 +251,26 @@ module OpenapiClient
 
     # Delete following
     # Delete following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_rels_key [String] Vatom Rels Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def delete_following(version, account_id, vatom_rels_key, opts = {})
-      delete_following_with_http_info(version, account_id, vatom_rels_key, opts)
+    def delete_following(account_id, vatom_rels_key, opts = {})
+      delete_following_with_http_info(account_id, vatom_rels_key, opts)
       nil
     end
 
     # Delete following
     # Delete following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_rels_key [String] Vatom Rels Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_following_with_http_info(version, account_id, vatom_rels_key, opts = {})
+    def delete_following_with_http_info(account_id, vatom_rels_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.delete_following ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.delete_following"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -305,7 +281,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_rels_key' when calling VatomApi.delete_following"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/rels/following/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/rels/following/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -347,34 +323,28 @@ module OpenapiClient
 
     # Reset All Points Balance
     # Reset All Points Balance.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def delete_points_balance(version, account_id, app_key, vatom_campaign_id, opts = {})
-      delete_points_balance_with_http_info(version, account_id, app_key, vatom_campaign_id, opts)
+    def delete_points_balance(account_id, app_key, vatom_campaign_id, opts = {})
+      delete_points_balance_with_http_info(account_id, app_key, vatom_campaign_id, opts)
       nil
     end
 
     # Reset All Points Balance
     # Reset All Points Balance.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_points_balance_with_http_info(version, account_id, app_key, vatom_campaign_id, opts = {})
+    def delete_points_balance_with_http_info(account_id, app_key, vatom_campaign_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.delete_points_balance ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.delete_points_balance"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -389,7 +359,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_campaign_id' when calling VatomApi.delete_points_balance"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign/points/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign/points/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -432,34 +402,28 @@ module OpenapiClient
 
     # Delete Vatom Space
     # Delete a Vatom space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_space_id [String] Vatom Space Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def delete_space(version, account_id, app_key, vatom_space_id, opts = {})
-      delete_space_with_http_info(version, account_id, app_key, vatom_space_id, opts)
+    def delete_space(account_id, app_key, vatom_space_id, opts = {})
+      delete_space_with_http_info(account_id, app_key, vatom_space_id, opts)
       nil
     end
 
     # Delete Vatom Space
     # Delete a Vatom space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_space_id [String] Vatom Space Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_space_with_http_info(version, account_id, app_key, vatom_space_id, opts = {})
+    def delete_space_with_http_info(account_id, app_key, vatom_space_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.delete_space ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.delete_space"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -474,7 +438,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_space_id' when calling VatomApi.delete_space"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/spaces/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/spaces/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -517,34 +481,28 @@ module OpenapiClient
 
     # Delete Vatom Event
     # Delete a Vatom event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def delete_vatom_event(version, account_id, app_key, vatom_event_id, opts = {})
-      delete_vatom_event_with_http_info(version, account_id, app_key, vatom_event_id, opts)
+    def delete_vatom_event(account_id, app_key, vatom_event_id, opts = {})
+      delete_vatom_event_with_http_info(account_id, app_key, vatom_event_id, opts)
       nil
     end
 
     # Delete Vatom Event
     # Delete a Vatom event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_vatom_event_with_http_info(version, account_id, app_key, vatom_event_id, opts = {})
+    def delete_vatom_event_with_http_info(account_id, app_key, vatom_event_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.delete_vatom_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.delete_vatom_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -559,7 +517,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_event_id' when calling VatomApi.delete_vatom_event"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/events/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/events/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -602,32 +560,26 @@ module OpenapiClient
 
     # Delete Vatom NFT
     # Delete Vatom NFT
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def delete_vatom_nft(version, account_id, vatom_id, opts = {})
-      delete_vatom_nft_with_http_info(version, account_id, vatom_id, opts)
+    def delete_vatom_nft(account_id, vatom_id, opts = {})
+      delete_vatom_nft_with_http_info(account_id, vatom_id, opts)
       nil
     end
 
     # Delete Vatom NFT
     # Delete Vatom NFT
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_vatom_nft_with_http_info(version, account_id, vatom_id, opts = {})
+    def delete_vatom_nft_with_http_info(account_id, vatom_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.delete_vatom_nft ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.delete_vatom_nft"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -638,7 +590,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_id' when calling VatomApi.delete_vatom_nft"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/vatoms/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/vatoms/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -680,34 +632,28 @@ module OpenapiClient
 
     # Execute Action on NFT
     # Execute Action on NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def execute_action_on_nft(version, account_id, vatom_id, vatom_parameters, opts = {})
-      execute_action_on_nft_with_http_info(version, account_id, vatom_id, vatom_parameters, opts)
+    def execute_action_on_nft(account_id, vatom_id, vatom_parameters, opts = {})
+      execute_action_on_nft_with_http_info(account_id, vatom_id, vatom_parameters, opts)
       nil
     end
 
     # Execute Action on NFT
     # Execute Action on NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def execute_action_on_nft_with_http_info(version, account_id, vatom_id, vatom_parameters, opts = {})
+    def execute_action_on_nft_with_http_info(account_id, vatom_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.execute_action_on_nft ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.execute_action_on_nft"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -722,7 +668,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.execute_action_on_nft"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/vatoms/execute-action'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/vatoms/execute-action'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -765,32 +711,26 @@ module OpenapiClient
 
     # Search Vatom Geo Map
     # Search Vatom Geo Map
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def geomap_search(version, account_id, vatom_parameters, opts = {})
-      geomap_search_with_http_info(version, account_id, vatom_parameters, opts)
+    def geomap_search(account_id, vatom_parameters, opts = {})
+      geomap_search_with_http_info(account_id, vatom_parameters, opts)
       nil
     end
 
     # Search Vatom Geo Map
     # Search Vatom Geo Map
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def geomap_search_with_http_info(version, account_id, vatom_parameters, opts = {})
+    def geomap_search_with_http_info(account_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.geomap_search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.geomap_search"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -801,7 +741,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.geomap_search"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/vatoms/geo-map/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/vatoms/geo-map/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -843,32 +783,26 @@ module OpenapiClient
 
     # Get Vatom Business Behaviors
     # Gets the behaviors of a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_business_behaviors(version, account_id, app_key, opts = {})
-      get_business_behaviors_with_http_info(version, account_id, app_key, opts)
+    def get_business_behaviors(account_id, app_key, opts = {})
+      get_business_behaviors_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # Get Vatom Business Behaviors
     # Gets the behaviors of a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_business_behaviors_with_http_info(version, account_id, app_key, opts = {})
+    def get_business_behaviors_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_business_behaviors ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_business_behaviors"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -879,7 +813,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.get_business_behaviors"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/behaviors'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/behaviors'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -921,32 +855,26 @@ module OpenapiClient
 
     # Get the coins for a Business
     # Get the coins for a Businesss.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_business_coins_balance(version, account_id, app_key, opts = {})
-      get_business_coins_balance_with_http_info(version, account_id, app_key, opts)
+    def get_business_coins_balance(account_id, app_key, opts = {})
+      get_business_coins_balance_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # Get the coins for a Business
     # Get the coins for a Businesss.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_business_coins_balance_with_http_info(version, account_id, app_key, opts = {})
+    def get_business_coins_balance_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_business_coins_balance ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_business_coins_balance"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -957,7 +885,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.get_business_coins_balance"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/coins/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/coins/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -999,37 +927,31 @@ module OpenapiClient
 
     # Get the user business ids
     # Get the business ids the logged in user has access to.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_business_ids(version, account_id, opts = {})
-      get_business_ids_with_http_info(version, account_id, opts)
+    def get_business_ids(account_id, opts = {})
+      get_business_ids_with_http_info(account_id, opts)
       nil
     end
 
     # Get the user business ids
     # Get the business ids the logged in user has access to.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_business_ids_with_http_info(version, account_id, opts = {})
+    def get_business_ids_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_business_ids ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_business_ids"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling VatomApi.get_business_ids"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/businesses'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/businesses'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1070,34 +992,28 @@ module OpenapiClient
 
     # Get Vatom Business Info
     # Gets the business info tied to this account.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_business_info(version, account_id, app_key, opts = {})
-      get_business_info_with_http_info(version, account_id, app_key, opts)
+    def get_business_info(account_id, app_key, opts = {})
+      get_business_info_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # Get Vatom Business Info
     # Gets the business info tied to this account.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_business_info_with_http_info(version, account_id, app_key, opts = {})
+    def get_business_info_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_business_info ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_business_info"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1108,7 +1024,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.get_business_info"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1151,32 +1067,26 @@ module OpenapiClient
 
     # Get Vatom Business Users
     # Gets the users of a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_business_users(version, account_id, app_key, opts = {})
-      get_business_users_with_http_info(version, account_id, app_key, opts)
+    def get_business_users(account_id, app_key, opts = {})
+      get_business_users_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # Get Vatom Business Users
     # Gets the users of a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_business_users_with_http_info(version, account_id, app_key, opts = {})
+    def get_business_users_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_business_users ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_business_users"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1187,7 +1097,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.get_business_users"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/users'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/users'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1229,34 +1139,28 @@ module OpenapiClient
 
     # Get Campaign Group Entities
     # Get campaign group entities.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_campaign_group_entities(version, account_id, app_key, vatom_campaign_id, opts = {})
-      get_campaign_group_entities_with_http_info(version, account_id, app_key, vatom_campaign_id, opts)
+    def get_campaign_group_entities(account_id, app_key, vatom_campaign_id, opts = {})
+      get_campaign_group_entities_with_http_info(account_id, app_key, vatom_campaign_id, opts)
       nil
     end
 
     # Get Campaign Group Entities
     # Get campaign group entities.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_campaign_group_entities_with_http_info(version, account_id, app_key, vatom_campaign_id, opts = {})
+    def get_campaign_group_entities_with_http_info(account_id, app_key, vatom_campaign_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_campaign_group_entities ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_campaign_group_entities"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1271,7 +1175,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_campaign_id' when calling VatomApi.get_campaign_group_entities"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign-groups/entities'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign-groups/entities'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1314,34 +1218,28 @@ module OpenapiClient
 
     # Get Campaign Group Rules
     # Get campaign group rules.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_campaign_group_rules(version, account_id, app_key, vatom_campaign_id, opts = {})
-      get_campaign_group_rules_with_http_info(version, account_id, app_key, vatom_campaign_id, opts)
+    def get_campaign_group_rules(account_id, app_key, vatom_campaign_id, opts = {})
+      get_campaign_group_rules_with_http_info(account_id, app_key, vatom_campaign_id, opts)
       nil
     end
 
     # Get Campaign Group Rules
     # Get campaign group rules.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_campaign_group_rules_with_http_info(version, account_id, app_key, vatom_campaign_id, opts = {})
+    def get_campaign_group_rules_with_http_info(account_id, app_key, vatom_campaign_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_campaign_group_rules ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_campaign_group_rules"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1356,7 +1254,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_campaign_id' when calling VatomApi.get_campaign_group_rules"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign-groups/rules'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign-groups/rules'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1399,34 +1297,28 @@ module OpenapiClient
 
     # Get Campaign Group Stats
     # Get campaign group stats.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_campaign_group_stats(version, account_id, app_key, vatom_campaign_id, opts = {})
-      get_campaign_group_stats_with_http_info(version, account_id, app_key, vatom_campaign_id, opts)
+    def get_campaign_group_stats(account_id, app_key, vatom_campaign_id, opts = {})
+      get_campaign_group_stats_with_http_info(account_id, app_key, vatom_campaign_id, opts)
       nil
     end
 
     # Get Campaign Group Stats
     # Get campaign group stats.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_campaign_group_stats_with_http_info(version, account_id, app_key, vatom_campaign_id, opts = {})
+    def get_campaign_group_stats_with_http_info(account_id, app_key, vatom_campaign_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_campaign_group_stats ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_campaign_group_stats"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1441,7 +1333,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_campaign_id' when calling VatomApi.get_campaign_group_stats"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign-groups/stats'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign-groups/stats'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1484,34 +1376,28 @@ module OpenapiClient
 
     # Get Campaign Info
     # Gets the info on a campaign.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_campaign_info(version, account_id, app_key, vatom_campaign_id, opts = {})
-      get_campaign_info_with_http_info(version, account_id, app_key, vatom_campaign_id, opts)
+    def get_campaign_info(account_id, app_key, vatom_campaign_id, opts = {})
+      get_campaign_info_with_http_info(account_id, app_key, vatom_campaign_id, opts)
       nil
     end
 
     # Get Campaign Info
     # Gets the info on a campaign.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_campaign_info_with_http_info(version, account_id, app_key, vatom_campaign_id, opts = {})
+    def get_campaign_info_with_http_info(account_id, app_key, vatom_campaign_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_campaign_info ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_campaign_info"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1526,7 +1412,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_campaign_id' when calling VatomApi.get_campaign_info"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign-groups/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign-groups/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1569,34 +1455,28 @@ module OpenapiClient
 
     # Get Vatom Event Guest List
     # Gets the guest list of an event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_event_guest_list(version, account_id, app_key, vatom_event_id, opts = {})
-      get_event_guest_list_with_http_info(version, account_id, app_key, vatom_event_id, opts)
+    def get_event_guest_list(account_id, app_key, vatom_event_id, opts = {})
+      get_event_guest_list_with_http_info(account_id, app_key, vatom_event_id, opts)
       nil
     end
 
     # Get Vatom Event Guest List
     # Gets the guest list of an event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_event_guest_list_with_http_info(version, account_id, app_key, vatom_event_id, opts = {})
+    def get_event_guest_list_with_http_info(account_id, app_key, vatom_event_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_event_guest_list ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_event_guest_list"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1611,7 +1491,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_event_id' when calling VatomApi.get_event_guest_list"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/events/guests/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/events/guests/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1654,32 +1534,26 @@ module OpenapiClient
 
     # Get Vatom User's Inventory
     # Gets the logged in user's Vatom Inventory.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_inventory(version, account_id, vatom_parameters, opts = {})
-      get_inventory_with_http_info(version, account_id, vatom_parameters, opts)
+    def get_inventory(account_id, vatom_parameters, opts = {})
+      get_inventory_with_http_info(account_id, vatom_parameters, opts)
       nil
     end
 
     # Get Vatom User&#39;s Inventory
     # Gets the logged in user&#39;s Vatom Inventory.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_inventory_with_http_info(version, account_id, vatom_parameters, opts = {})
+    def get_inventory_with_http_info(account_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_inventory ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_inventory"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1690,7 +1564,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.get_inventory"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/inventory'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/inventory'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1732,37 +1606,31 @@ module OpenapiClient
 
     # Get following
     # Get following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_my_following(version, account_id, opts = {})
-      get_my_following_with_http_info(version, account_id, opts)
+    def get_my_following(account_id, opts = {})
+      get_my_following_with_http_info(account_id, opts)
       nil
     end
 
     # Get following
     # Get following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_my_following_with_http_info(version, account_id, opts = {})
+    def get_my_following_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_my_following ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_my_following"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling VatomApi.get_my_following"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/rels/following'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/rels/following'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1803,34 +1671,28 @@ module OpenapiClient
 
     # Get Points Balance
     # Gets the points balance of a Vatom user.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_points_balance(version, account_id, vatom_user_id, vatom_campaign_id, opts = {})
-      get_points_balance_with_http_info(version, account_id, vatom_user_id, vatom_campaign_id, opts)
+    def get_points_balance(account_id, vatom_user_id, vatom_campaign_id, opts = {})
+      get_points_balance_with_http_info(account_id, vatom_user_id, vatom_campaign_id, opts)
       nil
     end
 
     # Get Points Balance
     # Gets the points balance of a Vatom user.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param vatom_campaign_id [String] Vatom Campaign Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_points_balance_with_http_info(version, account_id, vatom_user_id, vatom_campaign_id, opts = {})
+    def get_points_balance_with_http_info(account_id, vatom_user_id, vatom_campaign_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_points_balance ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_points_balance"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1845,7 +1707,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_campaign_id' when calling VatomApi.get_points_balance"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/u/campaign/points/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/u/campaign/points/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1888,7 +1750,6 @@ module OpenapiClient
 
     # Get Points Balance as Business
     # Gets the points balance of a Vatom user.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_user_id [String] Vatom User Id
@@ -1896,14 +1757,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_points_balance_as_business(version, account_id, app_key, vatom_user_id, vatom_campaign_id, opts = {})
-      get_points_balance_as_business_with_http_info(version, account_id, app_key, vatom_user_id, vatom_campaign_id, opts)
+    def get_points_balance_as_business(account_id, app_key, vatom_user_id, vatom_campaign_id, opts = {})
+      get_points_balance_as_business_with_http_info(account_id, app_key, vatom_user_id, vatom_campaign_id, opts)
       nil
     end
 
     # Get Points Balance as Business
     # Gets the points balance of a Vatom user.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_user_id [String] Vatom User Id
@@ -1911,13 +1771,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_points_balance_as_business_with_http_info(version, account_id, app_key, vatom_user_id, vatom_campaign_id, opts = {})
+    def get_points_balance_as_business_with_http_info(account_id, app_key, vatom_user_id, vatom_campaign_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_points_balance_as_business ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_points_balance_as_business"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1936,7 +1792,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_campaign_id' when calling VatomApi.get_points_balance_as_business"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign/u/points/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign/u/points/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1980,34 +1836,28 @@ module OpenapiClient
 
     # Get Vatom Space
     # Gets the details of a space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_space_id [String] Vatom Space Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_space(version, account_id, app_key, vatom_space_id, opts = {})
-      get_space_with_http_info(version, account_id, app_key, vatom_space_id, opts)
+    def get_space(account_id, app_key, vatom_space_id, opts = {})
+      get_space_with_http_info(account_id, app_key, vatom_space_id, opts)
       nil
     end
 
     # Get Vatom Space
     # Gets the details of a space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_space_id [String] Vatom Space Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_space_with_http_info(version, account_id, app_key, vatom_space_id, opts = {})
+    def get_space_with_http_info(account_id, app_key, vatom_space_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_space ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_space"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2022,7 +1872,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_space_id' when calling VatomApi.get_space"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/spaces/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/spaces/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2065,34 +1915,28 @@ module OpenapiClient
 
     # Get the coins for a user (as a Business)
     # Get the coins for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_user_coins_as_business(version, account_id, vatom_user_id, app_key, opts = {})
-      get_user_coins_as_business_with_http_info(version, account_id, vatom_user_id, app_key, opts)
+    def get_user_coins_as_business(account_id, vatom_user_id, app_key, opts = {})
+      get_user_coins_as_business_with_http_info(account_id, vatom_user_id, app_key, opts)
       nil
     end
 
     # Get the coins for a user (as a Business)
     # Get the coins for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_user_coins_as_business_with_http_info(version, account_id, vatom_user_id, app_key, opts = {})
+    def get_user_coins_as_business_with_http_info(account_id, vatom_user_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_user_coins_as_business ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_user_coins_as_business"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2107,7 +1951,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.get_user_coins_as_business"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/users/coins/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/users/coins/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2150,34 +1994,28 @@ module OpenapiClient
 
     # Gets the coins balance for a Vatom User
     # Gets the coins balance for a Vatom User.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_user_coins_balance(version, account_id, vatom_user_id, opts = {})
-      get_user_coins_balance_with_http_info(version, account_id, vatom_user_id, opts)
+    def get_user_coins_balance(account_id, vatom_user_id, opts = {})
+      get_user_coins_balance_with_http_info(account_id, vatom_user_id, opts)
       nil
     end
 
     # Gets the coins balance for a Vatom User
     # Gets the coins balance for a Vatom User.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_user_coins_balance_with_http_info(version, account_id, vatom_user_id, opts = {})
+    def get_user_coins_balance_with_http_info(account_id, vatom_user_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_user_coins_balance ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_user_coins_balance"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2188,7 +2026,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_user_id' when calling VatomApi.get_user_coins_balance"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/u/coins/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/u/coins/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2231,32 +2069,26 @@ module OpenapiClient
 
     # Get user followers
     # Get user followers.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_user_followers(version, account_id, vatom_user_id, opts = {})
-      get_user_followers_with_http_info(version, account_id, vatom_user_id, opts)
+    def get_user_followers(account_id, vatom_user_id, opts = {})
+      get_user_followers_with_http_info(account_id, vatom_user_id, opts)
       nil
     end
 
     # Get user followers
     # Get user followers.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_user_followers_with_http_info(version, account_id, vatom_user_id, opts = {})
+    def get_user_followers_with_http_info(account_id, vatom_user_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_user_followers ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_user_followers"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2267,7 +2099,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_user_id' when calling VatomApi.get_user_followers"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/users/rels/followers'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/users/rels/followers'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2309,32 +2141,26 @@ module OpenapiClient
 
     # Get user following
     # Get user following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_user_following(version, account_id, vatom_user_id, opts = {})
-      get_user_following_with_http_info(version, account_id, vatom_user_id, opts)
+    def get_user_following(account_id, vatom_user_id, opts = {})
+      get_user_following_with_http_info(account_id, vatom_user_id, opts)
       nil
     end
 
     # Get user following
     # Get user following.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_user_following_with_http_info(version, account_id, vatom_user_id, opts = {})
+    def get_user_following_with_http_info(account_id, vatom_user_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_user_following ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_user_following"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2345,7 +2171,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_user_id' when calling VatomApi.get_user_following"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/users/rels/following'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/users/rels/following'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2387,32 +2213,26 @@ module OpenapiClient
 
     # Get User Info
     # Get a User's Info.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_user_info(version, account_id, vatom_user_id, opts = {})
-      get_user_info_with_http_info(version, account_id, vatom_user_id, opts)
+    def get_user_info(account_id, vatom_user_id, opts = {})
+      get_user_info_with_http_info(account_id, vatom_user_id, opts)
       nil
     end
 
     # Get User Info
     # Get a User&#39;s Info.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_user_info_with_http_info(version, account_id, vatom_user_id, opts = {})
+    def get_user_info_with_http_info(account_id, vatom_user_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_user_info ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_user_info"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2423,7 +2243,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_user_id' when calling VatomApi.get_user_info"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/user/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/user/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2465,37 +2285,31 @@ module OpenapiClient
 
     # Get Vatom User Profile
     # Gets the logged in user's profile in Vatom.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_user_profile(version, account_id, opts = {})
-      get_user_profile_with_http_info(version, account_id, opts)
+    def get_user_profile(account_id, opts = {})
+      get_user_profile_with_http_info(account_id, opts)
       nil
     end
 
     # Get Vatom User Profile
     # Gets the logged in user&#39;s profile in Vatom.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_user_profile_with_http_info(version, account_id, opts = {})
+    def get_user_profile_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_user_profile ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_user_profile"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling VatomApi.get_user_profile"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2536,34 +2350,28 @@ module OpenapiClient
 
     # Get Vatom Event
     # Gets the details of a event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_vatom_event(version, account_id, app_key, vatom_event_id, opts = {})
-      get_vatom_event_with_http_info(version, account_id, app_key, vatom_event_id, opts)
+    def get_vatom_event(account_id, app_key, vatom_event_id, opts = {})
+      get_vatom_event_with_http_info(account_id, app_key, vatom_event_id, opts)
       nil
     end
 
     # Get Vatom Event
     # Gets the details of a event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_vatom_event_with_http_info(version, account_id, app_key, vatom_event_id, opts = {})
+    def get_vatom_event_with_http_info(account_id, app_key, vatom_event_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_vatom_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_vatom_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2578,7 +2386,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_event_id' when calling VatomApi.get_vatom_event"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/events/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/events/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2621,32 +2429,26 @@ module OpenapiClient
 
     # Get Vatom NFT Details
     # Get Vatom NFT Details
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def get_vatom_nft(version, account_id, vatom_id, opts = {})
-      get_vatom_nft_with_http_info(version, account_id, vatom_id, opts)
+    def get_vatom_nft(account_id, vatom_id, opts = {})
+      get_vatom_nft_with_http_info(account_id, vatom_id, opts)
       nil
     end
 
     # Get Vatom NFT Details
     # Get Vatom NFT Details
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_vatom_nft_with_http_info(version, account_id, vatom_id, opts = {})
+    def get_vatom_nft_with_http_info(account_id, vatom_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.get_vatom_nft ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.get_vatom_nft"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2657,7 +2459,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_id' when calling VatomApi.get_vatom_nft"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/vatoms/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/vatoms/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2699,34 +2501,28 @@ module OpenapiClient
 
     # List Vatom Communities
     # Gets the communities tied to a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def list_communities(version, account_id, app_key, opts = {})
-      list_communities_with_http_info(version, account_id, app_key, opts)
+    def list_communities(account_id, app_key, opts = {})
+      list_communities_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # List Vatom Communities
     # Gets the communities tied to a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def list_communities_with_http_info(version, account_id, app_key, opts = {})
+    def list_communities_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.list_communities ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.list_communities"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2737,7 +2533,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.list_communities"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/communities/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/communities/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2780,34 +2576,28 @@ module OpenapiClient
 
     # List Vatom Events
     # Gets the events tied to a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def list_events(version, account_id, app_key, opts = {})
-      list_events_with_http_info(version, account_id, app_key, opts)
+    def list_events(account_id, app_key, opts = {})
+      list_events_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # List Vatom Events
     # Gets the events tied to a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def list_events_with_http_info(version, account_id, app_key, opts = {})
+    def list_events_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.list_events ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.list_events"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2818,7 +2608,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.list_events"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/events/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/events/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2861,34 +2651,28 @@ module OpenapiClient
 
     # List Vatom Spaces
     # Gets the spaces tied to a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def list_spaces(version, account_id, app_key, opts = {})
-      list_spaces_with_http_info(version, account_id, app_key, opts)
+    def list_spaces(account_id, app_key, opts = {})
+      list_spaces_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # List Vatom Spaces
     # Gets the spaces tied to a business.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def list_spaces_with_http_info(version, account_id, app_key, opts = {})
+    def list_spaces_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.list_spaces ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.list_spaces"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2899,7 +2683,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.list_spaces"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/spaces/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/spaces/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2942,34 +2726,28 @@ module OpenapiClient
 
     # List Coin Transactions for a Vatom User
     # Gets the logged in user's Vatom coin transactions.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def list_user_coin_transactions(version, account_id, vatom_user_id, opts = {})
-      list_user_coin_transactions_with_http_info(version, account_id, vatom_user_id, opts)
+    def list_user_coin_transactions(account_id, vatom_user_id, opts = {})
+      list_user_coin_transactions_with_http_info(account_id, vatom_user_id, opts)
       nil
     end
 
     # List Coin Transactions for a Vatom User
     # Gets the logged in user&#39;s Vatom coin transactions.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def list_user_coin_transactions_with_http_info(version, account_id, vatom_user_id, opts = {})
+    def list_user_coin_transactions_with_http_info(account_id, vatom_user_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.list_user_coin_transactions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.list_user_coin_transactions"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2980,7 +2758,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_user_id' when calling VatomApi.list_user_coin_transactions"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/u/coins/txns/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/u/coins/txns/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3023,7 +2801,6 @@ module OpenapiClient
 
     # List coin transactions for a user (as a Business)
     # List coin transactions for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
@@ -3031,14 +2808,13 @@ module OpenapiClient
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def list_user_coin_transactions_as_business(version, account_id, vatom_user_id, app_key, opts = {})
-      list_user_coin_transactions_as_business_with_http_info(version, account_id, vatom_user_id, app_key, opts)
+    def list_user_coin_transactions_as_business(account_id, vatom_user_id, app_key, opts = {})
+      list_user_coin_transactions_as_business_with_http_info(account_id, vatom_user_id, app_key, opts)
       nil
     end
 
     # List coin transactions for a user (as a Business)
     # List coin transactions for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
@@ -3046,13 +2822,9 @@ module OpenapiClient
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def list_user_coin_transactions_as_business_with_http_info(version, account_id, vatom_user_id, app_key, opts = {})
+    def list_user_coin_transactions_as_business_with_http_info(account_id, vatom_user_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.list_user_coin_transactions_as_business ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.list_user_coin_transactions_as_business"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3067,7 +2839,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.list_user_coin_transactions_as_business"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/users/coins/txns/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/users/coins/txns/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3111,7 +2883,6 @@ module OpenapiClient
 
     # Perform Action on NFT
     # Perform Action on NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param vatom_action [String] Vatom Action
@@ -3119,14 +2890,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def perform_action_on_nft(version, account_id, vatom_id, vatom_action, vatom_parameters, opts = {})
-      perform_action_on_nft_with_http_info(version, account_id, vatom_id, vatom_action, vatom_parameters, opts)
+    def perform_action_on_nft(account_id, vatom_id, vatom_action, vatom_parameters, opts = {})
+      perform_action_on_nft_with_http_info(account_id, vatom_id, vatom_action, vatom_parameters, opts)
       nil
     end
 
     # Perform Action on NFT
     # Perform Action on NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_id [String] Vatom NFT Id
     # @param vatom_action [String] Vatom Action
@@ -3134,13 +2904,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def perform_action_on_nft_with_http_info(version, account_id, vatom_id, vatom_action, vatom_parameters, opts = {})
+    def perform_action_on_nft_with_http_info(account_id, vatom_id, vatom_action, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.perform_action_on_nft ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.perform_action_on_nft"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3159,7 +2925,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.perform_action_on_nft"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/vatoms/actions'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/vatoms/actions'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3203,34 +2969,28 @@ module OpenapiClient
 
     # Redeem NFT
     # Redeem an NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def redeem_nft(version, account_id, app_key, vatom_parameters, opts = {})
-      redeem_nft_with_http_info(version, account_id, app_key, vatom_parameters, opts)
+    def redeem_nft(account_id, app_key, vatom_parameters, opts = {})
+      redeem_nft_with_http_info(account_id, app_key, vatom_parameters, opts)
       nil
     end
 
     # Redeem NFT
     # Redeem an NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def redeem_nft_with_http_info(version, account_id, app_key, vatom_parameters, opts = {})
+    def redeem_nft_with_http_info(account_id, app_key, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.redeem_nft ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.redeem_nft"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3245,7 +3005,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.redeem_nft"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/redemptions'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/redemptions'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3288,7 +3048,6 @@ module OpenapiClient
 
     # Redeem the coins for a user (as a Business)
     # Redeem the coins for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
@@ -3296,14 +3055,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def redeem_user_coins_as_business(version, account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
-      redeem_user_coins_as_business_with_http_info(version, account_id, vatom_user_id, app_key, vatom_parameters, opts)
+    def redeem_user_coins_as_business(account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
+      redeem_user_coins_as_business_with_http_info(account_id, vatom_user_id, app_key, vatom_parameters, opts)
       nil
     end
 
     # Redeem the coins for a user (as a Business)
     # Redeem the coins for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
@@ -3311,13 +3069,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def redeem_user_coins_as_business_with_http_info(version, account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
+    def redeem_user_coins_as_business_with_http_info(account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.redeem_user_coins_as_business ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.redeem_user_coins_as_business"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3336,7 +3090,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.redeem_user_coins_as_business"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/users/coins/redeem'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/users/coins/redeem'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3380,39 +3134,33 @@ module OpenapiClient
 
     # Search for Vatom Businesses
     # Searches for Vatom businesses.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def search_businesses(version, account_id, opts = {})
-      search_businesses_with_http_info(version, account_id, opts)
+    def search_businesses(account_id, opts = {})
+      search_businesses_with_http_info(account_id, opts)
       nil
     end
 
     # Search for Vatom Businesses
     # Searches for Vatom businesses.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def search_businesses_with_http_info(version, account_id, opts = {})
+    def search_businesses_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.search_businesses ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.search_businesses"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling VatomApi.search_businesses"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3454,32 +3202,26 @@ module OpenapiClient
 
     # Search Campaign Groups
     # Search campaign groups.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def search_campaign_groups(version, account_id, app_key, opts = {})
-      search_campaign_groups_with_http_info(version, account_id, app_key, opts)
+    def search_campaign_groups(account_id, app_key, opts = {})
+      search_campaign_groups_with_http_info(account_id, app_key, opts)
       nil
     end
 
     # Search Campaign Groups
     # Search campaign groups.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def search_campaign_groups_with_http_info(version, account_id, app_key, opts = {})
+    def search_campaign_groups_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.search_campaign_groups ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.search_campaign_groups"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3490,7 +3232,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling VatomApi.search_campaign_groups"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign-groups/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign-groups/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3532,37 +3274,31 @@ module OpenapiClient
 
     # Search User Identities
     # Search User Identities.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def search_identities(version, account_id, opts = {})
-      search_identities_with_http_info(version, account_id, opts)
+    def search_identities(account_id, opts = {})
+      search_identities_with_http_info(account_id, opts)
       nil
     end
 
     # Search User Identities
     # Search User Identities.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def search_identities_with_http_info(version, account_id, opts = {})
+    def search_identities_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.search_identities ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.search_identities"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling VatomApi.search_identities"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/identities/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/identities/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3603,39 +3339,33 @@ module OpenapiClient
 
     # Search Vatom User's Inventory
     # Searches the logged in user's Vatom Inventory.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def search_inventory(version, account_id, opts = {})
-      search_inventory_with_http_info(version, account_id, opts)
+    def search_inventory(account_id, opts = {})
+      search_inventory_with_http_info(account_id, opts)
       nil
     end
 
     # Search Vatom User&#39;s Inventory
     # Searches the logged in user&#39;s Vatom Inventory.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :vatom_parameters Vatom Parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def search_inventory_with_http_info(version, account_id, opts = {})
+    def search_inventory_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.search_inventory ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.search_inventory"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling VatomApi.search_inventory"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/user-inventory/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/user-inventory/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3677,7 +3407,6 @@ module OpenapiClient
 
     # Send NFT
     # Send an NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
@@ -3685,14 +3414,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def send_nft(version, account_id, app_key, vatom_campaign_id, vatom_parameters, opts = {})
-      send_nft_with_http_info(version, account_id, app_key, vatom_campaign_id, vatom_parameters, opts)
+    def send_nft(account_id, app_key, vatom_campaign_id, vatom_parameters, opts = {})
+      send_nft_with_http_info(account_id, app_key, vatom_campaign_id, vatom_parameters, opts)
       nil
     end
 
     # Send NFT
     # Send an NFT.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_campaign_id [String] Vatom Campaign Id
@@ -3700,13 +3428,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def send_nft_with_http_info(version, account_id, app_key, vatom_campaign_id, vatom_parameters, opts = {})
+    def send_nft_with_http_info(account_id, app_key, vatom_campaign_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.send_nft ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.send_nft"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3725,7 +3449,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.send_nft"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaigns/send'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaigns/send'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3769,7 +3493,6 @@ module OpenapiClient
 
     # Set Points Balance as Business
     # Sets the points balance of a Vatom user.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_user_id [String] Vatom User Id
@@ -3778,14 +3501,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def set_points_balance_as_business(version, account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, opts = {})
-      set_points_balance_as_business_with_http_info(version, account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, opts)
+    def set_points_balance_as_business(account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, opts = {})
+      set_points_balance_as_business_with_http_info(account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, opts)
       nil
     end
 
     # Set Points Balance as Business
     # Sets the points balance of a Vatom user.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_user_id [String] Vatom User Id
@@ -3794,13 +3516,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def set_points_balance_as_business_with_http_info(version, account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, opts = {})
+    def set_points_balance_as_business_with_http_info(account_id, app_key, vatom_user_id, vatom_campaign_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.set_points_balance_as_business ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.set_points_balance_as_business"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3823,7 +3541,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.set_points_balance_as_business"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/campaign/u/points/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/campaign/u/points/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3868,34 +3586,28 @@ module OpenapiClient
 
     # Transfer coins from Vatom Users
     # Transfer coins from Vatom Users.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def transfer_user_coins(version, account_id, vatom_user_id, vatom_parameters, opts = {})
-      transfer_user_coins_with_http_info(version, account_id, vatom_user_id, vatom_parameters, opts)
+    def transfer_user_coins(account_id, vatom_user_id, vatom_parameters, opts = {})
+      transfer_user_coins_with_http_info(account_id, vatom_user_id, vatom_parameters, opts)
       nil
     end
 
     # Transfer coins from Vatom Users
     # Transfer coins from Vatom Users.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def transfer_user_coins_with_http_info(version, account_id, vatom_user_id, vatom_parameters, opts = {})
+    def transfer_user_coins_with_http_info(account_id, vatom_user_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.transfer_user_coins ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.transfer_user_coins"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3910,7 +3622,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.transfer_user_coins"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/u/coins/transfer'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/u/coins/transfer'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3953,34 +3665,28 @@ module OpenapiClient
 
     # Fund coins for a Business
     # Fund/update coins for a Businesss.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def update_business_coins(version, account_id, app_key, vatom_parameters, opts = {})
-      update_business_coins_with_http_info(version, account_id, app_key, vatom_parameters, opts)
+    def update_business_coins(account_id, app_key, vatom_parameters, opts = {})
+      update_business_coins_with_http_info(account_id, app_key, vatom_parameters, opts)
       nil
     end
 
     # Fund coins for a Business
     # Fund/update coins for a Businesss.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_business_coins_with_http_info(version, account_id, app_key, vatom_parameters, opts = {})
+    def update_business_coins_with_http_info(account_id, app_key, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.update_business_coins ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.update_business_coins"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -3995,7 +3701,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.update_business_coins"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/coins/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/coins/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4038,7 +3744,6 @@ module OpenapiClient
 
     # Update Vatom Event Guest List
     # Update the guest list of an event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
@@ -4046,14 +3751,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def update_event_guest_list(version, account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
-      update_event_guest_list_with_http_info(version, account_id, app_key, vatom_event_id, vatom_parameters, opts)
+    def update_event_guest_list(account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
+      update_event_guest_list_with_http_info(account_id, app_key, vatom_event_id, vatom_parameters, opts)
       nil
     end
 
     # Update Vatom Event Guest List
     # Update the guest list of an event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
@@ -4061,13 +3765,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_event_guest_list_with_http_info(version, account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
+    def update_event_guest_list_with_http_info(account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.update_event_guest_list ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.update_event_guest_list"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -4086,7 +3786,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.update_event_guest_list"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/events/guests/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/events/guests/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4130,7 +3830,6 @@ module OpenapiClient
 
     # Update Vatom Space
     # Update a Vatom space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_space_id [String] Vatom Space Id
@@ -4138,14 +3837,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def update_space(version, account_id, app_key, vatom_space_id, vatom_parameters, opts = {})
-      update_space_with_http_info(version, account_id, app_key, vatom_space_id, vatom_parameters, opts)
+    def update_space(account_id, app_key, vatom_space_id, vatom_parameters, opts = {})
+      update_space_with_http_info(account_id, app_key, vatom_space_id, vatom_parameters, opts)
       nil
     end
 
     # Update Vatom Space
     # Update a Vatom space.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_space_id [String] Vatom Space Id
@@ -4153,13 +3851,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_space_with_http_info(version, account_id, app_key, vatom_space_id, vatom_parameters, opts = {})
+    def update_space_with_http_info(account_id, app_key, vatom_space_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.update_space ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.update_space"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -4178,7 +3872,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.update_space"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/spaces/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/spaces/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4222,7 +3916,6 @@ module OpenapiClient
 
     # Update the coins for a user (as a Business)
     # Update the coins for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
@@ -4230,14 +3923,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def update_user_coins_as_business(version, account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
-      update_user_coins_as_business_with_http_info(version, account_id, vatom_user_id, app_key, vatom_parameters, opts)
+    def update_user_coins_as_business(account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
+      update_user_coins_as_business_with_http_info(account_id, vatom_user_id, app_key, vatom_parameters, opts)
       nil
     end
 
     # Update the coins for a user (as a Business)
     # Update the coins for a user (as a Business).
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_user_id [String] Vatom User Id
     # @param app_key [String] Sirqul Application Key
@@ -4245,13 +3937,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_user_coins_as_business_with_http_info(version, account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
+    def update_user_coins_as_business_with_http_info(account_id, vatom_user_id, app_key, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.update_user_coins_as_business ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.update_user_coins_as_business"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -4270,7 +3958,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.update_user_coins_as_business"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/users/coins/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/users/coins/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4314,32 +4002,26 @@ module OpenapiClient
 
     # Update Vatom User Profile
     # Gets the logged in user's profile in Vatom.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def update_user_profile(version, account_id, vatom_parameters, opts = {})
-      update_user_profile_with_http_info(version, account_id, vatom_parameters, opts)
+    def update_user_profile(account_id, vatom_parameters, opts = {})
+      update_user_profile_with_http_info(account_id, vatom_parameters, opts)
       nil
     end
 
     # Update Vatom User Profile
     # Gets the logged in user&#39;s profile in Vatom.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param vatom_parameters [String] Vatom Parameters
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_user_profile_with_http_info(version, account_id, vatom_parameters, opts = {})
+    def update_user_profile_with_http_info(account_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.update_user_profile ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.update_user_profile"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -4350,7 +4032,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.update_user_profile"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/me/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/me/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4392,7 +4074,6 @@ module OpenapiClient
 
     # Update Vatom Event
     # Update a Vatom event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
@@ -4400,14 +4081,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [nil]
-    def update_vatom_event(version, account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
-      update_vatom_event_with_http_info(version, account_id, app_key, vatom_event_id, vatom_parameters, opts)
+    def update_vatom_event(account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
+      update_vatom_event_with_http_info(account_id, app_key, vatom_event_id, vatom_parameters, opts)
       nil
     end
 
     # Update Vatom Event
     # Update a Vatom event.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param app_key [String] Sirqul Application Key
     # @param vatom_event_id [String] Vatom Event Id
@@ -4415,13 +4095,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_raw_response Return raw response
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def update_vatom_event_with_http_info(version, account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
+    def update_vatom_event_with_http_info(account_id, app_key, vatom_event_id, vatom_parameters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VatomApi.update_vatom_event ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling VatomApi.update_vatom_event"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -4440,7 +4116,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'vatom_parameters' when calling VatomApi.update_vatom_event"
       end
       # resource path
-      local_var_path = '/api/{version}/vatom/b/events/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/vatom/b/events/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

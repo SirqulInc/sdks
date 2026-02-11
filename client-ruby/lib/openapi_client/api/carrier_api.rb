@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Search Carriers
     # Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to search on
     # @option opts [Boolean] :descending Determines whether the sorted list is in descending or ascending order (default to false)
@@ -29,14 +28,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The limit for pagination (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return inactive results (default to true)
     # @return [Array<CellCarrierResponse>]
-    def search_carriers(version, opts = {})
-      data, _status_code, _headers = search_carriers_with_http_info(version, opts)
+    def search_carriers(opts = {})
+      data, _status_code, _headers = search_carriers_with_http_info(opts)
       data
     end
 
     # Search Carriers
     # Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword to search on
     # @option opts [Boolean] :descending Determines whether the sorted list is in descending or ascending order (default to false)
@@ -44,16 +42,12 @@ module OpenapiClient
     # @option opts [Integer] :limit The limit for pagination (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return inactive results (default to true)
     # @return [Array<(Array<CellCarrierResponse>, Integer, Hash)>] Array<CellCarrierResponse> data, response status code and response headers
-    def search_carriers_with_http_info(version, opts = {})
+    def search_carriers_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CarrierApi.search_carriers ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CarrierApi.search_carriers"
-      end
       # resource path
-      local_var_path = '/api/{version}/carrier/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/carrier/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

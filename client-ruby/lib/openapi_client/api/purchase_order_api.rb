@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Order
     # Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-    # @param version [Float] 
     # @param app_key [String] The application requesting the purchase
     # @param cart [String] &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
@@ -36,14 +35,13 @@ module OpenapiClient
     # @option opts [Integer] :external_date External Date
     # @option opts [String] :promo_code The Promo Code
     # @return [OrderResponse]
-    def create_order(version, app_key, cart, opts = {})
-      data, _status_code, _headers = create_order_with_http_info(version, app_key, cart, opts)
+    def create_order(app_key, cart, opts = {})
+      data, _status_code, _headers = create_order_with_http_info(app_key, cart, opts)
       data
     end
 
     # Create Order
     # Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-    # @param version [Float] 
     # @param app_key [String] The application requesting the purchase
     # @param cart [String] &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
@@ -58,13 +56,9 @@ module OpenapiClient
     # @option opts [Integer] :external_date External Date
     # @option opts [String] :promo_code The Promo Code
     # @return [Array<(OrderResponse, Integer, Hash)>] OrderResponse data, response status code and response headers
-    def create_order_with_http_info(version, app_key, cart, opts = {})
+    def create_order_with_http_info(app_key, cart, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseOrderApi.create_order ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseOrderApi.create_order"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -79,7 +73,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"currency_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/order/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/order/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -132,39 +126,33 @@ module OpenapiClient
 
     # Delete Order
     # Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-    # @param version [Float] 
     # @param order_id [Integer] Order Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def delete_order(version, order_id, opts = {})
-      data, _status_code, _headers = delete_order_with_http_info(version, order_id, opts)
+    def delete_order(order_id, opts = {})
+      data, _status_code, _headers = delete_order_with_http_info(order_id, opts)
       data
     end
 
     # Delete Order
     # Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-    # @param version [Float] 
     # @param order_id [Integer] Order Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_order_with_http_info(version, order_id, opts = {})
+    def delete_order_with_http_info(order_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseOrderApi.delete_order ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseOrderApi.delete_order"
       end
       # verify the required parameter 'order_id' is set
       if @api_client.config.client_side_validation && order_id.nil?
         fail ArgumentError, "Missing the required parameter 'order_id' when calling PurchaseOrderApi.delete_order"
       end
       # resource path
-      local_var_path = '/api/{version}/order/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/order/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -208,37 +196,31 @@ module OpenapiClient
 
     # Get Order
     # Get an order record
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [Integer] :order_id The order id to get details of, either orderId or externalOrderId must be provided
     # @option opts [String] :external_order_id The external order id to get details of, either orderId or externalOrderId must be provided
     # @return [OrderResponse]
-    def get_order(version, opts = {})
-      data, _status_code, _headers = get_order_with_http_info(version, opts)
+    def get_order(opts = {})
+      data, _status_code, _headers = get_order_with_http_info(opts)
       data
     end
 
     # Get Order
     # Get an order record
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [Integer] :order_id The order id to get details of, either orderId or externalOrderId must be provided
     # @option opts [String] :external_order_id The external order id to get details of, either orderId or externalOrderId must be provided
     # @return [Array<(OrderResponse, Integer, Hash)>] OrderResponse data, response status code and response headers
-    def get_order_with_http_info(version, opts = {})
+    def get_order_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseOrderApi.get_order ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseOrderApi.get_order"
-      end
       # resource path
-      local_var_path = '/api/{version}/order/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/order/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -283,7 +265,6 @@ module OpenapiClient
 
     # Preview Order
     # Previews a purchase to see the total cost before making it.
-    # @param version [Float] 
     # @param app_key [String] The application requesting the purchase
     # @param cart [String] A JSON list of items to purchase
     # @param [Hash] opts the optional parameters
@@ -298,14 +279,13 @@ module OpenapiClient
     # @option opts [Integer] :external_date External Date
     # @option opts [String] :promo_code The Promo Code
     # @return [OrderResponse]
-    def preview_order(version, app_key, cart, opts = {})
-      data, _status_code, _headers = preview_order_with_http_info(version, app_key, cart, opts)
+    def preview_order(app_key, cart, opts = {})
+      data, _status_code, _headers = preview_order_with_http_info(app_key, cart, opts)
       data
     end
 
     # Preview Order
     # Previews a purchase to see the total cost before making it.
-    # @param version [Float] 
     # @param app_key [String] The application requesting the purchase
     # @param cart [String] A JSON list of items to purchase
     # @param [Hash] opts the optional parameters
@@ -320,13 +300,9 @@ module OpenapiClient
     # @option opts [Integer] :external_date External Date
     # @option opts [String] :promo_code The Promo Code
     # @return [Array<(OrderResponse, Integer, Hash)>] OrderResponse data, response status code and response headers
-    def preview_order_with_http_info(version, app_key, cart, opts = {})
+    def preview_order_with_http_info(app_key, cart, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseOrderApi.preview_order ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseOrderApi.preview_order"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -341,7 +317,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"currency_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/order/preview'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/order/preview'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -394,7 +370,6 @@ module OpenapiClient
 
     # Search Orders
     # Search on active orders by customer
-    # @param version [Float] 
     # @param app_key [String] The application requesting the purchase
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -428,14 +403,13 @@ module OpenapiClient
     # @option opts [Integer] :ended_since Filter results by the offer end date
     # @option opts [Integer] :ended_before Filter results by the offer end date
     # @return [Array<OrderResponse>]
-    def search_orders(version, app_key, opts = {})
-      data, _status_code, _headers = search_orders_with_http_info(version, app_key, opts)
+    def search_orders(app_key, opts = {})
+      data, _status_code, _headers = search_orders_with_http_info(app_key, opts)
       data
     end
 
     # Search Orders
     # Search on active orders by customer
-    # @param version [Float] 
     # @param app_key [String] The application requesting the purchase
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -469,20 +443,16 @@ module OpenapiClient
     # @option opts [Integer] :ended_since Filter results by the offer end date
     # @option opts [Integer] :ended_before Filter results by the offer end date
     # @return [Array<(Array<OrderResponse>, Integer, Hash)>] Array<OrderResponse> data, response status code and response headers
-    def search_orders_with_http_info(version, app_key, opts = {})
+    def search_orders_with_http_info(app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseOrderApi.search_orders ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseOrderApi.search_orders"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
         fail ArgumentError, "Missing the required parameter 'app_key' when calling PurchaseOrderApi.search_orders"
       end
       # resource path
-      local_var_path = '/api/{version}/order/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/order/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -554,7 +524,6 @@ module OpenapiClient
 
     # Update Order
     # Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-    # @param version [Float] 
     # @param order_id [Integer] The order to add the purchase to, leave null for new order.
     # @param app_key [String] The application requesting the purchase
     # @param cart [String] &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -568,14 +537,13 @@ module OpenapiClient
     # @option opts [String] :external_payment_id Store identifier from external system
     # @option opts [Integer] :external_date External Date
     # @return [OrderResponse]
-    def update_order(version, order_id, app_key, cart, opts = {})
-      data, _status_code, _headers = update_order_with_http_info(version, order_id, app_key, cart, opts)
+    def update_order(order_id, app_key, cart, opts = {})
+      data, _status_code, _headers = update_order_with_http_info(order_id, app_key, cart, opts)
       data
     end
 
     # Update Order
     # Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-    # @param version [Float] 
     # @param order_id [Integer] The order to add the purchase to, leave null for new order.
     # @param app_key [String] The application requesting the purchase
     # @param cart [String] &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -589,13 +557,9 @@ module OpenapiClient
     # @option opts [String] :external_payment_id Store identifier from external system
     # @option opts [Integer] :external_date External Date
     # @return [Array<(OrderResponse, Integer, Hash)>] OrderResponse data, response status code and response headers
-    def update_order_with_http_info(version, order_id, app_key, cart, opts = {})
+    def update_order_with_http_info(order_id, app_key, cart, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseOrderApi.update_order ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseOrderApi.update_order"
       end
       # verify the required parameter 'order_id' is set
       if @api_client.config.client_side_validation && order_id.nil?
@@ -614,7 +578,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"currency_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/order/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/order/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Trilateration Data with File
     # Creates trilateration samples for a source device (i.e. a router).
-    # @param version [Float] 
     # @param udid [String] The unique identifier of the source device
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :source_time The current timestamp of the source device
@@ -29,14 +28,13 @@ module OpenapiClient
     # @option opts [String] :data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;:\&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;: \&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60; 
     # @option opts [File] :data_file Binary file containing data (multipart upload)
     # @return [SirqulResponse]
-    def cache_trilateration_data(version, udid, opts = {})
-      data, _status_code, _headers = cache_trilateration_data_with_http_info(version, udid, opts)
+    def cache_trilateration_data(udid, opts = {})
+      data, _status_code, _headers = cache_trilateration_data_with_http_info(udid, opts)
       data
     end
 
     # Create Trilateration Data with File
     # Creates trilateration samples for a source device (i.e. a router).
-    # @param version [Float] 
     # @param udid [String] The unique identifier of the source device
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :source_time The current timestamp of the source device
@@ -44,20 +42,16 @@ module OpenapiClient
     # @option opts [String] :data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;:\&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;: \&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60; 
     # @option opts [File] :data_file Binary file containing data (multipart upload)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def cache_trilateration_data_with_http_info(version, udid, opts = {})
+    def cache_trilateration_data_with_http_info(udid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LocationApi.cache_trilateration_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LocationApi.cache_trilateration_data"
       end
       # verify the required parameter 'udid' is set
       if @api_client.config.client_side_validation && udid.nil?
         fail ArgumentError, "Missing the required parameter 'udid' when calling LocationApi.cache_trilateration_data"
       end
       # resource path
-      local_var_path = '/api/{version}/location/trilaterate/cache'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location/trilaterate/cache'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -103,31 +97,25 @@ module OpenapiClient
 
     # Create Trilateration Data with Rest
     # Creates trilateration samples for a source device (i.e. a router).
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [TrilatCacheRequest] :body 
     # @return [SirqulResponse]
-    def cache_trilateration_data_gzip(version, opts = {})
-      data, _status_code, _headers = cache_trilateration_data_gzip_with_http_info(version, opts)
+    def cache_trilateration_data_gzip(opts = {})
+      data, _status_code, _headers = cache_trilateration_data_gzip_with_http_info(opts)
       data
     end
 
     # Create Trilateration Data with Rest
     # Creates trilateration samples for a source device (i.e. a router).
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [TrilatCacheRequest] :body 
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def cache_trilateration_data_gzip_with_http_info(version, opts = {})
+    def cache_trilateration_data_gzip_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LocationApi.cache_trilateration_data_gzip ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LocationApi.cache_trilateration_data_gzip"
-      end
       # resource path
-      local_var_path = '/api/{version}/location/trilaterate/cache/submit'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location/trilaterate/cache/submit'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -168,31 +156,25 @@ module OpenapiClient
 
     # Get Location by IP
     # Get location information based on an IP address.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ip the ip address of the client device
     # @return [CoordsResponse]
-    def get_location_by_ip(version, opts = {})
-      data, _status_code, _headers = get_location_by_ip_with_http_info(version, opts)
+    def get_location_by_ip(opts = {})
+      data, _status_code, _headers = get_location_by_ip_with_http_info(opts)
       data
     end
 
     # Get Location by IP
     # Get location information based on an IP address.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :ip the ip address of the client device
     # @return [Array<(CoordsResponse, Integer, Hash)>] CoordsResponse data, response status code and response headers
-    def get_location_by_ip_with_http_info(version, opts = {})
+    def get_location_by_ip_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LocationApi.get_location_by_ip ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LocationApi.get_location_by_ip"
-      end
       # resource path
-      local_var_path = '/api/{version}/location/ip'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location/ip'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -234,7 +216,6 @@ module OpenapiClient
 
     # Get Location by Trilateration
     # Send in device data and calculate a position based on signal strengths.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account making the request, if provided the last know location will be updated
     # @option opts [Float] :latitude The known GPS latitude to compare to the calculated version
@@ -242,14 +223,13 @@ module OpenapiClient
     # @option opts [String] :data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60; 
     # @option opts [String] :response_filters Optional response filters (not used currently)
     # @return [GeoPointResponse]
-    def get_location_by_trilateration(version, opts = {})
-      data, _status_code, _headers = get_location_by_trilateration_with_http_info(version, opts)
+    def get_location_by_trilateration(opts = {})
+      data, _status_code, _headers = get_location_by_trilateration_with_http_info(opts)
       data
     end
 
     # Get Location by Trilateration
     # Send in device data and calculate a position based on signal strengths.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account making the request, if provided the last know location will be updated
     # @option opts [Float] :latitude The known GPS latitude to compare to the calculated version
@@ -257,16 +237,12 @@ module OpenapiClient
     # @option opts [String] :data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60; 
     # @option opts [String] :response_filters Optional response filters (not used currently)
     # @return [Array<(GeoPointResponse, Integer, Hash)>] GeoPointResponse data, response status code and response headers
-    def get_location_by_trilateration_with_http_info(version, opts = {})
+    def get_location_by_trilateration_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LocationApi.get_location_by_trilateration ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LocationApi.get_location_by_trilateration"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/location/trilaterate'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/location/trilaterate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -312,7 +288,6 @@ module OpenapiClient
 
     # Search Regions or Postal Codes
     # Searches geographic locations by proximity via address or keyword.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id
     # @option opts [Integer] :account_id the account id
@@ -334,14 +309,13 @@ module OpenapiClient
     # @option opts [Integer] :_l This parameter is deprecated.
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [LocationSearchResponse]
-    def get_locations(version, opts = {})
-      data, _status_code, _headers = get_locations_with_http_info(version, opts)
+    def get_locations(opts = {})
+      data, _status_code, _headers = get_locations_with_http_info(opts)
       data
     end
 
     # Search Regions or Postal Codes
     # Searches geographic locations by proximity via address or keyword.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id
     # @option opts [Integer] :account_id the account id
@@ -363,16 +337,12 @@ module OpenapiClient
     # @option opts [Integer] :_l This parameter is deprecated.
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [Array<(LocationSearchResponse, Integer, Hash)>] LocationSearchResponse data, response status code and response headers
-    def get_locations_with_http_info(version, opts = {})
+    def get_locations_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: LocationApi.get_locations ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling LocationApi.get_locations"
-      end
       # resource path
-      local_var_path = '/api/{version}/location/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

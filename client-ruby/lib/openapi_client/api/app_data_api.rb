@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Get App Data
     # Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-    # @param version [Float] 
     # @param start [Integer] start the search results at a record.
     # @param limit [Integer] limit the search results to some number.
     # @param [Hash] opts the optional parameters
@@ -49,14 +48,13 @@ module OpenapiClient
     # @option opts [String] :response_groups use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list 
     # @option opts [String] :purchase_type the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
     # @return [AppResponse]
-    def get_app_data(version, start, limit, opts = {})
-      data, _status_code, _headers = get_app_data_with_http_info(version, start, limit, opts)
+    def get_app_data(start, limit, opts = {})
+      data, _status_code, _headers = get_app_data_with_http_info(start, limit, opts)
       data
     end
 
     # Get App Data
     # Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-    # @param version [Float] 
     # @param start [Integer] start the search results at a record.
     # @param limit [Integer] limit the search results to some number.
     # @param [Hash] opts the optional parameters
@@ -84,13 +82,9 @@ module OpenapiClient
     # @option opts [String] :response_groups use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list 
     # @option opts [String] :purchase_type the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
     # @return [Array<(AppResponse, Integer, Hash)>] AppResponse data, response status code and response headers
-    def get_app_data_with_http_info(version, start, limit, opts = {})
+    def get_app_data_with_http_info(start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppDataApi.get_app_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AppDataApi.get_app_data"
       end
       # verify the required parameter 'start' is set
       if @api_client.config.client_side_validation && start.nil?
@@ -101,7 +95,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling AppDataApi.get_app_data"
       end
       # resource path
-      local_var_path = '/api/{version}/app/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/app/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -167,7 +161,6 @@ module OpenapiClient
 
     # Create App Data
     # Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-    # @param version [Float] 
     # @param game_type [String] the game to retrieve the data for, use your application key.
     # @param start [Integer] start the search results at a record.
     # @param limit [Integer] limit the search results to some number.
@@ -196,14 +189,13 @@ module OpenapiClient
     # @option opts [String] :response_groups use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list 
     # @option opts [String] :purchase_type the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
     # @return [AppResponse]
-    def post_app_data(version, game_type, start, limit, data, opts = {})
-      data, _status_code, _headers = post_app_data_with_http_info(version, game_type, start, limit, data, opts)
+    def post_app_data(game_type, start, limit, data, opts = {})
+      data, _status_code, _headers = post_app_data_with_http_info(game_type, start, limit, data, opts)
       data
     end
 
     # Create App Data
     # Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-    # @param version [Float] 
     # @param game_type [String] the game to retrieve the data for, use your application key.
     # @param start [Integer] start the search results at a record.
     # @param limit [Integer] limit the search results to some number.
@@ -232,13 +224,9 @@ module OpenapiClient
     # @option opts [String] :response_groups use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list 
     # @option opts [String] :purchase_type the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase 
     # @return [Array<(AppResponse, Integer, Hash)>] AppResponse data, response status code and response headers
-    def post_app_data_with_http_info(version, game_type, start, limit, data, opts = {})
+    def post_app_data_with_http_info(game_type, start, limit, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppDataApi.post_app_data ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AppDataApi.post_app_data"
       end
       # verify the required parameter 'game_type' is set
       if @api_client.config.client_side_validation && game_type.nil?
@@ -257,7 +245,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'data' when calling AppDataApi.post_app_data"
       end
       # resource path
-      local_var_path = '/api/{version}/app/post'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/app/post'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -324,37 +312,31 @@ module OpenapiClient
 
     # Regenerate App Data
     # Regenerate the app data cache for apps
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @option opts [String] :app_key process a specific application, if null process all apps with caches
     # @option opts [String] :build_version create a specific version, if null use current version. Be careful if processing all
     # @option opts [String] :api_version create a specific version, if null use current version. Be careful if processing all
     # @return [SirqulResponse]
-    def regen_app_data(version, opts = {})
-      data, _status_code, _headers = regen_app_data_with_http_info(version, opts)
+    def regen_app_data(opts = {})
+      data, _status_code, _headers = regen_app_data_with_http_info(opts)
       data
     end
 
     # Regenerate App Data
     # Regenerate the app data cache for apps
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user
     # @option opts [String] :app_key process a specific application, if null process all apps with caches
     # @option opts [String] :build_version create a specific version, if null use current version. Be careful if processing all
     # @option opts [String] :api_version create a specific version, if null use current version. Be careful if processing all
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def regen_app_data_with_http_info(version, opts = {})
+    def regen_app_data_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AppDataApi.regen_app_data ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AppDataApi.regen_app_data"
-      end
       # resource path
-      local_var_path = '/api/{version}/app/regen'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/app/regen'
 
       # query parameters
       query_params = opts[:query_params] || {}

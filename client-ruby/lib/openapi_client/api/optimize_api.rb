@@ -21,32 +21,26 @@ module OpenapiClient
     end
     # Get Optimization Result
     # Get the results of the import batch.
-    # @param version [Float] 
     # @param batch_id [String] The batchID for getting the import status of.
     # @param start [Integer] The start index for pagination
     # @param limit [Integer] The limit for pagination
     # @param [Hash] opts the optional parameters
     # @return [Hash<String, ShipmentOrder>]
-    def get_optimization_result(version, batch_id, start, limit, opts = {})
-      data, _status_code, _headers = get_optimization_result_with_http_info(version, batch_id, start, limit, opts)
+    def get_optimization_result(batch_id, start, limit, opts = {})
+      data, _status_code, _headers = get_optimization_result_with_http_info(batch_id, start, limit, opts)
       data
     end
 
     # Get Optimization Result
     # Get the results of the import batch.
-    # @param version [Float] 
     # @param batch_id [String] The batchID for getting the import status of.
     # @param start [Integer] The start index for pagination
     # @param limit [Integer] The limit for pagination
     # @param [Hash] opts the optional parameters
     # @return [Array<(Hash<String, ShipmentOrder>, Integer, Hash)>] Hash<String, ShipmentOrder> data, response status code and response headers
-    def get_optimization_result_with_http_info(version, batch_id, start, limit, opts = {})
+    def get_optimization_result_with_http_info(batch_id, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OptimizeApi.get_optimization_result ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OptimizeApi.get_optimization_result"
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
@@ -61,7 +55,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling OptimizeApi.get_optimization_result"
       end
       # resource path
-      local_var_path = '/api/{version}/optimize/result/{batchID}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'batchID' + '}', CGI.escape(batch_id.to_s))
+      local_var_path = '/optimize/result/{batchID}'.sub('{' + 'batchID' + '}', CGI.escape(batch_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -104,31 +98,25 @@ module OpenapiClient
 
     # Request Optimization
     # Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Orders] :body 
     # @return [ImportStatuses]
-    def request_optimization(version, opts = {})
-      data, _status_code, _headers = request_optimization_with_http_info(version, opts)
+    def request_optimization(opts = {})
+      data, _status_code, _headers = request_optimization_with_http_info(opts)
       data
     end
 
     # Request Optimization
     # Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Orders] :body 
     # @return [Array<(ImportStatuses, Integer, Hash)>] ImportStatuses data, response status code and response headers
-    def request_optimization_with_http_info(version, opts = {})
+    def request_optimization_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OptimizeApi.request_optimization ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OptimizeApi.request_optimization"
-      end
       # resource path
-      local_var_path = '/api/{version}/optimize/request'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/optimize/request'
 
       # query parameters
       query_params = opts[:query_params] || {}

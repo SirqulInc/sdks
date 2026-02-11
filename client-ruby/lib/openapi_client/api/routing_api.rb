@@ -21,35 +21,29 @@ module OpenapiClient
     end
     # Compute Route
     # This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-    # @param version [Float] 
     # @param data [String] Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
     # @param [Hash] opts the optional parameters
     # @return [RoutingListResponse]
-    def compute_routing(version, data, opts = {})
-      data, _status_code, _headers = compute_routing_with_http_info(version, data, opts)
+    def compute_routing(data, opts = {})
+      data, _status_code, _headers = compute_routing_with_http_info(data, opts)
       data
     end
 
     # Compute Route
     # This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-    # @param version [Float] 
     # @param data [String] Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
     # @param [Hash] opts the optional parameters
     # @return [Array<(RoutingListResponse, Integer, Hash)>] RoutingListResponse data, response status code and response headers
-    def compute_routing_with_http_info(version, data, opts = {})
+    def compute_routing_with_http_info(data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RoutingApi.compute_routing ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RoutingApi.compute_routing"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
         fail ArgumentError, "Missing the required parameter 'data' when calling RoutingApi.compute_routing"
       end
       # resource path
-      local_var_path = '/api/{version}/routing/compute'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/routing/compute'
 
       # query parameters
       query_params = opts[:query_params] || {}

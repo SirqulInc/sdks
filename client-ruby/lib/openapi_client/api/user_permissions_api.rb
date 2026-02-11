@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Add User
     # Adds a user to a permissionable object.
-    # @param version [Float] 
     # @param permissionable_type [String] the permissionable type of the object
     # @param permissionable_id [Integer] the id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -41,14 +40,13 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :audience_ids comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
     # @return [SirqulResponse]
-    def add_users_to_permissionable(version, permissionable_type, permissionable_id, opts = {})
-      data, _status_code, _headers = add_users_to_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts)
+    def add_users_to_permissionable(permissionable_type, permissionable_id, opts = {})
+      data, _status_code, _headers = add_users_to_permissionable_with_http_info(permissionable_type, permissionable_id, opts)
       data
     end
 
     # Add User
     # Adds a user to a permissionable object.
-    # @param version [Float] 
     # @param permissionable_type [String] the permissionable type of the object
     # @param permissionable_id [Integer] the id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -68,13 +66,9 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :audience_ids comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def add_users_to_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts = {})
+    def add_users_to_permissionable_with_http_info(permissionable_type, permissionable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserPermissionsApi.add_users_to_permissionable ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling UserPermissionsApi.add_users_to_permissionable"
       end
       # verify the required parameter 'permissionable_type' is set
       if @api_client.config.client_side_validation && permissionable_type.nil?
@@ -90,7 +84,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'permissionable_id' when calling UserPermissionsApi.add_users_to_permissionable"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/permissions/add'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/permissions/add'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -148,7 +142,6 @@ module OpenapiClient
 
     # Approve Permissionable
     # Sets the approval status of a permissionable object.
-    # @param version [Float] 
     # @param permissionable_type [String] The permissionable type of the object
     # @param permissionable_id [Integer] The id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -156,14 +149,13 @@ module OpenapiClient
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
     # @option opts [String] :approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (default to 'APPROVED')
     # @return [SirqulResponse]
-    def approve_permissionable(version, permissionable_type, permissionable_id, opts = {})
-      data, _status_code, _headers = approve_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts)
+    def approve_permissionable(permissionable_type, permissionable_id, opts = {})
+      data, _status_code, _headers = approve_permissionable_with_http_info(permissionable_type, permissionable_id, opts)
       data
     end
 
     # Approve Permissionable
     # Sets the approval status of a permissionable object.
-    # @param version [Float] 
     # @param permissionable_type [String] The permissionable type of the object
     # @param permissionable_id [Integer] The id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -171,13 +163,9 @@ module OpenapiClient
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
     # @option opts [String] :approval_status The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (default to 'APPROVED')
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def approve_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts = {})
+    def approve_permissionable_with_http_info(permissionable_type, permissionable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserPermissionsApi.approve_permissionable ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling UserPermissionsApi.approve_permissionable"
       end
       # verify the required parameter 'permissionable_type' is set
       if @api_client.config.client_side_validation && permissionable_type.nil?
@@ -197,7 +185,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"approval_status\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/permissionable/approve'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/permissionable/approve'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -243,7 +231,6 @@ module OpenapiClient
 
     # Leave
     # Used when the user wants to leave from someone else's permissionable object
-    # @param version [Float] 
     # @param permissionable_type [String] the permissionable type PermissionableType
     # @param permissionable_id [Integer] the id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -252,14 +239,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [SirqulResponse]
-    def leave_from_permissionable(version, permissionable_type, permissionable_id, opts = {})
-      data, _status_code, _headers = leave_from_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts)
+    def leave_from_permissionable(permissionable_type, permissionable_id, opts = {})
+      data, _status_code, _headers = leave_from_permissionable_with_http_info(permissionable_type, permissionable_id, opts)
       data
     end
 
     # Leave
     # Used when the user wants to leave from someone else&#39;s permissionable object
-    # @param version [Float] 
     # @param permissionable_type [String] the permissionable type PermissionableType
     # @param permissionable_id [Integer] the id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -268,13 +254,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def leave_from_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts = {})
+    def leave_from_permissionable_with_http_info(permissionable_type, permissionable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserPermissionsApi.leave_from_permissionable ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling UserPermissionsApi.leave_from_permissionable"
       end
       # verify the required parameter 'permissionable_type' is set
       if @api_client.config.client_side_validation && permissionable_type.nil?
@@ -285,7 +267,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'permissionable_id' when calling UserPermissionsApi.leave_from_permissionable"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/permissions/leave'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/permissions/leave'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -332,7 +314,6 @@ module OpenapiClient
 
     # Remove User
     # Used to remove someone (assuming they have permission) from a permissionable object
-    # @param version [Float] 
     # @param permissionable_type [String] the permissionable type of the object
     # @param permissionable_id [Integer] the id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -346,14 +327,13 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :audience_ids comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
     # @return [SirqulResponse]
-    def remove_users_from_permissionable(version, permissionable_type, permissionable_id, opts = {})
-      data, _status_code, _headers = remove_users_from_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts)
+    def remove_users_from_permissionable(permissionable_type, permissionable_id, opts = {})
+      data, _status_code, _headers = remove_users_from_permissionable_with_http_info(permissionable_type, permissionable_id, opts)
       data
     end
 
     # Remove User
     # Used to remove someone (assuming they have permission) from a permissionable object
-    # @param version [Float] 
     # @param permissionable_type [String] the permissionable type of the object
     # @param permissionable_id [Integer] the id of the permissionable object
     # @param [Hash] opts the optional parameters
@@ -367,13 +347,9 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :audience_ids comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def remove_users_from_permissionable_with_http_info(version, permissionable_type, permissionable_id, opts = {})
+    def remove_users_from_permissionable_with_http_info(permissionable_type, permissionable_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserPermissionsApi.remove_users_from_permissionable ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling UserPermissionsApi.remove_users_from_permissionable"
       end
       # verify the required parameter 'permissionable_type' is set
       if @api_client.config.client_side_validation && permissionable_type.nil?
@@ -389,7 +365,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'permissionable_id' when calling UserPermissionsApi.remove_users_from_permissionable"
       end
       # resource path
-      local_var_path = '/api/{version}/consumer/permissions/remove'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/permissions/remove'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -441,7 +417,6 @@ module OpenapiClient
 
     # Search Permissionables
     # Search on UserPermissions
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id A unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
@@ -457,14 +432,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [Array<UserPermissionsResponse>]
-    def search_permissionables(version, opts = {})
-      data, _status_code, _headers = search_permissionables_with_http_info(version, opts)
+    def search_permissionables(opts = {})
+      data, _status_code, _headers = search_permissionables_with_http_info(opts)
       data
     end
 
     # Search Permissionables
     # Search on UserPermissions
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id A unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
@@ -480,20 +454,16 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [Array<(Array<UserPermissionsResponse>, Integer, Hash)>] Array<UserPermissionsResponse> data, response status code and response headers
-    def search_permissionables_with_http_info(version, opts = {})
+    def search_permissionables_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserPermissionsApi.search_permissionables ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling UserPermissionsApi.search_permissionables"
       end
       allowable_values = ["ACCOUNT", "GAMELEVEL", "ALBUM_CONTEST", "THEME_DESCRIPTOR", "SCHEDULED_NOTIFICATION", "TASK", "TRIGGER"]
       if @api_client.config.client_side_validation && opts[:'permissionable_type'] && !allowable_values.include?(opts[:'permissionable_type'])
         fail ArgumentError, "invalid value for \"permissionable_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/permissions/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/permissions/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -547,7 +517,6 @@ module OpenapiClient
 
     # Search Permissionables by Distnace
     # Search on UserPermissions by distance
-    # @param version [Float] 
     # @param latitude [Float] The latitude of the current account
     # @param longitude [Float] The longitude of the current account
     # @param [Hash] opts the optional parameters
@@ -564,14 +533,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit for pagination (default to 20)
     # @return [Array<UserPermissionsResponse>]
-    def search_permissionables_following_distance(version, latitude, longitude, opts = {})
-      data, _status_code, _headers = search_permissionables_following_distance_with_http_info(version, latitude, longitude, opts)
+    def search_permissionables_following_distance(latitude, longitude, opts = {})
+      data, _status_code, _headers = search_permissionables_following_distance_with_http_info(latitude, longitude, opts)
       data
     end
 
     # Search Permissionables by Distnace
     # Search on UserPermissions by distance
-    # @param version [Float] 
     # @param latitude [Float] The latitude of the current account
     # @param longitude [Float] The longitude of the current account
     # @param [Hash] opts the optional parameters
@@ -588,13 +556,9 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit for pagination (default to 20)
     # @return [Array<(Array<UserPermissionsResponse>, Integer, Hash)>] Array<UserPermissionsResponse> data, response status code and response headers
-    def search_permissionables_following_distance_with_http_info(version, latitude, longitude, opts = {})
+    def search_permissionables_following_distance_with_http_info(latitude, longitude, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UserPermissionsApi.search_permissionables_following_distance ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling UserPermissionsApi.search_permissionables_following_distance"
       end
       # verify the required parameter 'latitude' is set
       if @api_client.config.client_side_validation && latitude.nil?
@@ -609,7 +573,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"permissionable_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/permissions/distancesearch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/permissions/distancesearch'
 
       # query parameters
       query_params = opts[:query_params] || {}

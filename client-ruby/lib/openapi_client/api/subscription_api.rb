@@ -21,39 +21,33 @@ module OpenapiClient
     end
     # Create Subscription
     # Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the create, must be the responsible manager
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :plan_id The plan to subscribe to, if null use default plan
     # @option opts [String] :promo_code Set a promo code for a discount.
     # @return [SubscriptionResponse]
-    def create_subscription(version, account_id, opts = {})
-      data, _status_code, _headers = create_subscription_with_http_info(version, account_id, opts)
+    def create_subscription(account_id, opts = {})
+      data, _status_code, _headers = create_subscription_with_http_info(account_id, opts)
       data
     end
 
     # Create Subscription
     # Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the create, must be the responsible manager
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :plan_id The plan to subscribe to, if null use default plan
     # @option opts [String] :promo_code Set a promo code for a discount.
     # @return [Array<(SubscriptionResponse, Integer, Hash)>] SubscriptionResponse data, response status code and response headers
-    def create_subscription_with_http_info(version, account_id, opts = {})
+    def create_subscription_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SubscriptionApi.create_subscription ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SubscriptionApi.create_subscription"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling SubscriptionApi.create_subscription"
       end
       # resource path
-      local_var_path = '/api/{version}/subscription/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/subscription/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -97,35 +91,29 @@ module OpenapiClient
 
     # Delete Subscription
     # Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the delete, must be the responsible manager
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_subscription(version, account_id, opts = {})
-      data, _status_code, _headers = delete_subscription_with_http_info(version, account_id, opts)
+    def delete_subscription(account_id, opts = {})
+      data, _status_code, _headers = delete_subscription_with_http_info(account_id, opts)
       data
     end
 
     # Delete Subscription
     # Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the delete, must be the responsible manager
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_subscription_with_http_info(version, account_id, opts = {})
+    def delete_subscription_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SubscriptionApi.delete_subscription ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SubscriptionApi.delete_subscription"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling SubscriptionApi.delete_subscription"
       end
       # resource path
-      local_var_path = '/api/{version}/subscription/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/subscription/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -167,35 +155,29 @@ module OpenapiClient
 
     # Get Subscription
     # Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the lookup
     # @param [Hash] opts the optional parameters
     # @return [SubscriptionResponse]
-    def get_subscription(version, account_id, opts = {})
-      data, _status_code, _headers = get_subscription_with_http_info(version, account_id, opts)
+    def get_subscription(account_id, opts = {})
+      data, _status_code, _headers = get_subscription_with_http_info(account_id, opts)
       data
     end
 
     # Get Subscription
     # Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the lookup
     # @param [Hash] opts the optional parameters
     # @return [Array<(SubscriptionResponse, Integer, Hash)>] SubscriptionResponse data, response status code and response headers
-    def get_subscription_with_http_info(version, account_id, opts = {})
+    def get_subscription_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SubscriptionApi.get_subscription ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SubscriptionApi.get_subscription"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling SubscriptionApi.get_subscription"
       end
       # resource path
-      local_var_path = '/api/{version}/subscription/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/subscription/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -237,35 +219,29 @@ module OpenapiClient
 
     # Get Subscription Plan
     # Get the matched subscription plan
-    # @param version [Float] 
     # @param plan_id [Integer] The ID of the plan to get
     # @param [Hash] opts the optional parameters
     # @return [SubscriptionPlanResponse]
-    def get_subscription_plan(version, plan_id, opts = {})
-      data, _status_code, _headers = get_subscription_plan_with_http_info(version, plan_id, opts)
+    def get_subscription_plan(plan_id, opts = {})
+      data, _status_code, _headers = get_subscription_plan_with_http_info(plan_id, opts)
       data
     end
 
     # Get Subscription Plan
     # Get the matched subscription plan
-    # @param version [Float] 
     # @param plan_id [Integer] The ID of the plan to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(SubscriptionPlanResponse, Integer, Hash)>] SubscriptionPlanResponse data, response status code and response headers
-    def get_subscription_plan_with_http_info(version, plan_id, opts = {})
+    def get_subscription_plan_with_http_info(plan_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SubscriptionApi.get_subscription_plan ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SubscriptionApi.get_subscription_plan"
       end
       # verify the required parameter 'plan_id' is set
       if @api_client.config.client_side_validation && plan_id.nil?
         fail ArgumentError, "Missing the required parameter 'plan_id' when calling SubscriptionApi.get_subscription_plan"
       end
       # resource path
-      local_var_path = '/api/{version}/subscription/plan/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/subscription/plan/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -307,33 +283,27 @@ module OpenapiClient
 
     # List Subscription Plans
     # Get the matched subscription plan
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :visible Include visible only (true), hidden only (false), or all (null)
     # @option opts [String] :role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
     # @return [Array<SubscriptionPlanResponse>]
-    def get_subscription_plans(version, opts = {})
-      data, _status_code, _headers = get_subscription_plans_with_http_info(version, opts)
+    def get_subscription_plans(opts = {})
+      data, _status_code, _headers = get_subscription_plans_with_http_info(opts)
       data
     end
 
     # List Subscription Plans
     # Get the matched subscription plan
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :visible Include visible only (true), hidden only (false), or all (null)
     # @option opts [String] :role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
     # @return [Array<(Array<SubscriptionPlanResponse>, Integer, Hash)>] Array<SubscriptionPlanResponse> data, response status code and response headers
-    def get_subscription_plans_with_http_info(version, opts = {})
+    def get_subscription_plans_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SubscriptionApi.get_subscription_plans ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SubscriptionApi.get_subscription_plans"
-      end
       # resource path
-      local_var_path = '/api/{version}/subscription/plan/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/subscription/plan/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -376,41 +346,35 @@ module OpenapiClient
 
     # Get Subscription Usage
     # Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the lookup
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :application_id Get for just 1 application instead of the BillableEntity
     # @option opts [Integer] :start The start time frame
     # @option opts [Integer] :_end The end time frame
     # @return [ApplicationUsageResponse]
-    def get_subscription_usage(version, account_id, opts = {})
-      data, _status_code, _headers = get_subscription_usage_with_http_info(version, account_id, opts)
+    def get_subscription_usage(account_id, opts = {})
+      data, _status_code, _headers = get_subscription_usage_with_http_info(account_id, opts)
       data
     end
 
     # Get Subscription Usage
     # Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the lookup
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :application_id Get for just 1 application instead of the BillableEntity
     # @option opts [Integer] :start The start time frame
     # @option opts [Integer] :_end The end time frame
     # @return [Array<(ApplicationUsageResponse, Integer, Hash)>] ApplicationUsageResponse data, response status code and response headers
-    def get_subscription_usage_with_http_info(version, account_id, opts = {})
+    def get_subscription_usage_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SubscriptionApi.get_subscription_usage ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SubscriptionApi.get_subscription_usage"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling SubscriptionApi.get_subscription_usage"
       end
       # resource path
-      local_var_path = '/api/{version}/subscription/usage/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/subscription/usage/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -455,41 +419,35 @@ module OpenapiClient
 
     # Update Subscription
     # Updates the subscription for the billable entity for an account
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the update, must be the responsible manager
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :plan_id The plan to subscribe to
     # @option opts [String] :promo_code Set a promo code for a discount.
     # @option opts [Boolean] :active Set active status
     # @return [SubscriptionResponse]
-    def update_subscription(version, account_id, opts = {})
-      data, _status_code, _headers = update_subscription_with_http_info(version, account_id, opts)
+    def update_subscription(account_id, opts = {})
+      data, _status_code, _headers = update_subscription_with_http_info(account_id, opts)
       data
     end
 
     # Update Subscription
     # Updates the subscription for the billable entity for an account
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the update, must be the responsible manager
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :plan_id The plan to subscribe to
     # @option opts [String] :promo_code Set a promo code for a discount.
     # @option opts [Boolean] :active Set active status
     # @return [Array<(SubscriptionResponse, Integer, Hash)>] SubscriptionResponse data, response status code and response headers
-    def update_subscription_with_http_info(version, account_id, opts = {})
+    def update_subscription_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SubscriptionApi.update_subscription ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling SubscriptionApi.update_subscription"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling SubscriptionApi.update_subscription"
       end
       # resource path
-      local_var_path = '/api/{version}/subscription/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/subscription/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

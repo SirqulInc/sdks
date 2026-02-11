@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Question
     # Create a question and related answers by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param question [String] the text of the question
     # @param answers [String] &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -35,14 +34,13 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [QuestionResponse]
-    def create_question(version, account_id, question, answers, active, allocate_tickets, ticket_count, opts = {})
-      data, _status_code, _headers = create_question_with_http_info(version, account_id, question, answers, active, allocate_tickets, ticket_count, opts)
+    def create_question(account_id, question, answers, active, allocate_tickets, ticket_count, opts = {})
+      data, _status_code, _headers = create_question_with_http_info(account_id, question, answers, active, allocate_tickets, ticket_count, opts)
       data
     end
 
     # Create Question
     # Create a question and related answers by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param question [String] the text of the question
     # @param answers [String] &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -56,13 +54,9 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [Array<(QuestionResponse, Integer, Hash)>] QuestionResponse data, response status code and response headers
-    def create_question_with_http_info(version, account_id, question, answers, active, allocate_tickets, ticket_count, opts = {})
+    def create_question_with_http_info(account_id, question, answers, active, allocate_tickets, ticket_count, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuestionApi.create_question ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling QuestionApi.create_question"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -89,7 +83,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'ticket_count' when calling QuestionApi.create_question"
       end
       # resource path
-      local_var_path = '/api/{version}/game/question/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/question/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -141,30 +135,24 @@ module OpenapiClient
 
     # Delete Question
     # Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-    # @param version [Float] 
     # @param question_id [Integer] the id of the question to delete
     # @param account_id [Integer] the id of the account that can execute this request
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_question(version, question_id, account_id, opts = {})
-      data, _status_code, _headers = delete_question_with_http_info(version, question_id, account_id, opts)
+    def delete_question(question_id, account_id, opts = {})
+      data, _status_code, _headers = delete_question_with_http_info(question_id, account_id, opts)
       data
     end
 
     # Delete Question
     # Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-    # @param version [Float] 
     # @param question_id [Integer] the id of the question to delete
     # @param account_id [Integer] the id of the account that can execute this request
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_question_with_http_info(version, question_id, account_id, opts = {})
+    def delete_question_with_http_info(question_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuestionApi.delete_question ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling QuestionApi.delete_question"
       end
       # verify the required parameter 'question_id' is set
       if @api_client.config.client_side_validation && question_id.nil?
@@ -175,7 +163,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling QuestionApi.delete_question"
       end
       # resource path
-      local_var_path = '/api/{version}/game/question/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/question/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -218,30 +206,24 @@ module OpenapiClient
 
     # Get Question
     # Get a question by the given id.
-    # @param version [Float] 
     # @param question_id [Integer] the id of the question to get
     # @param account_id [Integer] the id of the account that can make this request
     # @param [Hash] opts the optional parameters
     # @return [QuestionResponse]
-    def get_question(version, question_id, account_id, opts = {})
-      data, _status_code, _headers = get_question_with_http_info(version, question_id, account_id, opts)
+    def get_question(question_id, account_id, opts = {})
+      data, _status_code, _headers = get_question_with_http_info(question_id, account_id, opts)
       data
     end
 
     # Get Question
     # Get a question by the given id.
-    # @param version [Float] 
     # @param question_id [Integer] the id of the question to get
     # @param account_id [Integer] the id of the account that can make this request
     # @param [Hash] opts the optional parameters
     # @return [Array<(QuestionResponse, Integer, Hash)>] QuestionResponse data, response status code and response headers
-    def get_question_with_http_info(version, question_id, account_id, opts = {})
+    def get_question_with_http_info(question_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuestionApi.get_question ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling QuestionApi.get_question"
       end
       # verify the required parameter 'question_id' is set
       if @api_client.config.client_side_validation && question_id.nil?
@@ -252,7 +234,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling QuestionApi.get_question"
       end
       # resource path
-      local_var_path = '/api/{version}/game/question/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/question/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -295,7 +277,6 @@ module OpenapiClient
 
     # Search Questions
     # Search for questions by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param sort_field [String] The column to sort the search on
     # @param descending [Boolean] The order to return the search results
@@ -305,14 +286,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword for searching questions with matching tags or question text.
     # @return [Array<QuestionResponse>]
-    def search_questions(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
-      data, _status_code, _headers = search_questions_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts)
+    def search_questions(account_id, sort_field, descending, active_only, start, limit, opts = {})
+      data, _status_code, _headers = search_questions_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts)
       data
     end
 
     # Search Questions
     # Search for questions by the given params.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param sort_field [String] The column to sort the search on
     # @param descending [Boolean] The order to return the search results
@@ -322,13 +302,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword The keyword for searching questions with matching tags or question text.
     # @return [Array<(Array<QuestionResponse>, Integer, Hash)>] Array<QuestionResponse> data, response status code and response headers
-    def search_questions_with_http_info(version, account_id, sort_field, descending, active_only, start, limit, opts = {})
+    def search_questions_with_http_info(account_id, sort_field, descending, active_only, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuestionApi.search_questions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling QuestionApi.search_questions"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -355,7 +331,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling QuestionApi.search_questions"
       end
       # resource path
-      local_var_path = '/api/{version}/game/question/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/question/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -403,7 +379,6 @@ module OpenapiClient
 
     # Update Question
     # Update a question and related answers.
-    # @param version [Float] 
     # @param question_id [Integer] The id of the question to update.
     # @param account_id [Integer] The logged in user.
     # @param ticket_count [Integer] The number of tickets to reward
@@ -418,14 +393,13 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [QuestionResponse]
-    def update_question(version, question_id, account_id, ticket_count, opts = {})
-      data, _status_code, _headers = update_question_with_http_info(version, question_id, account_id, ticket_count, opts)
+    def update_question(question_id, account_id, ticket_count, opts = {})
+      data, _status_code, _headers = update_question_with_http_info(question_id, account_id, ticket_count, opts)
       data
     end
 
     # Update Question
     # Update a question and related answers.
-    # @param version [Float] 
     # @param question_id [Integer] The id of the question to update.
     # @param account_id [Integer] The logged in user.
     # @param ticket_count [Integer] The number of tickets to reward
@@ -440,13 +414,9 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @return [Array<(QuestionResponse, Integer, Hash)>] QuestionResponse data, response status code and response headers
-    def update_question_with_http_info(version, question_id, account_id, ticket_count, opts = {})
+    def update_question_with_http_info(question_id, account_id, ticket_count, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: QuestionApi.update_question ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling QuestionApi.update_question"
       end
       # verify the required parameter 'question_id' is set
       if @api_client.config.client_side_validation && question_id.nil?
@@ -461,7 +431,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'ticket_count' when calling QuestionApi.update_question"
       end
       # resource path
-      local_var_path = '/api/{version}/game/question/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/game/question/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

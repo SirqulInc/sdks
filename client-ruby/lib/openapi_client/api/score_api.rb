@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Score
     # Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The game application key to save the score for.
     # @param points [Integer] The score
@@ -34,14 +33,13 @@ module OpenapiClient
     # @option opts [Integer] :time_taken The time taken to complete task
     # @option opts [Boolean] :highest 
     # @return [ScoreResponse]
-    def create_score(version, account_id, app_key, points, opts = {})
-      data, _status_code, _headers = create_score_with_http_info(version, account_id, app_key, points, opts)
+    def create_score(account_id, app_key, points, opts = {})
+      data, _status_code, _headers = create_score_with_http_info(account_id, app_key, points, opts)
       data
     end
 
     # Create Score
     # Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The game application key to save the score for.
     # @param points [Integer] The score
@@ -54,13 +52,9 @@ module OpenapiClient
     # @option opts [Integer] :time_taken The time taken to complete task
     # @option opts [Boolean] :highest 
     # @return [Array<(ScoreResponse, Integer, Hash)>] ScoreResponse data, response status code and response headers
-    def create_score_with_http_info(version, account_id, app_key, points, opts = {})
+    def create_score_with_http_info(account_id, app_key, points, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScoreApi.create_score ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScoreApi.create_score"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -75,7 +69,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'points' when calling ScoreApi.create_score"
       end
       # resource path
-      local_var_path = '/api/{version}/score/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/score/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -126,7 +120,6 @@ module OpenapiClient
 
     # Get Score
     # Get the high score for an item.  Pass in the full path IDs for the score.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The game application key to get the level for.
     # @param [Hash] opts the optional parameters
@@ -138,14 +131,13 @@ module OpenapiClient
     # @option opts [String] :score_object_type The object type to filter scores by (TicketObjectType)
     # @option opts [String] :score_status The status of the score to filter (ScoreStatus)
     # @return [ScoreResponse]
-    def get_score(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = get_score_with_http_info(version, account_id, app_key, opts)
+    def get_score(account_id, app_key, opts = {})
+      data, _status_code, _headers = get_score_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Get Score
     # Get the high score for an item.  Pass in the full path IDs for the score.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The game application key to get the level for.
     # @param [Hash] opts the optional parameters
@@ -157,13 +149,9 @@ module OpenapiClient
     # @option opts [String] :score_object_type The object type to filter scores by (TicketObjectType)
     # @option opts [String] :score_status The status of the score to filter (ScoreStatus)
     # @return [Array<(ScoreResponse, Integer, Hash)>] ScoreResponse data, response status code and response headers
-    def get_score_with_http_info(version, account_id, app_key, opts = {})
+    def get_score_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScoreApi.get_score ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScoreApi.get_score"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -174,7 +162,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ScoreApi.get_score"
       end
       # resource path
-      local_var_path = '/api/{version}/score/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/score/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -224,7 +212,6 @@ module OpenapiClient
 
     # Search Score
     # Search the scores for an item.  Pass in the full path IDs for the scores.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The game application key to get the level for.
     # @param [Hash] opts the optional parameters
@@ -234,14 +221,13 @@ module OpenapiClient
     # @option opts [Integer] :game_level_id The gameLevelId to score for.
     # @option opts [Integer] :game_object_id The gameObjectId to score for, null if level based scoring.
     # @return [Array<ScoreResponse>]
-    def search_scores(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = search_scores_with_http_info(version, account_id, app_key, opts)
+    def search_scores(account_id, app_key, opts = {})
+      data, _status_code, _headers = search_scores_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Search Score
     # Search the scores for an item.  Pass in the full path IDs for the scores.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The game application key to get the level for.
     # @param [Hash] opts the optional parameters
@@ -251,13 +237,9 @@ module OpenapiClient
     # @option opts [Integer] :game_level_id The gameLevelId to score for.
     # @option opts [Integer] :game_object_id The gameObjectId to score for, null if level based scoring.
     # @return [Array<(Array<ScoreResponse>, Integer, Hash)>] Array<ScoreResponse> data, response status code and response headers
-    def search_scores_with_http_info(version, account_id, app_key, opts = {})
+    def search_scores_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ScoreApi.search_scores ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ScoreApi.search_scores"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -268,7 +250,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling ScoreApi.search_scores"
       end
       # resource path
-      local_var_path = '/api/{version}/score/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/score/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

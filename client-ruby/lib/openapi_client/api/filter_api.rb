@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Filter
     # Create a filter
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the target application)
     # @param name [String] The name of the filter
     # @param [Hash] opts the optional parameters
@@ -33,14 +32,13 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets whether the filter is active or inactive (hidden from consumers)
     # @option opts [String] :meta_data external custom client defined data
     # @return [FilterTreeResponse]
-    def create_filter(version, account_id, name, opts = {})
-      data, _status_code, _headers = create_filter_with_http_info(version, account_id, name, opts)
+    def create_filter(account_id, name, opts = {})
+      data, _status_code, _headers = create_filter_with_http_info(account_id, name, opts)
       data
     end
 
     # Create Filter
     # Create a filter
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the target application)
     # @param name [String] The name of the filter
     # @param [Hash] opts the optional parameters
@@ -52,13 +50,9 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets whether the filter is active or inactive (hidden from consumers)
     # @option opts [String] :meta_data external custom client defined data
     # @return [Array<(FilterTreeResponse, Integer, Hash)>] FilterTreeResponse data, response status code and response headers
-    def create_filter_with_http_info(version, account_id, name, opts = {})
+    def create_filter_with_http_info(account_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilterApi.create_filter ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FilterApi.create_filter"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -69,7 +63,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'name' when calling FilterApi.create_filter"
       end
       # resource path
-      local_var_path = '/api/{version}/filter/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/filter/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -119,30 +113,24 @@ module OpenapiClient
 
     # Delete Filter
     # Delete a filter.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the filter&#39;s assigned application)
     # @param filter_id [Integer] The ID of the filter to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_filter(version, account_id, filter_id, opts = {})
-      data, _status_code, _headers = delete_filter_with_http_info(version, account_id, filter_id, opts)
+    def delete_filter(account_id, filter_id, opts = {})
+      data, _status_code, _headers = delete_filter_with_http_info(account_id, filter_id, opts)
       data
     end
 
     # Delete Filter
     # Delete a filter.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user (must have permissions to the filter&#39;s assigned application)
     # @param filter_id [Integer] The ID of the filter to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_filter_with_http_info(version, account_id, filter_id, opts = {})
+    def delete_filter_with_http_info(account_id, filter_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilterApi.delete_filter ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FilterApi.delete_filter"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -153,7 +141,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'filter_id' when calling FilterApi.delete_filter"
       end
       # resource path
-      local_var_path = '/api/{version}/filter/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/filter/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -196,35 +184,29 @@ module OpenapiClient
 
     # Get Filter
     # Get the details of a specific filter. Recursively include all child filters and their children.
-    # @param version [Float] 
     # @param filter_id [Integer] the id of the filter to get
     # @param [Hash] opts the optional parameters
     # @return [FilterTreeResponse]
-    def get_filter(version, filter_id, opts = {})
-      data, _status_code, _headers = get_filter_with_http_info(version, filter_id, opts)
+    def get_filter(filter_id, opts = {})
+      data, _status_code, _headers = get_filter_with_http_info(filter_id, opts)
       data
     end
 
     # Get Filter
     # Get the details of a specific filter. Recursively include all child filters and their children.
-    # @param version [Float] 
     # @param filter_id [Integer] the id of the filter to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(FilterTreeResponse, Integer, Hash)>] FilterTreeResponse data, response status code and response headers
-    def get_filter_with_http_info(version, filter_id, opts = {})
+    def get_filter_with_http_info(filter_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilterApi.get_filter ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FilterApi.get_filter"
       end
       # verify the required parameter 'filter_id' is set
       if @api_client.config.client_side_validation && filter_id.nil?
         fail ArgumentError, "Missing the required parameter 'filter_id' when calling FilterApi.get_filter"
       end
       # resource path
-      local_var_path = '/api/{version}/filter/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/filter/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -266,7 +248,6 @@ module OpenapiClient
 
     # Search Filters
     # Search for filters.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [String] :keyword The string to search on
@@ -279,14 +260,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The number of records to return (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active categories (default to true)
     # @return [Array<FilterResponse>]
-    def search_filters(version, opts = {})
-      data, _status_code, _headers = search_filters_with_http_info(version, opts)
+    def search_filters(opts = {})
+      data, _status_code, _headers = search_filters_with_http_info(opts)
       data
     end
 
     # Search Filters
     # Search for filters.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [String] :keyword The string to search on
@@ -299,13 +279,9 @@ module OpenapiClient
     # @option opts [Integer] :limit The number of records to return (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active categories (default to true)
     # @return [Array<(Array<FilterResponse>, Integer, Hash)>] Array<FilterResponse> data, response status code and response headers
-    def search_filters_with_http_info(version, opts = {})
+    def search_filters_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilterApi.search_filters ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FilterApi.search_filters"
       end
       allowable_values = ["ALL", "GLOBAL", "MINE"]
       if @api_client.config.client_side_validation && opts[:'response_group'] && !allowable_values.include?(opts[:'response_group'])
@@ -316,7 +292,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/filter/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/filter/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -367,7 +343,6 @@ module OpenapiClient
 
     # Update Filter
     # Update a filter.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param filter_id [Integer] The ID of the filter to edit
     # @param [Hash] opts the optional parameters
@@ -379,14 +354,13 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets whether the filter is active or inactive (hidden from consumers)
     # @option opts [String] :meta_data external custom client defined data
     # @return [FilterTreeResponse]
-    def update_filter(version, account_id, filter_id, opts = {})
-      data, _status_code, _headers = update_filter_with_http_info(version, account_id, filter_id, opts)
+    def update_filter(account_id, filter_id, opts = {})
+      data, _status_code, _headers = update_filter_with_http_info(account_id, filter_id, opts)
       data
     end
 
     # Update Filter
     # Update a filter.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param filter_id [Integer] The ID of the filter to edit
     # @param [Hash] opts the optional parameters
@@ -398,13 +372,9 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets whether the filter is active or inactive (hidden from consumers)
     # @option opts [String] :meta_data external custom client defined data
     # @return [Array<(FilterTreeResponse, Integer, Hash)>] FilterTreeResponse data, response status code and response headers
-    def update_filter_with_http_info(version, account_id, filter_id, opts = {})
+    def update_filter_with_http_info(account_id, filter_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FilterApi.update_filter ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FilterApi.update_filter"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -415,7 +385,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'filter_id' when calling FilterApi.update_filter"
       end
       # resource path
-      local_var_path = '/api/{version}/filter/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/filter/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

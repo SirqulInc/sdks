@@ -20,7 +20,6 @@ module OpenapiClient
       @api_client = api_client
     end
     # Detail Status
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param batch_id [Integer] the id of the batch
     # @param response_group [String] The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -28,13 +27,12 @@ module OpenapiClient
     # @param limit [Integer] the limit of the pagination
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def get_status_csv(version, account_id, batch_id, response_group, start, limit, opts = {})
-      data, _status_code, _headers = get_status_csv_with_http_info(version, account_id, batch_id, response_group, start, limit, opts)
+    def get_status_csv(account_id, batch_id, response_group, start, limit, opts = {})
+      data, _status_code, _headers = get_status_csv_with_http_info(account_id, batch_id, response_group, start, limit, opts)
       data
     end
 
     # Detail Status
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param batch_id [Integer] the id of the batch
     # @param response_group [String] The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -42,13 +40,9 @@ module OpenapiClient
     # @param limit [Integer] the limit of the pagination
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def get_status_csv_with_http_info(version, account_id, batch_id, response_group, start, limit, opts = {})
+    def get_status_csv_with_http_info(account_id, batch_id, response_group, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CSVImportApi.get_status_csv ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CSVImportApi.get_status_csv"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -76,7 +70,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling CSVImportApi.get_status_csv"
       end
       # resource path
-      local_var_path = '/api/{version}/csvimport/batch/status/details'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/csvimport/batch/status/details'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -122,32 +116,26 @@ module OpenapiClient
 
     # Search Status
     # Retrieves batches for a user.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param start [Integer] the start of the pagination
     # @param limit [Integer] the limit of the pagination
     # @param [Hash] opts the optional parameters
     # @return [CsvImportResponse]
-    def list_status_csv(version, account_id, start, limit, opts = {})
-      data, _status_code, _headers = list_status_csv_with_http_info(version, account_id, start, limit, opts)
+    def list_status_csv(account_id, start, limit, opts = {})
+      data, _status_code, _headers = list_status_csv_with_http_info(account_id, start, limit, opts)
       data
     end
 
     # Search Status
     # Retrieves batches for a user.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param start [Integer] the start of the pagination
     # @param limit [Integer] the limit of the pagination
     # @param [Hash] opts the optional parameters
     # @return [Array<(CsvImportResponse, Integer, Hash)>] CsvImportResponse data, response status code and response headers
-    def list_status_csv_with_http_info(version, account_id, start, limit, opts = {})
+    def list_status_csv_with_http_info(account_id, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CSVImportApi.list_status_csv ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CSVImportApi.list_status_csv"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -162,7 +150,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling CSVImportApi.list_status_csv"
       end
       # resource path
-      local_var_path = '/api/{version}/csvimport/batch/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/csvimport/batch/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -206,30 +194,24 @@ module OpenapiClient
 
     # Batch Status
     # Checks status of batch upload.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param batch_id [Integer] the id of the batch to get its status
     # @param [Hash] opts the optional parameters
     # @return [CsvImportResponse]
-    def status_csv(version, account_id, batch_id, opts = {})
-      data, _status_code, _headers = status_csv_with_http_info(version, account_id, batch_id, opts)
+    def status_csv(account_id, batch_id, opts = {})
+      data, _status_code, _headers = status_csv_with_http_info(account_id, batch_id, opts)
       data
     end
 
     # Batch Status
     # Checks status of batch upload.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param batch_id [Integer] the id of the batch to get its status
     # @param [Hash] opts the optional parameters
     # @return [Array<(CsvImportResponse, Integer, Hash)>] CsvImportResponse data, response status code and response headers
-    def status_csv_with_http_info(version, account_id, batch_id, opts = {})
+    def status_csv_with_http_info(account_id, batch_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CSVImportApi.status_csv ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CSVImportApi.status_csv"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -240,7 +222,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'batch_id' when calling CSVImportApi.status_csv"
       end
       # resource path
-      local_var_path = '/api/{version}/csvimport/batch/status'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/csvimport/batch/status'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -283,7 +265,6 @@ module OpenapiClient
 
     # Upload CSV
     # Uploads a CSV import file.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param upload_type [String] the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
     # @param import_file [File] the import file to reference
@@ -291,14 +272,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key the application key
     # @return [CsvImportResponse]
-    def upload_csv(version, account_id, upload_type, import_file, file_format, opts = {})
-      data, _status_code, _headers = upload_csv_with_http_info(version, account_id, upload_type, import_file, file_format, opts)
+    def upload_csv(account_id, upload_type, import_file, file_format, opts = {})
+      data, _status_code, _headers = upload_csv_with_http_info(account_id, upload_type, import_file, file_format, opts)
       data
     end
 
     # Upload CSV
     # Uploads a CSV import file.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account
     # @param upload_type [String] the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
     # @param import_file [File] the import file to reference
@@ -306,13 +286,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key the application key
     # @return [Array<(CsvImportResponse, Integer, Hash)>] CsvImportResponse data, response status code and response headers
-    def upload_csv_with_http_info(version, account_id, upload_type, import_file, file_format, opts = {})
+    def upload_csv_with_http_info(account_id, upload_type, import_file, file_format, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CSVImportApi.upload_csv ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CSVImportApi.upload_csv"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -341,7 +317,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"file_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/csvimport/upload'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/csvimport/upload'
 
       # query parameters
       query_params = opts[:query_params] || {}

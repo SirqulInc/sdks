@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Tournament
     # Create a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The appKey the tournament is created for.
     # @param title [String] The title of the tournament
@@ -59,14 +58,13 @@ module OpenapiClient
     # @option opts [String] :winner_tag This sets what analytic tag is used when a winner is determined
     # @option opts [String] :tie_tag This sets what analytic tag is used when a tie has occurred
     # @return [TournamentResponse]
-    def create_tournament(version, account_id, app_key, title, cost_to_play, start_date, opts = {})
-      data, _status_code, _headers = create_tournament_with_http_info(version, account_id, app_key, title, cost_to_play, start_date, opts)
+    def create_tournament(account_id, app_key, title, cost_to_play, start_date, opts = {})
+      data, _status_code, _headers = create_tournament_with_http_info(account_id, app_key, title, cost_to_play, start_date, opts)
       data
     end
 
     # Create Tournament
     # Create a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The appKey the tournament is created for.
     # @param title [String] The title of the tournament
@@ -104,13 +102,9 @@ module OpenapiClient
     # @option opts [String] :winner_tag This sets what analytic tag is used when a winner is determined
     # @option opts [String] :tie_tag This sets what analytic tag is used when a tie has occurred
     # @return [Array<(TournamentResponse, Integer, Hash)>] TournamentResponse data, response status code and response headers
-    def create_tournament_with_http_info(version, account_id, app_key, title, cost_to_play, start_date, opts = {})
+    def create_tournament_with_http_info(account_id, app_key, title, cost_to_play, start_date, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.create_tournament ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.create_tournament"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -145,7 +139,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -221,30 +215,24 @@ module OpenapiClient
 
     # Delete Tournament
     # Delete a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param mission_id [Integer] the id of the mission to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_tournament(version, account_id, mission_id, opts = {})
-      data, _status_code, _headers = delete_tournament_with_http_info(version, account_id, mission_id, opts)
+    def delete_tournament(account_id, mission_id, opts = {})
+      data, _status_code, _headers = delete_tournament_with_http_info(account_id, mission_id, opts)
       data
     end
 
     # Delete Tournament
     # Delete a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param mission_id [Integer] the id of the mission to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_tournament_with_http_info(version, account_id, mission_id, opts = {})
+    def delete_tournament_with_http_info(account_id, mission_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.delete_tournament ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.delete_tournament"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -255,7 +243,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'mission_id' when calling TournamentApi.delete_tournament"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -298,7 +286,6 @@ module OpenapiClient
 
     # Get Tournament
     # Get a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the logged in user
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :mission_id The id of the mission to return (either missionId or joinCode is required)
@@ -306,14 +293,13 @@ module OpenapiClient
     # @option opts [String] :include_scores Determines which type of scores are returned. Possible values include: ALL, MINE
     # @option opts [Integer] :object_preview_size Determines the max number of game objects that will get returned for each game level response (default to 50)
     # @return [TournamentResponse]
-    def get_tournament(version, account_id, opts = {})
-      data, _status_code, _headers = get_tournament_with_http_info(version, account_id, opts)
+    def get_tournament(account_id, opts = {})
+      data, _status_code, _headers = get_tournament_with_http_info(account_id, opts)
       data
     end
 
     # Get Tournament
     # Get a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the logged in user
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :mission_id The id of the mission to return (either missionId or joinCode is required)
@@ -321,13 +307,9 @@ module OpenapiClient
     # @option opts [String] :include_scores Determines which type of scores are returned. Possible values include: ALL, MINE
     # @option opts [Integer] :object_preview_size Determines the max number of game objects that will get returned for each game level response (default to 50)
     # @return [Array<(TournamentResponse, Integer, Hash)>] TournamentResponse data, response status code and response headers
-    def get_tournament_with_http_info(version, account_id, opts = {})
+    def get_tournament_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.get_tournament ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.get_tournament"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -338,7 +320,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"include_scores\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -384,7 +366,6 @@ module OpenapiClient
 
     # Search Tournament Objects
     # Search on game objects of tournaments
-    # @param version [Float] 
     # @param account_id [Integer] the account ID
     # @param game_level_id [Integer] the game level id to filter results by
     # @param [Hash] opts the optional parameters
@@ -393,14 +374,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [SirqulResponse]
-    def search_objects(version, account_id, game_level_id, opts = {})
-      data, _status_code, _headers = search_objects_with_http_info(version, account_id, game_level_id, opts)
+    def search_objects(account_id, game_level_id, opts = {})
+      data, _status_code, _headers = search_objects_with_http_info(account_id, game_level_id, opts)
       data
     end
 
     # Search Tournament Objects
     # Search on game objects of tournaments
-    # @param version [Float] 
     # @param account_id [Integer] the account ID
     # @param game_level_id [Integer] the game level id to filter results by
     # @param [Hash] opts the optional parameters
@@ -409,13 +389,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def search_objects_with_http_info(version, account_id, game_level_id, opts = {})
+    def search_objects_with_http_info(account_id, game_level_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.search_objects ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.search_objects"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -430,7 +406,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/object/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/object/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -477,7 +453,6 @@ module OpenapiClient
 
     # Search Tournament Rounds
     # Search for the user's tournament games.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -488,14 +463,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [SirqulResponse]
-    def search_rounds(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = search_rounds_with_http_info(version, account_id, app_key, opts)
+    def search_rounds(account_id, app_key, opts = {})
+      data, _status_code, _headers = search_rounds_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Search Tournament Rounds
     # Search for the user&#39;s tournament games.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
@@ -506,13 +480,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 20)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def search_rounds_with_http_info(version, account_id, app_key, opts = {})
+    def search_rounds_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.search_rounds ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.search_rounds"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -527,7 +497,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"mission_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/round/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/round/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -576,7 +546,6 @@ module OpenapiClient
 
     # Search Tournaments
     # Search for tournaments
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
@@ -591,14 +560,13 @@ module OpenapiClient
     # @option opts [Integer] :start Start the result set at some index. (default to 0)
     # @option opts [Integer] :limit Limit the result to some number (default to 20)
     # @return [MissionShortResponse]
-    def search_tournaments(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = search_tournaments_with_http_info(version, account_id, app_key, opts)
+    def search_tournaments(account_id, app_key, opts = {})
+      data, _status_code, _headers = search_tournaments_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Search Tournaments
     # Search for tournaments
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
@@ -613,13 +581,9 @@ module OpenapiClient
     # @option opts [Integer] :start Start the result set at some index. (default to 0)
     # @option opts [Integer] :limit Limit the result to some number (default to 20)
     # @return [Array<(MissionShortResponse, Integer, Hash)>] MissionShortResponse data, response status code and response headers
-    def search_tournaments_with_http_info(version, account_id, app_key, opts = {})
+    def search_tournaments_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.search_tournaments ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.search_tournaments"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -638,7 +602,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -691,7 +655,6 @@ module OpenapiClient
 
     # Submit Tournament Score
     # Submit an array of scores for a tournament match. 
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user account ID.
     # @param app_key [String] The application key.
     # @param mission_id [Integer] The missionId to score for
@@ -701,14 +664,13 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :game_level_id The gameLevelId to score for
     # @return [SirqulResponse]
-    def submit_tournament_score(version, account_id, app_key, mission_id, game_id, pack_id, scores, opts = {})
-      data, _status_code, _headers = submit_tournament_score_with_http_info(version, account_id, app_key, mission_id, game_id, pack_id, scores, opts)
+    def submit_tournament_score(account_id, app_key, mission_id, game_id, pack_id, scores, opts = {})
+      data, _status_code, _headers = submit_tournament_score_with_http_info(account_id, app_key, mission_id, game_id, pack_id, scores, opts)
       data
     end
 
     # Submit Tournament Score
     # Submit an array of scores for a tournament match. 
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user account ID.
     # @param app_key [String] The application key.
     # @param mission_id [Integer] The missionId to score for
@@ -718,13 +680,9 @@ module OpenapiClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :game_level_id The gameLevelId to score for
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def submit_tournament_score_with_http_info(version, account_id, app_key, mission_id, game_id, pack_id, scores, opts = {})
+    def submit_tournament_score_with_http_info(account_id, app_key, mission_id, game_id, pack_id, scores, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.submit_tournament_score ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.submit_tournament_score"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -751,7 +709,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'scores' when calling TournamentApi.submit_tournament_score"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/score'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/score'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -799,7 +757,6 @@ module OpenapiClient
 
     # Submit a vote for a multi-stage album tournament.
     # Submit a vote for a multi-stage album tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The application to target
     # @param mission_id [Integer] The tournament&#39;s primary id
@@ -808,14 +765,13 @@ module OpenapiClient
     # @option opts [String] :device_id The unique id of the device making the request (optional)
     # @option opts [Boolean] :check_if_device_already_voted When true, check if the device already voted to prevent duplicate votes from the same device (default to false)
     # @return [SirqulResponse]
-    def submit_tournament_vote(version, account_id, app_key, mission_id, game_object_id, opts = {})
-      data, _status_code, _headers = submit_tournament_vote_with_http_info(version, account_id, app_key, mission_id, game_object_id, opts)
+    def submit_tournament_vote(account_id, app_key, mission_id, game_object_id, opts = {})
+      data, _status_code, _headers = submit_tournament_vote_with_http_info(account_id, app_key, mission_id, game_object_id, opts)
       data
     end
 
     # Submit a vote for a multi-stage album tournament.
     # Submit a vote for a multi-stage album tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param app_key [String] The application to target
     # @param mission_id [Integer] The tournament&#39;s primary id
@@ -824,13 +780,9 @@ module OpenapiClient
     # @option opts [String] :device_id The unique id of the device making the request (optional)
     # @option opts [Boolean] :check_if_device_already_voted When true, check if the device already voted to prevent duplicate votes from the same device (default to false)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def submit_tournament_vote_with_http_info(version, account_id, app_key, mission_id, game_object_id, opts = {})
+    def submit_tournament_vote_with_http_info(account_id, app_key, mission_id, game_object_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.submit_tournament_vote ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.submit_tournament_vote"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -849,7 +801,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'game_object_id' when calling TournamentApi.submit_tournament_vote"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/vote'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/vote'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -896,34 +848,28 @@ module OpenapiClient
 
     # Substitute Tournament Player
     # Service to replace the user's opponent in the current level - pack - mission with an AI account.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param mission_id [Integer] the id of the mission
     # @param pack_id [Integer] the id of the pack
     # @param game_level_id [Integer] the id of the game level
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def substitute_tournament_player(version, account_id, mission_id, pack_id, game_level_id, opts = {})
-      data, _status_code, _headers = substitute_tournament_player_with_http_info(version, account_id, mission_id, pack_id, game_level_id, opts)
+    def substitute_tournament_player(account_id, mission_id, pack_id, game_level_id, opts = {})
+      data, _status_code, _headers = substitute_tournament_player_with_http_info(account_id, mission_id, pack_id, game_level_id, opts)
       data
     end
 
     # Substitute Tournament Player
     # Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param mission_id [Integer] the id of the mission
     # @param pack_id [Integer] the id of the pack
     # @param game_level_id [Integer] the id of the game level
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def substitute_tournament_player_with_http_info(version, account_id, mission_id, pack_id, game_level_id, opts = {})
+    def substitute_tournament_player_with_http_info(account_id, mission_id, pack_id, game_level_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.substitute_tournament_player ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.substitute_tournament_player"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -942,7 +888,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'game_level_id' when calling TournamentApi.substitute_tournament_player"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/substitute'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/substitute'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -987,7 +933,6 @@ module OpenapiClient
 
     # Update Tournament
     # Update a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param mission_id [Integer] The mission/tournament to update
     # @param [Hash] opts the optional parameters
@@ -1024,14 +969,13 @@ module OpenapiClient
     # @option opts [String] :winner_tag This sets what analytic tag is used when a winner is determined
     # @option opts [String] :tie_tag This sets what analytic tag is used when a winner is determined
     # @return [TournamentResponse]
-    def update_tournament(version, account_id, mission_id, opts = {})
-      data, _status_code, _headers = update_tournament_with_http_info(version, account_id, mission_id, opts)
+    def update_tournament(account_id, mission_id, opts = {})
+      data, _status_code, _headers = update_tournament_with_http_info(account_id, mission_id, opts)
       data
     end
 
     # Update Tournament
     # Update a tournament.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param mission_id [Integer] The mission/tournament to update
     # @param [Hash] opts the optional parameters
@@ -1068,13 +1012,9 @@ module OpenapiClient
     # @option opts [String] :winner_tag This sets what analytic tag is used when a winner is determined
     # @option opts [String] :tie_tag This sets what analytic tag is used when a winner is determined
     # @return [Array<(TournamentResponse, Integer, Hash)>] TournamentResponse data, response status code and response headers
-    def update_tournament_with_http_info(version, account_id, mission_id, opts = {})
+    def update_tournament_with_http_info(account_id, mission_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TournamentApi.update_tournament ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TournamentApi.update_tournament"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1093,7 +1033,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tournament/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tournament/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

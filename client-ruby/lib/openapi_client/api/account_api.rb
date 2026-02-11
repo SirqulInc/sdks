@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Search Accounts by Location
     # Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -58,14 +57,13 @@ module OpenapiClient
     # @option opts [Boolean] :verified_user_only Returns only verified users
     # @option opts [Boolean] :content_admin_only Returns only content admin users
     # @return [UserLocationSearchResponse]
-    def account_location_search(version, opts = {})
-      data, _status_code, _headers = account_location_search_with_http_info(version, opts)
+    def account_location_search(opts = {})
+      data, _status_code, _headers = account_location_search_with_http_info(opts)
       data
     end
 
     # Search Accounts by Location
     # Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -102,16 +100,12 @@ module OpenapiClient
     # @option opts [Boolean] :verified_user_only Returns only verified users
     # @option opts [Boolean] :content_admin_only Returns only content admin users
     # @return [Array<(UserLocationSearchResponse, Integer, Hash)>] UserLocationSearchResponse data, response status code and response headers
-    def account_location_search_with_http_info(version, opts = {})
+    def account_location_search_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.account_location_search ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.account_location_search"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -186,7 +180,6 @@ module OpenapiClient
 
     # Block Account
     # Moves or removes an account into the user's blocked group.
-    # @param version [Float] 
     # @param account_id_being_blocked [Integer] The id of the account to be blocked/unblocked
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -196,14 +189,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [SirqulResponse]
-    def block_account(version, account_id_being_blocked, opts = {})
-      data, _status_code, _headers = block_account_with_http_info(version, account_id_being_blocked, opts)
+    def block_account(account_id_being_blocked, opts = {})
+      data, _status_code, _headers = block_account_with_http_info(account_id_being_blocked, opts)
       data
     end
 
     # Block Account
     # Moves or removes an account into the user&#39;s blocked group.
-    # @param version [Float] 
     # @param account_id_being_blocked [Integer] The id of the account to be blocked/unblocked
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -213,20 +205,16 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def block_account_with_http_info(version, account_id_being_blocked, opts = {})
+    def block_account_with_http_info(account_id_being_blocked, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.block_account ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.block_account"
       end
       # verify the required parameter 'account_id_being_blocked' is set
       if @api_client.config.client_side_validation && account_id_being_blocked.nil?
         fail ArgumentError, "Missing the required parameter 'account_id_being_blocked' when calling AccountApi.block_account"
       end
       # resource path
-      local_var_path = '/api/{version}/account/block'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/block'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -274,7 +262,6 @@ module OpenapiClient
 
     # Create Account
     # Create a new account by role.
-    # @param version [Float] 
     # @param username [String] The access token to authenticate with (ex: username)
     # @param password [String] The secret to authenticate with (ex: password)
     # @param [Hash] opts the optional parameters
@@ -349,14 +336,13 @@ module OpenapiClient
     # @option opts [String] :app_nickname The nickname used in the application for this account
     # @option opts [Integer] :personal_audience_id Personal audience id to associate with this account
     # @return [AccountLoginResponse]
-    def create_account(version, username, password, opts = {})
-      data, _status_code, _headers = create_account_with_http_info(version, username, password, opts)
+    def create_account(username, password, opts = {})
+      data, _status_code, _headers = create_account_with_http_info(username, password, opts)
       data
     end
 
     # Create Account
     # Create a new account by role.
-    # @param version [Float] 
     # @param username [String] The access token to authenticate with (ex: username)
     # @param password [String] The secret to authenticate with (ex: password)
     # @param [Hash] opts the optional parameters
@@ -431,13 +417,9 @@ module OpenapiClient
     # @option opts [String] :app_nickname The nickname used in the application for this account
     # @option opts [Integer] :personal_audience_id Personal audience id to associate with this account
     # @return [Array<(AccountLoginResponse, Integer, Hash)>] AccountLoginResponse data, response status code and response headers
-    def create_account_with_http_info(version, username, password, opts = {})
+    def create_account_with_http_info(username, password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.create_account ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.create_account"
       end
       # verify the required parameter 'username' is set
       if @api_client.config.client_side_validation && username.nil?
@@ -448,7 +430,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'password' when calling AccountApi.create_account"
       end
       # resource path
-      local_var_path = '/api/{version}/account/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -561,7 +543,6 @@ module OpenapiClient
 
     # Update Account
     # Edit the user's profile information
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -646,14 +627,13 @@ module OpenapiClient
     # @option opts [Integer] :personal_audience_id Personal Audience
     # @option opts [String] :non_guest_username The user&#39;s username to update with if they currently have a guest username
     # @return [ProfileInfoResponse]
-    def edit_account(version, opts = {})
-      data, _status_code, _headers = edit_account_with_http_info(version, opts)
+    def edit_account(opts = {})
+      data, _status_code, _headers = edit_account_with_http_info(opts)
       data
     end
 
     # Update Account
     # Edit the user&#39;s profile information
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -738,16 +718,12 @@ module OpenapiClient
     # @option opts [Integer] :personal_audience_id Personal Audience
     # @option opts [String] :non_guest_username The user&#39;s username to update with if they currently have a guest username
     # @return [Array<(ProfileInfoResponse, Integer, Hash)>] ProfileInfoResponse data, response status code and response headers
-    def edit_account_with_http_info(version, opts = {})
+    def edit_account_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.edit_account ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.edit_account"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/profile/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/profile/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -870,37 +846,31 @@ module OpenapiClient
 
     # Update Username and Email
     # Update account's own username and/or emailAddress
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :email_address the user&#39;s contact email address (NOT the username) which is also used for email validation
     # @option opts [String] :username the user&#39;s username to update with if they currently have a guest username
     # @return [SirqulResponse]
-    def edit_username(version, opts = {})
-      data, _status_code, _headers = edit_username_with_http_info(version, opts)
+    def edit_username(opts = {})
+      data, _status_code, _headers = edit_username_with_http_info(opts)
       data
     end
 
     # Update Username and Email
     # Update account&#39;s own username and/or emailAddress
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :email_address the user&#39;s contact email address (NOT the username) which is also used for email validation
     # @option opts [String] :username the user&#39;s username to update with if they currently have a guest username
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def edit_username_with_http_info(version, opts = {})
+    def edit_username_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.edit_username ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.edit_username"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/username/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/username/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -945,7 +915,6 @@ module OpenapiClient
 
     # Get Account
     # Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_nulls Return Nulls (default to false)
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -960,14 +929,13 @@ module OpenapiClient
     # @option opts [Float] :latitude Latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude Longitude used to update the user&#39;s current location
     # @return [ProfileResponse]
-    def get_account(version, opts = {})
-      data, _status_code, _headers = get_account_with_http_info(version, opts)
+    def get_account(opts = {})
+      data, _status_code, _headers = get_account_with_http_info(opts)
       data
     end
 
     # Get Account
     # Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_nulls Return Nulls (default to false)
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -982,16 +950,12 @@ module OpenapiClient
     # @option opts [Float] :latitude Latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude Longitude used to update the user&#39;s current location
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def get_account_with_http_info(version, opts = {})
+    def get_account_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.get_account ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.get_account"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/profile/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/profile/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1044,7 +1008,6 @@ module OpenapiClient
 
     # Get Profile Assets
     # Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_nulls Determines whether to return null fields in the response (default to false)
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -1061,14 +1024,13 @@ module OpenapiClient
     # @option opts [Integer] :_l _l
     # @option opts [Integer] :limit Limit of the pagination (default to 0)
     # @return [AssetListResponse]
-    def get_profile_assets(version, opts = {})
-      data, _status_code, _headers = get_profile_assets_with_http_info(version, opts)
+    def get_profile_assets(opts = {})
+      data, _status_code, _headers = get_profile_assets_with_http_info(opts)
       data
     end
 
     # Get Profile Assets
     # Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :return_nulls Determines whether to return null fields in the response (default to false)
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -1085,16 +1047,12 @@ module OpenapiClient
     # @option opts [Integer] :_l _l
     # @option opts [Integer] :limit Limit of the pagination (default to 0)
     # @return [Array<(AssetListResponse, Integer, Hash)>] AssetListResponse data, response status code and response headers
-    def get_profile_assets_with_http_info(version, opts = {})
+    def get_profile_assets_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.get_profile_assets ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.get_profile_assets"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/profile/assets'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/profile/assets'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1149,7 +1107,6 @@ module OpenapiClient
 
     # Search Accounts
     # Gets a user's account profile and their referral List.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :app_key The application key
@@ -1163,14 +1120,13 @@ module OpenapiClient
     # @option opts [Float] :children_list_limit pagination limit for children list
     # @option opts [Boolean] :children_children if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (default to true)
     # @return [nil]
-    def get_referral_list(version, opts = {})
-      get_referral_list_with_http_info(version, opts)
+    def get_referral_list(opts = {})
+      get_referral_list_with_http_info(opts)
       nil
     end
 
     # Search Accounts
     # Gets a user&#39;s account profile and their referral List.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :app_key The application key
@@ -1184,16 +1140,12 @@ module OpenapiClient
     # @option opts [Float] :children_list_limit pagination limit for children list
     # @option opts [Boolean] :children_children if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (default to true)
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_referral_list_with_http_info(version, opts = {})
+    def get_referral_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.get_referral_list ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.get_referral_list"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/referral/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/referral/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1243,37 +1195,31 @@ module OpenapiClient
 
     # Get Account Settings
     # Get the account settings for a user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [UserSettingsResponse]
-    def get_settings(version, opts = {})
-      data, _status_code, _headers = get_settings_with_http_info(version, opts)
+    def get_settings(opts = {})
+      data, _status_code, _headers = get_settings_with_http_info(opts)
       data
     end
 
     # Get Account Settings
     # Get the account settings for a user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(UserSettingsResponse, Integer, Hash)>] UserSettingsResponse data, response status code and response headers
-    def get_settings_with_http_info(version, opts = {})
+    def get_settings_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.get_settings ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.get_settings"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/settings/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/settings/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1318,7 +1264,6 @@ module OpenapiClient
 
     # Login as Account
     # A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-    # @param version [Float] 
     # @param access_token [String] 
     # @param app_key [String] 
     # @param [Hash] opts the optional parameters
@@ -1332,14 +1277,13 @@ module OpenapiClient
     # @option opts [Float] :latitude 
     # @option opts [Float] :longitude 
     # @return [ProfileResponse]
-    def login_delegate(version, access_token, app_key, opts = {})
-      data, _status_code, _headers = login_delegate_with_http_info(version, access_token, app_key, opts)
+    def login_delegate(access_token, app_key, opts = {})
+      data, _status_code, _headers = login_delegate_with_http_info(access_token, app_key, opts)
       data
     end
 
     # Login as Account
     # A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-    # @param version [Float] 
     # @param access_token [String] 
     # @param app_key [String] 
     # @param [Hash] opts the optional parameters
@@ -1353,13 +1297,9 @@ module OpenapiClient
     # @option opts [Float] :latitude 
     # @option opts [Float] :longitude 
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def login_delegate_with_http_info(version, access_token, app_key, opts = {})
+    def login_delegate_with_http_info(access_token, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.login_delegate ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.login_delegate"
       end
       # verify the required parameter 'access_token' is set
       if @api_client.config.client_side_validation && access_token.nil?
@@ -1370,7 +1310,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling AccountApi.login_delegate"
       end
       # resource path
-      local_var_path = '/api/{version}/account/login/delegate'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/login/delegate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1422,7 +1362,6 @@ module OpenapiClient
 
     # Login Account
     # General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-    # @param version [Float] 
     # @param access_token [String] The access token to authenticate with (ex: username or fb token)
     # @param network_uid [String] The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
     # @param app_key [String] The application key
@@ -1438,14 +1377,13 @@ module OpenapiClient
     # @option opts [Integer] :chosen_account_id Chosen account Id sent from the app - pass in the 2nd request to choose an account from multiple accounts matching the email - use one of the account id from the previous request (default to 0)
     # @option opts [Integer] :third_party_credential_id Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (default to 0)
     # @return [ProfileResponse]
-    def login_general(version, access_token, network_uid, app_key, opts = {})
-      data, _status_code, _headers = login_general_with_http_info(version, access_token, network_uid, app_key, opts)
+    def login_general(access_token, network_uid, app_key, opts = {})
+      data, _status_code, _headers = login_general_with_http_info(access_token, network_uid, app_key, opts)
       data
     end
 
     # Login Account
     # General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-    # @param version [Float] 
     # @param access_token [String] The access token to authenticate with (ex: username or fb token)
     # @param network_uid [String] The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
     # @param app_key [String] The application key
@@ -1461,13 +1399,9 @@ module OpenapiClient
     # @option opts [Integer] :chosen_account_id Chosen account Id sent from the app - pass in the 2nd request to choose an account from multiple accounts matching the email - use one of the account id from the previous request (default to 0)
     # @option opts [Integer] :third_party_credential_id Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (default to 0)
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def login_general_with_http_info(version, access_token, network_uid, app_key, opts = {})
+    def login_general_with_http_info(access_token, network_uid, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.login_general ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.login_general"
       end
       # verify the required parameter 'access_token' is set
       if @api_client.config.client_side_validation && access_token.nil?
@@ -1482,7 +1416,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling AccountApi.login_general"
       end
       # resource path
-      local_var_path = '/api/{version}/account/login'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/login'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1536,7 +1470,6 @@ module OpenapiClient
 
     # Login Account (Username)
     # Login to system with an account
-    # @param version [Float] 
     # @param username [String] the user&#39;s email address they used to sign-up
     # @param password [String] the password
     # @param [Hash] opts the optional parameters
@@ -1549,14 +1482,13 @@ module OpenapiClient
     # @option opts [Boolean] :return_profile the profile to return
     # @option opts [String] :response_filters a comma separated list of ProfileFilters for filtering the returned response data
     # @return [ProfileResponse]
-    def login_username(version, username, password, opts = {})
-      data, _status_code, _headers = login_username_with_http_info(version, username, password, opts)
+    def login_username(username, password, opts = {})
+      data, _status_code, _headers = login_username_with_http_info(username, password, opts)
       data
     end
 
     # Login Account (Username)
     # Login to system with an account
-    # @param version [Float] 
     # @param username [String] the user&#39;s email address they used to sign-up
     # @param password [String] the password
     # @param [Hash] opts the optional parameters
@@ -1569,13 +1501,9 @@ module OpenapiClient
     # @option opts [Boolean] :return_profile the profile to return
     # @option opts [String] :response_filters a comma separated list of ProfileFilters for filtering the returned response data
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def login_username_with_http_info(version, username, password, opts = {})
+    def login_username_with_http_info(username, password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.login_username ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.login_username"
       end
       # verify the required parameter 'username' is set
       if @api_client.config.client_side_validation && username.nil?
@@ -1586,7 +1514,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'password' when calling AccountApi.login_username"
       end
       # resource path
-      local_var_path = '/api/{version}/account/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1637,7 +1565,6 @@ module OpenapiClient
 
     # Logout Account
     # Cleans up the users data for logging out.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [String] :device_id_type Device Id Type
@@ -1645,14 +1572,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [SirqulResponse]
-    def logout(version, opts = {})
-      data, _status_code, _headers = logout_with_http_info(version, opts)
+    def logout(opts = {})
+      data, _status_code, _headers = logout_with_http_info(opts)
       data
     end
 
     # Logout Account
     # Cleans up the users data for logging out.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [String] :device_id_type Device Id Type
@@ -1660,16 +1586,12 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def logout_with_http_info(version, opts = {})
+    def logout_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.logout ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.logout"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/logout'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/logout'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1715,34 +1637,28 @@ module OpenapiClient
 
     # Merge Account
     # Merges the analytics, achievements, leaderboards of two accounts.
-    # @param version [Float] 
     # @param merge_account_id [Integer] The id of the account to being merged
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def merge_account(version, merge_account_id, app_key, opts = {})
-      data, _status_code, _headers = merge_account_with_http_info(version, merge_account_id, app_key, opts)
+    def merge_account(merge_account_id, app_key, opts = {})
+      data, _status_code, _headers = merge_account_with_http_info(merge_account_id, app_key, opts)
       data
     end
 
     # Merge Account
     # Merges the analytics, achievements, leaderboards of two accounts.
-    # @param version [Float] 
     # @param merge_account_id [Integer] The id of the account to being merged
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def merge_account_with_http_info(version, merge_account_id, app_key, opts = {})
+    def merge_account_with_http_info(merge_account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.merge_account ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.merge_account"
       end
       # verify the required parameter 'merge_account_id' is set
       if @api_client.config.client_side_validation && merge_account_id.nil?
@@ -1753,7 +1669,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling AccountApi.merge_account"
       end
       # resource path
-      local_var_path = '/api/{version}/account/merge'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/merge'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1798,34 +1714,28 @@ module OpenapiClient
 
     # Update Password
     # Update the account password.
-    # @param version [Float] 
     # @param account_id [Integer] The account to update
     # @param old_password [String] The current password, used to validate access
     # @param new_password [String] The new password to set, cannot be empty
     # @param confirm_password [String] The new password to confirm, must match newPassword
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def password_change(version, account_id, old_password, new_password, confirm_password, opts = {})
-      data, _status_code, _headers = password_change_with_http_info(version, account_id, old_password, new_password, confirm_password, opts)
+    def password_change(account_id, old_password, new_password, confirm_password, opts = {})
+      data, _status_code, _headers = password_change_with_http_info(account_id, old_password, new_password, confirm_password, opts)
       data
     end
 
     # Update Password
     # Update the account password.
-    # @param version [Float] 
     # @param account_id [Integer] The account to update
     # @param old_password [String] The current password, used to validate access
     # @param new_password [String] The new password to set, cannot be empty
     # @param confirm_password [String] The new password to confirm, must match newPassword
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def password_change_with_http_info(version, account_id, old_password, new_password, confirm_password, opts = {})
+    def password_change_with_http_info(account_id, old_password, new_password, confirm_password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.password_change ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.password_change"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1844,7 +1754,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'confirm_password' when calling AccountApi.password_change"
       end
       # resource path
-      local_var_path = '/api/{version}/account/passwordchange'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/passwordchange'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1889,32 +1799,26 @@ module OpenapiClient
 
     # Reset Password
     # Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-    # @param version [Float] 
     # @param token [String] The token associated with the account to update, good for 24 hours
     # @param password [String] The new password to set, cannot be empty
     # @param confirm [String] The new password to confirm, must match newPassword
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def password_reset(version, token, password, confirm, opts = {})
-      data, _status_code, _headers = password_reset_with_http_info(version, token, password, confirm, opts)
+    def password_reset(token, password, confirm, opts = {})
+      data, _status_code, _headers = password_reset_with_http_info(token, password, confirm, opts)
       data
     end
 
     # Reset Password
     # Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-    # @param version [Float] 
     # @param token [String] The token associated with the account to update, good for 24 hours
     # @param password [String] The new password to set, cannot be empty
     # @param confirm [String] The new password to confirm, must match newPassword
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def password_reset_with_http_info(version, token, password, confirm, opts = {})
+    def password_reset_with_http_info(token, password, confirm, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.password_reset ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.password_reset"
       end
       # verify the required parameter 'token' is set
       if @api_client.config.client_side_validation && token.nil?
@@ -1929,7 +1833,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'confirm' when calling AccountApi.password_reset"
       end
       # resource path
-      local_var_path = '/api/{version}/account/passwordreset'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/passwordreset'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1973,7 +1877,6 @@ module OpenapiClient
 
     # Request Password Reset
     # Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-    # @param version [Float] 
     # @param email [String] The email/username of the account
     # @param [Hash] opts the optional parameters
     # @option opts [String] :from this is the sender email (default to 'Sirqul')
@@ -1981,14 +1884,13 @@ module OpenapiClient
     # @option opts [String] :sub_url this is the the subUrl (like resetpassword) used to generate a password reset link
     # @option opts [String] :referer this is used to generate a password reset link (default to 'http://dev.sirqul.com/resetpassword')
     # @return [SirqulResponse]
-    def request_password_reset(version, email, opts = {})
-      data, _status_code, _headers = request_password_reset_with_http_info(version, email, opts)
+    def request_password_reset(email, opts = {})
+      data, _status_code, _headers = request_password_reset_with_http_info(email, opts)
       data
     end
 
     # Request Password Reset
     # Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-    # @param version [Float] 
     # @param email [String] The email/username of the account
     # @param [Hash] opts the optional parameters
     # @option opts [String] :from this is the sender email (default to 'Sirqul')
@@ -1996,20 +1898,16 @@ module OpenapiClient
     # @option opts [String] :sub_url this is the the subUrl (like resetpassword) used to generate a password reset link
     # @option opts [String] :referer this is used to generate a password reset link (default to 'http://dev.sirqul.com/resetpassword')
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def request_password_reset_with_http_info(version, email, opts = {})
+    def request_password_reset_with_http_info(email, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.request_password_reset ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.request_password_reset"
       end
       # verify the required parameter 'email' is set
       if @api_client.config.client_side_validation && email.nil?
         fail ArgumentError, "Missing the required parameter 'email' when calling AccountApi.request_password_reset"
       end
       # resource path
-      local_var_path = '/api/{version}/account/requestpasswordreset'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/requestpasswordreset'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2055,35 +1953,29 @@ module OpenapiClient
 
     # Send Validation Request
     # Send an email to validate a user's account.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def request_validate_account(version, account_id, opts = {})
-      data, _status_code, _headers = request_validate_account_with_http_info(version, account_id, opts)
+    def request_validate_account(account_id, opts = {})
+      data, _status_code, _headers = request_validate_account_with_http_info(account_id, opts)
       data
     end
 
     # Send Validation Request
     # Send an email to validate a user&#39;s account.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def request_validate_account_with_http_info(version, account_id, opts = {})
+    def request_validate_account_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.request_validate_account ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.request_validate_account"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling AccountApi.request_validate_account"
       end
       # resource path
-      local_var_path = '/api/{version}/account/requestValidateAccount'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/requestValidateAccount'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2125,7 +2017,6 @@ module OpenapiClient
 
     # Search Accounts
     # Search for account profiles.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the account requesting
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
@@ -2146,14 +2037,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The total number of record to return. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results. Default is false. (default to false)
     # @return [Array<ProfileResponse>]
-    def search_accounts(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = search_accounts_with_http_info(version, account_id, app_key, opts)
+    def search_accounts(account_id, app_key, opts = {})
+      data, _status_code, _headers = search_accounts_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Search Accounts
     # Search for account profiles.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the account requesting
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
@@ -2174,13 +2064,9 @@ module OpenapiClient
     # @option opts [Integer] :limit The total number of record to return. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results. Default is false. (default to false)
     # @return [Array<(Array<ProfileResponse>, Integer, Hash)>] Array<ProfileResponse> data, response status code and response headers
-    def search_accounts_with_http_info(version, account_id, app_key, opts = {})
+    def search_accounts_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.search_accounts ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.search_accounts"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2199,7 +2085,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"game_experience\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/account/profile/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/profile/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2258,7 +2144,6 @@ module OpenapiClient
 
     # Login Account (Encrypted Username)
     # ogin with encrypted user-name and password.
-    # @param version [Float] 
     # @param username [String] The user&#39;s encrypted email address they used to sign-up
     # @param password [String] The encrypted password
     # @param game_type [String] The application key
@@ -2270,14 +2155,13 @@ module OpenapiClient
     # @option opts [Boolean] :return_profile Return Profile (default to false)
     # @option opts [String] :response_filters A comma separated list of ProfileFilters for filtering the returned response data (default to 'PROFILE')
     # @return [ProfileResponse]
-    def secure_login(version, username, password, game_type, opts = {})
-      data, _status_code, _headers = secure_login_with_http_info(version, username, password, game_type, opts)
+    def secure_login(username, password, game_type, opts = {})
+      data, _status_code, _headers = secure_login_with_http_info(username, password, game_type, opts)
       data
     end
 
     # Login Account (Encrypted Username)
     # ogin with encrypted user-name and password.
-    # @param version [Float] 
     # @param username [String] The user&#39;s encrypted email address they used to sign-up
     # @param password [String] The encrypted password
     # @param game_type [String] The application key
@@ -2289,13 +2173,9 @@ module OpenapiClient
     # @option opts [Boolean] :return_profile Return Profile (default to false)
     # @option opts [String] :response_filters A comma separated list of ProfileFilters for filtering the returned response data (default to 'PROFILE')
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def secure_login_with_http_info(version, username, password, game_type, opts = {})
+    def secure_login_with_http_info(username, password, game_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.secure_login ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.secure_login"
       end
       # verify the required parameter 'username' is set
       if @api_client.config.client_side_validation && username.nil?
@@ -2310,7 +2190,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'game_type' when calling AccountApi.secure_login"
       end
       # resource path
-      local_var_path = '/api/{version}/account/login/validate'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/login/validate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2360,7 +2240,6 @@ module OpenapiClient
 
     # Create Account (Encrypted Username)
     # Create a new account by role (with encrypted user-name and password)
-    # @param version [Float] 
     # @param device_id [String] The device id
     # @param username [String] The encrypted email of the user, this is what will be used when they login
     # @param password [String] The encrypted password of the user
@@ -2424,14 +2303,13 @@ module OpenapiClient
     # @option opts [String] :app_version App Version
     # @option opts [String] :response_type Response Type
     # @return [ProfileInfoResponse]
-    def secure_signup(version, device_id, username, password, opts = {})
-      data, _status_code, _headers = secure_signup_with_http_info(version, device_id, username, password, opts)
+    def secure_signup(device_id, username, password, opts = {})
+      data, _status_code, _headers = secure_signup_with_http_info(device_id, username, password, opts)
       data
     end
 
     # Create Account (Encrypted Username)
     # Create a new account by role (with encrypted user-name and password)
-    # @param version [Float] 
     # @param device_id [String] The device id
     # @param username [String] The encrypted email of the user, this is what will be used when they login
     # @param password [String] The encrypted password of the user
@@ -2495,13 +2373,9 @@ module OpenapiClient
     # @option opts [String] :app_version App Version
     # @option opts [String] :response_type Response Type
     # @return [Array<(ProfileInfoResponse, Integer, Hash)>] ProfileInfoResponse data, response status code and response headers
-    def secure_signup_with_http_info(version, device_id, username, password, opts = {})
+    def secure_signup_with_http_info(device_id, username, password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.secure_signup ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.secure_signup"
       end
       # verify the required parameter 'device_id' is set
       if @api_client.config.client_side_validation && device_id.nil?
@@ -2516,7 +2390,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'password' when calling AccountApi.secure_signup"
       end
       # resource path
-      local_var_path = '/api/{version}/account/create/validate'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/create/validate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2618,7 +2492,6 @@ module OpenapiClient
 
     # Save Match Token
     # Save user's match token to be used for profile match making
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -2628,14 +2501,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [SirqulResponse]
-    def set_match_token(version, opts = {})
-      data, _status_code, _headers = set_match_token_with_http_info(version, opts)
+    def set_match_token(opts = {})
+      data, _status_code, _headers = set_match_token_with_http_info(opts)
       data
     end
 
     # Save Match Token
     # Save user&#39;s match token to be used for profile match making
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -2645,16 +2517,12 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def set_match_token_with_http_info(version, opts = {})
+    def set_match_token_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.set_match_token ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.set_match_token"
-      end
       # resource path
-      local_var_path = '/api/{version}/consumer/profile/matchToken'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/consumer/profile/matchToken'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2702,7 +2570,6 @@ module OpenapiClient
 
     # Update Account Active Status
     # Activate or deactivate an account (requires appropriate permissions).
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user (deviceId or accountId required)
     # @param connection_account_id [Integer] The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
     # @param active [Boolean] true will activate the user and false will deactivate
@@ -2710,14 +2577,13 @@ module OpenapiClient
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [String] :app_key the application key that the user belongs to
     # @return [SirqulResponse]
-    def update_actve_status(version, account_id, connection_account_id, active, opts = {})
-      data, _status_code, _headers = update_actve_status_with_http_info(version, account_id, connection_account_id, active, opts)
+    def update_actve_status(account_id, connection_account_id, active, opts = {})
+      data, _status_code, _headers = update_actve_status_with_http_info(account_id, connection_account_id, active, opts)
       data
     end
 
     # Update Account Active Status
     # Activate or deactivate an account (requires appropriate permissions).
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user (deviceId or accountId required)
     # @param connection_account_id [Integer] The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
     # @param active [Boolean] true will activate the user and false will deactivate
@@ -2725,13 +2591,9 @@ module OpenapiClient
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [String] :app_key the application key that the user belongs to
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_actve_status_with_http_info(version, account_id, connection_account_id, active, opts = {})
+    def update_actve_status_with_http_info(account_id, connection_account_id, active, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.update_actve_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.update_actve_status"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -2746,7 +2608,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active' when calling AccountApi.update_actve_status"
       end
       # resource path
-      local_var_path = '/api/{version}/account/active/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/active/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2792,7 +2654,6 @@ module OpenapiClient
 
     # Update Location
     # Update the account location
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -2800,14 +2661,13 @@ module OpenapiClient
     # @option opts [Float] :longitude The current longitude of the user
     # @option opts [Integer] :client_time The time of the update
     # @return [SirqulResponse]
-    def update_location(version, opts = {})
-      data, _status_code, _headers = update_location_with_http_info(version, opts)
+    def update_location(opts = {})
+      data, _status_code, _headers = update_location_with_http_info(opts)
       data
     end
 
     # Update Location
     # Update the account location
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -2815,16 +2675,12 @@ module OpenapiClient
     # @option opts [Float] :longitude The current longitude of the user
     # @option opts [Integer] :client_time The time of the update
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_location_with_http_info(version, opts = {})
+    def update_location_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.update_location ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.update_location"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/location/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/location/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2870,7 +2726,6 @@ module OpenapiClient
 
     # Update Account Settings
     # Update the account settings for a user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -2885,14 +2740,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [UserSettingsResponse]
-    def update_settings(version, opts = {})
-      data, _status_code, _headers = update_settings_with_http_info(version, opts)
+    def update_settings(opts = {})
+      data, _status_code, _headers = update_settings_with_http_info(opts)
       data
     end
 
     # Update Account Settings
     # Update the account settings for a user
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -2907,16 +2761,12 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(UserSettingsResponse, Integer, Hash)>] UserSettingsResponse data, response status code and response headers
-    def update_settings_with_http_info(version, opts = {})
+    def update_settings_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.update_settings ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.update_settings"
-      end
       # resource path
-      local_var_path = '/api/{version}/account/settings/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/settings/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2969,35 +2819,29 @@ module OpenapiClient
 
     # Save Validation Status
     # Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-    # @param version [Float] 
     # @param token [String] The token associated with the account to update, good for 24 hours
     # @param [Hash] opts the optional parameters
     # @return [AccountLoginResponse]
-    def validate_account_signup(version, token, opts = {})
-      data, _status_code, _headers = validate_account_signup_with_http_info(version, token, opts)
+    def validate_account_signup(token, opts = {})
+      data, _status_code, _headers = validate_account_signup_with_http_info(token, opts)
       data
     end
 
     # Save Validation Status
     # Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-    # @param version [Float] 
     # @param token [String] The token associated with the account to update, good for 24 hours
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountLoginResponse, Integer, Hash)>] AccountLoginResponse data, response status code and response headers
-    def validate_account_signup_with_http_info(version, token, opts = {})
+    def validate_account_signup_with_http_info(token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.validate_account_signup ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.validate_account_signup"
       end
       # verify the required parameter 'token' is set
       if @api_client.config.client_side_validation && token.nil?
         fail ArgumentError, "Missing the required parameter 'token' when calling AccountApi.validate_account_signup"
       end
       # resource path
-      local_var_path = '/api/{version}/account/validateAccountSignup'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/validateAccountSignup'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -3039,35 +2883,29 @@ module OpenapiClient
 
     # Validate Password Reset Token
     # Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-    # @param version [Float] 
     # @param token [String] The token associated with the account to update, good for 24 hours
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def validate_password_reset(version, token, opts = {})
-      data, _status_code, _headers = validate_password_reset_with_http_info(version, token, opts)
+    def validate_password_reset(token, opts = {})
+      data, _status_code, _headers = validate_password_reset_with_http_info(token, opts)
       data
     end
 
     # Validate Password Reset Token
     # Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-    # @param version [Float] 
     # @param token [String] The token associated with the account to update, good for 24 hours
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def validate_password_reset_with_http_info(version, token, opts = {})
+    def validate_password_reset_with_http_info(token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AccountApi.validate_password_reset ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AccountApi.validate_password_reset"
       end
       # verify the required parameter 'token' is set
       if @api_client.config.client_side_validation && token.nil?
         fail ArgumentError, "Missing the required parameter 'token' when calling AccountApi.validate_password_reset"
       end
       # resource path
-      local_var_path = '/api/{version}/account/validatepasswordreset'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/account/validatepasswordreset'
 
       # query parameters
       query_params = opts[:query_params] || {}

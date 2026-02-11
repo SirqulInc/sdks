@@ -21,35 +21,29 @@ module OpenapiClient
     end
     # Create an entity reference.
     # Creates a reference for an entity for syncing data between servers.
-    # @param version [Float] 
     # @param body [EntityReference] The entity reference object
     # @param [Hash] opts the optional parameters
     # @return [ActivityResponse]
-    def create_entity_reference(version, body, opts = {})
-      data, _status_code, _headers = create_entity_reference_with_http_info(version, body, opts)
+    def create_entity_reference(body, opts = {})
+      data, _status_code, _headers = create_entity_reference_with_http_info(body, opts)
       data
     end
 
     # Create an entity reference.
     # Creates a reference for an entity for syncing data between servers.
-    # @param version [Float] 
     # @param body [EntityReference] The entity reference object
     # @param [Hash] opts the optional parameters
     # @return [Array<(ActivityResponse, Integer, Hash)>] ActivityResponse data, response status code and response headers
-    def create_entity_reference_with_http_info(version, body, opts = {})
+    def create_entity_reference_with_http_info(body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ActivityApi.create_entity_reference ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ActivityApi.create_entity_reference"
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
         fail ArgumentError, "Missing the required parameter 'body' when calling ActivityApi.create_entity_reference"
       end
       # resource path
-      local_var_path = '/api/{version}/entity/reference'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/entity/reference'
 
       # query parameters
       query_params = opts[:query_params] || {}

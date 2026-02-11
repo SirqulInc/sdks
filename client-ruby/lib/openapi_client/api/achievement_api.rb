@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Searches an Achievement Tier
     # Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -35,14 +34,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start of the index for pagination
     # @option opts [Integer] :limit the limit for pagination (has a hard limit of 1000)
     # @return [AchievementTierResponse]
-    def api_version_achievement_tier_search_post(version, opts = {})
-      data, _status_code, _headers = api_version_achievement_tier_search_post_with_http_info(version, opts)
+    def achievement_tier_search_post(opts = {})
+      data, _status_code, _headers = achievement_tier_search_post_with_http_info(opts)
       data
     end
 
     # Searches an Achievement Tier
     # Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -56,16 +54,12 @@ module OpenapiClient
     # @option opts [Integer] :start The start of the index for pagination
     # @option opts [Integer] :limit the limit for pagination (has a hard limit of 1000)
     # @return [Array<(AchievementTierResponse, Integer, Hash)>] AchievementTierResponse data, response status code and response headers
-    def api_version_achievement_tier_search_post_with_http_info(version, opts = {})
+    def achievement_tier_search_post_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: AchievementApi.api_version_achievement_tier_search_post ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.api_version_achievement_tier_search_post"
+        @api_client.config.logger.debug 'Calling API: AchievementApi.achievement_tier_search_post ...'
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/tier/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/tier/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -99,7 +93,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"AchievementApi.api_version_achievement_tier_search_post",
+        :operation => :"AchievementApi.achievement_tier_search_post",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -110,14 +104,13 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: AchievementApi#api_version_achievement_tier_search_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: AchievementApi#achievement_tier_search_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Create Achievement
     # Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param app_key [String] the application key the achievement is for
     # @param title [String] the title of the achievement (255 character limit)
     # @param [Hash] opts the optional parameters
@@ -133,14 +126,13 @@ module OpenapiClient
     # @option opts [Boolean] :active achievement is active or inactive
     # @option opts [String] :trigger_definition if provided will define what triggers to run after a tier is completed
     # @return [AchievementResponse]
-    def create_achievement(version, app_key, title, opts = {})
-      data, _status_code, _headers = create_achievement_with_http_info(version, app_key, title, opts)
+    def create_achievement(app_key, title, opts = {})
+      data, _status_code, _headers = create_achievement_with_http_info(app_key, title, opts)
       data
     end
 
     # Create Achievement
     # Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param app_key [String] the application key the achievement is for
     # @param title [String] the title of the achievement (255 character limit)
     # @param [Hash] opts the optional parameters
@@ -156,13 +148,9 @@ module OpenapiClient
     # @option opts [Boolean] :active achievement is active or inactive
     # @option opts [String] :trigger_definition if provided will define what triggers to run after a tier is completed
     # @return [Array<(AchievementResponse, Integer, Hash)>] AchievementResponse data, response status code and response headers
-    def create_achievement_with_http_info(version, app_key, title, opts = {})
+    def create_achievement_with_http_info(app_key, title, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.create_achievement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.create_achievement"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -173,7 +161,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'title' when calling AchievementApi.create_achievement"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -227,7 +215,6 @@ module OpenapiClient
 
     # Create Achievement Tier
     # Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param achievement_id [Integer] the achievement id for adding a new tier
     # @param score_all_instances [Boolean] score all instances
     # @param [Hash] opts the optional parameters
@@ -244,14 +231,13 @@ module OpenapiClient
     # @option opts [Integer] :game_level_id The ID of the game level to associate with the achievement
     # @option opts [Integer] :game_object_id The ID of the game object to associate with the achievement
     # @return [AchievementTierResponse]
-    def create_achievement_tier(version, achievement_id, score_all_instances, opts = {})
-      data, _status_code, _headers = create_achievement_tier_with_http_info(version, achievement_id, score_all_instances, opts)
+    def create_achievement_tier(achievement_id, score_all_instances, opts = {})
+      data, _status_code, _headers = create_achievement_tier_with_http_info(achievement_id, score_all_instances, opts)
       data
     end
 
     # Create Achievement Tier
     # Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param achievement_id [Integer] the achievement id for adding a new tier
     # @param score_all_instances [Boolean] score all instances
     # @param [Hash] opts the optional parameters
@@ -268,13 +254,9 @@ module OpenapiClient
     # @option opts [Integer] :game_level_id The ID of the game level to associate with the achievement
     # @option opts [Integer] :game_object_id The ID of the game object to associate with the achievement
     # @return [Array<(AchievementTierResponse, Integer, Hash)>] AchievementTierResponse data, response status code and response headers
-    def create_achievement_tier_with_http_info(version, achievement_id, score_all_instances, opts = {})
+    def create_achievement_tier_with_http_info(achievement_id, score_all_instances, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.create_achievement_tier ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.create_achievement_tier"
       end
       # verify the required parameter 'achievement_id' is set
       if @api_client.config.client_side_validation && achievement_id.nil?
@@ -285,7 +267,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'score_all_instances' when calling AchievementApi.create_achievement_tier"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/tier/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/tier/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -340,37 +322,31 @@ module OpenapiClient
 
     # Delete Achievement
     # Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-    # @param version [Float] 
     # @param achievement_id [Integer] The ID of the achievement
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def delete_achievement(version, achievement_id, opts = {})
-      data, _status_code, _headers = delete_achievement_with_http_info(version, achievement_id, opts)
+    def delete_achievement(achievement_id, opts = {})
+      data, _status_code, _headers = delete_achievement_with_http_info(achievement_id, opts)
       data
     end
 
     # Delete Achievement
     # Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-    # @param version [Float] 
     # @param achievement_id [Integer] The ID of the achievement
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_achievement_with_http_info(version, achievement_id, opts = {})
+    def delete_achievement_with_http_info(achievement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.delete_achievement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.delete_achievement"
       end
       # verify the required parameter 'achievement_id' is set
       if @api_client.config.client_side_validation && achievement_id.nil?
         fail ArgumentError, "Missing the required parameter 'achievement_id' when calling AchievementApi.delete_achievement"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -413,37 +389,31 @@ module OpenapiClient
 
     # Delete Achievement Tier
     # Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-    # @param version [Float] 
     # @param achievement_tier_id [Integer] the achievement id for deletion
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
     # @return [SirqulResponse]
-    def delete_achievement_tier(version, achievement_tier_id, opts = {})
-      data, _status_code, _headers = delete_achievement_tier_with_http_info(version, achievement_tier_id, opts)
+    def delete_achievement_tier(achievement_tier_id, opts = {})
+      data, _status_code, _headers = delete_achievement_tier_with_http_info(achievement_tier_id, opts)
       data
     end
 
     # Delete Achievement Tier
     # Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-    # @param version [Float] 
     # @param achievement_tier_id [Integer] the achievement id for deletion
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required).
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_achievement_tier_with_http_info(version, achievement_tier_id, opts = {})
+    def delete_achievement_tier_with_http_info(achievement_tier_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.delete_achievement_tier ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.delete_achievement_tier"
       end
       # verify the required parameter 'achievement_tier_id' is set
       if @api_client.config.client_side_validation && achievement_tier_id.nil?
         fail ArgumentError, "Missing the required parameter 'achievement_tier_id' when calling AchievementApi.delete_achievement_tier"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/tier/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/tier/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -486,41 +456,35 @@ module OpenapiClient
 
     # Get Achievement
     # Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param achievement_id [Integer] The ID of the achievement
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [String] :achievement_type achievementType
     # @return [AchievementTierResponse]
-    def get_achievement(version, achievement_id, opts = {})
-      data, _status_code, _headers = get_achievement_with_http_info(version, achievement_id, opts)
+    def get_achievement(achievement_id, opts = {})
+      data, _status_code, _headers = get_achievement_with_http_info(achievement_id, opts)
       data
     end
 
     # Get Achievement
     # Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param achievement_id [Integer] The ID of the achievement
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [String] :achievement_type achievementType
     # @return [Array<(AchievementTierResponse, Integer, Hash)>] AchievementTierResponse data, response status code and response headers
-    def get_achievement_with_http_info(version, achievement_id, opts = {})
+    def get_achievement_with_http_info(achievement_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.get_achievement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.get_achievement"
       end
       # verify the required parameter 'achievement_id' is set
       if @api_client.config.client_side_validation && achievement_id.nil?
         fail ArgumentError, "Missing the required parameter 'achievement_id' when calling AchievementApi.get_achievement"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -565,30 +529,24 @@ module OpenapiClient
 
     # Gets an achievement tier
     # Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user (deviceId or accountId required)
     # @param achievement_tier_id [Integer] the achievement tier id that is being retrieved
     # @param [Hash] opts the optional parameters
     # @return [AchievementTierResponse]
-    def get_achievement_tier(version, account_id, achievement_tier_id, opts = {})
-      data, _status_code, _headers = get_achievement_tier_with_http_info(version, account_id, achievement_tier_id, opts)
+    def get_achievement_tier(account_id, achievement_tier_id, opts = {})
+      data, _status_code, _headers = get_achievement_tier_with_http_info(account_id, achievement_tier_id, opts)
       data
     end
 
     # Gets an achievement tier
     # Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user (deviceId or accountId required)
     # @param achievement_tier_id [Integer] the achievement tier id that is being retrieved
     # @param [Hash] opts the optional parameters
     # @return [Array<(AchievementTierResponse, Integer, Hash)>] AchievementTierResponse data, response status code and response headers
-    def get_achievement_tier_with_http_info(version, account_id, achievement_tier_id, opts = {})
+    def get_achievement_tier_with_http_info(account_id, achievement_tier_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.get_achievement_tier ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.get_achievement_tier"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -599,7 +557,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'achievement_tier_id' when calling AchievementApi.get_achievement_tier"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/tier/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/tier/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -642,7 +600,6 @@ module OpenapiClient
 
     # Get Achievement Progress
     # Gets a list of user achievements.
-    # @param version [Float] 
     # @param return_nulls [Boolean] determines whether to return null fields in the response
     # @param app_key [String] the application key for filtering results by application
     # @param include_undiscovered [Boolean] determines whether to return achievements that the user has not discovered yet
@@ -656,14 +613,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<AchievementProgressResponse>]
-    def get_user_achievements(version, return_nulls, app_key, include_undiscovered, opts = {})
-      data, _status_code, _headers = get_user_achievements_with_http_info(version, return_nulls, app_key, include_undiscovered, opts)
+    def get_user_achievements(return_nulls, app_key, include_undiscovered, opts = {})
+      data, _status_code, _headers = get_user_achievements_with_http_info(return_nulls, app_key, include_undiscovered, opts)
       data
     end
 
     # Get Achievement Progress
     # Gets a list of user achievements.
-    # @param version [Float] 
     # @param return_nulls [Boolean] determines whether to return null fields in the response
     # @param app_key [String] the application key for filtering results by application
     # @param include_undiscovered [Boolean] determines whether to return achievements that the user has not discovered yet
@@ -677,13 +633,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(Array<AchievementProgressResponse>, Integer, Hash)>] Array<AchievementProgressResponse> data, response status code and response headers
-    def get_user_achievements_with_http_info(version, return_nulls, app_key, include_undiscovered, opts = {})
+    def get_user_achievements_with_http_info(return_nulls, app_key, include_undiscovered, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.get_user_achievements ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.get_user_achievements"
       end
       # verify the required parameter 'return_nulls' is set
       if @api_client.config.client_side_validation && return_nulls.nil?
@@ -698,7 +650,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'include_undiscovered' when calling AchievementApi.get_user_achievements"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/progress/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/progress/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -750,31 +702,25 @@ module OpenapiClient
 
     # List Achievement Tags
     # List achievement tags by application
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key filter results by application key
     # @return [SirqulResponse]
-    def list_achievement_tags(version, opts = {})
-      data, _status_code, _headers = list_achievement_tags_with_http_info(version, opts)
+    def list_achievement_tags(opts = {})
+      data, _status_code, _headers = list_achievement_tags_with_http_info(opts)
       data
     end
 
     # List Achievement Tags
     # List achievement tags by application
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :app_key filter results by application key
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def list_achievement_tags_with_http_info(version, opts = {})
+    def list_achievement_tags_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.list_achievement_tags ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.list_achievement_tags"
-      end
       # resource path
-      local_var_path = '/api/{version}/achievement/tag/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/tag/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -816,7 +762,6 @@ module OpenapiClient
 
     # List Achievements
     # List achievements by billable.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort by. See AchievementApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
     # @param start [Integer] the start index for pagination
@@ -830,14 +775,13 @@ module OpenapiClient
     # @option opts [String] :achievement_type filter results by the achievementType (these are exact case sensitive matches)
     # @option opts [String] :rank_type filter results by the rankType (these are exact case sensitive matches)
     # @return [Array<AchievementShortResponse>]
-    def list_achievements(version, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = list_achievements_with_http_info(version, sort_field, descending, start, limit, active_only, opts)
+    def list_achievements(sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = list_achievements_with_http_info(sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # List Achievements
     # List achievements by billable.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort by. See AchievementApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
     # @param start [Integer] the start index for pagination
@@ -851,13 +795,9 @@ module OpenapiClient
     # @option opts [String] :achievement_type filter results by the achievementType (these are exact case sensitive matches)
     # @option opts [String] :rank_type filter results by the rankType (these are exact case sensitive matches)
     # @return [Array<(Array<AchievementShortResponse>, Integer, Hash)>] Array<AchievementShortResponse> data, response status code and response headers
-    def list_achievements_with_http_info(version, sort_field, descending, start, limit, active_only, opts = {})
+    def list_achievements_with_http_info(sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.list_achievements ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.list_achievements"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -885,7 +825,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling AchievementApi.list_achievements"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -937,7 +877,6 @@ module OpenapiClient
 
     # Search Achievements
     # Searches achievements by application for consumers.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param sort_field [String] the field to sort by. See AchievementApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -952,14 +891,13 @@ module OpenapiClient
     # @option opts [String] :achievement_type filter results by the achievementType (these are exact case sensitive matches)
     # @option opts [String] :rank_type filter results by the rankType (these are exact case sensitive matches)
     # @return [Array<AchievementShortResponse>]
-    def search_achievements(version, app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, opts = {})
-      data, _status_code, _headers = search_achievements_with_http_info(version, app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, opts)
+    def search_achievements(app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, opts = {})
+      data, _status_code, _headers = search_achievements_with_http_info(app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, opts)
       data
     end
 
     # Search Achievements
     # Searches achievements by application for consumers.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param sort_field [String] the field to sort by. See AchievementApiMap
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
@@ -974,13 +912,9 @@ module OpenapiClient
     # @option opts [String] :achievement_type filter results by the achievementType (these are exact case sensitive matches)
     # @option opts [String] :rank_type filter results by the rankType (these are exact case sensitive matches)
     # @return [Array<(Array<AchievementShortResponse>, Integer, Hash)>] Array<AchievementShortResponse> data, response status code and response headers
-    def search_achievements_with_http_info(version, app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, opts = {})
+    def search_achievements_with_http_info(app_key, sort_field, descending, include_tiers, include_inactive_tiers, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.search_achievements ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.search_achievements"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -1016,7 +950,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling AchievementApi.search_achievements"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1069,7 +1003,6 @@ module OpenapiClient
 
     # Update Achievement
     # Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -1087,14 +1020,13 @@ module OpenapiClient
     # @option opts [Boolean] :active if it&#39;s active or inactive
     # @option opts [String] :trigger_definition if provided will define what triggers to run after a tier is completed
     # @return [AchievementResponse]
-    def update_achievement(version, opts = {})
-      data, _status_code, _headers = update_achievement_with_http_info(version, opts)
+    def update_achievement(opts = {})
+      data, _status_code, _headers = update_achievement_with_http_info(opts)
       data
     end
 
     # Update Achievement
     # Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -1112,16 +1044,12 @@ module OpenapiClient
     # @option opts [Boolean] :active if it&#39;s active or inactive
     # @option opts [String] :trigger_definition if provided will define what triggers to run after a tier is completed
     # @return [Array<(AchievementResponse, Integer, Hash)>] AchievementResponse data, response status code and response headers
-    def update_achievement_with_http_info(version, opts = {})
+    def update_achievement_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.update_achievement ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.update_achievement"
-      end
       # resource path
-      local_var_path = '/api/{version}/achievement/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1177,7 +1105,6 @@ module OpenapiClient
 
     # Update Achievement Tier
     # Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param achievement_tier_id [Integer] the achievement tier id for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
@@ -1194,14 +1121,13 @@ module OpenapiClient
     # @option opts [Integer] :game_object_id The ID of the game object to associate with the achievement
     # @option opts [Boolean] :score_all_instances score all instances
     # @return [AchievementTierResponse]
-    def update_achievement_tier(version, achievement_tier_id, opts = {})
-      data, _status_code, _headers = update_achievement_tier_with_http_info(version, achievement_tier_id, opts)
+    def update_achievement_tier(achievement_tier_id, opts = {})
+      data, _status_code, _headers = update_achievement_tier_with_http_info(achievement_tier_id, opts)
       data
     end
 
     # Update Achievement Tier
     # Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-    # @param version [Float] 
     # @param achievement_tier_id [Integer] the achievement tier id for updating
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
@@ -1218,20 +1144,16 @@ module OpenapiClient
     # @option opts [Integer] :game_object_id The ID of the game object to associate with the achievement
     # @option opts [Boolean] :score_all_instances score all instances
     # @return [Array<(AchievementTierResponse, Integer, Hash)>] AchievementTierResponse data, response status code and response headers
-    def update_achievement_tier_with_http_info(version, achievement_tier_id, opts = {})
+    def update_achievement_tier_with_http_info(achievement_tier_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.update_achievement_tier ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.update_achievement_tier"
       end
       # verify the required parameter 'achievement_tier_id' is set
       if @api_client.config.client_side_validation && achievement_tier_id.nil?
         fail ArgumentError, "Missing the required parameter 'achievement_tier_id' when calling AchievementApi.update_achievement_tier"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/tier/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/tier/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1286,7 +1208,6 @@ module OpenapiClient
 
     # Update Achievement Progress
     # Update user achievement progress.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :achievement_id the achievement id (achievementId or tag required)
@@ -1297,14 +1218,13 @@ module OpenapiClient
     # @option opts [Integer] :end_date a custom end date that the client can set (not yet used in server logic)
     # @option opts [Boolean] :return_progress determines whether to return the achievement progress response
     # @return [SirqulResponse]
-    def update_user_achievement(version, account_id, opts = {})
-      data, _status_code, _headers = update_user_achievement_with_http_info(version, account_id, opts)
+    def update_user_achievement(account_id, opts = {})
+      data, _status_code, _headers = update_user_achievement_with_http_info(account_id, opts)
       data
     end
 
     # Update Achievement Progress
     # Update user achievement progress.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :achievement_id the achievement id (achievementId or tag required)
@@ -1315,20 +1235,16 @@ module OpenapiClient
     # @option opts [Integer] :end_date a custom end date that the client can set (not yet used in server logic)
     # @option opts [Boolean] :return_progress determines whether to return the achievement progress response
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_user_achievement_with_http_info(version, account_id, opts = {})
+    def update_user_achievement_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AchievementApi.update_user_achievement ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AchievementApi.update_user_achievement"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling AchievementApi.update_user_achievement"
       end
       # resource path
-      local_var_path = '/api/{version}/achievement/progress/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/achievement/progress/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

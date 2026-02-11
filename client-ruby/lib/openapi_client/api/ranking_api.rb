@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Search Historical Rankings
     # Get historical leaderboard rankings by time-frame.
-    # @param version [Float] 
     # @param app_key [String] the application key for filtering results by application
     # @param rank_type [String] the rank type to return
     # @param start_date [Integer] timestamp in milliseconds to filter results with
@@ -34,14 +33,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 100)
     # @return [RankFullResponse]
-    def get_historical_rankings(version, app_key, rank_type, start_date, end_date, opts = {})
-      data, _status_code, _headers = get_historical_rankings_with_http_info(version, app_key, rank_type, start_date, end_date, opts)
+    def get_historical_rankings(app_key, rank_type, start_date, end_date, opts = {})
+      data, _status_code, _headers = get_historical_rankings_with_http_info(app_key, rank_type, start_date, end_date, opts)
       data
     end
 
     # Search Historical Rankings
     # Get historical leaderboard rankings by time-frame.
-    # @param version [Float] 
     # @param app_key [String] the application key for filtering results by application
     # @param rank_type [String] the rank type to return
     # @param start_date [Integer] timestamp in milliseconds to filter results with
@@ -54,13 +52,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 100)
     # @return [Array<(RankFullResponse, Integer, Hash)>] RankFullResponse data, response status code and response headers
-    def get_historical_rankings_with_http_info(version, app_key, rank_type, start_date, end_date, opts = {})
+    def get_historical_rankings_with_http_info(app_key, rank_type, start_date, end_date, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RankingApi.get_historical_rankings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RankingApi.get_historical_rankings"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -79,7 +73,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'end_date' when calling RankingApi.get_historical_rankings"
       end
       # resource path
-      local_var_path = '/api/{version}/ranking/historical/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ranking/historical/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -130,7 +124,6 @@ module OpenapiClient
 
     # Search Rankings
     # Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -151,14 +144,13 @@ module OpenapiClient
     # @option opts [Integer] :_l This parameter is deprecated.
     # @option opts [Integer] :limit the limit for pagination (default to 100)
     # @return [RankFullResponse]
-    def get_rankings(version, opts = {})
-      data, _status_code, _headers = get_rankings_with_http_info(version, opts)
+    def get_rankings(opts = {})
+      data, _status_code, _headers = get_rankings_with_http_info(opts)
       data
     end
 
     # Search Rankings
     # Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -179,16 +171,12 @@ module OpenapiClient
     # @option opts [Integer] :_l This parameter is deprecated.
     # @option opts [Integer] :limit the limit for pagination (default to 100)
     # @return [Array<(RankFullResponse, Integer, Hash)>] RankFullResponse data, response status code and response headers
-    def get_rankings_with_http_info(version, opts = {})
+    def get_rankings_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RankingApi.get_rankings ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RankingApi.get_rankings"
-      end
       # resource path
-      local_var_path = '/api/{version}/ranking/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ranking/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -247,7 +235,6 @@ module OpenapiClient
 
     # Get Personal Rankings
     # Returns the user's ranks for one or more rank types and modes.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user
@@ -261,14 +248,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 100)
     # @return [Object]
-    def get_user_rank(version, opts = {})
-      data, _status_code, _headers = get_user_rank_with_http_info(version, opts)
+    def get_user_rank(opts = {})
+      data, _status_code, _headers = get_user_rank_with_http_info(opts)
       data
     end
 
     # Get Personal Rankings
     # Returns the user&#39;s ranks for one or more rank types and modes.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user
@@ -282,16 +268,12 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination (default to 0)
     # @option opts [Integer] :limit the limit for pagination (default to 100)
     # @return [Array<(Object, Integer, Hash)>] Object data, response status code and response headers
-    def get_user_rank_with_http_info(version, opts = {})
+    def get_user_rank_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RankingApi.get_user_rank ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RankingApi.get_user_rank"
-      end
       # resource path
-      local_var_path = '/api/{version}/ranking/personal/ranks'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ranking/personal/ranks'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -343,7 +325,6 @@ module OpenapiClient
 
     # Override User Rank
     # Allows an admin of an application to override a user's scores for a leaderboard.
-    # @param version [Float] 
     # @param account_id [Integer] the logged in user&#39;s account id (must have permissions to manage data for the application)
     # @param owner_account_id [Integer] the end user&#39;s account id to override
     # @param app_key [String] the application key the leaderboard is for
@@ -368,14 +349,13 @@ module OpenapiClient
     # @option opts [Integer] :start_date the start date to update
     # @option opts [Integer] :end_date the end date to update
     # @return [SirqulResponse]
-    def override_user_rank(version, account_id, owner_account_id, app_key, rank_type, opts = {})
-      data, _status_code, _headers = override_user_rank_with_http_info(version, account_id, owner_account_id, app_key, rank_type, opts)
+    def override_user_rank(account_id, owner_account_id, app_key, rank_type, opts = {})
+      data, _status_code, _headers = override_user_rank_with_http_info(account_id, owner_account_id, app_key, rank_type, opts)
       data
     end
 
     # Override User Rank
     # Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-    # @param version [Float] 
     # @param account_id [Integer] the logged in user&#39;s account id (must have permissions to manage data for the application)
     # @param owner_account_id [Integer] the end user&#39;s account id to override
     # @param app_key [String] the application key the leaderboard is for
@@ -400,13 +380,9 @@ module OpenapiClient
     # @option opts [Integer] :start_date the start date to update
     # @option opts [Integer] :end_date the end date to update
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def override_user_rank_with_http_info(version, account_id, owner_account_id, app_key, rank_type, opts = {})
+    def override_user_rank_with_http_info(account_id, owner_account_id, app_key, rank_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RankingApi.override_user_rank ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RankingApi.override_user_rank"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -425,7 +401,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'rank_type' when calling RankingApi.override_user_rank"
       end
       # resource path
-      local_var_path = '/api/{version}/ranking/override'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ranking/override'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -488,7 +464,6 @@ module OpenapiClient
 
     # Update Ranking
     # Update the rank value 
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param app_key [String] the application key for filtering results by application
     # @param rank_type [String] a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -501,14 +476,13 @@ module OpenapiClient
     # @option opts [Boolean] :update_global update the global rankings if true, default is false
     # @option opts [Boolean] :create_leaderboard create the leaderboard if it does not exist (default false) (default to false)
     # @return [SirqulResponse]
-    def update_rankings(version, account_id, app_key, rank_type, opts = {})
-      data, _status_code, _headers = update_rankings_with_http_info(version, account_id, app_key, rank_type, opts)
+    def update_rankings(account_id, app_key, rank_type, opts = {})
+      data, _status_code, _headers = update_rankings_with_http_info(account_id, app_key, rank_type, opts)
       data
     end
 
     # Update Ranking
     # Update the rank value 
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param app_key [String] the application key for filtering results by application
     # @param rank_type [String] a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -521,13 +495,9 @@ module OpenapiClient
     # @option opts [Boolean] :update_global update the global rankings if true, default is false
     # @option opts [Boolean] :create_leaderboard create the leaderboard if it does not exist (default false) (default to false)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_rankings_with_http_info(version, account_id, app_key, rank_type, opts = {})
+    def update_rankings_with_http_info(account_id, app_key, rank_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RankingApi.update_rankings ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RankingApi.update_rankings"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -542,7 +512,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'rank_type' when calling RankingApi.update_rankings"
       end
       # resource path
-      local_var_path = '/api/{version}/ranking/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/ranking/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

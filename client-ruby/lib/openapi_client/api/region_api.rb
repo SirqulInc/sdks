@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Region
     # Create a region.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the account sending the request
     # @param region_class [String] RegionClass of this region
     # @param short_name [String] Short name of the region. This is optimized for search
@@ -45,14 +44,13 @@ module OpenapiClient
     # @option opts [Boolean] :root If this is a root region or not. If true means this region has no parent regions
     # @option opts [Boolean] :active Active or inactive status of the region
     # @return [RegionResponse]
-    def create_region(version, account_id, region_class, short_name, opts = {})
-      data, _status_code, _headers = create_region_with_http_info(version, account_id, region_class, short_name, opts)
+    def create_region(account_id, region_class, short_name, opts = {})
+      data, _status_code, _headers = create_region_with_http_info(account_id, region_class, short_name, opts)
       data
     end
 
     # Create Region
     # Create a region.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the account sending the request
     # @param region_class [String] RegionClass of this region
     # @param short_name [String] Short name of the region. This is optimized for search
@@ -76,13 +74,9 @@ module OpenapiClient
     # @option opts [Boolean] :root If this is a root region or not. If true means this region has no parent regions
     # @option opts [Boolean] :active Active or inactive status of the region
     # @return [Array<(RegionResponse, Integer, Hash)>] RegionResponse data, response status code and response headers
-    def create_region_with_http_info(version, account_id, region_class, short_name, opts = {})
+    def create_region_with_http_info(account_id, region_class, short_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegionApi.create_region ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RegionApi.create_region"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -101,7 +95,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/region/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/region/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -163,30 +157,24 @@ module OpenapiClient
 
     # Delete Region
     # Delete a region.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account logged in
     # @param region_id [Integer] the id of the region
     # @param [Hash] opts the optional parameters
     # @return [RegionResponse]
-    def delete_region(version, account_id, region_id, opts = {})
-      data, _status_code, _headers = delete_region_with_http_info(version, account_id, region_id, opts)
+    def delete_region(account_id, region_id, opts = {})
+      data, _status_code, _headers = delete_region_with_http_info(account_id, region_id, opts)
       data
     end
 
     # Delete Region
     # Delete a region.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the account logged in
     # @param region_id [Integer] the id of the region
     # @param [Hash] opts the optional parameters
     # @return [Array<(RegionResponse, Integer, Hash)>] RegionResponse data, response status code and response headers
-    def delete_region_with_http_info(version, account_id, region_id, opts = {})
+    def delete_region_with_http_info(account_id, region_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegionApi.delete_region ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RegionApi.delete_region"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -197,7 +185,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'region_id' when calling RegionApi.delete_region"
       end
       # resource path
-      local_var_path = '/api/{version}/region/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/region/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -240,37 +228,31 @@ module OpenapiClient
 
     # Get Region
     # Get a region.
-    # @param version [Float] 
     # @param region_id [Integer] the id of the region to get
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the id of the logged in user
     # @return [RegionResponse]
-    def get_region(version, region_id, opts = {})
-      data, _status_code, _headers = get_region_with_http_info(version, region_id, opts)
+    def get_region(region_id, opts = {})
+      data, _status_code, _headers = get_region_with_http_info(region_id, opts)
       data
     end
 
     # Get Region
     # Get a region.
-    # @param version [Float] 
     # @param region_id [Integer] the id of the region to get
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the id of the logged in user
     # @return [Array<(RegionResponse, Integer, Hash)>] RegionResponse data, response status code and response headers
-    def get_region_with_http_info(version, region_id, opts = {})
+    def get_region_with_http_info(region_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegionApi.get_region ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RegionApi.get_region"
       end
       # verify the required parameter 'region_id' is set
       if @api_client.config.client_side_validation && region_id.nil?
         fail ArgumentError, "Missing the required parameter 'region_id' when calling RegionApi.get_region"
       end
       # resource path
-      local_var_path = '/api/{version}/region/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/region/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -313,7 +295,6 @@ module OpenapiClient
 
     # Search Regions
     # Get the list of regions.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the owner account id of the region to be created
     # @option opts [String] :query This parameter is deprecated. deprecated - use \&quot;keyword\&quot;
@@ -338,14 +319,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination
     # @option opts [Integer] :limit the limit for pagination
     # @return [Array<RegionResponse>]
-    def search_regions(version, opts = {})
-      data, _status_code, _headers = search_regions_with_http_info(version, opts)
+    def search_regions(opts = {})
+      data, _status_code, _headers = search_regions_with_http_info(opts)
       data
     end
 
     # Search Regions
     # Get the list of regions.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id the owner account id of the region to be created
     # @option opts [String] :query This parameter is deprecated. deprecated - use \&quot;keyword\&quot;
@@ -370,13 +350,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start index for pagination
     # @option opts [Integer] :limit the limit for pagination
     # @return [Array<(Array<RegionResponse>, Integer, Hash)>] Array<RegionResponse> data, response status code and response headers
-    def search_regions_with_http_info(version, opts = {})
+    def search_regions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegionApi.search_regions ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RegionApi.search_regions"
       end
       allowable_values = ["NATIONAL", "STATE", "COUNTY", "METRO_AREA", "CITY", "NEIGHBORHOOD", "TERRITORY", "CUSTOM", "ZONE"]
       if @api_client.config.client_side_validation && opts[:'region_class'] && !allowable_values.include?(opts[:'region_class'])
@@ -395,7 +371,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/region/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/region/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -458,7 +434,6 @@ module OpenapiClient
 
     # Update Region
     # Update a region.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the account sending the request
     # @param region_id [Integer] The id of the region to be updated
     # @param [Hash] opts the optional parameters
@@ -484,14 +459,13 @@ module OpenapiClient
     # @option opts [Boolean] :active Active or inactive status of the region
     # @option opts [Boolean] :clear_lists If true clear the children and postal code lists before add new ones, otherwise just append.
     # @return [RegionResponse]
-    def update_region(version, account_id, region_id, opts = {})
-      data, _status_code, _headers = update_region_with_http_info(version, account_id, region_id, opts)
+    def update_region(account_id, region_id, opts = {})
+      data, _status_code, _headers = update_region_with_http_info(account_id, region_id, opts)
       data
     end
 
     # Update Region
     # Update a region.
-    # @param version [Float] 
     # @param account_id [Integer] The id of the account sending the request
     # @param region_id [Integer] The id of the region to be updated
     # @param [Hash] opts the optional parameters
@@ -517,13 +491,9 @@ module OpenapiClient
     # @option opts [Boolean] :active Active or inactive status of the region
     # @option opts [Boolean] :clear_lists If true clear the children and postal code lists before add new ones, otherwise just append.
     # @return [Array<(RegionResponse, Integer, Hash)>] RegionResponse data, response status code and response headers
-    def update_region_with_http_info(version, account_id, region_id, opts = {})
+    def update_region_with_http_info(account_id, region_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RegionApi.update_region ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RegionApi.update_region"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -538,7 +508,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"visibility\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/region/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/region/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

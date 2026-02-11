@@ -21,31 +21,25 @@ module OpenapiClient
     end
     # Create Shipment Batch
     # Create a new shipment batch
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [ShipmentBatch] :body 
     # @return [ShipmentBatch]
-    def create_shipment_batch(version, opts = {})
-      data, _status_code, _headers = create_shipment_batch_with_http_info(version, opts)
+    def create_shipment_batch(opts = {})
+      data, _status_code, _headers = create_shipment_batch_with_http_info(opts)
       data
     end
 
     # Create Shipment Batch
     # Create a new shipment batch
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [ShipmentBatch] :body 
     # @return [Array<(ShipmentBatch, Integer, Hash)>] ShipmentBatch data, response status code and response headers
-    def create_shipment_batch_with_http_info(version, opts = {})
+    def create_shipment_batch_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentBatchApi.create_shipment_batch ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentBatchApi.create_shipment_batch"
-      end
       # resource path
-      local_var_path = '/api/{version}/shipment/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/shipment/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -86,35 +80,29 @@ module OpenapiClient
 
     # Delete Shipment Batch
     # Search for shipment batches
-    # @param version [Float] 
     # @param batch_id [Integer] the id of the shipment batch to delete
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_shipment_batch(version, batch_id, opts = {})
-      delete_shipment_batch_with_http_info(version, batch_id, opts)
+    def delete_shipment_batch(batch_id, opts = {})
+      delete_shipment_batch_with_http_info(batch_id, opts)
       nil
     end
 
     # Delete Shipment Batch
     # Search for shipment batches
-    # @param version [Float] 
     # @param batch_id [Integer] the id of the shipment batch to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_shipment_batch_with_http_info(version, batch_id, opts = {})
+    def delete_shipment_batch_with_http_info(batch_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentBatchApi.delete_shipment_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentBatchApi.delete_shipment_batch"
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
         fail ArgumentError, "Missing the required parameter 'batch_id' when calling ShipmentBatchApi.delete_shipment_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/batch/{batchId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'batchId' + '}', CGI.escape(batch_id.to_s))
+      local_var_path = '/shipment/batch/{batchId}'.sub('{' + 'batchId' + '}', CGI.escape(batch_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -153,35 +141,29 @@ module OpenapiClient
 
     # Get Shipment Batch
     # Get an existing shipment batch
-    # @param version [Float] 
     # @param batch_id [Integer] the id of the shipment batch to get
     # @param [Hash] opts the optional parameters
     # @return [ShipmentBatch]
-    def get_shipment_batch(version, batch_id, opts = {})
-      data, _status_code, _headers = get_shipment_batch_with_http_info(version, batch_id, opts)
+    def get_shipment_batch(batch_id, opts = {})
+      data, _status_code, _headers = get_shipment_batch_with_http_info(batch_id, opts)
       data
     end
 
     # Get Shipment Batch
     # Get an existing shipment batch
-    # @param version [Float] 
     # @param batch_id [Integer] the id of the shipment batch to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(ShipmentBatch, Integer, Hash)>] ShipmentBatch data, response status code and response headers
-    def get_shipment_batch_with_http_info(version, batch_id, opts = {})
+    def get_shipment_batch_with_http_info(batch_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentBatchApi.get_shipment_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentBatchApi.get_shipment_batch"
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
         fail ArgumentError, "Missing the required parameter 'batch_id' when calling ShipmentBatchApi.get_shipment_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/batch/{batchId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'batchId' + '}', CGI.escape(batch_id.to_s))
+      local_var_path = '/shipment/batch/{batchId}'.sub('{' + 'batchId' + '}', CGI.escape(batch_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -222,7 +204,6 @@ module OpenapiClient
 
     # Get Shipment Batch Status
     # Get the import status list of the import shipment batch
-    # @param version [Float] 
     # @param batch_id [Integer] The id of the requested shipment batch
     # @param account_id [Integer] the id of the logged in user
     # @param sort_field [String] The field to sort by
@@ -237,14 +218,13 @@ module OpenapiClient
     # @option opts [Boolean] :has_route Has route associate to the status
     # @option opts [String] :keyword The keyword to search for
     # @return [Array<ShipmentImportStatus>]
-    def get_shipment_batch_status(version, batch_id, account_id, sort_field, descending, start, limit, opts = {})
-      data, _status_code, _headers = get_shipment_batch_status_with_http_info(version, batch_id, account_id, sort_field, descending, start, limit, opts)
+    def get_shipment_batch_status(batch_id, account_id, sort_field, descending, start, limit, opts = {})
+      data, _status_code, _headers = get_shipment_batch_status_with_http_info(batch_id, account_id, sort_field, descending, start, limit, opts)
       data
     end
 
     # Get Shipment Batch Status
     # Get the import status list of the import shipment batch
-    # @param version [Float] 
     # @param batch_id [Integer] The id of the requested shipment batch
     # @param account_id [Integer] the id of the logged in user
     # @param sort_field [String] The field to sort by
@@ -259,13 +239,9 @@ module OpenapiClient
     # @option opts [Boolean] :has_route Has route associate to the status
     # @option opts [String] :keyword The keyword to search for
     # @return [Array<(Array<ShipmentImportStatus>, Integer, Hash)>] Array<ShipmentImportStatus> data, response status code and response headers
-    def get_shipment_batch_status_with_http_info(version, batch_id, account_id, sort_field, descending, start, limit, opts = {})
+    def get_shipment_batch_status_with_http_info(batch_id, account_id, sort_field, descending, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentBatchApi.get_shipment_batch_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentBatchApi.get_shipment_batch_status"
       end
       # verify the required parameter 'batch_id' is set
       if @api_client.config.client_side_validation && batch_id.nil?
@@ -292,7 +268,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ShipmentBatchApi.get_shipment_batch_status"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/batch/{batchId}/status'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'batchId' + '}', CGI.escape(batch_id.to_s))
+      local_var_path = '/shipment/batch/{batchId}/status'.sub('{' + 'batchId' + '}', CGI.escape(batch_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -344,7 +320,6 @@ module OpenapiClient
 
     # Search Shipment Batch
     # Search for shipment batches
-    # @param version [Float] 
     # @param hub_id [Integer] The associated service hub
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -352,14 +327,13 @@ module OpenapiClient
     # @param limit [Integer] The limit for pagination
     # @param [Hash] opts the optional parameters
     # @return [Array<ShipmentBatch>]
-    def search_shipment_batch(version, hub_id, sort_field, descending, start, limit, opts = {})
-      data, _status_code, _headers = search_shipment_batch_with_http_info(version, hub_id, sort_field, descending, start, limit, opts)
+    def search_shipment_batch(hub_id, sort_field, descending, start, limit, opts = {})
+      data, _status_code, _headers = search_shipment_batch_with_http_info(hub_id, sort_field, descending, start, limit, opts)
       data
     end
 
     # Search Shipment Batch
     # Search for shipment batches
-    # @param version [Float] 
     # @param hub_id [Integer] The associated service hub
     # @param sort_field [String] The field to sort by
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -367,13 +341,9 @@ module OpenapiClient
     # @param limit [Integer] The limit for pagination
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<ShipmentBatch>, Integer, Hash)>] Array<ShipmentBatch> data, response status code and response headers
-    def search_shipment_batch_with_http_info(version, hub_id, sort_field, descending, start, limit, opts = {})
+    def search_shipment_batch_with_http_info(hub_id, sort_field, descending, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ShipmentBatchApi.search_shipment_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ShipmentBatchApi.search_shipment_batch"
       end
       # verify the required parameter 'hub_id' is set
       if @api_client.config.client_side_validation && hub_id.nil?
@@ -396,7 +366,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling ShipmentBatchApi.search_shipment_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/shipment/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/shipment/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}

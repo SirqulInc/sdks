@@ -21,32 +21,26 @@ module OpenapiClient
     end
     # Create Territory
     # Creates a territory.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the territory
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :active If true set the game level as active. Default is true.
     # @return [TerritoryResponse]
-    def create_territory(version, account_id, name, opts = {})
-      data, _status_code, _headers = create_territory_with_http_info(version, account_id, name, opts)
+    def create_territory(account_id, name, opts = {})
+      data, _status_code, _headers = create_territory_with_http_info(account_id, name, opts)
       data
     end
 
     # Create Territory
     # Creates a territory.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param name [String] The name of the territory
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :active If true set the game level as active. Default is true.
     # @return [Array<(TerritoryResponse, Integer, Hash)>] TerritoryResponse data, response status code and response headers
-    def create_territory_with_http_info(version, account_id, name, opts = {})
+    def create_territory_with_http_info(account_id, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TerritoryApi.create_territory ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TerritoryApi.create_territory"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -57,7 +51,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'name' when calling TerritoryApi.create_territory"
       end
       # resource path
-      local_var_path = '/api/{version}/territory/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/territory/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -101,30 +95,24 @@ module OpenapiClient
 
     # Delete Territory
     # Deletes a territory.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param territory_id [Integer] the id of the territory to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_territory(version, account_id, territory_id, opts = {})
-      data, _status_code, _headers = delete_territory_with_http_info(version, account_id, territory_id, opts)
+    def delete_territory(account_id, territory_id, opts = {})
+      data, _status_code, _headers = delete_territory_with_http_info(account_id, territory_id, opts)
       data
     end
 
     # Delete Territory
     # Deletes a territory.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param territory_id [Integer] the id of the territory to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_territory_with_http_info(version, account_id, territory_id, opts = {})
+    def delete_territory_with_http_info(account_id, territory_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TerritoryApi.delete_territory ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TerritoryApi.delete_territory"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -135,7 +123,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'territory_id' when calling TerritoryApi.delete_territory"
       end
       # resource path
-      local_var_path = '/api/{version}/territory/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/territory/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -178,35 +166,29 @@ module OpenapiClient
 
     # Get Territory
     # Get a territory.
-    # @param version [Float] 
     # @param territory_id [Integer] the id of the territory to get
     # @param [Hash] opts the optional parameters
     # @return [TerritoryResponse]
-    def get_territory(version, territory_id, opts = {})
-      data, _status_code, _headers = get_territory_with_http_info(version, territory_id, opts)
+    def get_territory(territory_id, opts = {})
+      data, _status_code, _headers = get_territory_with_http_info(territory_id, opts)
       data
     end
 
     # Get Territory
     # Get a territory.
-    # @param version [Float] 
     # @param territory_id [Integer] the id of the territory to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(TerritoryResponse, Integer, Hash)>] TerritoryResponse data, response status code and response headers
-    def get_territory_with_http_info(version, territory_id, opts = {})
+    def get_territory_with_http_info(territory_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TerritoryApi.get_territory ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TerritoryApi.get_territory"
       end
       # verify the required parameter 'territory_id' is set
       if @api_client.config.client_side_validation && territory_id.nil?
         fail ArgumentError, "Missing the required parameter 'territory_id' when calling TerritoryApi.get_territory"
       end
       # resource path
-      local_var_path = '/api/{version}/territory/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/territory/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -248,7 +230,6 @@ module OpenapiClient
 
     # Search Territories
     # Searches on territories.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
     # @param [Hash] opts the optional parameters
@@ -256,14 +237,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination
     # @option opts [Integer] :limit The limit for pagination
     # @return [Array<TerritoryResponse>]
-    def search_territories(version, sort_field, descending, opts = {})
-      data, _status_code, _headers = search_territories_with_http_info(version, sort_field, descending, opts)
+    def search_territories(sort_field, descending, opts = {})
+      data, _status_code, _headers = search_territories_with_http_info(sort_field, descending, opts)
       data
     end
 
     # Search Territories
     # Searches on territories.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
     # @param descending [Boolean] determines whether the sorted list is in descending or ascending order
     # @param [Hash] opts the optional parameters
@@ -271,13 +251,9 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination
     # @option opts [Integer] :limit The limit for pagination
     # @return [Array<(Array<TerritoryResponse>, Integer, Hash)>] Array<TerritoryResponse> data, response status code and response headers
-    def search_territories_with_http_info(version, sort_field, descending, opts = {})
+    def search_territories_with_http_info(sort_field, descending, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TerritoryApi.search_territories ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TerritoryApi.search_territories"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -293,7 +269,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'descending' when calling TerritoryApi.search_territories"
       end
       # resource path
-      local_var_path = '/api/{version}/territory/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/territory/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -339,34 +315,28 @@ module OpenapiClient
 
     # Update Territory
     # Updates a territory.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param territory_id [Integer] the id of the territory to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name The name of the territory
     # @option opts [Boolean] :active If true set the game level as active.
     # @return [TerritoryResponse]
-    def update_territory(version, account_id, territory_id, opts = {})
-      data, _status_code, _headers = update_territory_with_http_info(version, account_id, territory_id, opts)
+    def update_territory(account_id, territory_id, opts = {})
+      data, _status_code, _headers = update_territory_with_http_info(account_id, territory_id, opts)
       data
     end
 
     # Update Territory
     # Updates a territory.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param territory_id [Integer] the id of the territory to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name The name of the territory
     # @option opts [Boolean] :active If true set the game level as active.
     # @return [Array<(TerritoryResponse, Integer, Hash)>] TerritoryResponse data, response status code and response headers
-    def update_territory_with_http_info(version, account_id, territory_id, opts = {})
+    def update_territory_with_http_info(account_id, territory_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TerritoryApi.update_territory ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TerritoryApi.update_territory"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -377,7 +347,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'territory_id' when calling TerritoryApi.update_territory"
       end
       # resource path
-      local_var_path = '/api/{version}/territory/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/territory/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

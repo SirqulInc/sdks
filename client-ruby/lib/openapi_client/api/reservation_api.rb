@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Reservation
     # Creates a reservation on an offer object
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -32,14 +31,13 @@ module OpenapiClient
     # @option opts [String] :app_key The application requesting the reservation
     # @option opts [String] :meta_data External custom client defined data
     # @return [nil]
-    def create_reservation(version, opts = {})
-      create_reservation_with_http_info(version, opts)
+    def create_reservation(opts = {})
+      create_reservation_with_http_info(opts)
       nil
     end
 
     # Create Reservation
     # Creates a reservation on an offer object
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -50,16 +48,12 @@ module OpenapiClient
     # @option opts [String] :app_key The application requesting the reservation
     # @option opts [String] :meta_data External custom client defined data
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def create_reservation_with_http_info(version, opts = {})
+    def create_reservation_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReservationApi.create_reservation ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReservationApi.create_reservation"
-      end
       # resource path
-      local_var_path = '/api/{version}/reservation/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/reservation/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -106,39 +100,33 @@ module OpenapiClient
 
     # Delete Reservation
     # Deleted a reservation on a reservation object
-    # @param version [Float] 
     # @param reservation_id [Integer] The reservation id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [nil]
-    def delete_reservation(version, reservation_id, opts = {})
-      delete_reservation_with_http_info(version, reservation_id, opts)
+    def delete_reservation(reservation_id, opts = {})
+      delete_reservation_with_http_info(reservation_id, opts)
       nil
     end
 
     # Delete Reservation
     # Deleted a reservation on a reservation object
-    # @param version [Float] 
     # @param reservation_id [Integer] The reservation id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_reservation_with_http_info(version, reservation_id, opts = {})
+    def delete_reservation_with_http_info(reservation_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReservationApi.delete_reservation ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReservationApi.delete_reservation"
       end
       # verify the required parameter 'reservation_id' is set
       if @api_client.config.client_side_validation && reservation_id.nil?
         fail ArgumentError, "Missing the required parameter 'reservation_id' when calling ReservationApi.delete_reservation"
       end
       # resource path
-      local_var_path = '/api/{version}/reservation/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/reservation/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -179,7 +167,6 @@ module OpenapiClient
     end
 
     # Update Availability
-    # @param version [Float] 
     # @param reservable_id [Integer] the id of the reservation
     # @param reservable_type [String] the type of reservation
     # @param [Hash] opts the optional parameters
@@ -188,13 +175,12 @@ module OpenapiClient
     # @option opts [String] :availability Availability
     # @option opts [String] :availability_summary Availability Summary
     # @return [Array<AvailabilityResponse>]
-    def reservable_availability(version, reservable_id, reservable_type, opts = {})
-      data, _status_code, _headers = reservable_availability_with_http_info(version, reservable_id, reservable_type, opts)
+    def reservable_availability(reservable_id, reservable_type, opts = {})
+      data, _status_code, _headers = reservable_availability_with_http_info(reservable_id, reservable_type, opts)
       data
     end
 
     # Update Availability
-    # @param version [Float] 
     # @param reservable_id [Integer] the id of the reservation
     # @param reservable_type [String] the type of reservation
     # @param [Hash] opts the optional parameters
@@ -203,13 +189,9 @@ module OpenapiClient
     # @option opts [String] :availability Availability
     # @option opts [String] :availability_summary Availability Summary
     # @return [Array<(Array<AvailabilityResponse>, Integer, Hash)>] Array<AvailabilityResponse> data, response status code and response headers
-    def reservable_availability_with_http_info(version, reservable_id, reservable_type, opts = {})
+    def reservable_availability_with_http_info(reservable_id, reservable_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReservationApi.reservable_availability ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReservationApi.reservable_availability"
       end
       # verify the required parameter 'reservable_id' is set
       if @api_client.config.client_side_validation && reservable_id.nil?
@@ -225,7 +207,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"reservable_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/reservable/availability/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/reservable/availability/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -271,7 +253,6 @@ module OpenapiClient
     end
 
     # Search Availability
-    # @param version [Float] 
     # @param reservable_id [Integer] the id of the reservation
     # @param reservable_type [String] the reservable type
     # @param [Hash] opts the optional parameters
@@ -282,13 +263,12 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination (default to 0)
     # @option opts [Integer] :limit the limit of the index and/or pagination (default to 100)
     # @return [Array<AvailabilityResponse>]
-    def search_availability(version, reservable_id, reservable_type, opts = {})
-      data, _status_code, _headers = search_availability_with_http_info(version, reservable_id, reservable_type, opts)
+    def search_availability(reservable_id, reservable_type, opts = {})
+      data, _status_code, _headers = search_availability_with_http_info(reservable_id, reservable_type, opts)
       data
     end
 
     # Search Availability
-    # @param version [Float] 
     # @param reservable_id [Integer] the id of the reservation
     # @param reservable_type [String] the reservable type
     # @param [Hash] opts the optional parameters
@@ -299,13 +279,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination (default to 0)
     # @option opts [Integer] :limit the limit of the index and/or pagination (default to 100)
     # @return [Array<(Array<AvailabilityResponse>, Integer, Hash)>] Array<AvailabilityResponse> data, response status code and response headers
-    def search_availability_with_http_info(version, reservable_id, reservable_type, opts = {})
+    def search_availability_with_http_info(reservable_id, reservable_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReservationApi.search_availability ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReservationApi.search_availability"
       end
       # verify the required parameter 'reservable_id' is set
       if @api_client.config.client_side_validation && reservable_id.nil?
@@ -321,7 +297,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"reservable_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/reservable/availability/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/reservable/availability/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -369,7 +345,6 @@ module OpenapiClient
     end
 
     # Search Reservations
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id Device Id
     # @option opts [String] :app_key Appilcation Key
@@ -383,13 +358,12 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination (default to 0)
     # @option opts [Integer] :limit the limit of the index and/or pagination (default to 100)
     # @return [Array<ReservationResponse>]
-    def search_reservations(version, opts = {})
-      data, _status_code, _headers = search_reservations_with_http_info(version, opts)
+    def search_reservations(opts = {})
+      data, _status_code, _headers = search_reservations_with_http_info(opts)
       data
     end
 
     # Search Reservations
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id Device Id
     # @option opts [String] :app_key Appilcation Key
@@ -403,20 +377,16 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination (default to 0)
     # @option opts [Integer] :limit the limit of the index and/or pagination (default to 100)
     # @return [Array<(Array<ReservationResponse>, Integer, Hash)>] Array<ReservationResponse> data, response status code and response headers
-    def search_reservations_with_http_info(version, opts = {})
+    def search_reservations_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReservationApi.search_reservations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReservationApi.search_reservations"
       end
       allowable_values = ["LOCATABLE", "RESERVABLE", "PERMISSIONABLE", "NOTABLE", "ASSETABLE", "LIKABLE", "FLAGABLE", "FAVORITABLE", "RATABLE", "ALBUM", "COLLECTION", "APPLICATION", "APPLICATION_SETTING", "APPLICATION_CERT", "APPLICATION_PLACEMENT", "ACCOUNT", "ACCOUNT_SETTING", "GAME_LEVEL", "PACK", "MISSION", "TOURNAMENT", "ASSET", "ALBUM_CONTEST", "THEME_DESCRIPTOR", "OFFER", "OFFER_LOCATION", "EVENT", "RETAILER", "RETAILER_LOCATION", "NOTE", "CREATIVE", "FAVORITE", "LIKE", "RATING", "ANALYTIC", "THIRD_PARTY_CREDENTIAL", "THIRD_PARTY_NETWORK", "REGION"]
       if @api_client.config.client_side_validation && opts[:'reservable_type'] && !allowable_values.include?(opts[:'reservable_type'])
         fail ArgumentError, "invalid value for \"reservable_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/reservation/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/reservation/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -467,7 +437,6 @@ module OpenapiClient
     end
 
     # Search Schedule
-    # @param version [Float] 
     # @param reservable_id [Integer] the id of the reservation
     # @param reservable_type [String] the reservation type
     # @param start_date [Integer] the start date of the reservation
@@ -477,13 +446,12 @@ module OpenapiClient
     # @option opts [Integer] :account_id the id of the logged in user
     # @option opts [Integer] :time_bucket_mins the length of time in minutes to search on for reservation (default to 30)
     # @return [Array<TimeSlotResponse>]
-    def search_schedule(version, reservable_id, reservable_type, start_date, end_date, opts = {})
-      data, _status_code, _headers = search_schedule_with_http_info(version, reservable_id, reservable_type, start_date, end_date, opts)
+    def search_schedule(reservable_id, reservable_type, start_date, end_date, opts = {})
+      data, _status_code, _headers = search_schedule_with_http_info(reservable_id, reservable_type, start_date, end_date, opts)
       data
     end
 
     # Search Schedule
-    # @param version [Float] 
     # @param reservable_id [Integer] the id of the reservation
     # @param reservable_type [String] the reservation type
     # @param start_date [Integer] the start date of the reservation
@@ -493,13 +461,9 @@ module OpenapiClient
     # @option opts [Integer] :account_id the id of the logged in user
     # @option opts [Integer] :time_bucket_mins the length of time in minutes to search on for reservation (default to 30)
     # @return [Array<(Array<TimeSlotResponse>, Integer, Hash)>] Array<TimeSlotResponse> data, response status code and response headers
-    def search_schedule_with_http_info(version, reservable_id, reservable_type, start_date, end_date, opts = {})
+    def search_schedule_with_http_info(reservable_id, reservable_type, start_date, end_date, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ReservationApi.search_schedule ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling ReservationApi.search_schedule"
       end
       # verify the required parameter 'reservable_id' is set
       if @api_client.config.client_side_validation && reservable_id.nil?
@@ -523,7 +487,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'end_date' when calling ReservationApi.search_schedule"
       end
       # resource path
-      local_var_path = '/api/{version}/reservable/schedule/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/reservable/schedule/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

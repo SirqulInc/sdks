@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Pack
     # Create a pack.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param title [String] The title of the pack
     # @param pack_order [Integer] The order of the pack
@@ -48,14 +47,13 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a pack
     # @return [PackResponse]
-    def create_pack(version, account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, opts = {})
-      data, _status_code, _headers = create_pack_with_http_info(version, account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, opts)
+    def create_pack(account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, opts = {})
+      data, _status_code, _headers = create_pack_with_http_info(account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, opts)
       data
     end
 
     # Create Pack
     # Create a pack.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param title [String] The title of the pack
     # @param pack_order [Integer] The order of the pack
@@ -82,13 +80,9 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a pack
     # @return [Array<(PackResponse, Integer, Hash)>] PackResponse data, response status code and response headers
-    def create_pack_with_http_info(version, account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, opts = {})
+    def create_pack_with_http_info(account_id, title, pack_order, price, highest, allocate_tickets, ticket_count, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackApi.create_pack ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PackApi.create_pack"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -127,7 +121,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sequence_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/pack/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/pack/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -192,30 +186,24 @@ module OpenapiClient
 
     # Delete Pack
     # Delete a pack.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param pack_id [Integer] the id of the pack to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_pack(version, account_id, pack_id, opts = {})
-      data, _status_code, _headers = delete_pack_with_http_info(version, account_id, pack_id, opts)
+    def delete_pack(account_id, pack_id, opts = {})
+      data, _status_code, _headers = delete_pack_with_http_info(account_id, pack_id, opts)
       data
     end
 
     # Delete Pack
     # Delete a pack.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param pack_id [Integer] the id of the pack to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_pack_with_http_info(version, account_id, pack_id, opts = {})
+    def delete_pack_with_http_info(account_id, pack_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackApi.delete_pack ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PackApi.delete_pack"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -226,7 +214,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'pack_id' when calling PackApi.delete_pack"
       end
       # resource path
-      local_var_path = '/api/{version}/pack/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/pack/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -269,32 +257,26 @@ module OpenapiClient
 
     # Get Pack
     # Get a pack.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param pack_id [Integer] The id of the pack to return.
     # @param include_game_data [Boolean] If true include the game level data, otherwise don&#39;t. default is false.
     # @param [Hash] opts the optional parameters
     # @return [PackResponse]
-    def get_pack(version, account_id, pack_id, include_game_data, opts = {})
-      data, _status_code, _headers = get_pack_with_http_info(version, account_id, pack_id, include_game_data, opts)
+    def get_pack(account_id, pack_id, include_game_data, opts = {})
+      data, _status_code, _headers = get_pack_with_http_info(account_id, pack_id, include_game_data, opts)
       data
     end
 
     # Get Pack
     # Get a pack.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param pack_id [Integer] The id of the pack to return.
     # @param include_game_data [Boolean] If true include the game level data, otherwise don&#39;t. default is false.
     # @param [Hash] opts the optional parameters
     # @return [Array<(PackResponse, Integer, Hash)>] PackResponse data, response status code and response headers
-    def get_pack_with_http_info(version, account_id, pack_id, include_game_data, opts = {})
+    def get_pack_with_http_info(account_id, pack_id, include_game_data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackApi.get_pack ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PackApi.get_pack"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -309,7 +291,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'include_game_data' when calling PackApi.get_pack"
       end
       # resource path
-      local_var_path = '/api/{version}/pack/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/pack/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -353,7 +335,6 @@ module OpenapiClient
 
     # Search Packs
     # Search on packs.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param sort_field [String] The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -366,14 +347,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_inactive Determines whether to include inactive results
     # @option opts [String] :app_key The application to filter results on
     # @return [Array<PackResponse>]
-    def search_packs(version, account_id, sort_field, descending, opts = {})
-      data, _status_code, _headers = search_packs_with_http_info(version, account_id, sort_field, descending, opts)
+    def search_packs(account_id, sort_field, descending, opts = {})
+      data, _status_code, _headers = search_packs_with_http_info(account_id, sort_field, descending, opts)
       data
     end
 
     # Search Packs
     # Search on packs.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param sort_field [String] The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
     # @param descending [Boolean] Determines whether the sorted list is in descending or ascending order
@@ -386,13 +366,9 @@ module OpenapiClient
     # @option opts [Boolean] :include_inactive Determines whether to include inactive results
     # @option opts [String] :app_key The application to filter results on
     # @return [Array<(Array<PackResponse>, Integer, Hash)>] Array<PackResponse> data, response status code and response headers
-    def search_packs_with_http_info(version, account_id, sort_field, descending, opts = {})
+    def search_packs_with_http_info(account_id, sort_field, descending, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackApi.search_packs ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PackApi.search_packs"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -416,7 +392,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"pack_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/pack/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/pack/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -467,7 +443,6 @@ module OpenapiClient
 
     # Update Pack
     # Update a pack.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param pack_id [Integer] The id of the pack to update.
     # @param allocate_tickets [Boolean] Flag to indicate owner should receive tickets for completed packs
@@ -495,14 +470,13 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a pack
     # @return [PackResponse]
-    def update_pack(version, account_id, pack_id, allocate_tickets, ticket_count, opts = {})
-      data, _status_code, _headers = update_pack_with_http_info(version, account_id, pack_id, allocate_tickets, ticket_count, opts)
+    def update_pack(account_id, pack_id, allocate_tickets, ticket_count, opts = {})
+      data, _status_code, _headers = update_pack_with_http_info(account_id, pack_id, allocate_tickets, ticket_count, opts)
       data
     end
 
     # Update Pack
     # Update a pack.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param pack_id [Integer] The id of the pack to update.
     # @param allocate_tickets [Boolean] Flag to indicate owner should receive tickets for completed packs
@@ -530,13 +504,9 @@ module OpenapiClient
     # @option opts [String] :ticket_type The type of ticket to reward, null means default type
     # @option opts [Integer] :points The number of points to award for completing a pack
     # @return [Array<(PackResponse, Integer, Hash)>] PackResponse data, response status code and response headers
-    def update_pack_with_http_info(version, account_id, pack_id, allocate_tickets, ticket_count, opts = {})
+    def update_pack_with_http_info(account_id, pack_id, allocate_tickets, ticket_count, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PackApi.update_pack ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PackApi.update_pack"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -563,7 +533,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sequence_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/pack/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/pack/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

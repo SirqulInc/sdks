@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Update Payment Method
     # Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :payment_method_id Payment Method Id
@@ -47,14 +46,13 @@ module OpenapiClient
     # @option opts [String] :provider_payment_profile_id Provider customer payment profile Id
     # @option opts [String] :meta_data Meta Data
     # @return [PaymentTypesResponse]
-    def add_payment_method(version, account_id, opts = {})
-      data, _status_code, _headers = add_payment_method_with_http_info(version, account_id, opts)
+    def add_payment_method(account_id, opts = {})
+      data, _status_code, _headers = add_payment_method_with_http_info(account_id, opts)
       data
     end
 
     # Update Payment Method
     # Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :payment_method_id Payment Method Id
@@ -80,20 +78,16 @@ module OpenapiClient
     # @option opts [String] :provider_payment_profile_id Provider customer payment profile Id
     # @option opts [String] :meta_data Meta Data
     # @return [Array<(PaymentTypesResponse, Integer, Hash)>] PaymentTypesResponse data, response status code and response headers
-    def add_payment_method_with_http_info(version, account_id, opts = {})
+    def add_payment_method_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillingInfoApi.add_payment_method ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillingInfoApi.add_payment_method"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling BillingInfoApi.add_payment_method"
       end
       # resource path
-      local_var_path = '/api/{version}/billing/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billing/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -157,7 +151,6 @@ module OpenapiClient
 
     # Create Payment Method
     # Add a new method of payment.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_name Account Name of the credit card user
@@ -185,14 +178,13 @@ module OpenapiClient
     # @option opts [String] :meta_data Meta Data
     # @option opts [String] :app_key Application Key
     # @return [PaymentTypesResponse]
-    def create_payment_method(version, account_id, opts = {})
-      data, _status_code, _headers = create_payment_method_with_http_info(version, account_id, opts)
+    def create_payment_method(account_id, opts = {})
+      data, _status_code, _headers = create_payment_method_with_http_info(account_id, opts)
       data
     end
 
     # Create Payment Method
     # Add a new method of payment.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [String] :account_name Account Name of the credit card user
@@ -220,20 +212,16 @@ module OpenapiClient
     # @option opts [String] :meta_data Meta Data
     # @option opts [String] :app_key Application Key
     # @return [Array<(PaymentTypesResponse, Integer, Hash)>] PaymentTypesResponse data, response status code and response headers
-    def create_payment_method_with_http_info(version, account_id, opts = {})
+    def create_payment_method_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillingInfoApi.create_payment_method ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillingInfoApi.create_payment_method"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling BillingInfoApi.create_payment_method"
       end
       # resource path
-      local_var_path = '/api/{version}/billing/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billing/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -299,34 +287,28 @@ module OpenapiClient
 
     # Create Smart Contract
     # Adds a smart contract.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param token_name [String] The token name
     # @param token_symbol [String] The token symbol
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
     # @return [PaymentTypesResponse]
-    def create_smart_contract(version, account_id, token_name, token_symbol, opts = {})
-      data, _status_code, _headers = create_smart_contract_with_http_info(version, account_id, token_name, token_symbol, opts)
+    def create_smart_contract(account_id, token_name, token_symbol, opts = {})
+      data, _status_code, _headers = create_smart_contract_with_http_info(account_id, token_name, token_symbol, opts)
       data
     end
 
     # Create Smart Contract
     # Adds a smart contract.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param token_name [String] The token name
     # @param token_symbol [String] The token symbol
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
     # @return [Array<(PaymentTypesResponse, Integer, Hash)>] PaymentTypesResponse data, response status code and response headers
-    def create_smart_contract_with_http_info(version, account_id, token_name, token_symbol, opts = {})
+    def create_smart_contract_with_http_info(account_id, token_name, token_symbol, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillingInfoApi.create_smart_contract ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillingInfoApi.create_smart_contract"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -341,7 +323,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'token_symbol' when calling BillingInfoApi.create_smart_contract"
       end
       # resource path
-      local_var_path = '/api/{version}/billing/crypto/transfer'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billing/crypto/transfer'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -386,39 +368,33 @@ module OpenapiClient
 
     # Get Crypto Balances
     # Get the cypto balance details for a user
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :owner_account_id The account to retreive balances for
     # @option opts [Integer] :payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
     # @return [PaymentTypesResponse]
-    def get_crypto_balance(version, account_id, opts = {})
-      data, _status_code, _headers = get_crypto_balance_with_http_info(version, account_id, opts)
+    def get_crypto_balance(account_id, opts = {})
+      data, _status_code, _headers = get_crypto_balance_with_http_info(account_id, opts)
       data
     end
 
     # Get Crypto Balances
     # Get the cypto balance details for a user
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :owner_account_id The account to retreive balances for
     # @option opts [Integer] :payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
     # @return [Array<(PaymentTypesResponse, Integer, Hash)>] PaymentTypesResponse data, response status code and response headers
-    def get_crypto_balance_with_http_info(version, account_id, opts = {})
+    def get_crypto_balance_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillingInfoApi.get_crypto_balance ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillingInfoApi.get_crypto_balance"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling BillingInfoApi.get_crypto_balance"
       end
       # resource path
-      local_var_path = '/api/{version}/billing/crypto/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billing/crypto/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -462,39 +438,33 @@ module OpenapiClient
 
     # Get Payment Method
     # Get the details of the user's payment method or their current default method of payment
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
     # @option opts [Boolean] :get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this)
     # @return [PaymentTypesResponse]
-    def get_payment_method(version, account_id, opts = {})
-      data, _status_code, _headers = get_payment_method_with_http_info(version, account_id, opts)
+    def get_payment_method(account_id, opts = {})
+      data, _status_code, _headers = get_payment_method_with_http_info(account_id, opts)
       data
     end
 
     # Get Payment Method
     # Get the details of the user&#39;s payment method or their current default method of payment
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the the request
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :payment_method_id The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
     # @option opts [Boolean] :get_current_balance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this)
     # @return [Array<(PaymentTypesResponse, Integer, Hash)>] PaymentTypesResponse data, response status code and response headers
-    def get_payment_method_with_http_info(version, account_id, opts = {})
+    def get_payment_method_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillingInfoApi.get_payment_method ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillingInfoApi.get_payment_method"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling BillingInfoApi.get_payment_method"
       end
       # resource path
-      local_var_path = '/api/{version}/billing/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billing/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -538,7 +508,6 @@ module OpenapiClient
 
     # Search Payment Methods
     # Search the payment methods of an account
-    # @param version [Float] 
     # @param account_id [Integer] Account Id to search on
     # @param [Hash] opts the optional parameters
     # @option opts [String] :provider Provider to search on (default to 'AUTHORIZE_NET')
@@ -549,14 +518,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the search (default to 0)
     # @option opts [Integer] :limit the limit of the search (default to 5)
     # @return [PaymentTypesResponse]
-    def search_payment_method(version, account_id, opts = {})
-      data, _status_code, _headers = search_payment_method_with_http_info(version, account_id, opts)
+    def search_payment_method(account_id, opts = {})
+      data, _status_code, _headers = search_payment_method_with_http_info(account_id, opts)
       data
     end
 
     # Search Payment Methods
     # Search the payment methods of an account
-    # @param version [Float] 
     # @param account_id [Integer] Account Id to search on
     # @param [Hash] opts the optional parameters
     # @option opts [String] :provider Provider to search on (default to 'AUTHORIZE_NET')
@@ -567,20 +535,16 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the search (default to 0)
     # @option opts [Integer] :limit the limit of the search (default to 5)
     # @return [Array<(PaymentTypesResponse, Integer, Hash)>] PaymentTypesResponse data, response status code and response headers
-    def search_payment_method_with_http_info(version, account_id, opts = {})
+    def search_payment_method_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BillingInfoApi.search_payment_method ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BillingInfoApi.search_payment_method"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling BillingInfoApi.search_payment_method"
       end
       # resource path
-      local_var_path = '/api/{version}/billing/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/billing/search'
 
       # query parameters
       query_params = opts[:query_params] || {}

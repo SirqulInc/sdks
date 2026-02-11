@@ -21,37 +21,31 @@ module OpenapiClient
     end
     # Get Facebook Token
     # Gets a user's Facebook token.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [Float] :latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude used to update the user&#39;s current location
     # @return [TokenResponse]
-    def get_token(version, opts = {})
-      data, _status_code, _headers = get_token_with_http_info(version, opts)
+    def get_token(opts = {})
+      data, _status_code, _headers = get_token_with_http_info(opts)
       data
     end
 
     # Get Facebook Token
     # Gets a user&#39;s Facebook token.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [Float] :latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude used to update the user&#39;s current location
     # @return [Array<(TokenResponse, Integer, Hash)>] TokenResponse data, response status code and response headers
-    def get_token_with_http_info(version, opts = {})
+    def get_token_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FacebookApi.get_token ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FacebookApi.get_token"
-      end
       # resource path
-      local_var_path = '/api/{version}/facebook/getfbtoken'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/facebook/getfbtoken'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -96,7 +90,6 @@ module OpenapiClient
 
     # Post to Facebook
     # Make Facebook posts on behalf of the user.
-    # @param version [Float] 
     # @param event [String] the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
@@ -109,14 +102,13 @@ module OpenapiClient
     # @option opts [Float] :latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude used to update the user&#39;s current location
     # @return [SirqulResponse]
-    def graph_interface(version, event, opts = {})
-      data, _status_code, _headers = graph_interface_with_http_info(version, event, opts)
+    def graph_interface(event, opts = {})
+      data, _status_code, _headers = graph_interface_with_http_info(event, opts)
       data
     end
 
     # Post to Facebook
     # Make Facebook posts on behalf of the user.
-    # @param version [Float] 
     # @param event [String] the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id a unique id given by the device (deviceId or accountId required)
@@ -129,20 +121,16 @@ module OpenapiClient
     # @option opts [Float] :latitude used to update the user&#39;s current location
     # @option opts [Float] :longitude used to update the user&#39;s current location
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def graph_interface_with_http_info(version, event, opts = {})
+    def graph_interface_with_http_info(event, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FacebookApi.graph_interface ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FacebookApi.graph_interface"
       end
       # verify the required parameter 'event' is set
       if @api_client.config.client_side_validation && event.nil?
         fail ArgumentError, "Missing the required parameter 'event' when calling FacebookApi.graph_interface"
       end
       # resource path
-      local_var_path = '/api/{version}/facebook/graph'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/facebook/graph'
 
       # query parameters
       query_params = opts[:query_params] || {}

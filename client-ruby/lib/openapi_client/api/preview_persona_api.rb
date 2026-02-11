@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Persona
     # Creates a new persona. If the given params are null those attributes will be override by null.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param title [String] the title of the persona
     # @param [Hash] opts the optional parameters
@@ -33,14 +32,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the specified latitude of the persona
     # @option opts [Float] :longitude the specified longitude of the persona
     # @return [PreviewPersonaResponse]
-    def create_persona(version, account_id, title, opts = {})
-      data, _status_code, _headers = create_persona_with_http_info(version, account_id, title, opts)
+    def create_persona(account_id, title, opts = {})
+      data, _status_code, _headers = create_persona_with_http_info(account_id, title, opts)
       data
     end
 
     # Create Persona
     # Creates a new persona. If the given params are null those attributes will be override by null.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param title [String] the title of the persona
     # @param [Hash] opts the optional parameters
@@ -52,13 +50,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the specified latitude of the persona
     # @option opts [Float] :longitude the specified longitude of the persona
     # @return [Array<(PreviewPersonaResponse, Integer, Hash)>] PreviewPersonaResponse data, response status code and response headers
-    def create_persona_with_http_info(version, account_id, title, opts = {})
+    def create_persona_with_http_info(account_id, title, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PreviewPersonaApi.create_persona ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PreviewPersonaApi.create_persona"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -69,7 +63,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'title' when calling PreviewPersonaApi.create_persona"
       end
       # resource path
-      local_var_path = '/api/{version}/persona/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/persona/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -119,30 +113,24 @@ module OpenapiClient
 
     # Delete Persona
     # Mark the persona for deletion.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param persona_id [Integer] the id of the persona to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_persona(version, account_id, persona_id, opts = {})
-      data, _status_code, _headers = delete_persona_with_http_info(version, account_id, persona_id, opts)
+    def delete_persona(account_id, persona_id, opts = {})
+      data, _status_code, _headers = delete_persona_with_http_info(account_id, persona_id, opts)
       data
     end
 
     # Delete Persona
     # Mark the persona for deletion.
-    # @param version [Float] 
     # @param account_id [Integer] the account id of the user
     # @param persona_id [Integer] the id of the persona to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_persona_with_http_info(version, account_id, persona_id, opts = {})
+    def delete_persona_with_http_info(account_id, persona_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PreviewPersonaApi.delete_persona ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PreviewPersonaApi.delete_persona"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -153,7 +141,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'persona_id' when calling PreviewPersonaApi.delete_persona"
       end
       # resource path
-      local_var_path = '/api/{version}/persona/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/persona/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -196,30 +184,24 @@ module OpenapiClient
 
     # Get Persona
     # Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param persona_id [Integer] the persona ID of the persona
     # @param [Hash] opts the optional parameters
     # @return [PreviewPersonaResponse]
-    def get_persona_list(version, account_id, persona_id, opts = {})
-      data, _status_code, _headers = get_persona_list_with_http_info(version, account_id, persona_id, opts)
+    def get_persona_list(account_id, persona_id, opts = {})
+      data, _status_code, _headers = get_persona_list_with_http_info(account_id, persona_id, opts)
       data
     end
 
     # Get Persona
     # Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param persona_id [Integer] the persona ID of the persona
     # @param [Hash] opts the optional parameters
     # @return [Array<(PreviewPersonaResponse, Integer, Hash)>] PreviewPersonaResponse data, response status code and response headers
-    def get_persona_list_with_http_info(version, account_id, persona_id, opts = {})
+    def get_persona_list_with_http_info(account_id, persona_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PreviewPersonaApi.get_persona_list ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PreviewPersonaApi.get_persona_list"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -230,7 +212,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'persona_id' when calling PreviewPersonaApi.get_persona_list"
       end
       # resource path
-      local_var_path = '/api/{version}/persona/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/persona/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -273,32 +255,26 @@ module OpenapiClient
 
     # Search Personas
     # Search for persona that the account owns by the given account ID.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param start [Integer] the start index for pagination
     # @param limit [Integer] the limit for pagination (There is a hard limit of 100)
     # @param [Hash] opts the optional parameters
     # @return [PreviewPersonaResponse]
-    def search_persona(version, account_id, start, limit, opts = {})
-      data, _status_code, _headers = search_persona_with_http_info(version, account_id, start, limit, opts)
+    def search_persona(account_id, start, limit, opts = {})
+      data, _status_code, _headers = search_persona_with_http_info(account_id, start, limit, opts)
       data
     end
 
     # Search Personas
     # Search for persona that the account owns by the given account ID.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param start [Integer] the start index for pagination
     # @param limit [Integer] the limit for pagination (There is a hard limit of 100)
     # @param [Hash] opts the optional parameters
     # @return [Array<(PreviewPersonaResponse, Integer, Hash)>] PreviewPersonaResponse data, response status code and response headers
-    def search_persona_with_http_info(version, account_id, start, limit, opts = {})
+    def search_persona_with_http_info(account_id, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PreviewPersonaApi.search_persona ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PreviewPersonaApi.search_persona"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -313,7 +289,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling PreviewPersonaApi.search_persona"
       end
       # resource path
-      local_var_path = '/api/{version}/persona/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/persona/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -357,7 +333,6 @@ module OpenapiClient
 
     # Update Persona
     # Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param persona_id [Integer] the persona ID of the persona to update
     # @param [Hash] opts the optional parameters
@@ -371,14 +346,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the specified latitude of the persona
     # @option opts [Float] :longitude the specified longitude of the persona
     # @return [PreviewPersonaResponse]
-    def update_persona(version, account_id, persona_id, opts = {})
-      data, _status_code, _headers = update_persona_with_http_info(version, account_id, persona_id, opts)
+    def update_persona(account_id, persona_id, opts = {})
+      data, _status_code, _headers = update_persona_with_http_info(account_id, persona_id, opts)
       data
     end
 
     # Update Persona
     # Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-    # @param version [Float] 
     # @param account_id [Integer] the account ID of the user
     # @param persona_id [Integer] the persona ID of the persona to update
     # @param [Hash] opts the optional parameters
@@ -392,13 +366,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the specified latitude of the persona
     # @option opts [Float] :longitude the specified longitude of the persona
     # @return [Array<(PreviewPersonaResponse, Integer, Hash)>] PreviewPersonaResponse data, response status code and response headers
-    def update_persona_with_http_info(version, account_id, persona_id, opts = {})
+    def update_persona_with_http_info(account_id, persona_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PreviewPersonaApi.update_persona ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PreviewPersonaApi.update_persona"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -409,7 +379,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'persona_id' when calling PreviewPersonaApi.update_persona"
       end
       # resource path
-      local_var_path = '/api/{version}/persona/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/persona/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

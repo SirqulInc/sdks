@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Batch Tracking
     # Batch create tracking legs
-    # @param version [Float] 
     # @param data [String] JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -31,14 +30,13 @@ module OpenapiClient
     # @option opts [String] :default_tag The default tag to apply to incoming legs when no tag is provided (default to 'PASSIVE')
     # @option opts [String] :slave_uid 
     # @return [Array<Leg>]
-    def batch_save_tracking(version, data, opts = {})
-      data, _status_code, _headers = batch_save_tracking_with_http_info(version, data, opts)
+    def batch_save_tracking(data, opts = {})
+      data, _status_code, _headers = batch_save_tracking_with_http_info(data, opts)
       data
     end
 
     # Create Batch Tracking
     # Batch create tracking legs
-    # @param version [Float] 
     # @param data [String] JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
@@ -48,20 +46,16 @@ module OpenapiClient
     # @option opts [String] :default_tag The default tag to apply to incoming legs when no tag is provided (default to 'PASSIVE')
     # @option opts [String] :slave_uid 
     # @return [Array<(Array<Leg>, Integer, Hash)>] Array<Leg> data, response status code and response headers
-    def batch_save_tracking_with_http_info(version, data, opts = {})
+    def batch_save_tracking_with_http_info(data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.batch_save_tracking ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.batch_save_tracking"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
         fail ArgumentError, "Missing the required parameter 'data' when calling TrackingApi.batch_save_tracking"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/batch/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/batch/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -109,7 +103,6 @@ module OpenapiClient
 
     # Get Predicted Locations
     # Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the customer
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :latitude latitude to return a more likely result set based on the user&#39;s current location
@@ -121,14 +114,13 @@ module OpenapiClient
     # @option opts [Float] :search_range Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (default to 0)
     # @option opts [String] :sort_order The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (default to 'MATCHES')
     # @return [PredictedLocationResponse]
-    def get_predicted_locations(version, account_id, opts = {})
-      data, _status_code, _headers = get_predicted_locations_with_http_info(version, account_id, opts)
+    def get_predicted_locations(account_id, opts = {})
+      data, _status_code, _headers = get_predicted_locations_with_http_info(account_id, opts)
       data
     end
 
     # Get Predicted Locations
     # Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the customer
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :latitude latitude to return a more likely result set based on the user&#39;s current location
@@ -140,13 +132,9 @@ module OpenapiClient
     # @option opts [Float] :search_range Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (default to 0)
     # @option opts [String] :sort_order The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (default to 'MATCHES')
     # @return [Array<(PredictedLocationResponse, Integer, Hash)>] PredictedLocationResponse data, response status code and response headers
-    def get_predicted_locations_with_http_info(version, account_id, opts = {})
+    def get_predicted_locations_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.get_predicted_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.get_predicted_locations"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -161,7 +149,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_order\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/predicted/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/predicted/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -211,32 +199,26 @@ module OpenapiClient
 
     # Get Tracking Path
     # Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the customer
     # @param start_step_id [Integer] The stepId to begin from
     # @param end_step_id [Integer] The stepId to end with
     # @param [Hash] opts the optional parameters
     # @return [Array<StepResponse>]
-    def get_predicted_path(version, account_id, start_step_id, end_step_id, opts = {})
-      data, _status_code, _headers = get_predicted_path_with_http_info(version, account_id, start_step_id, end_step_id, opts)
+    def get_predicted_path(account_id, start_step_id, end_step_id, opts = {})
+      data, _status_code, _headers = get_predicted_path_with_http_info(account_id, start_step_id, end_step_id, opts)
       data
     end
 
     # Get Tracking Path
     # Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the customer
     # @param start_step_id [Integer] The stepId to begin from
     # @param end_step_id [Integer] The stepId to end with
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<StepResponse>, Integer, Hash)>] Array<StepResponse> data, response status code and response headers
-    def get_predicted_path_with_http_info(version, account_id, start_step_id, end_step_id, opts = {})
+    def get_predicted_path_with_http_info(account_id, start_step_id, end_step_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.get_predicted_path ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.get_predicted_path"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -251,7 +233,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'end_step_id' when calling TrackingApi.get_predicted_path"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/path/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/path/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -295,7 +277,6 @@ module OpenapiClient
 
     # Search Preferred Locations
     # Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the customer
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :latitude latitude to return a more likely result set based on the user&#39;s current location
@@ -309,14 +290,13 @@ module OpenapiClient
     # @option opts [Float] :search_range Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (default to 0)
     # @option opts [String] :distance_unit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (default to 'MILES')
     # @return [Array<PreferredLocationResponse>]
-    def get_preferred_locations(version, account_id, opts = {})
-      data, _status_code, _headers = get_preferred_locations_with_http_info(version, account_id, opts)
+    def get_preferred_locations(account_id, opts = {})
+      data, _status_code, _headers = get_preferred_locations_with_http_info(account_id, opts)
       data
     end
 
     # Search Preferred Locations
     # Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the customer
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :latitude latitude to return a more likely result set based on the user&#39;s current location
@@ -330,13 +310,9 @@ module OpenapiClient
     # @option opts [Float] :search_range Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (default to 0)
     # @option opts [String] :distance_unit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (default to 'MILES')
     # @return [Array<(Array<PreferredLocationResponse>, Integer, Hash)>] Array<PreferredLocationResponse> data, response status code and response headers
-    def get_preferred_locations_with_http_info(version, account_id, opts = {})
+    def get_preferred_locations_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.get_preferred_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.get_preferred_locations"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -347,7 +323,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"distance_unit\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/preferred/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/preferred/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -399,7 +375,6 @@ module OpenapiClient
 
     # Search Tracking
     # Retrieve tracking data to be able to show where a user has been.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -410,14 +385,13 @@ module OpenapiClient
     # @option opts [String] :tags filter results by tag
     # @option opts [Boolean] :get_last_point gets the last known location of the user (default to false)
     # @return [Array<LegResponse>]
-    def get_tracking_legs(version, opts = {})
-      data, _status_code, _headers = get_tracking_legs_with_http_info(version, opts)
+    def get_tracking_legs(opts = {})
+      data, _status_code, _headers = get_tracking_legs_with_http_info(opts)
       data
     end
 
     # Search Tracking
     # Retrieve tracking data to be able to show where a user has been.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
@@ -428,16 +402,12 @@ module OpenapiClient
     # @option opts [String] :tags filter results by tag
     # @option opts [Boolean] :get_last_point gets the last known location of the user (default to false)
     # @return [Array<(Array<LegResponse>, Integer, Hash)>] Array<LegResponse> data, response status code and response headers
-    def get_tracking_legs_with_http_info(version, opts = {})
+    def get_tracking_legs_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.get_tracking_legs ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.get_tracking_legs"
-      end
       # resource path
-      local_var_path = '/api/{version}/tracking/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -486,7 +456,6 @@ module OpenapiClient
 
     # Create Tracking Leg
     # Send tracking points to be able to generate pathing data
-    # @param version [Float] 
     # @param start_lat [Float] the latitude of the first point
     # @param start_lng [Float] the longitude of the first point
     # @param start_date [Integer] the start date (in UTC milliseconds) of the first point
@@ -501,14 +470,13 @@ module OpenapiClient
     # @option opts [String] :steps JSON array of tracking vectors used for smoother pathing data. If null then the leg data will be used to generate a single step, if an empty array then no steps will be generated. &#x60;&#x60;&#x60;json [{   \&quot;distance\&quot;: \&quot;0.03\&quot;,   \&quot;duration\&quot;: \&quot;5000\&quot;,   \&quot;startLat\&quot;: \&quot;47.614603\&quot;,   \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endLat\&quot;: \&quot;47.614941\&quot;,   \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,   \&quot;endDate\&quot;: \&quot;1361924015000\&quot; }] &#x60;&#x60;&#x60; 
     # @option opts [String] :tags name the leg for searching
     # @return [SirqulResponse]
-    def save_tracking_leg(version, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
-      data, _status_code, _headers = save_tracking_leg_with_http_info(version, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts)
+    def save_tracking_leg(start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
+      data, _status_code, _headers = save_tracking_leg_with_http_info(start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts)
       data
     end
 
     # Create Tracking Leg
     # Send tracking points to be able to generate pathing data
-    # @param version [Float] 
     # @param start_lat [Float] the latitude of the first point
     # @param start_lng [Float] the longitude of the first point
     # @param start_date [Integer] the start date (in UTC milliseconds) of the first point
@@ -523,13 +491,9 @@ module OpenapiClient
     # @option opts [String] :steps JSON array of tracking vectors used for smoother pathing data. If null then the leg data will be used to generate a single step, if an empty array then no steps will be generated. &#x60;&#x60;&#x60;json [{   \&quot;distance\&quot;: \&quot;0.03\&quot;,   \&quot;duration\&quot;: \&quot;5000\&quot;,   \&quot;startLat\&quot;: \&quot;47.614603\&quot;,   \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endLat\&quot;: \&quot;47.614941\&quot;,   \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,   \&quot;endDate\&quot;: \&quot;1361924015000\&quot; }] &#x60;&#x60;&#x60; 
     # @option opts [String] :tags name the leg for searching
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def save_tracking_leg_with_http_info(version, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
+    def save_tracking_leg_with_http_info(start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.save_tracking_leg ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.save_tracking_leg"
       end
       # verify the required parameter 'start_lat' is set
       if @api_client.config.client_side_validation && start_lat.nil?
@@ -556,7 +520,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'end_date' when calling TrackingApi.save_tracking_leg"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/leg/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/leg/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -609,7 +573,6 @@ module OpenapiClient
 
     # Create Tracking Step
     # Send tracking points to be able to generate pathing data
-    # @param version [Float] 
     # @param leg_id [Integer] the leg to add the step to
     # @param start_lat [Float] the latitude of the first point
     # @param start_lng [Float] the longitude of the first point
@@ -623,14 +586,13 @@ module OpenapiClient
     # @option opts [Float] :distance the total distance
     # @option opts [Integer] :duration the total duration
     # @return [SirqulResponse]
-    def save_tracking_step(version, leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
-      data, _status_code, _headers = save_tracking_step_with_http_info(version, leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts)
+    def save_tracking_step(leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
+      data, _status_code, _headers = save_tracking_step_with_http_info(leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts)
       data
     end
 
     # Create Tracking Step
     # Send tracking points to be able to generate pathing data
-    # @param version [Float] 
     # @param leg_id [Integer] the leg to add the step to
     # @param start_lat [Float] the latitude of the first point
     # @param start_lng [Float] the longitude of the first point
@@ -644,13 +606,9 @@ module OpenapiClient
     # @option opts [Float] :distance the total distance
     # @option opts [Integer] :duration the total duration
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def save_tracking_step_with_http_info(version, leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
+    def save_tracking_step_with_http_info(leg_id, start_lat, start_lng, start_date, end_lat, end_lng, end_date, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.save_tracking_step ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.save_tracking_step"
       end
       # verify the required parameter 'leg_id' is set
       if @api_client.config.client_side_validation && leg_id.nil?
@@ -681,7 +639,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'end_date' when calling TrackingApi.save_tracking_step"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/step/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/step/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -733,7 +691,6 @@ module OpenapiClient
 
     # List Tracking
     # Search for all accounts that have tracking legs data by the given constraints.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword Used for LIKE search of first or last name on the acocunt
@@ -750,14 +707,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The total number of records to return. Default is 20. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results. Default is false. (default to false)
     # @return [Array<AccountMiniResponse>]
-    def search_accounts_with_tracking_legs(version, account_id, opts = {})
-      data, _status_code, _headers = search_accounts_with_tracking_legs_with_http_info(version, account_id, opts)
+    def search_accounts_with_tracking_legs(account_id, opts = {})
+      data, _status_code, _headers = search_accounts_with_tracking_legs_with_http_info(account_id, opts)
       data
     end
 
     # List Tracking
     # Search for all accounts that have tracking legs data by the given constraints.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :keyword Used for LIKE search of first or last name on the acocunt
@@ -774,20 +730,16 @@ module OpenapiClient
     # @option opts [Integer] :limit The total number of records to return. Default is 20. (default to 20)
     # @option opts [Boolean] :active_only Determines whether to return only active results. Default is false. (default to false)
     # @return [Array<(Array<AccountMiniResponse>, Integer, Hash)>] Array<AccountMiniResponse> data, response status code and response headers
-    def search_accounts_with_tracking_legs_with_http_info(version, account_id, opts = {})
+    def search_accounts_with_tracking_legs_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.search_accounts_with_tracking_legs ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.search_accounts_with_tracking_legs"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling TrackingApi.search_accounts_with_tracking_legs"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/list'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/list'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -842,7 +794,6 @@ module OpenapiClient
 
     # Search Tracking (Billable)
     # Retrieve tracking data for billable/account scoped queries.
-    # @param version [Float] 
     # @param account_id [Integer] The account id to search tracking for
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
@@ -853,14 +804,13 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit for pagination (default to 100)
     # @return [Array<LegResponse>]
-    def search_tracking_legs(version, account_id, app_key, opts = {})
-      data, _status_code, _headers = search_tracking_legs_with_http_info(version, account_id, app_key, opts)
+    def search_tracking_legs(account_id, app_key, opts = {})
+      data, _status_code, _headers = search_tracking_legs_with_http_info(account_id, app_key, opts)
       data
     end
 
     # Search Tracking (Billable)
     # Retrieve tracking data for billable/account scoped queries.
-    # @param version [Float] 
     # @param account_id [Integer] The account id to search tracking for
     # @param app_key [String] The application key
     # @param [Hash] opts the optional parameters
@@ -871,13 +821,9 @@ module OpenapiClient
     # @option opts [Integer] :start The start index for pagination (default to 0)
     # @option opts [Integer] :limit The limit for pagination (default to 100)
     # @return [Array<(Array<LegResponse>, Integer, Hash)>] Array<LegResponse> data, response status code and response headers
-    def search_tracking_legs_with_http_info(version, account_id, app_key, opts = {})
+    def search_tracking_legs_with_http_info(account_id, app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TrackingApi.search_tracking_legs ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TrackingApi.search_tracking_legs"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -888,7 +834,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'app_key' when calling TrackingApi.search_tracking_legs"
       end
       # resource path
-      local_var_path = '/api/{version}/tracking/searchByBillable'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/tracking/searchByBillable'
 
       # query parameters
       query_params = opts[:query_params] || {}

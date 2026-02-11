@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Bid
     # Creates a bid on a biddable object
-    # @param version [Float] 
     # @param biddable_type [String] A biddable object type. Possible values include: CREATIVE (ads).
     # @param biddable_id [Integer] The id of the biddable object
     # @param amount_per_view [Float] The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -32,14 +31,13 @@ module OpenapiClient
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [BidResponse]
-    def create_bid(version, biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, opts = {})
-      data, _status_code, _headers = create_bid_with_http_info(version, biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, opts)
+    def create_bid(biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, opts = {})
+      data, _status_code, _headers = create_bid_with_http_info(biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, opts)
       data
     end
 
     # Create Bid
     # Creates a bid on a biddable object
-    # @param version [Float] 
     # @param biddable_type [String] A biddable object type. Possible values include: CREATIVE (ads).
     # @param biddable_id [Integer] The id of the biddable object
     # @param amount_per_view [Float] The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -50,13 +48,9 @@ module OpenapiClient
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(BidResponse, Integer, Hash)>] BidResponse data, response status code and response headers
-    def create_bid_with_http_info(version, biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, opts = {})
+    def create_bid_with_http_info(biddable_type, biddable_id, amount_per_view, amount_per_action, budget_amount, budget_schedule, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BidApi.create_bid ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BidApi.create_bid"
       end
       # verify the required parameter 'biddable_type' is set
       if @api_client.config.client_side_validation && biddable_type.nil?
@@ -83,7 +77,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'budget_schedule' when calling BidApi.create_bid"
       end
       # resource path
-      local_var_path = '/api/{version}/bid/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/bid/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -132,39 +126,33 @@ module OpenapiClient
 
     # Delete Bid
     # Deleted a bid on a biddable object
-    # @param version [Float] 
     # @param bid_id [Integer] The bid id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def delete_bid(version, bid_id, opts = {})
-      data, _status_code, _headers = delete_bid_with_http_info(version, bid_id, opts)
+    def delete_bid(bid_id, opts = {})
+      data, _status_code, _headers = delete_bid_with_http_info(bid_id, opts)
       data
     end
 
     # Delete Bid
     # Deleted a bid on a biddable object
-    # @param version [Float] 
     # @param bid_id [Integer] The bid id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_bid_with_http_info(version, bid_id, opts = {})
+    def delete_bid_with_http_info(bid_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BidApi.delete_bid ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BidApi.delete_bid"
       end
       # verify the required parameter 'bid_id' is set
       if @api_client.config.client_side_validation && bid_id.nil?
         fail ArgumentError, "Missing the required parameter 'bid_id' when calling BidApi.delete_bid"
       end
       # resource path
-      local_var_path = '/api/{version}/bid/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/bid/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -208,39 +196,33 @@ module OpenapiClient
 
     # Get Bid
     # Get the bid details of a biddable object
-    # @param version [Float] 
     # @param bid_id [Integer] The bid id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [BidResponse]
-    def get_bid(version, bid_id, opts = {})
-      data, _status_code, _headers = get_bid_with_http_info(version, bid_id, opts)
+    def get_bid(bid_id, opts = {})
+      data, _status_code, _headers = get_bid_with_http_info(bid_id, opts)
       data
     end
 
     # Get Bid
     # Get the bid details of a biddable object
-    # @param version [Float] 
     # @param bid_id [Integer] The bid id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(BidResponse, Integer, Hash)>] BidResponse data, response status code and response headers
-    def get_bid_with_http_info(version, bid_id, opts = {})
+    def get_bid_with_http_info(bid_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BidApi.get_bid ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BidApi.get_bid"
       end
       # verify the required parameter 'bid_id' is set
       if @api_client.config.client_side_validation && bid_id.nil?
         fail ArgumentError, "Missing the required parameter 'bid_id' when calling BidApi.get_bid"
       end
       # resource path
-      local_var_path = '/api/{version}/bid/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/bid/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -284,7 +266,6 @@ module OpenapiClient
 
     # Update Bid
     # Updates a bid on a biddable object
-    # @param version [Float] 
     # @param bid_id [Integer] The bid id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -294,14 +275,13 @@ module OpenapiClient
     # @option opts [Float] :budget_amount The allocated budget amount that will be used
     # @option opts [String] :budget_schedule The schedule for when the allocated budget amount is reset
     # @return [BidResponse]
-    def update_bid(version, bid_id, opts = {})
-      data, _status_code, _headers = update_bid_with_http_info(version, bid_id, opts)
+    def update_bid(bid_id, opts = {})
+      data, _status_code, _headers = update_bid_with_http_info(bid_id, opts)
       data
     end
 
     # Update Bid
     # Updates a bid on a biddable object
-    # @param version [Float] 
     # @param bid_id [Integer] The bid id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -311,20 +291,16 @@ module OpenapiClient
     # @option opts [Float] :budget_amount The allocated budget amount that will be used
     # @option opts [String] :budget_schedule The schedule for when the allocated budget amount is reset
     # @return [Array<(BidResponse, Integer, Hash)>] BidResponse data, response status code and response headers
-    def update_bid_with_http_info(version, bid_id, opts = {})
+    def update_bid_with_http_info(bid_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: BidApi.update_bid ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling BidApi.update_bid"
       end
       # verify the required parameter 'bid_id' is set
       if @api_client.config.client_side_validation && bid_id.nil?
         fail ArgumentError, "Missing the required parameter 'bid_id' when calling BidApi.update_bid"
       end
       # resource path
-      local_var_path = '/api/{version}/bid/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/bid/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

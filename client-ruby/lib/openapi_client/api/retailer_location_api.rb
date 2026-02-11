@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Retailer Location (Consumer)
     # Creates a location record for an application that can support crowd sourced locations.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param name [String] The name of the retailer location
     # @param [Hash] opts the optional parameters
@@ -53,14 +52,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The latitude to center the search on
     # @option opts [Float] :longitude The longitude to center the search on
     # @return [RetailerLocationResponse]
-    def create_retailer_location_consumer(version, app_key, name, opts = {})
-      data, _status_code, _headers = create_retailer_location_consumer_with_http_info(version, app_key, name, opts)
+    def create_retailer_location_consumer(app_key, name, opts = {})
+      data, _status_code, _headers = create_retailer_location_consumer_with_http_info(app_key, name, opts)
       data
     end
 
     # Create Retailer Location (Consumer)
     # Creates a location record for an application that can support crowd sourced locations.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param name [String] The name of the retailer location
     # @param [Hash] opts the optional parameters
@@ -92,13 +90,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The latitude to center the search on
     # @option opts [Float] :longitude The longitude to center the search on
     # @return [Array<(RetailerLocationResponse, Integer, Hash)>] RetailerLocationResponse data, response status code and response headers
-    def create_retailer_location_consumer_with_http_info(version, app_key, name, opts = {})
+    def create_retailer_location_consumer_with_http_info(app_key, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.create_retailer_location_consumer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.create_retailer_location_consumer"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -109,7 +103,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'name' when calling RetailerLocationApi.create_retailer_location_consumer"
       end
       # resource path
-      local_var_path = '/api/{version}/location/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -179,7 +173,6 @@ module OpenapiClient
 
     # Create Retailer Location
     # Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-    # @param version [Float] 
     # @param retailer_id [Integer] The ID of the retailer
     # @param name [String] The name of the retailer location
     # @param street_address [String] The street address of the retailer location
@@ -221,14 +214,13 @@ module OpenapiClient
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @option opts [String] :response_includes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
     # @return [RetailerLocationResponse]
-    def create_retailer_locations(version, retailer_id, name, street_address, city, state, postal_code, opts = {})
-      data, _status_code, _headers = create_retailer_locations_with_http_info(version, retailer_id, name, street_address, city, state, postal_code, opts)
+    def create_retailer_locations(retailer_id, name, street_address, city, state, postal_code, opts = {})
+      data, _status_code, _headers = create_retailer_locations_with_http_info(retailer_id, name, street_address, city, state, postal_code, opts)
       data
     end
 
     # Create Retailer Location
     # Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-    # @param version [Float] 
     # @param retailer_id [Integer] The ID of the retailer
     # @param name [String] The name of the retailer location
     # @param street_address [String] The street address of the retailer location
@@ -270,13 +262,9 @@ module OpenapiClient
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @option opts [String] :response_includes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
     # @return [Array<(RetailerLocationResponse, Integer, Hash)>] RetailerLocationResponse data, response status code and response headers
-    def create_retailer_locations_with_http_info(version, retailer_id, name, street_address, city, state, postal_code, opts = {})
+    def create_retailer_locations_with_http_info(retailer_id, name, street_address, city, state, postal_code, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.create_retailer_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.create_retailer_locations"
       end
       # verify the required parameter 'retailer_id' is set
       if @api_client.config.client_side_validation && retailer_id.nil?
@@ -307,7 +295,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/location/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/location/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -387,35 +375,29 @@ module OpenapiClient
 
     # Delete Retailer Location
     # Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id
     # @option opts [Integer] :account_id the id of the logged in user
     # @option opts [Integer] :retailer_location_id the id of the retailer location to delete
     # @return [SirqulResponse]
-    def delete_retailer_location(version, opts = {})
-      data, _status_code, _headers = delete_retailer_location_with_http_info(version, opts)
+    def delete_retailer_location(opts = {})
+      data, _status_code, _headers = delete_retailer_location_with_http_info(opts)
       data
     end
 
     # Delete Retailer Location
     # Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id
     # @option opts [Integer] :account_id the id of the logged in user
     # @option opts [Integer] :retailer_location_id the id of the retailer location to delete
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_retailer_location_with_http_info(version, opts = {})
+    def delete_retailer_location_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.delete_retailer_location ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.delete_retailer_location"
-      end
       # resource path
-      local_var_path = '/api/{version}/retailer/location/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/location/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -459,41 +441,35 @@ module OpenapiClient
 
     # Get Retailer Location
     # Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-    # @param version [Float] 
     # @param retailer_location_id [Integer] The ID of the retailer location
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :retailer_location_token the unique token of the retailer location
     # @return [RetailerLocationResponse]
-    def get_retailer_location(version, retailer_location_id, opts = {})
-      data, _status_code, _headers = get_retailer_location_with_http_info(version, retailer_location_id, opts)
+    def get_retailer_location(retailer_location_id, opts = {})
+      data, _status_code, _headers = get_retailer_location_with_http_info(retailer_location_id, opts)
       data
     end
 
     # Get Retailer Location
     # Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-    # @param version [Float] 
     # @param retailer_location_id [Integer] The ID of the retailer location
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :retailer_location_token the unique token of the retailer location
     # @return [Array<(RetailerLocationResponse, Integer, Hash)>] RetailerLocationResponse data, response status code and response headers
-    def get_retailer_location_with_http_info(version, retailer_location_id, opts = {})
+    def get_retailer_location_with_http_info(retailer_location_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.get_retailer_location ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.get_retailer_location"
       end
       # verify the required parameter 'retailer_location_id' is set
       if @api_client.config.client_side_validation && retailer_location_id.nil?
         fail ArgumentError, "Missing the required parameter 'retailer_location_id' when calling RetailerLocationApi.get_retailer_location"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/location/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/location/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -538,39 +514,33 @@ module OpenapiClient
 
     # Get Retailer Location (Consumer)
     # Gets the details of a retailer location as a consumer.
-    # @param version [Float] 
     # @param retailer_location_id [Integer] The retailer location id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id for returning account information (i.e. favorites)
     # @option opts [Integer] :account_id The account id for returning account information (i.e. favorites)
     # @return [RetailerLocationResponse]
-    def get_retailer_location_consumer(version, retailer_location_id, opts = {})
-      data, _status_code, _headers = get_retailer_location_consumer_with_http_info(version, retailer_location_id, opts)
+    def get_retailer_location_consumer(retailer_location_id, opts = {})
+      data, _status_code, _headers = get_retailer_location_consumer_with_http_info(retailer_location_id, opts)
       data
     end
 
     # Get Retailer Location (Consumer)
     # Gets the details of a retailer location as a consumer.
-    # @param version [Float] 
     # @param retailer_location_id [Integer] The retailer location id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id for returning account information (i.e. favorites)
     # @option opts [Integer] :account_id The account id for returning account information (i.e. favorites)
     # @return [Array<(RetailerLocationResponse, Integer, Hash)>] RetailerLocationResponse data, response status code and response headers
-    def get_retailer_location_consumer_with_http_info(version, retailer_location_id, opts = {})
+    def get_retailer_location_consumer_with_http_info(retailer_location_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.get_retailer_location_consumer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.get_retailer_location_consumer"
       end
       # verify the required parameter 'retailer_location_id' is set
       if @api_client.config.client_side_validation && retailer_location_id.nil?
         fail ArgumentError, "Missing the required parameter 'retailer_location_id' when calling RetailerLocationApi.get_retailer_location_consumer"
       end
       # resource path
-      local_var_path = '/api/{version}/location/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/location/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -614,7 +584,6 @@ module OpenapiClient
 
     # Distance Search Retailer Locations (Indexed)
     # Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-    # @param version [Float] 
     # @param latitude [Float] The latitude to center the search on
     # @param longitude [Float] The longitude to center the search on
     # @param search_range [Float] The search range in the distanceUnit specified; default is MILES.
@@ -651,14 +620,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_liked Include liked flag in response
     # @option opts [Boolean] :include_rating Include rating info in response
     # @return [Array<RetailerLocationResponse>]
-    def indexed_retailer_location_distance_search(version, latitude, longitude, search_range, start, limit, opts = {})
-      data, _status_code, _headers = indexed_retailer_location_distance_search_with_http_info(version, latitude, longitude, search_range, start, limit, opts)
+    def indexed_retailer_location_distance_search(latitude, longitude, search_range, start, limit, opts = {})
+      data, _status_code, _headers = indexed_retailer_location_distance_search_with_http_info(latitude, longitude, search_range, start, limit, opts)
       data
     end
 
     # Distance Search Retailer Locations (Indexed)
     # Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-    # @param version [Float] 
     # @param latitude [Float] The latitude to center the search on
     # @param longitude [Float] The longitude to center the search on
     # @param search_range [Float] The search range in the distanceUnit specified; default is MILES.
@@ -695,13 +663,9 @@ module OpenapiClient
     # @option opts [Boolean] :include_liked Include liked flag in response
     # @option opts [Boolean] :include_rating Include rating info in response
     # @return [Array<(Array<RetailerLocationResponse>, Integer, Hash)>] Array<RetailerLocationResponse> data, response status code and response headers
-    def indexed_retailer_location_distance_search_with_http_info(version, latitude, longitude, search_range, start, limit, opts = {})
+    def indexed_retailer_location_distance_search_with_http_info(latitude, longitude, search_range, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.indexed_retailer_location_distance_search ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.indexed_retailer_location_distance_search"
       end
       # verify the required parameter 'latitude' is set
       if @api_client.config.client_side_validation && latitude.nil?
@@ -728,7 +692,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"distance_unit\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/location/idistancesearch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/location/idistancesearch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -803,7 +767,6 @@ module OpenapiClient
 
     # Keyword Search Retailer Locations (Indexed)
     # Retailer location (faster) indexed search. This searches all retailer locations.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [Integer] :start The start index for pagination
@@ -834,14 +797,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_liked Include liked flag in response
     # @option opts [Boolean] :include_rating Include rating info in response
     # @return [Array<RetailerLocationResponse>]
-    def indexed_retailer_location_search(version, opts = {})
-      data, _status_code, _headers = indexed_retailer_location_search_with_http_info(version, opts)
+    def indexed_retailer_location_search(opts = {})
+      data, _status_code, _headers = indexed_retailer_location_search_with_http_info(opts)
       data
     end
 
     # Keyword Search Retailer Locations (Indexed)
     # Retailer location (faster) indexed search. This searches all retailer locations.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :account_id The account id of the user
     # @option opts [Integer] :start The start index for pagination
@@ -872,16 +834,12 @@ module OpenapiClient
     # @option opts [Boolean] :include_liked Include liked flag in response
     # @option opts [Boolean] :include_rating Include rating info in response
     # @return [Array<(Array<RetailerLocationResponse>, Integer, Hash)>] Array<RetailerLocationResponse> data, response status code and response headers
-    def indexed_retailer_location_search_with_http_info(version, opts = {})
+    def indexed_retailer_location_search_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.indexed_retailer_location_search ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.indexed_retailer_location_search"
-      end
       # resource path
-      local_var_path = '/api/{version}/retailer/location/isearch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/location/isearch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -950,7 +908,6 @@ module OpenapiClient
 
     # Search Retailer Locations (Owned)
     # Searches on retailer locations that the account has access to.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -978,14 +935,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_liked Include liked flag in response
     # @option opts [Boolean] :include_rating Include rating info in response
     # @return [Array<RetailerLocationResponse>]
-    def search_retailer_locations(version, opts = {})
-      data, _status_code, _headers = search_retailer_locations_with_http_info(version, opts)
+    def search_retailer_locations(opts = {})
+      data, _status_code, _headers = search_retailer_locations_with_http_info(opts)
       data
     end
 
     # Search Retailer Locations (Owned)
     # Searches on retailer locations that the account has access to.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -1013,20 +969,16 @@ module OpenapiClient
     # @option opts [Boolean] :include_liked Include liked flag in response
     # @option opts [Boolean] :include_rating Include rating info in response
     # @return [Array<(Array<RetailerLocationResponse>, Integer, Hash)>] Array<RetailerLocationResponse> data, response status code and response headers
-    def search_retailer_locations_with_http_info(version, opts = {})
+    def search_retailer_locations_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.search_retailer_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.search_retailer_locations"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "RETAILER_ID", "BILLABLE_ENTITY_ID", "BILLABLE_ENTITY_NAME", "RESPONSIBLE_DISPLAY", "ADDRESS_STREET", "ADDRESS_CITY", "ADDRESS_STATE", "ADDRESS_POSTAL_CODE", "ADDRESS_COUNTRY", "NAME", "CODE"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/location/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/location/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1092,7 +1044,6 @@ module OpenapiClient
 
     # Update Retailer Location
     # Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-    # @param version [Float] 
     # @param retailer_location_id [Integer] The ID of the retailer location
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -1136,14 +1087,13 @@ module OpenapiClient
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @option opts [String] :tags Custom string field for doing full-text searches
     # @return [RetailerLocationResponse]
-    def update_retailer_locations(version, retailer_location_id, opts = {})
-      data, _status_code, _headers = update_retailer_locations_with_http_info(version, retailer_location_id, opts)
+    def update_retailer_locations(retailer_location_id, opts = {})
+      data, _status_code, _headers = update_retailer_locations_with_http_info(retailer_location_id, opts)
       data
     end
 
     # Update Retailer Location
     # Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-    # @param version [Float] 
     # @param retailer_location_id [Integer] The ID of the retailer location
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -1187,13 +1137,9 @@ module OpenapiClient
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @option opts [String] :tags Custom string field for doing full-text searches
     # @return [Array<(RetailerLocationResponse, Integer, Hash)>] RetailerLocationResponse data, response status code and response headers
-    def update_retailer_locations_with_http_info(version, retailer_location_id, opts = {})
+    def update_retailer_locations_with_http_info(retailer_location_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerLocationApi.update_retailer_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerLocationApi.update_retailer_locations"
       end
       # verify the required parameter 'retailer_location_id' is set
       if @api_client.config.client_side_validation && retailer_location_id.nil?
@@ -1204,7 +1150,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/location/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/location/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Purchase
     # Creates a purchase item for in app purchases
-    # @param version [Float] 
     # @param app_key [String] The application key that the purchase can be used in
     # @param name [String] The name of the purchase item
     # @param purchase_type [String] The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -44,14 +43,13 @@ module OpenapiClient
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @option opts [Integer] :offer_location_id The offer location that will get added to the user&#39;s wallet after purchase.
     # @return [PurchaseItemFullResponse]
-    def create_purchase_item(version, app_key, name, purchase_type, opts = {})
-      data, _status_code, _headers = create_purchase_item_with_http_info(version, app_key, name, purchase_type, opts)
+    def create_purchase_item(app_key, name, purchase_type, opts = {})
+      data, _status_code, _headers = create_purchase_item_with_http_info(app_key, name, purchase_type, opts)
       data
     end
 
     # Create Purchase
     # Creates a purchase item for in app purchases
-    # @param version [Float] 
     # @param app_key [String] The application key that the purchase can be used in
     # @param name [String] The name of the purchase item
     # @param purchase_type [String] The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -74,13 +72,9 @@ module OpenapiClient
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @option opts [Integer] :offer_location_id The offer location that will get added to the user&#39;s wallet after purchase.
     # @return [Array<(PurchaseItemFullResponse, Integer, Hash)>] PurchaseItemFullResponse data, response status code and response headers
-    def create_purchase_item_with_http_info(version, app_key, name, purchase_type, opts = {})
+    def create_purchase_item_with_http_info(app_key, name, purchase_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseItemApi.create_purchase_item ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseItemApi.create_purchase_item"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -104,7 +98,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"service_action\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/purchase/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/purchase/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -165,39 +159,33 @@ module OpenapiClient
 
     # Delete Purchase
     # Marks the purchase item as deleted
-    # @param version [Float] 
     # @param purchase_item_id [Integer] The purchase item id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def delete_purchase_item(version, purchase_item_id, opts = {})
-      data, _status_code, _headers = delete_purchase_item_with_http_info(version, purchase_item_id, opts)
+    def delete_purchase_item(purchase_item_id, opts = {})
+      data, _status_code, _headers = delete_purchase_item_with_http_info(purchase_item_id, opts)
       data
     end
 
     # Delete Purchase
     # Marks the purchase item as deleted
-    # @param version [Float] 
     # @param purchase_item_id [Integer] The purchase item id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_purchase_item_with_http_info(version, purchase_item_id, opts = {})
+    def delete_purchase_item_with_http_info(purchase_item_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseItemApi.delete_purchase_item ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseItemApi.delete_purchase_item"
       end
       # verify the required parameter 'purchase_item_id' is set
       if @api_client.config.client_side_validation && purchase_item_id.nil?
         fail ArgumentError, "Missing the required parameter 'purchase_item_id' when calling PurchaseItemApi.delete_purchase_item"
       end
       # resource path
-      local_var_path = '/api/{version}/purchase/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/purchase/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -241,39 +229,33 @@ module OpenapiClient
 
     # Get Purchase
     # Get detailed information about a purchase item
-    # @param version [Float] 
     # @param purchase_item_id [Integer] The purchase item id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [PurchaseItemFullResponse]
-    def get_purchase_item(version, purchase_item_id, opts = {})
-      data, _status_code, _headers = get_purchase_item_with_http_info(version, purchase_item_id, opts)
+    def get_purchase_item(purchase_item_id, opts = {})
+      data, _status_code, _headers = get_purchase_item_with_http_info(purchase_item_id, opts)
       data
     end
 
     # Get Purchase
     # Get detailed information about a purchase item
-    # @param version [Float] 
     # @param purchase_item_id [Integer] The purchase item id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(PurchaseItemFullResponse, Integer, Hash)>] PurchaseItemFullResponse data, response status code and response headers
-    def get_purchase_item_with_http_info(version, purchase_item_id, opts = {})
+    def get_purchase_item_with_http_info(purchase_item_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseItemApi.get_purchase_item ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseItemApi.get_purchase_item"
       end
       # verify the required parameter 'purchase_item_id' is set
       if @api_client.config.client_side_validation && purchase_item_id.nil?
         fail ArgumentError, "Missing the required parameter 'purchase_item_id' when calling PurchaseItemApi.get_purchase_item"
       end
       # resource path
-      local_var_path = '/api/{version}/purchase/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/purchase/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -317,7 +299,6 @@ module OpenapiClient
 
     # Search Purchases
     # Search for purchasable items from the system
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -332,14 +313,13 @@ module OpenapiClient
     # @option opts [Integer] :limit The number of records to return (default to 20)
     # @option opts [Boolean] :active_only Return only active results (default to false)
     # @return [Array<PurchaseItemResponse>]
-    def search_purchase_items(version, opts = {})
-      data, _status_code, _headers = search_purchase_items_with_http_info(version, opts)
+    def search_purchase_items(opts = {})
+      data, _status_code, _headers = search_purchase_items_with_http_info(opts)
       data
     end
 
     # Search Purchases
     # Search for purchasable items from the system
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -354,20 +334,16 @@ module OpenapiClient
     # @option opts [Integer] :limit The number of records to return (default to 20)
     # @option opts [Boolean] :active_only Return only active results (default to false)
     # @return [Array<(Array<PurchaseItemResponse>, Integer, Hash)>] Array<PurchaseItemResponse> data, response status code and response headers
-    def search_purchase_items_with_http_info(version, opts = {})
+    def search_purchase_items_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseItemApi.search_purchase_items ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseItemApi.search_purchase_items"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "NAME", "DESCRIPTION", "TICKETS", "PRICE", "PURCHASE_TYPE", "PURCHASE_CODE", "PURCHASE_LIMIT", "SERIVCE_ACTION", "GIFTABLE", "ASSETABLE", "APPLICATION_ID", "APPLICATION_NAME"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/purchase/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/purchase/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -420,7 +396,6 @@ module OpenapiClient
 
     # Update Purchase
     # Updates a purchase item for in app purchases
-    # @param version [Float] 
     # @param purchase_item_id [Integer] The purchase item id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -444,14 +419,13 @@ module OpenapiClient
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @option opts [Integer] :offer_location_id The offer location that will get added to the user&#39;s wallet after purchase.
     # @return [PurchaseItemFullResponse]
-    def update_purchase_item(version, purchase_item_id, opts = {})
-      data, _status_code, _headers = update_purchase_item_with_http_info(version, purchase_item_id, opts)
+    def update_purchase_item(purchase_item_id, opts = {})
+      data, _status_code, _headers = update_purchase_item_with_http_info(purchase_item_id, opts)
       data
     end
 
     # Update Purchase
     # Updates a purchase item for in app purchases
-    # @param version [Float] 
     # @param purchase_item_id [Integer] The purchase item id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -475,13 +449,9 @@ module OpenapiClient
     # @option opts [Integer] :points The number of points to award for completing a mission
     # @option opts [Integer] :offer_location_id The offer location that will get added to the user&#39;s wallet after purchase.
     # @return [Array<(PurchaseItemFullResponse, Integer, Hash)>] PurchaseItemFullResponse data, response status code and response headers
-    def update_purchase_item_with_http_info(version, purchase_item_id, opts = {})
+    def update_purchase_item_with_http_info(purchase_item_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PurchaseItemApi.update_purchase_item ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PurchaseItemApi.update_purchase_item"
       end
       # verify the required parameter 'purchase_item_id' is set
       if @api_client.config.client_side_validation && purchase_item_id.nil?
@@ -496,7 +466,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"service_action\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/purchase/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/purchase/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

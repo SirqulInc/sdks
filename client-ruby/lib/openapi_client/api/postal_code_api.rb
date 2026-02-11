@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Postal Code
     # Create a Postal Code
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param code [String] the postal code
     # @param latitude [Float] the latitude of the postal code
@@ -31,14 +30,13 @@ module OpenapiClient
     # @option opts [String] :city the city that the postal code is located
     # @option opts [Boolean] :active whether the postal code created should be active or inactive
     # @return [PostalCodeResponse]
-    def create_postal_code(version, account_id, code, latitude, longitude, opts = {})
-      data, _status_code, _headers = create_postal_code_with_http_info(version, account_id, code, latitude, longitude, opts)
+    def create_postal_code(account_id, code, latitude, longitude, opts = {})
+      data, _status_code, _headers = create_postal_code_with_http_info(account_id, code, latitude, longitude, opts)
       data
     end
 
     # Create Postal Code
     # Create a Postal Code
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param code [String] the postal code
     # @param latitude [Float] the latitude of the postal code
@@ -48,13 +46,9 @@ module OpenapiClient
     # @option opts [String] :city the city that the postal code is located
     # @option opts [Boolean] :active whether the postal code created should be active or inactive
     # @return [Array<(PostalCodeResponse, Integer, Hash)>] PostalCodeResponse data, response status code and response headers
-    def create_postal_code_with_http_info(version, account_id, code, latitude, longitude, opts = {})
+    def create_postal_code_with_http_info(account_id, code, latitude, longitude, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PostalCodeApi.create_postal_code ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PostalCodeApi.create_postal_code"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -73,7 +67,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'longitude' when calling PostalCodeApi.create_postal_code"
       end
       # resource path
-      local_var_path = '/api/{version}/postalCode/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/postalCode/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -121,30 +115,24 @@ module OpenapiClient
 
     # Delete Postal Code
     # Delete a Postal Code
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param postal_code_id [Integer] the id of the postal code to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_postal_code(version, account_id, postal_code_id, opts = {})
-      data, _status_code, _headers = delete_postal_code_with_http_info(version, account_id, postal_code_id, opts)
+    def delete_postal_code(account_id, postal_code_id, opts = {})
+      data, _status_code, _headers = delete_postal_code_with_http_info(account_id, postal_code_id, opts)
       data
     end
 
     # Delete Postal Code
     # Delete a Postal Code
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param postal_code_id [Integer] the id of the postal code to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_postal_code_with_http_info(version, account_id, postal_code_id, opts = {})
+    def delete_postal_code_with_http_info(account_id, postal_code_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PostalCodeApi.delete_postal_code ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PostalCodeApi.delete_postal_code"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -155,7 +143,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'postal_code_id' when calling PostalCodeApi.delete_postal_code"
       end
       # resource path
-      local_var_path = '/api/{version}/postalCode/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/postalCode/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -198,35 +186,29 @@ module OpenapiClient
 
     # Get Postal Code
     # Get a Postal Code
-    # @param version [Float] 
     # @param postal_code_id [Integer] the id of the postal code to get
     # @param [Hash] opts the optional parameters
     # @return [PostalCodeResponse]
-    def get_postal_code(version, postal_code_id, opts = {})
-      data, _status_code, _headers = get_postal_code_with_http_info(version, postal_code_id, opts)
+    def get_postal_code(postal_code_id, opts = {})
+      data, _status_code, _headers = get_postal_code_with_http_info(postal_code_id, opts)
       data
     end
 
     # Get Postal Code
     # Get a Postal Code
-    # @param version [Float] 
     # @param postal_code_id [Integer] the id of the postal code to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(PostalCodeResponse, Integer, Hash)>] PostalCodeResponse data, response status code and response headers
-    def get_postal_code_with_http_info(version, postal_code_id, opts = {})
+    def get_postal_code_with_http_info(postal_code_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PostalCodeApi.get_postal_code ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PostalCodeApi.get_postal_code"
       end
       # verify the required parameter 'postal_code_id' is set
       if @api_client.config.client_side_validation && postal_code_id.nil?
         fail ArgumentError, "Missing the required parameter 'postal_code_id' when calling PostalCodeApi.get_postal_code"
       end
       # resource path
-      local_var_path = '/api/{version}/postalCode/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/postalCode/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -268,7 +250,6 @@ module OpenapiClient
 
     # Search Postal Codes
     # Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort the results on
     # @param descending [Boolean] whether to order results in ascending or descending order
     # @param [Hash] opts the optional parameters
@@ -279,14 +260,13 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination
     # @option opts [Integer] :limit the limit of the index and/or pagination
     # @return [Array<PostalCodeResponse>]
-    def get_postal_codes(version, sort_field, descending, opts = {})
-      data, _status_code, _headers = get_postal_codes_with_http_info(version, sort_field, descending, opts)
+    def get_postal_codes(sort_field, descending, opts = {})
+      data, _status_code, _headers = get_postal_codes_with_http_info(sort_field, descending, opts)
       data
     end
 
     # Search Postal Codes
     # Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-    # @param version [Float] 
     # @param sort_field [String] the field to sort the results on
     # @param descending [Boolean] whether to order results in ascending or descending order
     # @param [Hash] opts the optional parameters
@@ -297,13 +277,9 @@ module OpenapiClient
     # @option opts [Integer] :start the start of the index and/or pagination
     # @option opts [Integer] :limit the limit of the index and/or pagination
     # @return [Array<(Array<PostalCodeResponse>, Integer, Hash)>] Array<PostalCodeResponse> data, response status code and response headers
-    def get_postal_codes_with_http_info(version, sort_field, descending, opts = {})
+    def get_postal_codes_with_http_info(sort_field, descending, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PostalCodeApi.get_postal_codes ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PostalCodeApi.get_postal_codes"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -314,7 +290,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'descending' when calling PostalCodeApi.get_postal_codes"
       end
       # resource path
-      local_var_path = '/api/{version}/postalCode/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/postalCode/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -363,7 +339,6 @@ module OpenapiClient
 
     # Update Postal Code
     # Update a Postal Code
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param postal_code_id [Integer] the id of the postal code to update
     # @param [Hash] opts the optional parameters
@@ -374,14 +349,13 @@ module OpenapiClient
     # @option opts [String] :city the city where the postal code is located
     # @option opts [Boolean] :active whether the postal code is active or inactive
     # @return [PostalCodeResponse]
-    def update_postal_code(version, account_id, postal_code_id, opts = {})
-      data, _status_code, _headers = update_postal_code_with_http_info(version, account_id, postal_code_id, opts)
+    def update_postal_code(account_id, postal_code_id, opts = {})
+      data, _status_code, _headers = update_postal_code_with_http_info(account_id, postal_code_id, opts)
       data
     end
 
     # Update Postal Code
     # Update a Postal Code
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param postal_code_id [Integer] the id of the postal code to update
     # @param [Hash] opts the optional parameters
@@ -392,13 +366,9 @@ module OpenapiClient
     # @option opts [String] :city the city where the postal code is located
     # @option opts [Boolean] :active whether the postal code is active or inactive
     # @return [Array<(PostalCodeResponse, Integer, Hash)>] PostalCodeResponse data, response status code and response headers
-    def update_postal_code_with_http_info(version, account_id, postal_code_id, opts = {})
+    def update_postal_code_with_http_info(account_id, postal_code_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PostalCodeApi.update_postal_code ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PostalCodeApi.update_postal_code"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -409,7 +379,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'postal_code_id' when calling PostalCodeApi.update_postal_code"
       end
       # resource path
-      local_var_path = '/api/{version}/postalCode/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/postalCode/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

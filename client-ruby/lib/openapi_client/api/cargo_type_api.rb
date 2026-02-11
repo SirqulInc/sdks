@@ -21,31 +21,25 @@ module OpenapiClient
     end
     # Create Cargo Type
     # Create new cargo type
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [CargoType] :body 
     # @return [CargoType]
-    def create_cargo_type(version, opts = {})
-      data, _status_code, _headers = create_cargo_type_with_http_info(version, opts)
+    def create_cargo_type(opts = {})
+      data, _status_code, _headers = create_cargo_type_with_http_info(opts)
       data
     end
 
     # Create Cargo Type
     # Create new cargo type
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [CargoType] :body 
     # @return [Array<(CargoType, Integer, Hash)>] CargoType data, response status code and response headers
-    def create_cargo_type_with_http_info(version, opts = {})
+    def create_cargo_type_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CargoTypeApi.create_cargo_type ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CargoTypeApi.create_cargo_type"
-      end
       # resource path
-      local_var_path = '/api/{version}/cargo/type'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/cargo/type'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -86,35 +80,29 @@ module OpenapiClient
 
     # Delete Cargo Type
     # Delete a type of cargo
-    # @param version [Float] 
     # @param cargo_type_id [Integer] the ID of the cargo type
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_cargo_type(version, cargo_type_id, opts = {})
-      delete_cargo_type_with_http_info(version, cargo_type_id, opts)
+    def delete_cargo_type(cargo_type_id, opts = {})
+      delete_cargo_type_with_http_info(cargo_type_id, opts)
       nil
     end
 
     # Delete Cargo Type
     # Delete a type of cargo
-    # @param version [Float] 
     # @param cargo_type_id [Integer] the ID of the cargo type
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_cargo_type_with_http_info(version, cargo_type_id, opts = {})
+    def delete_cargo_type_with_http_info(cargo_type_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CargoTypeApi.delete_cargo_type ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CargoTypeApi.delete_cargo_type"
       end
       # verify the required parameter 'cargo_type_id' is set
       if @api_client.config.client_side_validation && cargo_type_id.nil?
         fail ArgumentError, "Missing the required parameter 'cargo_type_id' when calling CargoTypeApi.delete_cargo_type"
       end
       # resource path
-      local_var_path = '/api/{version}/cargo/type/{cargoTypeId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'cargoTypeId' + '}', CGI.escape(cargo_type_id.to_s))
+      local_var_path = '/cargo/type/{cargoTypeId}'.sub('{' + 'cargoTypeId' + '}', CGI.escape(cargo_type_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -153,35 +141,29 @@ module OpenapiClient
 
     # Get Cargo Type
     # Get an existing cargo type
-    # @param version [Float] 
     # @param cargo_type_id [Integer] the cargo type ID
     # @param [Hash] opts the optional parameters
     # @return [CargoType]
-    def get_cargo_type(version, cargo_type_id, opts = {})
-      data, _status_code, _headers = get_cargo_type_with_http_info(version, cargo_type_id, opts)
+    def get_cargo_type(cargo_type_id, opts = {})
+      data, _status_code, _headers = get_cargo_type_with_http_info(cargo_type_id, opts)
       data
     end
 
     # Get Cargo Type
     # Get an existing cargo type
-    # @param version [Float] 
     # @param cargo_type_id [Integer] the cargo type ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(CargoType, Integer, Hash)>] CargoType data, response status code and response headers
-    def get_cargo_type_with_http_info(version, cargo_type_id, opts = {})
+    def get_cargo_type_with_http_info(cargo_type_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CargoTypeApi.get_cargo_type ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CargoTypeApi.get_cargo_type"
       end
       # verify the required parameter 'cargo_type_id' is set
       if @api_client.config.client_side_validation && cargo_type_id.nil?
         fail ArgumentError, "Missing the required parameter 'cargo_type_id' when calling CargoTypeApi.get_cargo_type"
       end
       # resource path
-      local_var_path = '/api/{version}/cargo/type/{cargoTypeId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'cargoTypeId' + '}', CGI.escape(cargo_type_id.to_s))
+      local_var_path = '/cargo/type/{cargoTypeId}'.sub('{' + 'cargoTypeId' + '}', CGI.escape(cargo_type_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -222,7 +204,6 @@ module OpenapiClient
 
     # Search Cargo Type
     # Search for types of cargo
-    # @param version [Float] 
     # @param sort_field [String] the sort field to use for the cargo type
     # @param descending [Boolean] if the cargo type should be should be in descending order
     # @param start [Integer] the start of the search
@@ -232,14 +213,13 @@ module OpenapiClient
     # @option opts [Integer] :retailer_id the id of the retailer location
     # @option opts [Integer] :hub_id the ID of the hub
     # @return [Array<CargoType>]
-    def search_cargo_types(version, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_cargo_types_with_http_info(version, sort_field, descending, start, limit, active_only, opts)
+    def search_cargo_types(sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_cargo_types_with_http_info(sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Cargo Type
     # Search for types of cargo
-    # @param version [Float] 
     # @param sort_field [String] the sort field to use for the cargo type
     # @param descending [Boolean] if the cargo type should be should be in descending order
     # @param start [Integer] the start of the search
@@ -249,13 +229,9 @@ module OpenapiClient
     # @option opts [Integer] :retailer_id the id of the retailer location
     # @option opts [Integer] :hub_id the ID of the hub
     # @return [Array<(Array<CargoType>, Integer, Hash)>] Array<CargoType> data, response status code and response headers
-    def search_cargo_types_with_http_info(version, sort_field, descending, start, limit, active_only, opts = {})
+    def search_cargo_types_with_http_info(sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CargoTypeApi.search_cargo_types ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CargoTypeApi.search_cargo_types"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -278,7 +254,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling CargoTypeApi.search_cargo_types"
       end
       # resource path
-      local_var_path = '/api/{version}/cargo/type'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/cargo/type'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -326,37 +302,31 @@ module OpenapiClient
 
     # Update Cargo Type
     # Update an existing cargo type
-    # @param version [Float] 
     # @param cargo_type_id [Integer] the ID of the cargo type
     # @param [Hash] opts the optional parameters
     # @option opts [CargoType] :body 
     # @return [CargoType]
-    def update_cargo_type(version, cargo_type_id, opts = {})
-      data, _status_code, _headers = update_cargo_type_with_http_info(version, cargo_type_id, opts)
+    def update_cargo_type(cargo_type_id, opts = {})
+      data, _status_code, _headers = update_cargo_type_with_http_info(cargo_type_id, opts)
       data
     end
 
     # Update Cargo Type
     # Update an existing cargo type
-    # @param version [Float] 
     # @param cargo_type_id [Integer] the ID of the cargo type
     # @param [Hash] opts the optional parameters
     # @option opts [CargoType] :body 
     # @return [Array<(CargoType, Integer, Hash)>] CargoType data, response status code and response headers
-    def update_cargo_type_with_http_info(version, cargo_type_id, opts = {})
+    def update_cargo_type_with_http_info(cargo_type_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CargoTypeApi.update_cargo_type ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling CargoTypeApi.update_cargo_type"
       end
       # verify the required parameter 'cargo_type_id' is set
       if @api_client.config.client_side_validation && cargo_type_id.nil?
         fail ArgumentError, "Missing the required parameter 'cargo_type_id' when calling CargoTypeApi.update_cargo_type"
       end
       # resource path
-      local_var_path = '/api/{version}/cargo/type/{cargoTypeId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'cargoTypeId' + '}', CGI.escape(cargo_type_id.to_s))
+      local_var_path = '/cargo/type/{cargoTypeId}'.sub('{' + 'cargoTypeId' + '}', CGI.escape(cargo_type_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Favorite
     # Adds an offer, offer location, retailer location, or category to your favorites.
-    # @param version [Float] 
     # @param favoritable_id [Integer] The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
     # @param favoritable_type [String] The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
     # @param [Hash] opts the optional parameters
@@ -30,14 +29,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [WrappedResponse]
-    def add_favorite(version, favoritable_id, favoritable_type, opts = {})
-      data, _status_code, _headers = add_favorite_with_http_info(version, favoritable_id, favoritable_type, opts)
+    def add_favorite(favoritable_id, favoritable_type, opts = {})
+      data, _status_code, _headers = add_favorite_with_http_info(favoritable_id, favoritable_type, opts)
       data
     end
 
     # Create Favorite
     # Adds an offer, offer location, retailer location, or category to your favorites.
-    # @param version [Float] 
     # @param favoritable_id [Integer] The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
     # @param favoritable_type [String] The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
     # @param [Hash] opts the optional parameters
@@ -46,13 +44,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(WrappedResponse, Integer, Hash)>] WrappedResponse data, response status code and response headers
-    def add_favorite_with_http_info(version, favoritable_id, favoritable_type, opts = {})
+    def add_favorite_with_http_info(favoritable_id, favoritable_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FavoriteApi.add_favorite ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FavoriteApi.add_favorite"
       end
       # verify the required parameter 'favoritable_id' is set
       if @api_client.config.client_side_validation && favoritable_id.nil?
@@ -63,7 +57,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'favoritable_type' when calling FavoriteApi.add_favorite"
       end
       # resource path
-      local_var_path = '/api/{version}/favorite/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/favorite/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -110,7 +104,6 @@ module OpenapiClient
 
     # Delete Favorite
     # Removes a favorited item from the user's favorites list.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
@@ -118,14 +111,13 @@ module OpenapiClient
     # @option opts [Integer] :favoritable_id The ID of the object to un-favorite {offerId, offerLocationId, retailerLocationId, categoryId} (this is required if favoriteId is NOT passed in)
     # @option opts [String] :favoritable_type The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
     # @return [SirqulResponse]
-    def delete_favorite(version, opts = {})
-      data, _status_code, _headers = delete_favorite_with_http_info(version, opts)
+    def delete_favorite(opts = {})
+      data, _status_code, _headers = delete_favorite_with_http_info(opts)
       data
     end
 
     # Delete Favorite
     # Removes a favorited item from the user&#39;s favorites list.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique ID given by the device (deviceId or accountId required)
     # @option opts [Integer] :account_id The account ID of the user (deviceId or accountId required)
@@ -133,16 +125,12 @@ module OpenapiClient
     # @option opts [Integer] :favoritable_id The ID of the object to un-favorite {offerId, offerLocationId, retailerLocationId, categoryId} (this is required if favoriteId is NOT passed in)
     # @option opts [String] :favoritable_type The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_favorite_with_http_info(version, opts = {})
+    def delete_favorite_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FavoriteApi.delete_favorite ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FavoriteApi.delete_favorite"
-      end
       # resource path
-      local_var_path = '/api/{version}/favorite/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/favorite/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -188,7 +176,6 @@ module OpenapiClient
 
     # Get Favorite
     # Retrieves a single favorited item.
-    # @param version [Float] 
     # @param favorite_id [Integer] The ID of the favorite reference record
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique ID given by the device (deviceId or accountId required)
@@ -196,14 +183,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [WrappedResponse]
-    def get_favorite(version, favorite_id, opts = {})
-      data, _status_code, _headers = get_favorite_with_http_info(version, favorite_id, opts)
+    def get_favorite(favorite_id, opts = {})
+      data, _status_code, _headers = get_favorite_with_http_info(favorite_id, opts)
       data
     end
 
     # Get Favorite
     # Retrieves a single favorited item.
-    # @param version [Float] 
     # @param favorite_id [Integer] The ID of the favorite reference record
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique ID given by the device (deviceId or accountId required)
@@ -211,20 +197,16 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(WrappedResponse, Integer, Hash)>] WrappedResponse data, response status code and response headers
-    def get_favorite_with_http_info(version, favorite_id, opts = {})
+    def get_favorite_with_http_info(favorite_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FavoriteApi.get_favorite ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FavoriteApi.get_favorite"
       end
       # verify the required parameter 'favorite_id' is set
       if @api_client.config.client_side_validation && favorite_id.nil?
         fail ArgumentError, "Missing the required parameter 'favorite_id' when calling FavoriteApi.get_favorite"
       end
       # resource path
-      local_var_path = '/api/{version}/favorite/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/favorite/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -270,7 +252,6 @@ module OpenapiClient
 
     # Search Favorites
     # Searches on the user's favorites.
-    # @param version [Float] 
     # @param favoritable_type [String] The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     # @param sort_field [String] Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
     # @param descending [Boolean] Determines whether the results are in descending order
@@ -287,14 +268,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [SearchResponse]
-    def search_favorites(version, favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, opts = {})
-      data, _status_code, _headers = search_favorites_with_http_info(version, favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, opts)
+    def search_favorites(favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, opts = {})
+      data, _status_code, _headers = search_favorites_with_http_info(favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, opts)
       data
     end
 
     # Search Favorites
     # Searches on the user&#39;s favorites.
-    # @param version [Float] 
     # @param favoritable_type [String] The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     # @param sort_field [String] Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
     # @param descending [Boolean] Determines whether the results are in descending order
@@ -311,13 +291,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(SearchResponse, Integer, Hash)>] SearchResponse data, response status code and response headers
-    def search_favorites_with_http_info(version, favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, opts = {})
+    def search_favorites_with_http_info(favoritable_type, sort_field, descending, start, limit, active_only, return_full_response, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FavoriteApi.search_favorites ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FavoriteApi.search_favorites"
       end
       # verify the required parameter 'favoritable_type' is set
       if @api_client.config.client_side_validation && favoritable_type.nil?
@@ -353,7 +329,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'return_full_response' when calling FavoriteApi.search_favorites"
       end
       # resource path
-      local_var_path = '/api/{version}/favorite/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/favorite/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -408,7 +384,6 @@ module OpenapiClient
 
     # Who has Favorited
     # Searches for everyone that has favorited an item
-    # @param version [Float] 
     # @param favoritable_id [Integer] The ID of the favoritableType to search on
     # @param favoritable_type [String] The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     # @param start [Integer] The start index for pagination
@@ -420,14 +395,13 @@ module OpenapiClient
     # @option opts [Float] :longitude The current longitude of the user
     # @option opts [String] :keyword The keyword to limit that account list
     # @return [Array<AccountResponse>]
-    def who_has_favorited(version, favoritable_id, favoritable_type, start, limit, opts = {})
-      data, _status_code, _headers = who_has_favorited_with_http_info(version, favoritable_id, favoritable_type, start, limit, opts)
+    def who_has_favorited(favoritable_id, favoritable_type, start, limit, opts = {})
+      data, _status_code, _headers = who_has_favorited_with_http_info(favoritable_id, favoritable_type, start, limit, opts)
       data
     end
 
     # Who has Favorited
     # Searches for everyone that has favorited an item
-    # @param version [Float] 
     # @param favoritable_id [Integer] The ID of the favoritableType to search on
     # @param favoritable_type [String] The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
     # @param start [Integer] The start index for pagination
@@ -439,13 +413,9 @@ module OpenapiClient
     # @option opts [Float] :longitude The current longitude of the user
     # @option opts [String] :keyword The keyword to limit that account list
     # @return [Array<(Array<AccountResponse>, Integer, Hash)>] Array<AccountResponse> data, response status code and response headers
-    def who_has_favorited_with_http_info(version, favoritable_id, favoritable_type, start, limit, opts = {})
+    def who_has_favorited_with_http_info(favoritable_id, favoritable_type, start, limit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FavoriteApi.who_has_favorited ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling FavoriteApi.who_has_favorited"
       end
       # verify the required parameter 'favoritable_id' is set
       if @api_client.config.client_side_validation && favoritable_id.nil?
@@ -464,7 +434,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'limit' when calling FavoriteApi.who_has_favorited"
       end
       # resource path
-      local_var_path = '/api/{version}/favorite/whois'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/favorite/whois'
 
       # query parameters
       query_params = opts[:query_params] || {}

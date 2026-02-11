@@ -21,39 +21,33 @@ module OpenapiClient
     end
     # Update Offer Locations
     # Batch update offer locations.
-    # @param version [Float] 
     # @param data [String] JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [SirqulResponse]
-    def batch_update_offer_locations(version, data, opts = {})
-      data, _status_code, _headers = batch_update_offer_locations_with_http_info(version, data, opts)
+    def batch_update_offer_locations(data, opts = {})
+      data, _status_code, _headers = batch_update_offer_locations_with_http_info(data, opts)
       data
     end
 
     # Update Offer Locations
     # Batch update offer locations.
-    # @param version [Float] 
     # @param data [String] JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def batch_update_offer_locations_with_http_info(version, data, opts = {})
+    def batch_update_offer_locations_with_http_info(data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.batch_update_offer_locations ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.batch_update_offer_locations"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
         fail ArgumentError, "Missing the required parameter 'data' when calling OfferApi.batch_update_offer_locations"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/location/batchUpdate'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/location/batchUpdate'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -97,7 +91,6 @@ module OpenapiClient
 
     # Create Offer
     # Create an offer and assign it to the provided retailer locations.
-    # @param version [Float] 
     # @param include_offer_locations [Boolean] If true return all the offer locations associated with the offer
     # @param title [String] The title (255 char limit)
     # @param barcode_type [String] The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -186,14 +179,13 @@ module OpenapiClient
     # @option opts [String] :availability 
     # @option opts [String] :availability_summary 
     # @return [RetailerOfferResponse]
-    def create_offer(version, include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, opts = {})
-      data, _status_code, _headers = create_offer_with_http_info(version, include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, opts)
+    def create_offer(include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, opts = {})
+      data, _status_code, _headers = create_offer_with_http_info(include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, opts)
       data
     end
 
     # Create Offer
     # Create an offer and assign it to the provided retailer locations.
-    # @param version [Float] 
     # @param include_offer_locations [Boolean] If true return all the offer locations associated with the offer
     # @param title [String] The title (255 char limit)
     # @param barcode_type [String] The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -282,13 +274,9 @@ module OpenapiClient
     # @option opts [String] :availability 
     # @option opts [String] :availability_summary 
     # @return [Array<(RetailerOfferResponse, Integer, Hash)>] RetailerOfferResponse data, response status code and response headers
-    def create_offer_with_http_info(version, include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, opts = {})
+    def create_offer_with_http_info(include_offer_locations, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, offer_type, special_offer_type, offer_visibility, active, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.create_offer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.create_offer"
       end
       # verify the required parameter 'include_offer_locations' is set
       if @api_client.config.client_side_validation && include_offer_locations.nil?
@@ -391,7 +379,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"media_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -518,39 +506,33 @@ module OpenapiClient
 
     # Delete Offer
     # Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-    # @param version [Float] 
     # @param offer_id [Integer] The ID of the offer to be deleted
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the offer.
     # @return [SirqulResponse]
-    def delete_offer(version, offer_id, opts = {})
-      data, _status_code, _headers = delete_offer_with_http_info(version, offer_id, opts)
+    def delete_offer(offer_id, opts = {})
+      data, _status_code, _headers = delete_offer_with_http_info(offer_id, opts)
       data
     end
 
     # Delete Offer
     # Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-    # @param version [Float] 
     # @param offer_id [Integer] The ID of the offer to be deleted
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the offer.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_offer_with_http_info(version, offer_id, opts = {})
+    def delete_offer_with_http_info(offer_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.delete_offer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.delete_offer"
       end
       # verify the required parameter 'offer_id' is set
       if @api_client.config.client_side_validation && offer_id.nil?
         fail ArgumentError, "Missing the required parameter 'offer_id' when calling OfferApi.delete_offer"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -594,39 +576,33 @@ module OpenapiClient
 
     # Delete Offer Location
     # Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-    # @param version [Float] 
     # @param offer_location_id [Integer] The ID of the offer location to be deleted
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the offer location.
     # @return [SirqulResponse]
-    def delete_offer_location(version, offer_location_id, opts = {})
-      data, _status_code, _headers = delete_offer_location_with_http_info(version, offer_location_id, opts)
+    def delete_offer_location(offer_location_id, opts = {})
+      data, _status_code, _headers = delete_offer_location_with_http_info(offer_location_id, opts)
       data
     end
 
     # Delete Offer Location
     # Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-    # @param version [Float] 
     # @param offer_location_id [Integer] The ID of the offer location to be deleted
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the offer location.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_offer_location_with_http_info(version, offer_location_id, opts = {})
+    def delete_offer_location_with_http_info(offer_location_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.delete_offer_location ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.delete_offer_location"
       end
       # verify the required parameter 'offer_location_id' is set
       if @api_client.config.client_side_validation && offer_location_id.nil?
         fail ArgumentError, "Missing the required parameter 'offer_location_id' when calling OfferApi.delete_offer_location"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/location/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/location/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -670,34 +646,28 @@ module OpenapiClient
 
     # Get Offer
     # Gets the details of an offer that the user has access to.
-    # @param version [Float] 
     # @param offer_id [Integer] The id of the offer
     # @param include_offer_locations [Boolean] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id (deviceId or accountId required)
     # @return [RetailerOfferResponse]
-    def get_offer(version, offer_id, include_offer_locations, opts = {})
-      data, _status_code, _headers = get_offer_with_http_info(version, offer_id, include_offer_locations, opts)
+    def get_offer(offer_id, include_offer_locations, opts = {})
+      data, _status_code, _headers = get_offer_with_http_info(offer_id, include_offer_locations, opts)
       data
     end
 
     # Get Offer
     # Gets the details of an offer that the user has access to.
-    # @param version [Float] 
     # @param offer_id [Integer] The id of the offer
     # @param include_offer_locations [Boolean] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id (deviceId or accountId required)
     # @return [Array<(RetailerOfferResponse, Integer, Hash)>] RetailerOfferResponse data, response status code and response headers
-    def get_offer_with_http_info(version, offer_id, include_offer_locations, opts = {})
+    def get_offer_with_http_info(offer_id, include_offer_locations, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.get_offer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.get_offer"
       end
       # verify the required parameter 'offer_id' is set
       if @api_client.config.client_side_validation && offer_id.nil?
@@ -708,7 +678,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'include_offer_locations' when calling OfferApi.get_offer"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -753,7 +723,6 @@ module OpenapiClient
 
     # Get Offer
     # Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id for returning account information (i.e. favorites)
     # @option opts [Integer] :account_id The account id for returning account information (i.e. favorites)
@@ -766,14 +735,13 @@ module OpenapiClient
     # @option opts [Boolean] :include_retailer_locations Determines whether to return the retailer location info for each offer location response (includeOfferLocations must also be true for this to work) (default to false)
     # @option opts [Boolean] :include_child_offers Determines whether to include child offers in the response (default to false)
     # @return [OfferResponse]
-    def get_offer_details(version, opts = {})
-      data, _status_code, _headers = get_offer_details_with_http_info(version, opts)
+    def get_offer_details(opts = {})
+      data, _status_code, _headers = get_offer_details_with_http_info(opts)
       data
     end
 
     # Get Offer
     # Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id for returning account information (i.e. favorites)
     # @option opts [Integer] :account_id The account id for returning account information (i.e. favorites)
@@ -786,16 +754,12 @@ module OpenapiClient
     # @option opts [Boolean] :include_retailer_locations Determines whether to return the retailer location info for each offer location response (includeOfferLocations must also be true for this to work) (default to false)
     # @option opts [Boolean] :include_child_offers Determines whether to include child offers in the response (default to false)
     # @return [Array<(OfferResponse, Integer, Hash)>] OfferResponse data, response status code and response headers
-    def get_offer_details_with_http_info(version, opts = {})
+    def get_offer_details_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.get_offer_details ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.get_offer_details"
-      end
       # resource path
-      local_var_path = '/api/{version}/offer/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -846,34 +810,28 @@ module OpenapiClient
 
     # Get Offers (Counts)
     # Gets the offer list counts.
-    # @param version [Float] 
     # @param latitude [Float] The latitude of where the search will center at
     # @param longitude [Float] The longitude of where the search will center at
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :search_range The range of the search (default to 5)
     # @option opts [String] :distance_unit The units to use for distance calculations (e.g. MILES, KILOMETERS) (default to 'MILES')
     # @return [ListCountResponse]
-    def get_offer_list_counts(version, latitude, longitude, opts = {})
-      data, _status_code, _headers = get_offer_list_counts_with_http_info(version, latitude, longitude, opts)
+    def get_offer_list_counts(latitude, longitude, opts = {})
+      data, _status_code, _headers = get_offer_list_counts_with_http_info(latitude, longitude, opts)
       data
     end
 
     # Get Offers (Counts)
     # Gets the offer list counts.
-    # @param version [Float] 
     # @param latitude [Float] The latitude of where the search will center at
     # @param longitude [Float] The longitude of where the search will center at
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :search_range The range of the search (default to 5)
     # @option opts [String] :distance_unit The units to use for distance calculations (e.g. MILES, KILOMETERS) (default to 'MILES')
     # @return [Array<(ListCountResponse, Integer, Hash)>] ListCountResponse data, response status code and response headers
-    def get_offer_list_counts_with_http_info(version, latitude, longitude, opts = {})
+    def get_offer_list_counts_with_http_info(latitude, longitude, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.get_offer_list_counts ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.get_offer_list_counts"
       end
       # verify the required parameter 'latitude' is set
       if @api_client.config.client_side_validation && latitude.nil?
@@ -888,7 +846,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"distance_unit\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/offer/lists/count'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/lists/count'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -933,33 +891,27 @@ module OpenapiClient
 
     # Get Offer Location
     # Gets the offer location by offer location id or udid (of a device)
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offer_location_id the id of the offer location to get
     # @option opts [String] :udid the UDID of the device
     # @return [OfferShortResponse]
-    def get_offer_location(version, opts = {})
-      data, _status_code, _headers = get_offer_location_with_http_info(version, opts)
+    def get_offer_location(opts = {})
+      data, _status_code, _headers = get_offer_location_with_http_info(opts)
       data
     end
 
     # Get Offer Location
     # Gets the offer location by offer location id or udid (of a device)
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offer_location_id the id of the offer location to get
     # @option opts [String] :udid the UDID of the device
     # @return [Array<(OfferShortResponse, Integer, Hash)>] OfferShortResponse data, response status code and response headers
-    def get_offer_location_with_http_info(version, opts = {})
+    def get_offer_location_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.get_offer_location ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.get_offer_location"
-      end
       # resource path
-      local_var_path = '/api/{version}/offer/location/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/location/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1002,7 +954,6 @@ module OpenapiClient
 
     # Search Offer Locations
     # Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-    # @param version [Float] 
     # @param sort_field [String] The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     # @param descending [Boolean] The order to return the results. Default is false, which will return the results in ascending order.
     # @param start [Integer] The index into the record set to start with. Default is 0.
@@ -1025,14 +976,13 @@ module OpenapiClient
     # @option opts [Boolean] :needs_notification_sent 
     # @option opts [Integer] :last_notification_sent 
     # @return [Array<OfferShortResponse>]
-    def get_offer_locations_for_retailers(version, sort_field, descending, start, limit, active_only, include_retailer_location, opts = {})
-      data, _status_code, _headers = get_offer_locations_for_retailers_with_http_info(version, sort_field, descending, start, limit, active_only, include_retailer_location, opts)
+    def get_offer_locations_for_retailers(sort_field, descending, start, limit, active_only, include_retailer_location, opts = {})
+      data, _status_code, _headers = get_offer_locations_for_retailers_with_http_info(sort_field, descending, start, limit, active_only, include_retailer_location, opts)
       data
     end
 
     # Search Offer Locations
     # Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-    # @param version [Float] 
     # @param sort_field [String] The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     # @param descending [Boolean] The order to return the results. Default is false, which will return the results in ascending order.
     # @param start [Integer] The index into the record set to start with. Default is 0.
@@ -1055,13 +1005,9 @@ module OpenapiClient
     # @option opts [Boolean] :needs_notification_sent 
     # @option opts [Integer] :last_notification_sent 
     # @return [Array<(Array<OfferShortResponse>, Integer, Hash)>] Array<OfferShortResponse> data, response status code and response headers
-    def get_offer_locations_for_retailers_with_http_info(version, sort_field, descending, start, limit, active_only, include_retailer_location, opts = {})
+    def get_offer_locations_for_retailers_with_http_info(sort_field, descending, start, limit, active_only, include_retailer_location, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.get_offer_locations_for_retailers ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.get_offer_locations_for_retailers"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -1105,7 +1051,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"device_status\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/location/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/location/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1166,7 +1112,6 @@ module OpenapiClient
 
     # Search Offers
     # Searches on offers that the account has access to.
-    # @param version [Float] 
     # @param offer_visibility [String] 
     # @param sort_field [String] The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
     # @param descending [Boolean] The order to return the search results
@@ -1200,14 +1145,13 @@ module OpenapiClient
     # @option opts [Boolean] :needs_notification_sent 
     # @option opts [Integer] :last_notification_sent 
     # @return [Array<OfferResponse>]
-    def get_offers_for_retailers(version, offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, opts = {})
-      data, _status_code, _headers = get_offers_for_retailers_with_http_info(version, offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, opts)
+    def get_offers_for_retailers(offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, opts = {})
+      data, _status_code, _headers = get_offers_for_retailers_with_http_info(offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, opts)
       data
     end
 
     # Search Offers
     # Searches on offers that the account has access to.
-    # @param version [Float] 
     # @param offer_visibility [String] 
     # @param sort_field [String] The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
     # @param descending [Boolean] The order to return the search results
@@ -1241,13 +1185,9 @@ module OpenapiClient
     # @option opts [Boolean] :needs_notification_sent 
     # @option opts [Integer] :last_notification_sent 
     # @return [Array<(Array<OfferResponse>, Integer, Hash)>] Array<OfferResponse> data, response status code and response headers
-    def get_offers_for_retailers_with_http_info(version, offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, opts = {})
+    def get_offers_for_retailers_with_http_info(offer_visibility, sort_field, descending, start, limit, available_only, active_only, include_categories, include_filters, include_offer_locations, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.get_offers_for_retailers ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.get_offers_for_retailers"
       end
       # verify the required parameter 'offer_visibility' is set
       if @api_client.config.client_side_validation && offer_visibility.nil?
@@ -1316,7 +1256,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"device_status\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1388,7 +1328,6 @@ module OpenapiClient
 
     # Update Offer Transaction
     # Redeems an offer.
-    # @param version [Float] 
     # @param offer_transaction_id [Integer] the OfferTransaction ID of the transaction being redeemed
     # @param status [Integer] the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
     # @param [Hash] opts the optional parameters
@@ -1396,14 +1335,13 @@ module OpenapiClient
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [Integer] :offer_location_id the OfferLocation ID where the offer is being redeemed
     # @return [SirqulResponse]
-    def redeem_offer_transaction(version, offer_transaction_id, status, opts = {})
-      data, _status_code, _headers = redeem_offer_transaction_with_http_info(version, offer_transaction_id, status, opts)
+    def redeem_offer_transaction(offer_transaction_id, status, opts = {})
+      data, _status_code, _headers = redeem_offer_transaction_with_http_info(offer_transaction_id, status, opts)
       data
     end
 
     # Update Offer Transaction
     # Redeems an offer.
-    # @param version [Float] 
     # @param offer_transaction_id [Integer] the OfferTransaction ID of the transaction being redeemed
     # @param status [Integer] the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
     # @param [Hash] opts the optional parameters
@@ -1411,13 +1349,9 @@ module OpenapiClient
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [Integer] :offer_location_id the OfferLocation ID where the offer is being redeemed
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def redeem_offer_transaction_with_http_info(version, offer_transaction_id, status, opts = {})
+    def redeem_offer_transaction_with_http_info(offer_transaction_id, status, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.redeem_offer_transaction ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.redeem_offer_transaction"
       end
       # verify the required parameter 'offer_transaction_id' is set
       if @api_client.config.client_side_validation && offer_transaction_id.nil?
@@ -1428,7 +1362,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'status' when calling OfferApi.redeem_offer_transaction"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/transaction/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/transaction/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1474,7 +1408,6 @@ module OpenapiClient
 
     # Search Offer Transactions
     # Searches on offer transactions for offers that the account has access to.
-    # @param version [Float] 
     # @param sort_field [String] Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     # @param descending [Boolean] Determines whether the results are in descending order
     # @param start [Integer] The start index for pagination
@@ -1501,14 +1434,13 @@ module OpenapiClient
     # @option opts [Integer] :_i This parameter is deprecated.
     # @option opts [Integer] :_l This parameter is deprecated.
     # @return [Array<OfferTransactionResponse>]
-    def search_offer_transactions_for_retailers(version, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = search_offer_transactions_for_retailers_with_http_info(version, sort_field, descending, start, limit, active_only, opts)
+    def search_offer_transactions_for_retailers(sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = search_offer_transactions_for_retailers_with_http_info(sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Offer Transactions
     # Searches on offer transactions for offers that the account has access to.
-    # @param version [Float] 
     # @param sort_field [String] Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
     # @param descending [Boolean] Determines whether the results are in descending order
     # @param start [Integer] The start index for pagination
@@ -1535,13 +1467,9 @@ module OpenapiClient
     # @option opts [Integer] :_i This parameter is deprecated.
     # @option opts [Integer] :_l This parameter is deprecated.
     # @return [Array<(Array<OfferTransactionResponse>, Integer, Hash)>] Array<OfferTransactionResponse> data, response status code and response headers
-    def search_offer_transactions_for_retailers_with_http_info(version, sort_field, descending, start, limit, active_only, opts = {})
+    def search_offer_transactions_for_retailers_with_http_info(sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.search_offer_transactions_for_retailers ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.search_offer_transactions_for_retailers"
       end
       # verify the required parameter 'sort_field' is set
       if @api_client.config.client_side_validation && sort_field.nil?
@@ -1581,7 +1509,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"special_offer_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/transaction/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/transaction/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1646,7 +1574,6 @@ module OpenapiClient
 
     # Search Offers
     # Searches for offers as a consumer.
-    # @param version [Float] 
     # @param latitude [Float] The latitude of where the search will center at
     # @param longitude [Float] The longitude of where the search will center at
     # @param recommendation_type [String] The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -1680,14 +1607,13 @@ module OpenapiClient
     # @option opts [String] :search_expression 
     # @option opts [String] :group_by groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance).
     # @return [OfferListResponse]
-    def search_offers_for_consumer(version, latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, opts = {})
-      data, _status_code, _headers = search_offers_for_consumer_with_http_info(version, latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, opts)
+    def search_offers_for_consumer(latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, opts = {})
+      data, _status_code, _headers = search_offers_for_consumer_with_http_info(latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, opts)
       data
     end
 
     # Search Offers
     # Searches for offers as a consumer.
-    # @param version [Float] 
     # @param latitude [Float] The latitude of where the search will center at
     # @param longitude [Float] The longitude of where the search will center at
     # @param recommendation_type [String] The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -1721,13 +1647,9 @@ module OpenapiClient
     # @option opts [String] :search_expression 
     # @option opts [String] :group_by groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance).
     # @return [Array<(OfferListResponse, Integer, Hash)>] OfferListResponse data, response status code and response headers
-    def search_offers_for_consumer_with_http_info(version, latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, opts = {})
+    def search_offers_for_consumer_with_http_info(latitude, longitude, recommendation_type, location_id, start, limit, max_recommendations, distance_unit, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.search_offers_for_consumer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.search_offers_for_consumer"
       end
       # verify the required parameter 'latitude' is set
       if @api_client.config.client_side_validation && latitude.nil?
@@ -1776,7 +1698,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"group_by\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/offer/lists'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/lists'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1848,33 +1770,27 @@ module OpenapiClient
 
     # Get Offers (Top)
     # Gets the top active offers.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :start The index into the record set to start with. Default is 0. (default to 0)
     # @option opts [Integer] :limit The total number of record to return. Default id 20. (default to 20)
     # @return [OfferListResponse]
-    def top_offer_transactions(version, opts = {})
-      data, _status_code, _headers = top_offer_transactions_with_http_info(version, opts)
+    def top_offer_transactions(opts = {})
+      data, _status_code, _headers = top_offer_transactions_with_http_info(opts)
       data
     end
 
     # Get Offers (Top)
     # Gets the top active offers.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :start The index into the record set to start with. Default is 0. (default to 0)
     # @option opts [Integer] :limit The total number of record to return. Default id 20. (default to 20)
     # @return [Array<(OfferListResponse, Integer, Hash)>] OfferListResponse data, response status code and response headers
-    def top_offer_transactions_with_http_info(version, opts = {})
+    def top_offer_transactions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.top_offer_transactions ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.top_offer_transactions"
-      end
       # resource path
-      local_var_path = '/api/{version}/offer/top'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/offer/top'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1917,7 +1833,6 @@ module OpenapiClient
 
     # Update Offer
     # Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-    # @param version [Float] 
     # @param offer_id [Integer] The offer to update
     # @param include_offer_locations [Boolean] If true return all the offer locations associated with the offer
     # @param [Hash] opts the optional parameters
@@ -2007,14 +1922,13 @@ module OpenapiClient
     # @option opts [String] :availability 
     # @option opts [String] :availability_summary 
     # @return [RetailerOfferResponse]
-    def update_offer(version, offer_id, include_offer_locations, opts = {})
-      data, _status_code, _headers = update_offer_with_http_info(version, offer_id, include_offer_locations, opts)
+    def update_offer(offer_id, include_offer_locations, opts = {})
+      data, _status_code, _headers = update_offer_with_http_info(offer_id, include_offer_locations, opts)
       data
     end
 
     # Update Offer
     # Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-    # @param version [Float] 
     # @param offer_id [Integer] The offer to update
     # @param include_offer_locations [Boolean] If true return all the offer locations associated with the offer
     # @param [Hash] opts the optional parameters
@@ -2104,13 +2018,9 @@ module OpenapiClient
     # @option opts [String] :availability 
     # @option opts [String] :availability_summary 
     # @return [Array<(RetailerOfferResponse, Integer, Hash)>] RetailerOfferResponse data, response status code and response headers
-    def update_offer_with_http_info(version, offer_id, include_offer_locations, opts = {})
+    def update_offer_with_http_info(offer_id, include_offer_locations, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.update_offer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.update_offer"
       end
       # verify the required parameter 'offer_id' is set
       if @api_client.config.client_side_validation && offer_id.nil?
@@ -2153,7 +2063,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"media_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2281,34 +2191,28 @@ module OpenapiClient
 
     # Activate Offer
     # Sets the activated date on offers. This will make offers visible for consumers.
-    # @param version [Float] 
     # @param offer_ids [String] Comma separated list of offer ids
     # @param active [Boolean] Determines whether to make the offer active as well
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the activation, must have rights to edit the offer.
     # @return [SirqulResponse]
-    def update_offer_status(version, offer_ids, active, opts = {})
-      data, _status_code, _headers = update_offer_status_with_http_info(version, offer_ids, active, opts)
+    def update_offer_status(offer_ids, active, opts = {})
+      data, _status_code, _headers = update_offer_status_with_http_info(offer_ids, active, opts)
       data
     end
 
     # Activate Offer
     # Sets the activated date on offers. This will make offers visible for consumers.
-    # @param version [Float] 
     # @param offer_ids [String] Comma separated list of offer ids
     # @param active [Boolean] Determines whether to make the offer active as well
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the activation, must have rights to edit the offer.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def update_offer_status_with_http_info(version, offer_ids, active, opts = {})
+    def update_offer_status_with_http_info(offer_ids, active, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OfferApi.update_offer_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OfferApi.update_offer_status"
       end
       # verify the required parameter 'offer_ids' is set
       if @api_client.config.client_side_validation && offer_ids.nil?
@@ -2319,7 +2223,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active' when calling OfferApi.update_offer_status"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/offer/status'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/offer/status'
 
       # query parameters
       query_params = opts[:query_params] || {}

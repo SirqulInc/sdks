@@ -21,32 +21,26 @@ module OpenapiClient
     end
     # Get User Activity
     # Get an activity feed by user.
-    # @param version [Float] 
     # @param start [Integer] The start of the pagination
     # @param limit [Integer] The limit of the pagination
     # @param account_id [Integer] the account id of the user
     # @param [Hash] opts the optional parameters
     # @return [Array<UserActivityResponse>]
-    def activities(version, start, limit, account_id, opts = {})
-      data, _status_code, _headers = activities_with_http_info(version, start, limit, account_id, opts)
+    def activities(start, limit, account_id, opts = {})
+      data, _status_code, _headers = activities_with_http_info(start, limit, account_id, opts)
       data
     end
 
     # Get User Activity
     # Get an activity feed by user.
-    # @param version [Float] 
     # @param start [Integer] The start of the pagination
     # @param limit [Integer] The limit of the pagination
     # @param account_id [Integer] the account id of the user
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<UserActivityResponse>, Integer, Hash)>] Array<UserActivityResponse> data, response status code and response headers
-    def activities_with_http_info(version, start, limit, account_id, opts = {})
+    def activities_with_http_info(start, limit, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.activities ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AnalyticsApi.activities"
       end
       # verify the required parameter 'start' is set
       if @api_client.config.client_side_validation && start.nil?
@@ -61,7 +55,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling AnalyticsApi.activities"
       end
       # resource path
-      local_var_path = '/api/{version}/analytics/useractivity'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/analytics/useractivity'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -105,7 +99,6 @@ module OpenapiClient
 
     # Get Aggregated Filtered Usage
     # Query analytics to get data used for nested graphs and charts
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -139,14 +132,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [ChartData]
-    def aggregated_filtered_usage(version, opts = {})
-      data, _status_code, _headers = aggregated_filtered_usage_with_http_info(version, opts)
+    def aggregated_filtered_usage(opts = {})
+      data, _status_code, _headers = aggregated_filtered_usage_with_http_info(opts)
       data
     end
 
     # Get Aggregated Filtered Usage
     # Query analytics to get data used for nested graphs and charts
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -180,13 +172,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(ChartData, Integer, Hash)>] ChartData data, response status code and response headers
-    def aggregated_filtered_usage_with_http_info(version, opts = {})
+    def aggregated_filtered_usage_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.aggregated_filtered_usage ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AnalyticsApi.aggregated_filtered_usage"
       end
       allowable_values = ["TAG_COUNT", "TAG", "TOKEN", "MODEL", "DEVICE_TYPE", "DEVICE", "DEVICE_OS", "DEVICE_ID", "IP_ADDRESS", "STATE", "CITY", "ZIP", "COUNTRY", "CREATED", "UPDATED", "LAST_UPDATED", "CLIENT_TIME", "ACTIVE", "CUSTOM_ID", "CUSTOM_TYPE", "CUSTOM_VALUE", "CUSTOM_VALUE2", "CUSTOM_LONG", "CUSTOM_LONG2", "CUSTOM_MESSAGE", "CUSTOM_MESSAGE2", "ACCOUNT_ID", "ACCOUNT_USERNAME", "ACCOUNT_DISPLAY", "ACCOUNT_CREATED", "ACCOUNT_GENDER", "ACCOUNT_AGE_GROUP", "APPLICATION_ID", "APPLICATION_KEY", "APPLICATION_NAME"]
       if @api_client.config.client_side_validation && opts[:'group_by_root'] && !allowable_values.include?(opts[:'group_by_root'])
@@ -209,7 +197,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/analytics/aggregatedFilteredUsage'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/analytics/aggregatedFilteredUsage'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -281,7 +269,6 @@ module OpenapiClient
 
     # Get Filtered Usage
     # Query analytics to get data used for graphs and charts
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -323,14 +310,13 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [ChartData]
-    def filtered_usage(version, opts = {})
-      data, _status_code, _headers = filtered_usage_with_http_info(version, opts)
+    def filtered_usage(opts = {})
+      data, _status_code, _headers = filtered_usage_with_http_info(opts)
       data
     end
 
     # Get Filtered Usage
     # Query analytics to get data used for graphs and charts
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique id of the device making the request (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -372,13 +358,9 @@ module OpenapiClient
     # @option opts [Float] :latitude the current latitude of the user
     # @option opts [Float] :longitude the current longitude of the user
     # @return [Array<(ChartData, Integer, Hash)>] ChartData data, response status code and response headers
-    def filtered_usage_with_http_info(version, opts = {})
+    def filtered_usage_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.filtered_usage ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AnalyticsApi.filtered_usage"
       end
       allowable_values = ["TAG_COUNT", "TAG", "TOKEN", "MODEL", "DEVICE_TYPE", "DEVICE", "DEVICE_OS", "DEVICE_ID", "IP_ADDRESS", "STATE", "CITY", "ZIP", "COUNTRY", "CREATED", "UPDATED", "LAST_UPDATED", "CLIENT_TIME", "ACTIVE", "CUSTOM_ID", "CUSTOM_TYPE", "CUSTOM_VALUE", "CUSTOM_VALUE2", "CUSTOM_LONG", "CUSTOM_LONG2", "CUSTOM_MESSAGE", "CUSTOM_MESSAGE2", "ACCOUNT_ID", "ACCOUNT_USERNAME", "ACCOUNT_DISPLAY", "ACCOUNT_CREATED", "ACCOUNT_GENDER", "ACCOUNT_AGE_GROUP", "APPLICATION_ID", "APPLICATION_KEY", "APPLICATION_NAME"]
       if @api_client.config.client_side_validation && opts[:'group_by'] && !allowable_values.include?(opts[:'group_by'])
@@ -401,7 +383,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/analytics/filteredUsage'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/analytics/filteredUsage'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -481,7 +463,6 @@ module OpenapiClient
 
     # Create Usage Record
     # Record an analytic record for a known state within the application.
-    # @param version [Float] 
     # @param tag [String] The tag to apply: the name of the action or thing being logged.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client deviceID
@@ -515,14 +496,13 @@ module OpenapiClient
     # @option opts [Integer] :custom_long a custom long value for the usage record
     # @option opts [Integer] :custom_long2 a custom long value for the usage record
     # @return [SirqulResponse]
-    def usage(version, tag, opts = {})
-      data, _status_code, _headers = usage_with_http_info(version, tag, opts)
+    def usage(tag, opts = {})
+      data, _status_code, _headers = usage_with_http_info(tag, opts)
       data
     end
 
     # Create Usage Record
     # Record an analytic record for a known state within the application.
-    # @param version [Float] 
     # @param tag [String] The tag to apply: the name of the action or thing being logged.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client deviceID
@@ -556,20 +536,16 @@ module OpenapiClient
     # @option opts [Integer] :custom_long a custom long value for the usage record
     # @option opts [Integer] :custom_long2 a custom long value for the usage record
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def usage_with_http_info(version, tag, opts = {})
+    def usage_with_http_info(tag, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.usage ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AnalyticsApi.usage"
       end
       # verify the required parameter 'tag' is set
       if @api_client.config.client_side_validation && tag.nil?
         fail ArgumentError, "Missing the required parameter 'tag' when calling AnalyticsApi.usage"
       end
       # resource path
-      local_var_path = '/api/{version}/analytics/usage'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/analytics/usage'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -641,7 +617,6 @@ module OpenapiClient
 
     # Create Multiple Usage Records
     # Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
-    # @param version [Float] 
     # @param app_key [String] The application key unique to each application.
     # @param device [String] The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
     # @param data [String] The analytic data AnalyticListResponse
@@ -655,14 +630,13 @@ module OpenapiClient
     # @option opts [Boolean] :update_ranking Will create a leaderboard if one does not exist for the \&quot;tag\&quot; yet
     # @option opts [Boolean] :return_summary_response Returns a summary response of the achievements that have been completed due to the analytics
     # @return [SirqulResponse]
-    def usage_batch(version, app_key, device, data, opts = {})
-      data, _status_code, _headers = usage_batch_with_http_info(version, app_key, device, data, opts)
+    def usage_batch(app_key, device, data, opts = {})
+      data, _status_code, _headers = usage_batch_with_http_info(app_key, device, data, opts)
       data
     end
 
     # Create Multiple Usage Records
     # Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
-    # @param version [Float] 
     # @param app_key [String] The application key unique to each application.
     # @param device [String] The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
     # @param data [String] The analytic data AnalyticListResponse
@@ -676,13 +650,9 @@ module OpenapiClient
     # @option opts [Boolean] :update_ranking Will create a leaderboard if one does not exist for the \&quot;tag\&quot; yet
     # @option opts [Boolean] :return_summary_response Returns a summary response of the achievements that have been completed due to the analytics
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def usage_batch_with_http_info(version, app_key, device, data, opts = {})
+    def usage_batch_with_http_info(app_key, device, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AnalyticsApi.usage_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AnalyticsApi.usage_batch"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -697,7 +667,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'data' when calling AnalyticsApi.usage_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/analytics/usage/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/analytics/usage/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}

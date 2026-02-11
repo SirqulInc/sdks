@@ -21,34 +21,28 @@ module OpenapiClient
     end
     # Assign Employee
     # Assign An existing account to be an employee
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param manager_account_id [Integer] The account id of the manager to assign under
     # @param employee_account_id [Integer] The account id of the user to be assigned as employee
     # @param [Hash] opts the optional parameters
     # @option opts [String] :role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
     # @return [EmployeeResponse]
-    def assign_employee(version, account_id, manager_account_id, employee_account_id, opts = {})
-      data, _status_code, _headers = assign_employee_with_http_info(version, account_id, manager_account_id, employee_account_id, opts)
+    def assign_employee(account_id, manager_account_id, employee_account_id, opts = {})
+      data, _status_code, _headers = assign_employee_with_http_info(account_id, manager_account_id, employee_account_id, opts)
       data
     end
 
     # Assign Employee
     # Assign An existing account to be an employee
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param manager_account_id [Integer] The account id of the manager to assign under
     # @param employee_account_id [Integer] The account id of the user to be assigned as employee
     # @param [Hash] opts the optional parameters
     # @option opts [String] :role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
     # @return [Array<(EmployeeResponse, Integer, Hash)>] EmployeeResponse data, response status code and response headers
-    def assign_employee_with_http_info(version, account_id, manager_account_id, employee_account_id, opts = {})
+    def assign_employee_with_http_info(account_id, manager_account_id, employee_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.assign_employee ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.assign_employee"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -63,7 +57,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'employee_account_id' when calling EmployeeApi.assign_employee"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/assign'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/assign'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -108,34 +102,28 @@ module OpenapiClient
 
     # Assign Employee to Location
     # Assign or unassign the account to a retailer location.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param retailer_location_id [Integer] The retailer location to apply the change to
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :employee_account_id The account id of the user to apply the change to
     # @option opts [Boolean] :assign If true (default) assign to the location, otherwise remove from the retailer (default to true)
     # @return [SirqulResponse]
-    def assign_to_location_employee(version, account_id, retailer_location_id, opts = {})
-      data, _status_code, _headers = assign_to_location_employee_with_http_info(version, account_id, retailer_location_id, opts)
+    def assign_to_location_employee(account_id, retailer_location_id, opts = {})
+      data, _status_code, _headers = assign_to_location_employee_with_http_info(account_id, retailer_location_id, opts)
       data
     end
 
     # Assign Employee to Location
     # Assign or unassign the account to a retailer location.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param retailer_location_id [Integer] The retailer location to apply the change to
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :employee_account_id The account id of the user to apply the change to
     # @option opts [Boolean] :assign If true (default) assign to the location, otherwise remove from the retailer (default to true)
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def assign_to_location_employee_with_http_info(version, account_id, retailer_location_id, opts = {})
+    def assign_to_location_employee_with_http_info(account_id, retailer_location_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.assign_to_location_employee ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.assign_to_location_employee"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -146,7 +134,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'retailer_location_id' when calling EmployeeApi.assign_to_location_employee"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/assignToLocation'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/assignToLocation'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -191,7 +179,6 @@ module OpenapiClient
 
     # Create Employee
     # Create a new account record with the provided information.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param manager_account_id [Integer] The account id of the manager to assign under
     # @param username [String] The username/email for the new user. This must be unique across the entire the system.
@@ -224,14 +211,13 @@ module OpenapiClient
     # @option opts [String] :app_blob external custom client defined data (per Application)
     # @option opts [String] :assigned_device_id The device id to assign to the user (used for IPS beacon tracking)
     # @return [EmployeeResponse]
-    def create_employee(version, account_id, manager_account_id, username, password, opts = {})
-      data, _status_code, _headers = create_employee_with_http_info(version, account_id, manager_account_id, username, password, opts)
+    def create_employee(account_id, manager_account_id, username, password, opts = {})
+      data, _status_code, _headers = create_employee_with_http_info(account_id, manager_account_id, username, password, opts)
       data
     end
 
     # Create Employee
     # Create a new account record with the provided information.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param manager_account_id [Integer] The account id of the manager to assign under
     # @param username [String] The username/email for the new user. This must be unique across the entire the system.
@@ -264,13 +250,9 @@ module OpenapiClient
     # @option opts [String] :app_blob external custom client defined data (per Application)
     # @option opts [String] :assigned_device_id The device id to assign to the user (used for IPS beacon tracking)
     # @return [Array<(EmployeeResponse, Integer, Hash)>] EmployeeResponse data, response status code and response headers
-    def create_employee_with_http_info(version, account_id, manager_account_id, username, password, opts = {})
+    def create_employee_with_http_info(account_id, manager_account_id, username, password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.create_employee ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.create_employee"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -293,7 +275,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"gender\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -364,30 +346,24 @@ module OpenapiClient
 
     # Delete Employee
     # Set the deleted date field which marks the record as deleted.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param employee_account_id [Integer] the id of the employee to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_employee(version, account_id, employee_account_id, opts = {})
-      data, _status_code, _headers = delete_employee_with_http_info(version, account_id, employee_account_id, opts)
+    def delete_employee(account_id, employee_account_id, opts = {})
+      data, _status_code, _headers = delete_employee_with_http_info(account_id, employee_account_id, opts)
       data
     end
 
     # Delete Employee
     # Set the deleted date field which marks the record as deleted.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param employee_account_id [Integer] the id of the employee to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_employee_with_http_info(version, account_id, employee_account_id, opts = {})
+    def delete_employee_with_http_info(account_id, employee_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.delete_employee ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.delete_employee"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -398,7 +374,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'employee_account_id' when calling EmployeeApi.delete_employee"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -441,32 +417,26 @@ module OpenapiClient
 
     # Get Employee
     # Get the account record for the account id provided.
-    # @param version [Float] 
     # @param account_id [Integer] the id of logged in user
     # @param employee_account_id [Integer] the id of the employee account to get
     # @param [Hash] opts the optional parameters
     # @option opts [String] :settings_app_key Determines whether to return the application settings for the employee for a particular application
     # @return [EmployeeResponse]
-    def get_employee(version, account_id, employee_account_id, opts = {})
-      data, _status_code, _headers = get_employee_with_http_info(version, account_id, employee_account_id, opts)
+    def get_employee(account_id, employee_account_id, opts = {})
+      data, _status_code, _headers = get_employee_with_http_info(account_id, employee_account_id, opts)
       data
     end
 
     # Get Employee
     # Get the account record for the account id provided.
-    # @param version [Float] 
     # @param account_id [Integer] the id of logged in user
     # @param employee_account_id [Integer] the id of the employee account to get
     # @param [Hash] opts the optional parameters
     # @option opts [String] :settings_app_key Determines whether to return the application settings for the employee for a particular application
     # @return [Array<(EmployeeResponse, Integer, Hash)>] EmployeeResponse data, response status code and response headers
-    def get_employee_with_http_info(version, account_id, employee_account_id, opts = {})
+    def get_employee_with_http_info(account_id, employee_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.get_employee ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.get_employee"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -477,7 +447,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'employee_account_id' when calling EmployeeApi.get_employee"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -521,7 +491,6 @@ module OpenapiClient
 
     # Search Employees
     # Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
@@ -541,14 +510,13 @@ module OpenapiClient
     # @option opts [String] :category_ids Comma separated list of category ids to filter results
     # @option opts [String] :query Legacy/reporting query parameter used for formatting employee responses
     # @return [Array<EmployeeResponse>]
-    def search_employees(version, account_id, opts = {})
-      data, _status_code, _headers = search_employees_with_http_info(version, account_id, opts)
+    def search_employees(account_id, opts = {})
+      data, _status_code, _headers = search_employees_with_http_info(account_id, opts)
       data
     end
 
     # Search Employees
     # Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param [Hash] opts the optional parameters
     # @option opts [String] :role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
@@ -568,13 +536,9 @@ module OpenapiClient
     # @option opts [String] :category_ids Comma separated list of category ids to filter results
     # @option opts [String] :query Legacy/reporting query parameter used for formatting employee responses
     # @return [Array<(Array<EmployeeResponse>, Integer, Hash)>] Array<EmployeeResponse> data, response status code and response headers
-    def search_employees_with_http_info(version, account_id, opts = {})
+    def search_employees_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.search_employees ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.search_employees"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -585,7 +549,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -643,30 +607,24 @@ module OpenapiClient
 
     # Unassign Employee
     # Unassign An existing account to be an employee
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param employee_account_id [Integer] The account id of the user to be unassigned
     # @param [Hash] opts the optional parameters
     # @return [EmployeeResponse]
-    def unassign_employee(version, account_id, employee_account_id, opts = {})
-      data, _status_code, _headers = unassign_employee_with_http_info(version, account_id, employee_account_id, opts)
+    def unassign_employee(account_id, employee_account_id, opts = {})
+      data, _status_code, _headers = unassign_employee_with_http_info(account_id, employee_account_id, opts)
       data
     end
 
     # Unassign Employee
     # Unassign An existing account to be an employee
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param employee_account_id [Integer] The account id of the user to be unassigned
     # @param [Hash] opts the optional parameters
     # @return [Array<(EmployeeResponse, Integer, Hash)>] EmployeeResponse data, response status code and response headers
-    def unassign_employee_with_http_info(version, account_id, employee_account_id, opts = {})
+    def unassign_employee_with_http_info(account_id, employee_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.unassign_employee ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.unassign_employee"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -677,7 +635,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'employee_account_id' when calling EmployeeApi.unassign_employee"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/unassign'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/unassign'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -720,7 +678,6 @@ module OpenapiClient
 
     # Update Employee
     # Update the account record with the provided information.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param employee_account_id [Integer] the id of the employee account
     # @param [Hash] opts the optional parameters
@@ -753,14 +710,13 @@ module OpenapiClient
     # @option opts [String] :app_blob external custom client defined data (per Application)
     # @option opts [String] :assigned_device_id The device id to assign to the user (used for IPS beacon tracking)
     # @return [EmployeeResponse]
-    def update_employee(version, account_id, employee_account_id, opts = {})
-      data, _status_code, _headers = update_employee_with_http_info(version, account_id, employee_account_id, opts)
+    def update_employee(account_id, employee_account_id, opts = {})
+      data, _status_code, _headers = update_employee_with_http_info(account_id, employee_account_id, opts)
       data
     end
 
     # Update Employee
     # Update the account record with the provided information.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param employee_account_id [Integer] the id of the employee account
     # @param [Hash] opts the optional parameters
@@ -793,13 +749,9 @@ module OpenapiClient
     # @option opts [String] :app_blob external custom client defined data (per Application)
     # @option opts [String] :assigned_device_id The device id to assign to the user (used for IPS beacon tracking)
     # @return [Array<(EmployeeResponse, Integer, Hash)>] EmployeeResponse data, response status code and response headers
-    def update_employee_with_http_info(version, account_id, employee_account_id, opts = {})
+    def update_employee_with_http_info(account_id, employee_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeeApi.update_employee ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling EmployeeApi.update_employee"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -814,7 +766,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"gender\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/employee/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/employee/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

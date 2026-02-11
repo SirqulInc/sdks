@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Consumer
     # Create a connection to an existing amqp queue and register as a consumer.
-    # @param version [Float] 
     # @param app_key [String] The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     # @param name [String] The name of the queue to connect to
     # @param hostname [String] The hostname of the server the queue is hosted on
@@ -38,14 +37,13 @@ module OpenapiClient
     # @option opts [Integer] :workers The number of workers to generate  (default to 1)
     # @option opts [Boolean] :use_ssl Use SSL
     # @return [QueueResponse]
-    def consumer_create(version, app_key, name, hostname, username, password, data_mapping, opts = {})
-      data, _status_code, _headers = consumer_create_with_http_info(version, app_key, name, hostname, username, password, data_mapping, opts)
+    def consumer_create(app_key, name, hostname, username, password, data_mapping, opts = {})
+      data, _status_code, _headers = consumer_create_with_http_info(app_key, name, hostname, username, password, data_mapping, opts)
       data
     end
 
     # Create Consumer
     # Create a connection to an existing amqp queue and register as a consumer.
-    # @param version [Float] 
     # @param app_key [String] The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     # @param name [String] The name of the queue to connect to
     # @param hostname [String] The hostname of the server the queue is hosted on
@@ -62,13 +60,9 @@ module OpenapiClient
     # @option opts [Integer] :workers The number of workers to generate  (default to 1)
     # @option opts [Boolean] :use_ssl Use SSL
     # @return [Array<(QueueResponse, Integer, Hash)>] QueueResponse data, response status code and response headers
-    def consumer_create_with_http_info(version, app_key, name, hostname, username, password, data_mapping, opts = {})
+    def consumer_create_with_http_info(app_key, name, hostname, username, password, data_mapping, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.consumer_create ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.consumer_create"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -95,7 +89,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'data_mapping' when calling AMQPApi.consumer_create"
       end
       # resource path
-      local_var_path = '/api/{version}/queue/consumer/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/consumer/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -150,7 +144,6 @@ module OpenapiClient
 
     # Update Consumer
     # Update an existing amqp queue's data mapping.
-    # @param version [Float] 
     # @param app_key [String] The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     # @param queue_id [Integer] The queue to update
     # @param data_mapping [String] The data mapping information in the format of AMQPRequest
@@ -159,14 +152,13 @@ module OpenapiClient
     # @option opts [Integer] :account_id The logged in user ID
     # @option opts [Boolean] :use_ssl Use SSL
     # @return [QueueResponse]
-    def consumer_update(version, app_key, queue_id, data_mapping, opts = {})
-      data, _status_code, _headers = consumer_update_with_http_info(version, app_key, queue_id, data_mapping, opts)
+    def consumer_update(app_key, queue_id, data_mapping, opts = {})
+      data, _status_code, _headers = consumer_update_with_http_info(app_key, queue_id, data_mapping, opts)
       data
     end
 
     # Update Consumer
     # Update an existing amqp queue&#39;s data mapping.
-    # @param version [Float] 
     # @param app_key [String] The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
     # @param queue_id [Integer] The queue to update
     # @param data_mapping [String] The data mapping information in the format of AMQPRequest
@@ -175,13 +167,9 @@ module OpenapiClient
     # @option opts [Integer] :account_id The logged in user ID
     # @option opts [Boolean] :use_ssl Use SSL
     # @return [Array<(QueueResponse, Integer, Hash)>] QueueResponse data, response status code and response headers
-    def consumer_update_with_http_info(version, app_key, queue_id, data_mapping, opts = {})
+    def consumer_update_with_http_info(app_key, queue_id, data_mapping, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.consumer_update ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.consumer_update"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -196,7 +184,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'data_mapping' when calling AMQPApi.consumer_update"
       end
       # resource path
-      local_var_path = '/api/{version}/queue/consumer/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/consumer/update'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -243,7 +231,6 @@ module OpenapiClient
 
     # Create Queue
     # Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-    # @param version [Float] 
     # @param app_key [String] The application key unique to each application.
     # @param name [String] The name of the queue to create
     # @param [Hash] opts the optional parameters
@@ -258,14 +245,13 @@ module OpenapiClient
     # @option opts [String] :virtual_host The virtual host defined on the server to queue
     # @option opts [Boolean] :use_ssl Use SSL
     # @return [QueueResponse]
-    def queue_create(version, app_key, name, opts = {})
-      data, _status_code, _headers = queue_create_with_http_info(version, app_key, name, opts)
+    def queue_create(app_key, name, opts = {})
+      data, _status_code, _headers = queue_create_with_http_info(app_key, name, opts)
       data
     end
 
     # Create Queue
     # Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-    # @param version [Float] 
     # @param app_key [String] The application key unique to each application.
     # @param name [String] The name of the queue to create
     # @param [Hash] opts the optional parameters
@@ -280,13 +266,9 @@ module OpenapiClient
     # @option opts [String] :virtual_host The virtual host defined on the server to queue
     # @option opts [Boolean] :use_ssl Use SSL
     # @return [Array<(QueueResponse, Integer, Hash)>] QueueResponse data, response status code and response headers
-    def queue_create_with_http_info(version, app_key, name, opts = {})
+    def queue_create_with_http_info(app_key, name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.queue_create ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.queue_create"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
@@ -297,7 +279,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'name' when calling AMQPApi.queue_create"
       end
       # resource path
-      local_var_path = '/api/{version}/queue/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -350,39 +332,33 @@ module OpenapiClient
 
     # Delete Queue
     # Delete the stored queue record and close any active connections to the AMQP servers.
-    # @param version [Float] 
     # @param queue_id [Integer] The id of the queue to find
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client device ID
     # @option opts [Integer] :account_id The logged in user ID
     # @return [SirqulResponse]
-    def queue_delete(version, queue_id, opts = {})
-      data, _status_code, _headers = queue_delete_with_http_info(version, queue_id, opts)
+    def queue_delete(queue_id, opts = {})
+      data, _status_code, _headers = queue_delete_with_http_info(queue_id, opts)
       data
     end
 
     # Delete Queue
     # Delete the stored queue record and close any active connections to the AMQP servers.
-    # @param version [Float] 
     # @param queue_id [Integer] The id of the queue to find
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client device ID
     # @option opts [Integer] :account_id The logged in user ID
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def queue_delete_with_http_info(version, queue_id, opts = {})
+    def queue_delete_with_http_info(queue_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.queue_delete ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.queue_delete"
       end
       # verify the required parameter 'queue_id' is set
       if @api_client.config.client_side_validation && queue_id.nil?
         fail ArgumentError, "Missing the required parameter 'queue_id' when calling AMQPApi.queue_delete"
       end
       # resource path
-      local_var_path = '/api/{version}/queue/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -426,7 +402,6 @@ module OpenapiClient
 
     # Get Queue
     # Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client device ID
     # @option opts [Integer] :account_id The logged in user ID
@@ -436,14 +411,13 @@ module OpenapiClient
     # @option opts [String] :hostname The hostname of the queue to find
     # @option opts [String] :virtual_host The virtual host of the queue to find
     # @return [QueueResponse]
-    def queue_get(version, opts = {})
-      data, _status_code, _headers = queue_get_with_http_info(version, opts)
+    def queue_get(opts = {})
+      data, _status_code, _headers = queue_get_with_http_info(opts)
       data
     end
 
     # Get Queue
     # Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client device ID
     # @option opts [Integer] :account_id The logged in user ID
@@ -453,16 +427,12 @@ module OpenapiClient
     # @option opts [String] :hostname The hostname of the queue to find
     # @option opts [String] :virtual_host The virtual host of the queue to find
     # @return [Array<(QueueResponse, Integer, Hash)>] QueueResponse data, response status code and response headers
-    def queue_get_with_http_info(version, opts = {})
+    def queue_get_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.queue_get ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.queue_get"
-      end
       # resource path
-      local_var_path = '/api/{version}/queue/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -510,7 +480,6 @@ module OpenapiClient
 
     # Publish Queue
     # Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-    # @param version [Float] 
     # @param message [String] The payload to send to the queue
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :queue_id The id of the queue to publish to
@@ -519,14 +488,13 @@ module OpenapiClient
     # @option opts [String] :hostname The hostname of the server the queue is hosted on
     # @option opts [String] :virtual_host The virtual host defined on the server to queue
     # @return [SirqulResponse]
-    def queue_publish(version, message, opts = {})
-      data, _status_code, _headers = queue_publish_with_http_info(version, message, opts)
+    def queue_publish(message, opts = {})
+      data, _status_code, _headers = queue_publish_with_http_info(message, opts)
       data
     end
 
     # Publish Queue
     # Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-    # @param version [Float] 
     # @param message [String] The payload to send to the queue
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :queue_id The id of the queue to publish to
@@ -535,20 +503,16 @@ module OpenapiClient
     # @option opts [String] :hostname The hostname of the server the queue is hosted on
     # @option opts [String] :virtual_host The virtual host defined on the server to queue
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def queue_publish_with_http_info(version, message, opts = {})
+    def queue_publish_with_http_info(message, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.queue_publish ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.queue_publish"
       end
       # verify the required parameter 'message' is set
       if @api_client.config.client_side_validation && message.nil?
         fail ArgumentError, "Missing the required parameter 'message' when calling AMQPApi.queue_publish"
       end
       # resource path
-      local_var_path = '/api/{version}/queue/publish'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/publish'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -595,7 +559,6 @@ module OpenapiClient
 
     # Search Queue
     # Get the queues setup for the BillableEntity's applications.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :queue_id The id of the queue to find
     # @option opts [String] :device_id The client device ID
@@ -604,14 +567,13 @@ module OpenapiClient
     # @option opts [Integer] :start Start of the index (default to 0)
     # @option opts [Integer] :limit Limit of the index (default to 10)
     # @return [QueueResponse]
-    def queue_search(version, opts = {})
-      data, _status_code, _headers = queue_search_with_http_info(version, opts)
+    def queue_search(opts = {})
+      data, _status_code, _headers = queue_search_with_http_info(opts)
       data
     end
 
     # Search Queue
     # Get the queues setup for the BillableEntity&#39;s applications.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :queue_id The id of the queue to find
     # @option opts [String] :device_id The client device ID
@@ -620,16 +582,12 @@ module OpenapiClient
     # @option opts [Integer] :start Start of the index (default to 0)
     # @option opts [Integer] :limit Limit of the index (default to 10)
     # @return [Array<(QueueResponse, Integer, Hash)>] QueueResponse data, response status code and response headers
-    def queue_search_with_http_info(version, opts = {})
+    def queue_search_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.queue_search ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.queue_search"
-      end
       # resource path
-      local_var_path = '/api/{version}/queue/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -676,7 +634,6 @@ module OpenapiClient
 
     # Update Queue
     # Update the basic AMQP queue.
-    # @param version [Float] 
     # @param queue_id [Integer] The id of the queue to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client deviceID
@@ -691,14 +648,13 @@ module OpenapiClient
     # @option opts [String] :virtual_host The virtual host defined on the server to queue
     # @option opts [Boolean] :use_ssl the SSL to use
     # @return [QueueResponse]
-    def queue_update(version, queue_id, opts = {})
-      data, _status_code, _headers = queue_update_with_http_info(version, queue_id, opts)
+    def queue_update(queue_id, opts = {})
+      data, _status_code, _headers = queue_update_with_http_info(queue_id, opts)
       data
     end
 
     # Update Queue
     # Update the basic AMQP queue.
-    # @param version [Float] 
     # @param queue_id [Integer] The id of the queue to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The client deviceID
@@ -713,20 +669,16 @@ module OpenapiClient
     # @option opts [String] :virtual_host The virtual host defined on the server to queue
     # @option opts [Boolean] :use_ssl the SSL to use
     # @return [Array<(QueueResponse, Integer, Hash)>] QueueResponse data, response status code and response headers
-    def queue_update_with_http_info(version, queue_id, opts = {})
+    def queue_update_with_http_info(queue_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: AMQPApi.queue_update ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling AMQPApi.queue_update"
       end
       # verify the required parameter 'queue_id' is set
       if @api_client.config.client_side_validation && queue_id.nil?
         fail ArgumentError, "Missing the required parameter 'queue_id' when calling AMQPApi.queue_update"
       end
       # resource path
-      local_var_path = '/api/{version}/queue/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/queue/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

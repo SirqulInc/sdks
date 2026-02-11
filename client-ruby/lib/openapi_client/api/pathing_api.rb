@@ -21,34 +21,28 @@ module OpenapiClient
     end
     # Calculate Path
     # Calculates the shortest path from point to point on a grid
-    # @param version [Float] 
     # @param data [String] the data to with start, end point and exclusion points
     # @param units [String] the system of measurement for directions: {METRIC, IMPERIAL}
     # @param reduce_path [Boolean] determines whether to reduce the path to go in diagonal lines
     # @param directions [Boolean] determines whether to return text directions
     # @param [Hash] opts the optional parameters
     # @return [PathingResponse]
-    def compute_path(version, data, units, reduce_path, directions, opts = {})
-      data, _status_code, _headers = compute_path_with_http_info(version, data, units, reduce_path, directions, opts)
+    def compute_path(data, units, reduce_path, directions, opts = {})
+      data, _status_code, _headers = compute_path_with_http_info(data, units, reduce_path, directions, opts)
       data
     end
 
     # Calculate Path
     # Calculates the shortest path from point to point on a grid
-    # @param version [Float] 
     # @param data [String] the data to with start, end point and exclusion points
     # @param units [String] the system of measurement for directions: {METRIC, IMPERIAL}
     # @param reduce_path [Boolean] determines whether to reduce the path to go in diagonal lines
     # @param directions [Boolean] determines whether to return text directions
     # @param [Hash] opts the optional parameters
     # @return [Array<(PathingResponse, Integer, Hash)>] PathingResponse data, response status code and response headers
-    def compute_path_with_http_info(version, data, units, reduce_path, directions, opts = {})
+    def compute_path_with_http_info(data, units, reduce_path, directions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PathingApi.compute_path ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling PathingApi.compute_path"
       end
       # verify the required parameter 'data' is set
       if @api_client.config.client_side_validation && data.nil?
@@ -72,7 +66,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'directions' when calling PathingApi.compute_path"
       end
       # resource path
-      local_var_path = '/api/{version}/pathing/compute'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/pathing/compute'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,35 +21,29 @@ module OpenapiClient
     end
     # Authorize Twitter
     # Makes an authorization call to twitter for a user to login and allow any app permissions.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def authorize_twitter(version, app_key, opts = {})
-      data, _status_code, _headers = authorize_twitter_with_http_info(version, app_key, opts)
+    def authorize_twitter(app_key, opts = {})
+      data, _status_code, _headers = authorize_twitter_with_http_info(app_key, opts)
       data
     end
 
     # Authorize Twitter
     # Makes an authorization call to twitter for a user to login and allow any app permissions.
-    # @param version [Float] 
     # @param app_key [String] the application key
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def authorize_twitter_with_http_info(version, app_key, opts = {})
+    def authorize_twitter_with_http_info(app_key, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TwitterApi.authorize_twitter ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TwitterApi.authorize_twitter"
       end
       # verify the required parameter 'app_key' is set
       if @api_client.config.client_side_validation && app_key.nil?
         fail ArgumentError, "Missing the required parameter 'app_key' when calling TwitterApi.authorize_twitter"
       end
       # resource path
-      local_var_path = '/api/{version}/twitter/authorize'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/twitter/authorize'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -91,7 +85,6 @@ module OpenapiClient
 
     # Login Twitter
     # Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-    # @param version [Float] 
     # @param access_token [String] The access token
     # @param access_token_secret [String] The secret access token
     # @param app_key [String] The application key
@@ -101,14 +94,13 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [ProfileResponse]
-    def login_twitter(version, access_token, access_token_secret, app_key, response_filters, opts = {})
-      data, _status_code, _headers = login_twitter_with_http_info(version, access_token, access_token_secret, app_key, response_filters, opts)
+    def login_twitter(access_token, access_token_secret, app_key, response_filters, opts = {})
+      data, _status_code, _headers = login_twitter_with_http_info(access_token, access_token_secret, app_key, response_filters, opts)
       data
     end
 
     # Login Twitter
     # Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-    # @param version [Float] 
     # @param access_token [String] The access token
     # @param access_token_secret [String] The secret access token
     # @param app_key [String] The application key
@@ -118,13 +110,9 @@ module OpenapiClient
     # @option opts [Float] :latitude The current latitude of the user
     # @option opts [Float] :longitude The current longitude of the user
     # @return [Array<(ProfileResponse, Integer, Hash)>] ProfileResponse data, response status code and response headers
-    def login_twitter_with_http_info(version, access_token, access_token_secret, app_key, response_filters, opts = {})
+    def login_twitter_with_http_info(access_token, access_token_secret, app_key, response_filters, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: TwitterApi.login_twitter ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling TwitterApi.login_twitter"
       end
       # verify the required parameter 'access_token' is set
       if @api_client.config.client_side_validation && access_token.nil?
@@ -143,7 +131,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'response_filters' when calling TwitterApi.login_twitter"
       end
       # resource path
-      local_var_path = '/api/{version}/twitter/login'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/twitter/login'
 
       # query parameters
       query_params = opts[:query_params] || {}

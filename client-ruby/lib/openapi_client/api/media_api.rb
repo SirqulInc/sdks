@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Media
     # Create a media offering.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param title [String] The title (255 char limit)
     # @param barcode_type [String] The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -81,14 +80,13 @@ module OpenapiClient
     # @option opts [String] :availability ability to assign if this media should active or not
     # @option opts [String] :availability_summary ability to assign when the media expires
     # @return [MediaOfferResponse]
-    def create_media(version, account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, opts = {})
-      data, _status_code, _headers = create_media_with_http_info(version, account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, opts)
+    def create_media(account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, opts = {})
+      data, _status_code, _headers = create_media_with_http_info(account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, opts)
       data
     end
 
     # Create Media
     # Create a media offering.
-    # @param version [Float] 
     # @param account_id [Integer] The account id of the logged in user
     # @param title [String] The title (255 char limit)
     # @param barcode_type [String] The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -148,13 +146,9 @@ module OpenapiClient
     # @option opts [String] :availability ability to assign if this media should active or not
     # @option opts [String] :availability_summary ability to assign when the media expires
     # @return [Array<(MediaOfferResponse, Integer, Hash)>] MediaOfferResponse data, response status code and response headers
-    def create_media_with_http_info(version, account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, opts = {})
+    def create_media_with_http_info(account_id, title, barcode_type, no_expiration, available_limit, available_limit_per_user, added_limit, view_limit, max_prints, ticket_price, full_price, discount_price, special_offer_type, offer_visibility, active, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MediaApi.create_media ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MediaApi.create_media"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -240,7 +234,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"media_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/media/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/media/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -338,30 +332,24 @@ module OpenapiClient
 
     # Delete Media
     # Delete a media offering that the user has permissions to.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param media_id [Integer] the ID of the media to delete
     # @param [Hash] opts the optional parameters
     # @return [SirqulResponse]
-    def delete_media(version, account_id, media_id, opts = {})
-      data, _status_code, _headers = delete_media_with_http_info(version, account_id, media_id, opts)
+    def delete_media(account_id, media_id, opts = {})
+      data, _status_code, _headers = delete_media_with_http_info(account_id, media_id, opts)
       data
     end
 
     # Delete Media
     # Delete a media offering that the user has permissions to.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param media_id [Integer] the ID of the media to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_media_with_http_info(version, account_id, media_id, opts = {})
+    def delete_media_with_http_info(account_id, media_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MediaApi.delete_media ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MediaApi.delete_media"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -372,7 +360,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'media_id' when calling MediaApi.delete_media"
       end
       # resource path
-      local_var_path = '/api/{version}/media/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/media/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -415,30 +403,24 @@ module OpenapiClient
 
     # Media Get
     # Get a media offering.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param media_id [Integer] the id of the media to get
     # @param [Hash] opts the optional parameters
     # @return [MediaOfferResponse]
-    def get_media(version, account_id, media_id, opts = {})
-      data, _status_code, _headers = get_media_with_http_info(version, account_id, media_id, opts)
+    def get_media(account_id, media_id, opts = {})
+      data, _status_code, _headers = get_media_with_http_info(account_id, media_id, opts)
       data
     end
 
     # Media Get
     # Get a media offering.
-    # @param version [Float] 
     # @param account_id [Integer] the id of the logged in user
     # @param media_id [Integer] the id of the media to get
     # @param [Hash] opts the optional parameters
     # @return [Array<(MediaOfferResponse, Integer, Hash)>] MediaOfferResponse data, response status code and response headers
-    def get_media_with_http_info(version, account_id, media_id, opts = {})
+    def get_media_with_http_info(account_id, media_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MediaApi.get_media ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MediaApi.get_media"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -449,7 +431,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'media_id' when calling MediaApi.get_media"
       end
       # resource path
-      local_var_path = '/api/{version}/media/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/media/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -492,7 +474,6 @@ module OpenapiClient
 
     # Search Media
     # Searches on events that the account has access to.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param active_only [Boolean] Return only active results
     # @param sort_field [String] The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -504,14 +485,13 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<MediaOfferResponse>]
-    def search_media(version, account_id, active_only, sort_field, descending, opts = {})
-      data, _status_code, _headers = search_media_with_http_info(version, account_id, active_only, sort_field, descending, opts)
+    def search_media(account_id, active_only, sort_field, descending, opts = {})
+      data, _status_code, _headers = search_media_with_http_info(account_id, active_only, sort_field, descending, opts)
       data
     end
 
     # Search Media
     # Searches on events that the account has access to.
-    # @param version [Float] 
     # @param account_id [Integer] The logged in user.
     # @param active_only [Boolean] Return only active results
     # @param sort_field [String] The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -523,13 +503,9 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<(Array<MediaOfferResponse>, Integer, Hash)>] Array<MediaOfferResponse> data, response status code and response headers
-    def search_media_with_http_info(version, account_id, active_only, sort_field, descending, opts = {})
+    def search_media_with_http_info(account_id, active_only, sort_field, descending, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MediaApi.search_media ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MediaApi.search_media"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -553,7 +529,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'descending' when calling MediaApi.search_media"
       end
       # resource path
-      local_var_path = '/api/{version}/media/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/media/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -603,7 +579,6 @@ module OpenapiClient
 
     # Update Media
     # Update a media offering.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
     # @param media_id [Integer] 
     # @param [Hash] opts the optional parameters
@@ -665,14 +640,13 @@ module OpenapiClient
     # @option opts [String] :availability 
     # @option opts [String] :availability_summary 
     # @return [MediaOfferResponse]
-    def update_media(version, account_id, media_id, opts = {})
-      data, _status_code, _headers = update_media_with_http_info(version, account_id, media_id, opts)
+    def update_media(account_id, media_id, opts = {})
+      data, _status_code, _headers = update_media_with_http_info(account_id, media_id, opts)
       data
     end
 
     # Update Media
     # Update a media offering.
-    # @param version [Float] 
     # @param account_id [Integer] The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
     # @param media_id [Integer] 
     # @param [Hash] opts the optional parameters
@@ -734,13 +708,9 @@ module OpenapiClient
     # @option opts [String] :availability 
     # @option opts [String] :availability_summary 
     # @return [Array<(MediaOfferResponse, Integer, Hash)>] MediaOfferResponse data, response status code and response headers
-    def update_media_with_http_info(version, account_id, media_id, opts = {})
+    def update_media_with_http_info(account_id, media_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MediaApi.update_media ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling MediaApi.update_media"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -771,7 +741,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"media_type\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/media/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/media/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

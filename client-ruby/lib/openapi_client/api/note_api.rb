@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Batch Note Operation
     # Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-    # @param version [Float] 
     # @param notable_id [Integer] The id of the notable object the batch operation will affect
     # @param notable_type [String] The notable object type (for example ALBUM, ASSET, OFFER, etc.)
     # @param [Hash] opts the optional parameters
@@ -29,14 +28,13 @@ module OpenapiClient
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :batch_operation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
     # @return [SirqulResponse]
-    def batch_operation(version, notable_id, notable_type, opts = {})
-      data, _status_code, _headers = batch_operation_with_http_info(version, notable_id, notable_type, opts)
+    def batch_operation(notable_id, notable_type, opts = {})
+      data, _status_code, _headers = batch_operation_with_http_info(notable_id, notable_type, opts)
       data
     end
 
     # Batch Note Operation
     # Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-    # @param version [Float] 
     # @param notable_id [Integer] The id of the notable object the batch operation will affect
     # @param notable_type [String] The notable object type (for example ALBUM, ASSET, OFFER, etc.)
     # @param [Hash] opts the optional parameters
@@ -44,13 +42,9 @@ module OpenapiClient
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
     # @option opts [String] :batch_operation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def batch_operation_with_http_info(version, notable_id, notable_type, opts = {})
+    def batch_operation_with_http_info(notable_id, notable_type, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NoteApi.batch_operation ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NoteApi.batch_operation"
       end
       # verify the required parameter 'notable_id' is set
       if @api_client.config.client_side_validation && notable_id.nil?
@@ -61,7 +55,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'notable_type' when calling NoteApi.batch_operation"
       end
       # resource path
-      local_var_path = '/api/{version}/note/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/note/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -107,7 +101,6 @@ module OpenapiClient
 
     # Create Note
     # This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-    # @param version [Float] 
     # @param comment [String] The message the user wishes to leave a comment on
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -152,14 +145,13 @@ module OpenapiClient
     # @option opts [Float] :asset_latitude the latitude of the asset
     # @option opts [Float] :asset_longitude the longitude of the asset
     # @return [NoteResponse]
-    def create_note(version, comment, opts = {})
-      data, _status_code, _headers = create_note_with_http_info(version, comment, opts)
+    def create_note(comment, opts = {})
+      data, _status_code, _headers = create_note_with_http_info(comment, opts)
       data
     end
 
     # Create Note
     # This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-    # @param version [Float] 
     # @param comment [String] The message the user wishes to leave a comment on
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -204,20 +196,16 @@ module OpenapiClient
     # @option opts [Float] :asset_latitude the latitude of the asset
     # @option opts [Float] :asset_longitude the longitude of the asset
     # @return [Array<(NoteResponse, Integer, Hash)>] NoteResponse data, response status code and response headers
-    def create_note_with_http_info(version, comment, opts = {})
+    def create_note_with_http_info(comment, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NoteApi.create_note ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NoteApi.create_note"
       end
       # verify the required parameter 'comment' is set
       if @api_client.config.client_side_validation && comment.nil?
         fail ArgumentError, "Missing the required parameter 'comment' when calling NoteApi.create_note"
       end
       # resource path
-      local_var_path = '/api/{version}/note/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/note/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -300,7 +288,6 @@ module OpenapiClient
 
     # Delete Note
     # Sets a comment (note) as deleted.
-    # @param version [Float] 
     # @param note_id [Integer] The ID of the note to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -309,14 +296,13 @@ module OpenapiClient
     # @option opts [Float] :longitude The current location of the user
     # @option opts [String] :app_key The application key used to identify the application
     # @return [SirqulResponse]
-    def delete_note(version, note_id, opts = {})
-      data, _status_code, _headers = delete_note_with_http_info(version, note_id, opts)
+    def delete_note(note_id, opts = {})
+      data, _status_code, _headers = delete_note_with_http_info(note_id, opts)
       data
     end
 
     # Delete Note
     # Sets a comment (note) as deleted.
-    # @param version [Float] 
     # @param note_id [Integer] The ID of the note to delete
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -325,20 +311,16 @@ module OpenapiClient
     # @option opts [Float] :longitude The current location of the user
     # @option opts [String] :app_key The application key used to identify the application
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_note_with_http_info(version, note_id, opts = {})
+    def delete_note_with_http_info(note_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NoteApi.delete_note ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NoteApi.delete_note"
       end
       # verify the required parameter 'note_id' is set
       if @api_client.config.client_side_validation && note_id.nil?
         fail ArgumentError, "Missing the required parameter 'note_id' when calling NoteApi.delete_note"
       end
       # resource path
-      local_var_path = '/api/{version}/note/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/note/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -385,41 +367,35 @@ module OpenapiClient
 
     # Get Note
     # Get for a note based on its Id.
-    # @param version [Float] 
     # @param note_id [Integer] the id of the note to get
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @option opts [Boolean] :return_full_response Determines whether to return the NoteFullResponse for the item
     # @return [SirqulResponse]
-    def get_note(version, note_id, opts = {})
-      data, _status_code, _headers = get_note_with_http_info(version, note_id, opts)
+    def get_note(note_id, opts = {})
+      data, _status_code, _headers = get_note_with_http_info(note_id, opts)
       data
     end
 
     # Get Note
     # Get for a note based on its Id.
-    # @param version [Float] 
     # @param note_id [Integer] the id of the note to get
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
     # @option opts [Integer] :account_id The unique accountId that made the request (either deviceId or accountId must be used)
     # @option opts [Boolean] :return_full_response Determines whether to return the NoteFullResponse for the item
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def get_note_with_http_info(version, note_id, opts = {})
+    def get_note_with_http_info(note_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NoteApi.get_note ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NoteApi.get_note"
       end
       # verify the required parameter 'note_id' is set
       if @api_client.config.client_side_validation && note_id.nil?
         fail ArgumentError, "Missing the required parameter 'note_id' when calling NoteApi.get_note"
       end
       # resource path
-      local_var_path = '/api/{version}/note/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/note/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -464,7 +440,6 @@ module OpenapiClient
 
     # Search Notes
     # Search for notes on a notable object.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -484,14 +459,13 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<NoteResponse>]
-    def search_notes(version, opts = {})
-      data, _status_code, _headers = search_notes_with_http_info(version, opts)
+    def search_notes(opts = {})
+      data, _status_code, _headers = search_notes_with_http_info(opts)
       data
     end
 
     # Search Notes
     # Search for notes on a notable object.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account id of the user (deviceId or accountId required)
@@ -511,20 +485,16 @@ module OpenapiClient
     # @option opts [Integer] :start The record to begin the return set on
     # @option opts [Integer] :limit The number of records to return
     # @return [Array<(Array<NoteResponse>, Integer, Hash)>] Array<NoteResponse> data, response status code and response headers
-    def search_notes_with_http_info(version, opts = {})
+    def search_notes_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NoteApi.search_notes ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NoteApi.search_notes"
       end
       allowable_values = ["ID", "CREATED", "UPDATED", "DELETED", "SEARCH_TAGS", "ACTIVE", "OWNER_DISPLAY", "NOTABLE_TYPE", "NOTE_TAG", "NOTE_COUNT", "LIKES", "DISLIKES"]
       if @api_client.config.client_side_validation && opts[:'sort_field'] && !allowable_values.include?(opts[:'sort_field'])
         fail ArgumentError, "invalid value for \"sort_field\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/note/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/note/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -582,7 +552,6 @@ module OpenapiClient
 
     # Update Note
     # Update an existing comment (note). Only the creator of the note have permission to update.
-    # @param version [Float] 
     # @param note_id [Integer] The id of the note, used when editing a comment
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -626,14 +595,13 @@ module OpenapiClient
     # @option opts [Float] :asset_latitude the latitude of the asset
     # @option opts [Float] :asset_longitude the longitude of the asset
     # @return [NoteResponse]
-    def update_note(version, note_id, opts = {})
-      data, _status_code, _headers = update_note_with_http_info(version, note_id, opts)
+    def update_note(note_id, opts = {})
+      data, _status_code, _headers = update_note_with_http_info(note_id, opts)
       data
     end
 
     # Update Note
     # Update an existing comment (note). Only the creator of the note have permission to update.
-    # @param version [Float] 
     # @param note_id [Integer] The id of the note, used when editing a comment
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -677,20 +645,16 @@ module OpenapiClient
     # @option opts [Float] :asset_latitude the latitude of the asset
     # @option opts [Float] :asset_longitude the longitude of the asset
     # @return [Array<(NoteResponse, Integer, Hash)>] NoteResponse data, response status code and response headers
-    def update_note_with_http_info(version, note_id, opts = {})
+    def update_note_with_http_info(note_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: NoteApi.update_note ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling NoteApi.update_note"
       end
       # verify the required parameter 'note_id' is set
       if @api_client.config.client_side_validation && note_id.nil?
         fail ArgumentError, "Missing the required parameter 'note_id' when calling NoteApi.update_note"
       end
       # resource path
-      local_var_path = '/api/{version}/note/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/note/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

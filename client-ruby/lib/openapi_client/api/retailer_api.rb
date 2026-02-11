@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Create Retailer
     # Create a retailer record. A billable entity must be created first before a retailer record can be made.
-    # @param version [Float] 
     # @param name [String] The name of the retailer
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -57,14 +56,13 @@ module OpenapiClient
     # @option opts [Boolean] :create_default_location Determines whether to create a default location using the retailer information
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @return [RetailerFullResponse]
-    def create_retailer(version, name, opts = {})
-      data, _status_code, _headers = create_retailer_with_http_info(version, name, opts)
+    def create_retailer(name, opts = {})
+      data, _status_code, _headers = create_retailer_with_http_info(name, opts)
       data
     end
 
     # Create Retailer
     # Create a retailer record. A billable entity must be created first before a retailer record can be made.
-    # @param version [Float] 
     # @param name [String] The name of the retailer
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -100,13 +98,9 @@ module OpenapiClient
     # @option opts [Boolean] :create_default_location Determines whether to create a default location using the retailer information
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @return [Array<(RetailerFullResponse, Integer, Hash)>] RetailerFullResponse data, response status code and response headers
-    def create_retailer_with_http_info(version, name, opts = {})
+    def create_retailer_with_http_info(name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerApi.create_retailer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerApi.create_retailer"
       end
       # verify the required parameter 'name' is set
       if @api_client.config.client_side_validation && name.nil?
@@ -121,7 +115,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/create'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/create'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -195,35 +189,29 @@ module OpenapiClient
 
     # Delete Retailer
     # Set the deleted timestamp to current time.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the retailer.
     # @option opts [Integer] :retailer_id The ID of the retailer to be deleted
     # @return [SirqulResponse]
-    def delete_retailer(version, opts = {})
-      data, _status_code, _headers = delete_retailer_with_http_info(version, opts)
+    def delete_retailer(opts = {})
+      data, _status_code, _headers = delete_retailer_with_http_info(opts)
       data
     end
 
     # Delete Retailer
     # Set the deleted timestamp to current time.
-    # @param version [Float] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
     # @option opts [Integer] :account_id The account used to perform the delete, must have rights to edit the retailer.
     # @option opts [Integer] :retailer_id The ID of the retailer to be deleted
     # @return [Array<(SirqulResponse, Integer, Hash)>] SirqulResponse data, response status code and response headers
-    def delete_retailer_with_http_info(version, opts = {})
+    def delete_retailer_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerApi.delete_retailer ...'
       end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerApi.delete_retailer"
-      end
       # resource path
-      local_var_path = '/api/{version}/retailer/delete'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/delete'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -267,41 +255,35 @@ module OpenapiClient
 
     # Get Retailer
     # Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-    # @param version [Float] 
     # @param retailer_id [Integer] the ID of the retailer
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [Boolean] :include_counts Determines whether to include counts in the response (default true)
     # @return [RetailerFullResponse]
-    def get_retailer(version, retailer_id, opts = {})
-      data, _status_code, _headers = get_retailer_with_http_info(version, retailer_id, opts)
+    def get_retailer(retailer_id, opts = {})
+      data, _status_code, _headers = get_retailer_with_http_info(retailer_id, opts)
       data
     end
 
     # Get Retailer
     # Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-    # @param version [Float] 
     # @param retailer_id [Integer] the ID of the retailer
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id the device id (deviceId or accountId required)
     # @option opts [Integer] :account_id the account id of the user (deviceId or accountId required)
     # @option opts [Boolean] :include_counts Determines whether to include counts in the response (default true)
     # @return [Array<(RetailerFullResponse, Integer, Hash)>] RetailerFullResponse data, response status code and response headers
-    def get_retailer_with_http_info(version, retailer_id, opts = {})
+    def get_retailer_with_http_info(retailer_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerApi.get_retailer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerApi.get_retailer"
       end
       # verify the required parameter 'retailer_id' is set
       if @api_client.config.client_side_validation && retailer_id.nil?
         fail ArgumentError, "Missing the required parameter 'retailer_id' when calling RetailerApi.get_retailer"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/get'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/get'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -346,7 +328,6 @@ module OpenapiClient
 
     # Search Retailers
     # earches on retailers that the account has access to.
-    # @param version [Float] 
     # @param visibility [String] 
     # @param sort_field [String] The column to sort the search on
     # @param descending [Boolean] The order to return the search results
@@ -363,14 +344,13 @@ module OpenapiClient
     # @option opts [Integer] :_i This parameter is deprecated.
     # @option opts [Integer] :_l This parameter is deprecated.
     # @return [Array<RetailerResponse>]
-    def get_retailers(version, visibility, sort_field, descending, start, limit, active_only, opts = {})
-      data, _status_code, _headers = get_retailers_with_http_info(version, visibility, sort_field, descending, start, limit, active_only, opts)
+    def get_retailers(visibility, sort_field, descending, start, limit, active_only, opts = {})
+      data, _status_code, _headers = get_retailers_with_http_info(visibility, sort_field, descending, start, limit, active_only, opts)
       data
     end
 
     # Search Retailers
     # earches on retailers that the account has access to.
-    # @param version [Float] 
     # @param visibility [String] 
     # @param sort_field [String] The column to sort the search on
     # @param descending [Boolean] The order to return the search results
@@ -387,13 +367,9 @@ module OpenapiClient
     # @option opts [Integer] :_i This parameter is deprecated.
     # @option opts [Integer] :_l This parameter is deprecated.
     # @return [Array<(Array<RetailerResponse>, Integer, Hash)>] Array<RetailerResponse> data, response status code and response headers
-    def get_retailers_with_http_info(version, visibility, sort_field, descending, start, limit, active_only, opts = {})
+    def get_retailers_with_http_info(visibility, sort_field, descending, start, limit, active_only, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerApi.get_retailers ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerApi.get_retailers"
       end
       # verify the required parameter 'visibility' is set
       if @api_client.config.client_side_validation && visibility.nil?
@@ -430,7 +406,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'active_only' when calling RetailerApi.get_retailers"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/search'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/search'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -485,7 +461,6 @@ module OpenapiClient
 
     # Login Retailer
     # Retailer login check.
-    # @param version [Float] 
     # @param username [String] the user&#39;s email address they used to sign-up
     # @param password [String] the password
     # @param [Hash] opts the optional parameters
@@ -494,14 +469,13 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :app_key the application key
     # @return [AccountLoginResponse]
-    def retailer_login_check(version, username, password, opts = {})
-      data, _status_code, _headers = retailer_login_check_with_http_info(version, username, password, opts)
+    def retailer_login_check(username, password, opts = {})
+      data, _status_code, _headers = retailer_login_check_with_http_info(username, password, opts)
       data
     end
 
     # Login Retailer
     # Retailer login check.
-    # @param version [Float] 
     # @param username [String] the user&#39;s email address they used to sign-up
     # @param password [String] the password
     # @param [Hash] opts the optional parameters
@@ -510,13 +484,9 @@ module OpenapiClient
     # @option opts [Float] :longitude the current longitude of the user
     # @option opts [String] :app_key the application key
     # @return [Array<(AccountLoginResponse, Integer, Hash)>] AccountLoginResponse data, response status code and response headers
-    def retailer_login_check_with_http_info(version, username, password, opts = {})
+    def retailer_login_check_with_http_info(username, password, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerApi.retailer_login_check ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerApi.retailer_login_check"
       end
       # verify the required parameter 'username' is set
       if @api_client.config.client_side_validation && username.nil?
@@ -527,7 +497,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'password' when calling RetailerApi.retailer_login_check"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/login'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/login'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -574,7 +544,6 @@ module OpenapiClient
 
     # Update Retailer
     # Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-    # @param version [Float] 
     # @param retailer_id [Integer] The ID of the retailer to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -609,14 +578,13 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets whether the retailer is active or inactive (hidden from consumers)
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @return [RetailerFullResponse]
-    def update_retailer(version, retailer_id, opts = {})
-      data, _status_code, _headers = update_retailer_with_http_info(version, retailer_id, opts)
+    def update_retailer(retailer_id, opts = {})
+      data, _status_code, _headers = update_retailer_with_http_info(retailer_id, opts)
       data
     end
 
     # Update Retailer
     # Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-    # @param version [Float] 
     # @param retailer_id [Integer] The ID of the retailer to update
     # @param [Hash] opts the optional parameters
     # @option opts [String] :device_id The device id (deviceId or accountId required)
@@ -651,13 +619,9 @@ module OpenapiClient
     # @option opts [Boolean] :active Sets whether the retailer is active or inactive (hidden from consumers)
     # @option opts [String] :response_format The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}
     # @return [Array<(RetailerFullResponse, Integer, Hash)>] RetailerFullResponse data, response status code and response headers
-    def update_retailer_with_http_info(version, retailer_id, opts = {})
+    def update_retailer_with_http_info(retailer_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: RetailerApi.update_retailer ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling RetailerApi.update_retailer"
       end
       # verify the required parameter 'retailer_id' is set
       if @api_client.config.client_side_validation && retailer_id.nil?
@@ -672,7 +636,7 @@ module OpenapiClient
         fail ArgumentError, "invalid value for \"response_format\", must be one of #{allowable_values}"
       end
       # resource path
-      local_var_path = '/api/{version}/retailer/update'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/retailer/update'
 
       # query parameters
       query_params = opts[:query_params] || {}

@@ -21,7 +21,6 @@ module OpenapiClient
     end
     # Add Movie
     # Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param movie_name [String] Movie Name
     # @param [Hash] opts the optional parameters
@@ -31,14 +30,13 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiAddMovieResponse]
-    def add_movie(version, account_id, movie_name, opts = {})
-      data, _status_code, _headers = add_movie_with_http_info(version, account_id, movie_name, opts)
+    def add_movie(account_id, movie_name, opts = {})
+      data, _status_code, _headers = add_movie_with_http_info(account_id, movie_name, opts)
       data
     end
 
     # Add Movie
     # Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param movie_name [String] Movie Name
     # @param [Hash] opts the optional parameters
@@ -48,13 +46,9 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiAddMovieResponse, Integer, Hash)>] OrsonAiAddMovieResponse data, response status code and response headers
-    def add_movie_with_http_info(version, account_id, movie_name, opts = {})
+    def add_movie_with_http_info(account_id, movie_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.add_movie ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.add_movie"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -65,7 +59,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'movie_name' when calling OrsonApi.add_movie"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/addMovie'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/addMovie'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -113,7 +107,6 @@ module OpenapiClient
 
     # Search Docs
     # Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param doc [String] Doc
     # @param [Hash] opts the optional parameters
@@ -121,14 +114,13 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit
     # @option opts [Integer] :offset Offset
     # @return [OrsonAiProtoResponse]
-    def ai_docs(version, account_id, doc, opts = {})
-      data, _status_code, _headers = ai_docs_with_http_info(version, account_id, doc, opts)
+    def ai_docs(account_id, doc, opts = {})
+      data, _status_code, _headers = ai_docs_with_http_info(account_id, doc, opts)
       data
     end
 
     # Search Docs
     # Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param doc [String] Doc
     # @param [Hash] opts the optional parameters
@@ -136,13 +128,9 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit
     # @option opts [Integer] :offset Offset
     # @return [Array<(OrsonAiProtoResponse, Integer, Hash)>] OrsonAiProtoResponse data, response status code and response headers
-    def ai_docs_with_http_info(version, account_id, doc, opts = {})
+    def ai_docs_with_http_info(account_id, doc, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.ai_docs ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.ai_docs"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -153,7 +141,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'doc' when calling OrsonApi.ai_docs"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/docs'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/docs'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -199,7 +187,6 @@ module OpenapiClient
 
     # Find images
     # Returns a list of URIs of images that match the text.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param text [String] Text
     # @param [Hash] opts the optional parameters
@@ -207,14 +194,13 @@ module OpenapiClient
     # @option opts [String] :fetch_flag Fetch Flag
     # @option opts [String] :size Size
     # @return [OrsonAiProtoResponse]
-    def ai_find_images(version, account_id, text, opts = {})
-      data, _status_code, _headers = ai_find_images_with_http_info(version, account_id, text, opts)
+    def ai_find_images(account_id, text, opts = {})
+      data, _status_code, _headers = ai_find_images_with_http_info(account_id, text, opts)
       data
     end
 
     # Find images
     # Returns a list of URIs of images that match the text.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param text [String] Text
     # @param [Hash] opts the optional parameters
@@ -222,13 +208,9 @@ module OpenapiClient
     # @option opts [String] :fetch_flag Fetch Flag
     # @option opts [String] :size Size
     # @return [Array<(OrsonAiProtoResponse, Integer, Hash)>] OrsonAiProtoResponse data, response status code and response headers
-    def ai_find_images_with_http_info(version, account_id, text, opts = {})
+    def ai_find_images_with_http_info(account_id, text, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.ai_find_images ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.ai_find_images"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -239,7 +221,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'text' when calling OrsonApi.ai_find_images"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/img'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/img'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -285,7 +267,6 @@ module OpenapiClient
 
     # Search Tags
     # Search the tags column of user provided tags using this endpoint.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param tags [String] Tags
     # @param [Hash] opts the optional parameters
@@ -293,14 +274,13 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit
     # @option opts [Integer] :offset Offset
     # @return [OrsonAiProtoResponse]
-    def ai_tags(version, account_id, tags, opts = {})
-      data, _status_code, _headers = ai_tags_with_http_info(version, account_id, tags, opts)
+    def ai_tags(account_id, tags, opts = {})
+      data, _status_code, _headers = ai_tags_with_http_info(account_id, tags, opts)
       data
     end
 
     # Search Tags
     # Search the tags column of user provided tags using this endpoint.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param tags [String] Tags
     # @param [Hash] opts the optional parameters
@@ -308,13 +288,9 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit
     # @option opts [Integer] :offset Offset
     # @return [Array<(OrsonAiProtoResponse, Integer, Hash)>] OrsonAiProtoResponse data, response status code and response headers
-    def ai_tags_with_http_info(version, account_id, tags, opts = {})
+    def ai_tags_with_http_info(account_id, tags, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.ai_tags ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.ai_tags"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -325,7 +301,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'tags' when calling OrsonApi.ai_tags"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/tags'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/tags'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -371,7 +347,6 @@ module OpenapiClient
 
     # Search Text
     # Search the movie text column of movie text using this endpoint.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param terms [String] Terms
     # @param [Hash] opts the optional parameters
@@ -379,14 +354,13 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit
     # @option opts [Integer] :offset Offset
     # @return [OrsonAiProtoResponse]
-    def ai_text(version, account_id, terms, opts = {})
-      data, _status_code, _headers = ai_text_with_http_info(version, account_id, terms, opts)
+    def ai_text(account_id, terms, opts = {})
+      data, _status_code, _headers = ai_text_with_http_info(account_id, terms, opts)
       data
     end
 
     # Search Text
     # Search the movie text column of movie text using this endpoint.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param terms [String] Terms
     # @param [Hash] opts the optional parameters
@@ -394,13 +368,9 @@ module OpenapiClient
     # @option opts [Integer] :limit Limit
     # @option opts [Integer] :offset Offset
     # @return [Array<(OrsonAiProtoResponse, Integer, Hash)>] OrsonAiProtoResponse data, response status code and response headers
-    def ai_text_with_http_info(version, account_id, terms, opts = {})
+    def ai_text_with_http_info(account_id, terms, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.ai_text ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.ai_text"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -411,7 +381,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'terms' when calling OrsonApi.ai_text"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/text'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/text'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -457,7 +427,6 @@ module OpenapiClient
 
     # Batch Analysis
     # Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -467,14 +436,13 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiBatchResponse]
-    def batch(version, account_id, opts = {})
-      data, _status_code, _headers = batch_with_http_info(version, account_id, opts)
+    def batch(account_id, opts = {})
+      data, _status_code, _headers = batch_with_http_info(account_id, opts)
       data
     end
 
     # Batch Analysis
     # Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -484,20 +452,16 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiBatchResponse, Integer, Hash)>] OrsonAiBatchResponse data, response status code and response headers
-    def batch_with_http_info(version, account_id, opts = {})
+    def batch_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.batch"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.batch"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/batch'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/batch'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -545,30 +509,24 @@ module OpenapiClient
 
     # Creates an instant episode
     # Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param data [String] Request Data String
     # @param [Hash] opts the optional parameters
     # @return [OrsonEpisodeResponse]
-    def create_instant_episode(version, account_id, data, opts = {})
-      data, _status_code, _headers = create_instant_episode_with_http_info(version, account_id, data, opts)
+    def create_instant_episode(account_id, data, opts = {})
+      data, _status_code, _headers = create_instant_episode_with_http_info(account_id, data, opts)
       data
     end
 
     # Creates an instant episode
     # Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param data [String] Request Data String
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonEpisodeResponse, Integer, Hash)>] OrsonEpisodeResponse data, response status code and response headers
-    def create_instant_episode_with_http_info(version, account_id, data, opts = {})
+    def create_instant_episode_with_http_info(account_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.create_instant_episode ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.create_instant_episode"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -579,7 +537,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'data' when calling OrsonApi.create_instant_episode"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/stories/episodes/instant'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/stories/episodes/instant'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -622,7 +580,6 @@ module OpenapiClient
 
     # Create VoiceCanvas images
     # Create VoiceCanvas images for provided text, file upload, or file URL
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param dimensions [String] Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
     # @param [Hash] opts the optional parameters
@@ -634,14 +591,13 @@ module OpenapiClient
     # @option opts [Boolean] :fetch_flag When true, fetches images instead of generating them
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiVoiceCanvasResponse]
-    def create_voice_canvas(version, account_id, dimensions, opts = {})
-      data, _status_code, _headers = create_voice_canvas_with_http_info(version, account_id, dimensions, opts)
+    def create_voice_canvas(account_id, dimensions, opts = {})
+      data, _status_code, _headers = create_voice_canvas_with_http_info(account_id, dimensions, opts)
       data
     end
 
     # Create VoiceCanvas images
     # Create VoiceCanvas images for provided text, file upload, or file URL
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param dimensions [String] Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
     # @param [Hash] opts the optional parameters
@@ -653,13 +609,9 @@ module OpenapiClient
     # @option opts [Boolean] :fetch_flag When true, fetches images instead of generating them
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiVoiceCanvasResponse, Integer, Hash)>] OrsonAiVoiceCanvasResponse data, response status code and response headers
-    def create_voice_canvas_with_http_info(version, account_id, dimensions, opts = {})
+    def create_voice_canvas_with_http_info(account_id, dimensions, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.create_voice_canvas ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.create_voice_canvas"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -670,7 +622,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'dimensions' when calling OrsonApi.create_voice_canvas"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/voiceCanvas'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/voiceCanvas'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -720,7 +672,6 @@ module OpenapiClient
 
     # Detect emotions
     # Detects emotions in an audio or video recording.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -728,14 +679,13 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiEmotionsResponse]
-    def emotion(version, account_id, opts = {})
-      data, _status_code, _headers = emotion_with_http_info(version, account_id, opts)
+    def emotion(account_id, opts = {})
+      data, _status_code, _headers = emotion_with_http_info(account_id, opts)
       data
     end
 
     # Detect emotions
     # Detects emotions in an audio or video recording.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -743,20 +693,16 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiEmotionsResponse, Integer, Hash)>] OrsonAiEmotionsResponse data, response status code and response headers
-    def emotion_with_http_info(version, account_id, opts = {})
+    def emotion_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.emotion ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.emotion"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.emotion"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/emotion'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/emotion'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -802,30 +748,24 @@ module OpenapiClient
 
     # Get Add Movie Result
     # Get the result of an in progress Add Movie request from an earlier POST.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiAddMovieResponse]
-    def get_add_movie_result(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_add_movie_result_with_http_info(version, request_id, account_id, opts)
+    def get_add_movie_result(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_add_movie_result_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get Add Movie Result
     # Get the result of an in progress Add Movie request from an earlier POST.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiAddMovieResponse, Integer, Hash)>] OrsonAiAddMovieResponse data, response status code and response headers
-    def get_add_movie_result_with_http_info(version, request_id, account_id, opts = {})
+    def get_add_movie_result_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_add_movie_result ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_add_movie_result"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -836,7 +776,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_add_movie_result"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/addMovie/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/addMovie/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -878,30 +818,24 @@ module OpenapiClient
 
     # Get Batch Analysis Results
     # Gets the completed Video Batch results, if done, or an error or status update if not.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiBatchResponse]
-    def get_batch(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_batch_with_http_info(version, request_id, account_id, opts)
+    def get_batch(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_batch_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get Batch Analysis Results
     # Gets the completed Video Batch results, if done, or an error or status update if not.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiBatchResponse, Integer, Hash)>] OrsonAiBatchResponse data, response status code and response headers
-    def get_batch_with_http_info(version, request_id, account_id, opts = {})
+    def get_batch_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_batch ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_batch"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -912,7 +846,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_batch"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/batch/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/batch/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -954,30 +888,24 @@ module OpenapiClient
 
     # Get Emotion Results
     # Checks the Emotion analysis and returns in progress, results, or error.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiEmotionsResponse]
-    def get_emotion(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_emotion_with_http_info(version, request_id, account_id, opts)
+    def get_emotion(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_emotion_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get Emotion Results
     # Checks the Emotion analysis and returns in progress, results, or error.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiEmotionsResponse, Integer, Hash)>] OrsonAiEmotionsResponse data, response status code and response headers
-    def get_emotion_with_http_info(version, request_id, account_id, opts = {})
+    def get_emotion_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_emotion ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_emotion"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -988,7 +916,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_emotion"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/emotion/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/emotion/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1030,30 +958,24 @@ module OpenapiClient
 
     # Check episode status
     # Gets a summary of the episode's status, including any renders.
-    # @param version [Float] 
     # @param episode_id [Integer] Episode ID
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonEpisodeResponse]
-    def get_episode_status(version, episode_id, account_id, opts = {})
-      data, _status_code, _headers = get_episode_status_with_http_info(version, episode_id, account_id, opts)
+    def get_episode_status(episode_id, account_id, opts = {})
+      data, _status_code, _headers = get_episode_status_with_http_info(episode_id, account_id, opts)
       data
     end
 
     # Check episode status
     # Gets a summary of the episode&#39;s status, including any renders.
-    # @param version [Float] 
     # @param episode_id [Integer] Episode ID
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonEpisodeResponse, Integer, Hash)>] OrsonEpisodeResponse data, response status code and response headers
-    def get_episode_status_with_http_info(version, episode_id, account_id, opts = {})
+    def get_episode_status_with_http_info(episode_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_episode_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_episode_status"
       end
       # verify the required parameter 'episode_id' is set
       if @api_client.config.client_side_validation && episode_id.nil?
@@ -1064,7 +986,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_episode_status"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/stories/episodes/{episodeId}/status'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'episodeId' + '}', CGI.escape(episode_id.to_s))
+      local_var_path = '/orson/stories/episodes/{episodeId}/status'.sub('{' + 'episodeId' + '}', CGI.escape(episode_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1106,30 +1028,24 @@ module OpenapiClient
 
     # Check episode status
     # Gets a summary of the episode's status, including any renders.
-    # @param version [Float] 
     # @param render_id [String] Render ID
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonRenderResponse]
-    def get_render_status(version, render_id, account_id, opts = {})
-      data, _status_code, _headers = get_render_status_with_http_info(version, render_id, account_id, opts)
+    def get_render_status(render_id, account_id, opts = {})
+      data, _status_code, _headers = get_render_status_with_http_info(render_id, account_id, opts)
       data
     end
 
     # Check episode status
     # Gets a summary of the episode&#39;s status, including any renders.
-    # @param version [Float] 
     # @param render_id [String] Render ID
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonRenderResponse, Integer, Hash)>] OrsonRenderResponse data, response status code and response headers
-    def get_render_status_with_http_info(version, render_id, account_id, opts = {})
+    def get_render_status_with_http_info(render_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_render_status ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_render_status"
       end
       # verify the required parameter 'render_id' is set
       if @api_client.config.client_side_validation && render_id.nil?
@@ -1140,7 +1056,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_render_status"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/stories/renders/{renderId}/status'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'renderId' + '}', CGI.escape(render_id.to_s))
+      local_var_path = '/orson/stories/renders/{renderId}/status'.sub('{' + 'renderId' + '}', CGI.escape(render_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1182,30 +1098,24 @@ module OpenapiClient
 
     # Get Speach to Text Result
     # The results of the video transcription and optional translation.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiSTTResponse]
-    def get_stt(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_stt_with_http_info(version, request_id, account_id, opts)
+    def get_stt(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_stt_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get Speach to Text Result
     # The results of the video transcription and optional translation.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiSTTResponse, Integer, Hash)>] OrsonAiSTTResponse data, response status code and response headers
-    def get_stt_with_http_info(version, request_id, account_id, opts = {})
+    def get_stt_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_stt ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_stt"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -1216,7 +1126,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_stt"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/stt/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/stt/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1258,30 +1168,24 @@ module OpenapiClient
 
     # Get TechTune Results
     # Get a result or continue waiting for a pending request for TechTune analysis.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiTechTuneResponse]
-    def get_tech_tune(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_tech_tune_with_http_info(version, request_id, account_id, opts)
+    def get_tech_tune(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_tech_tune_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get TechTune Results
     # Get a result or continue waiting for a pending request for TechTune analysis.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiTechTuneResponse, Integer, Hash)>] OrsonAiTechTuneResponse data, response status code and response headers
-    def get_tech_tune_with_http_info(version, request_id, account_id, opts = {})
+    def get_tech_tune_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_tech_tune ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_tech_tune"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -1292,7 +1196,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_tech_tune"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/techTune/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/techTune/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1334,30 +1238,24 @@ module OpenapiClient
 
     # Get Topics
     # Get the result of an in progress Topics Analysis from an earlier POST.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiTopicsResponse]
-    def get_topics(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_topics_with_http_info(version, request_id, account_id, opts)
+    def get_topics(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_topics_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get Topics
     # Get the result of an in progress Topics Analysis from an earlier POST.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiTopicsResponse, Integer, Hash)>] OrsonAiTopicsResponse data, response status code and response headers
-    def get_topics_with_http_info(version, request_id, account_id, opts = {})
+    def get_topics_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_topics ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_topics"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -1368,7 +1266,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_topics"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/topics/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/topics/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1410,30 +1308,24 @@ module OpenapiClient
 
     # Get Text to Speach Result
     # Check the status of an in progress Text-to-Speech call or download the result.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiTTSResponse]
-    def get_tts(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_tts_with_http_info(version, request_id, account_id, opts)
+    def get_tts(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_tts_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get Text to Speach Result
     # Check the status of an in progress Text-to-Speech call or download the result.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiTTSResponse, Integer, Hash)>] OrsonAiTTSResponse data, response status code and response headers
-    def get_tts_with_http_info(version, request_id, account_id, opts = {})
+    def get_tts_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_tts ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_tts"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -1444,7 +1336,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_tts"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/tts/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/tts/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1486,30 +1378,24 @@ module OpenapiClient
 
     # Get VoiceCanvas images
     # Get a result or continue waiting for a pending request for VoiceCanvas Images.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [OrsonAiVoiceCanvasResponse]
-    def get_voice_canvas(version, request_id, account_id, opts = {})
-      data, _status_code, _headers = get_voice_canvas_with_http_info(version, request_id, account_id, opts)
+    def get_voice_canvas(request_id, account_id, opts = {})
+      data, _status_code, _headers = get_voice_canvas_with_http_info(request_id, account_id, opts)
       data
     end
 
     # Get VoiceCanvas images
     # Get a result or continue waiting for a pending request for VoiceCanvas Images.
-    # @param version [Float] 
     # @param request_id [String] Orson Request Id
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonAiVoiceCanvasResponse, Integer, Hash)>] OrsonAiVoiceCanvasResponse data, response status code and response headers
-    def get_voice_canvas_with_http_info(version, request_id, account_id, opts = {})
+    def get_voice_canvas_with_http_info(request_id, account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.get_voice_canvas ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.get_voice_canvas"
       end
       # verify the required parameter 'request_id' is set
       if @api_client.config.client_side_validation && request_id.nil?
@@ -1520,7 +1406,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.get_voice_canvas"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/voiceCanvas/{requestId}'.sub('{' + 'version' + '}', CGI.escape(version.to_s)).sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
+      local_var_path = '/orson/ai/voiceCanvas/{requestId}'.sub('{' + 'requestId' + '}', CGI.escape(request_id.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1562,30 +1448,24 @@ module OpenapiClient
 
     # Starts a StoryStitch video render
     # Starts a StoryStitch video render to produce your final video, returning the status details.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param data [String] Request Data String
     # @param [Hash] opts the optional parameters
     # @return [OrsonRenderResponse]
-    def start_video_render(version, account_id, data, opts = {})
-      data, _status_code, _headers = start_video_render_with_http_info(version, account_id, data, opts)
+    def start_video_render(account_id, data, opts = {})
+      data, _status_code, _headers = start_video_render_with_http_info(account_id, data, opts)
       data
     end
 
     # Starts a StoryStitch video render
     # Starts a StoryStitch video render to produce your final video, returning the status details.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param data [String] Request Data String
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrsonRenderResponse, Integer, Hash)>] OrsonRenderResponse data, response status code and response headers
-    def start_video_render_with_http_info(version, account_id, data, opts = {})
+    def start_video_render_with_http_info(account_id, data, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.start_video_render ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.start_video_render"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1596,7 +1476,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'data' when calling OrsonApi.start_video_render"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/stories/renders'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/stories/renders'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1639,7 +1519,6 @@ module OpenapiClient
 
     # Speach to Text
     # Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -1649,14 +1528,13 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiSTTResponse]
-    def stt(version, account_id, opts = {})
-      data, _status_code, _headers = stt_with_http_info(version, account_id, opts)
+    def stt(account_id, opts = {})
+      data, _status_code, _headers = stt_with_http_info(account_id, opts)
       data
     end
 
     # Speach to Text
     # Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -1666,20 +1544,16 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiSTTResponse, Integer, Hash)>] OrsonAiSTTResponse data, response status code and response headers
-    def stt_with_http_info(version, account_id, opts = {})
+    def stt_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.stt ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.stt"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.stt"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/stt'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/stt'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1727,7 +1601,6 @@ module OpenapiClient
 
     # Summarize Topics
     # Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -1738,14 +1611,13 @@ module OpenapiClient
     # @option opts [Integer] :offset The starting offset into the total result set to start from
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiTopicsResponse]
-    def summarize_topics(version, account_id, opts = {})
-      data, _status_code, _headers = summarize_topics_with_http_info(version, account_id, opts)
+    def summarize_topics(account_id, opts = {})
+      data, _status_code, _headers = summarize_topics_with_http_info(account_id, opts)
       data
     end
 
     # Summarize Topics
     # Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param [Hash] opts the optional parameters
     # @option opts [String] :third_party_account_id A third-party account id that is meaningful to your systems
@@ -1756,20 +1628,16 @@ module OpenapiClient
     # @option opts [Integer] :offset The starting offset into the total result set to start from
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiTopicsResponse, Integer, Hash)>] OrsonAiTopicsResponse data, response status code and response headers
-    def summarize_topics_with_http_info(version, account_id, opts = {})
+    def summarize_topics_with_http_info(account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.summarize_topics ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.summarize_topics"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
         fail ArgumentError, "Missing the required parameter 'account_id' when calling OrsonApi.summarize_topics"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/topics'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/topics'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1818,7 +1686,6 @@ module OpenapiClient
 
     # Detect Technical Issues
     # Analyses a movie file to detect technical issues, such as too few people in frame.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param num_faces_expected [Integer] Number of expected faces
     # @param [Hash] opts the optional parameters
@@ -1827,14 +1694,13 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiTechTuneResponse]
-    def tech_tune(version, account_id, num_faces_expected, opts = {})
-      data, _status_code, _headers = tech_tune_with_http_info(version, account_id, num_faces_expected, opts)
+    def tech_tune(account_id, num_faces_expected, opts = {})
+      data, _status_code, _headers = tech_tune_with_http_info(account_id, num_faces_expected, opts)
       data
     end
 
     # Detect Technical Issues
     # Analyses a movie file to detect technical issues, such as too few people in frame.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param num_faces_expected [Integer] Number of expected faces
     # @param [Hash] opts the optional parameters
@@ -1843,13 +1709,9 @@ module OpenapiClient
     # @option opts [String] :url A recording file to download and analyze (Size limit: 1GB)
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiTechTuneResponse, Integer, Hash)>] OrsonAiTechTuneResponse data, response status code and response headers
-    def tech_tune_with_http_info(version, account_id, num_faces_expected, opts = {})
+    def tech_tune_with_http_info(account_id, num_faces_expected, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.tech_tune ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.tech_tune"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1860,7 +1722,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'num_faces_expected' when calling OrsonApi.tech_tune"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/techTune'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/techTune'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1907,7 +1769,6 @@ module OpenapiClient
 
     # Text to Speach
     # Creates an audio file for the given text, with the option of language and voice selection.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param text [String] Text
     # @param [Hash] opts the optional parameters
@@ -1916,14 +1777,13 @@ module OpenapiClient
     # @option opts [String] :voice A language-specific voice to use, or picks the language default if not provided
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [OrsonAiTTSResponse]
-    def tts(version, account_id, text, opts = {})
-      data, _status_code, _headers = tts_with_http_info(version, account_id, text, opts)
+    def tts(account_id, text, opts = {})
+      data, _status_code, _headers = tts_with_http_info(account_id, text, opts)
       data
     end
 
     # Text to Speach
     # Creates an audio file for the given text, with the option of language and voice selection.
-    # @param version [Float] 
     # @param account_id [Integer] Sirqul Account Id
     # @param text [String] Text
     # @param [Hash] opts the optional parameters
@@ -1932,13 +1792,9 @@ module OpenapiClient
     # @option opts [String] :voice A language-specific voice to use, or picks the language default if not provided
     # @option opts [String] :callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
     # @return [Array<(OrsonAiTTSResponse, Integer, Hash)>] OrsonAiTTSResponse data, response status code and response headers
-    def tts_with_http_info(version, account_id, text, opts = {})
+    def tts_with_http_info(account_id, text, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: OrsonApi.tts ...'
-      end
-      # verify the required parameter 'version' is set
-      if @api_client.config.client_side_validation && version.nil?
-        fail ArgumentError, "Missing the required parameter 'version' when calling OrsonApi.tts"
       end
       # verify the required parameter 'account_id' is set
       if @api_client.config.client_side_validation && account_id.nil?
@@ -1949,7 +1805,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'text' when calling OrsonApi.tts"
       end
       # resource path
-      local_var_path = '/api/{version}/orson/ai/tts'.sub('{' + 'version' + '}', CGI.escape(version.to_s))
+      local_var_path = '/orson/ai/tts'
 
       # query parameters
       query_params = opts[:query_params] || {}
