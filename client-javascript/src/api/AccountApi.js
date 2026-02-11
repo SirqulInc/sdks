@@ -51,7 +51,6 @@ export default class AccountApi {
     /**
      * Search Accounts by Location
      * Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -90,16 +89,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~accountLocationSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserLocationSearchResponse}
      */
-    accountLocationSearch(version, opts, callback) {
+    accountLocationSearch(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling accountLocationSearch");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -147,7 +141,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = UserLocationSearchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/search', 'GET',
+        '/account/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -164,7 +158,6 @@ export default class AccountApi {
     /**
      * Block Account
      * Moves or removes an account into the user's blocked group.
-     * @param {Number} version 
      * @param {Number} accountIdBeingBlocked The id of the account to be blocked/unblocked
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -176,20 +169,15 @@ export default class AccountApi {
      * @param {module:api/AccountApi~blockAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    blockAccount(version, accountIdBeingBlocked, opts, callback) {
+    blockAccount(accountIdBeingBlocked, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling blockAccount");
-      }
       // verify the required parameter 'accountIdBeingBlocked' is set
       if (accountIdBeingBlocked === undefined || accountIdBeingBlocked === null) {
         throw new Error("Missing the required parameter 'accountIdBeingBlocked' when calling blockAccount");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -210,7 +198,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/block', 'POST',
+        '/account/block', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -227,7 +215,6 @@ export default class AccountApi {
     /**
      * Create Account
      * Create a new account by role.
-     * @param {Number} version 
      * @param {String} username The access token to authenticate with (ex: username)
      * @param {String} password The secret to authenticate with (ex: password)
      * @param {Object} opts Optional parameters
@@ -304,13 +291,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~createAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AccountLoginResponse}
      */
-    createAccount(version, username, password, opts, callback) {
+    createAccount(username, password, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createAccount");
-      }
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling createAccount");
@@ -321,7 +304,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'name': opts['name'],
@@ -407,7 +389,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = AccountLoginResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/create', 'POST',
+        '/account/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -424,7 +406,6 @@ export default class AccountApi {
     /**
      * Update Account
      * Edit the user's profile information
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -511,16 +492,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~editAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileInfoResponse}
      */
-    editAccount(version, opts, callback) {
+    editAccount(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling editAccount");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -616,7 +592,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = ProfileInfoResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/profile/update', 'POST',
+        '/account/profile/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -633,7 +609,6 @@ export default class AccountApi {
     /**
      * Update Username and Email
      * Update account's own username and/or emailAddress
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -642,16 +617,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~editUsernameCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    editUsername(version, opts, callback) {
+    editUsername(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling editUsername");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -669,7 +639,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/username/update', 'POST',
+        '/account/username/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -686,7 +656,6 @@ export default class AccountApi {
     /**
      * Get Account
      * Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnNulls = false)] Return Nulls
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -703,16 +672,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~getAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    getAccount(version, opts, callback) {
+    getAccount(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAccount");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': opts['returnNulls'],
@@ -738,7 +702,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/profile/get', 'GET',
+        '/account/profile/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -755,7 +719,6 @@ export default class AccountApi {
     /**
      * Get Profile Assets
      * Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnNulls = false)] Determines whether to return null fields in the response
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -774,16 +737,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~getProfileAssetsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssetListResponse}
      */
-    getProfileAssets(version, opts, callback) {
+    getProfileAssets(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getProfileAssets");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': opts['returnNulls'],
@@ -811,7 +769,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = AssetListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/profile/assets', 'GET',
+        '/account/profile/assets', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -828,7 +786,6 @@ export default class AccountApi {
     /**
      * Search Accounts
      * Gets a user's account profile and their referral List.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
      * @param {String} [appKey] The application key
@@ -843,16 +800,11 @@ export default class AccountApi {
      * @param {Boolean} [childrenChildren = true)] if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item
      * @param {module:api/AccountApi~getReferralListCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getReferralList(version, opts, callback) {
+    getReferralList(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getReferralList");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -877,7 +829,7 @@ export default class AccountApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/account/referral/list', 'GET',
+        '/account/referral/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -894,7 +846,6 @@ export default class AccountApi {
     /**
      * Get Account Settings
      * Get the account settings for a user
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -903,16 +854,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~getSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSettingsResponse}
      */
-    getSettings(version, opts, callback) {
+    getSettings(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getSettings");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -930,7 +876,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = UserSettingsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/settings/get', 'GET',
+        '/account/settings/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -947,7 +893,6 @@ export default class AccountApi {
     /**
      * Login as Account
      * A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-     * @param {Number} version 
      * @param {String} accessToken 
      * @param {String} appKey 
      * @param {Object} opts Optional parameters
@@ -963,13 +908,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~loginDelegateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    loginDelegate(version, accessToken, appKey, opts, callback) {
+    loginDelegate(accessToken, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling loginDelegate");
-      }
       // verify the required parameter 'accessToken' is set
       if (accessToken === undefined || accessToken === null) {
         throw new Error("Missing the required parameter 'accessToken' when calling loginDelegate");
@@ -980,7 +921,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1005,7 +945,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/login/delegate', 'POST',
+        '/account/login/delegate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1022,7 +962,6 @@ export default class AccountApi {
     /**
      * Login Account
      * General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-     * @param {Number} version 
      * @param {String} accessToken The access token to authenticate with (ex: username or fb token)
      * @param {String} networkUID The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE 
      * @param {String} appKey The application key
@@ -1040,13 +979,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~loginGeneralCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    loginGeneral(version, accessToken, networkUID, appKey, opts, callback) {
+    loginGeneral(accessToken, networkUID, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling loginGeneral");
-      }
       // verify the required parameter 'accessToken' is set
       if (accessToken === undefined || accessToken === null) {
         throw new Error("Missing the required parameter 'accessToken' when calling loginGeneral");
@@ -1061,7 +996,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1088,7 +1022,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/login', 'POST',
+        '/account/login', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1105,7 +1039,6 @@ export default class AccountApi {
     /**
      * Login Account (Username)
      * Login to system with an account
-     * @param {Number} version 
      * @param {String} username the user's email address they used to sign-up
      * @param {String} password the password
      * @param {Object} opts Optional parameters
@@ -1120,13 +1053,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~loginUsernameCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    loginUsername(version, username, password, opts, callback) {
+    loginUsername(username, password, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling loginUsername");
-      }
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling loginUsername");
@@ -1137,7 +1066,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1161,7 +1089,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/get', 'POST',
+        '/account/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1178,7 +1106,6 @@ export default class AccountApi {
     /**
      * Logout Account
      * Cleans up the users data for logging out.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {String} [deviceIdType] Device Id Type
@@ -1188,16 +1115,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~logoutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    logout(version, opts, callback) {
+    logout(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling logout");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1216,7 +1138,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/logout', 'POST',
+        '/account/logout', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1233,7 +1155,6 @@ export default class AccountApi {
     /**
      * Merge Account
      * Merges the analytics, achievements, leaderboards of two accounts.
-     * @param {Number} version 
      * @param {Number} mergeAccountId The id of the account to being merged
      * @param {String} appKey The application key
      * @param {Object} opts Optional parameters
@@ -1242,13 +1163,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~mergeAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    mergeAccount(version, mergeAccountId, appKey, opts, callback) {
+    mergeAccount(mergeAccountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling mergeAccount");
-      }
       // verify the required parameter 'mergeAccountId' is set
       if (mergeAccountId === undefined || mergeAccountId === null) {
         throw new Error("Missing the required parameter 'mergeAccountId' when calling mergeAccount");
@@ -1259,7 +1176,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1277,7 +1193,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/merge', 'POST',
+        '/account/merge', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1294,7 +1210,6 @@ export default class AccountApi {
     /**
      * Update Password
      * Update the account password.
-     * @param {Number} version 
      * @param {Number} accountId The account to update
      * @param {String} oldPassword The current password, used to validate access
      * @param {String} newPassword The new password to set, cannot be empty
@@ -1302,12 +1217,8 @@ export default class AccountApi {
      * @param {module:api/AccountApi~passwordChangeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    passwordChange(version, accountId, oldPassword, newPassword, confirmPassword, callback) {
+    passwordChange(accountId, oldPassword, newPassword, confirmPassword, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling passwordChange");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling passwordChange");
@@ -1326,7 +1237,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1344,7 +1254,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/passwordchange', 'POST',
+        '/account/passwordchange', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1361,19 +1271,14 @@ export default class AccountApi {
     /**
      * Reset Password
      * Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-     * @param {Number} version 
      * @param {String} token The token associated with the account to update, good for 24 hours
      * @param {String} password The new password to set, cannot be empty
      * @param {String} confirm The new password to confirm, must match newPassword
      * @param {module:api/AccountApi~passwordResetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    passwordReset(version, token, password, confirm, callback) {
+    passwordReset(token, password, confirm, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling passwordReset");
-      }
       // verify the required parameter 'token' is set
       if (token === undefined || token === null) {
         throw new Error("Missing the required parameter 'token' when calling passwordReset");
@@ -1388,7 +1293,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'token': token,
@@ -1405,7 +1309,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/passwordreset', 'POST',
+        '/account/passwordreset', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1422,7 +1326,6 @@ export default class AccountApi {
     /**
      * Request Password Reset
      * Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-     * @param {Number} version 
      * @param {String} email The email/username of the account
      * @param {Object} opts Optional parameters
      * @param {String} [from = 'Sirqul')] this is the sender email
@@ -1432,20 +1335,15 @@ export default class AccountApi {
      * @param {module:api/AccountApi~requestPasswordResetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    requestPasswordReset(version, email, opts, callback) {
+    requestPasswordReset(email, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling requestPasswordReset");
-      }
       // verify the required parameter 'email' is set
       if (email === undefined || email === null) {
         throw new Error("Missing the required parameter 'email' when calling requestPasswordReset");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'email': email,
@@ -1464,7 +1362,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/requestpasswordreset', 'POST',
+        '/account/requestpasswordreset', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1481,24 +1379,18 @@ export default class AccountApi {
     /**
      * Send Validation Request
      * Send an email to validate a user's account.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {module:api/AccountApi~requestValidateAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    requestValidateAccount(version, accountId, callback) {
+    requestValidateAccount(accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling requestValidateAccount");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling requestValidateAccount");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId
@@ -1513,7 +1405,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/requestValidateAccount', 'POST',
+        '/account/requestValidateAccount', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1530,7 +1422,6 @@ export default class AccountApi {
     /**
      * Search Accounts
      * Search for account profiles.
-     * @param {Number} version 
      * @param {Number} accountId The id of the account requesting
      * @param {String} appKey The application key
      * @param {Object} opts Optional parameters
@@ -1553,13 +1444,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~searchAccountsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ProfileResponse>}
      */
-    searchAccounts(version, accountId, appKey, opts, callback) {
+    searchAccounts(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchAccounts");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchAccounts");
@@ -1570,7 +1457,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1602,7 +1488,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = [ProfileResponse];
       return this.apiClient.callApi(
-        '/api/{version}/account/profile/search', 'GET',
+        '/account/profile/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1619,7 +1505,6 @@ export default class AccountApi {
     /**
      * Login Account (Encrypted Username)
      * ogin with encrypted user-name and password.
-     * @param {Number} version 
      * @param {String} username The user's encrypted email address they used to sign-up
      * @param {String} password The encrypted password
      * @param {String} gameType The application key
@@ -1633,13 +1518,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~secureLoginCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    secureLogin(version, username, password, gameType, opts, callback) {
+    secureLogin(username, password, gameType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling secureLogin");
-      }
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling secureLogin");
@@ -1654,7 +1535,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1677,7 +1557,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/login/validate', 'POST',
+        '/account/login/validate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1694,7 +1574,6 @@ export default class AccountApi {
     /**
      * Create Account (Encrypted Username)
      * Create a new account by role (with encrypted user-name and password)
-     * @param {Number} version 
      * @param {String} deviceId The device id
      * @param {String} username The encrypted email of the user, this is what will be used when they login
      * @param {String} password The encrypted password of the user
@@ -1760,13 +1639,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~secureSignupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileInfoResponse}
      */
-    secureSignup(version, deviceId, username, password, opts, callback) {
+    secureSignup(deviceId, username, password, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling secureSignup");
-      }
       // verify the required parameter 'deviceId' is set
       if (deviceId === undefined || deviceId === null) {
         throw new Error("Missing the required parameter 'deviceId' when calling secureSignup");
@@ -1781,7 +1656,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'name': opts['name'],
@@ -1856,7 +1730,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = ProfileInfoResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/create/validate', 'POST',
+        '/account/create/validate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1873,7 +1747,6 @@ export default class AccountApi {
     /**
      * Save Match Token
      * Save user's match token to be used for profile match making
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -1885,16 +1758,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~setMatchTokenCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    setMatchToken(version, opts, callback) {
+    setMatchToken(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling setMatchToken");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1915,7 +1783,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/profile/matchToken', 'POST',
+        '/consumer/profile/matchToken', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1932,7 +1800,6 @@ export default class AccountApi {
     /**
      * Update Account Active Status
      * Activate or deactivate an account (requires appropriate permissions).
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user (deviceId or accountId required)
      * @param {Number} connectionAccountId The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)
      * @param {Boolean} active true will activate the user and false will deactivate
@@ -1942,13 +1809,9 @@ export default class AccountApi {
      * @param {module:api/AccountApi~updateActveStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateActveStatus(version, accountId, connectionAccountId, active, opts, callback) {
+    updateActveStatus(accountId, connectionAccountId, active, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateActveStatus");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateActveStatus");
@@ -1963,7 +1826,6 @@ export default class AccountApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1982,7 +1844,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/active/update', 'POST',
+        '/account/active/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1999,7 +1861,6 @@ export default class AccountApi {
     /**
      * Update Location
      * Update the account location
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -2009,16 +1870,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~updateLocationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateLocation(version, opts, callback) {
+    updateLocation(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateLocation");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -2037,7 +1893,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/location/update', 'POST',
+        '/account/location/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2054,7 +1910,6 @@ export default class AccountApi {
     /**
      * Update Account Settings
      * Update the account settings for a user
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -2071,16 +1926,11 @@ export default class AccountApi {
      * @param {module:api/AccountApi~updateSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSettingsResponse}
      */
-    updateSettings(version, opts, callback) {
+    updateSettings(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateSettings");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -2106,7 +1956,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = UserSettingsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/settings/update', 'POST',
+        '/account/settings/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2123,24 +1973,18 @@ export default class AccountApi {
     /**
      * Save Validation Status
      * Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-     * @param {Number} version 
      * @param {String} token The token associated with the account to update, good for 24 hours
      * @param {module:api/AccountApi~validateAccountSignupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AccountLoginResponse}
      */
-    validateAccountSignup(version, token, callback) {
+    validateAccountSignup(token, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling validateAccountSignup");
-      }
       // verify the required parameter 'token' is set
       if (token === undefined || token === null) {
         throw new Error("Missing the required parameter 'token' when calling validateAccountSignup");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'token': token
@@ -2155,7 +1999,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = AccountLoginResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/validateAccountSignup', 'POST',
+        '/account/validateAccountSignup', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2172,24 +2016,18 @@ export default class AccountApi {
     /**
      * Validate Password Reset Token
      * Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-     * @param {Number} version 
      * @param {String} token The token associated with the account to update, good for 24 hours
      * @param {module:api/AccountApi~validatePasswordResetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    validatePasswordReset(version, token, callback) {
+    validatePasswordReset(token, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling validatePasswordReset");
-      }
       // verify the required parameter 'token' is set
       if (token === undefined || token === null) {
         throw new Error("Missing the required parameter 'token' when calling validatePasswordReset");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'token': token
@@ -2204,7 +2042,7 @@ export default class AccountApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/validatepasswordreset', 'POST',
+        '/account/validatepasswordreset', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

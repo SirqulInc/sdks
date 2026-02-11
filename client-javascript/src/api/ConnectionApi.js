@@ -49,7 +49,6 @@ export default class ConnectionApi {
     /**
      * Add Connection
      * Adds a connection to a group.
-     * @param {Number} version 
      * @param {Boolean} returnNulls whether to return nulls or not
      * @param {Number} groupId the group id
      * @param {Object} opts Optional parameters
@@ -63,13 +62,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~addConnectionToGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    addConnectionToGroup(version, returnNulls, groupId, opts, callback) {
+    addConnectionToGroup(returnNulls, groupId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addConnectionToGroup");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling addConnectionToGroup");
@@ -80,7 +75,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -103,7 +97,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/group/addConnection', 'POST',
+        '/consumer/connection/group/addConnection', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -120,7 +114,6 @@ export default class ConnectionApi {
     /**
      * Add Connections
      * Adds a list of connections to a group.
-     * @param {Number} version 
      * @param {Number} connectionGroupId the connection group ID
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -132,20 +125,15 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~addConnectionsToGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    addConnectionsToGroup(version, connectionGroupId, opts, callback) {
+    addConnectionsToGroup(connectionGroupId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addConnectionsToGroup");
-      }
       // verify the required parameter 'connectionGroupId' is set
       if (connectionGroupId === undefined || connectionGroupId === null) {
         throw new Error("Missing the required parameter 'connectionGroupId' when calling addConnectionsToGroup");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -166,7 +154,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/connection/group/addConnections', 'POST',
+        '/connection/group/addConnections', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -183,7 +171,6 @@ export default class ConnectionApi {
     /**
      * Add Connection Groups
      * Add sub groups to a group.
-     * @param {Number} version 
      * @param {Boolean} returnNulls whether to return nulls or not
      * @param {Number} groupId the parent group id
      * @param {String} subGroupIds comma separated list of group IDs to add to the parent group
@@ -195,13 +182,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~addSubGroupsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectionGroupResponse}
      */
-    addSubGroups(version, returnNulls, groupId, subGroupIds, opts, callback) {
+    addSubGroups(returnNulls, groupId, subGroupIds, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addSubGroups");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling addSubGroups");
@@ -216,7 +199,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -237,7 +219,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = ConnectionGroupResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/group/addSubGroup', 'POST',
+        '/consumer/connection/group/addSubGroup', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -254,7 +236,6 @@ export default class ConnectionApi {
     /**
      * Create or Update Connection
      * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -273,16 +254,11 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~createOrUpdateConnectionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectionResponse}
      */
-    createOrUpdateConnection(version, opts, callback) {
+    createOrUpdateConnection(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createOrUpdateConnection");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -310,7 +286,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = ConnectionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/add', 'POST',
+        '/consumer/connection/add', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -327,7 +303,6 @@ export default class ConnectionApi {
     /**
      * Create or Update Connection Group
      * Creates a new private group.
-     * @param {Number} version 
      * @param {Boolean} returnNulls whether to return nulls or not
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -346,20 +321,15 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~createOrUpdateGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    createOrUpdateGroup(version, returnNulls, opts, callback) {
+    createOrUpdateGroup(returnNulls, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createOrUpdateGroup");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling createOrUpdateGroup");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -387,7 +357,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/group', 'POST',
+        '/consumer/connection/group', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -404,19 +374,14 @@ export default class ConnectionApi {
     /**
      * Accept Follow Request
      * Accept someone's follow request.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {Number} connectionAccountId the account ID of the user who initiated the follow
      * @param {String} appKey the application key for sending notifications
      * @param {module:api/ConnectionApi~followAcceptCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    followAccept(version, accountId, connectionAccountId, appKey, callback) {
+    followAccept(accountId, connectionAccountId, appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling followAccept");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling followAccept");
@@ -431,7 +396,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -448,7 +412,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/follow/accept', 'POST',
+        '/consumer/follow/accept', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -465,19 +429,14 @@ export default class ConnectionApi {
     /**
      * Reject Follow Request
      * Reject someone's follow request or remove them as a follower.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {Number} connectionAccountId the account ID of the user who initiated the follow
      * @param {String} appKey the application key for sending notifications
      * @param {module:api/ConnectionApi~followRejectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    followReject(version, accountId, connectionAccountId, appKey, callback) {
+    followReject(accountId, connectionAccountId, appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling followReject");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling followReject");
@@ -492,7 +451,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -509,7 +467,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/follow/reject', 'POST',
+        '/consumer/follow/reject', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -526,19 +484,14 @@ export default class ConnectionApi {
     /**
      * Remove Follower / Unfollow
      * Unfollow someone you are following or remove them as a follower.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {Number} connectionAccountId the account ID of the user who you want to unfollow
      * @param {String} appKey the application key for sending notifications
      * @param {module:api/ConnectionApi~followRemoveCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    followRemove(version, accountId, connectionAccountId, appKey, callback) {
+    followRemove(accountId, connectionAccountId, appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling followRemove");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling followRemove");
@@ -553,7 +506,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -570,7 +522,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/follow/remove', 'POST',
+        '/consumer/follow/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -587,7 +539,6 @@ export default class ConnectionApi {
     /**
      * Send Follow Request
      * Send a request to follow someone.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {Number} connectionAccountId the account ID of the user who you want to follow
      * @param {String} appKey the application key for sending notifications
@@ -596,13 +547,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~followRequestCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    followRequest(version, accountId, connectionAccountId, appKey, opts, callback) {
+    followRequest(accountId, connectionAccountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling followRequest");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling followRequest");
@@ -617,7 +564,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -635,7 +581,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/follow/request', 'POST',
+        '/consumer/follow/request', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -652,7 +598,6 @@ export default class ConnectionApi {
     /**
      * Accept Friend
      * Accept a friend request and optionally sends a notification.
-     * @param {Number} version 
      * @param {Number} friendAccountId the friend's account id
      * @param {Boolean} notifyFriend determines whether to send a notification to the afflicting party
      * @param {Object} opts Optional parameters
@@ -664,13 +609,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~friendAcceptCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    friendAccept(version, friendAccountId, notifyFriend, opts, callback) {
+    friendAccept(friendAccountId, notifyFriend, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling friendAccept");
-      }
       // verify the required parameter 'friendAccountId' is set
       if (friendAccountId === undefined || friendAccountId === null) {
         throw new Error("Missing the required parameter 'friendAccountId' when calling friendAccept");
@@ -681,7 +622,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -702,7 +642,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/friend/accept', 'POST',
+        '/consumer/friend/accept', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -719,7 +659,6 @@ export default class ConnectionApi {
     /**
      * Decline Friend
      * Request a friend request and optionally sends a notification.
-     * @param {Number} version 
      * @param {Number} friendAccountId the friend's account id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -731,20 +670,15 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~friendRejectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    friendReject(version, friendAccountId, opts, callback) {
+    friendReject(friendAccountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling friendReject");
-      }
       // verify the required parameter 'friendAccountId' is set
       if (friendAccountId === undefined || friendAccountId === null) {
         throw new Error("Missing the required parameter 'friendAccountId' when calling friendReject");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -765,7 +699,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/friend/reject', 'POST',
+        '/consumer/friend/reject', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -782,7 +716,6 @@ export default class ConnectionApi {
     /**
      * Delete Friend
      * Removes a friend from the user's friends list.
-     * @param {Number} version 
      * @param {Number} friendAccountId the account ID of the friend to remove
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -792,20 +725,15 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~friendRemoveCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    friendRemove(version, friendAccountId, opts, callback) {
+    friendRemove(friendAccountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling friendRemove");
-      }
       // verify the required parameter 'friendAccountId' is set
       if (friendAccountId === undefined || friendAccountId === null) {
         throw new Error("Missing the required parameter 'friendAccountId' when calling friendRemove");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -824,7 +752,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/friend/remove', 'POST',
+        '/consumer/friend/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -841,7 +769,6 @@ export default class ConnectionApi {
     /**
      * Request Friend
      * Sends a friend request notification to another user.
-     * @param {Number} version 
      * @param {Number} friendAccountId the friend's account id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -852,20 +779,15 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~friendRequestCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    friendRequest(version, friendAccountId, opts, callback) {
+    friendRequest(friendAccountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling friendRequest");
-      }
       // verify the required parameter 'friendAccountId' is set
       if (friendAccountId === undefined || friendAccountId === null) {
         throw new Error("Missing the required parameter 'friendAccountId' when calling friendRequest");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -885,7 +807,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/friend/request', 'POST',
+        '/consumer/friend/request', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -902,23 +824,17 @@ export default class ConnectionApi {
     /**
      * Get Sent Friend Requests
      * Gets the connection sent friend requests.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the ID of the device
      * @param {Number} [accountId] the id of the account
      * @param {module:api/ConnectionApi~getConnectionSentFriendRequestsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectionListResponse}
      */
-    getConnectionSentFriendRequests(version, opts, callback) {
+    getConnectionSentFriendRequests(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getConnectionSentFriendRequests");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -934,7 +850,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = ConnectionListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/getRequested', 'GET',
+        '/consumer/connection/getRequested', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -951,7 +867,6 @@ export default class ConnectionApi {
     /**
      * Search Connections
      * Gets the connections.
-     * @param {Number} version 
      * @param {Boolean} returnNulls whether to return nulls or not
      * @param {String} filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
      * @param {String} sortField sorts the response list by ConnectionApiMap
@@ -971,13 +886,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~getConnectionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectionListResponse}
      */
-    getConnections(version, returnNulls, filter, sortField, descending, start, limit, opts, callback) {
+    getConnections(returnNulls, filter, sortField, descending, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getConnections");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling getConnections");
@@ -1004,7 +915,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -1033,7 +943,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = ConnectionListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/get', 'GET',
+        '/consumer/connection/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1049,7 +959,6 @@ export default class ConnectionApi {
 
     /**
      * Get Connection Group
-     * @param {Number} version 
      * @param {Boolean} combineConnections whether to combine connections or not
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -1060,20 +969,15 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~getGroupDetailsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectionGroupResponse}
      */
-    getGroupDetails(version, combineConnections, opts, callback) {
+    getGroupDetails(combineConnections, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getGroupDetails");
-      }
       // verify the required parameter 'combineConnections' is set
       if (combineConnections === undefined || combineConnections === null) {
         throw new Error("Missing the required parameter 'combineConnections' when calling getGroupDetails");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1093,7 +997,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = ConnectionGroupResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/group/details/get', 'GET',
+        '/consumer/connection/group/details/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1110,7 +1014,6 @@ export default class ConnectionApi {
     /**
      * Search Connection Groups
      * Gets a user's private groups and default groups.
-     * @param {Number} version 
      * @param {module:model/String} sortField the field to sort by
      * @param {Boolean} descending whether to return results in descending or ascending order
      * @param {Boolean} activeOnly to search on active only or not
@@ -1125,13 +1028,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~groupSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ConnectionInfoResponse>}
      */
-    groupSearch(version, sortField, descending, activeOnly, start, limit, opts, callback) {
+    groupSearch(sortField, descending, activeOnly, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling groupSearch");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling groupSearch");
@@ -1154,7 +1053,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1178,7 +1076,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = [ConnectionInfoResponse];
       return this.apiClient.callApi(
-        '/api/{version}/connection/group/search', 'GET',
+        '/connection/group/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1195,7 +1093,6 @@ export default class ConnectionApi {
     /**
      * Delete Connection
      * Removes the connection from group.
-     * @param {Number} version 
      * @param {Boolean} returnNulls whether to return nulls or not
      * @param {Number} groupId the group id
      * @param {Object} opts Optional parameters
@@ -1209,13 +1106,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~removeConnectionFromGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeConnectionFromGroup(version, returnNulls, groupId, opts, callback) {
+    removeConnectionFromGroup(returnNulls, groupId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeConnectionFromGroup");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling removeConnectionFromGroup");
@@ -1226,7 +1119,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -1249,7 +1141,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/group/removeConnection', 'POST',
+        '/consumer/connection/group/removeConnection', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1266,7 +1158,6 @@ export default class ConnectionApi {
     /**
      * Remove Connections
      * Remove a list of connections from a group.
-     * @param {Number} version 
      * @param {Number} connectionGroupId connection group id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -1278,20 +1169,15 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~removeConnectionsFromGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeConnectionsFromGroup(version, connectionGroupId, opts, callback) {
+    removeConnectionsFromGroup(connectionGroupId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeConnectionsFromGroup");
-      }
       // verify the required parameter 'connectionGroupId' is set
       if (connectionGroupId === undefined || connectionGroupId === null) {
         throw new Error("Missing the required parameter 'connectionGroupId' when calling removeConnectionsFromGroup");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1312,7 +1198,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/connection/group/removeConnections', 'POST',
+        '/connection/group/removeConnections', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1329,7 +1215,6 @@ export default class ConnectionApi {
     /**
      * Delete Connection Group
      * Remove a user's group.
-     * @param {Number} version 
      * @param {Boolean} returnNulls whether to return nulls or not
      * @param {Number} groupId the group id
      * @param {Object} opts Optional parameters
@@ -1340,13 +1225,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~removeGroupCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeGroup(version, returnNulls, groupId, opts, callback) {
+    removeGroup(returnNulls, groupId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeGroup");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling removeGroup");
@@ -1357,7 +1238,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -1377,7 +1257,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/group/remove', 'POST',
+        '/consumer/connection/group/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1394,7 +1274,6 @@ export default class ConnectionApi {
     /**
      * Remove Connection Groups
      * Remove sub groups from a group
-     * @param {Number} version 
      * @param {Boolean} returnNulls whether to return nulls or not
      * @param {Number} groupId the parent group id
      * @param {String} subGroupIds comma separated list of group IDs to remove from the parent group
@@ -1406,13 +1285,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~removeSubGroupsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeSubGroups(version, returnNulls, groupId, subGroupIds, opts, callback) {
+    removeSubGroups(returnNulls, groupId, subGroupIds, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeSubGroups");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling removeSubGroups");
@@ -1427,7 +1302,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -1448,7 +1322,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/connection/group/removeSubGroup', 'POST',
+        '/consumer/connection/group/removeSubGroup', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1465,7 +1339,6 @@ export default class ConnectionApi {
     /**
      * Search Possible Connections
      * Search for accounts that the user may not have a connection with.
-     * @param {Number} version 
      * @param {Boolean} returnNulls return all json attributes if true. defualt is true.
      * @param {Number} start start index of the pagination
      * @param {Number} limit limit of the pagination
@@ -1485,13 +1358,9 @@ export default class ConnectionApi {
      * @param {module:api/ConnectionApi~searchConnectionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConnectionListResponse}
      */
-    searchConnections(version, returnNulls, start, limit, opts, callback) {
+    searchConnections(returnNulls, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchConnections");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling searchConnections");
@@ -1506,7 +1375,6 @@ export default class ConnectionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -1535,7 +1403,7 @@ export default class ConnectionApi {
       let accepts = ['*/*'];
       let returnType = ConnectionListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/connection/search', 'GET',
+        '/connection/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

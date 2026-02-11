@@ -50,7 +50,6 @@ export default class ApplicationApi {
     /**
      * Create Application
      * Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-     * @param {Number} version 
      * @param {String} appName The name of the application
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
@@ -134,20 +133,15 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~createApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationResponse}
      */
-    createApplication(version, appName, opts, callback) {
+    createApplication(appName, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createApplication");
-      }
       // verify the required parameter 'appName' is set
       if (appName === undefined || appName === null) {
         throw new Error("Missing the required parameter 'appName' when calling createApplication");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -240,7 +234,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = ApplicationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/create', 'POST',
+        '/application/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -257,7 +251,6 @@ export default class ApplicationApi {
     /**
      * Create Ad Placement
      * Creates a new ad placement for an application.
-     * @param {Number} version 
      * @param {String} appKey The appKey of the application the ad placement is for
      * @param {module:model/String} size The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM
      * @param {Object} opts Optional parameters
@@ -273,13 +266,9 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~createApplicationPlacementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlacementResponse}
      */
-    createApplicationPlacement(version, appKey, size, opts, callback) {
+    createApplicationPlacement(appKey, size, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createApplicationPlacement");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling createApplicationPlacement");
@@ -290,7 +279,6 @@ export default class ApplicationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -315,7 +303,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = PlacementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/placement/create', 'POST',
+        '/application/placement/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -332,23 +320,17 @@ export default class ApplicationApi {
     /**
      * Delete Application
      * Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account used to perform the delete, must have rights to edit the application.
      * @param {String} [appKey] The key of the application to be deleted
      * @param {module:api/ApplicationApi~deleteApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteApplication(version, opts, callback) {
+    deleteApplication(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteApplication");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -364,7 +346,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/delete', 'POST',
+        '/application/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -381,7 +363,6 @@ export default class ApplicationApi {
     /**
      * Delete Ad Placement
      * Deletes an ad placement for an application.
-     * @param {Number} version 
      * @param {Number} placementId The id of the placement to delete, the user must have rights to the application the ad placement is for
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
@@ -389,20 +370,15 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~deleteApplicationPlacementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlacementResponse}
      */
-    deleteApplicationPlacement(version, placementId, opts, callback) {
+    deleteApplicationPlacement(placementId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteApplicationPlacement");
-      }
       // verify the required parameter 'placementId' is set
       if (placementId === undefined || placementId === null) {
         throw new Error("Missing the required parameter 'placementId' when calling deleteApplicationPlacement");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -419,7 +395,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = PlacementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/placement/delete', 'POST',
+        '/application/placement/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -436,23 +412,17 @@ export default class ApplicationApi {
     /**
      * Get Application
      * Get a specific application by appKey
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [appKey] The key of the application
      * @param {Number} [applicationId] Application Id
      * @param {module:api/ApplicationApi~getApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationResponse}
      */
-    getApplication(version, opts, callback) {
+    getApplication(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getApplication");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': opts['appKey'],
@@ -468,7 +438,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = ApplicationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/get', 'GET',
+        '/application/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -485,7 +455,6 @@ export default class ApplicationApi {
     /**
      * Get Ad Placement
      * Get details of an ad placement
-     * @param {Number} version 
      * @param {Number} placementId The id of the placement
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
@@ -493,20 +462,15 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~getApplicationPlacementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlacementResponse}
      */
-    getApplicationPlacement(version, placementId, opts, callback) {
+    getApplicationPlacement(placementId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getApplicationPlacement");
-      }
       // verify the required parameter 'placementId' is set
       if (placementId === undefined || placementId === null) {
         throw new Error("Missing the required parameter 'placementId' when calling getApplicationPlacement");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -523,7 +487,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = PlacementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/placement/get', 'GET',
+        '/application/placement/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -540,19 +504,13 @@ export default class ApplicationApi {
     /**
      * Get API versions
      * Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-     * @param {Number} version 
      * @param {module:api/ApplicationApi~getApplicationVersionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    getApplicationVersions(version, callback) {
+    getApplicationVersions(callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getApplicationVersions");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -566,7 +524,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/versions', 'GET',
+        '/application/versions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -583,7 +541,6 @@ export default class ApplicationApi {
     /**
      * Search Application Users
      * Get a list of users per application
-     * @param {Number} version 
      * @param {String} appKey The application key
      * @param {Object} opts Optional parameters
      * @param {String} [q] Q
@@ -596,20 +553,15 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~getUniqueUsersByAppCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AccountListResponse}
      */
-    getUniqueUsersByApp(version, appKey, opts, callback) {
+    getUniqueUsersByApp(appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUniqueUsersByApp");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling getUniqueUsersByApp");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': appKey,
@@ -631,7 +583,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = AccountListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/users', 'GET',
+        '/application/users', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -648,7 +600,6 @@ export default class ApplicationApi {
     /**
      * List Applications
      * List active applications matching the criteria (as a consumer)
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the application owner/manager
      * @param {String} [q] Q
@@ -673,16 +624,11 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~listApplicationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ApplicationShortResponse>}
      */
-    listApplications(version, opts, callback) {
+    listApplications(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listApplications");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -716,7 +662,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = [ApplicationShortResponse];
       return this.apiClient.callApi(
-        '/api/{version}/application/list', 'GET',
+        '/application/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -733,7 +679,6 @@ export default class ApplicationApi {
     /**
      * Search for Ad Placements
      * Searches placements for an application.
-     * @param {Number} version 
      * @param {String} appKey The key of the application
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
@@ -743,20 +688,15 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~searchApplicationPlacementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PlacementResponse>}
      */
-    searchApplicationPlacement(version, appKey, opts, callback) {
+    searchApplicationPlacement(appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchApplicationPlacement");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling searchApplicationPlacement");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -775,7 +715,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = [PlacementResponse];
       return this.apiClient.callApi(
-        '/api/{version}/application/placement/search', 'GET',
+        '/application/placement/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -792,7 +732,6 @@ export default class ApplicationApi {
     /**
      * Search for Application Settings
      * Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -805,16 +744,11 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~searchApplicationSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationSettingsResponse}
      */
-    searchApplicationSettings(version, opts, callback) {
+    searchApplicationSettings(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchApplicationSettings");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -836,7 +770,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = ApplicationSettingsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/settings/search', 'GET',
+        '/application/settings/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -853,7 +787,6 @@ export default class ApplicationApi {
     /**
      * Search Applications
      * Search for applications matching the criteria that the logged in user has access to
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -874,16 +807,11 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~searchApplicationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ApplicationResponse>}
      */
-    searchApplications(version, opts, callback) {
+    searchApplications(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchApplications");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -913,7 +841,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = [ApplicationResponse];
       return this.apiClient.callApi(
-        '/api/{version}/application/search', 'GET',
+        '/application/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -930,7 +858,6 @@ export default class ApplicationApi {
     /**
      * Update Application
      * Update an application record
-     * @param {Number} version 
      * @param {String} appKey The application key for updating an existing application
      * @param {String} appName The name of the application
      * @param {Object} opts Optional parameters
@@ -1015,13 +942,9 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~updateApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationResponse}
      */
-    updateApplication(version, appKey, appName, opts, callback) {
+    updateApplication(appKey, appName, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateApplication");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling updateApplication");
@@ -1032,7 +955,6 @@ export default class ApplicationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1126,7 +1048,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = ApplicationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/update', 'POST',
+        '/application/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1143,19 +1065,14 @@ export default class ApplicationApi {
     /**
      * Change Appliation Status
      * Set the application's active flag to true/false. This effectively activates or deactivates the application.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the delete, must have rights to edit the application.
      * @param {String} appKey The key of the application to be deleted
      * @param {Boolean} active If true then set to active, false otherwise
      * @param {module:api/ApplicationApi~updateApplicationActiveCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateApplicationActive(version, accountId, appKey, active, callback) {
+    updateApplicationActive(accountId, appKey, active, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateApplicationActive");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateApplicationActive");
@@ -1170,7 +1087,6 @@ export default class ApplicationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1187,7 +1103,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/active', 'POST',
+        '/application/active', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1204,7 +1120,6 @@ export default class ApplicationApi {
     /**
      * Update Ad Placement
      * Updates an ad placement for an application.
-     * @param {Number} version 
      * @param {Number} placementId The id of the placement to update, the user must have rights to the application the ad placement is for
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
@@ -1220,20 +1135,15 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~updateApplicationPlacementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlacementResponse}
      */
-    updateApplicationPlacement(version, placementId, opts, callback) {
+    updateApplicationPlacement(placementId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateApplicationPlacement");
-      }
       // verify the required parameter 'placementId' is set
       if (placementId === undefined || placementId === null) {
         throw new Error("Missing the required parameter 'placementId' when calling updateApplicationPlacement");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1258,7 +1168,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = PlacementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/placement/update', 'POST',
+        '/application/placement/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1275,7 +1185,6 @@ export default class ApplicationApi {
     /**
      * Create Application Certificate
      * Uploads a certificate for an application that the user has access to.
-     * @param {Number} version 
      * @param {String} appKey The key of the application
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] Device Id
@@ -1284,20 +1193,15 @@ export default class ApplicationApi {
      * @param {module:api/ApplicationApi~uploadApplicationCertificateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    uploadApplicationCertificate(version, appKey, opts, callback) {
+    uploadApplicationCertificate(appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling uploadApplicationCertificate");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling uploadApplicationCertificate");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1315,7 +1219,7 @@ export default class ApplicationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/application/certificate/create', 'POST',
+        '/application/certificate/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -45,7 +45,6 @@ export default class PathingApi {
     /**
      * Calculate Path
      * Calculates the shortest path from point to point on a grid
-     * @param {Number} version 
      * @param {String} data the data to with start, end point and exclusion points
      * @param {module:model/String} units the system of measurement for directions: {METRIC, IMPERIAL}
      * @param {Boolean} reducePath determines whether to reduce the path to go in diagonal lines
@@ -53,12 +52,8 @@ export default class PathingApi {
      * @param {module:api/PathingApi~computePathCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PathingResponse}
      */
-    computePath(version, data, units, reducePath, directions, callback) {
+    computePath(data, units, reducePath, directions, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling computePath");
-      }
       // verify the required parameter 'data' is set
       if (data === undefined || data === null) {
         throw new Error("Missing the required parameter 'data' when calling computePath");
@@ -77,7 +72,6 @@ export default class PathingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'data': data,
@@ -95,7 +89,7 @@ export default class PathingApi {
       let accepts = ['*/*'];
       let returnType = PathingResponse;
       return this.apiClient.callApi(
-        '/api/{version}/pathing/compute', 'GET',
+        '/pathing/compute', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

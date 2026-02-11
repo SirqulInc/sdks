@@ -45,7 +45,6 @@ export default class ScoreApi {
     /**
      * Create Score
      * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey The game application key to save the score for.
      * @param {Number} points The score
@@ -60,13 +59,9 @@ export default class ScoreApi {
      * @param {module:api/ScoreApi~createScoreCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScoreResponse}
      */
-    createScore(version, accountId, appKey, points, opts, callback) {
+    createScore(accountId, appKey, points, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createScore");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createScore");
@@ -81,7 +76,6 @@ export default class ScoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -105,7 +99,7 @@ export default class ScoreApi {
       let accepts = ['*/*'];
       let returnType = ScoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/score/create', 'POST',
+        '/score/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -122,7 +116,6 @@ export default class ScoreApi {
     /**
      * Get Score
      * Get the high score for an item.  Pass in the full path IDs for the score.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey The game application key to get the level for.
      * @param {Object} opts Optional parameters
@@ -136,13 +129,9 @@ export default class ScoreApi {
      * @param {module:api/ScoreApi~getScoreCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScoreResponse}
      */
-    getScore(version, accountId, appKey, opts, callback) {
+    getScore(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getScore");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getScore");
@@ -153,7 +142,6 @@ export default class ScoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -176,7 +164,7 @@ export default class ScoreApi {
       let accepts = ['*/*'];
       let returnType = ScoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/score/get', 'GET',
+        '/score/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -193,7 +181,6 @@ export default class ScoreApi {
     /**
      * Search Score
      * Search the scores for an item.  Pass in the full path IDs for the scores.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey The game application key to get the level for.
      * @param {Object} opts Optional parameters
@@ -205,13 +192,9 @@ export default class ScoreApi {
      * @param {module:api/ScoreApi~searchScoresCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ScoreResponse>}
      */
-    searchScores(version, accountId, appKey, opts, callback) {
+    searchScores(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchScores");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchScores");
@@ -222,7 +205,6 @@ export default class ScoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -243,7 +225,7 @@ export default class ScoreApi {
       let accepts = ['*/*'];
       let returnType = [ScoreResponse];
       return this.apiClient.callApi(
-        '/api/{version}/score/search', 'GET',
+        '/score/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

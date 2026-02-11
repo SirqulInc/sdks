@@ -47,7 +47,6 @@ export default class TournamentApi {
     /**
      * Create Tournament
      * Create a tournament.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey The appKey the tournament is created for.
      * @param {String} title The title of the tournament
@@ -87,13 +86,9 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~createTournamentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TournamentResponse}
      */
-    createTournament(version, accountId, appKey, title, costToPlay, startDate, opts, callback) {
+    createTournament(accountId, appKey, title, costToPlay, startDate, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createTournament");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createTournament");
@@ -116,7 +111,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -165,7 +159,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = TournamentResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/create', 'POST',
+        '/tournament/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -182,18 +176,13 @@ export default class TournamentApi {
     /**
      * Delete Tournament
      * Delete a tournament.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} missionId the id of the mission to delete
      * @param {module:api/TournamentApi~deleteTournamentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteTournament(version, accountId, missionId, callback) {
+    deleteTournament(accountId, missionId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteTournament");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteTournament");
@@ -204,7 +193,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -220,7 +208,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/delete', 'POST',
+        '/tournament/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -237,7 +225,6 @@ export default class TournamentApi {
     /**
      * Get Tournament
      * Get a tournament.
-     * @param {Number} version 
      * @param {Number} accountId The id of the logged in user
      * @param {Object} opts Optional parameters
      * @param {Number} [missionId] The id of the mission to return (either missionId or joinCode is required)
@@ -247,20 +234,15 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~getTournamentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TournamentResponse}
      */
-    getTournament(version, accountId, opts, callback) {
+    getTournament(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTournament");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getTournament");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -279,7 +261,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = TournamentResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/get', 'GET',
+        '/tournament/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -296,7 +278,6 @@ export default class TournamentApi {
     /**
      * Search Tournament Objects
      * Search on game objects of tournaments
-     * @param {Number} version 
      * @param {Number} accountId the account ID
      * @param {Number} gameLevelId the game level id to filter results by
      * @param {Object} opts Optional parameters
@@ -307,13 +288,9 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~searchObjectsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    searchObjects(version, accountId, gameLevelId, opts, callback) {
+    searchObjects(accountId, gameLevelId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchObjects");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchObjects");
@@ -324,7 +301,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -344,7 +320,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/object/search', 'GET',
+        '/tournament/object/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -361,7 +337,6 @@ export default class TournamentApi {
     /**
      * Search Tournament Rounds
      * Search for the user's tournament games.
-     * @param {Number} version 
      * @param {Number} accountId the account ID
      * @param {String} appKey the application key
      * @param {Object} opts Optional parameters
@@ -374,13 +349,9 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~searchRoundsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    searchRounds(version, accountId, appKey, opts, callback) {
+    searchRounds(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRounds");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchRounds");
@@ -391,7 +362,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -413,7 +383,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/round/search', 'GET',
+        '/tournament/round/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -430,7 +400,6 @@ export default class TournamentApi {
     /**
      * Search Tournaments
      * Search for tournaments
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey The application key
      * @param {Object} opts Optional parameters
@@ -447,13 +416,9 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~searchTournamentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionShortResponse}
      */
-    searchTournaments(version, accountId, appKey, opts, callback) {
+    searchTournaments(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchTournaments");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchTournaments");
@@ -464,7 +429,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -490,7 +454,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = MissionShortResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/search', 'GET',
+        '/tournament/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -507,7 +471,6 @@ export default class TournamentApi {
     /**
      * Submit Tournament Score
      * Submit an array of scores for a tournament match. 
-     * @param {Number} version 
      * @param {Number} accountId The logged in user account ID.
      * @param {String} appKey The application key.
      * @param {Number} missionId The missionId to score for
@@ -519,13 +482,9 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~submitTournamentScoreCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    submitTournamentScore(version, accountId, appKey, missionId, gameId, packId, scores, opts, callback) {
+    submitTournamentScore(accountId, appKey, missionId, gameId, packId, scores, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling submitTournamentScore");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling submitTournamentScore");
@@ -552,7 +511,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -573,7 +531,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/score', 'POST',
+        '/tournament/score', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -590,7 +548,6 @@ export default class TournamentApi {
     /**
      * Submit a vote for a multi-stage album tournament.
      * Submit a vote for a multi-stage album tournament.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey The application to target
      * @param {Number} missionId The tournament's primary id
@@ -601,13 +558,9 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~submitTournamentVoteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    submitTournamentVote(version, accountId, appKey, missionId, gameObjectId, opts, callback) {
+    submitTournamentVote(accountId, appKey, missionId, gameObjectId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling submitTournamentVote");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling submitTournamentVote");
@@ -626,7 +579,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -646,7 +598,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/vote', 'POST',
+        '/tournament/vote', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -663,7 +615,6 @@ export default class TournamentApi {
     /**
      * Substitute Tournament Player
      * Service to replace the user's opponent in the current level - pack - mission with an AI account.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} missionId the id of the mission
      * @param {Number} packId the id of the pack
@@ -671,12 +622,8 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~substituteTournamentPlayerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    substituteTournamentPlayer(version, accountId, missionId, packId, gameLevelId, callback) {
+    substituteTournamentPlayer(accountId, missionId, packId, gameLevelId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling substituteTournamentPlayer");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling substituteTournamentPlayer");
@@ -695,7 +642,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -713,7 +659,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/substitute', 'POST',
+        '/tournament/substitute', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -730,7 +676,6 @@ export default class TournamentApi {
     /**
      * Update Tournament
      * Update a tournament.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} missionId The mission/tournament to update
      * @param {Object} opts Optional parameters
@@ -769,13 +714,9 @@ export default class TournamentApi {
      * @param {module:api/TournamentApi~updateTournamentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TournamentResponse}
      */
-    updateTournament(version, accountId, missionId, opts, callback) {
+    updateTournament(accountId, missionId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateTournament");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateTournament");
@@ -786,7 +727,6 @@ export default class TournamentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -834,7 +774,7 @@ export default class TournamentApi {
       let accepts = ['*/*'];
       let returnType = TournamentResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tournament/update', 'POST',
+        '/tournament/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

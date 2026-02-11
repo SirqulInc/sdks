@@ -45,24 +45,18 @@ export default class RoutingApi {
     /**
      * Compute Route
      * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-     * @param {Number} version 
      * @param {String} data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
      * @param {module:api/RoutingApi~computeRoutingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RoutingListResponse}
      */
-    computeRouting(version, data, callback) {
+    computeRouting(data, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling computeRouting");
-      }
       // verify the required parameter 'data' is set
       if (data === undefined || data === null) {
         throw new Error("Missing the required parameter 'data' when calling computeRouting");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'data': data
@@ -77,7 +71,7 @@ export default class RoutingApi {
       let accepts = ['*/*'];
       let returnType = RoutingListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/routing/compute', 'POST',
+        '/routing/compute', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

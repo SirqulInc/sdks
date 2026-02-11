@@ -45,7 +45,6 @@ export default class CSVImportApi {
 
     /**
      * Detail Status
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} batchId the id of the batch
      * @param {module:model/String} responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -54,12 +53,8 @@ export default class CSVImportApi {
      * @param {module:api/CSVImportApi~getStatusCSVCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    getStatusCSV(version, accountId, batchId, responseGroup, start, limit, callback) {
+    getStatusCSV(accountId, batchId, responseGroup, start, limit, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getStatusCSV");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getStatusCSV");
@@ -82,7 +77,6 @@ export default class CSVImportApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -101,7 +95,7 @@ export default class CSVImportApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/csvimport/batch/status/details', 'GET',
+        '/csvimport/batch/status/details', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -118,19 +112,14 @@ export default class CSVImportApi {
     /**
      * Search Status
      * Retrieves batches for a user.
-     * @param {Number} version 
      * @param {Number} accountId the id of the account
      * @param {Number} start the start of the pagination
      * @param {Number} limit the limit of the pagination
      * @param {module:api/CSVImportApi~listStatusCSVCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CsvImportResponse}
      */
-    listStatusCSV(version, accountId, start, limit, callback) {
+    listStatusCSV(accountId, start, limit, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listStatusCSV");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listStatusCSV");
@@ -145,7 +134,6 @@ export default class CSVImportApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -162,7 +150,7 @@ export default class CSVImportApi {
       let accepts = ['*/*'];
       let returnType = CsvImportResponse;
       return this.apiClient.callApi(
-        '/api/{version}/csvimport/batch/list', 'GET',
+        '/csvimport/batch/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -179,18 +167,13 @@ export default class CSVImportApi {
     /**
      * Batch Status
      * Checks status of batch upload.
-     * @param {Number} version 
      * @param {Number} accountId the id of the account
      * @param {Number} batchId the id of the batch to get its status
      * @param {module:api/CSVImportApi~statusCSVCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CsvImportResponse}
      */
-    statusCSV(version, accountId, batchId, callback) {
+    statusCSV(accountId, batchId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling statusCSV");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling statusCSV");
@@ -201,7 +184,6 @@ export default class CSVImportApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -217,7 +199,7 @@ export default class CSVImportApi {
       let accepts = ['*/*'];
       let returnType = CsvImportResponse;
       return this.apiClient.callApi(
-        '/api/{version}/csvimport/batch/status', 'GET',
+        '/csvimport/batch/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -234,7 +216,6 @@ export default class CSVImportApi {
     /**
      * Upload CSV
      * Uploads a CSV import file.
-     * @param {Number} version 
      * @param {Number} accountId the id of the account
      * @param {module:model/String} uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
      * @param {File} importFile the import file to reference
@@ -244,13 +225,9 @@ export default class CSVImportApi {
      * @param {module:api/CSVImportApi~uploadCSVCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CsvImportResponse}
      */
-    uploadCSV(version, accountId, uploadType, importFile, fileFormat, opts, callback) {
+    uploadCSV(accountId, uploadType, importFile, fileFormat, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling uploadCSV");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling uploadCSV");
@@ -269,7 +246,6 @@ export default class CSVImportApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -288,7 +264,7 @@ export default class CSVImportApi {
       let accepts = ['*/*'];
       let returnType = CsvImportResponse;
       return this.apiClient.callApi(
-        '/api/{version}/csvimport/upload', 'POST',
+        '/csvimport/upload', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

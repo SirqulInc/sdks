@@ -46,7 +46,6 @@ export default class EmployeeApi {
     /**
      * Assign Employee
      * Assign An existing account to be an employee
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {Number} managerAccountId The account id of the manager to assign under
      * @param {Number} employeeAccountId The account id of the user to be assigned as employee
@@ -55,13 +54,9 @@ export default class EmployeeApi {
      * @param {module:api/EmployeeApi~assignEmployeeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/EmployeeResponse}
      */
-    assignEmployee(version, accountId, managerAccountId, employeeAccountId, opts, callback) {
+    assignEmployee(accountId, managerAccountId, employeeAccountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignEmployee");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignEmployee");
@@ -76,7 +71,6 @@ export default class EmployeeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -94,7 +88,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = EmployeeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/employee/assign', 'POST',
+        '/employee/assign', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -111,7 +105,6 @@ export default class EmployeeApi {
     /**
      * Assign Employee to Location
      * Assign or unassign the account to a retailer location.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {Number} retailerLocationId The retailer location to apply the change to
      * @param {Object} opts Optional parameters
@@ -120,13 +113,9 @@ export default class EmployeeApi {
      * @param {module:api/EmployeeApi~assignToLocationEmployeeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    assignToLocationEmployee(version, accountId, retailerLocationId, opts, callback) {
+    assignToLocationEmployee(accountId, retailerLocationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignToLocationEmployee");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignToLocationEmployee");
@@ -137,7 +126,6 @@ export default class EmployeeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -155,7 +143,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/employee/assignToLocation', 'POST',
+        '/employee/assignToLocation', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -172,7 +160,6 @@ export default class EmployeeApi {
     /**
      * Create Employee
      * Create a new account record with the provided information.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {Number} managerAccountId The account id of the manager to assign under
      * @param {String} username The username/email for the new user. This must be unique across the entire the system.
@@ -207,13 +194,9 @@ export default class EmployeeApi {
      * @param {module:api/EmployeeApi~createEmployeeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/EmployeeResponse}
      */
-    createEmployee(version, accountId, managerAccountId, username, password, opts, callback) {
+    createEmployee(accountId, managerAccountId, username, password, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createEmployee");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createEmployee");
@@ -232,7 +215,6 @@ export default class EmployeeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -276,7 +258,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = EmployeeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/employee/create', 'POST',
+        '/employee/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -293,18 +275,13 @@ export default class EmployeeApi {
     /**
      * Delete Employee
      * Set the deleted date field which marks the record as deleted.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} employeeAccountId the id of the employee to delete
      * @param {module:api/EmployeeApi~deleteEmployeeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteEmployee(version, accountId, employeeAccountId, callback) {
+    deleteEmployee(accountId, employeeAccountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteEmployee");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteEmployee");
@@ -315,7 +292,6 @@ export default class EmployeeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -331,7 +307,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/employee/delete', 'POST',
+        '/employee/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -348,7 +324,6 @@ export default class EmployeeApi {
     /**
      * Get Employee
      * Get the account record for the account id provided.
-     * @param {Number} version 
      * @param {Number} accountId the id of logged in user
      * @param {Number} employeeAccountId the id of the employee account to get
      * @param {Object} opts Optional parameters
@@ -356,13 +331,9 @@ export default class EmployeeApi {
      * @param {module:api/EmployeeApi~getEmployeeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/EmployeeResponse}
      */
-    getEmployee(version, accountId, employeeAccountId, opts, callback) {
+    getEmployee(accountId, employeeAccountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getEmployee");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getEmployee");
@@ -373,7 +344,6 @@ export default class EmployeeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -390,7 +360,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = EmployeeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/employee/get', 'POST',
+        '/employee/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -407,7 +377,6 @@ export default class EmployeeApi {
     /**
      * Search Employees
      * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {Object} opts Optional parameters
      * @param {String} [role] The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
@@ -429,20 +398,15 @@ export default class EmployeeApi {
      * @param {module:api/EmployeeApi~searchEmployeesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/EmployeeResponse>}
      */
-    searchEmployees(version, accountId, opts, callback) {
+    searchEmployees(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchEmployees");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchEmployees");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -473,7 +437,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = [EmployeeResponse];
       return this.apiClient.callApi(
-        '/api/{version}/employee/search', 'POST',
+        '/employee/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -490,18 +454,13 @@ export default class EmployeeApi {
     /**
      * Unassign Employee
      * Unassign An existing account to be an employee
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {Number} employeeAccountId The account id of the user to be unassigned
      * @param {module:api/EmployeeApi~unassignEmployeeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/EmployeeResponse}
      */
-    unassignEmployee(version, accountId, employeeAccountId, callback) {
+    unassignEmployee(accountId, employeeAccountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling unassignEmployee");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling unassignEmployee");
@@ -512,7 +471,6 @@ export default class EmployeeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -528,7 +486,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = EmployeeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/employee/unassign', 'POST',
+        '/employee/unassign', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -545,7 +503,6 @@ export default class EmployeeApi {
     /**
      * Update Employee
      * Update the account record with the provided information.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {Number} employeeAccountId the id of the employee account
      * @param {Object} opts Optional parameters
@@ -580,13 +537,9 @@ export default class EmployeeApi {
      * @param {module:api/EmployeeApi~updateEmployeeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/EmployeeResponse}
      */
-    updateEmployee(version, accountId, employeeAccountId, opts, callback) {
+    updateEmployee(accountId, employeeAccountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateEmployee");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateEmployee");
@@ -597,7 +550,6 @@ export default class EmployeeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -641,7 +593,7 @@ export default class EmployeeApi {
       let accepts = ['*/*'];
       let returnType = EmployeeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/employee/update', 'POST',
+        '/employee/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

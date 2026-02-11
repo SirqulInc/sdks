@@ -48,7 +48,6 @@ export default class EventApi {
     /**
      * Attend Event
      *  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id (deviceId or accountId required)
@@ -63,16 +62,11 @@ export default class EventApi {
      * @param {module:api/EventApi~attendEventCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferResponse}
      */
-    attendEvent(version, opts, callback) {
+    attendEvent(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling attendEvent");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -96,7 +90,7 @@ export default class EventApi {
       let accepts = ['*/*'];
       let returnType = OfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/event/attend', 'POST',
+        '/event/attend', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -113,7 +107,6 @@ export default class EventApi {
     /**
      * Create Event
      * Create a private event to share with associates.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} title The event title
      * @param {Object} opts Optional parameters
@@ -130,13 +123,9 @@ export default class EventApi {
      * @param {module:api/EventApi~createEventCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferResponse}
      */
-    createEvent(version, accountId, title, opts, callback) {
+    createEvent(accountId, title, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createEvent");
@@ -147,7 +136,6 @@ export default class EventApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -173,7 +161,7 @@ export default class EventApi {
       let accepts = ['*/*'];
       let returnType = OfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/event/create', 'POST',
+        '/event/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -190,18 +178,13 @@ export default class EventApi {
     /**
      * Delete Event
      * Delete an event that the user has permissions to.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} eventId the id of the event to update
      * @param {module:api/EventApi~deleteEventCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteEvent(version, accountId, eventId, callback) {
+    deleteEvent(accountId, eventId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteEvent");
@@ -212,7 +195,6 @@ export default class EventApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -228,7 +210,7 @@ export default class EventApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/event/delete', 'POST',
+        '/event/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -245,18 +227,13 @@ export default class EventApi {
     /**
      * Get Event
      * Get an event.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} eventId The id of the event to return
      * @param {module:api/EventApi~getEventCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferResponse}
      */
-    getEvent(version, accountId, eventId, callback) {
+    getEvent(accountId, eventId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getEvent");
@@ -267,7 +244,6 @@ export default class EventApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -283,7 +259,7 @@ export default class EventApi {
       let accepts = ['*/*'];
       let returnType = OfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/event/get', 'GET',
+        '/event/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -300,7 +276,6 @@ export default class EventApi {
     /**
      * Search Event Attendance
      * Searches on event type transactions. This can be used to see who is attending an event.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -324,16 +299,11 @@ export default class EventApi {
      * @param {module:api/EventApi~searchEventTransactionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/EventAttendanceResponse>}
      */
-    searchEventTransactions(version, opts, callback) {
+    searchEventTransactions(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchEventTransactions");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -366,7 +336,7 @@ export default class EventApi {
       let accepts = ['*/*'];
       let returnType = [EventAttendanceResponse];
       return this.apiClient.callApi(
-        '/api/{version}/event/attendance/search', 'GET',
+        '/event/attendance/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -383,7 +353,6 @@ export default class EventApi {
     /**
      * Search Events
      * Searches on events that the account has access to.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
      * @param {String} [keyword] The keyword used to search
@@ -401,20 +370,15 @@ export default class EventApi {
      * @param {module:api/EventApi~searchEventsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferShortResponse>}
      */
-    searchEvents(version, accountId, opts, callback) {
+    searchEvents(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchEvents");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchEvents");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -441,7 +405,7 @@ export default class EventApi {
       let accepts = ['*/*'];
       let returnType = [OfferShortResponse];
       return this.apiClient.callApi(
-        '/api/{version}/event/search', 'GET',
+        '/event/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -458,7 +422,6 @@ export default class EventApi {
     /**
      * Update Event
      * Update a private event to share with associates.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} eventId The id of the event to update
      * @param {Object} opts Optional parameters
@@ -475,13 +438,9 @@ export default class EventApi {
      * @param {module:api/EventApi~updateEventCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferResponse}
      */
-    updateEvent(version, accountId, eventId, opts, callback) {
+    updateEvent(accountId, eventId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateEvent");
@@ -492,7 +451,6 @@ export default class EventApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -518,7 +476,7 @@ export default class EventApi {
       let accepts = ['*/*'];
       let returnType = OfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/event/update', 'POST',
+        '/event/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

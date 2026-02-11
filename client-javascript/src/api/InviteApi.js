@@ -47,7 +47,6 @@ export default class InviteApi {
     /**
      * Accept Invite
      * Allows a user to accept an invite. The user could also become the inviter's friend.
-     * @param {Number} version 
      * @param {String} token the invite token
      * @param {Number} accountId the accountId of the user who is accepting the invite
      * @param {Object} opts Optional parameters
@@ -66,13 +65,9 @@ export default class InviteApi {
      * @param {module:api/InviteApi~acceptInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ConsumerInviteResponse}
      */
-    acceptInvite(version, token, accountId, opts, callback) {
+    acceptInvite(token, accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling acceptInvite");
-      }
       // verify the required parameter 'token' is set
       if (token === undefined || token === null) {
         throw new Error("Missing the required parameter 'token' when calling acceptInvite");
@@ -83,7 +78,6 @@ export default class InviteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'token': token,
@@ -111,7 +105,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = ConsumerInviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/accept', 'POST',
+        '/invite/accept', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -128,7 +122,6 @@ export default class InviteApi {
     /**
      * Invite to Contest
      * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account ID of the user (deviceId or accountId required)
@@ -140,16 +133,11 @@ export default class InviteApi {
      * @param {module:api/InviteApi~albumContestInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    albumContestInvite(version, opts, callback) {
+    albumContestInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling albumContestInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -170,7 +158,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/albumContest', 'POST',
+        '/invite/albumContest', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -187,7 +175,6 @@ export default class InviteApi {
     /**
      * Invite to Collection
      * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account ID of the user (deviceId or accountId required)
@@ -199,16 +186,11 @@ export default class InviteApi {
      * @param {module:api/InviteApi~albumInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    albumInvite(version, opts, callback) {
+    albumInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling albumInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -229,7 +211,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/album', 'POST',
+        '/invite/album', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -246,7 +228,6 @@ export default class InviteApi {
     /**
      * Invite to Event
      * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user making the share
      * @param {String} appKey the application key
      * @param {Number} listingId The ID of the event listing
@@ -256,13 +237,9 @@ export default class InviteApi {
      * @param {module:api/InviteApi~eventInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    eventInvite(version, accountId, appKey, listingId, opts, callback) {
+    eventInvite(accountId, appKey, listingId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling eventInvite");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling eventInvite");
@@ -277,7 +254,6 @@ export default class InviteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -296,7 +272,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/event', 'POST',
+        '/invite/event', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -313,7 +289,6 @@ export default class InviteApi {
     /**
      * Invite to Game Level
      * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account ID of the user (deviceId or accountId required)
@@ -325,16 +300,11 @@ export default class InviteApi {
      * @param {module:api/InviteApi~gameInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    gameInvite(version, opts, callback) {
+    gameInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling gameInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -355,7 +325,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/gameLevel', 'POST',
+        '/invite/gameLevel', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -372,7 +342,6 @@ export default class InviteApi {
     /**
      * Get Invite
      * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] Account ID of the user if they are logged in
      * @param {String} [token] the invite token
@@ -386,16 +355,11 @@ export default class InviteApi {
      * @param {module:api/InviteApi~getInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    getInvite(version, opts, callback) {
+    getInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -418,7 +382,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/get', 'GET',
+        '/invite/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -435,7 +399,6 @@ export default class InviteApi {
     /**
      * Invite to Mission
      * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account ID of the user (deviceId or accountId required)
@@ -447,16 +410,11 @@ export default class InviteApi {
      * @param {module:api/InviteApi~missionInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    missionInvite(version, opts, callback) {
+    missionInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling missionInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -477,7 +435,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/mission', 'POST',
+        '/invite/mission', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -494,19 +452,14 @@ export default class InviteApi {
     /**
      * Invite to Offer
      * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user making the share
      * @param {String} appKey the application key
      * @param {Number} offerId the ID of the offer used to invite to favorite
      * @param {module:api/InviteApi~offerInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    offerInvite(version, accountId, appKey, offerId, callback) {
+    offerInvite(accountId, appKey, offerId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling offerInvite");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling offerInvite");
@@ -521,7 +474,6 @@ export default class InviteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -538,7 +490,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/offer', 'POST',
+        '/invite/offer', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -555,19 +507,14 @@ export default class InviteApi {
     /**
      * Invite to Offer Location
      * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user making the share
      * @param {String} appKey the application key
      * @param {Number} offerLocationId the id of the offer location to share
      * @param {module:api/InviteApi~offerLocationInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    offerLocationInvite(version, accountId, appKey, offerLocationId, callback) {
+    offerLocationInvite(accountId, appKey, offerLocationId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling offerLocationInvite");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling offerLocationInvite");
@@ -582,7 +529,6 @@ export default class InviteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -599,7 +545,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/offerLocation', 'POST',
+        '/invite/offerLocation', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -616,7 +562,6 @@ export default class InviteApi {
     /**
      * Invite to Retailer Location
      * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user making the share
      * @param {String} appKey the application key
      * @param {Number} retailerLocationId The retailer location id of where the event will take place
@@ -625,13 +570,9 @@ export default class InviteApi {
      * @param {module:api/InviteApi~retailerLocationInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/InviteResponse}
      */
-    retailerLocationInvite(version, accountId, appKey, retailerLocationId, opts, callback) {
+    retailerLocationInvite(accountId, appKey, retailerLocationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling retailerLocationInvite");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling retailerLocationInvite");
@@ -646,7 +587,6 @@ export default class InviteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -664,7 +604,7 @@ export default class InviteApi {
       let accepts = ['*/*'];
       let returnType = InviteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/invite/retailerLocation', 'POST',
+        '/invite/retailerLocation', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

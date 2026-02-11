@@ -45,7 +45,6 @@ export default class TwilioApi {
     /**
      * Buy Offer by SMS
      * Recieve an SMS payload from Twillio to purchase an offer.
-     * @param {Number} version 
      * @param {String} appKey the application key
      * @param {String} body the message of the text
      * @param {String} from the sender of the sms
@@ -53,12 +52,8 @@ export default class TwilioApi {
      * @param {module:api/TwilioApi~smsBuyOfferCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TwiMLResponse}
      */
-    smsBuyOffer(version, appKey, body, from, currencyType, callback) {
+    smsBuyOffer(appKey, body, from, currencyType, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling smsBuyOffer");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling smsBuyOffer");
@@ -77,7 +72,6 @@ export default class TwilioApi {
       }
 
       let pathParams = {
-        'version': version,
         'appKey': appKey
       };
       let queryParams = {
@@ -95,7 +89,7 @@ export default class TwilioApi {
       let accepts = ['application/xml'];
       let returnType = TwiMLResponse;
       return this.apiClient.callApi(
-        '/api/{version}/sms/buyoffer/{appKey}', 'POST',
+        '/sms/buyoffer/{appKey}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

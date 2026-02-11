@@ -45,23 +45,17 @@ export default class ShipmentApi {
     /**
      * Cancel Shipment
      * Remove shipment from route
-     * @param {Number} version 
      * @param {Number} id the id of the shipment to cancel
      * @param {module:api/ShipmentApi~cancelShipmentCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    cancelShipment(version, id, callback) {
+    cancelShipment(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling cancelShipment");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling cancelShipment");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -76,7 +70,7 @@ export default class ShipmentApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/{id}/cancel', 'POST',
+        '/shipment/{id}/cancel', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -93,22 +87,16 @@ export default class ShipmentApi {
     /**
      * Create Shipment
      * Create new shipment
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/Shipment} [body] 
      * @param {module:api/ShipmentApi~createShipmentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Shipment}
      */
-    createShipment(version, opts, callback) {
+    createShipment(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createShipment");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -122,7 +110,7 @@ export default class ShipmentApi {
       let accepts = ['*/*'];
       let returnType = Shipment;
       return this.apiClient.callApi(
-        '/api/{version}/shipment', 'POST',
+        '/shipment', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -139,23 +127,17 @@ export default class ShipmentApi {
     /**
      * Delete Shipment
      * Delete an existing shipment
-     * @param {Number} version 
      * @param {Number} id the id of the shipment to delete
      * @param {module:api/ShipmentApi~deleteShipmentCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteShipment(version, id, callback) {
+    deleteShipment(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteShipment");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteShipment");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -170,7 +152,7 @@ export default class ShipmentApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/{id}', 'DELETE',
+        '/shipment/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -187,24 +169,18 @@ export default class ShipmentApi {
     /**
      * Get Shipment
      * Get an existing shipment
-     * @param {Number} version 
      * @param {Number} id the id of the shipment to get
      * @param {module:api/ShipmentApi~getShipmentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Shipment}
      */
-    getShipment(version, id, callback) {
+    getShipment(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getShipment");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getShipment");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -219,7 +195,7 @@ export default class ShipmentApi {
       let accepts = ['*/*'];
       let returnType = Shipment;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/{id}', 'GET',
+        '/shipment/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -236,7 +212,6 @@ export default class ShipmentApi {
     /**
      * Search Shipments
      * Search for shipments
-     * @param {Number} version 
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
      * @param {Number} start The start index for pagination
@@ -249,13 +224,9 @@ export default class ShipmentApi {
      * @param {module:api/ShipmentApi~searchShipmentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Shipment>}
      */
-    searchShipments(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchShipments(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchShipments");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchShipments");
@@ -278,7 +249,6 @@ export default class ShipmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'ownerId': opts['ownerId'],
@@ -300,7 +270,7 @@ export default class ShipmentApi {
       let accepts = ['*/*'];
       let returnType = [Shipment];
       return this.apiClient.callApi(
-        '/api/{version}/shipment', 'GET',
+        '/shipment', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -317,27 +287,21 @@ export default class ShipmentApi {
     /**
      * Update Shipment
      * Update an existing shipment
-     * @param {Number} version 
      * @param {Number} id the id of the shipment to update
      * @param {Object} opts Optional parameters
      * @param {module:model/Shipment} [body] 
      * @param {module:api/ShipmentApi~updateShipmentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Shipment}
      */
-    updateShipment(version, id, opts, callback) {
+    updateShipment(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateShipment");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateShipment");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -352,7 +316,7 @@ export default class ShipmentApi {
       let accepts = ['*/*'];
       let returnType = Shipment;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/{id}', 'PUT',
+        '/shipment/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -369,26 +333,20 @@ export default class ShipmentApi {
     /**
      * Uupdate Shipment Status
      * Update status of an existing shipment
-     * @param {Number} version 
      * @param {Number} id the id of the shipment to update status
      * @param {Object} opts Optional parameters
      * @param {Object.<String, {String: Boolean}>} [body] 
      * @param {module:api/ShipmentApi~updateShipmentStatusCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateShipmentStatus(version, id, opts, callback) {
+    updateShipmentStatus(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateShipmentStatus");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateShipmentStatus");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -403,7 +361,7 @@ export default class ShipmentApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/{id}/status', 'POST',
+        '/shipment/{id}/status', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

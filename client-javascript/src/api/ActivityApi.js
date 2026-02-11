@@ -46,24 +46,18 @@ export default class ActivityApi {
     /**
      * Create an entity reference.
      * Creates a reference for an entity for syncing data between servers.
-     * @param {Number} version 
      * @param {module:model/EntityReference} body The entity reference object
      * @param {module:api/ActivityApi~createEntityReferenceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ActivityResponse}
      */
-    createEntityReference(version, body, callback) {
+    createEntityReference(body, callback) {
       let postBody = body;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createEntityReference");
-      }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
         throw new Error("Missing the required parameter 'body' when calling createEntityReference");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -77,7 +71,7 @@ export default class ActivityApi {
       let accepts = ['application/json'];
       let returnType = ActivityResponse;
       return this.apiClient.callApi(
-        '/api/{version}/entity/reference', 'POST',
+        '/entity/reference', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

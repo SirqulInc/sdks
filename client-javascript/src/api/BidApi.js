@@ -46,7 +46,6 @@ export default class BidApi {
     /**
      * Create Bid
      * Creates a bid on a biddable object
-     * @param {Number} version 
      * @param {String} biddableType A biddable object type. Possible values include: CREATIVE (ads).
      * @param {Number} biddableId The id of the biddable object
      * @param {Number} amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -59,13 +58,9 @@ export default class BidApi {
      * @param {module:api/BidApi~createBidCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BidResponse}
      */
-    createBid(version, biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, opts, callback) {
+    createBid(biddableType, biddableId, amountPerView, amountPerAction, budgetAmount, budgetSchedule, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createBid");
-      }
       // verify the required parameter 'biddableType' is set
       if (biddableType === undefined || biddableType === null) {
         throw new Error("Missing the required parameter 'biddableType' when calling createBid");
@@ -92,7 +87,6 @@ export default class BidApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -114,7 +108,7 @@ export default class BidApi {
       let accepts = ['*/*'];
       let returnType = BidResponse;
       return this.apiClient.callApi(
-        '/api/{version}/bid/create', 'POST',
+        '/bid/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -131,7 +125,6 @@ export default class BidApi {
     /**
      * Delete Bid
      * Deleted a bid on a biddable object
-     * @param {Number} version 
      * @param {Number} bidId The bid id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -139,20 +132,15 @@ export default class BidApi {
      * @param {module:api/BidApi~deleteBidCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteBid(version, bidId, opts, callback) {
+    deleteBid(bidId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteBid");
-      }
       // verify the required parameter 'bidId' is set
       if (bidId === undefined || bidId === null) {
         throw new Error("Missing the required parameter 'bidId' when calling deleteBid");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -169,7 +157,7 @@ export default class BidApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/bid/delete', 'POST',
+        '/bid/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -186,7 +174,6 @@ export default class BidApi {
     /**
      * Get Bid
      * Get the bid details of a biddable object
-     * @param {Number} version 
      * @param {Number} bidId The bid id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -194,20 +181,15 @@ export default class BidApi {
      * @param {module:api/BidApi~getBidCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BidResponse}
      */
-    getBid(version, bidId, opts, callback) {
+    getBid(bidId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBid");
-      }
       // verify the required parameter 'bidId' is set
       if (bidId === undefined || bidId === null) {
         throw new Error("Missing the required parameter 'bidId' when calling getBid");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -224,7 +206,7 @@ export default class BidApi {
       let accepts = ['*/*'];
       let returnType = BidResponse;
       return this.apiClient.callApi(
-        '/api/{version}/bid/get', 'GET',
+        '/bid/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -241,7 +223,6 @@ export default class BidApi {
     /**
      * Update Bid
      * Updates a bid on a biddable object
-     * @param {Number} version 
      * @param {Number} bidId The bid id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -253,20 +234,15 @@ export default class BidApi {
      * @param {module:api/BidApi~updateBidCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BidResponse}
      */
-    updateBid(version, bidId, opts, callback) {
+    updateBid(bidId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateBid");
-      }
       // verify the required parameter 'bidId' is set
       if (bidId === undefined || bidId === null) {
         throw new Error("Missing the required parameter 'bidId' when calling updateBid");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -287,7 +263,7 @@ export default class BidApi {
       let accepts = ['*/*'];
       let returnType = BidResponse;
       return this.apiClient.callApi(
-        '/api/{version}/bid/update', 'POST',
+        '/bid/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

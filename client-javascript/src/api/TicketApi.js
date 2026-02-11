@@ -49,7 +49,6 @@ export default class TicketApi {
     /**
      * Get Ticket Count
      * Gets the ticket count.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the id of the device that owns the tickets
      * @param {Number} [accountId] the id of the account that owns the tickets
@@ -59,16 +58,11 @@ export default class TicketApi {
      * @param {module:api/TicketApi~getTicketCountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CountResponse}
      */
-    getTicketCount(version, opts, callback) {
+    getTicketCount(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTicketCount");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -87,7 +81,7 @@ export default class TicketApi {
       let accepts = ['*/*'];
       let returnType = CountResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ticket/count', 'GET',
+        '/ticket/count', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -104,7 +98,6 @@ export default class TicketApi {
     /**
      * Get Ticket List
      * Gets the list of tickets.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the id of the device that owns the tickets
      * @param {Number} [accountId] the id of the account that owns the tickets
@@ -118,16 +111,11 @@ export default class TicketApi {
      * @param {module:api/TicketApi~getTicketListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TicketListResponse}
      */
-    getTicketList(version, opts, callback) {
+    getTicketList(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTicketList");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -150,7 +138,7 @@ export default class TicketApi {
       let accepts = ['*/*'];
       let returnType = TicketListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ticket/getList', 'GET',
+        '/ticket/getList', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -167,7 +155,6 @@ export default class TicketApi {
     /**
      * Gift Tickets
      * Gift tickets to another user.
-     * @param {Number} version 
      * @param {Number} receiverAccountId the id of the account receiving the tickets
      * @param {Number} ticketId the id of the tickets
      * @param {Object} opts Optional parameters
@@ -180,13 +167,9 @@ export default class TicketApi {
      * @param {module:api/TicketApi~giftPurchaseCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    giftPurchase(version, receiverAccountId, ticketId, opts, callback) {
+    giftPurchase(receiverAccountId, ticketId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling giftPurchase");
-      }
       // verify the required parameter 'receiverAccountId' is set
       if (receiverAccountId === undefined || receiverAccountId === null) {
         throw new Error("Missing the required parameter 'receiverAccountId' when calling giftPurchase");
@@ -197,7 +180,6 @@ export default class TicketApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -219,7 +201,7 @@ export default class TicketApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/purchase/gift', 'POST',
+        '/purchase/gift', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -236,7 +218,6 @@ export default class TicketApi {
     /**
      * Save Ticket
      * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-     * @param {Number} version 
      * @param {String} actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
      * @param {String} ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
      * @param {Object} opts Optional parameters
@@ -259,13 +240,9 @@ export default class TicketApi {
      * @param {module:api/TicketApi~saveTicketCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    saveTicket(version, actionType, ticketObjectType, opts, callback) {
+    saveTicket(actionType, ticketObjectType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling saveTicket");
-      }
       // verify the required parameter 'actionType' is set
       if (actionType === undefined || actionType === null) {
         throw new Error("Missing the required parameter 'actionType' when calling saveTicket");
@@ -276,7 +253,6 @@ export default class TicketApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': opts['returnNulls'],
@@ -308,7 +284,7 @@ export default class TicketApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ticket/save', 'POST',
+        '/ticket/save', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -325,7 +301,6 @@ export default class TicketApi {
     /**
      * Save Ticket with Reciept
      * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-     * @param {Number} version 
      * @param {String} actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
      * @param {String} ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
      * @param {File} receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -348,13 +323,9 @@ export default class TicketApi {
      * @param {module:api/TicketApi~saveTicketViaFileUploadCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    saveTicketViaFileUpload(version, actionType, ticketObjectType, receiptData, opts, callback) {
+    saveTicketViaFileUpload(actionType, ticketObjectType, receiptData, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling saveTicketViaFileUpload");
-      }
       // verify the required parameter 'actionType' is set
       if (actionType === undefined || actionType === null) {
         throw new Error("Missing the required parameter 'actionType' when calling saveTicketViaFileUpload");
@@ -369,7 +340,6 @@ export default class TicketApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': opts['returnNulls'],
@@ -401,7 +371,7 @@ export default class TicketApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ticket/save/fileUpload', 'POST',
+        '/ticket/save/fileUpload', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -418,19 +388,13 @@ export default class TicketApi {
     /**
      * Get Ticket Offers
      * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-     * @param {Number} version 
      * @param {module:api/TicketApi~ticketOffersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TicketOfferResponse}
      */
-    ticketOffers(version, callback) {
+    ticketOffers(callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling ticketOffers");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -444,7 +408,7 @@ export default class TicketApi {
       let accepts = ['*/*'];
       let returnType = TicketOfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ticket/ticketoffers', 'GET',
+        '/ticket/ticketoffers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

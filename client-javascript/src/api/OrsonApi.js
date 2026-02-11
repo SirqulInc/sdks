@@ -55,7 +55,6 @@ export default class OrsonApi {
     /**
      * Add Movie
      * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} movieName Movie Name
      * @param {Object} opts Optional parameters
@@ -67,13 +66,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~addMovieCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiAddMovieResponse}
      */
-    addMovie(version, accountId, movieName, opts, callback) {
+    addMovie(accountId, movieName, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addMovie");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addMovie");
@@ -84,7 +79,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -105,7 +99,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiAddMovieResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/addMovie', 'POST',
+        '/orson/ai/addMovie', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -122,7 +116,6 @@ export default class OrsonApi {
     /**
      * Search Docs
      * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} doc Doc
      * @param {Object} opts Optional parameters
@@ -132,13 +125,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~aiDocsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiProtoResponse}
      */
-    aiDocs(version, accountId, doc, opts, callback) {
+    aiDocs(accountId, doc, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling aiDocs");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling aiDocs");
@@ -149,7 +138,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -168,7 +156,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiProtoResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/docs', 'GET',
+        '/orson/ai/docs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -185,7 +173,6 @@ export default class OrsonApi {
     /**
      * Find images
      * Returns a list of URIs of images that match the text.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} text Text
      * @param {Object} opts Optional parameters
@@ -195,13 +182,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~aiFindImagesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiProtoResponse}
      */
-    aiFindImages(version, accountId, text, opts, callback) {
+    aiFindImages(accountId, text, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling aiFindImages");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling aiFindImages");
@@ -212,7 +195,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -231,7 +213,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiProtoResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/img', 'GET',
+        '/orson/ai/img', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -248,7 +230,6 @@ export default class OrsonApi {
     /**
      * Search Tags
      * Search the tags column of user provided tags using this endpoint.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} tags Tags
      * @param {Object} opts Optional parameters
@@ -258,13 +239,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~aiTagsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiProtoResponse}
      */
-    aiTags(version, accountId, tags, opts, callback) {
+    aiTags(accountId, tags, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling aiTags");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling aiTags");
@@ -275,7 +252,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -294,7 +270,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiProtoResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/tags', 'GET',
+        '/orson/ai/tags', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -311,7 +287,6 @@ export default class OrsonApi {
     /**
      * Search Text
      * Search the movie text column of movie text using this endpoint.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} terms Terms
      * @param {Object} opts Optional parameters
@@ -321,13 +296,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~aiTextCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiProtoResponse}
      */
-    aiText(version, accountId, terms, opts, callback) {
+    aiText(accountId, terms, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling aiText");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling aiText");
@@ -338,7 +309,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -357,7 +327,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiProtoResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/text', 'GET',
+        '/orson/ai/text', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -374,7 +344,6 @@ export default class OrsonApi {
     /**
      * Batch Analysis
      * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {String} [thirdPartyAccountId] A third-party account id that is meaningful to your systems
@@ -386,20 +355,15 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~batchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiBatchResponse}
      */
-    batch(version, accountId, opts, callback) {
+    batch(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling batch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling batch");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -420,7 +384,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiBatchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/batch', 'POST',
+        '/orson/ai/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -437,18 +401,13 @@ export default class OrsonApi {
     /**
      * Creates an instant episode
      * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} data Request Data String
      * @param {module:api/OrsonApi~createInstantEpisodeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonEpisodeResponse}
      */
-    createInstantEpisode(version, accountId, data, callback) {
+    createInstantEpisode(accountId, data, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createInstantEpisode");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createInstantEpisode");
@@ -459,7 +418,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -475,7 +433,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonEpisodeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/stories/episodes/instant', 'POST',
+        '/orson/stories/episodes/instant', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -492,7 +450,6 @@ export default class OrsonApi {
     /**
      * Create VoiceCanvas images
      * Create VoiceCanvas images for provided text, file upload, or file URL
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} dimensions Enum: \"256x256\" \"512x512\" \"1024x1024\"
      * @param {Object} opts Optional parameters
@@ -506,13 +463,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~createVoiceCanvasCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiVoiceCanvasResponse}
      */
-    createVoiceCanvas(version, accountId, dimensions, opts, callback) {
+    createVoiceCanvas(accountId, dimensions, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createVoiceCanvas");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createVoiceCanvas");
@@ -523,7 +476,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -546,7 +498,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiVoiceCanvasResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/voiceCanvas', 'POST',
+        '/orson/ai/voiceCanvas', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -563,7 +515,6 @@ export default class OrsonApi {
     /**
      * Detect emotions
      * Detects emotions in an audio or video recording.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {String} [thirdPartyAccountId] A third-party account id that is meaningful to your systems
@@ -573,20 +524,15 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~emotionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiEmotionsResponse}
      */
-    emotion(version, accountId, opts, callback) {
+    emotion(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling emotion");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling emotion");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -605,7 +551,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiEmotionsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/emotion', 'POST',
+        '/orson/ai/emotion', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -622,18 +568,13 @@ export default class OrsonApi {
     /**
      * Get Add Movie Result
      * Get the result of an in progress Add Movie request from an earlier POST.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getAddMovieResultCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiAddMovieResponse}
      */
-    getAddMovieResult(version, requestId, accountId, callback) {
+    getAddMovieResult(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAddMovieResult");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getAddMovieResult");
@@ -644,7 +585,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -660,7 +600,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiAddMovieResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/addMovie/{requestId}', 'GET',
+        '/orson/ai/addMovie/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -677,18 +617,13 @@ export default class OrsonApi {
     /**
      * Get Batch Analysis Results
      * Gets the completed Video Batch results, if done, or an error or status update if not.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiBatchResponse}
      */
-    getBatch(version, requestId, accountId, callback) {
+    getBatch(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBatch");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getBatch");
@@ -699,7 +634,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -715,7 +649,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiBatchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/batch/{requestId}', 'GET',
+        '/orson/ai/batch/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -732,18 +666,13 @@ export default class OrsonApi {
     /**
      * Get Emotion Results
      * Checks the Emotion analysis and returns in progress, results, or error.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getEmotionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiEmotionsResponse}
      */
-    getEmotion(version, requestId, accountId, callback) {
+    getEmotion(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getEmotion");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getEmotion");
@@ -754,7 +683,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -770,7 +698,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiEmotionsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/emotion/{requestId}', 'GET',
+        '/orson/ai/emotion/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -787,18 +715,13 @@ export default class OrsonApi {
     /**
      * Check episode status
      * Gets a summary of the episode's status, including any renders.
-     * @param {Number} version 
      * @param {Number} episodeId Episode ID
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getEpisodeStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonEpisodeResponse}
      */
-    getEpisodeStatus(version, episodeId, accountId, callback) {
+    getEpisodeStatus(episodeId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getEpisodeStatus");
-      }
       // verify the required parameter 'episodeId' is set
       if (episodeId === undefined || episodeId === null) {
         throw new Error("Missing the required parameter 'episodeId' when calling getEpisodeStatus");
@@ -809,7 +732,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'episodeId': episodeId
       };
       let queryParams = {
@@ -825,7 +747,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonEpisodeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/stories/episodes/{episodeId}/status', 'GET',
+        '/orson/stories/episodes/{episodeId}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -842,18 +764,13 @@ export default class OrsonApi {
     /**
      * Check episode status
      * Gets a summary of the episode's status, including any renders.
-     * @param {Number} version 
      * @param {String} renderId Render ID
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getRenderStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonRenderResponse}
      */
-    getRenderStatus(version, renderId, accountId, callback) {
+    getRenderStatus(renderId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRenderStatus");
-      }
       // verify the required parameter 'renderId' is set
       if (renderId === undefined || renderId === null) {
         throw new Error("Missing the required parameter 'renderId' when calling getRenderStatus");
@@ -864,7 +781,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'renderId': renderId
       };
       let queryParams = {
@@ -880,7 +796,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonRenderResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/stories/renders/{renderId}/status', 'GET',
+        '/orson/stories/renders/{renderId}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -897,18 +813,13 @@ export default class OrsonApi {
     /**
      * Get Speach to Text Result
      * The results of the video transcription and optional translation.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getSTTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiSTTResponse}
      */
-    getSTT(version, requestId, accountId, callback) {
+    getSTT(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getSTT");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getSTT");
@@ -919,7 +830,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -935,7 +845,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiSTTResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/stt/{requestId}', 'GET',
+        '/orson/ai/stt/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -952,18 +862,13 @@ export default class OrsonApi {
     /**
      * Get Text to Speach Result
      * Check the status of an in progress Text-to-Speech call or download the result.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getTTSCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiTTSResponse}
      */
-    getTTS(version, requestId, accountId, callback) {
+    getTTS(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTTS");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getTTS");
@@ -974,7 +879,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -990,7 +894,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiTTSResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/tts/{requestId}', 'GET',
+        '/orson/ai/tts/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1007,18 +911,13 @@ export default class OrsonApi {
     /**
      * Get TechTune Results
      * Get a result or continue waiting for a pending request for TechTune analysis.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getTechTuneCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiTechTuneResponse}
      */
-    getTechTune(version, requestId, accountId, callback) {
+    getTechTune(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTechTune");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getTechTune");
@@ -1029,7 +928,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -1045,7 +943,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiTechTuneResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/techTune/{requestId}', 'GET',
+        '/orson/ai/techTune/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1062,18 +960,13 @@ export default class OrsonApi {
     /**
      * Get Topics
      * Get the result of an in progress Topics Analysis from an earlier POST.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getTopicsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiTopicsResponse}
      */
-    getTopics(version, requestId, accountId, callback) {
+    getTopics(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTopics");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getTopics");
@@ -1084,7 +977,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -1100,7 +992,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiTopicsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/topics/{requestId}', 'GET',
+        '/orson/ai/topics/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1117,18 +1009,13 @@ export default class OrsonApi {
     /**
      * Get VoiceCanvas images
      * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-     * @param {Number} version 
      * @param {String} requestId Orson Request Id
      * @param {Number} accountId Sirqul Account Id
      * @param {module:api/OrsonApi~getVoiceCanvasCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiVoiceCanvasResponse}
      */
-    getVoiceCanvas(version, requestId, accountId, callback) {
+    getVoiceCanvas(requestId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getVoiceCanvas");
-      }
       // verify the required parameter 'requestId' is set
       if (requestId === undefined || requestId === null) {
         throw new Error("Missing the required parameter 'requestId' when calling getVoiceCanvas");
@@ -1139,7 +1026,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version,
         'requestId': requestId
       };
       let queryParams = {
@@ -1155,7 +1041,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiVoiceCanvasResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/voiceCanvas/{requestId}', 'GET',
+        '/orson/ai/voiceCanvas/{requestId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1172,18 +1058,13 @@ export default class OrsonApi {
     /**
      * Starts a StoryStitch video render
      * Starts a StoryStitch video render to produce your final video, returning the status details.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} data Request Data String
      * @param {module:api/OrsonApi~startVideoRenderCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonRenderResponse}
      */
-    startVideoRender(version, accountId, data, callback) {
+    startVideoRender(accountId, data, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling startVideoRender");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling startVideoRender");
@@ -1194,7 +1075,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1210,7 +1090,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonRenderResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/stories/renders', 'POST',
+        '/orson/stories/renders', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1227,7 +1107,6 @@ export default class OrsonApi {
     /**
      * Speach to Text
      * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {String} [thirdPartyAccountId] A third-party account id that is meaningful to your systems
@@ -1239,20 +1118,15 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~sttCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiSTTResponse}
      */
-    stt(version, accountId, opts, callback) {
+    stt(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling stt");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling stt");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1273,7 +1147,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiSTTResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/stt', 'POST',
+        '/orson/ai/stt', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1290,7 +1164,6 @@ export default class OrsonApi {
     /**
      * Summarize Topics
      * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {String} [thirdPartyAccountId] A third-party account id that is meaningful to your systems
@@ -1303,20 +1176,15 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~summarizeTopicsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiTopicsResponse}
      */
-    summarizeTopics(version, accountId, opts, callback) {
+    summarizeTopics(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling summarizeTopics");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling summarizeTopics");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1338,7 +1206,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiTopicsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/topics', 'POST',
+        '/orson/ai/topics', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1355,7 +1223,6 @@ export default class OrsonApi {
     /**
      * Detect Technical Issues
      * Analyses a movie file to detect technical issues, such as too few people in frame.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Number} numFacesExpected Number of expected faces
      * @param {Object} opts Optional parameters
@@ -1366,13 +1233,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~techTuneCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiTechTuneResponse}
      */
-    techTune(version, accountId, numFacesExpected, opts, callback) {
+    techTune(accountId, numFacesExpected, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling techTune");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling techTune");
@@ -1383,7 +1246,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1403,7 +1265,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiTechTuneResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/techTune', 'POST',
+        '/orson/ai/techTune', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1420,7 +1282,6 @@ export default class OrsonApi {
     /**
      * Text to Speach
      * Creates an audio file for the given text, with the option of language and voice selection.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} text Text
      * @param {Object} opts Optional parameters
@@ -1431,13 +1292,9 @@ export default class OrsonApi {
      * @param {module:api/OrsonApi~ttsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrsonAiTTSResponse}
      */
-    tts(version, accountId, text, opts, callback) {
+    tts(accountId, text, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling tts");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling tts");
@@ -1448,7 +1305,6 @@ export default class OrsonApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1468,7 +1324,7 @@ export default class OrsonApi {
       let accepts = ['*/*'];
       let returnType = OrsonAiTTSResponse;
       return this.apiClient.callApi(
-        '/api/{version}/orson/ai/tts', 'POST',
+        '/orson/ai/tts', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -46,7 +46,6 @@ export default class LeaderboardApi {
     /**
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user creating the leaderboard.
      * @param {String} [appKey] The application key
@@ -64,16 +63,11 @@ export default class LeaderboardApi {
      * @param {module:api/LeaderboardApi~createLeaderboardCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LeaderboardResponse}
      */
-    createLeaderboard(version, opts, callback) {
+    createLeaderboard(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createLeaderboard");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -100,7 +94,7 @@ export default class LeaderboardApi {
       let accepts = ['*/*'];
       let returnType = LeaderboardResponse;
       return this.apiClient.callApi(
-        '/api/{version}/leaderboard/create', 'POST',
+        '/leaderboard/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -117,27 +111,21 @@ export default class LeaderboardApi {
     /**
      * Delete the Leader Board
      * Removes a leader board id.
-     * @param {Number} version 
      * @param {Number} leaderboardId The leaderboard id to delete.
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user making the request.
      * @param {module:api/LeaderboardApi~deleteLeaderboardCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteLeaderboard(version, leaderboardId, opts, callback) {
+    deleteLeaderboard(leaderboardId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteLeaderboard");
-      }
       // verify the required parameter 'leaderboardId' is set
       if (leaderboardId === undefined || leaderboardId === null) {
         throw new Error("Missing the required parameter 'leaderboardId' when calling deleteLeaderboard");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -153,7 +141,7 @@ export default class LeaderboardApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/leaderboard/delete', 'POST',
+        '/leaderboard/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -170,7 +158,6 @@ export default class LeaderboardApi {
     /**
      * Read a leaderboard by id and retrieve the matching ranking list
      * Read a leaderboard by id and retrieve the matching ranking list
-     * @param {Number} version 
      * @param {Number} leaderboardId The leaderboard id.
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] A valid account.
@@ -178,20 +165,15 @@ export default class LeaderboardApi {
      * @param {module:api/LeaderboardApi~getLeaderboardCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LeaderboardResponse}
      */
-    getLeaderboard(version, leaderboardId, opts, callback) {
+    getLeaderboard(leaderboardId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getLeaderboard");
-      }
       // verify the required parameter 'leaderboardId' is set
       if (leaderboardId === undefined || leaderboardId === null) {
         throw new Error("Missing the required parameter 'leaderboardId' when calling getLeaderboard");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -208,7 +190,7 @@ export default class LeaderboardApi {
       let accepts = ['*/*'];
       let returnType = LeaderboardResponse;
       return this.apiClient.callApi(
-        '/api/{version}/leaderboard/get', 'GET',
+        '/leaderboard/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -225,7 +207,6 @@ export default class LeaderboardApi {
     /**
      * Search leaderboard and retrieve the matching ranking list
      * Search leaderboard and retrieve the matching ranking list
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user requesting the search.
      * @param {String} [appKey] The application key.
@@ -242,16 +223,11 @@ export default class LeaderboardApi {
      * @param {module:api/LeaderboardApi~searchLeaderboardsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LeaderboardResponse}
      */
-    searchLeaderboards(version, opts, callback) {
+    searchLeaderboards(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchLeaderboards");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -277,7 +253,7 @@ export default class LeaderboardApi {
       let accepts = ['*/*'];
       let returnType = LeaderboardResponse;
       return this.apiClient.callApi(
-        '/api/{version}/leaderboard/search', 'GET',
+        '/leaderboard/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -294,7 +270,6 @@ export default class LeaderboardApi {
     /**
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
      * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-     * @param {Number} version 
      * @param {Number} leaderboardId The leaderboard id to update.
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user updating the leaderboard.
@@ -314,20 +289,15 @@ export default class LeaderboardApi {
      * @param {module:api/LeaderboardApi~updateLeaderboardCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LeaderboardResponse}
      */
-    updateLeaderboard(version, leaderboardId, opts, callback) {
+    updateLeaderboard(leaderboardId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateLeaderboard");
-      }
       // verify the required parameter 'leaderboardId' is set
       if (leaderboardId === undefined || leaderboardId === null) {
         throw new Error("Missing the required parameter 'leaderboardId' when calling updateLeaderboard");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -356,7 +326,7 @@ export default class LeaderboardApi {
       let accepts = ['*/*'];
       let returnType = LeaderboardResponse;
       return this.apiClient.callApi(
-        '/api/{version}/leaderboard/update', 'POST',
+        '/leaderboard/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

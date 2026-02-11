@@ -45,23 +45,17 @@ export default class TripApi {
     /**
      * Delete Trip
      * Delete an existing trip
-     * @param {Number} version 
      * @param {Number} id the id of the trip to delete
      * @param {module:api/TripApi~callDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    callDelete(version, id, callback) {
+    callDelete(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling callDelete");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling callDelete");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -76,7 +70,7 @@ export default class TripApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}', 'DELETE',
+        '/trip/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -93,22 +87,16 @@ export default class TripApi {
     /**
      * Create Trip
      * Create a new trip
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/Trip} [body] 
      * @param {module:api/TripApi~createTripCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    createTrip(version, opts, callback) {
+    createTrip(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createTrip");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -122,7 +110,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip', 'POST',
+        '/trip', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -139,18 +127,13 @@ export default class TripApi {
     /**
      * Set Trip Preference Driver
      * Update trip preference to drive, also create a route and assign the trip to the route
-     * @param {Number} version 
      * @param {Number} id the id of the trip
      * @param {Boolean} recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @param {module:api/TripApi~driveTripCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    driveTrip(version, id, recurrence, callback) {
+    driveTrip(id, recurrence, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling driveTrip");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling driveTrip");
@@ -161,7 +144,6 @@ export default class TripApi {
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -177,7 +159,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/drive', 'POST',
+        '/trip/{id}/drive', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -194,18 +176,13 @@ export default class TripApi {
     /**
      * Set Trip Preference Flexible
      * Update trip preference to flexible.
-     * @param {Number} version 
      * @param {Number} id the id of the trip
      * @param {Boolean} recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @param {module:api/TripApi~flexibleTripCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    flexibleTrip(version, id, recurrence, callback) {
+    flexibleTrip(id, recurrence, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling flexibleTrip");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling flexibleTrip");
@@ -216,7 +193,6 @@ export default class TripApi {
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -232,7 +208,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/flexible', 'POST',
+        '/trip/{id}/flexible', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -249,24 +225,18 @@ export default class TripApi {
     /**
      * Get Trip
      * Get an existing trip
-     * @param {Number} version 
      * @param {Number} id the id of the trip to get
      * @param {module:api/TripApi~getTripCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    getTrip(version, id, callback) {
+    getTrip(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTrip");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getTrip");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -281,7 +251,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}', 'GET',
+        '/trip/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -298,7 +268,6 @@ export default class TripApi {
     /**
      * Get Trip Matches
      * Get matching trips of specific trip
-     * @param {Number} version 
      * @param {Number} id The id The id of the trip to search for matches for
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
@@ -311,13 +280,9 @@ export default class TripApi {
      * @param {module:api/TripApi~getTripMatchesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Trip>}
      */
-    getTripMatches(version, id, sortField, descending, start, limit, activeOnly, opts, callback) {
+    getTripMatches(id, sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTripMatches");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getTripMatches");
@@ -344,7 +309,6 @@ export default class TripApi {
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -366,7 +330,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = [Trip];
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/match', 'GET',
+        '/trip/{id}/match', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -383,7 +347,6 @@ export default class TripApi {
     /**
      * Process Trip Matches
      * Process trip matching, assign trips with no route to matched trips with route.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [startDate] The lower bound date to process matchings
      * @param {Number} [endDate] The upper bound date to process matchings
@@ -391,16 +354,11 @@ export default class TripApi {
      * @param {module:api/TripApi~processTripMatchesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Trip>}
      */
-    processTripMatches(version, opts, callback) {
+    processTripMatches(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling processTripMatches");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'startDate': opts['startDate'],
@@ -417,7 +375,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = [Trip];
       return this.apiClient.callApi(
-        '/api/{version}/trip/match/process', 'POST',
+        '/trip/match/process', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -434,18 +392,13 @@ export default class TripApi {
     /**
      * Set Trip Preference Rider
      * Update trip preference to ride.
-     * @param {Number} version 
      * @param {Number} id the id of the trip
      * @param {Boolean} recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
      * @param {module:api/TripApi~rideCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    ride(version, id, recurrence, callback) {
+    ride(id, recurrence, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling ride");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling ride");
@@ -456,7 +409,6 @@ export default class TripApi {
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -472,7 +424,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/ride', 'POST',
+        '/trip/{id}/ride', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -489,7 +441,6 @@ export default class TripApi {
     /**
      * Search Trips
      * Search for trips
-     * @param {Number} version 
      * @param {Number} accountId The owner of the trips
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
@@ -503,13 +454,9 @@ export default class TripApi {
      * @param {module:api/TripApi~searchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Trip>}
      */
-    search(version, accountId, sortField, descending, start, limit, activeOnly, opts, callback) {
+    search(accountId, sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling search");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling search");
@@ -536,7 +483,6 @@ export default class TripApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -559,7 +505,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = [Trip];
       return this.apiClient.callApi(
-        '/api/{version}/trip', 'GET',
+        '/trip', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -576,7 +522,6 @@ export default class TripApi {
     /**
      * Search Trips
      * Search for trips with matching information.
-     * @param {Number} version 
      * @param {Number} accountId The owner of the trips
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
@@ -591,13 +536,9 @@ export default class TripApi {
      * @param {module:api/TripApi~searchTripsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Trip>}
      */
-    searchTrips(version, accountId, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchTrips(accountId, sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchTrips");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchTrips");
@@ -624,7 +565,6 @@ export default class TripApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -648,7 +588,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = [Trip];
       return this.apiClient.callApi(
-        '/api/{version}/trip/match', 'GET',
+        '/trip/match', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -664,27 +604,21 @@ export default class TripApi {
 
     /**
      * Update Trip Locations
-     * @param {Number} version 
      * @param {Number} id the id of the trip to update locations for
      * @param {Object} opts Optional parameters
      * @param {module:model/Trip} [body] 
      * @param {module:api/TripApi~updateLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    updateLocations(version, id, opts, callback) {
+    updateLocations(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateLocations");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateLocations");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -699,7 +633,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/locations', 'POST',
+        '/trip/{id}/locations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -715,27 +649,21 @@ export default class TripApi {
 
     /**
      * Update Recurrence Locations
-     * @param {Number} version 
      * @param {Number} id the id of the trip
      * @param {Object} opts Optional parameters
      * @param {module:model/Trip} [body] 
      * @param {module:api/TripApi~updateRecurrenceLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Trip>}
      */
-    updateRecurrenceLocations(version, id, opts, callback) {
+    updateRecurrenceLocations(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRecurrenceLocations");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateRecurrenceLocations");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -750,7 +678,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = [Trip];
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/locations/recurrence', 'POST',
+        '/trip/{id}/locations/recurrence', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -766,27 +694,21 @@ export default class TripApi {
 
     /**
      * Update Recurrence Shipments
-     * @param {Number} version 
      * @param {Number} id the id of the trip
      * @param {Object} opts Optional parameters
      * @param {module:model/Trip} [body] 
      * @param {module:api/TripApi~updateRecurrenceShipmentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Trip>}
      */
-    updateRecurrenceShipments(version, id, opts, callback) {
+    updateRecurrenceShipments(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRecurrenceShipments");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateRecurrenceShipments");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -801,7 +723,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = [Trip];
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/shipments/recurrence', 'POST',
+        '/trip/{id}/shipments/recurrence', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -817,27 +739,21 @@ export default class TripApi {
 
     /**
      * Update Trip Shipments
-     * @param {Number} version 
      * @param {Number} id the id of the trip shipments to update
      * @param {Object} opts Optional parameters
      * @param {module:model/Trip} [body] 
      * @param {module:api/TripApi~updateShipmentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    updateShipments(version, id, opts, callback) {
+    updateShipments(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateShipments");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateShipments");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -852,7 +768,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}/shipments', 'POST',
+        '/trip/{id}/shipments', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -869,27 +785,21 @@ export default class TripApi {
     /**
      * Update Trip
      * Update an existing trip. Does not support recurring trip update.
-     * @param {Number} version 
      * @param {Number} id the id of the trip to update
      * @param {Object} opts Optional parameters
      * @param {module:model/Trip} [body] 
      * @param {module:api/TripApi~updateTripCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    updateTrip(version, id, opts, callback) {
+    updateTrip(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateTrip");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateTrip");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -904,7 +814,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/{id}', 'PUT',
+        '/trip/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -921,27 +831,21 @@ export default class TripApi {
     /**
      * Trip Notifications
      * Update the trip notifications
-     * @param {Number} version 
      * @param {Number} id the id of the trip
      * @param {Object} opts Optional parameters
      * @param {String} [notifications] the notifications to update on the trip
      * @param {module:api/TripApi~updateTripNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Trip}
      */
-    updateTripNotifications(version, id, opts, callback) {
+    updateTripNotifications(id, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateTripNotifications");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateTripNotifications");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'id': id,
@@ -957,7 +861,7 @@ export default class TripApi {
       let accepts = ['*/*'];
       let returnType = Trip;
       return this.apiClient.callApi(
-        '/api/{version}/trip/notifications', 'POST',
+        '/trip/notifications', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

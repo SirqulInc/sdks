@@ -46,7 +46,6 @@ export default class AMQPApi {
     /**
      * Create Consumer
      * Create a connection to an existing amqp queue and register as a consumer.
-     * @param {Number} version 
      * @param {String} appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param {String} name The name of the queue to connect to
      * @param {String} hostname The hostname of the server the queue is hosted on
@@ -65,13 +64,9 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~consumerCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QueueResponse}
      */
-    consumerCreate(version, appKey, name, hostname, username, password, dataMapping, opts, callback) {
+    consumerCreate(appKey, name, hostname, username, password, dataMapping, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling consumerCreate");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling consumerCreate");
@@ -98,7 +93,6 @@ export default class AMQPApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -126,7 +120,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = QueueResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/consumer/create', 'POST',
+        '/queue/consumer/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -143,7 +137,6 @@ export default class AMQPApi {
     /**
      * Update Consumer
      * Update an existing amqp queue's data mapping.
-     * @param {Number} version 
      * @param {String} appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
      * @param {Number} queueId The queue to update
      * @param {String} dataMapping The data mapping information in the format of AMQPRequest
@@ -154,13 +147,9 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~consumerUpdateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QueueResponse}
      */
-    consumerUpdate(version, appKey, queueId, dataMapping, opts, callback) {
+    consumerUpdate(appKey, queueId, dataMapping, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling consumerUpdate");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling consumerUpdate");
@@ -175,7 +164,6 @@ export default class AMQPApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -195,7 +183,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = QueueResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/consumer/update', 'POST',
+        '/queue/consumer/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -212,7 +200,6 @@ export default class AMQPApi {
     /**
      * Create Queue
      * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-     * @param {Number} version 
      * @param {String} appKey The application key unique to each application.
      * @param {String} name The name of the queue to create
      * @param {Object} opts Optional parameters
@@ -229,13 +216,9 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~queueCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QueueResponse}
      */
-    queueCreate(version, appKey, name, opts, callback) {
+    queueCreate(appKey, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling queueCreate");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling queueCreate");
@@ -246,7 +229,6 @@ export default class AMQPApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -272,7 +254,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = QueueResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/create', 'POST',
+        '/queue/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -289,7 +271,6 @@ export default class AMQPApi {
     /**
      * Delete Queue
      * Delete the stored queue record and close any active connections to the AMQP servers.
-     * @param {Number} version 
      * @param {Number} queueId The id of the queue to find
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The client device ID
@@ -297,20 +278,15 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~queueDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    queueDelete(version, queueId, opts, callback) {
+    queueDelete(queueId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling queueDelete");
-      }
       // verify the required parameter 'queueId' is set
       if (queueId === undefined || queueId === null) {
         throw new Error("Missing the required parameter 'queueId' when calling queueDelete");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -327,7 +303,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/delete', 'POST',
+        '/queue/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -344,7 +320,6 @@ export default class AMQPApi {
     /**
      * Get Queue
      * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The client device ID
      * @param {Number} [accountId] The logged in user ID
@@ -356,16 +331,11 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~queueGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QueueResponse}
      */
-    queueGet(version, opts, callback) {
+    queueGet(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling queueGet");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -386,7 +356,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = QueueResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/get', 'GET',
+        '/queue/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -403,7 +373,6 @@ export default class AMQPApi {
     /**
      * Publish Queue
      * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-     * @param {Number} version 
      * @param {String} message The payload to send to the queue
      * @param {Object} opts Optional parameters
      * @param {Number} [queueId] The id of the queue to publish to
@@ -414,20 +383,15 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~queuePublishCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    queuePublish(version, message, opts, callback) {
+    queuePublish(message, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling queuePublish");
-      }
       // verify the required parameter 'message' is set
       if (message === undefined || message === null) {
         throw new Error("Missing the required parameter 'message' when calling queuePublish");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'queueId': opts['queueId'],
@@ -447,7 +411,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/publish', 'POST',
+        '/queue/publish', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -464,7 +428,6 @@ export default class AMQPApi {
     /**
      * Search Queue
      * Get the queues setup for the BillableEntity's applications.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [queueId] The id of the queue to find
      * @param {String} [deviceId] The client device ID
@@ -475,16 +438,11 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~queueSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QueueResponse}
      */
-    queueSearch(version, opts, callback) {
+    queueSearch(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling queueSearch");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'queueId': opts['queueId'],
@@ -504,7 +462,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = QueueResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/search', 'GET',
+        '/queue/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -521,7 +479,6 @@ export default class AMQPApi {
     /**
      * Update Queue
      * Update the basic AMQP queue.
-     * @param {Number} version 
      * @param {Number} queueId The id of the queue to update
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The client deviceID
@@ -538,20 +495,15 @@ export default class AMQPApi {
      * @param {module:api/AMQPApi~queueUpdateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QueueResponse}
      */
-    queueUpdate(version, queueId, opts, callback) {
+    queueUpdate(queueId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling queueUpdate");
-      }
       // verify the required parameter 'queueId' is set
       if (queueId === undefined || queueId === null) {
         throw new Error("Missing the required parameter 'queueId' when calling queueUpdate");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -577,7 +529,7 @@ export default class AMQPApi {
       let accepts = ['*/*'];
       let returnType = QueueResponse;
       return this.apiClient.callApi(
-        '/api/{version}/queue/update', 'POST',
+        '/queue/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

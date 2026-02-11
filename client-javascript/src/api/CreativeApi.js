@@ -47,18 +47,13 @@ export default class CreativeApi {
     /**
      * Add Preview
      * Enable this ad for preview for this account.
-     * @param {Number} version 
      * @param {Number} accountId the id of the account
      * @param {Number} creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
      * @param {module:api/CreativeApi~addPreviewCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    addPreview(version, accountId, creativeId, callback) {
+    addPreview(accountId, creativeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addPreview");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addPreview");
@@ -69,7 +64,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -85,7 +79,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/creative/addpreview', 'POST',
+        '/creative/addpreview', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -102,7 +96,6 @@ export default class CreativeApi {
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param {Number} version 
      * @param {String} appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param {Boolean} randomize return a random set of results, default is true. If false returns in nature order.
      * @param {Boolean} targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -123,13 +116,9 @@ export default class CreativeApi {
      * @param {module:api/CreativeApi~adsFindCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MissionResponse>}
      */
-    adsFind(version, appKey, randomize, targetedAdsOnly, opts, callback) {
+    adsFind(appKey, randomize, targetedAdsOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling adsFind");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling adsFind");
@@ -144,7 +133,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': appKey,
@@ -174,7 +162,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = [MissionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/ads/find', 'GET',
+        '/ads/find', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -191,7 +179,6 @@ export default class CreativeApi {
     /**
      * Create Creative
      * Create a creative
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} name The name of the level.
      * @param {Boolean} active If true set the game level as active. Default is false.
@@ -211,13 +198,9 @@ export default class CreativeApi {
      * @param {module:api/CreativeApi~createCreativeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CreativeResponse}
      */
-    createCreative(version, accountId, name, active, waitForAsset, opts, callback) {
+    createCreative(accountId, name, active, waitForAsset, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createCreative");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createCreative");
@@ -236,7 +219,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -265,7 +247,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = CreativeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/creative/create', 'POST',
+        '/creative/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -282,18 +264,13 @@ export default class CreativeApi {
     /**
      * Delete Creative
      * Delete a creative
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} creativeId the id of the creative to delete
      * @param {module:api/CreativeApi~deleteCreativeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteCreative(version, accountId, creativeId, callback) {
+    deleteCreative(accountId, creativeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteCreative");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteCreative");
@@ -304,7 +281,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -320,7 +296,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/creative/delete', 'POST',
+        '/creative/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -337,18 +313,13 @@ export default class CreativeApi {
     /**
      * Get Creative
      * Get a creative
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} creativeId the ID of the creative to get
      * @param {module:api/CreativeApi~getCreativeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CreativeResponse}
      */
-    getCreative(version, accountId, creativeId, callback) {
+    getCreative(accountId, creativeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCreative");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getCreative");
@@ -359,7 +330,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -375,7 +345,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = CreativeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/creative/get', 'GET',
+        '/creative/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -392,7 +362,6 @@ export default class CreativeApi {
     /**
      * Search Creatives
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey the application key
      * @param {Number} start Start the result set at some index.
@@ -403,13 +372,9 @@ export default class CreativeApi {
      * @param {module:api/CreativeApi~getCreativesByApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CreativeResponse>}
      */
-    getCreativesByApplication(version, accountId, appKey, start, limit, opts, callback) {
+    getCreativesByApplication(accountId, appKey, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCreativesByApplication");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getCreativesByApplication");
@@ -428,7 +393,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -448,7 +412,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = [CreativeResponse];
       return this.apiClient.callApi(
-        '/api/{version}/creative/search', 'GET',
+        '/creative/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -465,18 +429,13 @@ export default class CreativeApi {
     /**
      * Remove Preview
      * Remove this ad for preview for this account.
-     * @param {Number} version 
      * @param {Number} accountId the ID of the logged in user
      * @param {Number} creativeId the ID of the creative to remove preview
      * @param {module:api/CreativeApi~removePreviewCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removePreview(version, accountId, creativeId, callback) {
+    removePreview(accountId, creativeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removePreview");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling removePreview");
@@ -487,7 +446,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -503,7 +461,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/creative/removepreview', 'POST',
+        '/creative/removepreview', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -520,7 +478,6 @@ export default class CreativeApi {
     /**
      * Update Creative
      * Update a creative
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} creativeId the creative Id to upate.
      * @param {Object} opts Optional parameters
@@ -539,13 +496,9 @@ export default class CreativeApi {
      * @param {module:api/CreativeApi~updateCreativeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CreativeResponse}
      */
-    updateCreative(version, accountId, creativeId, opts, callback) {
+    updateCreative(accountId, creativeId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateCreative");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateCreative");
@@ -556,7 +509,6 @@ export default class CreativeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -584,7 +536,7 @@ export default class CreativeApi {
       let accepts = ['*/*'];
       let returnType = CreativeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/creative/update', 'POST',
+        '/creative/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

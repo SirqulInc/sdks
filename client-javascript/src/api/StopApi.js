@@ -45,24 +45,18 @@ export default class StopApi {
     /**
      * Get Stop
      * Get an existing stop
-     * @param {Number} version 
      * @param {Number} id the id of the stop to get
      * @param {module:api/StopApi~getStopCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Stop}
      */
-    getStop(version, id, callback) {
+    getStop(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getStop");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getStop");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -77,7 +71,7 @@ export default class StopApi {
       let accepts = ['*/*'];
       let returnType = Stop;
       return this.apiClient.callApi(
-        '/api/{version}/stop/{id}', 'GET',
+        '/stop/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -94,27 +88,21 @@ export default class StopApi {
     /**
      * Update Stop
      * Update an existing stop
-     * @param {Number} version 
      * @param {Number} id the id of the stop to update
      * @param {Object} opts Optional parameters
      * @param {module:model/Stop} [body] 
      * @param {module:api/StopApi~updateStopCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Stop}
      */
-    updateStop(version, id, opts, callback) {
+    updateStop(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateStop");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateStop");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -129,7 +117,7 @@ export default class StopApi {
       let accepts = ['*/*'];
       let returnType = Stop;
       return this.apiClient.callApi(
-        '/api/{version}/stop/{id}', 'PUT',
+        '/stop/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

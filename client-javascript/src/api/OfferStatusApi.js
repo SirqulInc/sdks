@@ -46,7 +46,6 @@ export default class OfferStatusApi {
     /**
      * Create Offer Status
      * Create an offer status record
-     * @param {Number} version 
      * @param {String} name The name of the status
      * @param {Number} code The status code, must be unique 
      * @param {Object} opts Optional parameters
@@ -61,13 +60,9 @@ export default class OfferStatusApi {
      * @param {module:api/OfferStatusApi~createOfferTransactionStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferTransactionStatusResponse}
      */
-    createOfferTransactionStatus(version, name, code, opts, callback) {
+    createOfferTransactionStatus(name, code, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createOfferTransactionStatus");
-      }
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
         throw new Error("Missing the required parameter 'name' when calling createOfferTransactionStatus");
@@ -78,7 +73,6 @@ export default class OfferStatusApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -102,7 +96,7 @@ export default class OfferStatusApi {
       let accepts = ['*/*'];
       let returnType = OfferTransactionStatusResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/status/create', 'POST',
+        '/offer/status/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -119,7 +113,6 @@ export default class OfferStatusApi {
     /**
      * Delete Offer Status
      * Mark an offer status record as deleted
-     * @param {Number} version 
      * @param {Number} statusId The id of the record to delete
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -129,20 +122,15 @@ export default class OfferStatusApi {
      * @param {module:api/OfferStatusApi~deleteOfferTransactionStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteOfferTransactionStatus(version, statusId, opts, callback) {
+    deleteOfferTransactionStatus(statusId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteOfferTransactionStatus");
-      }
       // verify the required parameter 'statusId' is set
       if (statusId === undefined || statusId === null) {
         throw new Error("Missing the required parameter 'statusId' when calling deleteOfferTransactionStatus");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -161,7 +149,7 @@ export default class OfferStatusApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/status/delete', 'POST',
+        '/offer/status/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -178,7 +166,6 @@ export default class OfferStatusApi {
     /**
      * Get Offer Status
      * Get an offer status record
-     * @param {Number} version 
      * @param {Number} statusId The id of the record to get 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -188,20 +175,15 @@ export default class OfferStatusApi {
      * @param {module:api/OfferStatusApi~getOfferTransactionStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferTransactionStatusResponse}
      */
-    getOfferTransactionStatus(version, statusId, opts, callback) {
+    getOfferTransactionStatus(statusId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOfferTransactionStatus");
-      }
       // verify the required parameter 'statusId' is set
       if (statusId === undefined || statusId === null) {
         throw new Error("Missing the required parameter 'statusId' when calling getOfferTransactionStatus");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -220,7 +202,7 @@ export default class OfferStatusApi {
       let accepts = ['*/*'];
       let returnType = OfferTransactionStatusResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/status/get', 'GET',
+        '/offer/status/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -237,7 +219,6 @@ export default class OfferStatusApi {
     /**
      * Search Offer Status
      * Search for the available offer statuses
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -254,16 +235,11 @@ export default class OfferStatusApi {
      * @param {module:api/OfferStatusApi~searchOfferTransactionStatusesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferTransactionStatusResponse>}
      */
-    searchOfferTransactionStatuses(version, opts, callback) {
+    searchOfferTransactionStatuses(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchOfferTransactionStatuses");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -289,7 +265,7 @@ export default class OfferStatusApi {
       let accepts = ['*/*'];
       let returnType = [OfferTransactionStatusResponse];
       return this.apiClient.callApi(
-        '/api/{version}/offer/status/search', 'GET',
+        '/offer/status/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -306,7 +282,6 @@ export default class OfferStatusApi {
     /**
      * Update Offer Status
      * Update an offer status record
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -322,16 +297,11 @@ export default class OfferStatusApi {
      * @param {module:api/OfferStatusApi~updateOfferTransactionStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferTransactionStatusResponse}
      */
-    updateOfferTransactionStatus(version, opts, callback) {
+    updateOfferTransactionStatus(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateOfferTransactionStatus");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -356,7 +326,7 @@ export default class OfferStatusApi {
       let accepts = ['*/*'];
       let returnType = OfferTransactionStatusResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/status/update', 'POST',
+        '/offer/status/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

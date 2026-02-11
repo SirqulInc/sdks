@@ -45,27 +45,21 @@ export default class VehicleApi {
     /**
      * Create Vehicle
      * Create new vehicle
-     * @param {Number} version 
      * @param {String} vehicle A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
      * @param {Object} opts Optional parameters
      * @param {module:model/Vehicle} [body] 
      * @param {module:api/VehicleApi~createVehicleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Vehicle}
      */
-    createVehicle(version, vehicle, opts, callback) {
+    createVehicle(vehicle, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createVehicle");
-      }
       // verify the required parameter 'vehicle' is set
       if (vehicle === undefined || vehicle === null) {
         throw new Error("Missing the required parameter 'vehicle' when calling createVehicle");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'vehicle': vehicle
@@ -80,7 +74,7 @@ export default class VehicleApi {
       let accepts = ['*/*'];
       let returnType = Vehicle;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle', 'POST',
+        '/vehicle', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -97,23 +91,17 @@ export default class VehicleApi {
     /**
      * Delete Vehicle
      * Delete an existing vehicle
-     * @param {Number} version 
      * @param {Number} id The id of the vehicle to delete
      * @param {module:api/VehicleApi~deleteVehicleCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteVehicle(version, id, callback) {
+    deleteVehicle(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteVehicle");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteVehicle");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -128,7 +116,7 @@ export default class VehicleApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/{id}', 'DELETE',
+        '/vehicle/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -145,24 +133,18 @@ export default class VehicleApi {
     /**
      * Get Vehicle
      * Get an existing vehicle
-     * @param {Number} version 
      * @param {Number} id The id of the vehicle requested
      * @param {module:api/VehicleApi~getVehicleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Vehicle}
      */
-    getVehicle(version, id, callback) {
+    getVehicle(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getVehicle");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getVehicle");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -177,7 +159,7 @@ export default class VehicleApi {
       let accepts = ['*/*'];
       let returnType = Vehicle;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/{id}', 'GET',
+        '/vehicle/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -194,7 +176,6 @@ export default class VehicleApi {
     /**
      * Search Vehicle
      * Search for vehicles
-     * @param {Number} version 
      * @param {Number} hubId Filter by service hub
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
@@ -206,13 +187,9 @@ export default class VehicleApi {
      * @param {module:api/VehicleApi~searchVehicleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Vehicle>}
      */
-    searchVehicle(version, hubId, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchVehicle(hubId, sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchVehicle");
-      }
       // verify the required parameter 'hubId' is set
       if (hubId === undefined || hubId === null) {
         throw new Error("Missing the required parameter 'hubId' when calling searchVehicle");
@@ -239,7 +216,6 @@ export default class VehicleApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'hubId': hubId,
@@ -260,7 +236,7 @@ export default class VehicleApi {
       let accepts = ['*/*'];
       let returnType = [Vehicle];
       return this.apiClient.callApi(
-        '/api/{version}/vehicle', 'GET',
+        '/vehicle', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -277,7 +253,6 @@ export default class VehicleApi {
     /**
      * Update Vehicle
      * Update an existing vehicle
-     * @param {Number} version 
      * @param {Number} id The id of the vehicle to update
      * @param {String} vehicle A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` 
      * @param {Object} opts Optional parameters
@@ -285,13 +260,9 @@ export default class VehicleApi {
      * @param {module:api/VehicleApi~updateVehicleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Vehicle}
      */
-    updateVehicle(version, id, vehicle, opts, callback) {
+    updateVehicle(id, vehicle, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateVehicle");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateVehicle");
@@ -302,7 +273,6 @@ export default class VehicleApi {
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -318,7 +288,7 @@ export default class VehicleApi {
       let accepts = ['*/*'];
       let returnType = Vehicle;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/{id}', 'PUT',
+        '/vehicle/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

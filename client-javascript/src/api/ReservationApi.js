@@ -47,7 +47,6 @@ export default class ReservationApi {
     /**
      * Create Reservation
      * Creates a reservation on an offer object
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -59,16 +58,11 @@ export default class ReservationApi {
      * @param {String} [metaData] External custom client defined data
      * @param {module:api/ReservationApi~createReservationCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    createReservation(version, opts, callback) {
+    createReservation(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createReservation");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -90,7 +84,7 @@ export default class ReservationApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/reservation/create', 'POST',
+        '/reservation/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -107,27 +101,21 @@ export default class ReservationApi {
     /**
      * Delete Reservation
      * Deleted a reservation on a reservation object
-     * @param {Number} version 
      * @param {Number} reservationId The reservation id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
      * @param {module:api/ReservationApi~deleteReservationCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteReservation(version, reservationId, opts, callback) {
+    deleteReservation(reservationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteReservation");
-      }
       // verify the required parameter 'reservationId' is set
       if (reservationId === undefined || reservationId === null) {
         throw new Error("Missing the required parameter 'reservationId' when calling deleteReservation");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -144,7 +132,7 @@ export default class ReservationApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/reservation/delete', 'POST',
+        '/reservation/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -160,7 +148,6 @@ export default class ReservationApi {
 
     /**
      * Update Availability
-     * @param {Number} version 
      * @param {Number} reservableId the id of the reservation
      * @param {module:model/String} reservableType the type of reservation
      * @param {Object} opts Optional parameters
@@ -171,13 +158,9 @@ export default class ReservationApi {
      * @param {module:api/ReservationApi~reservableAvailabilityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AvailabilityResponse>}
      */
-    reservableAvailability(version, reservableId, reservableType, opts, callback) {
+    reservableAvailability(reservableId, reservableType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling reservableAvailability");
-      }
       // verify the required parameter 'reservableId' is set
       if (reservableId === undefined || reservableId === null) {
         throw new Error("Missing the required parameter 'reservableId' when calling reservableAvailability");
@@ -188,7 +171,6 @@ export default class ReservationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -208,7 +190,7 @@ export default class ReservationApi {
       let accepts = ['*/*'];
       let returnType = [AvailabilityResponse];
       return this.apiClient.callApi(
-        '/api/{version}/reservable/availability/update', 'POST',
+        '/reservable/availability/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -224,7 +206,6 @@ export default class ReservationApi {
 
     /**
      * Search Availability
-     * @param {Number} version 
      * @param {Number} reservableId the id of the reservation
      * @param {module:model/String} reservableType the reservable type
      * @param {Object} opts Optional parameters
@@ -237,13 +218,9 @@ export default class ReservationApi {
      * @param {module:api/ReservationApi~searchAvailabilityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AvailabilityResponse>}
      */
-    searchAvailability(version, reservableId, reservableType, opts, callback) {
+    searchAvailability(reservableId, reservableType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchAvailability");
-      }
       // verify the required parameter 'reservableId' is set
       if (reservableId === undefined || reservableId === null) {
         throw new Error("Missing the required parameter 'reservableId' when calling searchAvailability");
@@ -254,7 +231,6 @@ export default class ReservationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -276,7 +252,7 @@ export default class ReservationApi {
       let accepts = ['*/*'];
       let returnType = [AvailabilityResponse];
       return this.apiClient.callApi(
-        '/api/{version}/reservable/availability/search', 'GET',
+        '/reservable/availability/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -292,7 +268,6 @@ export default class ReservationApi {
 
     /**
      * Search Reservations
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] Device Id
      * @param {String} [appKey] Appilcation Key
@@ -308,16 +283,11 @@ export default class ReservationApi {
      * @param {module:api/ReservationApi~searchReservationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ReservationResponse>}
      */
-    searchReservations(version, opts, callback) {
+    searchReservations(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchReservations");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -342,7 +312,7 @@ export default class ReservationApi {
       let accepts = ['*/*'];
       let returnType = [ReservationResponse];
       return this.apiClient.callApi(
-        '/api/{version}/reservation/search', 'GET',
+        '/reservation/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -358,7 +328,6 @@ export default class ReservationApi {
 
     /**
      * Search Schedule
-     * @param {Number} version 
      * @param {Number} reservableId the id of the reservation
      * @param {module:model/String} reservableType the reservation type
      * @param {Number} startDate the start date of the reservation
@@ -370,13 +339,9 @@ export default class ReservationApi {
      * @param {module:api/ReservationApi~searchScheduleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TimeSlotResponse>}
      */
-    searchSchedule(version, reservableId, reservableType, startDate, endDate, opts, callback) {
+    searchSchedule(reservableId, reservableType, startDate, endDate, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchSchedule");
-      }
       // verify the required parameter 'reservableId' is set
       if (reservableId === undefined || reservableId === null) {
         throw new Error("Missing the required parameter 'reservableId' when calling searchSchedule");
@@ -395,7 +360,6 @@ export default class ReservationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -416,7 +380,7 @@ export default class ReservationApi {
       let accepts = ['*/*'];
       let returnType = [TimeSlotResponse];
       return this.apiClient.callApi(
-        '/api/{version}/reservable/schedule/search', 'GET',
+        '/reservable/schedule/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

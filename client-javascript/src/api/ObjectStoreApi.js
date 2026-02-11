@@ -45,7 +45,6 @@ export default class ObjectStoreApi {
     /**
      * Create Field
      * Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {String} appKey The application key for updating an existing application
      * @param {String} objectName The name of the object to add the field to
@@ -54,12 +53,8 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~addFieldCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    addField(version, accountId, appKey, objectName, fieldName, fieldType, callback) {
+    addField(accountId, appKey, objectName, fieldName, fieldType, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addField");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addField");
@@ -82,7 +77,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -101,7 +95,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/field/add', 'POST',
+        '/object/field/add', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -118,7 +112,6 @@ export default class ObjectStoreApi {
     /**
      * Create Data
      * Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-     * @param {Number} version 
      * @param {String} objectName the name of the object to create data for
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the account id
@@ -126,20 +119,15 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~createDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    createData(version, objectName, opts, callback) {
+    createData(objectName, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createData");
-      }
       // verify the required parameter 'objectName' is set
       if (objectName === undefined || objectName === null) {
         throw new Error("Missing the required parameter 'objectName' when calling createData");
       }
 
       let pathParams = {
-        'version': version,
         'objectName': objectName
       };
       let queryParams = {
@@ -155,7 +143,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/data/{objectName}', 'POST',
+        '/object/data/{objectName}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -172,19 +160,14 @@ export default class ObjectStoreApi {
     /**
      * Create Object
      * Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {String} appKey The application key for updating an existing application
      * @param {String} objectName The name of the object to create
      * @param {module:api/ObjectStoreApi~createObjectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    createObject(version, accountId, appKey, objectName, callback) {
+    createObject(accountId, appKey, objectName, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createObject");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createObject");
@@ -199,7 +182,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -216,7 +198,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/create', 'POST',
+        '/object/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -233,7 +215,6 @@ export default class ObjectStoreApi {
     /**
      * Delete Data
      * Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-     * @param {Number} version 
      * @param {String} objectName The name of the object to search upon
      * @param {String} objectId objectId The id of the record to return
      * @param {Object} opts Optional parameters
@@ -241,13 +222,9 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~deleteDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    deleteData(version, objectName, objectId, opts, callback) {
+    deleteData(objectName, objectId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteData");
-      }
       // verify the required parameter 'objectName' is set
       if (objectName === undefined || objectName === null) {
         throw new Error("Missing the required parameter 'objectName' when calling deleteData");
@@ -258,7 +235,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version,
         'objectName': objectName,
         'objectId': objectId
       };
@@ -275,7 +251,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/data/{objectName}/{objectId}', 'DELETE',
+        '/object/data/{objectName}/{objectId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -292,7 +268,6 @@ export default class ObjectStoreApi {
     /**
      * Delete Field
      * Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {String} appKey The application key for updating an existing application
      * @param {String} objectName The name of the object to remove the field from
@@ -300,12 +275,8 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~deleteFieldCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    deleteField(version, accountId, appKey, objectName, fieldName, callback) {
+    deleteField(accountId, appKey, objectName, fieldName, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteField");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteField");
@@ -324,7 +295,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -342,7 +312,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/field/delete', 'POST',
+        '/object/field/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -359,19 +329,14 @@ export default class ObjectStoreApi {
     /**
      * Delete Object
      * Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {String} appKey the application key
      * @param {String} objectName the name of the object to delete
      * @param {module:api/ObjectStoreApi~deleteObjectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    deleteObject(version, accountId, appKey, objectName, callback) {
+    deleteObject(accountId, appKey, objectName, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteObject");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteObject");
@@ -386,7 +351,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -403,7 +367,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/delete', 'POST',
+        '/object/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -420,7 +384,6 @@ export default class ObjectStoreApi {
     /**
      * Get Data
      * Get a specific record from a specified object.
-     * @param {Number} version 
      * @param {String} objectName The name of the object to search upon
      * @param {String} objectId objectId The id of the record to return
      * @param {Object} opts Optional parameters
@@ -429,13 +392,9 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~getDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    getData(version, objectName, objectId, opts, callback) {
+    getData(objectName, objectId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getData");
-      }
       // verify the required parameter 'objectName' is set
       if (objectName === undefined || objectName === null) {
         throw new Error("Missing the required parameter 'objectName' when calling getData");
@@ -446,7 +405,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version,
         'objectName': objectName,
         'objectId': objectId
       };
@@ -464,7 +422,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/data/{objectName}/{objectId}', 'GET',
+        '/object/data/{objectName}/{objectId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -481,19 +439,14 @@ export default class ObjectStoreApi {
     /**
      * Get Object
      * Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {String} appKey The application key for updating an existing application
      * @param {String} objectName The name of the object to get the definition for
      * @param {module:api/ObjectStoreApi~getObjectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    getObject(version, accountId, appKey, objectName, callback) {
+    getObject(accountId, appKey, objectName, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getObject");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getObject");
@@ -508,7 +461,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -525,7 +477,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/get', 'GET',
+        '/object/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -542,7 +494,6 @@ export default class ObjectStoreApi {
     /**
      * Search Data
      * Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-     * @param {Number} version 
      * @param {String} objectName The name of the object to search upon
      * @param {Boolean} count If true just return the record count of the search. False (default) will return the actual records
      * @param {Number} start The start of the pagination
@@ -555,13 +506,9 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~searchDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    searchData(version, objectName, count, start, limit, opts, callback) {
+    searchData(objectName, count, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchData");
-      }
       // verify the required parameter 'objectName' is set
       if (objectName === undefined || objectName === null) {
         throw new Error("Missing the required parameter 'objectName' when calling searchData");
@@ -580,7 +527,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version,
         'objectName': objectName
       };
       let queryParams = {
@@ -602,7 +548,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/data/{objectName}', 'GET',
+        '/object/data/{objectName}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -619,7 +565,6 @@ export default class ObjectStoreApi {
     /**
      * Search Objects
      * Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {String} appKey The application key for updating an existing application
      * @param {Number} start The start of the pagination
@@ -629,13 +574,9 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~searchObjectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    searchObject(version, accountId, appKey, start, limit, opts, callback) {
+    searchObject(accountId, appKey, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchObject");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchObject");
@@ -654,7 +595,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -673,7 +613,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/search', 'GET',
+        '/object/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -690,7 +630,6 @@ export default class ObjectStoreApi {
     /**
      * Update Data
      * Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-     * @param {Number} version 
      * @param {String} objectName The name of the object to search upon
      * @param {String} objectId objectId The id of the record to return
      * @param {Object} opts Optional parameters
@@ -699,13 +638,9 @@ export default class ObjectStoreApi {
      * @param {module:api/ObjectStoreApi~updateDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ObjectStoreResponse}
      */
-    updateData(version, objectName, objectId, opts, callback) {
+    updateData(objectName, objectId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateData");
-      }
       // verify the required parameter 'objectName' is set
       if (objectName === undefined || objectName === null) {
         throw new Error("Missing the required parameter 'objectName' when calling updateData");
@@ -716,7 +651,6 @@ export default class ObjectStoreApi {
       }
 
       let pathParams = {
-        'version': version,
         'objectName': objectName,
         'objectId': objectId
       };
@@ -733,7 +667,7 @@ export default class ObjectStoreApi {
       let accepts = ['*/*'];
       let returnType = ObjectStoreResponse;
       return this.apiClient.callApi(
-        '/api/{version}/object/data/{objectName}/{objectId}', 'PUT',
+        '/object/data/{objectName}/{objectId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

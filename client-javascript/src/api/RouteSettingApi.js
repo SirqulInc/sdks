@@ -45,22 +45,16 @@ export default class RouteSettingApi {
     /**
      * Create Route Setting
      * Create a new route setting
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/RouteSettings} [body] 
      * @param {module:api/RouteSettingApi~createRouteSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RouteSettings}
      */
-    createRouteSettings(version, opts, callback) {
+    createRouteSettings(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRouteSettings");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -74,7 +68,7 @@ export default class RouteSettingApi {
       let accepts = ['*/*'];
       let returnType = RouteSettings;
       return this.apiClient.callApi(
-        '/api/{version}/route/setting', 'POST',
+        '/route/setting', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -91,24 +85,18 @@ export default class RouteSettingApi {
     /**
      * Delete Route Setting
      * Delete an existing route setting
-     * @param {Number} version 
      * @param {Number} routeSettingsId the id of the route setting to delete
      * @param {module:api/RouteSettingApi~deleteRouteSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    deleteRouteSettings(version, routeSettingsId, callback) {
+    deleteRouteSettings(routeSettingsId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteRouteSettings");
-      }
       // verify the required parameter 'routeSettingsId' is set
       if (routeSettingsId === undefined || routeSettingsId === null) {
         throw new Error("Missing the required parameter 'routeSettingsId' when calling deleteRouteSettings");
       }
 
       let pathParams = {
-        'version': version,
         'routeSettingsId': routeSettingsId
       };
       let queryParams = {
@@ -123,7 +111,7 @@ export default class RouteSettingApi {
       let accepts = ['*/*'];
       let returnType = Object;
       return this.apiClient.callApi(
-        '/api/{version}/route/setting/{routeSettingsId}', 'DELETE',
+        '/route/setting/{routeSettingsId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -140,24 +128,18 @@ export default class RouteSettingApi {
     /**
      * Get Route Setting
      * Get an existing route settings
-     * @param {Number} version 
      * @param {Number} routeSettingsId the id of the route settings to get
      * @param {module:api/RouteSettingApi~getRouteSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RouteSettings}
      */
-    getRouteSettings(version, routeSettingsId, callback) {
+    getRouteSettings(routeSettingsId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRouteSettings");
-      }
       // verify the required parameter 'routeSettingsId' is set
       if (routeSettingsId === undefined || routeSettingsId === null) {
         throw new Error("Missing the required parameter 'routeSettingsId' when calling getRouteSettings");
       }
 
       let pathParams = {
-        'version': version,
         'routeSettingsId': routeSettingsId
       };
       let queryParams = {
@@ -172,7 +154,7 @@ export default class RouteSettingApi {
       let accepts = ['*/*'];
       let returnType = RouteSettings;
       return this.apiClient.callApi(
-        '/api/{version}/route/setting/{routeSettingsId}', 'GET',
+        '/route/setting/{routeSettingsId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -189,7 +171,6 @@ export default class RouteSettingApi {
     /**
      * Search Route Settings
      * Search for route settings
-     * @param {Number} version 
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
      * @param {Number} start The start index for pagination
@@ -202,13 +183,9 @@ export default class RouteSettingApi {
      * @param {module:api/RouteSettingApi~searchRouteSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RouteSettings>}
      */
-    searchRouteSettings(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchRouteSettings(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRouteSettings");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchRouteSettings");
@@ -231,7 +208,6 @@ export default class RouteSettingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'hubId': opts['hubId'],
@@ -253,7 +229,7 @@ export default class RouteSettingApi {
       let accepts = ['*/*'];
       let returnType = [RouteSettings];
       return this.apiClient.callApi(
-        '/api/{version}/route/setting', 'GET',
+        '/route/setting', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -270,27 +246,21 @@ export default class RouteSettingApi {
     /**
      * Update Route Setting
      * Update an existing route setting
-     * @param {Number} version 
      * @param {Number} routeSettingsId the id of the route settings to update
      * @param {Object} opts Optional parameters
      * @param {module:model/RouteSettings} [body] 
      * @param {module:api/RouteSettingApi~updateRouteSettingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RouteSettings}
      */
-    updateRouteSettings(version, routeSettingsId, opts, callback) {
+    updateRouteSettings(routeSettingsId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRouteSettings");
-      }
       // verify the required parameter 'routeSettingsId' is set
       if (routeSettingsId === undefined || routeSettingsId === null) {
         throw new Error("Missing the required parameter 'routeSettingsId' when calling updateRouteSettings");
       }
 
       let pathParams = {
-        'version': version,
         'routeSettingsId': routeSettingsId
       };
       let queryParams = {
@@ -305,7 +275,7 @@ export default class RouteSettingApi {
       let accepts = ['*/*'];
       let returnType = RouteSettings;
       return this.apiClient.callApi(
-        '/api/{version}/route/setting/{routeSettingsId}', 'PUT',
+        '/route/setting/{routeSettingsId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

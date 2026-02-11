@@ -46,7 +46,6 @@ export default class UserPermissionsApi {
     /**
      * Add User
      * Adds a user to a permissionable object.
-     * @param {Number} version 
      * @param {module:model/String} permissionableType the permissionable type of the object
      * @param {Number} permissionableId the id of the permissionable object
      * @param {Object} opts Optional parameters
@@ -68,13 +67,9 @@ export default class UserPermissionsApi {
      * @param {module:api/UserPermissionsApi~addUsersToPermissionableCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    addUsersToPermissionable(version, permissionableType, permissionableId, opts, callback) {
+    addUsersToPermissionable(permissionableType, permissionableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addUsersToPermissionable");
-      }
       // verify the required parameter 'permissionableType' is set
       if (permissionableType === undefined || permissionableType === null) {
         throw new Error("Missing the required parameter 'permissionableType' when calling addUsersToPermissionable");
@@ -85,7 +80,6 @@ export default class UserPermissionsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -116,7 +110,7 @@ export default class UserPermissionsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/permissions/add', 'POST',
+        '/consumer/permissions/add', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -133,7 +127,6 @@ export default class UserPermissionsApi {
     /**
      * Approve Permissionable
      * Sets the approval status of a permissionable object.
-     * @param {Number} version 
      * @param {module:model/String} permissionableType The permissionable type of the object
      * @param {Number} permissionableId The id of the permissionable object
      * @param {Object} opts Optional parameters
@@ -143,13 +136,9 @@ export default class UserPermissionsApi {
      * @param {module:api/UserPermissionsApi~approvePermissionableCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    approvePermissionable(version, permissionableType, permissionableId, opts, callback) {
+    approvePermissionable(permissionableType, permissionableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling approvePermissionable");
-      }
       // verify the required parameter 'permissionableType' is set
       if (permissionableType === undefined || permissionableType === null) {
         throw new Error("Missing the required parameter 'permissionableType' when calling approvePermissionable");
@@ -160,7 +149,6 @@ export default class UserPermissionsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -179,7 +167,7 @@ export default class UserPermissionsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/permissionable/approve', 'POST',
+        '/permissionable/approve', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -196,7 +184,6 @@ export default class UserPermissionsApi {
     /**
      * Leave
      * Used when the user wants to leave from someone else's permissionable object
-     * @param {Number} version 
      * @param {String} permissionableType the permissionable type PermissionableType
      * @param {Number} permissionableId the id of the permissionable object
      * @param {Object} opts Optional parameters
@@ -207,13 +194,9 @@ export default class UserPermissionsApi {
      * @param {module:api/UserPermissionsApi~leaveFromPermissionableCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    leaveFromPermissionable(version, permissionableType, permissionableId, opts, callback) {
+    leaveFromPermissionable(permissionableType, permissionableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling leaveFromPermissionable");
-      }
       // verify the required parameter 'permissionableType' is set
       if (permissionableType === undefined || permissionableType === null) {
         throw new Error("Missing the required parameter 'permissionableType' when calling leaveFromPermissionable");
@@ -224,7 +207,6 @@ export default class UserPermissionsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -244,7 +226,7 @@ export default class UserPermissionsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/permissions/leave', 'POST',
+        '/consumer/permissions/leave', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -261,7 +243,6 @@ export default class UserPermissionsApi {
     /**
      * Remove User
      * Used to remove someone (assuming they have permission) from a permissionable object
-     * @param {Number} version 
      * @param {module:model/String} permissionableType the permissionable type of the object
      * @param {Number} permissionableId the id of the permissionable object
      * @param {Object} opts Optional parameters
@@ -277,13 +258,9 @@ export default class UserPermissionsApi {
      * @param {module:api/UserPermissionsApi~removeUsersFromPermissionableCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeUsersFromPermissionable(version, permissionableType, permissionableId, opts, callback) {
+    removeUsersFromPermissionable(permissionableType, permissionableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeUsersFromPermissionable");
-      }
       // verify the required parameter 'permissionableType' is set
       if (permissionableType === undefined || permissionableType === null) {
         throw new Error("Missing the required parameter 'permissionableType' when calling removeUsersFromPermissionable");
@@ -294,7 +271,6 @@ export default class UserPermissionsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -319,7 +295,7 @@ export default class UserPermissionsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/permissions/remove', 'POST',
+        '/consumer/permissions/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -336,7 +312,6 @@ export default class UserPermissionsApi {
     /**
      * Search Permissionables
      * Search on UserPermissions
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] A unique ID given by the device (deviceId or accountId required)
      * @param {Number} [accountId] The account ID of the user (deviceId or accountId required)
@@ -354,16 +329,11 @@ export default class UserPermissionsApi {
      * @param {module:api/UserPermissionsApi~searchPermissionablesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserPermissionsResponse>}
      */
-    searchPermissionables(version, opts, callback) {
+    searchPermissionables(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchPermissionables");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -390,7 +360,7 @@ export default class UserPermissionsApi {
       let accepts = ['*/*'];
       let returnType = [UserPermissionsResponse];
       return this.apiClient.callApi(
-        '/api/{version}/permissions/search', 'GET',
+        '/permissions/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -407,7 +377,6 @@ export default class UserPermissionsApi {
     /**
      * Search Permissionables by Distnace
      * Search on UserPermissions by distance
-     * @param {Number} version 
      * @param {Number} latitude The latitude of the current account
      * @param {Number} longitude The longitude of the current account
      * @param {Object} opts Optional parameters
@@ -426,13 +395,9 @@ export default class UserPermissionsApi {
      * @param {module:api/UserPermissionsApi~searchPermissionablesFollowingDistanceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserPermissionsResponse>}
      */
-    searchPermissionablesFollowingDistance(version, latitude, longitude, opts, callback) {
+    searchPermissionablesFollowingDistance(latitude, longitude, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchPermissionablesFollowingDistance");
-      }
       // verify the required parameter 'latitude' is set
       if (latitude === undefined || latitude === null) {
         throw new Error("Missing the required parameter 'latitude' when calling searchPermissionablesFollowingDistance");
@@ -443,7 +408,6 @@ export default class UserPermissionsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -471,7 +435,7 @@ export default class UserPermissionsApi {
       let accepts = ['*/*'];
       let returnType = [UserPermissionsResponse];
       return this.apiClient.callApi(
-        '/api/{version}/permissions/distancesearch', 'GET',
+        '/permissions/distancesearch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -47,7 +47,6 @@ export default class FlagApi {
     /**
      * Create Flag
      * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-     * @param {Number} version 
      * @param {String} flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param {Number} flagableId The flagable object id
      * @param {Object} opts Optional parameters
@@ -59,13 +58,9 @@ export default class FlagApi {
      * @param {module:api/FlagApi~createFlagCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    createFlag(version, flagableType, flagableId, opts, callback) {
+    createFlag(flagableType, flagableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createFlag");
-      }
       // verify the required parameter 'flagableType' is set
       if (flagableType === undefined || flagableType === null) {
         throw new Error("Missing the required parameter 'flagableType' when calling createFlag");
@@ -76,7 +71,6 @@ export default class FlagApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -97,7 +91,7 @@ export default class FlagApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/flag/create', 'POST',
+        '/flag/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -114,7 +108,6 @@ export default class FlagApi {
     /**
      * Delete Flag
      * Deletes a flag.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param {Number} [accountId] The unique accountId that made the request (either deviceId or accountId must be used)
@@ -125,16 +118,11 @@ export default class FlagApi {
      * @param {module:api/FlagApi~deleteFlagCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteFlag(version, opts, callback) {
+    deleteFlag(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteFlag");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -154,7 +142,7 @@ export default class FlagApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/flag/delete', 'POST',
+        '/flag/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -171,7 +159,6 @@ export default class FlagApi {
     /**
      * Get Flag
      * Gets the details on whether the user has flagged a particular flagable object.
-     * @param {Number} version 
      * @param {String} flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
      * @param {Number} flagableId The flagable object id
      * @param {Object} opts Optional parameters
@@ -182,13 +169,9 @@ export default class FlagApi {
      * @param {module:api/FlagApi~getFlagCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FlagResponse}
      */
-    getFlag(version, flagableType, flagableId, opts, callback) {
+    getFlag(flagableType, flagableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getFlag");
-      }
       // verify the required parameter 'flagableType' is set
       if (flagableType === undefined || flagableType === null) {
         throw new Error("Missing the required parameter 'flagableType' when calling getFlag");
@@ -199,7 +182,6 @@ export default class FlagApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -219,7 +201,7 @@ export default class FlagApi {
       let accepts = ['*/*'];
       let returnType = FlagResponse;
       return this.apiClient.callApi(
-        '/api/{version}/flag/get', 'GET',
+        '/flag/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -236,18 +218,13 @@ export default class FlagApi {
     /**
      * Get Flag Threshold
      * Get the flag threshold value on an object type for a particular application.
-     * @param {Number} version 
      * @param {String} itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param {String} appKey The application key
      * @param {module:api/FlagApi~getFlagThresholdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CountResponse}
      */
-    getFlagThreshold(version, itemBeingFlaggedType, appKey, callback) {
+    getFlagThreshold(itemBeingFlaggedType, appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getFlagThreshold");
-      }
       // verify the required parameter 'itemBeingFlaggedType' is set
       if (itemBeingFlaggedType === undefined || itemBeingFlaggedType === null) {
         throw new Error("Missing the required parameter 'itemBeingFlaggedType' when calling getFlagThreshold");
@@ -258,7 +235,6 @@ export default class FlagApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'itemBeingFlaggedType': itemBeingFlaggedType,
@@ -274,7 +250,7 @@ export default class FlagApi {
       let accepts = ['*/*'];
       let returnType = CountResponse;
       return this.apiClient.callApi(
-        '/api/{version}/flag/threshold/get', 'GET',
+        '/flag/threshold/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -291,7 +267,6 @@ export default class FlagApi {
     /**
      * Update Flag Threshold
      * Update the flag threshold on an object type for a particular application.
-     * @param {Number} version 
      * @param {String} itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
      * @param {Number} threshold The threshold value
      * @param {String} appKey The application key
@@ -301,13 +276,9 @@ export default class FlagApi {
      * @param {module:api/FlagApi~updateFlagThresholdCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CountResponse}
      */
-    updateFlagThreshold(version, itemBeingFlaggedType, threshold, appKey, opts, callback) {
+    updateFlagThreshold(itemBeingFlaggedType, threshold, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateFlagThreshold");
-      }
       // verify the required parameter 'itemBeingFlaggedType' is set
       if (itemBeingFlaggedType === undefined || itemBeingFlaggedType === null) {
         throw new Error("Missing the required parameter 'itemBeingFlaggedType' when calling updateFlagThreshold");
@@ -322,7 +293,6 @@ export default class FlagApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -341,7 +311,7 @@ export default class FlagApi {
       let accepts = ['*/*'];
       let returnType = CountResponse;
       return this.apiClient.callApi(
-        '/api/{version}/flag/threshold/update', 'POST',
+        '/flag/threshold/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

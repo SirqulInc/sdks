@@ -45,22 +45,16 @@ export default class ProgramApi {
     /**
      * Create Program
      * Create a new program
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/Program} [body] 
      * @param {module:api/ProgramApi~createProgramCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Program}
      */
-    createProgram(version, opts, callback) {
+    createProgram(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createProgram");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -74,7 +68,7 @@ export default class ProgramApi {
       let accepts = ['*/*'];
       let returnType = Program;
       return this.apiClient.callApi(
-        '/api/{version}/program', 'POST',
+        '/program', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -91,23 +85,17 @@ export default class ProgramApi {
     /**
      * Delete Program
      * Delete an existing program
-     * @param {Number} version 
      * @param {Number} id the id of the program
      * @param {module:api/ProgramApi~deleteProgramCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteProgram(version, id, callback) {
+    deleteProgram(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteProgram");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteProgram");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -122,7 +110,7 @@ export default class ProgramApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/program/{id}', 'DELETE',
+        '/program/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -139,24 +127,18 @@ export default class ProgramApi {
     /**
      * Get Program
      * Get an existing program
-     * @param {Number} version 
      * @param {Number} id the id of the program
      * @param {module:api/ProgramApi~getProgramCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Program}
      */
-    getProgram(version, id, callback) {
+    getProgram(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getProgram");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getProgram");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -171,7 +153,7 @@ export default class ProgramApi {
       let accepts = ['*/*'];
       let returnType = Program;
       return this.apiClient.callApi(
-        '/api/{version}/program/{id}', 'GET',
+        '/program/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -188,27 +170,21 @@ export default class ProgramApi {
     /**
      * Update Program
      * Update an existing program
-     * @param {Number} version 
      * @param {Number} id the id of the program
      * @param {Object} opts Optional parameters
      * @param {module:model/Program} [body] 
      * @param {module:api/ProgramApi~postProgramCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Program}
      */
-    postProgram(version, id, opts, callback) {
+    postProgram(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling postProgram");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling postProgram");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -223,7 +199,7 @@ export default class ProgramApi {
       let accepts = ['*/*'];
       let returnType = Program;
       return this.apiClient.callApi(
-        '/api/{version}/program/{id}', 'POST',
+        '/program/{id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -240,27 +216,21 @@ export default class ProgramApi {
     /**
      * Update Program
      * Update an existing program
-     * @param {Number} version 
      * @param {Number} id the id of the program
      * @param {Object} opts Optional parameters
      * @param {module:model/Program} [body] 
      * @param {module:api/ProgramApi~putProgramCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Program}
      */
-    putProgram(version, id, opts, callback) {
+    putProgram(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling putProgram");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling putProgram");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -275,7 +245,7 @@ export default class ProgramApi {
       let accepts = ['*/*'];
       let returnType = Program;
       return this.apiClient.callApi(
-        '/api/{version}/program/{id}', 'PUT',
+        '/program/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -292,7 +262,6 @@ export default class ProgramApi {
     /**
      * Search Programs
      * Search for programs
-     * @param {Number} version 
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
      * @param {Number} start The start index for pagination
@@ -303,13 +272,9 @@ export default class ProgramApi {
      * @param {module:api/ProgramApi~searchProgramsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Program>}
      */
-    searchPrograms(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchPrograms(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchPrograms");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchPrograms");
@@ -332,7 +297,6 @@ export default class ProgramApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'keyword': opts['keyword'],
@@ -352,7 +316,7 @@ export default class ProgramApi {
       let accepts = ['*/*'];
       let returnType = [Program];
       return this.apiClient.callApi(
-        '/api/{version}/program', 'GET',
+        '/program', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

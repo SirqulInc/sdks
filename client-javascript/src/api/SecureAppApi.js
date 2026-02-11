@@ -47,7 +47,6 @@ export default class SecureAppApi {
     /**
      * Create Secure Application
      * Create a secure application record.
-     * @param {Number} version 
      * @param {Number} accountId The unique id of the user making the request
      * @param {String} appKey The application to secure
      * @param {File} keyCert 
@@ -62,13 +61,9 @@ export default class SecureAppApi {
      * @param {module:api/SecureAppApi~createSecureApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    createSecureApplication(version, accountId, appKey, keyCert, trustStore, username, password, opts, callback) {
+    createSecureApplication(accountId, appKey, keyCert, trustStore, username, password, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createSecureApplication");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createSecureApplication");
@@ -95,7 +90,6 @@ export default class SecureAppApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -119,7 +113,7 @@ export default class SecureAppApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/secure/application/create', 'POST',
+        '/secure/application/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -136,18 +130,13 @@ export default class SecureAppApi {
     /**
      * Delete Secure Application
      * Delete a secure application record.
-     * @param {Number} version 
      * @param {Number} accountId The unique id of the user making the request
      * @param {String} appKey The application to secure
      * @param {module:api/SecureAppApi~deleteSecureApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteSecureApplication(version, accountId, appKey, callback) {
+    deleteSecureApplication(accountId, appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteSecureApplication");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteSecureApplication");
@@ -158,7 +147,6 @@ export default class SecureAppApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -174,7 +162,7 @@ export default class SecureAppApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/secure/application/delete', 'POST',
+        '/secure/application/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -191,7 +179,6 @@ export default class SecureAppApi {
     /**
      * Login Clear
      * Login via Clear.me. Creates a new account if logging in for the first time.
-     * @param {Number} version 
      * @param {String} appKey The application making the request, defines what type and position is required to make a secure login the request.
      * @param {File} biometricFile The data file used to perform authentication
      * @param {Object} opts Optional parameters
@@ -205,13 +192,9 @@ export default class SecureAppApi {
      * @param {module:api/SecureAppApi~loginSecureCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    loginSecure(version, appKey, biometricFile, opts, callback) {
+    loginSecure(appKey, biometricFile, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling loginSecure");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling loginSecure");
@@ -222,7 +205,6 @@ export default class SecureAppApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -245,7 +227,7 @@ export default class SecureAppApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/secure/login', 'POST',
+        '/secure/login', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -262,24 +244,18 @@ export default class SecureAppApi {
     /**
      * Purchase Clear
      * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-     * @param {Number} version 
      * @param {module:model/PaymentRequest} body The payment request object
      * @param {module:api/SecureAppApi~purchaseSecureCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    purchaseSecure(version, body, callback) {
+    purchaseSecure(body, callback) {
       let postBody = body;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling purchaseSecure");
-      }
       // verify the required parameter 'body' is set
       if (body === undefined || body === null) {
         throw new Error("Missing the required parameter 'body' when calling purchaseSecure");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -293,7 +269,7 @@ export default class SecureAppApi {
       let accepts = ['application/json'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/secure/purchase', 'POST',
+        '/secure/purchase', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -310,18 +286,13 @@ export default class SecureAppApi {
     /**
      * Rest Secure Application
      * Reset a secure application client.
-     * @param {Number} version 
      * @param {Number} accountId The unique id of the user making the request
      * @param {String} appKey The application to secure
      * @param {module:api/SecureAppApi~resetSecureCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    resetSecure(version, accountId, appKey, callback) {
+    resetSecure(accountId, appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling resetSecure");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling resetSecure");
@@ -332,7 +303,6 @@ export default class SecureAppApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -348,7 +318,7 @@ export default class SecureAppApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/secure/application/reset', 'POST',
+        '/secure/application/reset', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -365,7 +335,6 @@ export default class SecureAppApi {
     /**
      * Update Secure Application
      * Update a secure application record.
-     * @param {Number} version 
      * @param {Number} accountId The unique id of the user making the request
      * @param {String} appKey The application to secure
      * @param {Object} opts Optional parameters
@@ -380,13 +349,9 @@ export default class SecureAppApi {
      * @param {module:api/SecureAppApi~updateSecureApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateSecureApplication(version, accountId, appKey, opts, callback) {
+    updateSecureApplication(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateSecureApplication");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateSecureApplication");
@@ -397,7 +362,6 @@ export default class SecureAppApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -421,7 +385,7 @@ export default class SecureAppApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/secure/application/update', 'POST',
+        '/secure/application/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

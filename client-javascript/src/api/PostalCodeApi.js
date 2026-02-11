@@ -46,7 +46,6 @@ export default class PostalCodeApi {
     /**
      * Create Postal Code
      * Create a Postal Code
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {String} code the postal code
      * @param {Number} latitude the latitude of the postal code
@@ -58,13 +57,9 @@ export default class PostalCodeApi {
      * @param {module:api/PostalCodeApi~createPostalCodeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostalCodeResponse}
      */
-    createPostalCode(version, accountId, code, latitude, longitude, opts, callback) {
+    createPostalCode(accountId, code, latitude, longitude, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createPostalCode");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createPostalCode");
@@ -83,7 +78,6 @@ export default class PostalCodeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -104,7 +98,7 @@ export default class PostalCodeApi {
       let accepts = ['*/*'];
       let returnType = PostalCodeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/postalCode/create', 'POST',
+        '/postalCode/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -121,18 +115,13 @@ export default class PostalCodeApi {
     /**
      * Delete Postal Code
      * Delete a Postal Code
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} postalCodeId the id of the postal code to delete
      * @param {module:api/PostalCodeApi~deletePostalCodeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deletePostalCode(version, accountId, postalCodeId, callback) {
+    deletePostalCode(accountId, postalCodeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deletePostalCode");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deletePostalCode");
@@ -143,7 +132,6 @@ export default class PostalCodeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -159,7 +147,7 @@ export default class PostalCodeApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/postalCode/delete', 'POST',
+        '/postalCode/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -176,24 +164,18 @@ export default class PostalCodeApi {
     /**
      * Get Postal Code
      * Get a Postal Code
-     * @param {Number} version 
      * @param {Number} postalCodeId the id of the postal code to get
      * @param {module:api/PostalCodeApi~getPostalCodeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostalCodeResponse}
      */
-    getPostalCode(version, postalCodeId, callback) {
+    getPostalCode(postalCodeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPostalCode");
-      }
       // verify the required parameter 'postalCodeId' is set
       if (postalCodeId === undefined || postalCodeId === null) {
         throw new Error("Missing the required parameter 'postalCodeId' when calling getPostalCode");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'postalCodeId': postalCodeId
@@ -208,7 +190,7 @@ export default class PostalCodeApi {
       let accepts = ['*/*'];
       let returnType = PostalCodeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/postalCode/get', 'GET',
+        '/postalCode/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -225,7 +207,6 @@ export default class PostalCodeApi {
     /**
      * Search Postal Codes
      * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-     * @param {Number} version 
      * @param {String} sortField the field to sort the results on
      * @param {Boolean} descending whether to order results in ascending or descending order
      * @param {Object} opts Optional parameters
@@ -238,13 +219,9 @@ export default class PostalCodeApi {
      * @param {module:api/PostalCodeApi~getPostalCodesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PostalCodeResponse>}
      */
-    getPostalCodes(version, sortField, descending, opts, callback) {
+    getPostalCodes(sortField, descending, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPostalCodes");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling getPostalCodes");
@@ -255,7 +232,6 @@ export default class PostalCodeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'latitude': opts['latitude'],
@@ -277,7 +253,7 @@ export default class PostalCodeApi {
       let accepts = ['*/*'];
       let returnType = [PostalCodeResponse];
       return this.apiClient.callApi(
-        '/api/{version}/postalCode/search', 'GET',
+        '/postalCode/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -294,7 +270,6 @@ export default class PostalCodeApi {
     /**
      * Update Postal Code
      * Update a Postal Code
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} postalCodeId the id of the postal code to update
      * @param {Object} opts Optional parameters
@@ -307,13 +282,9 @@ export default class PostalCodeApi {
      * @param {module:api/PostalCodeApi~updatePostalCodeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PostalCodeResponse}
      */
-    updatePostalCode(version, accountId, postalCodeId, opts, callback) {
+    updatePostalCode(accountId, postalCodeId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updatePostalCode");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updatePostalCode");
@@ -324,7 +295,6 @@ export default class PostalCodeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -346,7 +316,7 @@ export default class PostalCodeApi {
       let accepts = ['*/*'];
       let returnType = PostalCodeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/postalCode/update', 'POST',
+        '/postalCode/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

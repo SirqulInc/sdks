@@ -48,7 +48,6 @@ export default class ListingApi {
     /**
      * Create Listing
      * Creates a listing.
-     * @param {Number} version 
      * @param {Number} accountId the user's account ID
      * @param {String} name the name of the listing
      * @param {Object} opts Optional parameters
@@ -67,13 +66,9 @@ export default class ListingApi {
      * @param {module:api/ListingApi~createListingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ListingFullResponse}
      */
-    createListing(version, accountId, name, opts, callback) {
+    createListing(accountId, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createListing");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createListing");
@@ -84,7 +79,6 @@ export default class ListingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -112,7 +106,7 @@ export default class ListingApi {
       let accepts = ['*/*'];
       let returnType = ListingFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/listing/create', 'POST',
+        '/listing/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -129,18 +123,13 @@ export default class ListingApi {
     /**
      * Delete Listing
      * Delete a listing.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} listingId the id of the listing to delete
      * @param {module:api/ListingApi~deleteListingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteListing(version, accountId, listingId, callback) {
+    deleteListing(accountId, listingId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteListing");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteListing");
@@ -151,7 +140,6 @@ export default class ListingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -167,7 +155,7 @@ export default class ListingApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/listing/delete', 'POST',
+        '/listing/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -184,24 +172,18 @@ export default class ListingApi {
     /**
      * Get Listing
      * Get a listing by id.
-     * @param {Number} version 
      * @param {Number} listingId the id of the listing to get
      * @param {module:api/ListingApi~getListingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ListingFullResponse}
      */
-    getListing(version, listingId, callback) {
+    getListing(listingId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getListing");
-      }
       // verify the required parameter 'listingId' is set
       if (listingId === undefined || listingId === null) {
         throw new Error("Missing the required parameter 'listingId' when calling getListing");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'listingId': listingId
@@ -216,7 +198,7 @@ export default class ListingApi {
       let accepts = ['*/*'];
       let returnType = ListingFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/listing/get', 'GET',
+        '/listing/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -233,7 +215,6 @@ export default class ListingApi {
     /**
      * Search Listings
      * Search for event listings from the start time to end time
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the account id of the user
      * @param {String} [keyword] search the event name and description for this keyword
@@ -253,16 +234,11 @@ export default class ListingApi {
      * @param {module:api/ListingApi~searchListingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ListingResponse>}
      */
-    searchListing(version, opts, callback) {
+    searchListing(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchListing");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -291,7 +267,7 @@ export default class ListingApi {
       let accepts = ['*/*'];
       let returnType = [ListingResponse];
       return this.apiClient.callApi(
-        '/api/{version}/listing/search', 'GET',
+        '/listing/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -308,7 +284,6 @@ export default class ListingApi {
     /**
      * Summary Listing
      * Search for a list of summary listings from the start time up to 8 days out.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the account id of the user
      * @param {Number} [startDate] the start date to search from
@@ -318,16 +293,11 @@ export default class ListingApi {
      * @param {module:api/ListingApi~summaryListingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ListingGroupResponse>}
      */
-    summaryListing(version, opts, callback) {
+    summaryListing(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling summaryListing");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -346,7 +316,7 @@ export default class ListingApi {
       let accepts = ['*/*'];
       let returnType = [ListingGroupResponse];
       return this.apiClient.callApi(
-        '/api/{version}/listing/summary', 'GET',
+        '/listing/summary', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -363,7 +333,6 @@ export default class ListingApi {
     /**
      * Update Listing
      * Updates a listing.
-     * @param {Number} version 
      * @param {Number} accountId the user's account ID
      * @param {Number} listingId the listing to update
      * @param {Object} opts Optional parameters
@@ -383,13 +352,9 @@ export default class ListingApi {
      * @param {module:api/ListingApi~updateListingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ListingFullResponse}
      */
-    updateListing(version, accountId, listingId, opts, callback) {
+    updateListing(accountId, listingId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateListing");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateListing");
@@ -400,7 +365,6 @@ export default class ListingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -429,7 +393,7 @@ export default class ListingApi {
       let accepts = ['*/*'];
       let returnType = ListingFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/listing/update', 'POST',
+        '/listing/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

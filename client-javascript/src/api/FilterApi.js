@@ -47,7 +47,6 @@ export default class FilterApi {
     /**
      * Create Filter
      * Create a filter
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user (must have permissions to the target application)
      * @param {String} name The name of the filter
      * @param {Object} opts Optional parameters
@@ -61,13 +60,9 @@ export default class FilterApi {
      * @param {module:api/FilterApi~createFilterCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FilterTreeResponse}
      */
-    createFilter(version, accountId, name, opts, callback) {
+    createFilter(accountId, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createFilter");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createFilter");
@@ -78,7 +73,6 @@ export default class FilterApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -101,7 +95,7 @@ export default class FilterApi {
       let accepts = ['*/*'];
       let returnType = FilterTreeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/filter/create', 'POST',
+        '/filter/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -118,18 +112,13 @@ export default class FilterApi {
     /**
      * Delete Filter
      * Delete a filter.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user (must have permissions to the filter's assigned application)
      * @param {Number} filterId The ID of the filter to delete
      * @param {module:api/FilterApi~deleteFilterCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteFilter(version, accountId, filterId, callback) {
+    deleteFilter(accountId, filterId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteFilter");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteFilter");
@@ -140,7 +129,6 @@ export default class FilterApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -156,7 +144,7 @@ export default class FilterApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/filter/delete', 'POST',
+        '/filter/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -173,24 +161,18 @@ export default class FilterApi {
     /**
      * Get Filter
      * Get the details of a specific filter. Recursively include all child filters and their children.
-     * @param {Number} version 
      * @param {Number} filterId the id of the filter to get
      * @param {module:api/FilterApi~getFilterCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FilterTreeResponse}
      */
-    getFilter(version, filterId, callback) {
+    getFilter(filterId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getFilter");
-      }
       // verify the required parameter 'filterId' is set
       if (filterId === undefined || filterId === null) {
         throw new Error("Missing the required parameter 'filterId' when calling getFilter");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'filterId': filterId
@@ -205,7 +187,7 @@ export default class FilterApi {
       let accepts = ['*/*'];
       let returnType = FilterTreeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/filter/get', 'GET',
+        '/filter/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -222,7 +204,6 @@ export default class FilterApi {
     /**
      * Search Filters
      * Search for filters.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user
      * @param {String} [keyword] The string to search on
@@ -237,16 +218,11 @@ export default class FilterApi {
      * @param {module:api/FilterApi~searchFiltersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/FilterResponse>}
      */
-    searchFilters(version, opts, callback) {
+    searchFilters(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchFilters");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -270,7 +246,7 @@ export default class FilterApi {
       let accepts = ['*/*'];
       let returnType = [FilterResponse];
       return this.apiClient.callApi(
-        '/api/{version}/filter/search', 'GET',
+        '/filter/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -287,7 +263,6 @@ export default class FilterApi {
     /**
      * Update Filter
      * Update a filter.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {Number} filterId The ID of the filter to edit
      * @param {Object} opts Optional parameters
@@ -301,13 +276,9 @@ export default class FilterApi {
      * @param {module:api/FilterApi~updateFilterCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FilterTreeResponse}
      */
-    updateFilter(version, accountId, filterId, opts, callback) {
+    updateFilter(accountId, filterId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateFilter");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateFilter");
@@ -318,7 +289,6 @@ export default class FilterApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -341,7 +311,7 @@ export default class FilterApi {
       let accepts = ['*/*'];
       let returnType = FilterTreeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/filter/update', 'POST',
+        '/filter/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

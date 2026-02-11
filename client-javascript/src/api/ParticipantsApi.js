@@ -45,7 +45,6 @@ export default class ParticipantsApi {
     /**
      * Process All Participant Feeds
      * Processes all supported participant feeds.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {Object} opts Optional parameters
      * @param {String} [appKey] The application key used to identify the application
@@ -53,20 +52,15 @@ export default class ParticipantsApi {
      * @param {module:api/ParticipantsApi~processAllParticipantsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    processAllParticipants(version, accountId, opts, callback) {
+    processAllParticipants(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling processAllParticipants");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling processAllParticipants");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -83,7 +77,7 @@ export default class ParticipantsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/participant/process/all', 'POST',
+        '/participant/process/all', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -100,7 +94,6 @@ export default class ParticipantsApi {
     /**
      * Process Participants Feed
      * Processes a participant feed or uploaded file for a specific league.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {String} league The league identifier to process
      * @param {Object} opts Optional parameters
@@ -110,13 +103,9 @@ export default class ParticipantsApi {
      * @param {module:api/ParticipantsApi~processParticipantsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    processParticipants(version, accountId, league, opts, callback) {
+    processParticipants(accountId, league, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling processParticipants");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling processParticipants");
@@ -127,7 +116,6 @@ export default class ParticipantsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -146,7 +134,7 @@ export default class ParticipantsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/participant/process', 'POST',
+        '/participant/process', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -45,27 +45,21 @@ export default class VehicleTypeApi {
     /**
      * Create Vehicle Type
      * Create a new vehicle type
-     * @param {Number} version 
      * @param {String} vehicleType A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"width\": 100,   \"height\": 200,   \"depth\": 200,   \"maxWeight\": 5000,   \"hub\": { \"id\": 1 } } ``` 
      * @param {Object} opts Optional parameters
      * @param {module:model/VehicleType} [body] 
      * @param {module:api/VehicleTypeApi~createVehicleTypeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/VehicleType}
      */
-    createVehicleType(version, vehicleType, opts, callback) {
+    createVehicleType(vehicleType, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createVehicleType");
-      }
       // verify the required parameter 'vehicleType' is set
       if (vehicleType === undefined || vehicleType === null) {
         throw new Error("Missing the required parameter 'vehicleType' when calling createVehicleType");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'vehicleType': vehicleType
@@ -80,7 +74,7 @@ export default class VehicleTypeApi {
       let accepts = ['*/*'];
       let returnType = VehicleType;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/type', 'POST',
+        '/vehicle/type', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -97,23 +91,17 @@ export default class VehicleTypeApi {
     /**
      * Delete Vehicle Type
      * Delete a vehicle type
-     * @param {Number} version 
      * @param {Number} vehicleTypeId The id of the requested vehicle type
      * @param {module:api/VehicleTypeApi~deleteVehicleTypeCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteVehicleType(version, vehicleTypeId, callback) {
+    deleteVehicleType(vehicleTypeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteVehicleType");
-      }
       // verify the required parameter 'vehicleTypeId' is set
       if (vehicleTypeId === undefined || vehicleTypeId === null) {
         throw new Error("Missing the required parameter 'vehicleTypeId' when calling deleteVehicleType");
       }
 
       let pathParams = {
-        'version': version,
         'vehicleTypeId': vehicleTypeId
       };
       let queryParams = {
@@ -128,7 +116,7 @@ export default class VehicleTypeApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/type/{vehicleTypeId}', 'DELETE',
+        '/vehicle/type/{vehicleTypeId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -145,24 +133,18 @@ export default class VehicleTypeApi {
     /**
      * Get Vehicle Type
      * Get a vehicle type
-     * @param {Number} version 
      * @param {Number} vehicleTypeId The id of the requested vehicle type
      * @param {module:api/VehicleTypeApi~getVehicleTypeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/VehicleType}
      */
-    getVehicleType(version, vehicleTypeId, callback) {
+    getVehicleType(vehicleTypeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getVehicleType");
-      }
       // verify the required parameter 'vehicleTypeId' is set
       if (vehicleTypeId === undefined || vehicleTypeId === null) {
         throw new Error("Missing the required parameter 'vehicleTypeId' when calling getVehicleType");
       }
 
       let pathParams = {
-        'version': version,
         'vehicleTypeId': vehicleTypeId
       };
       let queryParams = {
@@ -177,7 +159,7 @@ export default class VehicleTypeApi {
       let accepts = ['*/*'];
       let returnType = VehicleType;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/type/{vehicleTypeId}', 'GET',
+        '/vehicle/type/{vehicleTypeId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -194,7 +176,6 @@ export default class VehicleTypeApi {
     /**
      * Search Vehicle Type
      * Search for types of vehicles
-     * @param {Number} version 
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
      * @param {Number} start The start index for pagination
@@ -206,13 +187,9 @@ export default class VehicleTypeApi {
      * @param {module:api/VehicleTypeApi~searchVehicleTypesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/VehicleType>}
      */
-    searchVehicleTypes(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchVehicleTypes(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchVehicleTypes");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchVehicleTypes");
@@ -235,7 +212,6 @@ export default class VehicleTypeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'retailerId': opts['retailerId'],
@@ -256,7 +232,7 @@ export default class VehicleTypeApi {
       let accepts = ['*/*'];
       let returnType = [VehicleType];
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/type', 'GET',
+        '/vehicle/type', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -273,7 +249,6 @@ export default class VehicleTypeApi {
     /**
      * Update Vehicle Type
      * Update a vehicle type
-     * @param {Number} version 
      * @param {Number} vehicleTypeId The id of the vehicle type to update
      * @param {String} vehicleType The new data for the vehicle type to update to. A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"width\": 100,   \"height\": 200,   \"depth\": 200,   \"maxWeight\": 5000,   \"hub\": { \"id\": 1 } } ``` 
      * @param {Object} opts Optional parameters
@@ -281,13 +256,9 @@ export default class VehicleTypeApi {
      * @param {module:api/VehicleTypeApi~updateVehicleTypeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/VehicleType}
      */
-    updateVehicleType(version, vehicleTypeId, vehicleType, opts, callback) {
+    updateVehicleType(vehicleTypeId, vehicleType, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateVehicleType");
-      }
       // verify the required parameter 'vehicleTypeId' is set
       if (vehicleTypeId === undefined || vehicleTypeId === null) {
         throw new Error("Missing the required parameter 'vehicleTypeId' when calling updateVehicleType");
@@ -298,7 +269,6 @@ export default class VehicleTypeApi {
       }
 
       let pathParams = {
-        'version': version,
         'vehicleTypeId': vehicleTypeId
       };
       let queryParams = {
@@ -314,7 +284,7 @@ export default class VehicleTypeApi {
       let accepts = ['*/*'];
       let returnType = VehicleType;
       return this.apiClient.callApi(
-        '/api/{version}/vehicle/type/{vehicleTypeId}', 'PUT',
+        '/vehicle/type/{vehicleTypeId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

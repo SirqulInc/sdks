@@ -44,20 +44,15 @@ export default class VatomApi {
     /**
      * Create following
      * Create following.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomParameters Vatom Parameters
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~createFollowingCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    createFollowing(version, accountId, vatomParameters, opts, callback) {
+    createFollowing(accountId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createFollowing");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createFollowing");
@@ -68,7 +63,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -85,7 +79,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/rels/following/create', 'POST',
+        '/vatom/me/rels/following/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -102,7 +96,6 @@ export default class VatomApi {
     /**
      * Create Vatom Space
      * Create a Vatom space.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomParameters Vatom Parameters
@@ -110,13 +103,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~createSpaceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    createSpace(version, accountId, appKey, vatomParameters, opts, callback) {
+    createSpace(accountId, appKey, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createSpace");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createSpace");
@@ -131,7 +120,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -149,7 +137,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/spaces/create', 'POST',
+        '/vatom/b/spaces/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -166,7 +154,6 @@ export default class VatomApi {
     /**
      * Create Vatom Event
      * Create a Vatom event.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomParameters Vatom Parameters
@@ -174,13 +161,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~createVatomEventCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    createVatomEvent(version, accountId, appKey, vatomParameters, opts, callback) {
+    createVatomEvent(accountId, appKey, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createVatomEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createVatomEvent");
@@ -195,7 +178,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -213,7 +195,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/events/create', 'POST',
+        '/vatom/b/events/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -230,20 +212,15 @@ export default class VatomApi {
     /**
      * Delete following
      * Delete following.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomRelsKey Vatom Rels Key
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~deleteFollowingCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteFollowing(version, accountId, vatomRelsKey, opts, callback) {
+    deleteFollowing(accountId, vatomRelsKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteFollowing");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteFollowing");
@@ -254,7 +231,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -271,7 +247,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/rels/following/delete', 'POST',
+        '/vatom/me/rels/following/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -288,7 +264,6 @@ export default class VatomApi {
     /**
      * Reset All Points Balance
      * Reset All Points Balance.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomCampaignId Vatom Campaign Id
@@ -296,13 +271,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~deletePointsBalanceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deletePointsBalance(version, accountId, appKey, vatomCampaignId, opts, callback) {
+    deletePointsBalance(accountId, appKey, vatomCampaignId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deletePointsBalance");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deletePointsBalance");
@@ -317,7 +288,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -335,7 +305,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign/points/delete', 'POST',
+        '/vatom/b/campaign/points/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -352,7 +322,6 @@ export default class VatomApi {
     /**
      * Delete Vatom Space
      * Delete a Vatom space.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomSpaceId Vatom Space Id
@@ -360,13 +329,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~deleteSpaceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteSpace(version, accountId, appKey, vatomSpaceId, opts, callback) {
+    deleteSpace(accountId, appKey, vatomSpaceId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteSpace");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteSpace");
@@ -381,7 +346,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -399,7 +363,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/spaces/delete', 'POST',
+        '/vatom/b/spaces/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -416,7 +380,6 @@ export default class VatomApi {
     /**
      * Delete Vatom Event
      * Delete a Vatom event.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomEventId Vatom Event Id
@@ -424,13 +387,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~deleteVatomEventCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteVatomEvent(version, accountId, appKey, vatomEventId, opts, callback) {
+    deleteVatomEvent(accountId, appKey, vatomEventId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteVatomEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteVatomEvent");
@@ -445,7 +404,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -463,7 +421,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/events/delete', 'POST',
+        '/vatom/b/events/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -480,20 +438,15 @@ export default class VatomApi {
     /**
      * Delete Vatom NFT
      * Delete Vatom NFT
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomId Vatom NFT Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~deleteVatomNFTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteVatomNFT(version, accountId, vatomId, opts, callback) {
+    deleteVatomNFT(accountId, vatomId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteVatomNFT");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteVatomNFT");
@@ -504,7 +457,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -521,7 +473,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/vatoms/delete', 'POST',
+        '/vatom/vatoms/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -538,7 +490,6 @@ export default class VatomApi {
     /**
      * Execute Action on NFT
      * Execute Action on NFT.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomId Vatom NFT Id
      * @param {String} vatomParameters Vatom Parameters
@@ -546,13 +497,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~executeActionOnNFTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    executeActionOnNFT(version, accountId, vatomId, vatomParameters, opts, callback) {
+    executeActionOnNFT(accountId, vatomId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling executeActionOnNFT");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling executeActionOnNFT");
@@ -567,7 +514,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -585,7 +531,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/vatoms/execute-action', 'POST',
+        '/vatom/vatoms/execute-action', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -602,20 +548,15 @@ export default class VatomApi {
     /**
      * Search Vatom Geo Map
      * Search Vatom Geo Map
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomParameters Vatom Parameters
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~geomapSearchCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    geomapSearch(version, accountId, vatomParameters, opts, callback) {
+    geomapSearch(accountId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling geomapSearch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling geomapSearch");
@@ -626,7 +567,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -643,7 +583,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/vatoms/geo-map/search', 'GET',
+        '/vatom/vatoms/geo-map/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -660,20 +600,15 @@ export default class VatomApi {
     /**
      * Get Vatom Business Behaviors
      * Gets the behaviors of a business.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getBusinessBehaviorsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getBusinessBehaviors(version, accountId, appKey, opts, callback) {
+    getBusinessBehaviors(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBusinessBehaviors");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getBusinessBehaviors");
@@ -684,7 +619,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -701,7 +635,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/behaviors', 'GET',
+        '/vatom/b/behaviors', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -718,20 +652,15 @@ export default class VatomApi {
     /**
      * Get the coins for a Business
      * Get the coins for a Businesss.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getBusinessCoinsBalanceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getBusinessCoinsBalance(version, accountId, appKey, opts, callback) {
+    getBusinessCoinsBalance(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBusinessCoinsBalance");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getBusinessCoinsBalance");
@@ -742,7 +671,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -759,7 +687,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/coins/get', 'GET',
+        '/vatom/b/coins/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -776,26 +704,20 @@ export default class VatomApi {
     /**
      * Get the user business ids
      * Get the business ids the logged in user has access to.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getBusinessIdsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getBusinessIds(version, accountId, opts, callback) {
+    getBusinessIds(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBusinessIds");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getBusinessIds");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -811,7 +733,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/businesses', 'GET',
+        '/vatom/me/businesses', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -828,7 +750,6 @@ export default class VatomApi {
     /**
      * Get Vatom Business Info
      * Gets the business info tied to this account.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
@@ -836,13 +757,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getBusinessInfoCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getBusinessInfo(version, accountId, appKey, opts, callback) {
+    getBusinessInfo(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBusinessInfo");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getBusinessInfo");
@@ -853,7 +770,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -871,7 +787,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/get', 'GET',
+        '/vatom/b/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -888,20 +804,15 @@ export default class VatomApi {
     /**
      * Get Vatom Business Users
      * Gets the users of a business.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getBusinessUsersCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getBusinessUsers(version, accountId, appKey, opts, callback) {
+    getBusinessUsers(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBusinessUsers");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getBusinessUsers");
@@ -912,7 +823,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -929,7 +839,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/users', 'GET',
+        '/vatom/b/users', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -946,7 +856,6 @@ export default class VatomApi {
     /**
      * Get Campaign Group Entities
      * Get campaign group entities.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomCampaignId Vatom Campaign Id
@@ -954,13 +863,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getCampaignGroupEntitiesCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getCampaignGroupEntities(version, accountId, appKey, vatomCampaignId, opts, callback) {
+    getCampaignGroupEntities(accountId, appKey, vatomCampaignId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCampaignGroupEntities");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getCampaignGroupEntities");
@@ -975,7 +880,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -993,7 +897,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign-groups/entities', 'GET',
+        '/vatom/b/campaign-groups/entities', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1010,7 +914,6 @@ export default class VatomApi {
     /**
      * Get Campaign Group Rules
      * Get campaign group rules.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomCampaignId Vatom Campaign Id
@@ -1018,13 +921,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getCampaignGroupRulesCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getCampaignGroupRules(version, accountId, appKey, vatomCampaignId, opts, callback) {
+    getCampaignGroupRules(accountId, appKey, vatomCampaignId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCampaignGroupRules");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getCampaignGroupRules");
@@ -1039,7 +938,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1057,7 +955,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign-groups/rules', 'GET',
+        '/vatom/b/campaign-groups/rules', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1074,7 +972,6 @@ export default class VatomApi {
     /**
      * Get Campaign Group Stats
      * Get campaign group stats.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomCampaignId Vatom Campaign Id
@@ -1082,13 +979,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getCampaignGroupStatsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getCampaignGroupStats(version, accountId, appKey, vatomCampaignId, opts, callback) {
+    getCampaignGroupStats(accountId, appKey, vatomCampaignId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCampaignGroupStats");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getCampaignGroupStats");
@@ -1103,7 +996,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1121,7 +1013,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign-groups/stats', 'GET',
+        '/vatom/b/campaign-groups/stats', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1138,7 +1030,6 @@ export default class VatomApi {
     /**
      * Get Campaign Info
      * Gets the info on a campaign.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomCampaignId Vatom Campaign Id
@@ -1146,13 +1037,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getCampaignInfoCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getCampaignInfo(version, accountId, appKey, vatomCampaignId, opts, callback) {
+    getCampaignInfo(accountId, appKey, vatomCampaignId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCampaignInfo");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getCampaignInfo");
@@ -1167,7 +1054,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1185,7 +1071,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign-groups/get', 'GET',
+        '/vatom/b/campaign-groups/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1202,7 +1088,6 @@ export default class VatomApi {
     /**
      * Get Vatom Event Guest List
      * Gets the guest list of an event.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomEventId Vatom Event Id
@@ -1210,13 +1095,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getEventGuestListCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getEventGuestList(version, accountId, appKey, vatomEventId, opts, callback) {
+    getEventGuestList(accountId, appKey, vatomEventId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getEventGuestList");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getEventGuestList");
@@ -1231,7 +1112,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1249,7 +1129,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/events/guests/get', 'GET',
+        '/vatom/b/events/guests/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1266,20 +1146,15 @@ export default class VatomApi {
     /**
      * Get Vatom User's Inventory
      * Gets the logged in user's Vatom Inventory.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomParameters Vatom Parameters
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getInventoryCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getInventory(version, accountId, vatomParameters, opts, callback) {
+    getInventory(accountId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getInventory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getInventory");
@@ -1290,7 +1165,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1307,7 +1181,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/inventory', 'GET',
+        '/vatom/me/inventory', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1324,26 +1198,20 @@ export default class VatomApi {
     /**
      * Get following
      * Get following.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getMyFollowingCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getMyFollowing(version, accountId, opts, callback) {
+    getMyFollowing(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getMyFollowing");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getMyFollowing");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1359,7 +1227,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/rels/following', 'GET',
+        '/vatom/me/rels/following', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1376,7 +1244,6 @@ export default class VatomApi {
     /**
      * Get Points Balance
      * Gets the points balance of a Vatom user.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {String} vatomCampaignId Vatom Campaign Id
@@ -1384,13 +1251,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getPointsBalanceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getPointsBalance(version, accountId, vatomUserId, vatomCampaignId, opts, callback) {
+    getPointsBalance(accountId, vatomUserId, vatomCampaignId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPointsBalance");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPointsBalance");
@@ -1405,7 +1268,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1423,7 +1285,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/u/campaign/points/get', 'GET',
+        '/vatom/u/campaign/points/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1440,7 +1302,6 @@ export default class VatomApi {
     /**
      * Get Points Balance as Business
      * Gets the points balance of a Vatom user.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomUserId Vatom User Id
@@ -1449,13 +1310,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getPointsBalanceAsBusinessCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getPointsBalanceAsBusiness(version, accountId, appKey, vatomUserId, vatomCampaignId, opts, callback) {
+    getPointsBalanceAsBusiness(accountId, appKey, vatomUserId, vatomCampaignId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPointsBalanceAsBusiness");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPointsBalanceAsBusiness");
@@ -1474,7 +1331,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1493,7 +1349,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign/u/points/get', 'GET',
+        '/vatom/b/campaign/u/points/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1510,7 +1366,6 @@ export default class VatomApi {
     /**
      * Get Vatom Space
      * Gets the details of a space.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomSpaceId Vatom Space Id
@@ -1518,13 +1373,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getSpaceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getSpace(version, accountId, appKey, vatomSpaceId, opts, callback) {
+    getSpace(accountId, appKey, vatomSpaceId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getSpace");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getSpace");
@@ -1539,7 +1390,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1557,7 +1407,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/spaces/get', 'GET',
+        '/vatom/b/spaces/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1574,7 +1424,6 @@ export default class VatomApi {
     /**
      * Get the coins for a user (as a Business)
      * Get the coins for a user (as a Business).
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {String} appKey Sirqul Application Key
@@ -1582,13 +1431,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getUserCoinsAsBusinessCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getUserCoinsAsBusiness(version, accountId, vatomUserId, appKey, opts, callback) {
+    getUserCoinsAsBusiness(accountId, vatomUserId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserCoinsAsBusiness");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getUserCoinsAsBusiness");
@@ -1603,7 +1448,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1621,7 +1465,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/users/coins/get', 'GET',
+        '/vatom/b/users/coins/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1638,7 +1482,6 @@ export default class VatomApi {
     /**
      * Gets the coins balance for a Vatom User
      * Gets the coins balance for a Vatom User.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {Object} opts Optional parameters
@@ -1646,13 +1489,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getUserCoinsBalanceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getUserCoinsBalance(version, accountId, vatomUserId, opts, callback) {
+    getUserCoinsBalance(accountId, vatomUserId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserCoinsBalance");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getUserCoinsBalance");
@@ -1663,7 +1502,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1681,7 +1519,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/u/coins/get', 'GET',
+        '/vatom/u/coins/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1698,20 +1536,15 @@ export default class VatomApi {
     /**
      * Get user followers
      * Get user followers.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getUserFollowersCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getUserFollowers(version, accountId, vatomUserId, opts, callback) {
+    getUserFollowers(accountId, vatomUserId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserFollowers");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getUserFollowers");
@@ -1722,7 +1555,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1739,7 +1571,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/users/rels/followers', 'GET',
+        '/vatom/users/rels/followers', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1756,20 +1588,15 @@ export default class VatomApi {
     /**
      * Get user following
      * Get user following.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getUserFollowingCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getUserFollowing(version, accountId, vatomUserId, opts, callback) {
+    getUserFollowing(accountId, vatomUserId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserFollowing");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getUserFollowing");
@@ -1780,7 +1607,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1797,7 +1623,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/users/rels/following', 'GET',
+        '/vatom/users/rels/following', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1814,20 +1640,15 @@ export default class VatomApi {
     /**
      * Get User Info
      * Get a User's Info.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getUserInfoCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getUserInfo(version, accountId, vatomUserId, opts, callback) {
+    getUserInfo(accountId, vatomUserId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserInfo");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getUserInfo");
@@ -1838,7 +1659,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1855,7 +1675,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/user/get', 'GET',
+        '/vatom/user/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1872,26 +1692,20 @@ export default class VatomApi {
     /**
      * Get Vatom User Profile
      * Gets the logged in user's profile in Vatom.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getUserProfileCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getUserProfile(version, accountId, opts, callback) {
+    getUserProfile(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserProfile");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getUserProfile");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1907,7 +1721,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/get', 'GET',
+        '/vatom/me/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1924,7 +1738,6 @@ export default class VatomApi {
     /**
      * Get Vatom Event
      * Gets the details of a event.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomEventId Vatom Event Id
@@ -1932,13 +1745,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getVatomEventCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getVatomEvent(version, accountId, appKey, vatomEventId, opts, callback) {
+    getVatomEvent(accountId, appKey, vatomEventId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getVatomEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getVatomEvent");
@@ -1953,7 +1762,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1971,7 +1779,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/events/get', 'GET',
+        '/vatom/b/events/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1988,20 +1796,15 @@ export default class VatomApi {
     /**
      * Get Vatom NFT Details
      * Get Vatom NFT Details
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomId Vatom NFT Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~getVatomNFTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    getVatomNFT(version, accountId, vatomId, opts, callback) {
+    getVatomNFT(accountId, vatomId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getVatomNFT");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getVatomNFT");
@@ -2012,7 +1815,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2029,7 +1831,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/vatoms/get', 'GET',
+        '/vatom/vatoms/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2046,7 +1848,6 @@ export default class VatomApi {
     /**
      * List Vatom Communities
      * Gets the communities tied to a business.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
@@ -2054,13 +1855,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~listCommunitiesCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    listCommunities(version, accountId, appKey, opts, callback) {
+    listCommunities(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listCommunities");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listCommunities");
@@ -2071,7 +1868,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2089,7 +1885,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/communities/search', 'GET',
+        '/vatom/b/communities/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2106,7 +1902,6 @@ export default class VatomApi {
     /**
      * List Vatom Events
      * Gets the events tied to a business.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
@@ -2114,13 +1909,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~listEventsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    listEvents(version, accountId, appKey, opts, callback) {
+    listEvents(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listEvents");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listEvents");
@@ -2131,7 +1922,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2149,7 +1939,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/events/search', 'GET',
+        '/vatom/b/events/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2166,7 +1956,6 @@ export default class VatomApi {
     /**
      * List Vatom Spaces
      * Gets the spaces tied to a business.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
@@ -2174,13 +1963,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~listSpacesCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    listSpaces(version, accountId, appKey, opts, callback) {
+    listSpaces(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listSpaces");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listSpaces");
@@ -2191,7 +1976,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2209,7 +1993,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/spaces/search', 'GET',
+        '/vatom/b/spaces/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2226,7 +2010,6 @@ export default class VatomApi {
     /**
      * List Coin Transactions for a Vatom User
      * Gets the logged in user's Vatom coin transactions.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {Object} opts Optional parameters
@@ -2234,13 +2017,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~listUserCoinTransactionsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    listUserCoinTransactions(version, accountId, vatomUserId, opts, callback) {
+    listUserCoinTransactions(accountId, vatomUserId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listUserCoinTransactions");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listUserCoinTransactions");
@@ -2251,7 +2030,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2269,7 +2047,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/u/coins/txns/search', 'GET',
+        '/vatom/u/coins/txns/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2286,7 +2064,6 @@ export default class VatomApi {
     /**
      * List coin transactions for a user (as a Business)
      * List coin transactions for a user (as a Business).
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {String} appKey Sirqul Application Key
@@ -2295,13 +2072,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~listUserCoinTransactionsAsBusinessCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    listUserCoinTransactionsAsBusiness(version, accountId, vatomUserId, appKey, opts, callback) {
+    listUserCoinTransactionsAsBusiness(accountId, vatomUserId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listUserCoinTransactionsAsBusiness");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listUserCoinTransactionsAsBusiness");
@@ -2316,7 +2089,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2335,7 +2107,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/users/coins/txns/search', 'GET',
+        '/vatom/b/users/coins/txns/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2352,7 +2124,6 @@ export default class VatomApi {
     /**
      * Perform Action on NFT
      * Perform Action on NFT.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomId Vatom NFT Id
      * @param {String} vatomAction Vatom Action
@@ -2361,13 +2132,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~performActionOnNFTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    performActionOnNFT(version, accountId, vatomId, vatomAction, vatomParameters, opts, callback) {
+    performActionOnNFT(accountId, vatomId, vatomAction, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling performActionOnNFT");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling performActionOnNFT");
@@ -2386,7 +2153,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2405,7 +2171,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/vatoms/actions', 'POST',
+        '/vatom/me/vatoms/actions', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2422,7 +2188,6 @@ export default class VatomApi {
     /**
      * Redeem NFT
      * Redeem an NFT.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomParameters Vatom Parameters
@@ -2430,13 +2195,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~redeemNFTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    redeemNFT(version, accountId, appKey, vatomParameters, opts, callback) {
+    redeemNFT(accountId, appKey, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling redeemNFT");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling redeemNFT");
@@ -2451,7 +2212,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2469,7 +2229,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/redemptions', 'POST',
+        '/vatom/b/redemptions', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2486,7 +2246,6 @@ export default class VatomApi {
     /**
      * Redeem the coins for a user (as a Business)
      * Redeem the coins for a user (as a Business).
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {String} appKey Sirqul Application Key
@@ -2495,13 +2254,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~redeemUserCoinsAsBusinessCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    redeemUserCoinsAsBusiness(version, accountId, vatomUserId, appKey, vatomParameters, opts, callback) {
+    redeemUserCoinsAsBusiness(accountId, vatomUserId, appKey, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling redeemUserCoinsAsBusiness");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling redeemUserCoinsAsBusiness");
@@ -2520,7 +2275,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2539,7 +2293,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/users/coins/redeem', 'POST',
+        '/vatom/b/users/coins/redeem', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2556,27 +2310,21 @@ export default class VatomApi {
     /**
      * Search for Vatom Businesses
      * Searches for Vatom businesses.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {String} [vatomParameters] Vatom Parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~searchBusinessesCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    searchBusinesses(version, accountId, opts, callback) {
+    searchBusinesses(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchBusinesses");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchBusinesses");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2593,7 +2341,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/search', 'GET',
+        '/vatom/b/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2610,20 +2358,15 @@ export default class VatomApi {
     /**
      * Search Campaign Groups
      * Search campaign groups.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~searchCampaignGroupsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    searchCampaignGroups(version, accountId, appKey, opts, callback) {
+    searchCampaignGroups(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchCampaignGroups");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchCampaignGroups");
@@ -2634,7 +2377,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2651,7 +2393,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign-groups/search', 'GET',
+        '/vatom/b/campaign-groups/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2668,26 +2410,20 @@ export default class VatomApi {
     /**
      * Search User Identities
      * Search User Identities.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~searchIdentitiesCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    searchIdentities(version, accountId, opts, callback) {
+    searchIdentities(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchIdentities");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchIdentities");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2703,7 +2439,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/identities/search', 'GET',
+        '/vatom/me/identities/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2720,27 +2456,21 @@ export default class VatomApi {
     /**
      * Search Vatom User's Inventory
      * Searches the logged in user's Vatom Inventory.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {Object} opts Optional parameters
      * @param {String} [vatomParameters] Vatom Parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~searchInventoryCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    searchInventory(version, accountId, opts, callback) {
+    searchInventory(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchInventory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchInventory");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2757,7 +2487,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/user-inventory/search', 'GET',
+        '/vatom/user-inventory/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2774,7 +2504,6 @@ export default class VatomApi {
     /**
      * Send NFT
      * Send an NFT.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomCampaignId Vatom Campaign Id
@@ -2783,13 +2512,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~sendNFTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    sendNFT(version, accountId, appKey, vatomCampaignId, vatomParameters, opts, callback) {
+    sendNFT(accountId, appKey, vatomCampaignId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling sendNFT");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling sendNFT");
@@ -2808,7 +2533,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2827,7 +2551,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaigns/send', 'POST',
+        '/vatom/b/campaigns/send', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2844,7 +2568,6 @@ export default class VatomApi {
     /**
      * Set Points Balance as Business
      * Sets the points balance of a Vatom user.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomUserId Vatom User Id
@@ -2854,13 +2577,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~setPointsBalanceAsBusinessCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    setPointsBalanceAsBusiness(version, accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, opts, callback) {
+    setPointsBalanceAsBusiness(accountId, appKey, vatomUserId, vatomCampaignId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling setPointsBalanceAsBusiness");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling setPointsBalanceAsBusiness");
@@ -2883,7 +2602,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2903,7 +2621,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/campaign/u/points/update', 'POST',
+        '/vatom/b/campaign/u/points/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2920,7 +2638,6 @@ export default class VatomApi {
     /**
      * Transfer coins from Vatom Users
      * Transfer coins from Vatom Users.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {String} vatomParameters Vatom Parameters
@@ -2928,13 +2645,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~transferUserCoinsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    transferUserCoins(version, accountId, vatomUserId, vatomParameters, opts, callback) {
+    transferUserCoins(accountId, vatomUserId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling transferUserCoins");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling transferUserCoins");
@@ -2949,7 +2662,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -2967,7 +2679,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/u/coins/transfer', 'POST',
+        '/vatom/u/coins/transfer', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -2984,7 +2696,6 @@ export default class VatomApi {
     /**
      * Fund coins for a Business
      * Fund/update coins for a Businesss.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomParameters Vatom Parameters
@@ -2992,13 +2703,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~updateBusinessCoinsCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateBusinessCoins(version, accountId, appKey, vatomParameters, opts, callback) {
+    updateBusinessCoins(accountId, appKey, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateBusinessCoins");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateBusinessCoins");
@@ -3013,7 +2720,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -3031,7 +2737,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/coins/update', 'POST',
+        '/vatom/b/coins/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3048,7 +2754,6 @@ export default class VatomApi {
     /**
      * Update Vatom Event Guest List
      * Update the guest list of an event.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomEventId Vatom Event Id
@@ -3057,13 +2762,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~updateEventGuestListCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateEventGuestList(version, accountId, appKey, vatomEventId, vatomParameters, opts, callback) {
+    updateEventGuestList(accountId, appKey, vatomEventId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateEventGuestList");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateEventGuestList");
@@ -3082,7 +2783,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -3101,7 +2801,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/events/guests/update', 'POST',
+        '/vatom/b/events/guests/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3118,7 +2818,6 @@ export default class VatomApi {
     /**
      * Update Vatom Space
      * Update a Vatom space.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomSpaceId Vatom Space Id
@@ -3127,13 +2826,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~updateSpaceCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateSpace(version, accountId, appKey, vatomSpaceId, vatomParameters, opts, callback) {
+    updateSpace(accountId, appKey, vatomSpaceId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateSpace");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateSpace");
@@ -3152,7 +2847,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -3171,7 +2865,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/spaces/update', 'POST',
+        '/vatom/b/spaces/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3188,7 +2882,6 @@ export default class VatomApi {
     /**
      * Update the coins for a user (as a Business)
      * Update the coins for a user (as a Business).
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomUserId Vatom User Id
      * @param {String} appKey Sirqul Application Key
@@ -3197,13 +2890,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~updateUserCoinsAsBusinessCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateUserCoinsAsBusiness(version, accountId, vatomUserId, appKey, vatomParameters, opts, callback) {
+    updateUserCoinsAsBusiness(accountId, vatomUserId, appKey, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateUserCoinsAsBusiness");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateUserCoinsAsBusiness");
@@ -3222,7 +2911,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -3241,7 +2929,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/users/coins/update', 'POST',
+        '/vatom/b/users/coins/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3258,20 +2946,15 @@ export default class VatomApi {
     /**
      * Update Vatom User Profile
      * Gets the logged in user's profile in Vatom.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} vatomParameters Vatom Parameters
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~updateUserProfileCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateUserProfile(version, accountId, vatomParameters, opts, callback) {
+    updateUserProfile(accountId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateUserProfile");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateUserProfile");
@@ -3282,7 +2965,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -3299,7 +2981,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/me/update', 'POST',
+        '/vatom/me/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -3316,7 +2998,6 @@ export default class VatomApi {
     /**
      * Update Vatom Event
      * Update a Vatom event.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} appKey Sirqul Application Key
      * @param {String} vatomEventId Vatom Event Id
@@ -3325,13 +3006,9 @@ export default class VatomApi {
      * @param {Boolean} [returnRawResponse] Return raw response
      * @param {module:api/VatomApi~updateVatomEventCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateVatomEvent(version, accountId, appKey, vatomEventId, vatomParameters, opts, callback) {
+    updateVatomEvent(accountId, appKey, vatomEventId, vatomParameters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateVatomEvent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateVatomEvent");
@@ -3350,7 +3027,6 @@ export default class VatomApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -3369,7 +3045,7 @@ export default class VatomApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/vatom/b/events/update', 'POST',
+        '/vatom/b/events/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

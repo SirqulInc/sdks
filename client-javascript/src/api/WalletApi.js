@@ -46,7 +46,6 @@ export default class WalletApi {
     /**
      * Create Wallet Offers
      * Adds offers to the wallet
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -62,16 +61,11 @@ export default class WalletApi {
      * @param {module:api/WalletApi~createOfferTransactionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferTransactionResponse>}
      */
-    createOfferTransaction(version, opts, callback) {
+    createOfferTransaction(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createOfferTransaction");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -96,7 +90,7 @@ export default class WalletApi {
       let accepts = ['*/*'];
       let returnType = [OfferTransactionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/wallet/create', 'POST',
+        '/wallet/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -113,7 +107,6 @@ export default class WalletApi {
     /**
      * Delete Wallet Offer
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param {Number} version 
      * @param {Number} transactionId The offer transaction id to remove
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -121,20 +114,15 @@ export default class WalletApi {
      * @param {module:api/WalletApi~deleteOfferTransactionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteOfferTransaction(version, transactionId, opts, callback) {
+    deleteOfferTransaction(transactionId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteOfferTransaction");
-      }
       // verify the required parameter 'transactionId' is set
       if (transactionId === undefined || transactionId === null) {
         throw new Error("Missing the required parameter 'transactionId' when calling deleteOfferTransaction");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -151,7 +139,7 @@ export default class WalletApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/wallet/delete', 'POST',
+        '/wallet/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -167,7 +155,6 @@ export default class WalletApi {
 
     /**
      * Get Wallet Offer
-     * @param {Number} version 
      * @param {Number} transactionId The offer transaction id to get details of
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -179,20 +166,15 @@ export default class WalletApi {
      * @param {module:api/WalletApi~getOfferTransactionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferTransactionResponse}
      */
-    getOfferTransaction(version, transactionId, opts, callback) {
+    getOfferTransaction(transactionId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOfferTransaction");
-      }
       // verify the required parameter 'transactionId' is set
       if (transactionId === undefined || transactionId === null) {
         throw new Error("Missing the required parameter 'transactionId' when calling getOfferTransaction");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -213,7 +195,7 @@ export default class WalletApi {
       let accepts = ['*/*'];
       let returnType = OfferTransactionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/wallet/get', 'GET',
+        '/wallet/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -230,7 +212,6 @@ export default class WalletApi {
     /**
      * Preview Wallet Offers
      * Preview the final cost of a transaction without charging the user
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -245,16 +226,11 @@ export default class WalletApi {
      * @param {module:api/WalletApi~previewOfferTransactionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferTransactionResponse>}
      */
-    previewOfferTransaction(version, opts, callback) {
+    previewOfferTransaction(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling previewOfferTransaction");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -278,7 +254,7 @@ export default class WalletApi {
       let accepts = ['*/*'];
       let returnType = [OfferTransactionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/wallet/preview', 'POST',
+        '/wallet/preview', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -295,7 +271,6 @@ export default class WalletApi {
     /**
      * Search Wallet Offers
      * Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -341,16 +316,11 @@ export default class WalletApi {
      * @param {module:api/WalletApi~searchOfferTransactionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferTransactionResponse>}
      */
-    searchOfferTransactions(version, opts, callback) {
+    searchOfferTransactions(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchOfferTransactions");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -405,7 +375,7 @@ export default class WalletApi {
       let accepts = ['*/*'];
       let returnType = [OfferTransactionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/wallet/search', 'GET',
+        '/wallet/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -422,7 +392,6 @@ export default class WalletApi {
     /**
      * Update Wallet Offer
      * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-     * @param {Number} version 
      * @param {Number} transactionId The offer transaction id to remove
      * @param {Number} status The status value to change to (0 or 1)
      * @param {Object} opts Optional parameters
@@ -440,13 +409,9 @@ export default class WalletApi {
      * @param {module:api/WalletApi~updateOfferTransactionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferTransactionResponse}
      */
-    updateOfferTransaction(version, transactionId, status, opts, callback) {
+    updateOfferTransaction(transactionId, status, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateOfferTransaction");
-      }
       // verify the required parameter 'transactionId' is set
       if (transactionId === undefined || transactionId === null) {
         throw new Error("Missing the required parameter 'transactionId' when calling updateOfferTransaction");
@@ -457,7 +422,6 @@ export default class WalletApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -484,7 +448,7 @@ export default class WalletApi {
       let accepts = ['*/*'];
       let returnType = OfferTransactionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/wallet/update', 'POST',
+        '/wallet/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

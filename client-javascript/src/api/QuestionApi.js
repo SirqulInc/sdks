@@ -46,7 +46,6 @@ export default class QuestionApi {
     /**
      * Create Question
      * Create a question and related answers by the given params.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {String} question the text of the question
      * @param {String} answers ```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` 
@@ -62,13 +61,9 @@ export default class QuestionApi {
      * @param {module:api/QuestionApi~createQuestionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QuestionResponse}
      */
-    createQuestion(version, accountId, question, answers, active, allocateTickets, ticketCount, opts, callback) {
+    createQuestion(accountId, question, answers, active, allocateTickets, ticketCount, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createQuestion");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createQuestion");
@@ -95,7 +90,6 @@ export default class QuestionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -120,7 +114,7 @@ export default class QuestionApi {
       let accepts = ['*/*'];
       let returnType = QuestionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/question/create', 'POST',
+        '/game/question/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -137,18 +131,13 @@ export default class QuestionApi {
     /**
      * Delete Question
      * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-     * @param {Number} version 
      * @param {Number} questionId the id of the question to delete
      * @param {Number} accountId the id of the account that can execute this request
      * @param {module:api/QuestionApi~deleteQuestionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteQuestion(version, questionId, accountId, callback) {
+    deleteQuestion(questionId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteQuestion");
-      }
       // verify the required parameter 'questionId' is set
       if (questionId === undefined || questionId === null) {
         throw new Error("Missing the required parameter 'questionId' when calling deleteQuestion");
@@ -159,7 +148,6 @@ export default class QuestionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'questionId': questionId,
@@ -175,7 +163,7 @@ export default class QuestionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/question/delete', 'POST',
+        '/game/question/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -192,18 +180,13 @@ export default class QuestionApi {
     /**
      * Get Question
      * Get a question by the given id.
-     * @param {Number} version 
      * @param {Number} questionId the id of the question to get
      * @param {Number} accountId the id of the account that can make this request
      * @param {module:api/QuestionApi~getQuestionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QuestionResponse}
      */
-    getQuestion(version, questionId, accountId, callback) {
+    getQuestion(questionId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getQuestion");
-      }
       // verify the required parameter 'questionId' is set
       if (questionId === undefined || questionId === null) {
         throw new Error("Missing the required parameter 'questionId' when calling getQuestion");
@@ -214,7 +197,6 @@ export default class QuestionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'questionId': questionId,
@@ -230,7 +212,7 @@ export default class QuestionApi {
       let accepts = ['*/*'];
       let returnType = QuestionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/question/get', 'GET',
+        '/game/question/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -247,7 +229,6 @@ export default class QuestionApi {
     /**
      * Search Questions
      * Search for questions by the given params.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} sortField The column to sort the search on
      * @param {Boolean} descending The order to return the search results
@@ -259,13 +240,9 @@ export default class QuestionApi {
      * @param {module:api/QuestionApi~searchQuestionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/QuestionResponse>}
      */
-    searchQuestions(version, accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
+    searchQuestions(accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchQuestions");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchQuestions");
@@ -292,7 +269,6 @@ export default class QuestionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -313,7 +289,7 @@ export default class QuestionApi {
       let accepts = ['*/*'];
       let returnType = [QuestionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/game/question/search', 'GET',
+        '/game/question/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -330,7 +306,6 @@ export default class QuestionApi {
     /**
      * Update Question
      * Update a question and related answers.
-     * @param {Number} version 
      * @param {Number} questionId The id of the question to update.
      * @param {Number} accountId The logged in user.
      * @param {Number} ticketCount The number of tickets to reward
@@ -347,13 +322,9 @@ export default class QuestionApi {
      * @param {module:api/QuestionApi~updateQuestionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QuestionResponse}
      */
-    updateQuestion(version, questionId, accountId, ticketCount, opts, callback) {
+    updateQuestion(questionId, accountId, ticketCount, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateQuestion");
-      }
       // verify the required parameter 'questionId' is set
       if (questionId === undefined || questionId === null) {
         throw new Error("Missing the required parameter 'questionId' when calling updateQuestion");
@@ -368,7 +339,6 @@ export default class QuestionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'questionId': questionId,
@@ -394,7 +364,7 @@ export default class QuestionApi {
       let accepts = ['*/*'];
       let returnType = QuestionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/question/update', 'POST',
+        '/game/question/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

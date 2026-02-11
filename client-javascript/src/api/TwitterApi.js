@@ -46,24 +46,18 @@ export default class TwitterApi {
     /**
      * Authorize Twitter
      * Makes an authorization call to twitter for a user to login and allow any app permissions.
-     * @param {Number} version 
      * @param {String} appKey the application key
      * @param {module:api/TwitterApi~authorizeTwitterCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    authorizeTwitter(version, appKey, callback) {
+    authorizeTwitter(appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling authorizeTwitter");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling authorizeTwitter");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': appKey
@@ -78,7 +72,7 @@ export default class TwitterApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/twitter/authorize', 'POST',
+        '/twitter/authorize', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -95,7 +89,6 @@ export default class TwitterApi {
     /**
      * Login Twitter
      * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-     * @param {Number} version 
      * @param {String} accessToken The access token
      * @param {String} accessTokenSecret The secret access token
      * @param {String} appKey The application key
@@ -107,13 +100,9 @@ export default class TwitterApi {
      * @param {module:api/TwitterApi~loginTwitterCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    loginTwitter(version, accessToken, accessTokenSecret, appKey, responseFilters, opts, callback) {
+    loginTwitter(accessToken, accessTokenSecret, appKey, responseFilters, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling loginTwitter");
-      }
       // verify the required parameter 'accessToken' is set
       if (accessToken === undefined || accessToken === null) {
         throw new Error("Missing the required parameter 'accessToken' when calling loginTwitter");
@@ -132,7 +121,6 @@ export default class TwitterApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -153,7 +141,7 @@ export default class TwitterApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/twitter/login', 'POST',
+        '/twitter/login', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

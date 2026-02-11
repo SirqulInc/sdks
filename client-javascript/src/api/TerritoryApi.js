@@ -46,7 +46,6 @@ export default class TerritoryApi {
     /**
      * Create Territory
      * Creates a territory.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} name The name of the territory
      * @param {Object} opts Optional parameters
@@ -54,13 +53,9 @@ export default class TerritoryApi {
      * @param {module:api/TerritoryApi~createTerritoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TerritoryResponse}
      */
-    createTerritory(version, accountId, name, opts, callback) {
+    createTerritory(accountId, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createTerritory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createTerritory");
@@ -71,7 +66,6 @@ export default class TerritoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -88,7 +82,7 @@ export default class TerritoryApi {
       let accepts = ['*/*'];
       let returnType = TerritoryResponse;
       return this.apiClient.callApi(
-        '/api/{version}/territory/create', 'POST',
+        '/territory/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -105,18 +99,13 @@ export default class TerritoryApi {
     /**
      * Delete Territory
      * Deletes a territory.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} territoryId the id of the territory to delete
      * @param {module:api/TerritoryApi~deleteTerritoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteTerritory(version, accountId, territoryId, callback) {
+    deleteTerritory(accountId, territoryId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteTerritory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteTerritory");
@@ -127,7 +116,6 @@ export default class TerritoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -143,7 +131,7 @@ export default class TerritoryApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/territory/delete', 'POST',
+        '/territory/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -160,24 +148,18 @@ export default class TerritoryApi {
     /**
      * Get Territory
      * Get a territory.
-     * @param {Number} version 
      * @param {Number} territoryId the id of the territory to get
      * @param {module:api/TerritoryApi~getTerritoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TerritoryResponse}
      */
-    getTerritory(version, territoryId, callback) {
+    getTerritory(territoryId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTerritory");
-      }
       // verify the required parameter 'territoryId' is set
       if (territoryId === undefined || territoryId === null) {
         throw new Error("Missing the required parameter 'territoryId' when calling getTerritory");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'territoryId': territoryId
@@ -192,7 +174,7 @@ export default class TerritoryApi {
       let accepts = ['*/*'];
       let returnType = TerritoryResponse;
       return this.apiClient.callApi(
-        '/api/{version}/territory/get', 'GET',
+        '/territory/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -209,7 +191,6 @@ export default class TerritoryApi {
     /**
      * Search Territories
      * Searches on territories.
-     * @param {Number} version 
      * @param {module:model/String} sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
      * @param {Boolean} descending determines whether the sorted list is in descending or ascending order
      * @param {Object} opts Optional parameters
@@ -219,13 +200,9 @@ export default class TerritoryApi {
      * @param {module:api/TerritoryApi~searchTerritoriesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TerritoryResponse>}
      */
-    searchTerritories(version, sortField, descending, opts, callback) {
+    searchTerritories(sortField, descending, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchTerritories");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchTerritories");
@@ -236,7 +213,6 @@ export default class TerritoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'keyword': opts['keyword'],
@@ -255,7 +231,7 @@ export default class TerritoryApi {
       let accepts = ['*/*'];
       let returnType = [TerritoryResponse];
       return this.apiClient.callApi(
-        '/api/{version}/territory/search', 'GET',
+        '/territory/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -272,7 +248,6 @@ export default class TerritoryApi {
     /**
      * Update Territory
      * Updates a territory.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} territoryId the id of the territory to update
      * @param {Object} opts Optional parameters
@@ -281,13 +256,9 @@ export default class TerritoryApi {
      * @param {module:api/TerritoryApi~updateTerritoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TerritoryResponse}
      */
-    updateTerritory(version, accountId, territoryId, opts, callback) {
+    updateTerritory(accountId, territoryId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateTerritory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateTerritory");
@@ -298,7 +269,6 @@ export default class TerritoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -316,7 +286,7 @@ export default class TerritoryApi {
       let accepts = ['*/*'];
       let returnType = TerritoryResponse;
       return this.apiClient.callApi(
-        '/api/{version}/territory/update', 'POST',
+        '/territory/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -46,27 +46,21 @@ export default class DependentApi {
     /**
      * Create Dependent
      * Create dependent of the account
-     * @param {Number} version 
      * @param {Number} accountId the id of the parent account to create a dependent for
      * @param {Object} opts Optional parameters
      * @param {module:model/Account} [body] 
      * @param {module:api/DependentApi~createCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    create(version, accountId, opts, callback) {
+    create(accountId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling create");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling create");
       }
 
       let pathParams = {
-        'version': version,
         'accountId': accountId
       };
       let queryParams = {
@@ -81,7 +75,7 @@ export default class DependentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/cargo/dependent/{accountId}', 'PUT',
+        '/cargo/dependent/{accountId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -98,24 +92,18 @@ export default class DependentApi {
     /**
      * Get dependent list of an account
      * Get the dependent list of an account
-     * @param {Number} version 
      * @param {Number} accountId the id of the parent account to get a list of dependents
      * @param {module:api/DependentApi~getDependentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    getDependents(version, accountId, callback) {
+    getDependents(accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getDependents");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getDependents");
       }
 
       let pathParams = {
-        'version': version,
         'accountId': accountId
       };
       let queryParams = {
@@ -130,7 +118,7 @@ export default class DependentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/cargo/dependent/{accountId}', 'GET',
+        '/cargo/dependent/{accountId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -147,17 +135,12 @@ export default class DependentApi {
     /**
      * Delete Dependent
      * Delete the Dependent
-     * @param {Number} version 
      * @param {Number} accountId the id of the parent account tied to the dependent
      * @param {Number} dependentId the id of the dependent to delete
      * @param {module:api/DependentApi~removeDependentCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    removeDependent(version, accountId, dependentId, callback) {
+    removeDependent(accountId, dependentId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeDependent");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling removeDependent");
@@ -168,7 +151,6 @@ export default class DependentApi {
       }
 
       let pathParams = {
-        'version': version,
         'accountId': accountId,
         'dependentId': dependentId
       };
@@ -184,7 +166,7 @@ export default class DependentApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/cargo/dependent/{accountId}', 'DELETE',
+        '/cargo/dependent/{accountId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

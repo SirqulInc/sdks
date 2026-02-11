@@ -46,7 +46,6 @@ export default class ScheduledNotificationApi {
     /**
      * Create Scheduled Notification
      * This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} name The name of the scheduled notification
      * @param {String} type The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages
@@ -85,13 +84,9 @@ export default class ScheduledNotificationApi {
      * @param {module:api/ScheduledNotificationApi~createScheduledNotificationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScheduledNotificationFullResponse}
      */
-    createScheduledNotification(version, accountId, name, type, message, opts, callback) {
+    createScheduledNotification(accountId, name, type, message, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createScheduledNotification");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createScheduledNotification");
@@ -110,7 +105,6 @@ export default class ScheduledNotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -158,7 +152,7 @@ export default class ScheduledNotificationApi {
       let accepts = ['*/*'];
       let returnType = ScheduledNotificationFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/schedule/create', 'POST',
+        '/notification/schedule/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -175,7 +169,6 @@ export default class ScheduledNotificationApi {
     /**
      * Delete Scheduled Notification
      * This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} scheduledNotificationId the id of the scheduled notification to delete
      * @param {Object} opts Optional parameters
@@ -183,13 +176,9 @@ export default class ScheduledNotificationApi {
      * @param {module:api/ScheduledNotificationApi~deleteScheduledNotificationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScheduledNotificationFullResponse}
      */
-    deleteScheduledNotification(version, accountId, scheduledNotificationId, opts, callback) {
+    deleteScheduledNotification(accountId, scheduledNotificationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteScheduledNotification");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteScheduledNotification");
@@ -200,7 +189,6 @@ export default class ScheduledNotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -217,7 +205,7 @@ export default class ScheduledNotificationApi {
       let accepts = ['*/*'];
       let returnType = ScheduledNotificationFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/schedule/delete', 'POST',
+        '/notification/schedule/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -234,18 +222,13 @@ export default class ScheduledNotificationApi {
     /**
      * Get Scheduled Notification
      * Get a ScheduledNotification
-     * @param {Number} version 
      * @param {Number} accountId the id of the account logged in
      * @param {Number} scheduledNotificationId the id of the scheduled notification to get
      * @param {module:api/ScheduledNotificationApi~getScheduledNotificationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScheduledNotificationFullResponse}
      */
-    getScheduledNotification(version, accountId, scheduledNotificationId, callback) {
+    getScheduledNotification(accountId, scheduledNotificationId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getScheduledNotification");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getScheduledNotification");
@@ -256,7 +239,6 @@ export default class ScheduledNotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -272,7 +254,7 @@ export default class ScheduledNotificationApi {
       let accepts = ['*/*'];
       let returnType = ScheduledNotificationFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/schedule/get', 'GET',
+        '/notification/schedule/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -289,7 +271,6 @@ export default class ScheduledNotificationApi {
     /**
      * Generate Schedule Notifications
      * Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey The application to target
      * @param {String} reportName The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail
@@ -302,13 +283,9 @@ export default class ScheduledNotificationApi {
      * @param {module:api/ScheduledNotificationApi~scheduleNotificationListingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    scheduleNotificationListings(version, accountId, appKey, reportName, message, offset, recipientReportId, opts, callback) {
+    scheduleNotificationListings(accountId, appKey, reportName, message, offset, recipientReportId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling scheduleNotificationListings");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling scheduleNotificationListings");
@@ -335,7 +312,6 @@ export default class ScheduledNotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -357,7 +333,7 @@ export default class ScheduledNotificationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/schedule/generate', 'POST',
+        '/notification/schedule/generate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -374,7 +350,6 @@ export default class ScheduledNotificationApi {
     /**
      * Search Scheduled Notifications
      * This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
      * @param {String} [groupingId] Filter results by a grouping identifier defined by the client
@@ -399,20 +374,15 @@ export default class ScheduledNotificationApi {
      * @param {module:api/ScheduledNotificationApi~searchScheduledNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScheduledNotificationFullResponse}
      */
-    searchScheduledNotifications(version, accountId, opts, callback) {
+    searchScheduledNotifications(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchScheduledNotifications");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchScheduledNotifications");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -446,7 +416,7 @@ export default class ScheduledNotificationApi {
       let accepts = ['*/*'];
       let returnType = ScheduledNotificationFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/schedule/search', 'GET',
+        '/notification/schedule/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -463,7 +433,6 @@ export default class ScheduledNotificationApi {
     /**
      * Update Scheduled Notification
      * This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-     * @param {Number} version 
      * @param {Number} scheduledNotificationId The id of scheduled notification to update
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
@@ -506,13 +475,9 @@ export default class ScheduledNotificationApi {
      * @param {module:api/ScheduledNotificationApi~updateScheduledNotificationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ScheduledNotificationFullResponse}
      */
-    updateScheduledNotification(version, scheduledNotificationId, accountId, opts, callback) {
+    updateScheduledNotification(scheduledNotificationId, accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateScheduledNotification");
-      }
       // verify the required parameter 'scheduledNotificationId' is set
       if (scheduledNotificationId === undefined || scheduledNotificationId === null) {
         throw new Error("Missing the required parameter 'scheduledNotificationId' when calling updateScheduledNotification");
@@ -523,7 +488,6 @@ export default class ScheduledNotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'scheduledNotificationId': scheduledNotificationId,
@@ -575,7 +539,7 @@ export default class ScheduledNotificationApi {
       let accepts = ['*/*'];
       let returnType = ScheduledNotificationFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/schedule/update', 'POST',
+        '/notification/schedule/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -46,7 +46,6 @@ export default class RankingApi {
     /**
      * Search Historical Rankings
      * Get historical leaderboard rankings by time-frame.
-     * @param {Number} version 
      * @param {String} appKey the application key for filtering results by application
      * @param {String} rankType the rank type to return
      * @param {Number} startDate timestamp in milliseconds to filter results with
@@ -61,13 +60,9 @@ export default class RankingApi {
      * @param {module:api/RankingApi~getHistoricalRankingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RankFullResponse}
      */
-    getHistoricalRankings(version, appKey, rankType, startDate, endDate, opts, callback) {
+    getHistoricalRankings(appKey, rankType, startDate, endDate, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getHistoricalRankings");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling getHistoricalRankings");
@@ -86,7 +81,6 @@ export default class RankingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -110,7 +104,7 @@ export default class RankingApi {
       let accepts = ['*/*'];
       let returnType = RankFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ranking/historical/search', 'GET',
+        '/ranking/historical/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -127,7 +121,6 @@ export default class RankingApi {
     /**
      * Search Rankings
      * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -150,16 +143,11 @@ export default class RankingApi {
      * @param {module:api/RankingApi~getRankingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RankFullResponse}
      */
-    getRankings(version, opts, callback) {
+    getRankings(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRankings");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -191,7 +179,7 @@ export default class RankingApi {
       let accepts = ['*/*'];
       let returnType = RankFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ranking/search', 'GET',
+        '/ranking/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -208,7 +196,6 @@ export default class RankingApi {
     /**
      * Get Personal Rankings
      * Returns the user's ranks for one or more rank types and modes.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user
@@ -224,16 +211,11 @@ export default class RankingApi {
      * @param {module:api/RankingApi~getUserRankCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    getUserRank(version, opts, callback) {
+    getUserRank(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserRank");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -258,7 +240,7 @@ export default class RankingApi {
       let accepts = ['*/*'];
       let returnType = Object;
       return this.apiClient.callApi(
-        '/api/{version}/ranking/personal/ranks', 'POST',
+        '/ranking/personal/ranks', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -275,7 +257,6 @@ export default class RankingApi {
     /**
      * Override User Rank
      * Allows an admin of an application to override a user's scores for a leaderboard.
-     * @param {Number} version 
      * @param {Number} accountId the logged in user's account id (must have permissions to manage data for the application)
      * @param {Number} ownerAccountId the end user's account id to override
      * @param {String} appKey the application key the leaderboard is for
@@ -302,13 +283,9 @@ export default class RankingApi {
      * @param {module:api/RankingApi~overrideUserRankCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    overrideUserRank(version, accountId, ownerAccountId, appKey, rankType, opts, callback) {
+    overrideUserRank(accountId, ownerAccountId, appKey, rankType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling overrideUserRank");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling overrideUserRank");
@@ -327,7 +304,6 @@ export default class RankingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -363,7 +339,7 @@ export default class RankingApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ranking/override', 'POST',
+        '/ranking/override', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -380,7 +356,6 @@ export default class RankingApi {
     /**
      * Update Ranking
      * Update the rank value 
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {String} appKey the application key for filtering results by application
      * @param {String} rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -395,13 +370,9 @@ export default class RankingApi {
      * @param {module:api/RankingApi~updateRankingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateRankings(version, accountId, appKey, rankType, opts, callback) {
+    updateRankings(accountId, appKey, rankType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRankings");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateRankings");
@@ -416,7 +387,6 @@ export default class RankingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -440,7 +410,7 @@ export default class RankingApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/ranking/update', 'POST',
+        '/ranking/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

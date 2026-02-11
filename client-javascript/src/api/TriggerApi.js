@@ -46,7 +46,6 @@ export default class TriggerApi {
     /**
      * Create Trigger
      * Create a trigger
-     * @param {Number} version 
      * @param {Number} accountId The logged in user
      * @param {String} name The name of the trigger
      * @param {Object} opts Optional parameters
@@ -64,13 +63,9 @@ export default class TriggerApi {
      * @param {module:api/TriggerApi~createTriggerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TriggerResponse}
      */
-    createTrigger(version, accountId, name, opts, callback) {
+    createTrigger(accountId, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createTrigger");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createTrigger");
@@ -81,7 +76,6 @@ export default class TriggerApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -108,7 +102,7 @@ export default class TriggerApi {
       let accepts = ['*/*'];
       let returnType = TriggerResponse;
       return this.apiClient.callApi(
-        '/api/{version}/trigger/create', 'POST',
+        '/trigger/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -125,18 +119,13 @@ export default class TriggerApi {
     /**
      * Delete Trigger
      * Mark a trigger as deleted.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} triggerId The id of the trigger to delete.
      * @param {module:api/TriggerApi~deleteTriggerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteTrigger(version, accountId, triggerId, callback) {
+    deleteTrigger(accountId, triggerId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteTrigger");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteTrigger");
@@ -147,7 +136,6 @@ export default class TriggerApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -163,7 +151,7 @@ export default class TriggerApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/trigger/delete', 'POST',
+        '/trigger/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -180,18 +168,13 @@ export default class TriggerApi {
     /**
      * Get Trigger
      * Get a trigger
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} triggerId The id of the Trigger to return.
      * @param {module:api/TriggerApi~getTriggerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TriggerResponse}
      */
-    getTrigger(version, accountId, triggerId, callback) {
+    getTrigger(accountId, triggerId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTrigger");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getTrigger");
@@ -202,7 +185,6 @@ export default class TriggerApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -218,7 +200,7 @@ export default class TriggerApi {
       let accepts = ['*/*'];
       let returnType = TriggerResponse;
       return this.apiClient.callApi(
-        '/api/{version}/trigger/get', 'GET',
+        '/trigger/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -235,7 +217,6 @@ export default class TriggerApi {
     /**
      * Search Triggers
      * Search for triggers
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
      * @param {String} [groupingId] Filter results by a grouping identifier defined by the client
@@ -252,20 +233,15 @@ export default class TriggerApi {
      * @param {module:api/TriggerApi~searchTriggersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TriggerResponse>}
      */
-    searchTriggers(version, accountId, opts, callback) {
+    searchTriggers(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchTriggers");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchTriggers");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -291,7 +267,7 @@ export default class TriggerApi {
       let accepts = ['*/*'];
       let returnType = [TriggerResponse];
       return this.apiClient.callApi(
-        '/api/{version}/trigger/search', 'GET',
+        '/trigger/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -308,7 +284,6 @@ export default class TriggerApi {
     /**
      * Update Trigger
      * Update a trigger
-     * @param {Number} version 
      * @param {Number} triggerId The trigger to update
      * @param {Number} accountId The logged in user
      * @param {Object} opts Optional parameters
@@ -327,13 +302,9 @@ export default class TriggerApi {
      * @param {module:api/TriggerApi~updateTriggerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TriggerResponse}
      */
-    updateTrigger(version, triggerId, accountId, opts, callback) {
+    updateTrigger(triggerId, accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateTrigger");
-      }
       // verify the required parameter 'triggerId' is set
       if (triggerId === undefined || triggerId === null) {
         throw new Error("Missing the required parameter 'triggerId' when calling updateTrigger");
@@ -344,7 +315,6 @@ export default class TriggerApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'triggerId': triggerId,
@@ -372,7 +342,7 @@ export default class TriggerApi {
       let accepts = ['*/*'];
       let returnType = TriggerResponse;
       return this.apiClient.callApi(
-        '/api/{version}/trigger/update', 'POST',
+        '/trigger/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

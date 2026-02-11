@@ -45,7 +45,6 @@ export default class WeatherApi {
     /**
      * Search Weather
      * Search the weather forcast for the next 5 days
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [regionId] Region Id
      * @param {Number} [latitude] Latitude
@@ -54,16 +53,11 @@ export default class WeatherApi {
      * @param {module:api/WeatherApi~searchWeatherCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WeatherResponse}
      */
-    searchWeather(version, opts, callback) {
+    searchWeather(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchWeather");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'regionId': opts['regionId'],
@@ -81,7 +75,7 @@ export default class WeatherApi {
       let accepts = ['*/*'];
       let returnType = WeatherResponse;
       return this.apiClient.callApi(
-        '/api/{version}/weather/search', 'GET',
+        '/weather/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

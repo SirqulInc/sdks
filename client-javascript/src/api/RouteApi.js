@@ -48,24 +48,18 @@ export default class RouteApi {
     /**
      * Approve Route
      * Approve a route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to approve
      * @param {module:api/RouteApi~approveRouteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Route}
      */
-    approveRoute(version, routeId, callback) {
+    approveRoute(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling approveRoute");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling approveRoute");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -80,7 +74,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Route;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/approve', 'POST',
+        '/route/{routeId}/approve', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -97,27 +91,21 @@ export default class RouteApi {
     /**
      * Copy Route
      * Make an copy of the given route with optional overriding properties
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to duplicate
      * @param {Object} opts Optional parameters
      * @param {module:model/Route} [body] 
      * @param {module:api/RouteApi~copyRouteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Route}
      */
-    copyRoute(version, routeId, opts, callback) {
+    copyRoute(routeId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling copyRoute");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling copyRoute");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -132,7 +120,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Route;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/copy', 'POST',
+        '/route/{routeId}/copy', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -149,22 +137,16 @@ export default class RouteApi {
     /**
      * Create Route
      * Create new route
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/Route} [body] 
      * @param {module:api/RouteApi~createRouteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Route}
      */
-    createRoute(version, opts, callback) {
+    createRoute(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRoute");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -178,7 +160,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Route;
       return this.apiClient.callApi(
-        '/api/{version}/route', 'POST',
+        '/route', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -195,24 +177,18 @@ export default class RouteApi {
     /**
      * Update Route Directions
      * Regenerate the directions of a route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to update directions for
      * @param {module:api/RouteApi~createRouteDirectionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Direction>}
      */
-    createRouteDirections(version, routeId, callback) {
+    createRouteDirections(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRouteDirections");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling createRouteDirections");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -227,7 +203,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Direction];
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/directions', 'PUT',
+        '/route/{routeId}/directions', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -244,24 +220,18 @@ export default class RouteApi {
     /**
      * Create Route Polyline
      * Update the polyline of the requested route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to create a polyline for
      * @param {module:api/RouteApi~createRoutePolylineCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Route}
      */
-    createRoutePolyline(version, routeId, callback) {
+    createRoutePolyline(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRoutePolyline");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling createRoutePolyline");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -276,7 +246,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Route;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/polyline', 'PUT',
+        '/route/{routeId}/polyline', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -293,23 +263,17 @@ export default class RouteApi {
     /**
      * Delete Route
      * Delete an existing route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route
      * @param {module:api/RouteApi~deleteRouteCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteRoute(version, routeId, callback) {
+    deleteRoute(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteRoute");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling deleteRoute");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -324,7 +288,7 @@ export default class RouteApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}', 'DELETE',
+        '/route/{routeId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -341,24 +305,18 @@ export default class RouteApi {
     /**
      * Disapprove Route
      * Disapprove a route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to reject
      * @param {module:api/RouteApi~disapproveRouteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Route}
      */
-    disapproveRoute(version, routeId, callback) {
+    disapproveRoute(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling disapproveRoute");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling disapproveRoute");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -373,7 +331,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Route;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/disapprove', 'POST',
+        '/route/{routeId}/disapprove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -390,18 +348,13 @@ export default class RouteApi {
     /**
      * Get Route
      * Get an existing route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to get
      * @param {Boolean} showInheritedProperties return inherited properties from parent or not
      * @param {module:api/RouteApi~getRouteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Route}
      */
-    getRoute(version, routeId, showInheritedProperties, callback) {
+    getRoute(routeId, showInheritedProperties, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRoute");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling getRoute");
@@ -412,7 +365,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -428,7 +380,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Route;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}', 'GET',
+        '/route/{routeId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -445,24 +397,18 @@ export default class RouteApi {
     /**
      * Get Route Directions
      * Get the directions of a route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to get directions for
      * @param {module:api/RouteApi~getRouteDirectionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Direction>}
      */
-    getRouteDirections(version, routeId, callback) {
+    getRouteDirections(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRouteDirections");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling getRouteDirections");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -477,7 +423,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Direction];
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/directions', 'GET',
+        '/route/{routeId}/directions', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -494,24 +440,18 @@ export default class RouteApi {
     /**
      * Get Route Shipments
      * Get the shipments on the requested route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to get shipments for
      * @param {module:api/RouteApi~getRouteShipmentsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Shipment>}
      */
-    getRouteShipments(version, routeId, callback) {
+    getRouteShipments(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRouteShipments");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling getRouteShipments");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -526,7 +466,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Shipment];
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/shipments', 'GET',
+        '/route/{routeId}/shipments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -543,18 +483,13 @@ export default class RouteApi {
     /**
      * Get Route Stop
      * Get the specific stop on a route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to get stops for
      * @param {Number} stopId the id of the specific stop on the route
      * @param {module:api/RouteApi~getRouteStopCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Stop}
      */
-    getRouteStop(version, routeId, stopId, callback) {
+    getRouteStop(routeId, stopId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRouteStop");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling getRouteStop");
@@ -565,7 +500,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId,
         'stopId': stopId
       };
@@ -581,7 +515,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Stop;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/stop/{stopId}', 'GET',
+        '/route/{routeId}/stop/{stopId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -598,18 +532,13 @@ export default class RouteApi {
     /**
      * Get Route Stops
      * The stops of the route requested
-     * @param {Number} version 
      * @param {Number} routeId the id of the route
      * @param {Boolean} confirmedOnly only get stops that have been confirmed or not
      * @param {module:api/RouteApi~getRouteStopsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Stop>}
      */
-    getRouteStops(version, routeId, confirmedOnly, callback) {
+    getRouteStops(routeId, confirmedOnly, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRouteStops");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling getRouteStops");
@@ -620,7 +549,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -636,7 +564,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Stop];
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/stops', 'GET',
+        '/route/{routeId}/stops', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -653,18 +581,13 @@ export default class RouteApi {
     /**
      * Get Shipments At Stop
      * Get the list of shipments on the requested route at a stop
-     * @param {Number} version 
      * @param {Number} routeId the id of the route
      * @param {Number} stopId the id of the stop to get shipments on
      * @param {module:api/RouteApi~getShipmentsAtStopCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Shipment>}
      */
-    getShipmentsAtStop(version, routeId, stopId, callback) {
+    getShipmentsAtStop(routeId, stopId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getShipmentsAtStop");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling getShipmentsAtStop");
@@ -675,7 +598,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId,
         'stopId': stopId
       };
@@ -691,7 +613,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Shipment];
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/stop/{stopId}/shipments', 'GET',
+        '/route/{routeId}/stop/{stopId}/shipments', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -708,23 +630,17 @@ export default class RouteApi {
     /**
      * Optimize Route
      * Optimize a route. The optimization method based on how the server is configured.
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to optimize
      * @param {module:api/RouteApi~optimizeRouteCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    optimizeRoute(version, routeId, callback) {
+    optimizeRoute(routeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling optimizeRoute");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling optimizeRoute");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -739,7 +655,7 @@ export default class RouteApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/optimize', 'POST',
+        '/route/{routeId}/optimize', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -756,17 +672,12 @@ export default class RouteApi {
     /**
      * Delete Stop
      * Delete a stop on a route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route
      * @param {Number} stopId the id of the specific stop to delete on the route
      * @param {module:api/RouteApi~removeStopCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    removeStop(version, routeId, stopId, callback) {
+    removeStop(routeId, stopId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeStop");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling removeStop");
@@ -777,7 +688,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId,
         'stopId': stopId
       };
@@ -793,7 +703,7 @@ export default class RouteApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/stop/{stopId}', 'DELETE',
+        '/route/{routeId}/stop/{stopId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -810,27 +720,21 @@ export default class RouteApi {
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param {Number} version 
      * @param {Number} routeId the id of the route
      * @param {Object} opts Optional parameters
      * @param {Array.<module:model/Stop>} [body] 
      * @param {module:api/RouteApi~reorderRouteStopsPatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Stop>}
      */
-    reorderRouteStopsPatch(version, routeId, opts, callback) {
+    reorderRouteStopsPatch(routeId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling reorderRouteStopsPatch");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling reorderRouteStopsPatch");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -845,7 +749,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Stop];
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/stops/reorder', 'PATCH',
+        '/route/{routeId}/stops/reorder', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -862,27 +766,21 @@ export default class RouteApi {
     /**
      * Reorder Route Stops
      * Reordering the stops on the route with and update route distance, time, direction, and polyline
-     * @param {Number} version 
      * @param {Number} routeId the id of the route
      * @param {Object} opts Optional parameters
      * @param {Array.<module:model/Stop>} [body] 
      * @param {module:api/RouteApi~reorderRouteStopsPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Stop>}
      */
-    reorderRouteStopsPost(version, routeId, opts, callback) {
+    reorderRouteStopsPost(routeId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling reorderRouteStopsPost");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling reorderRouteStopsPost");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -897,7 +795,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Stop];
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/stops/reorder', 'POST',
+        '/route/{routeId}/stops/reorder', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -914,7 +812,6 @@ export default class RouteApi {
     /**
      * Search Routes
      * Search for routes.
-     * @param {Number} version 
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
      * @param {Number} start The start index for pagination
@@ -940,13 +837,9 @@ export default class RouteApi {
      * @param {module:api/RouteApi~searchRoutesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Route>}
      */
-    searchRoutes(version, sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, opts, callback) {
+    searchRoutes(sortField, descending, start, limit, activeOnly, includesEmpty, rootOnly, showInheritedProperties, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRoutes");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchRoutes");
@@ -981,7 +874,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'hubId': opts['hubId'],
@@ -1016,7 +908,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = [Route];
       return this.apiClient.callApi(
-        '/api/{version}/route', 'GET',
+        '/route', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1033,17 +925,12 @@ export default class RouteApi {
     /**
      * Set Driver
      * Update the driver of the route.
-     * @param {Number} version 
      * @param {Number} id the id of the route
      * @param {Number} driverId the id of the driver
      * @param {module:api/RouteApi~setDriverCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    setDriver(version, id, driverId, callback) {
+    setDriver(id, driverId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling setDriver");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling setDriver");
@@ -1054,7 +941,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version,
         'id': id,
         'driverId': driverId
       };
@@ -1070,7 +956,7 @@ export default class RouteApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/route/{id}/driver/{driverId}', 'POST',
+        '/route/{id}/driver/{driverId}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1087,27 +973,21 @@ export default class RouteApi {
     /**
      * Update Route
      * Update an existing route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route
      * @param {Object} opts Optional parameters
      * @param {module:model/Route} [body] 
      * @param {module:api/RouteApi~updateRouteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Route}
      */
-    updateRoute(version, routeId, opts, callback) {
+    updateRoute(routeId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRoute");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling updateRoute");
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId
       };
       let queryParams = {
@@ -1122,7 +1002,7 @@ export default class RouteApi {
       let accepts = ['*/*'];
       let returnType = Route;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}', 'PUT',
+        '/route/{routeId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1139,20 +1019,15 @@ export default class RouteApi {
     /**
      * Update Route Stop
      * Update a stop on a specified route
-     * @param {Number} version 
      * @param {Number} routeId the id of the route to update stops for
      * @param {Number} stopId the id of the specific stop to update on the route
      * @param {Object} opts Optional parameters
      * @param {module:model/Stop} [body] 
      * @param {module:api/RouteApi~updateRouteStopCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    updateRouteStop(version, routeId, stopId, opts, callback) {
+    updateRouteStop(routeId, stopId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRouteStop");
-      }
       // verify the required parameter 'routeId' is set
       if (routeId === undefined || routeId === null) {
         throw new Error("Missing the required parameter 'routeId' when calling updateRouteStop");
@@ -1163,7 +1038,6 @@ export default class RouteApi {
       }
 
       let pathParams = {
-        'version': version,
         'routeId': routeId,
         'stopId': stopId
       };
@@ -1179,7 +1053,7 @@ export default class RouteApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/route/{routeId}/stop/{stopId}', 'PUT',
+        '/route/{routeId}/stop/{stopId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -48,7 +48,6 @@ export default class RetailerApi {
     /**
      * Create Retailer
      * Create a retailer record. A billable entity must be created first before a retailer record can be made.
-     * @param {Number} version 
      * @param {String} name The name of the retailer
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -86,20 +85,15 @@ export default class RetailerApi {
      * @param {module:api/RetailerApi~createRetailerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerFullResponse}
      */
-    createRetailer(version, name, opts, callback) {
+    createRetailer(name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRetailer");
-      }
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
         throw new Error("Missing the required parameter 'name' when calling createRetailer");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -146,7 +140,7 @@ export default class RetailerApi {
       let accepts = ['*/*'];
       let returnType = RetailerFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/create', 'POST',
+        '/retailer/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -163,7 +157,6 @@ export default class RetailerApi {
     /**
      * Delete Retailer
      * Set the deleted timestamp to current time.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account used to perform the delete, must have rights to edit the retailer.
@@ -171,16 +164,11 @@ export default class RetailerApi {
      * @param {module:api/RetailerApi~deleteRetailerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteRetailer(version, opts, callback) {
+    deleteRetailer(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteRetailer");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -197,7 +185,7 @@ export default class RetailerApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/delete', 'POST',
+        '/retailer/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -214,7 +202,6 @@ export default class RetailerApi {
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param {Number} version 
      * @param {Number} retailerId the ID of the retailer
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -223,20 +210,15 @@ export default class RetailerApi {
      * @param {module:api/RetailerApi~getRetailerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerFullResponse}
      */
-    getRetailer(version, retailerId, opts, callback) {
+    getRetailer(retailerId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRetailer");
-      }
       // verify the required parameter 'retailerId' is set
       if (retailerId === undefined || retailerId === null) {
         throw new Error("Missing the required parameter 'retailerId' when calling getRetailer");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -254,7 +236,7 @@ export default class RetailerApi {
       let accepts = ['*/*'];
       let returnType = RetailerFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/get', 'GET',
+        '/retailer/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -271,7 +253,6 @@ export default class RetailerApi {
     /**
      * Search Retailers
      * earches on retailers that the account has access to.
-     * @param {Number} version 
      * @param {module:model/String} visibility 
      * @param {module:model/String} sortField The column to sort the search on
      * @param {Boolean} descending The order to return the search results
@@ -290,13 +271,9 @@ export default class RetailerApi {
      * @param {module:api/RetailerApi~getRetailersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RetailerResponse>}
      */
-    getRetailers(version, visibility, sortField, descending, start, limit, activeOnly, opts, callback) {
+    getRetailers(visibility, sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRetailers");
-      }
       // verify the required parameter 'visibility' is set
       if (visibility === undefined || visibility === null) {
         throw new Error("Missing the required parameter 'visibility' when calling getRetailers");
@@ -323,7 +300,6 @@ export default class RetailerApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -351,7 +327,7 @@ export default class RetailerApi {
       let accepts = ['*/*'];
       let returnType = [RetailerResponse];
       return this.apiClient.callApi(
-        '/api/{version}/retailer/search', 'GET',
+        '/retailer/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -368,7 +344,6 @@ export default class RetailerApi {
     /**
      * Login Retailer
      * Retailer login check.
-     * @param {Number} version 
      * @param {String} username the user's email address they used to sign-up
      * @param {String} password the password
      * @param {Object} opts Optional parameters
@@ -379,13 +354,9 @@ export default class RetailerApi {
      * @param {module:api/RetailerApi~retailerLoginCheckCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AccountLoginResponse}
      */
-    retailerLoginCheck(version, username, password, opts, callback) {
+    retailerLoginCheck(username, password, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling retailerLoginCheck");
-      }
       // verify the required parameter 'username' is set
       if (username === undefined || username === null) {
         throw new Error("Missing the required parameter 'username' when calling retailerLoginCheck");
@@ -396,7 +367,6 @@ export default class RetailerApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'username': username,
@@ -416,7 +386,7 @@ export default class RetailerApi {
       let accepts = ['*/*'];
       let returnType = AccountLoginResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/login', 'POST',
+        '/retailer/login', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -433,7 +403,6 @@ export default class RetailerApi {
     /**
      * Update Retailer
      * Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-     * @param {Number} version 
      * @param {Number} retailerId The ID of the retailer to update
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -470,20 +439,15 @@ export default class RetailerApi {
      * @param {module:api/RetailerApi~updateRetailerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerFullResponse}
      */
-    updateRetailer(version, retailerId, opts, callback) {
+    updateRetailer(retailerId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRetailer");
-      }
       // verify the required parameter 'retailerId' is set
       if (retailerId === undefined || retailerId === null) {
         throw new Error("Missing the required parameter 'retailerId' when calling updateRetailer");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -529,7 +493,7 @@ export default class RetailerApi {
       let accepts = ['*/*'];
       let returnType = RetailerFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/update', 'POST',
+        '/retailer/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -48,7 +48,6 @@ export default class AlbumApi {
     /**
      * Create Album
      * Create an Album.
-     * @param {Number} version 
      * @param {String} title the title of the album
      * @param {Boolean} coverAssetNullable determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image
      * @param {Boolean} includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -99,13 +98,9 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~addAlbumCollectionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchResponse}
      */
-    addAlbumCollection(version, title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, opts, callback) {
+    addAlbumCollection(title, coverAssetNullable, includeCoverInAssetList, publicRead, publicWrite, publicDelete, publicAdd, anonymous, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addAlbumCollection");
-      }
       // verify the required parameter 'title' is set
       if (title === undefined || title === null) {
         throw new Error("Missing the required parameter 'title' when calling addAlbumCollection");
@@ -140,7 +135,6 @@ export default class AlbumApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -200,7 +194,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = SearchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/create', 'POST',
+        '/album/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -217,7 +211,6 @@ export default class AlbumApi {
     /**
      * Add Album Users
      * Add users to an album as participants.
-     * @param {Number} version 
      * @param {Number} albumId the album ID
      * @param {Boolean} includeFriendGroup determines whether to include all friends as participants
      * @param {Object} opts Optional parameters
@@ -232,13 +225,9 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~addAlbumUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    addAlbumUsers(version, albumId, includeFriendGroup, opts, callback) {
+    addAlbumUsers(albumId, includeFriendGroup, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addAlbumUsers");
-      }
       // verify the required parameter 'albumId' is set
       if (albumId === undefined || albumId === null) {
         throw new Error("Missing the required parameter 'albumId' when calling addAlbumUsers");
@@ -249,7 +238,6 @@ export default class AlbumApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -273,7 +261,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/user/add', 'POST',
+        '/album/user/add', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -290,7 +278,6 @@ export default class AlbumApi {
     /**
      * Approve Album
      * Sets the approval status of an Album.
-     * @param {Number} version 
      * @param {Number} albumId The ID of the album
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] A unique ID given by the device (deviceId or accountId required)
@@ -300,20 +287,15 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~approveAlbumCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    approveAlbum(version, albumId, opts, callback) {
+    approveAlbum(albumId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling approveAlbum");
-      }
       // verify the required parameter 'albumId' is set
       if (albumId === undefined || albumId === null) {
         throw new Error("Missing the required parameter 'albumId' when calling approveAlbum");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -332,7 +314,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/approve', 'POST',
+        '/album/approve', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -349,7 +331,6 @@ export default class AlbumApi {
     /**
      *  Get Album
      * Get an Album.
-     * @param {Number} version 
      * @param {Boolean} returnNulls This parameter is deprecated.
      * @param {Number} albumId the album to look up
      * @param {Object} opts Optional parameters
@@ -363,13 +344,9 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~getAlbumCollectionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AlbumFullResponse}
      */
-    getAlbumCollection(version, returnNulls, albumId, opts, callback) {
+    getAlbumCollection(returnNulls, albumId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAlbumCollection");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling getAlbumCollection");
@@ -380,7 +357,6 @@ export default class AlbumApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -403,7 +379,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = AlbumFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/get', 'GET',
+        '/album/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -420,7 +396,6 @@ export default class AlbumApi {
     /**
      * Leave Album
      *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-     * @param {Number} version 
      * @param {Number} albumId the album ID
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -428,20 +403,15 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~leaveAlbumCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    leaveAlbum(version, albumId, opts, callback) {
+    leaveAlbum(albumId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling leaveAlbum");
-      }
       // verify the required parameter 'albumId' is set
       if (albumId === undefined || albumId === null) {
         throw new Error("Missing the required parameter 'albumId' when calling leaveAlbum");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -458,7 +428,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/user/leave', 'POST',
+        '/album/user/leave', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -475,7 +445,6 @@ export default class AlbumApi {
     /**
      * Delete Album
      * Deletes an Album
-     * @param {Number} version 
      * @param {Number} albumId the album ID to delete
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -483,20 +452,15 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~removeAlbumCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeAlbum(version, albumId, opts, callback) {
+    removeAlbum(albumId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeAlbum");
-      }
       // verify the required parameter 'albumId' is set
       if (albumId === undefined || albumId === null) {
         throw new Error("Missing the required parameter 'albumId' when calling removeAlbum");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -513,7 +477,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/delete', 'POST',
+        '/album/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -530,7 +494,6 @@ export default class AlbumApi {
     /**
      * Remove Album Users
      * Remove participants of an album.
-     * @param {Number} version 
      * @param {Number} albumId the album ID
      * @param {Boolean} removeFriendGroup remove friend group
      * @param {Object} opts Optional parameters
@@ -541,13 +504,9 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~removeAlbumUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeAlbumUsers(version, albumId, removeFriendGroup, opts, callback) {
+    removeAlbumUsers(albumId, removeFriendGroup, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeAlbumUsers");
-      }
       // verify the required parameter 'albumId' is set
       if (albumId === undefined || albumId === null) {
         throw new Error("Missing the required parameter 'albumId' when calling removeAlbumUsers");
@@ -558,7 +517,6 @@ export default class AlbumApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -578,7 +536,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/user/delete', 'POST',
+        '/album/user/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -595,7 +553,6 @@ export default class AlbumApi {
     /**
      * Search Albums
      * Searches on Albums.
-     * @param {Number} version 
      * @param {String} filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
      * @param {Number} albumTypeId id of custom albumType
      * @param {String} subType filter albums with this album sub type
@@ -660,13 +617,9 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~searchAlbumsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AlbumFullResponse>}
      */
-    searchAlbums(version, filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, opts, callback) {
+    searchAlbums(filter, albumTypeId, subType, includeInactive, sortField, descending, start, limit, range, includeLiked, includeFavorited, includePermissions, likePreviewSize, assetPreviewSize, notePreviewSize, connectionPreviewSize, audiencePreviewSize, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchAlbums");
-      }
       // verify the required parameter 'filter' is set
       if (filter === undefined || filter === null) {
         throw new Error("Missing the required parameter 'filter' when calling searchAlbums");
@@ -737,7 +690,6 @@ export default class AlbumApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -811,7 +763,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = [AlbumFullResponse];
       return this.apiClient.callApi(
-        '/api/{version}/album/search', 'GET',
+        '/album/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -828,7 +780,6 @@ export default class AlbumApi {
     /**
      * Update Album
      * Update an Album.
-     * @param {Number} version 
      * @param {Number} albumId the ID of the album to update
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -878,20 +829,15 @@ export default class AlbumApi {
      * @param {module:api/AlbumApi~updateAlbumCollectionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AlbumResponse}
      */
-    updateAlbumCollection(version, albumId, opts, callback) {
+    updateAlbumCollection(albumId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateAlbumCollection");
-      }
       // verify the required parameter 'albumId' is set
       if (albumId === undefined || albumId === null) {
         throw new Error("Missing the required parameter 'albumId' when calling updateAlbumCollection");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -950,7 +896,7 @@ export default class AlbumApi {
       let accepts = ['*/*'];
       let returnType = AlbumResponse;
       return this.apiClient.callApi(
-        '/api/{version}/album/update', 'POST',
+        '/album/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

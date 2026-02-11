@@ -46,7 +46,6 @@ export default class TaskApi {
     /**
      * Create Task
      * Create a Task
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} name The name of the task
      * @param {Object} opts Optional parameters
@@ -63,13 +62,9 @@ export default class TaskApi {
      * @param {module:api/TaskApi~createTaskCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskResponse}
      */
-    createTask(version, accountId, name, opts, callback) {
+    createTask(accountId, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createTask");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createTask");
@@ -80,7 +75,6 @@ export default class TaskApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -106,7 +100,7 @@ export default class TaskApi {
       let accepts = ['*/*'];
       let returnType = TaskResponse;
       return this.apiClient.callApi(
-        '/api/{version}/task/create', 'POST',
+        '/task/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -123,18 +117,13 @@ export default class TaskApi {
     /**
      * Delete Task
      * Delete a Task
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} taskId The id of the Task to delete.
      * @param {module:api/TaskApi~deleteTaskCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteTask(version, accountId, taskId, callback) {
+    deleteTask(accountId, taskId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteTask");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteTask");
@@ -145,7 +134,6 @@ export default class TaskApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -161,7 +149,7 @@ export default class TaskApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/task/delete', 'POST',
+        '/task/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -178,18 +166,13 @@ export default class TaskApi {
     /**
      * Get Task
      * Get a Task
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} taskId The id of the Task to return.
      * @param {module:api/TaskApi~getTaskCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskResponse}
      */
-    getTask(version, accountId, taskId, callback) {
+    getTask(accountId, taskId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTask");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getTask");
@@ -200,7 +183,6 @@ export default class TaskApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -216,7 +198,7 @@ export default class TaskApi {
       let accepts = ['*/*'];
       let returnType = TaskResponse;
       return this.apiClient.callApi(
-        '/api/{version}/task/get', 'GET',
+        '/task/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -233,7 +215,6 @@ export default class TaskApi {
     /**
      * Search Tasks
      * Search on Tasks
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
      * @param {String} [groupingId] Filter results by a grouping identifier defined by the client
@@ -250,20 +231,15 @@ export default class TaskApi {
      * @param {module:api/TaskApi~searchTasksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TaskResponse>}
      */
-    searchTasks(version, accountId, opts, callback) {
+    searchTasks(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchTasks");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchTasks");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -289,7 +265,7 @@ export default class TaskApi {
       let accepts = ['*/*'];
       let returnType = [TaskResponse];
       return this.apiClient.callApi(
-        '/api/{version}/task/search', 'GET',
+        '/task/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -306,7 +282,6 @@ export default class TaskApi {
     /**
      * Update Task
      * Update a Task
-     * @param {Number} version 
      * @param {Number} taskId Task Id
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
@@ -324,13 +299,9 @@ export default class TaskApi {
      * @param {module:api/TaskApi~updateTaskCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TaskResponse}
      */
-    updateTask(version, taskId, accountId, opts, callback) {
+    updateTask(taskId, accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateTask");
-      }
       // verify the required parameter 'taskId' is set
       if (taskId === undefined || taskId === null) {
         throw new Error("Missing the required parameter 'taskId' when calling updateTask");
@@ -341,7 +312,6 @@ export default class TaskApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'taskId': taskId,
@@ -368,7 +338,7 @@ export default class TaskApi {
       let accepts = ['*/*'];
       let returnType = TaskResponse;
       return this.apiClient.callApi(
-        '/api/{version}/task/update', 'POST',
+        '/task/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

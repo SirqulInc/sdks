@@ -46,7 +46,6 @@ export default class WordApi {
     /**
      * Create Word
      * Create a word by the given params.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} word The text of the word.
      * @param {String} definition The definition of the word.
@@ -60,13 +59,9 @@ export default class WordApi {
      * @param {module:api/WordApi~createWordCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WordzWordResponse}
      */
-    createWord(version, accountId, word, definition, active, allocateTickets, ticketCount, opts, callback) {
+    createWord(accountId, word, definition, active, allocateTickets, ticketCount, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createWord");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createWord");
@@ -93,7 +88,6 @@ export default class WordApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -116,7 +110,7 @@ export default class WordApi {
       let accepts = ['*/*'];
       let returnType = WordzWordResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/word/create', 'POST',
+        '/game/word/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -133,18 +127,13 @@ export default class WordApi {
     /**
      * Delete Word
      * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-     * @param {Number} version 
      * @param {Number} wordId The id of the word to delete.
      * @param {Number} accountId The account vor validating permission
      * @param {module:api/WordApi~deleteWordCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteWord(version, wordId, accountId, callback) {
+    deleteWord(wordId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteWord");
-      }
       // verify the required parameter 'wordId' is set
       if (wordId === undefined || wordId === null) {
         throw new Error("Missing the required parameter 'wordId' when calling deleteWord");
@@ -155,7 +144,6 @@ export default class WordApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'wordId': wordId,
@@ -171,7 +159,7 @@ export default class WordApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/word/delete', 'DELETE',
+        '/game/word/delete', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -188,18 +176,13 @@ export default class WordApi {
     /**
      * Get Word
      * Get a word by the given id.
-     * @param {Number} version 
      * @param {Number} wordId The id of the word to get.
      * @param {Number} accountId The logged in user.
      * @param {module:api/WordApi~getWordCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WordzWordResponse}
      */
-    getWord(version, wordId, accountId, callback) {
+    getWord(wordId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getWord");
-      }
       // verify the required parameter 'wordId' is set
       if (wordId === undefined || wordId === null) {
         throw new Error("Missing the required parameter 'wordId' when calling getWord");
@@ -210,7 +193,6 @@ export default class WordApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'wordId': wordId,
@@ -226,7 +208,7 @@ export default class WordApi {
       let accepts = ['*/*'];
       let returnType = WordzWordResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/word/get', 'GET',
+        '/game/word/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -243,7 +225,6 @@ export default class WordApi {
     /**
      * Search Words
      * Search for words by the given params.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} sortField The column to sort the search on
      * @param {Boolean} descending The order to return the search results
@@ -255,13 +236,9 @@ export default class WordApi {
      * @param {module:api/WordApi~getWordsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/WordzWordResponse>}
      */
-    getWords(version, accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
+    getWords(accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getWords");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getWords");
@@ -288,7 +265,6 @@ export default class WordApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -309,7 +285,7 @@ export default class WordApi {
       let accepts = ['*/*'];
       let returnType = [WordzWordResponse];
       return this.apiClient.callApi(
-        '/api/{version}/game/word/search', 'GET',
+        '/game/word/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -326,7 +302,6 @@ export default class WordApi {
     /**
      * Update Word
      * Update a word by the given params.
-     * @param {Number} version 
      * @param {Number} wordId The id of the word to update.
      * @param {Number} accountId The logged in user.
      * @param {Number} ticketCount The number of tickets to reward
@@ -341,13 +316,9 @@ export default class WordApi {
      * @param {module:api/WordApi~updateWordCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WordzWordResponse}
      */
-    updateWord(version, wordId, accountId, ticketCount, opts, callback) {
+    updateWord(wordId, accountId, ticketCount, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateWord");
-      }
       // verify the required parameter 'wordId' is set
       if (wordId === undefined || wordId === null) {
         throw new Error("Missing the required parameter 'wordId' when calling updateWord");
@@ -362,7 +333,6 @@ export default class WordApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'wordId': wordId,
@@ -386,7 +356,7 @@ export default class WordApi {
       let accepts = ['*/*'];
       let returnType = WordzWordResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/word/update', 'POST',
+        '/game/word/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

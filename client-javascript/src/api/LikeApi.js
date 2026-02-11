@@ -46,7 +46,6 @@ export default class LikeApi {
     /**
      * Create Like
      * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-     * @param {Number} version 
      * @param {String} likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param {Number} likableId The id of the likable object
      * @param {Object} opts Optional parameters
@@ -63,13 +62,9 @@ export default class LikeApi {
      * @param {module:api/LikeApi~registerLikeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LikableResponse}
      */
-    registerLike(version, likableType, likableId, opts, callback) {
+    registerLike(likableType, likableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling registerLike");
-      }
       // verify the required parameter 'likableType' is set
       if (likableType === undefined || likableType === null) {
         throw new Error("Missing the required parameter 'likableType' when calling registerLike");
@@ -80,7 +75,6 @@ export default class LikeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -106,7 +100,7 @@ export default class LikeApi {
       let accepts = ['*/*'];
       let returnType = LikableResponse;
       return this.apiClient.callApi(
-        '/api/{version}/like', 'POST',
+        '/like', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -123,7 +117,6 @@ export default class LikeApi {
     /**
      * Delete Like
      * Removes a like. This will make the user \"neutral\".
-     * @param {Number} version 
      * @param {String} likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param {Number} likableId The id of the likable object
      * @param {Object} opts Optional parameters
@@ -134,13 +127,9 @@ export default class LikeApi {
      * @param {module:api/LikeApi~removeLikeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LikableResponse}
      */
-    removeLike(version, likableType, likableId, opts, callback) {
+    removeLike(likableType, likableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeLike");
-      }
       // verify the required parameter 'likableType' is set
       if (likableType === undefined || likableType === null) {
         throw new Error("Missing the required parameter 'likableType' when calling removeLike");
@@ -151,7 +140,6 @@ export default class LikeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -171,7 +159,7 @@ export default class LikeApi {
       let accepts = ['*/*'];
       let returnType = LikableResponse;
       return this.apiClient.callApi(
-        '/api/{version}/like/delete', 'POST',
+        '/like/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -188,7 +176,6 @@ export default class LikeApi {
     /**
      * Search Likes
      * Search for likes on a likable object.
-     * @param {Number} version 
      * @param {String} likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
      * @param {Number} likableId The id of the likable object
      * @param {Object} opts Optional parameters
@@ -204,13 +191,9 @@ export default class LikeApi {
      * @param {module:api/LikeApi~searchLikesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchResponse}
      */
-    searchLikes(version, likableType, likableId, opts, callback) {
+    searchLikes(likableType, likableId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchLikes");
-      }
       // verify the required parameter 'likableType' is set
       if (likableType === undefined || likableType === null) {
         throw new Error("Missing the required parameter 'likableType' when calling searchLikes");
@@ -221,7 +204,6 @@ export default class LikeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -246,7 +228,7 @@ export default class LikeApi {
       let accepts = ['*/*'];
       let returnType = SearchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/like/search', 'GET',
+        '/like/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -51,7 +51,6 @@ export default class OfferApi {
     /**
      * Update Offer Locations
      * Batch update offer locations.
-     * @param {Number} version 
      * @param {String} data JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -59,20 +58,15 @@ export default class OfferApi {
      * @param {module:api/OfferApi~batchUpdateOfferLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    batchUpdateOfferLocations(version, data, opts, callback) {
+    batchUpdateOfferLocations(data, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling batchUpdateOfferLocations");
-      }
       // verify the required parameter 'data' is set
       if (data === undefined || data === null) {
         throw new Error("Missing the required parameter 'data' when calling batchUpdateOfferLocations");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -89,7 +83,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/location/batchUpdate', 'POST',
+        '/retailer/offer/location/batchUpdate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -106,7 +100,6 @@ export default class OfferApi {
     /**
      * Create Offer
      * Create an offer and assign it to the provided retailer locations.
-     * @param {Number} version 
      * @param {Boolean} includeOfferLocations If true return all the offer locations associated with the offer
      * @param {String} title The title (255 char limit)
      * @param {module:model/String} barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -197,13 +190,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~createOfferCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerOfferResponse}
      */
-    createOffer(version, includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, opts, callback) {
+    createOffer(includeOfferLocations, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, offerType, specialOfferType, offerVisibility, active, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createOffer");
-      }
       // verify the required parameter 'includeOfferLocations' is set
       if (includeOfferLocations === undefined || includeOfferLocations === null) {
         throw new Error("Missing the required parameter 'includeOfferLocations' when calling createOffer");
@@ -270,7 +259,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -370,7 +358,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = RetailerOfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/create', 'POST',
+        '/retailer/offer/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -387,7 +375,6 @@ export default class OfferApi {
     /**
      * Delete Offer
      * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-     * @param {Number} version 
      * @param {Number} offerId The ID of the offer to be deleted
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -395,20 +382,15 @@ export default class OfferApi {
      * @param {module:api/OfferApi~deleteOfferCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteOffer(version, offerId, opts, callback) {
+    deleteOffer(offerId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteOffer");
-      }
       // verify the required parameter 'offerId' is set
       if (offerId === undefined || offerId === null) {
         throw new Error("Missing the required parameter 'offerId' when calling deleteOffer");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -425,7 +407,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/delete', 'POST',
+        '/retailer/offer/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -442,7 +424,6 @@ export default class OfferApi {
     /**
      * Delete Offer Location
      * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-     * @param {Number} version 
      * @param {Number} offerLocationId The ID of the offer location to be deleted
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -450,20 +431,15 @@ export default class OfferApi {
      * @param {module:api/OfferApi~deleteOfferLocationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteOfferLocation(version, offerLocationId, opts, callback) {
+    deleteOfferLocation(offerLocationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteOfferLocation");
-      }
       // verify the required parameter 'offerLocationId' is set
       if (offerLocationId === undefined || offerLocationId === null) {
         throw new Error("Missing the required parameter 'offerLocationId' when calling deleteOfferLocation");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -480,7 +456,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/location/delete', 'POST',
+        '/retailer/offer/location/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -497,7 +473,6 @@ export default class OfferApi {
     /**
      * Get Offer
      * Gets the details of an offer that the user has access to.
-     * @param {Number} version 
      * @param {Number} offerId The id of the offer
      * @param {Boolean} includeOfferLocations 
      * @param {Object} opts Optional parameters
@@ -506,13 +481,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~getOfferCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerOfferResponse}
      */
-    getOffer(version, offerId, includeOfferLocations, opts, callback) {
+    getOffer(offerId, includeOfferLocations, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOffer");
-      }
       // verify the required parameter 'offerId' is set
       if (offerId === undefined || offerId === null) {
         throw new Error("Missing the required parameter 'offerId' when calling getOffer");
@@ -523,7 +494,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -541,7 +511,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = RetailerOfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/get', 'GET',
+        '/retailer/offer/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -558,7 +528,6 @@ export default class OfferApi {
     /**
      * Get Offer
      * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id for returning account information (i.e. favorites)
      * @param {Number} [accountId] The account id for returning account information (i.e. favorites)
@@ -573,16 +542,11 @@ export default class OfferApi {
      * @param {module:api/OfferApi~getOfferDetailsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferResponse}
      */
-    getOfferDetails(version, opts, callback) {
+    getOfferDetails(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOfferDetails");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -606,7 +570,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = OfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/get', 'GET',
+        '/offer/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -623,7 +587,6 @@ export default class OfferApi {
     /**
      * Get Offers (Counts)
      * Gets the offer list counts.
-     * @param {Number} version 
      * @param {Number} latitude The latitude of where the search will center at
      * @param {Number} longitude The longitude of where the search will center at
      * @param {Object} opts Optional parameters
@@ -632,13 +595,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~getOfferListCountsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ListCountResponse}
      */
-    getOfferListCounts(version, latitude, longitude, opts, callback) {
+    getOfferListCounts(latitude, longitude, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOfferListCounts");
-      }
       // verify the required parameter 'latitude' is set
       if (latitude === undefined || latitude === null) {
         throw new Error("Missing the required parameter 'latitude' when calling getOfferListCounts");
@@ -649,7 +608,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'latitude': latitude,
@@ -667,7 +625,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = ListCountResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/lists/count', 'GET',
+        '/offer/lists/count', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -684,23 +642,17 @@ export default class OfferApi {
     /**
      * Get Offer Location
      * Gets the offer location by offer location id or udid (of a device)
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [offerLocationId] the id of the offer location to get
      * @param {String} [udid] the UDID of the device
      * @param {module:api/OfferApi~getOfferLocationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferShortResponse}
      */
-    getOfferLocation(version, opts, callback) {
+    getOfferLocation(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOfferLocation");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'offerLocationId': opts['offerLocationId'],
@@ -716,7 +668,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = OfferShortResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/location/get', 'GET',
+        '/offer/location/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -733,7 +685,6 @@ export default class OfferApi {
     /**
      * Search Offer Locations
      * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-     * @param {Number} version 
      * @param {module:model/String} sortField The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param {Boolean} descending The order to return the results. Default is false, which will return the results in ascending order.
      * @param {Number} start The index into the record set to start with. Default is 0.
@@ -758,13 +709,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~getOfferLocationsForRetailersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferShortResponse>}
      */
-    getOfferLocationsForRetailers(version, sortField, descending, start, limit, activeOnly, includeRetailerLocation, opts, callback) {
+    getOfferLocationsForRetailers(sortField, descending, start, limit, activeOnly, includeRetailerLocation, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOfferLocationsForRetailers");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling getOfferLocationsForRetailers");
@@ -791,7 +738,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -825,7 +771,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = [OfferShortResponse];
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/location/search', 'GET',
+        '/retailer/offer/location/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -842,7 +788,6 @@ export default class OfferApi {
     /**
      * Search Offers
      * Searches on offers that the account has access to.
-     * @param {Number} version 
      * @param {module:model/String} offerVisibility 
      * @param {module:model/String} sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
      * @param {Boolean} descending The order to return the search results
@@ -878,13 +823,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~getOffersForRetailersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferResponse>}
      */
-    getOffersForRetailers(version, offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, opts, callback) {
+    getOffersForRetailers(offerVisibility, sortField, descending, start, limit, availableOnly, activeOnly, includeCategories, includeFilters, includeOfferLocations, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOffersForRetailers");
-      }
       // verify the required parameter 'offerVisibility' is set
       if (offerVisibility === undefined || offerVisibility === null) {
         throw new Error("Missing the required parameter 'offerVisibility' when calling getOffersForRetailers");
@@ -927,7 +868,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -972,7 +912,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = [OfferResponse];
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/search', 'GET',
+        '/retailer/offer/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -989,7 +929,6 @@ export default class OfferApi {
     /**
      * Update Offer Transaction
      * Redeems an offer.
-     * @param {Number} version 
      * @param {Number} offerTransactionId the OfferTransaction ID of the transaction being redeemed
      * @param {Number} status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
      * @param {Object} opts Optional parameters
@@ -999,13 +938,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~redeemOfferTransactionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    redeemOfferTransaction(version, offerTransactionId, status, opts, callback) {
+    redeemOfferTransaction(offerTransactionId, status, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling redeemOfferTransaction");
-      }
       // verify the required parameter 'offerTransactionId' is set
       if (offerTransactionId === undefined || offerTransactionId === null) {
         throw new Error("Missing the required parameter 'offerTransactionId' when calling redeemOfferTransaction");
@@ -1016,7 +951,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1035,7 +969,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/transaction/update', 'POST',
+        '/retailer/offer/transaction/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1052,7 +986,6 @@ export default class OfferApi {
     /**
      * Search Offer Transactions
      * Searches on offer transactions for offers that the account has access to.
-     * @param {Number} version 
      * @param {module:model/String} sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
      * @param {Boolean} descending Determines whether the results are in descending order
      * @param {Number} start The start index for pagination
@@ -1081,13 +1014,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~searchOfferTransactionsForRetailersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OfferTransactionResponse>}
      */
-    searchOfferTransactionsForRetailers(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchOfferTransactionsForRetailers(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchOfferTransactionsForRetailers");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchOfferTransactionsForRetailers");
@@ -1110,7 +1039,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1148,7 +1076,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = [OfferTransactionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/transaction/search', 'GET',
+        '/retailer/offer/transaction/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1165,7 +1093,6 @@ export default class OfferApi {
     /**
      * Search Offers
      * Searches for offers as a consumer.
-     * @param {Number} version 
      * @param {Number} latitude The latitude of where the search will center at
      * @param {Number} longitude The longitude of where the search will center at
      * @param {module:model/String} recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -1201,13 +1128,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~searchOffersForConsumerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferListResponse}
      */
-    searchOffersForConsumer(version, latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, opts, callback) {
+    searchOffersForConsumer(latitude, longitude, recommendationType, locationId, start, limit, maxRecommendations, distanceUnit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchOffersForConsumer");
-      }
       // verify the required parameter 'latitude' is set
       if (latitude === undefined || latitude === null) {
         throw new Error("Missing the required parameter 'latitude' when calling searchOffersForConsumer");
@@ -1242,7 +1165,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': opts['appKey'],
@@ -1287,7 +1209,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = OfferListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/lists', 'GET',
+        '/offer/lists', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1304,23 +1226,17 @@ export default class OfferApi {
     /**
      * Get Offers (Top)
      * Gets the top active offers.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [start = 0)] The index into the record set to start with. Default is 0.
      * @param {Number} [limit = 20)] The total number of record to return. Default id 20.
      * @param {module:api/OfferApi~topOfferTransactionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferListResponse}
      */
-    topOfferTransactions(version, opts, callback) {
+    topOfferTransactions(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling topOfferTransactions");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'start': opts['start'],
@@ -1336,7 +1252,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = OfferListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/offer/top', 'GET',
+        '/offer/top', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1353,7 +1269,6 @@ export default class OfferApi {
     /**
      * Update Offer
      * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-     * @param {Number} version 
      * @param {Number} offerId The offer to update
      * @param {Boolean} includeOfferLocations If true return all the offer locations associated with the offer
      * @param {Object} opts Optional parameters
@@ -1445,13 +1360,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~updateOfferCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerOfferResponse}
      */
-    updateOffer(version, offerId, includeOfferLocations, opts, callback) {
+    updateOffer(offerId, includeOfferLocations, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateOffer");
-      }
       // verify the required parameter 'offerId' is set
       if (offerId === undefined || offerId === null) {
         throw new Error("Missing the required parameter 'offerId' when calling updateOffer");
@@ -1462,7 +1373,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1563,7 +1473,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = RetailerOfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/update', 'POST',
+        '/retailer/offer/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -1580,7 +1490,6 @@ export default class OfferApi {
     /**
      * Activate Offer
      * Sets the activated date on offers. This will make offers visible for consumers.
-     * @param {Number} version 
      * @param {String} offerIds Comma separated list of offer ids
      * @param {Boolean} active Determines whether to make the offer active as well
      * @param {Object} opts Optional parameters
@@ -1589,13 +1498,9 @@ export default class OfferApi {
      * @param {module:api/OfferApi~updateOfferStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateOfferStatus(version, offerIds, active, opts, callback) {
+    updateOfferStatus(offerIds, active, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateOfferStatus");
-      }
       // verify the required parameter 'offerIds' is set
       if (offerIds === undefined || offerIds === null) {
         throw new Error("Missing the required parameter 'offerIds' when calling updateOfferStatus");
@@ -1606,7 +1511,6 @@ export default class OfferApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -1624,7 +1528,7 @@ export default class OfferApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/offer/status', 'POST',
+        '/retailer/offer/status', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -32,11 +32,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'http://localhost') {
+    constructor(basePath = 'https://dev.sirqul.com/api/3.18') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default http://localhost
+         * @default https://dev.sirqul.com/api/3.18
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -596,8 +596,14 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "",
+              'url': "https://dev.sirqul.com/api/{version}",
               'description': "No description provided",
+              'variables': {
+                version: {
+                    'description': "No description provided",
+                    'default_value': "3.18",
+                  }
+                }
             }
       ];
     }

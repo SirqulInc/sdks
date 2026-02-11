@@ -47,7 +47,6 @@ export default class PurchaseItemApi {
     /**
      * Create Purchase
      * Creates a purchase item for in app purchases
-     * @param {Number} version 
      * @param {String} appKey The application key that the purchase can be used in
      * @param {String} name The name of the purchase item
      * @param {module:model/String} purchaseType The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>
@@ -72,13 +71,9 @@ export default class PurchaseItemApi {
      * @param {module:api/PurchaseItemApi~createPurchaseItemCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PurchaseItemFullResponse}
      */
-    createPurchaseItem(version, appKey, name, purchaseType, opts, callback) {
+    createPurchaseItem(appKey, name, purchaseType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createPurchaseItem");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling createPurchaseItem");
@@ -93,7 +88,6 @@ export default class PurchaseItemApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -127,7 +121,7 @@ export default class PurchaseItemApi {
       let accepts = ['*/*'];
       let returnType = PurchaseItemFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/purchase/create', 'POST',
+        '/purchase/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -144,7 +138,6 @@ export default class PurchaseItemApi {
     /**
      * Delete Purchase
      * Marks the purchase item as deleted
-     * @param {Number} version 
      * @param {Number} purchaseItemId The purchase item id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -152,20 +145,15 @@ export default class PurchaseItemApi {
      * @param {module:api/PurchaseItemApi~deletePurchaseItemCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deletePurchaseItem(version, purchaseItemId, opts, callback) {
+    deletePurchaseItem(purchaseItemId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deletePurchaseItem");
-      }
       // verify the required parameter 'purchaseItemId' is set
       if (purchaseItemId === undefined || purchaseItemId === null) {
         throw new Error("Missing the required parameter 'purchaseItemId' when calling deletePurchaseItem");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -182,7 +170,7 @@ export default class PurchaseItemApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/purchase/delete', 'POST',
+        '/purchase/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -199,7 +187,6 @@ export default class PurchaseItemApi {
     /**
      * Get Purchase
      * Get detailed information about a purchase item
-     * @param {Number} version 
      * @param {Number} purchaseItemId The purchase item id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -207,20 +194,15 @@ export default class PurchaseItemApi {
      * @param {module:api/PurchaseItemApi~getPurchaseItemCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PurchaseItemFullResponse}
      */
-    getPurchaseItem(version, purchaseItemId, opts, callback) {
+    getPurchaseItem(purchaseItemId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPurchaseItem");
-      }
       // verify the required parameter 'purchaseItemId' is set
       if (purchaseItemId === undefined || purchaseItemId === null) {
         throw new Error("Missing the required parameter 'purchaseItemId' when calling getPurchaseItem");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -237,7 +219,7 @@ export default class PurchaseItemApi {
       let accepts = ['*/*'];
       let returnType = PurchaseItemFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/purchase/get', 'GET',
+        '/purchase/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -254,7 +236,6 @@ export default class PurchaseItemApi {
     /**
      * Search Purchases
      * Search for purchasable items from the system
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -271,16 +252,11 @@ export default class PurchaseItemApi {
      * @param {module:api/PurchaseItemApi~searchPurchaseItemsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PurchaseItemResponse>}
      */
-    searchPurchaseItems(version, opts, callback) {
+    searchPurchaseItems(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchPurchaseItems");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -306,7 +282,7 @@ export default class PurchaseItemApi {
       let accepts = ['*/*'];
       let returnType = [PurchaseItemResponse];
       return this.apiClient.callApi(
-        '/api/{version}/purchase/search', 'GET',
+        '/purchase/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -323,7 +299,6 @@ export default class PurchaseItemApi {
     /**
      * Update Purchase
      * Updates a purchase item for in app purchases
-     * @param {Number} version 
      * @param {Number} purchaseItemId The purchase item id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -349,20 +324,15 @@ export default class PurchaseItemApi {
      * @param {module:api/PurchaseItemApi~updatePurchaseItemCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PurchaseItemFullResponse}
      */
-    updatePurchaseItem(version, purchaseItemId, opts, callback) {
+    updatePurchaseItem(purchaseItemId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updatePurchaseItem");
-      }
       // verify the required parameter 'purchaseItemId' is set
       if (purchaseItemId === undefined || purchaseItemId === null) {
         throw new Error("Missing the required parameter 'purchaseItemId' when calling updatePurchaseItem");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -397,7 +367,7 @@ export default class PurchaseItemApi {
       let accepts = ['*/*'];
       let returnType = PurchaseItemFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/purchase/update', 'POST',
+        '/purchase/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

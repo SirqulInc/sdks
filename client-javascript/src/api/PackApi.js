@@ -46,7 +46,6 @@ export default class PackApi {
     /**
      * Create Pack
      * Create a pack.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} title The title of the pack
      * @param {Number} packOrder The order of the pack
@@ -75,13 +74,9 @@ export default class PackApi {
      * @param {module:api/PackApi~createPackCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PackResponse}
      */
-    createPack(version, accountId, title, packOrder, price, highest, allocateTickets, ticketCount, opts, callback) {
+    createPack(accountId, title, packOrder, price, highest, allocateTickets, ticketCount, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createPack");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createPack");
@@ -112,7 +107,6 @@ export default class PackApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -150,7 +144,7 @@ export default class PackApi {
       let accepts = ['*/*'];
       let returnType = PackResponse;
       return this.apiClient.callApi(
-        '/api/{version}/pack/create', 'POST',
+        '/pack/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -167,18 +161,13 @@ export default class PackApi {
     /**
      * Delete Pack
      * Delete a pack.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} packId the id of the pack to delete
      * @param {module:api/PackApi~deletePackCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deletePack(version, accountId, packId, callback) {
+    deletePack(accountId, packId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deletePack");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deletePack");
@@ -189,7 +178,6 @@ export default class PackApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -205,7 +193,7 @@ export default class PackApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/pack/delete', 'POST',
+        '/pack/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -222,19 +210,14 @@ export default class PackApi {
     /**
      * Get Pack
      * Get a pack.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} packId The id of the pack to return.
      * @param {Boolean} includeGameData If true include the game level data, otherwise don't. default is false.
      * @param {module:api/PackApi~getPackCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PackResponse}
      */
-    getPack(version, accountId, packId, includeGameData, callback) {
+    getPack(accountId, packId, includeGameData, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPack");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPack");
@@ -249,7 +232,6 @@ export default class PackApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -266,7 +248,7 @@ export default class PackApi {
       let accepts = ['*/*'];
       let returnType = PackResponse;
       return this.apiClient.callApi(
-        '/api/{version}/pack/get', 'GET',
+        '/pack/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -283,7 +265,6 @@ export default class PackApi {
     /**
      * Search Packs
      * Search on packs.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {module:model/String} sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
@@ -298,13 +279,9 @@ export default class PackApi {
      * @param {module:api/PackApi~searchPacksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PackResponse>}
      */
-    searchPacks(version, accountId, sortField, descending, opts, callback) {
+    searchPacks(accountId, sortField, descending, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchPacks");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchPacks");
@@ -319,7 +296,6 @@ export default class PackApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -343,7 +319,7 @@ export default class PackApi {
       let accepts = ['*/*'];
       let returnType = [PackResponse];
       return this.apiClient.callApi(
-        '/api/{version}/pack/search', 'GET',
+        '/pack/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -360,7 +336,6 @@ export default class PackApi {
     /**
      * Update Pack
      * Update a pack.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} packId The id of the pack to update.
      * @param {Boolean} allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -390,13 +365,9 @@ export default class PackApi {
      * @param {module:api/PackApi~updatePackCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PackResponse}
      */
-    updatePack(version, accountId, packId, allocateTickets, ticketCount, opts, callback) {
+    updatePack(accountId, packId, allocateTickets, ticketCount, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updatePack");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updatePack");
@@ -415,7 +386,6 @@ export default class PackApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -454,7 +424,7 @@ export default class PackApi {
       let accepts = ['*/*'];
       let returnType = PackResponse;
       return this.apiClient.callApi(
-        '/api/{version}/pack/update', 'POST',
+        '/pack/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

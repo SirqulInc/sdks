@@ -47,19 +47,14 @@ export default class AnalyticsApi {
     /**
      * Get User Activity
      * Get an activity feed by user.
-     * @param {Number} version 
      * @param {Number} start The start of the pagination
      * @param {Number} limit The limit of the pagination
      * @param {Number} accountId the account id of the user
      * @param {module:api/AnalyticsApi~activitiesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserActivityResponse>}
      */
-    activities(version, start, limit, accountId, callback) {
+    activities(start, limit, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling activities");
-      }
       // verify the required parameter 'start' is set
       if (start === undefined || start === null) {
         throw new Error("Missing the required parameter 'start' when calling activities");
@@ -74,7 +69,6 @@ export default class AnalyticsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'start': start,
@@ -91,7 +85,7 @@ export default class AnalyticsApi {
       let accepts = ['*/*'];
       let returnType = [UserActivityResponse];
       return this.apiClient.callApi(
-        '/api/{version}/analytics/useractivity', 'GET',
+        '/analytics/useractivity', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -108,7 +102,6 @@ export default class AnalyticsApi {
     /**
      * Get Aggregated Filtered Usage
      * Query analytics to get data used for nested graphs and charts
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -144,16 +137,11 @@ export default class AnalyticsApi {
      * @param {module:api/AnalyticsApi~aggregatedFilteredUsageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ChartData}
      */
-    aggregatedFilteredUsage(version, opts, callback) {
+    aggregatedFilteredUsage(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling aggregatedFilteredUsage");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -198,7 +186,7 @@ export default class AnalyticsApi {
       let accepts = ['*/*'];
       let returnType = ChartData;
       return this.apiClient.callApi(
-        '/api/{version}/analytics/aggregatedFilteredUsage', 'GET',
+        '/analytics/aggregatedFilteredUsage', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -215,7 +203,6 @@ export default class AnalyticsApi {
     /**
      * Get Filtered Usage
      * Query analytics to get data used for graphs and charts
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique id of the device making the request (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -259,16 +246,11 @@ export default class AnalyticsApi {
      * @param {module:api/AnalyticsApi~filteredUsageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ChartData}
      */
-    filteredUsage(version, opts, callback) {
+    filteredUsage(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling filteredUsage");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -321,7 +303,7 @@ export default class AnalyticsApi {
       let accepts = ['*/*'];
       let returnType = ChartData;
       return this.apiClient.callApi(
-        '/api/{version}/analytics/filteredUsage', 'GET',
+        '/analytics/filteredUsage', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -338,7 +320,6 @@ export default class AnalyticsApi {
     /**
      * Create Usage Record
      * Record an analytic record for a known state within the application.
-     * @param {Number} version 
      * @param {String} tag The tag to apply: the name of the action or thing being logged.
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The client deviceID
@@ -374,20 +355,15 @@ export default class AnalyticsApi {
      * @param {module:api/AnalyticsApi~usageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    usage(version, tag, opts, callback) {
+    usage(tag, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling usage");
-      }
       // verify the required parameter 'tag' is set
       if (tag === undefined || tag === null) {
         throw new Error("Missing the required parameter 'tag' when calling usage");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'tag': tag,
@@ -432,7 +408,7 @@ export default class AnalyticsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/analytics/usage', 'POST',
+        '/analytics/usage', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -449,7 +425,6 @@ export default class AnalyticsApi {
     /**
      * Create Multiple Usage Records
      * Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
-     * @param {Number} version 
      * @param {String} appKey The application key unique to each application.
      * @param {String} device The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)
      * @param {String} data The analytic data AnalyticListResponse
@@ -465,13 +440,9 @@ export default class AnalyticsApi {
      * @param {module:api/AnalyticsApi~usageBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    usageBatch(version, appKey, device, data, opts, callback) {
+    usageBatch(appKey, device, data, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling usageBatch");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling usageBatch");
@@ -486,7 +457,6 @@ export default class AnalyticsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -511,7 +481,7 @@ export default class AnalyticsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/analytics/usage/batch', 'POST',
+        '/analytics/usage/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

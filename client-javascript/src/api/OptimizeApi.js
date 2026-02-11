@@ -47,19 +47,14 @@ export default class OptimizeApi {
     /**
      * Get Optimization Result
      * Get the results of the import batch.
-     * @param {Number} version 
      * @param {String} batchID The batchID for getting the import status of.
      * @param {Number} start The start index for pagination
      * @param {Number} limit The limit for pagination
      * @param {module:api/OptimizeApi~getOptimizationResultCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object.<String, module:model/{String: ShipmentOrder}>}
      */
-    getOptimizationResult(version, batchID, start, limit, callback) {
+    getOptimizationResult(batchID, start, limit, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOptimizationResult");
-      }
       // verify the required parameter 'batchID' is set
       if (batchID === undefined || batchID === null) {
         throw new Error("Missing the required parameter 'batchID' when calling getOptimizationResult");
@@ -74,7 +69,6 @@ export default class OptimizeApi {
       }
 
       let pathParams = {
-        'version': version,
         'batchID': batchID
       };
       let queryParams = {
@@ -91,7 +85,7 @@ export default class OptimizeApi {
       let accepts = ['*/*'];
       let returnType = {'String': ShipmentOrder};
       return this.apiClient.callApi(
-        '/api/{version}/optimize/result/{batchID}', 'GET',
+        '/optimize/result/{batchID}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -108,22 +102,16 @@ export default class OptimizeApi {
     /**
      * Request Optimization
      * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/Orders} [body] 
      * @param {module:api/OptimizeApi~requestOptimizationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ImportStatuses}
      */
-    requestOptimization(version, opts, callback) {
+    requestOptimization(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling requestOptimization");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -137,7 +125,7 @@ export default class OptimizeApi {
       let accepts = ['*/*'];
       let returnType = ImportStatuses;
       return this.apiClient.callApi(
-        '/api/{version}/optimize/request', 'POST',
+        '/optimize/request', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

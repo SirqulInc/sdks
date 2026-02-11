@@ -45,18 +45,13 @@ export default class StripeApi {
     /**
      * Create Stripe Checkout Session
      * Create a Stripe checkout session
-     * @param {Number} version 
      * @param {String} appKey Sirqul Application Key
      * @param {String} stripeParameters Stripe Parameters
      * @param {module:api/StripeApi~createStripeCheckoutSessionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    createStripeCheckoutSession(version, appKey, stripeParameters, callback) {
+    createStripeCheckoutSession(appKey, stripeParameters, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createStripeCheckoutSession");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling createStripeCheckoutSession");
@@ -67,7 +62,6 @@ export default class StripeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': appKey,
@@ -83,7 +77,7 @@ export default class StripeApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/stripe/checkout/session/create', 'POST',
+        '/stripe/checkout/session/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

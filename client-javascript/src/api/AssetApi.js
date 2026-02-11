@@ -48,24 +48,18 @@ export default class AssetApi {
     /**
      * Download Asset
      * Downloads an asset from the server for assets that have been uploaded to the server.
-     * @param {Number} version 
      * @param {String} filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
      * @param {module:api/AssetApi~assetDownloadCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    assetDownload(version, filename, callback) {
+    assetDownload(filename, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assetDownload");
-      }
       // verify the required parameter 'filename' is set
       if (filename === undefined || filename === null) {
         throw new Error("Missing the required parameter 'filename' when calling assetDownload");
       }
 
       let pathParams = {
-        'version': version,
         'filename': filename
       };
       let queryParams = {
@@ -80,7 +74,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/asset/download/{filename}', 'GET',
+        '/asset/download/{filename}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -97,7 +91,6 @@ export default class AssetApi {
     /**
      * Convert Offer to Creative
      * Converts an offer image + text into a creative image.
-     * @param {Number} version 
      * @param {Number} offerId offer id used for inserting offer text/flavor
      * @param {module:model/String} adSize the ad size used for selecting a format for the creative image
      * @param {Object} opts Optional parameters
@@ -109,13 +102,9 @@ export default class AssetApi {
      * @param {module:api/AssetApi~assetMorphCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssetShortResponse}
      */
-    assetMorph(version, offerId, adSize, opts, callback) {
+    assetMorph(offerId, adSize, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assetMorph");
-      }
       // verify the required parameter 'offerId' is set
       if (offerId === undefined || offerId === null) {
         throw new Error("Missing the required parameter 'offerId' when calling assetMorph");
@@ -126,7 +115,6 @@ export default class AssetApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'offerId': offerId,
@@ -147,7 +135,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = AssetShortResponse;
       return this.apiClient.callApi(
-        '/api/{version}/asset/morph', 'POST',
+        '/asset/morph', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -164,7 +152,6 @@ export default class AssetApi {
     /**
      * Create Asset
      * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnNulls] to return nulls
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -203,16 +190,11 @@ export default class AssetApi {
      * @param {module:api/AssetApi~createAssetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssetResponse}
      */
-    createAsset(version, opts, callback) {
+    createAsset(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createAsset");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': opts['returnNulls'],
@@ -260,7 +242,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = AssetResponse;
       return this.apiClient.callApi(
-        '/api/{version}/asset/create', 'POST',
+        '/asset/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -277,7 +259,6 @@ export default class AssetApi {
     /**
      * Delete Asset
      * Delete an asset.
-     * @param {Number} version 
      * @param {String} assetId the id of the asset to delete
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -287,20 +268,15 @@ export default class AssetApi {
      * @param {module:api/AssetApi~deleteAssetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteAsset(version, assetId, opts, callback) {
+    deleteAsset(assetId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteAsset");
-      }
       // verify the required parameter 'assetId' is set
       if (assetId === undefined || assetId === null) {
         throw new Error("Missing the required parameter 'assetId' when calling deleteAsset");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -319,7 +295,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/asset/delete', 'POST',
+        '/asset/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -336,7 +312,6 @@ export default class AssetApi {
     /**
      * Get Asset
      * Gets the full asset response including attached likes and notes.
-     * @param {Number} version 
      * @param {Number} assetId the asset ID
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -345,20 +320,15 @@ export default class AssetApi {
      * @param {module:api/AssetApi~getAssetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssetFullResponse}
      */
-    getAsset(version, assetId, opts, callback) {
+    getAsset(assetId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAsset");
-      }
       // verify the required parameter 'assetId' is set
       if (assetId === undefined || assetId === null) {
         throw new Error("Missing the required parameter 'assetId' when calling getAsset");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -376,7 +346,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = AssetFullResponse;
       return this.apiClient.callApi(
-        '/api/{version}/asset/get', 'GET',
+        '/asset/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -393,7 +363,6 @@ export default class AssetApi {
     /**
      * Remove Asset from Collection
      * Remove assets from collections
-     * @param {Number} version 
      * @param {String} assetId the id of the asset to remove
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -406,20 +375,15 @@ export default class AssetApi {
      * @param {module:api/AssetApi~removeAssetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeAsset(version, assetId, opts, callback) {
+    removeAsset(assetId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeAsset");
-      }
       // verify the required parameter 'assetId' is set
       if (assetId === undefined || assetId === null) {
         throw new Error("Missing the required parameter 'assetId' when calling removeAsset");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -441,7 +405,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/asset/remove', 'POST',
+        '/asset/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -458,7 +422,6 @@ export default class AssetApi {
     /**
      * Search Assets
      * Searches for assets
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account ID of the user (deviceId or accountId required)
@@ -487,16 +450,11 @@ export default class AssetApi {
      * @param {module:api/AssetApi~searchAssetsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AssetResponse>}
      */
-    searchAssets(version, opts, callback) {
+    searchAssets(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchAssets");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -534,7 +492,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = [AssetResponse];
       return this.apiClient.callApi(
-        '/api/{version}/asset/search', 'GET',
+        '/asset/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -551,7 +509,6 @@ export default class AssetApi {
     /**
      * Update Asset
      * Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-     * @param {Number} version 
      * @param {Number} assetId the ID of the asset to update
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -587,20 +544,15 @@ export default class AssetApi {
      * @param {module:api/AssetApi~updateAssetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateAsset(version, assetId, opts, callback) {
+    updateAsset(assetId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateAsset");
-      }
       // verify the required parameter 'assetId' is set
       if (assetId === undefined || assetId === null) {
         throw new Error("Missing the required parameter 'assetId' when calling updateAsset");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -645,7 +597,7 @@ export default class AssetApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/asset/update', 'POST',
+        '/asset/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

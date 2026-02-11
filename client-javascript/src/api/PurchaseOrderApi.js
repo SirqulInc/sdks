@@ -46,7 +46,6 @@ export default class PurchaseOrderApi {
     /**
      * Create Order
      * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-     * @param {Number} version 
      * @param {String} appKey The application requesting the purchase
      * @param {String} cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
      * @param {Object} opts Optional parameters
@@ -63,13 +62,9 @@ export default class PurchaseOrderApi {
      * @param {module:api/PurchaseOrderApi~createOrderCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderResponse}
      */
-    createOrder(version, appKey, cart, opts, callback) {
+    createOrder(appKey, cart, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createOrder");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling createOrder");
@@ -80,7 +75,6 @@ export default class PurchaseOrderApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -106,7 +100,7 @@ export default class PurchaseOrderApi {
       let accepts = ['*/*'];
       let returnType = OrderResponse;
       return this.apiClient.callApi(
-        '/api/{version}/order/create', 'POST',
+        '/order/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -123,7 +117,6 @@ export default class PurchaseOrderApi {
     /**
      * Delete Order
      * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-     * @param {Number} version 
      * @param {Number} orderId Order Id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -131,20 +124,15 @@ export default class PurchaseOrderApi {
      * @param {module:api/PurchaseOrderApi~deleteOrderCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteOrder(version, orderId, opts, callback) {
+    deleteOrder(orderId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteOrder");
-      }
       // verify the required parameter 'orderId' is set
       if (orderId === undefined || orderId === null) {
         throw new Error("Missing the required parameter 'orderId' when calling deleteOrder");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -161,7 +149,7 @@ export default class PurchaseOrderApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/order/delete', 'POST',
+        '/order/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -178,7 +166,6 @@ export default class PurchaseOrderApi {
     /**
      * Get Order
      * Get an order record
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -187,16 +174,11 @@ export default class PurchaseOrderApi {
      * @param {module:api/PurchaseOrderApi~getOrderCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderResponse}
      */
-    getOrder(version, opts, callback) {
+    getOrder(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getOrder");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -214,7 +196,7 @@ export default class PurchaseOrderApi {
       let accepts = ['*/*'];
       let returnType = OrderResponse;
       return this.apiClient.callApi(
-        '/api/{version}/order/get', 'GET',
+        '/order/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -231,7 +213,6 @@ export default class PurchaseOrderApi {
     /**
      * Preview Order
      * Previews a purchase to see the total cost before making it.
-     * @param {Number} version 
      * @param {String} appKey The application requesting the purchase
      * @param {String} cart A JSON list of items to purchase
      * @param {Object} opts Optional parameters
@@ -248,13 +229,9 @@ export default class PurchaseOrderApi {
      * @param {module:api/PurchaseOrderApi~previewOrderCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderResponse}
      */
-    previewOrder(version, appKey, cart, opts, callback) {
+    previewOrder(appKey, cart, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling previewOrder");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling previewOrder");
@@ -265,7 +242,6 @@ export default class PurchaseOrderApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -291,7 +267,7 @@ export default class PurchaseOrderApi {
       let accepts = ['*/*'];
       let returnType = OrderResponse;
       return this.apiClient.callApi(
-        '/api/{version}/order/preview', 'POST',
+        '/order/preview', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -308,7 +284,6 @@ export default class PurchaseOrderApi {
     /**
      * Search Orders
      * Search on active orders by customer
-     * @param {Number} version 
      * @param {String} appKey The application requesting the purchase
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -344,20 +319,15 @@ export default class PurchaseOrderApi {
      * @param {module:api/PurchaseOrderApi~searchOrdersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/OrderResponse>}
      */
-    searchOrders(version, appKey, opts, callback) {
+    searchOrders(appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchOrders");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling searchOrders");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -402,7 +372,7 @@ export default class PurchaseOrderApi {
       let accepts = ['*/*'];
       let returnType = [OrderResponse];
       return this.apiClient.callApi(
-        '/api/{version}/order/search', 'GET',
+        '/order/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -419,7 +389,6 @@ export default class PurchaseOrderApi {
     /**
      * Update Order
      * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-     * @param {Number} version 
      * @param {Number} orderId The order to add the purchase to, leave null for new order.
      * @param {String} appKey The application requesting the purchase
      * @param {String} cart ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` 
@@ -435,13 +404,9 @@ export default class PurchaseOrderApi {
      * @param {module:api/PurchaseOrderApi~updateOrderCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OrderResponse}
      */
-    updateOrder(version, orderId, appKey, cart, opts, callback) {
+    updateOrder(orderId, appKey, cart, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateOrder");
-      }
       // verify the required parameter 'orderId' is set
       if (orderId === undefined || orderId === null) {
         throw new Error("Missing the required parameter 'orderId' when calling updateOrder");
@@ -456,7 +421,6 @@ export default class PurchaseOrderApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -481,7 +445,7 @@ export default class PurchaseOrderApi {
       let accepts = ['*/*'];
       let returnType = OrderResponse;
       return this.apiClient.callApi(
-        '/api/{version}/order/update', 'POST',
+        '/order/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

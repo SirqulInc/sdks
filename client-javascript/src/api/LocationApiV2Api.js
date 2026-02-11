@@ -46,22 +46,16 @@ export default class LocationApiV2Api {
     /**
      * Create new location
      * Create a new location from a real object location.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/Location} [body] 
      * @param {module:api/LocationApiV2Api~createLocationV2Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    createLocationV2(version, opts, callback) {
+    createLocationV2(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createLocationV2");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -75,7 +69,7 @@ export default class LocationApiV2Api {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location', 'POST',
+        '/location', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -92,27 +86,21 @@ export default class LocationApiV2Api {
     /**
      * Update an existing location
      * Update an existing location
-     * @param {Number} version 
      * @param {Number} id the id of the location to update
      * @param {Object} opts Optional parameters
      * @param {module:model/Location} [body] 
      * @param {module:api/LocationApiV2Api~updateLocationV2Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateLocationV2(version, id, opts, callback) {
+    updateLocationV2(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateLocationV2");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling updateLocationV2");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -127,7 +115,7 @@ export default class LocationApiV2Api {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location/{id}', 'POST',
+        '/location/{id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

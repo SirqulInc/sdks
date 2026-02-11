@@ -46,22 +46,16 @@ export default class ShipmentBatchApi {
     /**
      * Create Shipment Batch
      * Create a new shipment batch
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/ShipmentBatch} [body] 
      * @param {module:api/ShipmentBatchApi~createShipmentBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ShipmentBatch}
      */
-    createShipmentBatch(version, opts, callback) {
+    createShipmentBatch(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createShipmentBatch");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -75,7 +69,7 @@ export default class ShipmentBatchApi {
       let accepts = ['*/*'];
       let returnType = ShipmentBatch;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/batch', 'POST',
+        '/shipment/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -92,23 +86,17 @@ export default class ShipmentBatchApi {
     /**
      * Delete Shipment Batch
      * Search for shipment batches
-     * @param {Number} version 
      * @param {Number} batchId the id of the shipment batch to delete
      * @param {module:api/ShipmentBatchApi~deleteShipmentBatchCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteShipmentBatch(version, batchId, callback) {
+    deleteShipmentBatch(batchId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteShipmentBatch");
-      }
       // verify the required parameter 'batchId' is set
       if (batchId === undefined || batchId === null) {
         throw new Error("Missing the required parameter 'batchId' when calling deleteShipmentBatch");
       }
 
       let pathParams = {
-        'version': version,
         'batchId': batchId
       };
       let queryParams = {
@@ -123,7 +111,7 @@ export default class ShipmentBatchApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/batch/{batchId}', 'DELETE',
+        '/shipment/batch/{batchId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -140,24 +128,18 @@ export default class ShipmentBatchApi {
     /**
      * Get Shipment Batch
      * Get an existing shipment batch
-     * @param {Number} version 
      * @param {Number} batchId the id of the shipment batch to get
      * @param {module:api/ShipmentBatchApi~getShipmentBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ShipmentBatch}
      */
-    getShipmentBatch(version, batchId, callback) {
+    getShipmentBatch(batchId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getShipmentBatch");
-      }
       // verify the required parameter 'batchId' is set
       if (batchId === undefined || batchId === null) {
         throw new Error("Missing the required parameter 'batchId' when calling getShipmentBatch");
       }
 
       let pathParams = {
-        'version': version,
         'batchId': batchId
       };
       let queryParams = {
@@ -172,7 +154,7 @@ export default class ShipmentBatchApi {
       let accepts = ['*/*'];
       let returnType = ShipmentBatch;
       return this.apiClient.callApi(
-        '/api/{version}/shipment/batch/{batchId}', 'GET',
+        '/shipment/batch/{batchId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -189,7 +171,6 @@ export default class ShipmentBatchApi {
     /**
      * Get Shipment Batch Status
      * Get the import status list of the import shipment batch
-     * @param {Number} version 
      * @param {Number} batchId The id of the requested shipment batch
      * @param {Number} accountId the id of the logged in user
      * @param {String} sortField The field to sort by
@@ -206,13 +187,9 @@ export default class ShipmentBatchApi {
      * @param {module:api/ShipmentBatchApi~getShipmentBatchStatusCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ShipmentImportStatus>}
      */
-    getShipmentBatchStatus(version, batchId, accountId, sortField, descending, start, limit, opts, callback) {
+    getShipmentBatchStatus(batchId, accountId, sortField, descending, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getShipmentBatchStatus");
-      }
       // verify the required parameter 'batchId' is set
       if (batchId === undefined || batchId === null) {
         throw new Error("Missing the required parameter 'batchId' when calling getShipmentBatchStatus");
@@ -239,7 +216,6 @@ export default class ShipmentBatchApi {
       }
 
       let pathParams = {
-        'version': version,
         'batchId': batchId
       };
       let queryParams = {
@@ -265,7 +241,7 @@ export default class ShipmentBatchApi {
       let accepts = ['*/*'];
       let returnType = [ShipmentImportStatus];
       return this.apiClient.callApi(
-        '/api/{version}/shipment/batch/{batchId}/status', 'GET',
+        '/shipment/batch/{batchId}/status', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -282,7 +258,6 @@ export default class ShipmentBatchApi {
     /**
      * Search Shipment Batch
      * Search for shipment batches
-     * @param {Number} version 
      * @param {Number} hubId The associated service hub
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
@@ -291,12 +266,8 @@ export default class ShipmentBatchApi {
      * @param {module:api/ShipmentBatchApi~searchShipmentBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ShipmentBatch>}
      */
-    searchShipmentBatch(version, hubId, sortField, descending, start, limit, callback) {
+    searchShipmentBatch(hubId, sortField, descending, start, limit, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchShipmentBatch");
-      }
       // verify the required parameter 'hubId' is set
       if (hubId === undefined || hubId === null) {
         throw new Error("Missing the required parameter 'hubId' when calling searchShipmentBatch");
@@ -319,7 +290,6 @@ export default class ShipmentBatchApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'hubId': hubId,
@@ -338,7 +308,7 @@ export default class ShipmentBatchApi {
       let accepts = ['*/*'];
       let returnType = [ShipmentBatch];
       return this.apiClient.callApi(
-        '/api/{version}/shipment/batch', 'GET',
+        '/shipment/batch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

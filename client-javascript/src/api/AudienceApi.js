@@ -50,7 +50,6 @@ export default class AudienceApi {
     /**
      * Create Audience
      * Create a user defined audience.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} name The name of the audience
      * @param {Object} opts Optional parameters
@@ -84,13 +83,9 @@ export default class AudienceApi {
      * @param {module:api/AudienceApi~createAudienceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AudienceResponse}
      */
-    createAudience(version, accountId, name, opts, callback) {
+    createAudience(accountId, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createAudience");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createAudience");
@@ -101,7 +96,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -144,7 +138,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = AudienceResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/create', 'POST',
+        '/audience/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -161,18 +155,13 @@ export default class AudienceApi {
     /**
      * Delete Audience
      * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} audienceId The id of the audience to delete.
      * @param {module:api/AudienceApi~deleteAudienceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteAudience(version, accountId, audienceId, callback) {
+    deleteAudience(accountId, audienceId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteAudience");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteAudience");
@@ -183,7 +172,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -199,7 +187,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/delete', 'POST',
+        '/audience/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -216,19 +204,13 @@ export default class AudienceApi {
     /**
      * Get Age Groups
      * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-     * @param {Number} version 
      * @param {module:api/AudienceApi~getAgeGroupsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AgeGroupResponse>}
      */
-    getAgeGroups(version, callback) {
+    getAgeGroups(callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAgeGroups");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -242,7 +224,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = [AgeGroupResponse];
       return this.apiClient.callApi(
-        '/api/{version}/audience/ageGroups', 'GET',
+        '/audience/ageGroups', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -259,7 +241,6 @@ export default class AudienceApi {
     /**
      * Get Audience
      * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} audienceId The id of the audience to return.
      * @param {Object} opts Optional parameters
@@ -270,13 +251,9 @@ export default class AudienceApi {
      * @param {module:api/AudienceApi~getAudienceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AudienceResponse}
      */
-    getAudience(version, accountId, audienceId, opts, callback) {
+    getAudience(accountId, audienceId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAudience");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getAudience");
@@ -287,7 +264,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -307,7 +283,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = AudienceResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/get', 'GET',
+        '/audience/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -324,7 +300,6 @@ export default class AudienceApi {
     /**
      * Search Audiences
      * Get the list audiences owned by the account
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The logged in user.
      * @param {String} [albumIds] Comma separated list of album IDs to filter results with
@@ -348,16 +323,11 @@ export default class AudienceApi {
      * @param {module:api/AudienceApi~getAudienceListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SearchResponse>}
      */
-    getAudienceList(version, opts, callback) {
+    getAudienceList(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAudienceList");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -390,7 +360,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = [SearchResponse];
       return this.apiClient.callApi(
-        '/api/{version}/audience/search', 'GET',
+        '/audience/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -407,24 +377,18 @@ export default class AudienceApi {
     /**
      * Get Devices
      * Gets the list of available devices that can be selected by consumers and retailers.
-     * @param {Number} version 
      * @param {Boolean} includeInactive If true return inactive record as well. default is false.
      * @param {module:api/AudienceApi~getDevicesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AudienceDeviceResponse>}
      */
-    getDevices(version, includeInactive, callback) {
+    getDevices(includeInactive, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getDevices");
-      }
       // verify the required parameter 'includeInactive' is set
       if (includeInactive === undefined || includeInactive === null) {
         throw new Error("Missing the required parameter 'includeInactive' when calling getDevices");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'includeInactive': includeInactive
@@ -439,7 +403,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = [AudienceDeviceResponse];
       return this.apiClient.callApi(
-        '/api/{version}/audience/devices', 'GET',
+        '/audience/devices', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -456,19 +420,13 @@ export default class AudienceApi {
     /**
      * Get Experiences
      * Gets the list of available experiences that can be selected by consumers and retailers.
-     * @param {Number} version 
      * @param {module:api/AudienceApi~getExperiencesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    getExperiences(version, callback) {
+    getExperiences(callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getExperiences");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -482,7 +440,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/experiences', 'GET',
+        '/audience/experiences', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -499,18 +457,13 @@ export default class AudienceApi {
     /**
      * Get GroupedAudiences
      * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} audienceGroupingId The audience grouping id to return.
      * @param {module:api/AudienceApi~getGroupedAudiencesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AudienceResponse}
      */
-    getGroupedAudiences(version, accountId, audienceGroupingId, callback) {
+    getGroupedAudiences(accountId, audienceGroupingId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getGroupedAudiences");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getGroupedAudiences");
@@ -521,7 +474,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -537,7 +489,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = AudienceResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/grouped/get', 'GET',
+        '/audience/grouped/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -554,19 +506,14 @@ export default class AudienceApi {
     /**
      * List Suggestions by Audience
      * List either Missions or Offers that the user matches the assigned audience.
-     * @param {Number} version 
      * @param {Number} accountId The account to match offers for.
      * @param {Number} limit the limit of the index
      * @param {String} suggestionType the type of suggestion
      * @param {module:api/AudienceApi~listByAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferListResponse}
      */
-    listByAccount(version, accountId, limit, suggestionType, callback) {
+    listByAccount(accountId, limit, suggestionType, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listByAccount");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listByAccount");
@@ -581,7 +528,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -598,7 +544,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = OfferListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/suggestion/list', 'POST',
+        '/audience/suggestion/list', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -615,7 +561,6 @@ export default class AudienceApi {
     /**
      * List Offers by Audience
      * Get a list of offer locations based on audience information provided.
-     * @param {Number} version 
      * @param {Number} limit this is the limit of the index
      * @param {Object} opts Optional parameters
      * @param {String} [gender] this is the gender to list offers by
@@ -626,20 +571,15 @@ export default class AudienceApi {
      * @param {module:api/AudienceApi~listByAudienceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferListResponse}
      */
-    listByAudience(version, limit, opts, callback) {
+    listByAudience(limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listByAudience");
-      }
       // verify the required parameter 'limit' is set
       if (limit === undefined || limit === null) {
         throw new Error("Missing the required parameter 'limit' when calling listByAudience");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'gender': opts['gender'],
@@ -659,7 +599,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = OfferListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/suggestion/offersByAudience', 'GET',
+        '/audience/suggestion/offersByAudience', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -676,19 +616,14 @@ export default class AudienceApi {
     /**
      * List Sent Suggestions 
      * Return list of recent trigger suggestions that have been sent to the user.
-     * @param {Number} version 
      * @param {Number} accountId The account to match offers for.
      * @param {Number} timeframe The timeframe in seconds of the latest suggestions
      * @param {String} suggestionType The type of trigger suggestions to return
      * @param {module:api/AudienceApi~listLastestByAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/OfferListResponse}
      */
-    listLastestByAccount(version, accountId, timeframe, suggestionType, callback) {
+    listLastestByAccount(accountId, timeframe, suggestionType, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listLastestByAccount");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling listLastestByAccount");
@@ -703,7 +638,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -720,7 +654,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = OfferListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/suggestion/latest', 'GET',
+        '/audience/suggestion/latest', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -737,19 +671,14 @@ export default class AudienceApi {
     /**
      * Send Suggestions
      * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-     * @param {Number} version 
      * @param {Number} accountId The account to match offers for.
      * @param {Number} latitude the latitude
      * @param {Number} longitude the longitude
      * @param {module:api/AudienceApi~sendByAccountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    sendByAccount(version, accountId, latitude, longitude, callback) {
+    sendByAccount(accountId, latitude, longitude, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling sendByAccount");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling sendByAccount");
@@ -764,7 +693,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -781,7 +709,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/suggestion/send', 'POST',
+        '/audience/suggestion/send', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -798,7 +726,6 @@ export default class AudienceApi {
     /**
      * Update Audience
      * Update a user defined audience.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} audienceId The id of the audience to update.
      * @param {Object} opts Optional parameters
@@ -834,13 +761,9 @@ export default class AudienceApi {
      * @param {module:api/AudienceApi~updateAudienceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AudienceResponse}
      */
-    updateAudience(version, accountId, audienceId, opts, callback) {
+    updateAudience(accountId, audienceId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateAudience");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateAudience");
@@ -851,7 +774,6 @@ export default class AudienceApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -896,7 +818,7 @@ export default class AudienceApi {
       let accepts = ['*/*'];
       let returnType = AudienceResponse;
       return this.apiClient.callApi(
-        '/api/{version}/audience/update', 'POST',
+        '/audience/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

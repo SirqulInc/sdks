@@ -46,7 +46,6 @@ export default class MissionInviteApi {
     /**
      * Create Mission Invite
      * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required).
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required).
@@ -56,16 +55,11 @@ export default class MissionInviteApi {
      * @param {module:api/MissionInviteApi~createMissionInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionResponse}
      */
-    createMissionInvite(version, opts, callback) {
+    createMissionInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createMissionInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -84,7 +78,7 @@ export default class MissionInviteApi {
       let accepts = ['*/*'];
       let returnType = MissionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/invite/create', 'POST',
+        '/mission/invite/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -101,7 +95,6 @@ export default class MissionInviteApi {
     /**
      * Delete Mission Invite
      * Update the mission invite status to quit.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required).
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required).
@@ -111,16 +104,11 @@ export default class MissionInviteApi {
      * @param {module:api/MissionInviteApi~deleteMissionInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteMissionInvite(version, opts, callback) {
+    deleteMissionInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteMissionInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -139,7 +127,7 @@ export default class MissionInviteApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/invite/delete', 'POST',
+        '/mission/invite/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -156,7 +144,6 @@ export default class MissionInviteApi {
     /**
      * Get Mission Invite
      * Get the mission invite. An account can only be invited to a mission one time.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required).
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required).
@@ -167,16 +154,11 @@ export default class MissionInviteApi {
      * @param {module:api/MissionInviteApi~getMissionInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionResponse}
      */
-    getMissionInvite(version, opts, callback) {
+    getMissionInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getMissionInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -196,7 +178,7 @@ export default class MissionInviteApi {
       let accepts = ['*/*'];
       let returnType = MissionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/invite/get', 'GET',
+        '/mission/invite/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -213,7 +195,6 @@ export default class MissionInviteApi {
     /**
      * Search Mission Invites
      * Get a list of mission invites that the account has.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required).
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required).
@@ -231,16 +212,11 @@ export default class MissionInviteApi {
      * @param {module:api/MissionInviteApi~searchMissionInvitesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MissionResponse>}
      */
-    searchMissionInvites(version, opts, callback) {
+    searchMissionInvites(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchMissionInvites");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -267,7 +243,7 @@ export default class MissionInviteApi {
       let accepts = ['*/*'];
       let returnType = [MissionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/mission/invite/search', 'GET',
+        '/mission/invite/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -284,7 +260,6 @@ export default class MissionInviteApi {
     /**
      * Update Mission Invite
      * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required).
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required).
@@ -300,16 +275,11 @@ export default class MissionInviteApi {
      * @param {module:api/MissionInviteApi~updateMissionInviteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionResponse}
      */
-    updateMissionInvite(version, opts, callback) {
+    updateMissionInvite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateMissionInvite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -334,7 +304,7 @@ export default class MissionInviteApi {
       let accepts = ['*/*'];
       let returnType = MissionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/invite/update', 'POST',
+        '/mission/invite/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

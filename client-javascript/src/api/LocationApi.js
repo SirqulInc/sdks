@@ -49,7 +49,6 @@ export default class LocationApi {
     /**
      * Create Trilateration Data with File
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param {Number} version 
      * @param {String} udid The unique identifier of the source device
      * @param {Object} opts Optional parameters
      * @param {Number} [sourceTime] The current timestamp of the source device
@@ -59,20 +58,15 @@ export default class LocationApi {
      * @param {module:api/LocationApi~cacheTrilaterationDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    cacheTrilaterationData(version, udid, opts, callback) {
+    cacheTrilaterationData(udid, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling cacheTrilaterationData");
-      }
       // verify the required parameter 'udid' is set
       if (udid === undefined || udid === null) {
         throw new Error("Missing the required parameter 'udid' when calling cacheTrilaterationData");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'udid': udid,
@@ -91,7 +85,7 @@ export default class LocationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location/trilaterate/cache', 'POST',
+        '/location/trilaterate/cache', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -108,22 +102,16 @@ export default class LocationApi {
     /**
      * Create Trilateration Data with Rest
      * Creates trilateration samples for a source device (i.e. a router).
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/TrilatCacheRequest} [body] 
      * @param {module:api/LocationApi~cacheTrilaterationDataGzipCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    cacheTrilaterationDataGzip(version, opts, callback) {
+    cacheTrilaterationDataGzip(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling cacheTrilaterationDataGzip");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -137,7 +125,7 @@ export default class LocationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location/trilaterate/cache/submit', 'POST',
+        '/location/trilaterate/cache/submit', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -154,22 +142,16 @@ export default class LocationApi {
     /**
      * Get Location by IP
      * Get location information based on an IP address.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [ip] the ip address of the client device
      * @param {module:api/LocationApi~getLocationByIpCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CoordsResponse}
      */
-    getLocationByIp(version, opts, callback) {
+    getLocationByIp(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getLocationByIp");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'ip': opts['ip']
@@ -184,7 +166,7 @@ export default class LocationApi {
       let accepts = ['*/*'];
       let returnType = CoordsResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location/ip', 'GET',
+        '/location/ip', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -201,7 +183,6 @@ export default class LocationApi {
     /**
      * Get Location by Trilateration
      * Send in device data and calculate a position based on signal strengths.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account making the request, if provided the last know location will be updated
      * @param {Number} [latitude] The known GPS latitude to compare to the calculated version
@@ -211,16 +192,11 @@ export default class LocationApi {
      * @param {module:api/LocationApi~getLocationByTrilaterationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GeoPointResponse}
      */
-    getLocationByTrilateration(version, opts, callback) {
+    getLocationByTrilateration(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getLocationByTrilateration");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -239,7 +215,7 @@ export default class LocationApi {
       let accepts = ['*/*'];
       let returnType = GeoPointResponse;
       return this.apiClient.callApi(
-        '/api/{version}/account/location/trilaterate', 'GET',
+        '/account/location/trilaterate', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -256,7 +232,6 @@ export default class LocationApi {
     /**
      * Search Regions or Postal Codes
      * Searches geographic locations by proximity via address or keyword.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id
      * @param {Number} [accountId] the account id
@@ -280,16 +255,11 @@ export default class LocationApi {
      * @param {module:api/LocationApi~getLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/LocationSearchResponse}
      */
-    getLocations(version, opts, callback) {
+    getLocations(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getLocations");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -322,7 +292,7 @@ export default class LocationApi {
       let accepts = ['*/*'];
       let returnType = LocationSearchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location/search', 'GET',
+        '/location/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

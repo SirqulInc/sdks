@@ -45,7 +45,6 @@ export default class WorkflowApi {
     /**
      * Run Workflow
      * Runs a published executable workflow
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user
      * @param {Number} workflowId the workflow to run
      * @param {Object} opts Optional parameters
@@ -55,13 +54,9 @@ export default class WorkflowApi {
      * @param {module:api/WorkflowApi~runWorkflowCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    runWorkflow(version, accountId, workflowId, opts, callback) {
+    runWorkflow(accountId, workflowId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling runWorkflow");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling runWorkflow");
@@ -72,7 +67,6 @@ export default class WorkflowApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -91,7 +85,7 @@ export default class WorkflowApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/workflow/run', 'POST',
+        '/workflow/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -45,7 +45,6 @@ export default class BillingInfoApi {
     /**
      * Update Payment Method
      * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the the request
      * @param {Object} opts Optional parameters
      * @param {Number} [paymentMethodId] Payment Method Id
@@ -73,20 +72,15 @@ export default class BillingInfoApi {
      * @param {module:api/BillingInfoApi~addPaymentMethodCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PaymentTypesResponse}
      */
-    addPaymentMethod(version, accountId, opts, callback) {
+    addPaymentMethod(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addPaymentMethod");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling addPaymentMethod");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -123,7 +117,7 @@ export default class BillingInfoApi {
       let accepts = ['*/*'];
       let returnType = PaymentTypesResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billing/update', 'POST',
+        '/billing/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -140,7 +134,6 @@ export default class BillingInfoApi {
     /**
      * Create Payment Method
      * Add a new method of payment.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the the request
      * @param {Object} opts Optional parameters
      * @param {String} [accountName] Account Name of the credit card user
@@ -170,20 +163,15 @@ export default class BillingInfoApi {
      * @param {module:api/BillingInfoApi~createPaymentMethodCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PaymentTypesResponse}
      */
-    createPaymentMethod(version, accountId, opts, callback) {
+    createPaymentMethod(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createPaymentMethod");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createPaymentMethod");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -222,7 +210,7 @@ export default class BillingInfoApi {
       let accepts = ['*/*'];
       let returnType = PaymentTypesResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billing/create', 'POST',
+        '/billing/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -239,7 +227,6 @@ export default class BillingInfoApi {
     /**
      * Create Smart Contract
      * Adds a smart contract.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the the request
      * @param {String} tokenName The token name
      * @param {String} tokenSymbol The token symbol
@@ -248,13 +235,9 @@ export default class BillingInfoApi {
      * @param {module:api/BillingInfoApi~createSmartContractCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PaymentTypesResponse}
      */
-    createSmartContract(version, accountId, tokenName, tokenSymbol, opts, callback) {
+    createSmartContract(accountId, tokenName, tokenSymbol, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createSmartContract");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createSmartContract");
@@ -269,7 +252,6 @@ export default class BillingInfoApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -287,7 +269,7 @@ export default class BillingInfoApi {
       let accepts = ['*/*'];
       let returnType = PaymentTypesResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billing/crypto/transfer', 'POST',
+        '/billing/crypto/transfer', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -304,7 +286,6 @@ export default class BillingInfoApi {
     /**
      * Get Crypto Balances
      * Get the cypto balance details for a user
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the the request
      * @param {Object} opts Optional parameters
      * @param {Number} [ownerAccountId] The account to retreive balances for
@@ -312,20 +293,15 @@ export default class BillingInfoApi {
      * @param {module:api/BillingInfoApi~getCryptoBalanceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PaymentTypesResponse}
      */
-    getCryptoBalance(version, accountId, opts, callback) {
+    getCryptoBalance(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCryptoBalance");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getCryptoBalance");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -342,7 +318,7 @@ export default class BillingInfoApi {
       let accepts = ['*/*'];
       let returnType = PaymentTypesResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billing/crypto/get', 'GET',
+        '/billing/crypto/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -359,7 +335,6 @@ export default class BillingInfoApi {
     /**
      * Get Payment Method
      * Get the details of the user's payment method or their current default method of payment
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the the request
      * @param {Object} opts Optional parameters
      * @param {Number} [paymentMethodId] The payment method to return details on. If this is not set, then the user's default payment method will be returned.
@@ -367,20 +342,15 @@ export default class BillingInfoApi {
      * @param {module:api/BillingInfoApi~getPaymentMethodCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PaymentTypesResponse}
      */
-    getPaymentMethod(version, accountId, opts, callback) {
+    getPaymentMethod(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPaymentMethod");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPaymentMethod");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -397,7 +367,7 @@ export default class BillingInfoApi {
       let accepts = ['*/*'];
       let returnType = PaymentTypesResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billing/get', 'GET',
+        '/billing/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -414,7 +384,6 @@ export default class BillingInfoApi {
     /**
      * Search Payment Methods
      * Search the payment methods of an account
-     * @param {Number} version 
      * @param {Number} accountId Account Id to search on
      * @param {Object} opts Optional parameters
      * @param {String} [provider = 'AUTHORIZE_NET')] Provider to search on
@@ -427,20 +396,15 @@ export default class BillingInfoApi {
      * @param {module:api/BillingInfoApi~searchPaymentMethodCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PaymentTypesResponse}
      */
-    searchPaymentMethod(version, accountId, opts, callback) {
+    searchPaymentMethod(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchPaymentMethod");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchPaymentMethod");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -462,7 +426,7 @@ export default class BillingInfoApi {
       let accepts = ['*/*'];
       let returnType = PaymentTypesResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billing/search', 'GET',
+        '/billing/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

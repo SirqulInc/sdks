@@ -49,7 +49,6 @@ export default class ReportingApi {
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user for passing account related params
      * @param {module:model/String} status the status of the report
      * @param {Number} previewLimit the limit on how much you can preview of the batch report
@@ -65,13 +64,9 @@ export default class ReportingApi {
      * @param {module:api/ReportingApi~createBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ReportBatchResponse}
      */
-    createBatch(version, accountId, status, previewLimit, opts, callback) {
+    createBatch(accountId, status, previewLimit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createBatch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createBatch");
@@ -86,7 +81,6 @@ export default class ReportingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -111,7 +105,7 @@ export default class ReportingApi {
       let accepts = ['*/*'];
       let returnType = ReportBatchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/report/batch/create', 'POST',
+        '/report/batch/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -128,22 +122,16 @@ export default class ReportingApi {
     /**
      * Create Offline Report
      * Create an entry for the batch for offline report
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Array.<module:model/RegionLegSummary>} [body] 
      * @param {module:api/ReportingApi~createRegionLegSummaryBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ReportRegionLegSummaryBatchResponse}
      */
-    createRegionLegSummaryBatch(version, opts, callback) {
+    createRegionLegSummaryBatch(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRegionLegSummaryBatch");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -157,7 +145,7 @@ export default class ReportingApi {
       let accepts = ['*/*'];
       let returnType = ReportRegionLegSummaryBatchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/report/region/summary/batch', 'POST',
+        '/report/region/summary/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -174,18 +162,13 @@ export default class ReportingApi {
     /**
      * Delete Offline Report
      * Deletes a batch report.
-     * @param {Number} version 
      * @param {Number} accountId the id of the account
      * @param {Number} batchId the id of the batch to delete
      * @param {module:api/ReportingApi~deleteBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteBatch(version, accountId, batchId, callback) {
+    deleteBatch(accountId, batchId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteBatch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteBatch");
@@ -196,7 +179,6 @@ export default class ReportingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -212,7 +194,7 @@ export default class ReportingApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/report/batch/delete', 'POST',
+        '/report/batch/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -229,19 +211,14 @@ export default class ReportingApi {
     /**
      * Get Offline Report
      * Checks status of batch report.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} batchId returned by /report/batch/create
      * @param {Boolean} allResults whether to return all batch results or not
      * @param {module:api/ReportingApi~getReportBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ReportBatchResponse}
      */
-    getReportBatch(version, accountId, batchId, allResults, callback) {
+    getReportBatch(accountId, batchId, allResults, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getReportBatch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getReportBatch");
@@ -256,7 +233,6 @@ export default class ReportingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -273,7 +249,7 @@ export default class ReportingApi {
       let accepts = ['*/*'];
       let returnType = ReportBatchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/report/batch/get', 'GET',
+        '/report/batch/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -290,7 +266,6 @@ export default class ReportingApi {
     /**
      * Run Report
      *  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
-     * @param {Number} version 
      * @param {Boolean} desc If true then descending order, false is ascending
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user for passing account related params
@@ -303,20 +278,15 @@ export default class ReportingApi {
      * @param {module:api/ReportingApi~runReportCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ReportResponse}
      */
-    runReport(version, desc, opts, callback) {
+    runReport(desc, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling runReport");
-      }
       // verify the required parameter 'desc' is set
       if (desc === undefined || desc === null) {
         throw new Error("Missing the required parameter 'desc' when calling runReport");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -338,7 +308,7 @@ export default class ReportingApi {
       let accepts = ['*/*'];
       let returnType = ReportResponse;
       return this.apiClient.callApi(
-        '/api/{version}/report/run', 'POST',
+        '/report/run', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -355,7 +325,6 @@ export default class ReportingApi {
     /**
      * Search Offline Reports
      * Retrieves batches for a user..
-     * @param {Number} version 
      * @param {Number} accountId the id of the account logged in
      * @param {Number} start the start of the index and/or pagination
      * @param {Number} limit the limit of the index and/or pagination
@@ -369,13 +338,9 @@ export default class ReportingApi {
      * @param {module:api/ReportingApi~searchBatchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ReportBatchResponse>}
      */
-    searchBatch(version, accountId, start, limit, opts, callback) {
+    searchBatch(accountId, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchBatch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchBatch");
@@ -390,7 +355,6 @@ export default class ReportingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -413,7 +377,7 @@ export default class ReportingApi {
       let accepts = ['*/*'];
       let returnType = [ReportBatchResponse];
       return this.apiClient.callApi(
-        '/api/{version}/report/batch/search', 'GET',
+        '/report/batch/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

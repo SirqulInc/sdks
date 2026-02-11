@@ -47,7 +47,6 @@ export default class ThemeDescriptorApi {
     /**
      * Create/Update Theme
      * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-     * @param {Number} version 
      * @param {Boolean} publicRead determines whether the theme's participants have read permissions
      * @param {Boolean} publicWrite determines whether the theme's participants have write permissions
      * @param {Boolean} publicDelete determines whether the theme's participants have delete permissions
@@ -79,13 +78,9 @@ export default class ThemeDescriptorApi {
      * @param {module:api/ThemeDescriptorApi~addOrUpdateThemeDescriptorCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ThemeDescriptorResponse}
      */
-    addOrUpdateThemeDescriptor(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, opts, callback) {
+    addOrUpdateThemeDescriptor(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, completeWithDefaultValues, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addOrUpdateThemeDescriptor");
-      }
       // verify the required parameter 'publicRead' is set
       if (publicRead === undefined || publicRead === null) {
         throw new Error("Missing the required parameter 'publicRead' when calling addOrUpdateThemeDescriptor");
@@ -116,7 +111,6 @@ export default class ThemeDescriptorApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -157,7 +151,7 @@ export default class ThemeDescriptorApi {
       let accepts = ['*/*'];
       let returnType = ThemeDescriptorResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/theme', 'POST',
+        '/consumer/theme', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -174,7 +168,6 @@ export default class ThemeDescriptorApi {
     /**
      * Get Theme
      * Gets a theme.
-     * @param {Number} version 
      * @param {Number} themeDescriptorId the theme id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -185,20 +178,15 @@ export default class ThemeDescriptorApi {
      * @param {module:api/ThemeDescriptorApi~getThemeDescriptorCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PurchaseItemListResponse}
      */
-    getThemeDescriptor(version, themeDescriptorId, opts, callback) {
+    getThemeDescriptor(themeDescriptorId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getThemeDescriptor");
-      }
       // verify the required parameter 'themeDescriptorId' is set
       if (themeDescriptorId === undefined || themeDescriptorId === null) {
         throw new Error("Missing the required parameter 'themeDescriptorId' when calling getThemeDescriptor");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -218,7 +206,7 @@ export default class ThemeDescriptorApi {
       let accepts = ['*/*'];
       let returnType = PurchaseItemListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/theme/get', 'GET',
+        '/consumer/theme/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -235,7 +223,6 @@ export default class ThemeDescriptorApi {
     /**
      * Search Themes
      * Searches for themes.
-     * @param {Number} version 
      * @param {String} filter a comma separated list of Ownership
      * @param {String} sortField the field to sort by. See ThemeDescriptorApiMap
      * @param {Boolean} descending determines whether the sorted list is in descending or ascending order
@@ -258,13 +245,9 @@ export default class ThemeDescriptorApi {
      * @param {module:api/ThemeDescriptorApi~getThemeDescriptorsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PurchaseItemListResponse}
      */
-    getThemeDescriptors(version, filter, sortField, descending, start, limit, opts, callback) {
+    getThemeDescriptors(filter, sortField, descending, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getThemeDescriptors");
-      }
       // verify the required parameter 'filter' is set
       if (filter === undefined || filter === null) {
         throw new Error("Missing the required parameter 'filter' when calling getThemeDescriptors");
@@ -287,7 +270,6 @@ export default class ThemeDescriptorApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -319,7 +301,7 @@ export default class ThemeDescriptorApi {
       let accepts = ['*/*'];
       let returnType = PurchaseItemListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/theme/search', 'GET',
+        '/consumer/theme/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -336,7 +318,6 @@ export default class ThemeDescriptorApi {
     /**
      * Delete Theme
      * Removes a theme.
-     * @param {Number} version 
      * @param {Number} themeDescriptorId the theme id to remove
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
@@ -347,20 +328,15 @@ export default class ThemeDescriptorApi {
      * @param {module:api/ThemeDescriptorApi~removeThemeDescriptorCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    removeThemeDescriptor(version, themeDescriptorId, opts, callback) {
+    removeThemeDescriptor(themeDescriptorId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling removeThemeDescriptor");
-      }
       // verify the required parameter 'themeDescriptorId' is set
       if (themeDescriptorId === undefined || themeDescriptorId === null) {
         throw new Error("Missing the required parameter 'themeDescriptorId' when calling removeThemeDescriptor");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -380,7 +356,7 @@ export default class ThemeDescriptorApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/theme/remove', 'POST',
+        '/consumer/theme/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

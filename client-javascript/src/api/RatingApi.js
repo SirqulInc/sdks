@@ -47,7 +47,6 @@ export default class RatingApi {
     /**
      * Create Rating
      * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-     * @param {Number} version 
      * @param {String} ratableType The ratable object type {RETAILER_LOCATION}
      * @param {Number} ratableId The id of the ratable object
      * @param {Number} ratingValue The integer value of 0-100
@@ -63,13 +62,9 @@ export default class RatingApi {
      * @param {module:api/RatingApi~createRatingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RatingResponse}
      */
-    createRating(version, ratableType, ratableId, ratingValue, opts, callback) {
+    createRating(ratableType, ratableId, ratingValue, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRating");
-      }
       // verify the required parameter 'ratableType' is set
       if (ratableType === undefined || ratableType === null) {
         throw new Error("Missing the required parameter 'ratableType' when calling createRating");
@@ -84,7 +79,6 @@ export default class RatingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -109,7 +103,7 @@ export default class RatingApi {
       let accepts = ['*/*'];
       let returnType = RatingResponse;
       return this.apiClient.callApi(
-        '/api/{version}/rating/create', 'POST',
+        '/rating/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -126,7 +120,6 @@ export default class RatingApi {
     /**
      * Delete Rating
      * Sets a rating as deleted.
-     * @param {Number} version 
      * @param {Number} ratingId The ID of the rating to delete
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -134,20 +127,15 @@ export default class RatingApi {
      * @param {module:api/RatingApi~deleteRatingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteRating(version, ratingId, opts, callback) {
+    deleteRating(ratingId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteRating");
-      }
       // verify the required parameter 'ratingId' is set
       if (ratingId === undefined || ratingId === null) {
         throw new Error("Missing the required parameter 'ratingId' when calling deleteRating");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -164,7 +152,7 @@ export default class RatingApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/rating/delete', 'POST',
+        '/rating/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -181,7 +169,6 @@ export default class RatingApi {
     /**
      * Search Location Rating Indexes
      * Search for retailer locations by averages near you.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [categoryIds] Comma separated list of category ids to filter the results by
      * @param {String} [keyword] The keyword used to search
@@ -203,16 +190,11 @@ export default class RatingApi {
      * @param {module:api/RatingApi~searchLocationRatingIndexesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RatingIndexResponse>}
      */
-    searchLocationRatingIndexes(version, opts, callback) {
+    searchLocationRatingIndexes(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchLocationRatingIndexes");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'categoryIds': opts['categoryIds'],
@@ -243,7 +225,7 @@ export default class RatingApi {
       let accepts = ['*/*'];
       let returnType = [RatingIndexResponse];
       return this.apiClient.callApi(
-        '/api/{version}/location/rating/index/search', 'GET',
+        '/location/rating/index/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -260,7 +242,6 @@ export default class RatingApi {
     /**
      * Search Rating Indexes
      * Search for ratable items by averages.
-     * @param {Number} version 
      * @param {module:model/String} ratableType Filter results by a ratable type {RETAILER_LOCATION}
      * @param {Object} opts Optional parameters
      * @param {String} [ratableIds] Comma separated list of ratable ids to filter the resuts by
@@ -278,20 +259,15 @@ export default class RatingApi {
      * @param {module:api/RatingApi~searchRatingIndexesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RatingIndexResponse>}
      */
-    searchRatingIndexes(version, ratableType, opts, callback) {
+    searchRatingIndexes(ratableType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRatingIndexes");
-      }
       // verify the required parameter 'ratableType' is set
       if (ratableType === undefined || ratableType === null) {
         throw new Error("Missing the required parameter 'ratableType' when calling searchRatingIndexes");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'ratableType': ratableType,
@@ -318,7 +294,7 @@ export default class RatingApi {
       let accepts = ['*/*'];
       let returnType = [RatingIndexResponse];
       return this.apiClient.callApi(
-        '/api/{version}/rating/index/search', 'GET',
+        '/rating/index/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -335,7 +311,6 @@ export default class RatingApi {
     /**
      * Search Ratings
      * Search for ratings on a ratable object.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -351,16 +326,11 @@ export default class RatingApi {
      * @param {module:api/RatingApi~searchRatingsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RatingResponse>}
      */
-    searchRatings(version, opts, callback) {
+    searchRatings(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRatings");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -385,7 +355,7 @@ export default class RatingApi {
       let accepts = ['*/*'];
       let returnType = [RatingResponse];
       return this.apiClient.callApi(
-        '/api/{version}/rating/search', 'GET',
+        '/rating/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -402,7 +372,6 @@ export default class RatingApi {
     /**
      * Update Rating
      * Update an existing rating. Only the creator of the rating have permission to update.
-     * @param {Number} version 
      * @param {Number} ratingId The id of the rating (Note: this is not the ratable object id)
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -417,20 +386,15 @@ export default class RatingApi {
      * @param {module:api/RatingApi~updateRatingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RatingResponse}
      */
-    updateRating(version, ratingId, opts, callback) {
+    updateRating(ratingId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRating");
-      }
       // verify the required parameter 'ratingId' is set
       if (ratingId === undefined || ratingId === null) {
         throw new Error("Missing the required parameter 'ratingId' when calling updateRating");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -454,7 +418,7 @@ export default class RatingApi {
       let accepts = ['*/*'];
       let returnType = RatingResponse;
       return this.apiClient.callApi(
-        '/api/{version}/rating/update', 'POST',
+        '/rating/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

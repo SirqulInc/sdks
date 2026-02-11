@@ -48,27 +48,21 @@ export default class AssignmentApi {
     /**
      * Search Assignment Assignees
      * Search for avaiable users for creating or updating assignment.
-     * @param {Number} version 
      * @param {Number} accountId The account id sending the request
      * @param {Object} opts Optional parameters
      * @param {String} [keyword] The keyword to filter the returned results
      * @param {module:api/AssignmentApi~assigmentAssigneeAccountSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AccountMiniResponse>}
      */
-    assigmentAssigneeAccountSearch(version, accountId, opts, callback) {
+    assigmentAssigneeAccountSearch(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assigmentAssigneeAccountSearch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assigmentAssigneeAccountSearch");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -84,7 +78,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = [AccountMiniResponse];
       return this.apiClient.callApi(
-        '/api/{version}/assignment/assignee/search', 'GET',
+        '/assignment/assignee/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -101,7 +95,6 @@ export default class AssignmentApi {
     /**
      * Create Assignment
      * Create an assignment.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {String} name the name for the assignment
      * @param {Number} assigneeAccountId the account id to assign to
@@ -113,13 +106,9 @@ export default class AssignmentApi {
      * @param {module:api/AssignmentApi~assignmentCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignmentResponse}
      */
-    assignmentCreate(version, accountId, name, assigneeAccountId, opts, callback) {
+    assignmentCreate(accountId, name, assigneeAccountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentCreate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentCreate");
@@ -134,7 +123,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -155,7 +143,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = AssignmentResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/create', 'POST',
+        '/assignment/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -172,18 +160,13 @@ export default class AssignmentApi {
     /**
      * Delete Assignment
      * Delete an assignment.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {Number} assignmentId the assignment id
      * @param {module:api/AssignmentApi~assignmentDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    assignmentDelete(version, accountId, assignmentId, callback) {
+    assignmentDelete(accountId, assignmentId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentDelete");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentDelete");
@@ -194,7 +177,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -210,7 +192,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/delete', 'POST',
+        '/assignment/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -227,18 +209,13 @@ export default class AssignmentApi {
     /**
      * Get Assignment
      * Get the details of an assignment.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {Number} assignmentId the assignment id
      * @param {module:api/AssignmentApi~assignmentGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignmentResponse}
      */
-    assignmentGet(version, accountId, assignmentId, callback) {
+    assignmentGet(accountId, assignmentId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentGet");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentGet");
@@ -249,7 +226,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -265,7 +241,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = AssignmentResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/get', 'GET',
+        '/assignment/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -282,7 +258,6 @@ export default class AssignmentApi {
     /**
      * Search Assignments
      * Search for assignments by the given parameters.
-     * @param {Number} version 
      * @param {Number} accountId the account sending the request
      * @param {module:model/String} sortField sort by table field
      * @param {Boolean} descending return results in descending order or not
@@ -298,13 +273,9 @@ export default class AssignmentApi {
      * @param {module:api/AssignmentApi~assignmentSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AssignmentResponse>}
      */
-    assignmentSearch(version, accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
+    assignmentSearch(accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentSearch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentSearch");
@@ -331,7 +302,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -356,7 +326,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = [AssignmentResponse];
       return this.apiClient.callApi(
-        '/api/{version}/assignment/search', 'GET',
+        '/assignment/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -373,7 +343,6 @@ export default class AssignmentApi {
     /**
      * Create Assignment Status
      * Create an assignment status.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {Number} assignmentId the assignment id
      * @param {Object} opts Optional parameters
@@ -389,13 +358,9 @@ export default class AssignmentApi {
      * @param {module:api/AssignmentApi~assignmentStatusCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignmentStatusResponse}
      */
-    assignmentStatusCreate(version, accountId, assignmentId, opts, callback) {
+    assignmentStatusCreate(accountId, assignmentId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentStatusCreate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentStatusCreate");
@@ -406,7 +371,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -431,7 +395,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = AssignmentStatusResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/status/create', 'POST',
+        '/assignment/status/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -448,18 +412,13 @@ export default class AssignmentApi {
     /**
      * Deletes Assignment Status
      * Deletes an assignment status.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {Number} assignmentStatusId the assignment status id
      * @param {module:api/AssignmentApi~assignmentStatusDeleteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    assignmentStatusDelete(version, accountId, assignmentStatusId, callback) {
+    assignmentStatusDelete(accountId, assignmentStatusId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentStatusDelete");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentStatusDelete");
@@ -470,7 +429,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -486,7 +444,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/status/delete', 'POST',
+        '/assignment/status/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -503,18 +461,13 @@ export default class AssignmentApi {
     /**
      * Get Assignment Status
      * Get an assignment status.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {Number} assignmentStatusId the assignment status id
      * @param {module:api/AssignmentApi~assignmentStatusGetCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignmentStatusResponse}
      */
-    assignmentStatusGet(version, accountId, assignmentStatusId, callback) {
+    assignmentStatusGet(accountId, assignmentStatusId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentStatusGet");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentStatusGet");
@@ -525,7 +478,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -541,7 +493,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = AssignmentStatusResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/status/get', 'GET',
+        '/assignment/status/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -558,7 +510,6 @@ export default class AssignmentApi {
     /**
      * Search Assignment Statuses
      * Search on assignment statuses.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {module:model/String} sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
      * @param {Boolean} descending determines whether the sorted list is in descending or ascending order
@@ -575,13 +526,9 @@ export default class AssignmentApi {
      * @param {module:api/AssignmentApi~assignmentStatusSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AssignmentStatusResponse>}
      */
-    assignmentStatusSearch(version, accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
+    assignmentStatusSearch(accountId, sortField, descending, activeOnly, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentStatusSearch");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentStatusSearch");
@@ -608,7 +555,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -634,7 +580,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = [AssignmentStatusResponse];
       return this.apiClient.callApi(
-        '/api/{version}/assignment/status/search', 'GET',
+        '/assignment/status/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -651,7 +597,6 @@ export default class AssignmentApi {
     /**
      * Update Assignment Status
      * Updates an assignment status.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {Number} assignmentStatusId the assignment status id
      * @param {Object} opts Optional parameters
@@ -667,13 +612,9 @@ export default class AssignmentApi {
      * @param {module:api/AssignmentApi~assignmentStatusUpdateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignmentStatusResponse}
      */
-    assignmentStatusUpdate(version, accountId, assignmentStatusId, opts, callback) {
+    assignmentStatusUpdate(accountId, assignmentStatusId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentStatusUpdate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentStatusUpdate");
@@ -684,7 +625,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -709,7 +649,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = AssignmentStatusResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/status/update', 'POST',
+        '/assignment/status/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -726,7 +666,6 @@ export default class AssignmentApi {
     /**
      * Update Assignment
      * Updates an assignment.
-     * @param {Number} version 
      * @param {Number} accountId the user account id
      * @param {Number} assignmentId the assignment id
      * @param {Object} opts Optional parameters
@@ -739,13 +678,9 @@ export default class AssignmentApi {
      * @param {module:api/AssignmentApi~assignmentUpdateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AssignmentResponse}
      */
-    assignmentUpdate(version, accountId, assignmentId, opts, callback) {
+    assignmentUpdate(accountId, assignmentId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling assignmentUpdate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling assignmentUpdate");
@@ -756,7 +691,6 @@ export default class AssignmentApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -778,7 +712,7 @@ export default class AssignmentApi {
       let accepts = ['*/*'];
       let returnType = AssignmentResponse;
       return this.apiClient.callApi(
-        '/api/{version}/assignment/update', 'POST',
+        '/assignment/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

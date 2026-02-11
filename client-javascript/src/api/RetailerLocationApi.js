@@ -46,7 +46,6 @@ export default class RetailerLocationApi {
     /**
      * Create Retailer Location (Consumer)
      * Creates a location record for an application that can support crowd sourced locations.
-     * @param {Number} version 
      * @param {String} appKey the application key
      * @param {String} name The name of the retailer location
      * @param {Object} opts Optional parameters
@@ -80,13 +79,9 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~createRetailerLocationConsumerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerLocationResponse}
      */
-    createRetailerLocationConsumer(version, appKey, name, opts, callback) {
+    createRetailerLocationConsumer(appKey, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRetailerLocationConsumer");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling createRetailerLocationConsumer");
@@ -97,7 +92,6 @@ export default class RetailerLocationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -140,7 +134,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = RetailerLocationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location/create', 'POST',
+        '/location/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -157,7 +151,6 @@ export default class RetailerLocationApi {
     /**
      * Create Retailer Location
      * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param {Number} version 
      * @param {Number} retailerId The ID of the retailer
      * @param {String} name The name of the retailer location
      * @param {String} streetAddress The street address of the retailer location
@@ -201,13 +194,9 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~createRetailerLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerLocationResponse}
      */
-    createRetailerLocations(version, retailerId, name, streetAddress, city, state, postalCode, opts, callback) {
+    createRetailerLocations(retailerId, name, streetAddress, city, state, postalCode, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRetailerLocations");
-      }
       // verify the required parameter 'retailerId' is set
       if (retailerId === undefined || retailerId === null) {
         throw new Error("Missing the required parameter 'retailerId' when calling createRetailerLocations");
@@ -234,7 +223,6 @@ export default class RetailerLocationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -287,7 +275,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = RetailerLocationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/location/create', 'POST',
+        '/retailer/location/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -304,7 +292,6 @@ export default class RetailerLocationApi {
     /**
      * Delete Retailer Location
      * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id
      * @param {Number} [accountId] the id of the logged in user
@@ -312,16 +299,11 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~deleteRetailerLocationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteRetailerLocation(version, opts, callback) {
+    deleteRetailerLocation(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteRetailerLocation");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -338,7 +320,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/location/delete', 'POST',
+        '/retailer/location/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -355,7 +337,6 @@ export default class RetailerLocationApi {
     /**
      * Get Retailer Location
      * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-     * @param {Number} version 
      * @param {Number} retailerLocationId The ID of the retailer location
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -364,20 +345,15 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~getRetailerLocationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerLocationResponse}
      */
-    getRetailerLocation(version, retailerLocationId, opts, callback) {
+    getRetailerLocation(retailerLocationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRetailerLocation");
-      }
       // verify the required parameter 'retailerLocationId' is set
       if (retailerLocationId === undefined || retailerLocationId === null) {
         throw new Error("Missing the required parameter 'retailerLocationId' when calling getRetailerLocation");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -395,7 +371,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = RetailerLocationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/location/get', 'GET',
+        '/retailer/location/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -412,7 +388,6 @@ export default class RetailerLocationApi {
     /**
      * Get Retailer Location (Consumer)
      * Gets the details of a retailer location as a consumer.
-     * @param {Number} version 
      * @param {Number} retailerLocationId The retailer location id
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id for returning account information (i.e. favorites)
@@ -420,20 +395,15 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~getRetailerLocationConsumerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerLocationResponse}
      */
-    getRetailerLocationConsumer(version, retailerLocationId, opts, callback) {
+    getRetailerLocationConsumer(retailerLocationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRetailerLocationConsumer");
-      }
       // verify the required parameter 'retailerLocationId' is set
       if (retailerLocationId === undefined || retailerLocationId === null) {
         throw new Error("Missing the required parameter 'retailerLocationId' when calling getRetailerLocationConsumer");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -450,7 +420,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = RetailerLocationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/location/get', 'GET',
+        '/location/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -467,7 +437,6 @@ export default class RetailerLocationApi {
     /**
      * Distance Search Retailer Locations (Indexed)
      * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-     * @param {Number} version 
      * @param {Number} latitude The latitude to center the search on
      * @param {Number} longitude The longitude to center the search on
      * @param {Number} searchRange The search range in the distanceUnit specified; default is MILES.
@@ -506,13 +475,9 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~indexedRetailerLocationDistanceSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RetailerLocationResponse>}
      */
-    indexedRetailerLocationDistanceSearch(version, latitude, longitude, searchRange, start, limit, opts, callback) {
+    indexedRetailerLocationDistanceSearch(latitude, longitude, searchRange, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling indexedRetailerLocationDistanceSearch");
-      }
       // verify the required parameter 'latitude' is set
       if (latitude === undefined || latitude === null) {
         throw new Error("Missing the required parameter 'latitude' when calling indexedRetailerLocationDistanceSearch");
@@ -535,7 +500,6 @@ export default class RetailerLocationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'latitude': latitude,
@@ -583,7 +547,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = [RetailerLocationResponse];
       return this.apiClient.callApi(
-        '/api/{version}/retailer/location/idistancesearch', 'GET',
+        '/retailer/location/idistancesearch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -600,7 +564,6 @@ export default class RetailerLocationApi {
     /**
      * Keyword Search Retailer Locations (Indexed)
      * Retailer location (faster) indexed search. This searches all retailer locations.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user
      * @param {Number} [start] The start index for pagination
@@ -633,16 +596,11 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~indexedRetailerLocationSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RetailerLocationResponse>}
      */
-    indexedRetailerLocationSearch(version, opts, callback) {
+    indexedRetailerLocationSearch(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling indexedRetailerLocationSearch");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -684,7 +642,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = [RetailerLocationResponse];
       return this.apiClient.callApi(
-        '/api/{version}/retailer/location/isearch', 'GET',
+        '/retailer/location/isearch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -701,7 +659,6 @@ export default class RetailerLocationApi {
     /**
      * Search Retailer Locations (Owned)
      * Searches on retailer locations that the account has access to.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -731,16 +688,11 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~searchRetailerLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RetailerLocationResponse>}
      */
-    searchRetailerLocations(version, opts, callback) {
+    searchRetailerLocations(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRetailerLocations");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -779,7 +731,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = [RetailerLocationResponse];
       return this.apiClient.callApi(
-        '/api/{version}/retailer/location/search', 'GET',
+        '/retailer/location/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -796,7 +748,6 @@ export default class RetailerLocationApi {
     /**
      * Update Retailer Location
      * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-     * @param {Number} version 
      * @param {Number} retailerLocationId The ID of the retailer location
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
@@ -842,20 +793,15 @@ export default class RetailerLocationApi {
      * @param {module:api/RetailerLocationApi~updateRetailerLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RetailerLocationResponse}
      */
-    updateRetailerLocations(version, retailerLocationId, opts, callback) {
+    updateRetailerLocations(retailerLocationId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRetailerLocations");
-      }
       // verify the required parameter 'retailerLocationId' is set
       if (retailerLocationId === undefined || retailerLocationId === null) {
         throw new Error("Missing the required parameter 'retailerLocationId' when calling updateRetailerLocations");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -910,7 +856,7 @@ export default class RetailerLocationApi {
       let accepts = ['*/*'];
       let returnType = RetailerLocationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer/location/update', 'POST',
+        '/retailer/location/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -49,7 +49,6 @@ export default class GameLevelApi {
     /**
      * Create Game Level
      * Create a game level. Currently does NOT support game objects.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} name The name of the level.
      * @param {String} gameData The game level data: xml, json, or other text based format.
@@ -80,13 +79,9 @@ export default class GameLevelApi {
      * @param {module:api/GameLevelApi~createGameLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameLevelResponse}
      */
-    createGameLevel(version, accountId, name, gameData, gameDataSuffix, opts, callback) {
+    createGameLevel(accountId, name, gameData, gameDataSuffix, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createGameLevel");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createGameLevel");
@@ -105,7 +100,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -145,7 +139,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = GameLevelResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/create', 'POST',
+        '/level/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -162,18 +156,13 @@ export default class GameLevelApi {
     /**
      * Delete Game Level
      * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} levelId The id of the level to return.
      * @param {module:api/GameLevelApi~deleteGameLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteGameLevel(version, accountId, levelId, callback) {
+    deleteGameLevel(accountId, levelId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteGameLevel");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteGameLevel");
@@ -184,7 +173,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -200,7 +188,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/delete', 'POST',
+        '/level/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -217,7 +205,6 @@ export default class GameLevelApi {
     /**
      * Get Game Level
      * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} levelId The id of the level to return.
      * @param {Object} opts Optional parameters
@@ -225,13 +212,9 @@ export default class GameLevelApi {
      * @param {module:api/GameLevelApi~getGameLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameLevelResponse}
      */
-    getGameLevel(version, accountId, levelId, opts, callback) {
+    getGameLevel(accountId, levelId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getGameLevel");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getGameLevel");
@@ -242,7 +225,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -259,7 +241,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = GameLevelResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/get', 'GET',
+        '/level/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -276,7 +258,6 @@ export default class GameLevelApi {
     /**
      * Search Game Levels
      * Get a list of levels for an application, just those the account has permissions to view.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey the application key
      * @param {Object} opts Optional parameters
@@ -291,13 +272,9 @@ export default class GameLevelApi {
      * @param {module:api/GameLevelApi~getGameLevelsByApplicationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameLevelListResponse}
      */
-    getGameLevelsByApplication(version, accountId, appKey, opts, callback) {
+    getGameLevelsByApplication(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getGameLevelsByApplication");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getGameLevelsByApplication");
@@ -308,7 +285,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -332,7 +308,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = GameLevelListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/search', 'GET',
+        '/level/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -349,7 +325,6 @@ export default class GameLevelApi {
     /**
      * Search Game Level by Billable Entity
      * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {Object} opts Optional parameters
      * @param {String} [appKey] the application key
@@ -362,20 +337,15 @@ export default class GameLevelApi {
      * @param {module:api/GameLevelApi~getGameLevelsByBillableEntityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameLevelResponse}
      */
-    getGameLevelsByBillableEntity(version, accountId, opts, callback) {
+    getGameLevelsByBillableEntity(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getGameLevelsByBillableEntity");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getGameLevelsByBillableEntity");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -397,7 +367,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = GameLevelResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/searchByBillableEntity', 'GET',
+        '/level/searchByBillableEntity', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -414,18 +384,13 @@ export default class GameLevelApi {
     /**
      * Get Level Questions
      * Get questions within a level.
-     * @param {Number} version 
      * @param {Number} levelId the id of the level to get questions from
      * @param {Number} accountId the id of the logged in user
      * @param {module:api/GameLevelApi~getQuestionsInLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/QuestionResponse}
      */
-    getQuestionsInLevel(version, levelId, accountId, callback) {
+    getQuestionsInLevel(levelId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getQuestionsInLevel");
-      }
       // verify the required parameter 'levelId' is set
       if (levelId === undefined || levelId === null) {
         throw new Error("Missing the required parameter 'levelId' when calling getQuestionsInLevel");
@@ -436,7 +401,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'levelId': levelId,
@@ -452,7 +416,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = QuestionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/questions/get', 'GET',
+        '/level/questions/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -469,18 +433,13 @@ export default class GameLevelApi {
     /**
      * Get Level Words
      * Get words within a level.
-     * @param {Number} version 
      * @param {Number} levelId the id of the level to get words for
      * @param {Number} accountId the id of the logged in user
      * @param {module:api/GameLevelApi~getWordsInLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WordzWordResponse}
      */
-    getWordsInLevel(version, levelId, accountId, callback) {
+    getWordsInLevel(levelId, accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getWordsInLevel");
-      }
       // verify the required parameter 'levelId' is set
       if (levelId === undefined || levelId === null) {
         throw new Error("Missing the required parameter 'levelId' when calling getWordsInLevel");
@@ -491,7 +450,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'levelId': levelId,
@@ -507,7 +465,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = WordzWordResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/words/get', 'GET',
+        '/level/words/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -524,7 +482,6 @@ export default class GameLevelApi {
     /**
      * Update Game Level
      * Update a game level. Currently does NOT support game objects.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} levelId If update then include the level Id.
      * @param {Object} opts Optional parameters
@@ -556,13 +513,9 @@ export default class GameLevelApi {
      * @param {module:api/GameLevelApi~updateGameLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameLevelResponse}
      */
-    updateGameLevel(version, accountId, levelId, opts, callback) {
+    updateGameLevel(accountId, levelId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateGameLevel");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateGameLevel");
@@ -573,7 +526,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -614,7 +566,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = GameLevelResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/update', 'POST',
+        '/level/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -631,19 +583,14 @@ export default class GameLevelApi {
     /**
      * Update Level Questions
      * Updates a level with question game objects.
-     * @param {Number} version 
      * @param {Number} levelId the id of the level to update questions on
      * @param {Number} accountId the id of the logged in user
      * @param {String} questionIds the IDs of the questions to update
      * @param {module:api/GameLevelApi~updateQuestionsInLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateQuestionsInLevel(version, levelId, accountId, questionIds, callback) {
+    updateQuestionsInLevel(levelId, accountId, questionIds, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateQuestionsInLevel");
-      }
       // verify the required parameter 'levelId' is set
       if (levelId === undefined || levelId === null) {
         throw new Error("Missing the required parameter 'levelId' when calling updateQuestionsInLevel");
@@ -658,7 +605,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'levelId': levelId,
@@ -675,7 +621,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/questions/update', 'POST',
+        '/level/questions/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -692,19 +638,14 @@ export default class GameLevelApi {
     /**
      * Update Level Words
      * Updates a level with word game objects.
-     * @param {Number} version 
      * @param {Number} levelId the id of the level to update words for
      * @param {Number} accountId the id of the logged in user
      * @param {String} wordIds the ids of the words to update for the level
      * @param {module:api/GameLevelApi~updateWordsInLevelCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateWordsInLevel(version, levelId, accountId, wordIds, callback) {
+    updateWordsInLevel(levelId, accountId, wordIds, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateWordsInLevel");
-      }
       // verify the required parameter 'levelId' is set
       if (levelId === undefined || levelId === null) {
         throw new Error("Missing the required parameter 'levelId' when calling updateWordsInLevel");
@@ -719,7 +660,6 @@ export default class GameLevelApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'levelId': levelId,
@@ -736,7 +676,7 @@ export default class GameLevelApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/level/words/update', 'POST',
+        '/level/words/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

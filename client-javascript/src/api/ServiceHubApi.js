@@ -45,22 +45,16 @@ export default class ServiceHubApi {
     /**
      * Create Service Hub
      * Create new service hub
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/ServiceHub} [body] 
      * @param {module:api/ServiceHubApi~createServiceHubCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ServiceHub}
      */
-    createServiceHub(version, opts, callback) {
+    createServiceHub(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createServiceHub");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -74,7 +68,7 @@ export default class ServiceHubApi {
       let accepts = ['*/*'];
       let returnType = ServiceHub;
       return this.apiClient.callApi(
-        '/api/{version}/hub', 'POST',
+        '/hub', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -91,23 +85,17 @@ export default class ServiceHubApi {
     /**
      * Delete Service Hub
      * Delete an existing service hub
-     * @param {Number} version 
      * @param {Number} id the id of the service hub to delete
      * @param {module:api/ServiceHubApi~deleteServiceHubCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteServiceHub(version, id, callback) {
+    deleteServiceHub(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteServiceHub");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling deleteServiceHub");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -122,7 +110,7 @@ export default class ServiceHubApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/hub/{id}', 'DELETE',
+        '/hub/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -139,24 +127,18 @@ export default class ServiceHubApi {
     /**
      * Get Service Hub
      * Get an existing service hub
-     * @param {Number} version 
      * @param {Number} id the id of the service hub to get
      * @param {module:api/ServiceHubApi~getServiceHubCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
-    getServiceHub(version, id, callback) {
+    getServiceHub(id, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getServiceHub");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling getServiceHub");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -171,7 +153,7 @@ export default class ServiceHubApi {
       let accepts = ['*/*'];
       let returnType = Object;
       return this.apiClient.callApi(
-        '/api/{version}/hub/{id}', 'GET',
+        '/hub/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -188,27 +170,21 @@ export default class ServiceHubApi {
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param {Number} version 
      * @param {Number} id the id of the service hub
      * @param {Object} opts Optional parameters
      * @param {module:model/ServiceHub} [body] 
      * @param {module:api/ServiceHubApi~postServiceHubCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ServiceHub}
      */
-    postServiceHub(version, id, opts, callback) {
+    postServiceHub(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling postServiceHub");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling postServiceHub");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -223,7 +199,7 @@ export default class ServiceHubApi {
       let accepts = ['*/*'];
       let returnType = ServiceHub;
       return this.apiClient.callApi(
-        '/api/{version}/hub/{id}', 'POST',
+        '/hub/{id}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -240,27 +216,21 @@ export default class ServiceHubApi {
     /**
      * Update Service Hub
      * Update an existing service hub
-     * @param {Number} version 
      * @param {Number} id the id of the service hub
      * @param {Object} opts Optional parameters
      * @param {module:model/ServiceHub} [body] 
      * @param {module:api/ServiceHubApi~putServiceHubCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ServiceHub}
      */
-    putServiceHub(version, id, opts, callback) {
+    putServiceHub(id, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling putServiceHub");
-      }
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling putServiceHub");
       }
 
       let pathParams = {
-        'version': version,
         'id': id
       };
       let queryParams = {
@@ -275,7 +245,7 @@ export default class ServiceHubApi {
       let accepts = ['*/*'];
       let returnType = ServiceHub;
       return this.apiClient.callApi(
-        '/api/{version}/hub/{id}', 'PUT',
+        '/hub/{id}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -292,7 +262,6 @@ export default class ServiceHubApi {
     /**
      * Search Service Hubs
      * Search for service hubs.
-     * @param {Number} version 
      * @param {String} sortField The field to sort by
      * @param {Boolean} descending Determines whether the sorted list is in descending or ascending order
      * @param {Number} start The start index for pagination
@@ -304,13 +273,9 @@ export default class ServiceHubApi {
      * @param {module:api/ServiceHubApi~searchServiceHubsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ServiceHub>}
      */
-    searchServiceHubs(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchServiceHubs(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchServiceHubs");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchServiceHubs");
@@ -333,7 +298,6 @@ export default class ServiceHubApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'keyword': opts['keyword'],
@@ -354,7 +318,7 @@ export default class ServiceHubApi {
       let accepts = ['*/*'];
       let returnType = [ServiceHub];
       return this.apiClient.callApi(
-        '/api/{version}/hub', 'GET',
+        '/hub', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

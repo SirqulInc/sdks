@@ -46,7 +46,6 @@ export default class AppDataApi {
     /**
      * Get App Data
      * Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-     * @param {Number} version 
      * @param {Number} start start the search results at a record.
      * @param {Number} limit limit the search results to some number.
      * @param {Object} opts Optional parameters
@@ -76,13 +75,9 @@ export default class AppDataApi {
      * @param {module:api/AppDataApi~getAppDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AppResponse}
      */
-    getAppData(version, start, limit, opts, callback) {
+    getAppData(start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAppData");
-      }
       // verify the required parameter 'start' is set
       if (start === undefined || start === null) {
         throw new Error("Missing the required parameter 'start' when calling getAppData");
@@ -93,7 +88,6 @@ export default class AppDataApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -132,7 +126,7 @@ export default class AppDataApi {
       let accepts = ['*/*'];
       let returnType = AppResponse;
       return this.apiClient.callApi(
-        '/api/{version}/app/get', 'GET',
+        '/app/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -149,7 +143,6 @@ export default class AppDataApi {
     /**
      * Create App Data
      * Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-     * @param {Number} version 
      * @param {String} gameType the game to retrieve the data for, use your application key.
      * @param {Number} start start the search results at a record.
      * @param {Number} limit limit the search results to some number.
@@ -180,13 +173,9 @@ export default class AppDataApi {
      * @param {module:api/AppDataApi~postAppDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AppResponse}
      */
-    postAppData(version, gameType, start, limit, data, opts, callback) {
+    postAppData(gameType, start, limit, data, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling postAppData");
-      }
       // verify the required parameter 'gameType' is set
       if (gameType === undefined || gameType === null) {
         throw new Error("Missing the required parameter 'gameType' when calling postAppData");
@@ -205,7 +194,6 @@ export default class AppDataApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -245,7 +233,7 @@ export default class AppDataApi {
       let accepts = ['*/*'];
       let returnType = AppResponse;
       return this.apiClient.callApi(
-        '/api/{version}/app/post', 'POST',
+        '/app/post', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -262,7 +250,6 @@ export default class AppDataApi {
     /**
      * Regenerate App Data
      * Regenerate the app data cache for apps
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the account id of the user
      * @param {String} [appKey] process a specific application, if null process all apps with caches
@@ -271,16 +258,11 @@ export default class AppDataApi {
      * @param {module:api/AppDataApi~regenAppDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    regenAppData(version, opts, callback) {
+    regenAppData(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling regenAppData");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -298,7 +280,7 @@ export default class AppDataApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/app/regen', 'POST',
+        '/app/regen', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

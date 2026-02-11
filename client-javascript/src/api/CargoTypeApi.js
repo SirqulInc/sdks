@@ -45,22 +45,16 @@ export default class CargoTypeApi {
     /**
      * Create Cargo Type
      * Create new cargo type
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {module:model/CargoType} [body] 
      * @param {module:api/CargoTypeApi~createCargoTypeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CargoType}
      */
-    createCargoType(version, opts, callback) {
+    createCargoType(opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createCargoType");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
       };
@@ -74,7 +68,7 @@ export default class CargoTypeApi {
       let accepts = ['*/*'];
       let returnType = CargoType;
       return this.apiClient.callApi(
-        '/api/{version}/cargo/type', 'POST',
+        '/cargo/type', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -91,23 +85,17 @@ export default class CargoTypeApi {
     /**
      * Delete Cargo Type
      * Delete a type of cargo
-     * @param {Number} version 
      * @param {Number} cargoTypeId the ID of the cargo type
      * @param {module:api/CargoTypeApi~deleteCargoTypeCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteCargoType(version, cargoTypeId, callback) {
+    deleteCargoType(cargoTypeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteCargoType");
-      }
       // verify the required parameter 'cargoTypeId' is set
       if (cargoTypeId === undefined || cargoTypeId === null) {
         throw new Error("Missing the required parameter 'cargoTypeId' when calling deleteCargoType");
       }
 
       let pathParams = {
-        'version': version,
         'cargoTypeId': cargoTypeId
       };
       let queryParams = {
@@ -122,7 +110,7 @@ export default class CargoTypeApi {
       let accepts = [];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/{version}/cargo/type/{cargoTypeId}', 'DELETE',
+        '/cargo/type/{cargoTypeId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -139,24 +127,18 @@ export default class CargoTypeApi {
     /**
      * Get Cargo Type
      * Get an existing cargo type
-     * @param {Number} version 
      * @param {Number} cargoTypeId the cargo type ID
      * @param {module:api/CargoTypeApi~getCargoTypeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CargoType}
      */
-    getCargoType(version, cargoTypeId, callback) {
+    getCargoType(cargoTypeId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCargoType");
-      }
       // verify the required parameter 'cargoTypeId' is set
       if (cargoTypeId === undefined || cargoTypeId === null) {
         throw new Error("Missing the required parameter 'cargoTypeId' when calling getCargoType");
       }
 
       let pathParams = {
-        'version': version,
         'cargoTypeId': cargoTypeId
       };
       let queryParams = {
@@ -171,7 +153,7 @@ export default class CargoTypeApi {
       let accepts = ['*/*'];
       let returnType = CargoType;
       return this.apiClient.callApi(
-        '/api/{version}/cargo/type/{cargoTypeId}', 'GET',
+        '/cargo/type/{cargoTypeId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -188,7 +170,6 @@ export default class CargoTypeApi {
     /**
      * Search Cargo Type
      * Search for types of cargo
-     * @param {Number} version 
      * @param {String} sortField the sort field to use for the cargo type
      * @param {Boolean} descending if the cargo type should be should be in descending order
      * @param {Number} start the start of the search
@@ -200,13 +181,9 @@ export default class CargoTypeApi {
      * @param {module:api/CargoTypeApi~searchCargoTypesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CargoType>}
      */
-    searchCargoTypes(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchCargoTypes(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchCargoTypes");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchCargoTypes");
@@ -229,7 +206,6 @@ export default class CargoTypeApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'retailerId': opts['retailerId'],
@@ -250,7 +226,7 @@ export default class CargoTypeApi {
       let accepts = ['*/*'];
       let returnType = [CargoType];
       return this.apiClient.callApi(
-        '/api/{version}/cargo/type', 'GET',
+        '/cargo/type', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -267,27 +243,21 @@ export default class CargoTypeApi {
     /**
      * Update Cargo Type
      * Update an existing cargo type
-     * @param {Number} version 
      * @param {Number} cargoTypeId the ID of the cargo type
      * @param {Object} opts Optional parameters
      * @param {module:model/CargoType} [body] 
      * @param {module:api/CargoTypeApi~updateCargoTypeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CargoType}
      */
-    updateCargoType(version, cargoTypeId, opts, callback) {
+    updateCargoType(cargoTypeId, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateCargoType");
-      }
       // verify the required parameter 'cargoTypeId' is set
       if (cargoTypeId === undefined || cargoTypeId === null) {
         throw new Error("Missing the required parameter 'cargoTypeId' when calling updateCargoType");
       }
 
       let pathParams = {
-        'version': version,
         'cargoTypeId': cargoTypeId
       };
       let queryParams = {
@@ -302,7 +272,7 @@ export default class CargoTypeApi {
       let accepts = ['*/*'];
       let returnType = CargoType;
       return this.apiClient.callApi(
-        '/api/{version}/cargo/type/{cargoTypeId}', 'PUT',
+        '/cargo/type/{cargoTypeId}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

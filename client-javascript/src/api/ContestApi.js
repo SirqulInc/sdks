@@ -47,7 +47,6 @@ export default class ContestApi {
     /**
      * Create or Update Contest
      * Creates or updates a contest.
-     * @param {Number} version 
      * @param {Boolean} publicRead determines whether the contest's participants has read permissions
      * @param {Boolean} publicWrite determines whether the contest's participants has write permissions
      * @param {Boolean} publicDelete determines whether the contest's participants has delete permissions
@@ -77,13 +76,9 @@ export default class ContestApi {
      * @param {module:api/ContestApi~addOrUpdateAlbumContestCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AlbumContestResponse}
      */
-    addOrUpdateAlbumContest(version, publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, opts, callback) {
+    addOrUpdateAlbumContest(publicRead, publicWrite, publicDelete, publicAdd, visibility, includeFriendGroup, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addOrUpdateAlbumContest");
-      }
       // verify the required parameter 'publicRead' is set
       if (publicRead === undefined || publicRead === null) {
         throw new Error("Missing the required parameter 'publicRead' when calling addOrUpdateAlbumContest");
@@ -110,7 +105,6 @@ export default class ContestApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -149,7 +143,7 @@ export default class ContestApi {
       let accepts = ['*/*'];
       let returnType = AlbumContestResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/album/contest', 'POST',
+        '/consumer/album/contest', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -166,7 +160,6 @@ export default class ContestApi {
     /**
      * Approve Contest
      * Sets the approval status of a contest.
-     * @param {Number} version 
      * @param {Number} albumContestId The ID of the album contest
      * @param {module:model/String} approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
      * @param {Object} opts Optional parameters
@@ -175,13 +168,9 @@ export default class ContestApi {
      * @param {module:api/ContestApi~approveAlbumContestCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    approveAlbumContest(version, albumContestId, approvalStatus, opts, callback) {
+    approveAlbumContest(albumContestId, approvalStatus, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling approveAlbumContest");
-      }
       // verify the required parameter 'albumContestId' is set
       if (albumContestId === undefined || albumContestId === null) {
         throw new Error("Missing the required parameter 'albumContestId' when calling approveAlbumContest");
@@ -192,7 +181,6 @@ export default class ContestApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -210,7 +198,7 @@ export default class ContestApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/album/contest/approve', 'POST',
+        '/consumer/album/contest/approve', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -227,7 +215,6 @@ export default class ContestApi {
     /**
      * Delete Contest
      * Deletes a contest.
-     * @param {Number} version 
      * @param {Number} albumContestId the album contest ID
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -237,20 +224,15 @@ export default class ContestApi {
      * @param {module:api/ContestApi~deleteContestCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteContest(version, albumContestId, opts, callback) {
+    deleteContest(albumContestId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteContest");
-      }
       // verify the required parameter 'albumContestId' is set
       if (albumContestId === undefined || albumContestId === null) {
         throw new Error("Missing the required parameter 'albumContestId' when calling deleteContest");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -269,7 +251,7 @@ export default class ContestApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/album/contest/remove', 'POST',
+        '/consumer/album/contest/remove', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -286,7 +268,6 @@ export default class ContestApi {
     /**
      * Get Contest
      * Gets the contest object including the likes and notes
-     * @param {Number} version 
      * @param {Number} albumContestId the album contest ID
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique ID given by the device (deviceId or accountId required)
@@ -296,20 +277,15 @@ export default class ContestApi {
      * @param {module:api/ContestApi~getAlbumContestCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AlbumContestResponse}
      */
-    getAlbumContest(version, albumContestId, opts, callback) {
+    getAlbumContest(albumContestId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAlbumContest");
-      }
       // verify the required parameter 'albumContestId' is set
       if (albumContestId === undefined || albumContestId === null) {
         throw new Error("Missing the required parameter 'albumContestId' when calling getAlbumContest");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -328,7 +304,7 @@ export default class ContestApi {
       let accepts = ['*/*'];
       let returnType = AlbumContestResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/album/contest/get', 'GET',
+        '/consumer/album/contest/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -345,7 +321,6 @@ export default class ContestApi {
     /**
      * Search Contests
      * Searches on contests.
-     * @param {Number} version 
      * @param {String} filter a comma separated list of Ownership
      * @param {String} sortField the field to sort by. See AlbumContestApiMap
      * @param {Boolean} descending determines whether the sorted list is in descending or ascending order
@@ -369,13 +344,9 @@ export default class ContestApi {
      * @param {module:api/ContestApi~getAlbumContestsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AlbumContestListResponse}
      */
-    getAlbumContests(version, filter, sortField, descending, start, limit, opts, callback) {
+    getAlbumContests(filter, sortField, descending, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAlbumContests");
-      }
       // verify the required parameter 'filter' is set
       if (filter === undefined || filter === null) {
         throw new Error("Missing the required parameter 'filter' when calling getAlbumContests");
@@ -398,7 +369,6 @@ export default class ContestApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -431,7 +401,7 @@ export default class ContestApi {
       let accepts = ['*/*'];
       let returnType = AlbumContestListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/album/contest/search', 'GET',
+        '/consumer/album/contest/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -448,7 +418,6 @@ export default class ContestApi {
     /**
      * Vote on Contest
      * Vote on a collection in a contest.
-     * @param {Number} version 
      * @param {Number} albumContestId the album contest ID
      * @param {Number} albumId the ID of the album to vote on
      * @param {Object} opts Optional parameters
@@ -460,13 +429,9 @@ export default class ContestApi {
      * @param {module:api/ContestApi~voteOnAlbumContestCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AlbumContestResponse}
      */
-    voteOnAlbumContest(version, albumContestId, albumId, opts, callback) {
+    voteOnAlbumContest(albumContestId, albumId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling voteOnAlbumContest");
-      }
       // verify the required parameter 'albumContestId' is set
       if (albumContestId === undefined || albumContestId === null) {
         throw new Error("Missing the required parameter 'albumContestId' when calling voteOnAlbumContest");
@@ -477,7 +442,6 @@ export default class ContestApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -498,7 +462,7 @@ export default class ContestApi {
       let accepts = ['*/*'];
       let returnType = AlbumContestResponse;
       return this.apiClient.callApi(
-        '/api/{version}/consumer/album/contest/vote', 'POST',
+        '/consumer/album/contest/vote', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

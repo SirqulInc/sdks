@@ -51,7 +51,6 @@ export default class TrackingApi {
     /**
      * Create Batch Tracking
      * Batch create tracking legs
-     * @param {Number} version 
      * @param {String} data JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
@@ -63,20 +62,15 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~batchSaveTrackingCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/Leg>}
      */
-    batchSaveTracking(version, data, opts, callback) {
+    batchSaveTracking(data, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling batchSaveTracking");
-      }
       // verify the required parameter 'data' is set
       if (data === undefined || data === null) {
         throw new Error("Missing the required parameter 'data' when calling batchSaveTracking");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -97,7 +91,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = [Leg];
       return this.apiClient.callApi(
-        '/api/{version}/tracking/batch/create', 'POST',
+        '/tracking/batch/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -114,7 +108,6 @@ export default class TrackingApi {
     /**
      * Get Predicted Locations
      * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the customer
      * @param {Object} opts Optional parameters
      * @param {Number} [latitude] latitude to return a more likely result set based on the user's current location
@@ -128,20 +121,15 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~getPredictedLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PredictedLocationResponse}
      */
-    getPredictedLocations(version, accountId, opts, callback) {
+    getPredictedLocations(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPredictedLocations");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPredictedLocations");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -164,7 +152,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = PredictedLocationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tracking/predicted/get', 'GET',
+        '/tracking/predicted/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -181,19 +169,14 @@ export default class TrackingApi {
     /**
      * Get Tracking Path
      * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the customer
      * @param {Number} startStepId The stepId to begin from
      * @param {Number} endStepId The stepId to end with
      * @param {module:api/TrackingApi~getPredictedPathCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/StepResponse>}
      */
-    getPredictedPath(version, accountId, startStepId, endStepId, callback) {
+    getPredictedPath(accountId, startStepId, endStepId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPredictedPath");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPredictedPath");
@@ -208,7 +191,6 @@ export default class TrackingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -225,7 +207,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = [StepResponse];
       return this.apiClient.callApi(
-        '/api/{version}/tracking/path/get', 'GET',
+        '/tracking/path/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -242,7 +224,6 @@ export default class TrackingApi {
     /**
      * Search Preferred Locations
      * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the customer
      * @param {Object} opts Optional parameters
      * @param {Number} [latitude] latitude to return a more likely result set based on the user's current location
@@ -258,20 +239,15 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~getPreferredLocationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PreferredLocationResponse>}
      */
-    getPreferredLocations(version, accountId, opts, callback) {
+    getPreferredLocations(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPreferredLocations");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPreferredLocations");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -296,7 +272,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = [PreferredLocationResponse];
       return this.apiClient.callApi(
-        '/api/{version}/tracking/preferred/search', 'GET',
+        '/tracking/preferred/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -313,7 +289,6 @@ export default class TrackingApi {
     /**
      * Search Tracking
      * Retrieve tracking data to be able to show where a user has been.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the device id (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -326,16 +301,11 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~getTrackingLegsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/LegResponse>}
      */
-    getTrackingLegs(version, opts, callback) {
+    getTrackingLegs(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getTrackingLegs");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -357,7 +327,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = [LegResponse];
       return this.apiClient.callApi(
-        '/api/{version}/tracking/search', 'GET',
+        '/tracking/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -374,7 +344,6 @@ export default class TrackingApi {
     /**
      * Create Tracking Leg
      * Send tracking points to be able to generate pathing data
-     * @param {Number} version 
      * @param {Number} startLat the latitude of the first point
      * @param {Number} startLng the longitude of the first point
      * @param {Number} startDate the start date (in UTC milliseconds) of the first point
@@ -391,13 +360,9 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~saveTrackingLegCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    saveTrackingLeg(version, startLat, startLng, startDate, endLat, endLng, endDate, opts, callback) {
+    saveTrackingLeg(startLat, startLng, startDate, endLat, endLng, endDate, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling saveTrackingLeg");
-      }
       // verify the required parameter 'startLat' is set
       if (startLat === undefined || startLat === null) {
         throw new Error("Missing the required parameter 'startLat' when calling saveTrackingLeg");
@@ -424,7 +389,6 @@ export default class TrackingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -450,7 +414,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tracking/leg/create', 'POST',
+        '/tracking/leg/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -467,7 +431,6 @@ export default class TrackingApi {
     /**
      * Create Tracking Step
      * Send tracking points to be able to generate pathing data
-     * @param {Number} version 
      * @param {Number} legId the leg to add the step to
      * @param {Number} startLat the latitude of the first point
      * @param {Number} startLng the longitude of the first point
@@ -483,13 +446,9 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~saveTrackingStepCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    saveTrackingStep(version, legId, startLat, startLng, startDate, endLat, endLng, endDate, opts, callback) {
+    saveTrackingStep(legId, startLat, startLng, startDate, endLat, endLng, endDate, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling saveTrackingStep");
-      }
       // verify the required parameter 'legId' is set
       if (legId === undefined || legId === null) {
         throw new Error("Missing the required parameter 'legId' when calling saveTrackingStep");
@@ -520,7 +479,6 @@ export default class TrackingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -545,7 +503,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/tracking/step/create', 'POST',
+        '/tracking/step/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -562,7 +520,6 @@ export default class TrackingApi {
     /**
      * List Tracking
      * Search for all accounts that have tracking legs data by the given constraints.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {Object} opts Optional parameters
      * @param {String} [keyword] Used for LIKE search of first or last name on the acocunt
@@ -581,20 +538,15 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~searchAccountsWithTrackingLegsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AccountMiniResponse>}
      */
-    searchAccountsWithTrackingLegs(version, accountId, opts, callback) {
+    searchAccountsWithTrackingLegs(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchAccountsWithTrackingLegs");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchAccountsWithTrackingLegs");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -622,7 +574,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = [AccountMiniResponse];
       return this.apiClient.callApi(
-        '/api/{version}/tracking/list', 'GET',
+        '/tracking/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -639,7 +591,6 @@ export default class TrackingApi {
     /**
      * Search Tracking (Billable)
      * Retrieve tracking data for billable/account scoped queries.
-     * @param {Number} version 
      * @param {Number} accountId The account id to search tracking for
      * @param {String} appKey The application key
      * @param {Object} opts Optional parameters
@@ -652,13 +603,9 @@ export default class TrackingApi {
      * @param {module:api/TrackingApi~searchTrackingLegsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/LegResponse>}
      */
-    searchTrackingLegs(version, accountId, appKey, opts, callback) {
+    searchTrackingLegs(accountId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchTrackingLegs");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchTrackingLegs");
@@ -669,7 +616,6 @@ export default class TrackingApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -691,7 +637,7 @@ export default class TrackingApi {
       let accepts = ['*/*'];
       let returnType = [LegResponse];
       return this.apiClient.callApi(
-        '/api/{version}/tracking/searchByBillable', 'GET',
+        '/tracking/searchByBillable', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

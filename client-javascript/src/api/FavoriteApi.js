@@ -48,7 +48,6 @@ export default class FavoriteApi {
     /**
      * Create Favorite
      * Adds an offer, offer location, retailer location, or category to your favorites.
-     * @param {Number} version 
      * @param {Number} favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
      * @param {String} favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
      * @param {Object} opts Optional parameters
@@ -59,13 +58,9 @@ export default class FavoriteApi {
      * @param {module:api/FavoriteApi~addFavoriteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WrappedResponse}
      */
-    addFavorite(version, favoritableId, favoritableType, opts, callback) {
+    addFavorite(favoritableId, favoritableType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling addFavorite");
-      }
       // verify the required parameter 'favoritableId' is set
       if (favoritableId === undefined || favoritableId === null) {
         throw new Error("Missing the required parameter 'favoritableId' when calling addFavorite");
@@ -76,7 +71,6 @@ export default class FavoriteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -96,7 +90,7 @@ export default class FavoriteApi {
       let accepts = ['*/*'];
       let returnType = WrappedResponse;
       return this.apiClient.callApi(
-        '/api/{version}/favorite/create', 'POST',
+        '/favorite/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -113,7 +107,6 @@ export default class FavoriteApi {
     /**
      * Delete Favorite
      * Removes a favorited item from the user's favorites list.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique ID given by the device (deviceId or accountId required)
      * @param {Number} [accountId] The account ID of the user (deviceId or accountId required)
@@ -123,16 +116,11 @@ export default class FavoriteApi {
      * @param {module:api/FavoriteApi~deleteFavoriteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteFavorite(version, opts, callback) {
+    deleteFavorite(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteFavorite");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -151,7 +139,7 @@ export default class FavoriteApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/favorite/delete', 'POST',
+        '/favorite/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -168,7 +156,6 @@ export default class FavoriteApi {
     /**
      * Get Favorite
      * Retrieves a single favorited item.
-     * @param {Number} version 
      * @param {Number} favoriteId The ID of the favorite reference record
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique ID given by the device (deviceId or accountId required)
@@ -178,20 +165,15 @@ export default class FavoriteApi {
      * @param {module:api/FavoriteApi~getFavoriteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WrappedResponse}
      */
-    getFavorite(version, favoriteId, opts, callback) {
+    getFavorite(favoriteId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getFavorite");
-      }
       // verify the required parameter 'favoriteId' is set
       if (favoriteId === undefined || favoriteId === null) {
         throw new Error("Missing the required parameter 'favoriteId' when calling getFavorite");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -210,7 +192,7 @@ export default class FavoriteApi {
       let accepts = ['*/*'];
       let returnType = WrappedResponse;
       return this.apiClient.callApi(
-        '/api/{version}/favorite/get', 'GET',
+        '/favorite/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -227,7 +209,6 @@ export default class FavoriteApi {
     /**
      * Search Favorites
      * Searches on the user's favorites.
-     * @param {Number} version 
      * @param {String} favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param {module:model/String} sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
      * @param {Boolean} descending Determines whether the results are in descending order
@@ -246,13 +227,9 @@ export default class FavoriteApi {
      * @param {module:api/FavoriteApi~searchFavoritesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SearchResponse}
      */
-    searchFavorites(version, favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, opts, callback) {
+    searchFavorites(favoritableType, sortField, descending, start, limit, activeOnly, returnFullResponse, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchFavorites");
-      }
       // verify the required parameter 'favoritableType' is set
       if (favoritableType === undefined || favoritableType === null) {
         throw new Error("Missing the required parameter 'favoritableType' when calling searchFavorites");
@@ -283,7 +260,6 @@ export default class FavoriteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -311,7 +287,7 @@ export default class FavoriteApi {
       let accepts = ['*/*'];
       let returnType = SearchResponse;
       return this.apiClient.callApi(
-        '/api/{version}/favorite/search', 'GET',
+        '/favorite/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -328,7 +304,6 @@ export default class FavoriteApi {
     /**
      * Who has Favorited
      * Searches for everyone that has favorited an item
-     * @param {Number} version 
      * @param {Number} favoritableId The ID of the favoritableType to search on
      * @param {String} favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
      * @param {Number} start The start index for pagination
@@ -342,13 +317,9 @@ export default class FavoriteApi {
      * @param {module:api/FavoriteApi~whoHasFavoritedCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AccountResponse>}
      */
-    whoHasFavorited(version, favoritableId, favoritableType, start, limit, opts, callback) {
+    whoHasFavorited(favoritableId, favoritableType, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling whoHasFavorited");
-      }
       // verify the required parameter 'favoritableId' is set
       if (favoritableId === undefined || favoritableId === null) {
         throw new Error("Missing the required parameter 'favoritableId' when calling whoHasFavorited");
@@ -367,7 +338,6 @@ export default class FavoriteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -390,7 +360,7 @@ export default class FavoriteApi {
       let accepts = ['*/*'];
       let returnType = [AccountResponse];
       return this.apiClient.callApi(
-        '/api/{version}/favorite/whois', 'GET',
+        '/favorite/whois', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

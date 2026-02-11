@@ -45,24 +45,18 @@ export default class DisbursementApi {
     /**
      * Check Disbursements
      * Checks the status of a captured disbrusement to see if it has been settled.
-     * @param {Number} version 
      * @param {Number} disbursementId the ID of the disbursement being checked on
      * @param {module:api/DisbursementApi~checkDisbursementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DisbursementResponse}
      */
-    checkDisbursements(version, disbursementId, callback) {
+    checkDisbursements(disbursementId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling checkDisbursements");
-      }
       // verify the required parameter 'disbursementId' is set
       if (disbursementId === undefined || disbursementId === null) {
         throw new Error("Missing the required parameter 'disbursementId' when calling checkDisbursements");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'disbursementId': disbursementId
@@ -77,7 +71,7 @@ export default class DisbursementApi {
       let accepts = ['*/*'];
       let returnType = DisbursementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/disbursement/check', 'GET',
+        '/disbursement/check', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -94,7 +88,6 @@ export default class DisbursementApi {
     /**
      * Create Disbursement
      * Creates a Disbursement for sending money to a retailer
-     * @param {Number} version 
      * @param {Number} accountId the ID of the logging in user (must be an EXECUTIVE account)
      * @param {Number} receiverAccountId the ID of the account receiving the disbursement
      * @param {Number} originalSenderAccountId the ID of the original sender account
@@ -109,13 +102,9 @@ export default class DisbursementApi {
      * @param {module:api/DisbursementApi~createDisbursementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DisbursementResponse}
      */
-    createDisbursement(version, accountId, receiverAccountId, originalSenderAccountId, amount, provider, opts, callback) {
+    createDisbursement(accountId, receiverAccountId, originalSenderAccountId, amount, provider, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createDisbursement");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createDisbursement");
@@ -138,7 +127,6 @@ export default class DisbursementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -162,7 +150,7 @@ export default class DisbursementApi {
       let accepts = ['*/*'];
       let returnType = DisbursementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/disbursement/create', 'POST',
+        '/disbursement/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -179,18 +167,13 @@ export default class DisbursementApi {
     /**
      * Get Disbursement
      * Get Disbursement details
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} disbursementId the id of the disbursement
      * @param {module:api/DisbursementApi~getDisbursementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DisbursementResponse}
      */
-    getDisbursement(version, accountId, disbursementId, callback) {
+    getDisbursement(accountId, disbursementId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getDisbursement");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getDisbursement");
@@ -201,7 +184,6 @@ export default class DisbursementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -217,7 +199,7 @@ export default class DisbursementApi {
       let accepts = ['*/*'];
       let returnType = DisbursementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/disbursement/get', 'GET',
+        '/disbursement/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -234,7 +216,6 @@ export default class DisbursementApi {
     /**
      * Search Disbursements
      * Search Disbursements
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Object} opts Optional parameters
      * @param {Number} [receiverAccountId] filter results by the id of the account receiving the disbursement
@@ -249,20 +230,15 @@ export default class DisbursementApi {
      * @param {module:api/DisbursementApi~searchDisbursementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/DisbursementResponse>}
      */
-    searchDisbursements(version, accountId, opts, callback) {
+    searchDisbursements(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchDisbursements");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchDisbursements");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -286,7 +262,7 @@ export default class DisbursementApi {
       let accepts = ['*/*'];
       let returnType = [DisbursementResponse];
       return this.apiClient.callApi(
-        '/api/{version}/disbursement/search', 'GET',
+        '/disbursement/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -303,7 +279,6 @@ export default class DisbursementApi {
     /**
      * Update Disbursement
      * Update Disbursement
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} disbursementId the id of the disbursement being updated
      * @param {Object} opts Optional parameters
@@ -318,13 +293,9 @@ export default class DisbursementApi {
      * @param {module:api/DisbursementApi~updateDisbursementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DisbursementResponse}
      */
-    updateDisbursement(version, accountId, disbursementId, opts, callback) {
+    updateDisbursement(accountId, disbursementId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateDisbursement");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateDisbursement");
@@ -335,7 +306,6 @@ export default class DisbursementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -359,7 +329,7 @@ export default class DisbursementApi {
       let accepts = ['*/*'];
       let returnType = DisbursementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/disbursement/update', 'POST',
+        '/disbursement/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

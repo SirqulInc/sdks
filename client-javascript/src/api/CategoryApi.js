@@ -47,7 +47,6 @@ export default class CategoryApi {
     /**
      * Search Categories by Distance
      * Search for categories by distance.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user
      * @param {String} [keyword] The keyword string to search on
@@ -72,16 +71,11 @@ export default class CategoryApi {
      * @param {module:api/CategoryApi~categoryDistanceSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CategoryResponse>}
      */
-    categoryDistanceSearch(version, opts, callback) {
+    categoryDistanceSearch(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling categoryDistanceSearch");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -115,7 +109,7 @@ export default class CategoryApi {
       let accepts = ['*/*'];
       let returnType = [CategoryResponse];
       return this.apiClient.callApi(
-        '/api/{version}/category/distancesearch', 'GET',
+        '/category/distancesearch', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -132,7 +126,6 @@ export default class CategoryApi {
     /**
      * Create Category
      * Create a new category.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user (must have permissions to the target application)
      * @param {String} name The name of the category
      * @param {Object} opts Optional parameters
@@ -151,13 +144,9 @@ export default class CategoryApi {
      * @param {module:api/CategoryApi~createCategoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryTreeResponse}
      */
-    createCategory(version, accountId, name, opts, callback) {
+    createCategory(accountId, name, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createCategory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createCategory");
@@ -168,7 +157,6 @@ export default class CategoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': opts['appKey'],
@@ -196,7 +184,7 @@ export default class CategoryApi {
       let accepts = ['*/*'];
       let returnType = CategoryTreeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/category/create', 'POST',
+        '/category/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -213,18 +201,13 @@ export default class CategoryApi {
     /**
      * Delete Category
      * Delete a category.
-     * @param {Number} version 
      * @param {Number} accountId the ID of the account
      * @param {Number} categoryId the ID of the category
      * @param {module:api/CategoryApi~deleteCategoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteCategory(version, accountId, categoryId, callback) {
+    deleteCategory(accountId, categoryId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteCategory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteCategory");
@@ -235,7 +218,6 @@ export default class CategoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -251,7 +233,7 @@ export default class CategoryApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/category/delete', 'POST',
+        '/category/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -268,7 +250,6 @@ export default class CategoryApi {
     /**
      * Duplicate Category
      * Duplicate a category, including all its children.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user (must have permissions to the target application)
      * @param {Number} categoryId The category ID to duplicate (includes all children)
      * @param {Object} opts Optional parameters
@@ -277,13 +258,9 @@ export default class CategoryApi {
      * @param {module:api/CategoryApi~duplicateCategoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryTreeResponse}
      */
-    duplicateCategory(version, accountId, categoryId, opts, callback) {
+    duplicateCategory(accountId, categoryId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling duplicateCategory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling duplicateCategory");
@@ -294,7 +271,6 @@ export default class CategoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': opts['appKey'],
@@ -312,7 +288,7 @@ export default class CategoryApi {
       let accepts = ['*/*'];
       let returnType = CategoryTreeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/category/duplicate', 'POST',
+        '/category/duplicate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -329,27 +305,21 @@ export default class CategoryApi {
     /**
      * Get Category
      * Get the details of a specific category. Recursively include all child categories and their children.
-     * @param {Number} version 
      * @param {Number} categoryId the ID of the category
      * @param {Object} opts Optional parameters
      * @param {Boolean} [returnExternal = true)] Determines whether to return extra info about the category's \"Participant\" reference
      * @param {module:api/CategoryApi~getCategoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryTreeResponse}
      */
-    getCategory(version, categoryId, opts, callback) {
+    getCategory(categoryId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCategory");
-      }
       // verify the required parameter 'categoryId' is set
       if (categoryId === undefined || categoryId === null) {
         throw new Error("Missing the required parameter 'categoryId' when calling getCategory");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'categoryId': categoryId,
@@ -365,7 +335,7 @@ export default class CategoryApi {
       let accepts = ['*/*'];
       let returnType = CategoryTreeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/category/get', 'GET',
+        '/category/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -382,7 +352,6 @@ export default class CategoryApi {
     /**
      * Search Categories
      * Search for categories.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The account id of the user
      * @param {String} [keyword] The string to search on
@@ -408,16 +377,11 @@ export default class CategoryApi {
      * @param {module:api/CategoryApi~searchCategoriesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CategoryResponse>}
      */
-    searchCategories(version, opts, callback) {
+    searchCategories(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchCategories");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -452,7 +416,7 @@ export default class CategoryApi {
       let accepts = ['*/*'];
       let returnType = [CategoryResponse];
       return this.apiClient.callApi(
-        '/api/{version}/category/search', 'GET',
+        '/category/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -469,7 +433,6 @@ export default class CategoryApi {
     /**
      * Update Category
      * Update a category.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {Number} categoryId The ID of the category to edit
      * @param {Object} opts Optional parameters
@@ -488,13 +451,9 @@ export default class CategoryApi {
      * @param {module:api/CategoryApi~updateCategoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryTreeResponse}
      */
-    updateCategory(version, accountId, categoryId, opts, callback) {
+    updateCategory(accountId, categoryId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateCategory");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateCategory");
@@ -505,7 +464,6 @@ export default class CategoryApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -533,7 +491,7 @@ export default class CategoryApi {
       let accepts = ['*/*'];
       let returnType = CategoryTreeResponse;
       return this.apiClient.callApi(
-        '/api/{version}/category/update', 'POST',
+        '/category/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

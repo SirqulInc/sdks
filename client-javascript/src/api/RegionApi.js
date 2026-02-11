@@ -45,7 +45,6 @@ export default class RegionApi {
     /**
      * Create Region
      * Create a region.
-     * @param {Number} version 
      * @param {Number} accountId The id of the account sending the request
      * @param {String} regionClass RegionClass of this region
      * @param {String} shortName Short name of the region. This is optimized for search
@@ -71,13 +70,9 @@ export default class RegionApi {
      * @param {module:api/RegionApi~createRegionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RegionResponse}
      */
-    createRegion(version, accountId, regionClass, shortName, opts, callback) {
+    createRegion(accountId, regionClass, shortName, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createRegion");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createRegion");
@@ -92,7 +87,6 @@ export default class RegionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -127,7 +121,7 @@ export default class RegionApi {
       let accepts = ['*/*'];
       let returnType = RegionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/region/create', 'POST',
+        '/region/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -144,18 +138,13 @@ export default class RegionApi {
     /**
      * Delete Region
      * Delete a region.
-     * @param {Number} version 
      * @param {Number} accountId the id of the account logged in
      * @param {Number} regionId the id of the region
      * @param {module:api/RegionApi~deleteRegionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RegionResponse}
      */
-    deleteRegion(version, accountId, regionId, callback) {
+    deleteRegion(accountId, regionId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteRegion");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteRegion");
@@ -166,7 +155,6 @@ export default class RegionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -182,7 +170,7 @@ export default class RegionApi {
       let accepts = ['*/*'];
       let returnType = RegionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/region/delete', 'POST',
+        '/region/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -199,27 +187,21 @@ export default class RegionApi {
     /**
      * Get Region
      * Get a region.
-     * @param {Number} version 
      * @param {Number} regionId the id of the region to get
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the id of the logged in user
      * @param {module:api/RegionApi~getRegionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RegionResponse}
      */
-    getRegion(version, regionId, opts, callback) {
+    getRegion(regionId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRegion");
-      }
       // verify the required parameter 'regionId' is set
       if (regionId === undefined || regionId === null) {
         throw new Error("Missing the required parameter 'regionId' when calling getRegion");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -235,7 +217,7 @@ export default class RegionApi {
       let accepts = ['*/*'];
       let returnType = RegionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/region/get', 'GET',
+        '/region/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -252,7 +234,6 @@ export default class RegionApi {
     /**
      * Search Regions
      * Get the list of regions.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the owner account id of the region to be created
      * @param {String} [query] This parameter is deprecated. deprecated - use \"keyword\"
@@ -279,16 +260,11 @@ export default class RegionApi {
      * @param {module:api/RegionApi~searchRegionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/RegionResponse>}
      */
-    searchRegions(version, opts, callback) {
+    searchRegions(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRegions");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -324,7 +300,7 @@ export default class RegionApi {
       let accepts = ['*/*'];
       let returnType = [RegionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/region/search', 'GET',
+        '/region/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -341,7 +317,6 @@ export default class RegionApi {
     /**
      * Update Region
      * Update a region.
-     * @param {Number} version 
      * @param {Number} accountId The id of the account sending the request
      * @param {Number} regionId The id of the region to be updated
      * @param {Object} opts Optional parameters
@@ -369,13 +344,9 @@ export default class RegionApi {
      * @param {module:api/RegionApi~updateRegionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/RegionResponse}
      */
-    updateRegion(version, accountId, regionId, opts, callback) {
+    updateRegion(accountId, regionId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateRegion");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateRegion");
@@ -386,7 +357,6 @@ export default class RegionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -423,7 +393,7 @@ export default class RegionApi {
       let accepts = ['*/*'];
       let returnType = RegionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/region/update', 'POST',
+        '/region/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

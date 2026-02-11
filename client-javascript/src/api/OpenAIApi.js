@@ -45,7 +45,6 @@ export default class OpenAIApi {
     /**
      * Generate images with OpenAI
      * Generate images with OpenAI.
-     * @param {Number} version 
      * @param {Number} accountId Sirqul Account Id
      * @param {String} postBody Post Body Parameters
      * @param {Object} opts Optional parameters
@@ -53,13 +52,9 @@ export default class OpenAIApi {
      * @param {module:api/OpenAIApi~imageGenerationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/WrappedProxyItemResponse}
      */
-    imageGeneration(version, accountId, postBody, opts, callback) {
+    imageGeneration(accountId, postBody, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling imageGeneration");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling imageGeneration");
@@ -70,7 +65,6 @@ export default class OpenAIApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -87,7 +81,7 @@ export default class OpenAIApi {
       let accepts = ['*/*'];
       let returnType = WrappedProxyItemResponse;
       return this.apiClient.callApi(
-        '/api/{version}/openai/v1/images/generations', 'POST',
+        '/openai/v1/images/generations', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

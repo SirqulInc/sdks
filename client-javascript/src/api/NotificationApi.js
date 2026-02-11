@@ -50,7 +50,6 @@ export default class NotificationApi {
     /**
      * Create Notification Template
      * Create a notification template. Developers will only be able to create notification templates for their own applications.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user.
      * @param {String} conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
      * @param {String} title title of the notification template
@@ -62,13 +61,9 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~createNotificationTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NotificationTemplateResponse}
      */
-    createNotificationTemplate(version, accountId, conduit, title, body, opts, callback) {
+    createNotificationTemplate(accountId, conduit, title, body, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createNotificationTemplate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createNotificationTemplate");
@@ -87,7 +82,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -108,7 +102,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = NotificationTemplateResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/template/create', 'POST',
+        '/notification/template/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -125,7 +119,6 @@ export default class NotificationApi {
     /**
      * Create or update blocked notification settings
      * Create or update blocked notification settings
-     * @param {Number} version 
      * @param {String} appKey The application key
      * @param {String} data batch data payload (application specific)
      * @param {Object} opts Optional parameters
@@ -133,13 +126,9 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~createOrUpdateBlockedNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BlockedNotificationResponse}
      */
-    createOrUpdateBlockedNotifications(version, appKey, data, opts, callback) {
+    createOrUpdateBlockedNotifications(appKey, data, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createOrUpdateBlockedNotifications");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling createOrUpdateBlockedNotifications");
@@ -150,7 +139,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -167,7 +155,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = BlockedNotificationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/blocked/batch', 'POST',
+        '/notification/blocked/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -184,18 +172,13 @@ export default class NotificationApi {
     /**
      * Delete Notification Template
      * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {Number} notificationTemplateId the id of the notification template to delete
      * @param {module:api/NotificationApi~deleteNotificationTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NotificationTemplateResponse}
      */
-    deleteNotificationTemplate(version, accountId, notificationTemplateId, callback) {
+    deleteNotificationTemplate(accountId, notificationTemplateId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteNotificationTemplate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteNotificationTemplate");
@@ -206,7 +189,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -222,7 +204,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = NotificationTemplateResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/template/delete', 'POST',
+        '/notification/template/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -239,18 +221,13 @@ export default class NotificationApi {
     /**
      * Get Notification Template
      * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-     * @param {Number} version 
      * @param {Number} accountId the id of the account
      * @param {Number} notificationTemplateId the id of the notification template to get
      * @param {module:api/NotificationApi~getNotificationTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NotificationTemplateResponse}
      */
-    getNotificationTemplate(version, accountId, notificationTemplateId, callback) {
+    getNotificationTemplate(accountId, notificationTemplateId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getNotificationTemplate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getNotificationTemplate");
@@ -261,7 +238,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -277,7 +253,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = NotificationTemplateResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/template/get', 'GET',
+        '/notification/template/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -294,7 +270,6 @@ export default class NotificationApi {
     /**
      * Get Notifications
      * Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the unique id of the device making the request (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -320,16 +295,11 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~getNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NotificationMessageListResponse}
      */
-    getNotifications(version, opts, callback) {
+    getNotifications(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getNotifications");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -364,7 +334,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = NotificationMessageListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/search', 'GET',
+        '/notification/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -381,7 +351,6 @@ export default class NotificationApi {
     /**
      * Register Notification Token
      * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-     * @param {Number} version 
      * @param {String} token A token that is generated by the device to sign requests for the notification service providers
      * @param {module:model/String} pushType The type of push notification. Possible values include: APNS, GCM
      * @param {Object} opts Optional parameters
@@ -396,13 +365,9 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~registerNotificationTokenCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    registerNotificationToken(version, token, pushType, opts, callback) {
+    registerNotificationToken(token, pushType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling registerNotificationToken");
-      }
       // verify the required parameter 'token' is set
       if (token === undefined || token === null) {
         throw new Error("Missing the required parameter 'token' when calling registerNotificationToken");
@@ -413,7 +378,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -437,7 +401,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/token', 'POST',
+        '/notification/token', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -454,7 +418,6 @@ export default class NotificationApi {
     /**
      * Search on the user's blocked notification settings
      * Search on the user's blocked notification settings
-     * @param {Number} version 
      * @param {String} appKey The application key
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the account id of the user
@@ -471,20 +434,15 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~searchBlockedNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BlockedNotificationResponse}
      */
-    searchBlockedNotifications(version, appKey, opts, callback) {
+    searchBlockedNotifications(appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchBlockedNotifications");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling searchBlockedNotifications");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -510,7 +468,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = BlockedNotificationResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/blocked/search', 'GET',
+        '/notification/blocked/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -527,7 +485,6 @@ export default class NotificationApi {
     /**
      * Search Notification Templates
      * Search for notification templates on owned applications.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user.
      * @param {String} sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.
      * @param {Boolean} descending Specified whether the results are returned in descending or ascending order.
@@ -543,13 +500,9 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~searchNotificationTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NotificationTemplateResponse}
      */
-    searchNotificationTemplate(version, accountId, sortField, descending, start, limit, opts, callback) {
+    searchNotificationTemplate(accountId, sortField, descending, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchNotificationTemplate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchNotificationTemplate");
@@ -572,7 +525,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -597,7 +549,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = NotificationTemplateResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/template/search', 'GET',
+        '/notification/template/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -614,7 +566,6 @@ export default class NotificationApi {
     /**
      * Search for Recipients
      * Search for application users to send notifications.
-     * @param {Number} version 
      * @param {module:model/String} sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the unique id of the device making the request (deviceId or accountId required)
@@ -632,20 +583,15 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~searchRecipientsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/NotificationRecipientResponse>}
      */
-    searchRecipients(version, sortField, opts, callback) {
+    searchRecipients(sortField, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRecipients");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling searchRecipients");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -672,7 +618,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = [NotificationRecipientResponse];
       return this.apiClient.callApi(
-        '/api/{version}/notification/recipient/search', 'GET',
+        '/notification/recipient/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -689,7 +635,6 @@ export default class NotificationApi {
     /**
      * Search for Recipients (Counts/Grouped)
      * Search for application users to send notifications (count/grouped variant).
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the unique id of the device making the request (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -706,16 +651,11 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~searchRecipientsCountCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NotificationRecipientResponseListResponse}
      */
-    searchRecipientsCount(version, opts, callback) {
+    searchRecipientsCount(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchRecipientsCount");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -741,7 +681,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = NotificationRecipientResponseListResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/recipient/search/count', 'GET',
+        '/notification/recipient/search/count', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -758,7 +698,6 @@ export default class NotificationApi {
     /**
      * Send Batch Notifications
      * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the application owner/manager
      * @param {String} appKey The application key for updating an existing application
      * @param {String} customMessage Message string that will be displayed in on the notification
@@ -772,13 +711,9 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~sendBatchNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    sendBatchNotifications(version, accountId, appKey, customMessage, opts, callback) {
+    sendBatchNotifications(accountId, appKey, customMessage, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling sendBatchNotifications");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling sendBatchNotifications");
@@ -793,7 +728,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -816,7 +750,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/batch', 'POST',
+        '/notification/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -833,7 +767,6 @@ export default class NotificationApi {
     /**
      * Send Custom Notifications
      * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] the unique id of the device making the request (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -856,16 +789,11 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~sendCustomNotificationsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    sendCustomNotifications(version, opts, callback) {
+    sendCustomNotifications(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling sendCustomNotifications");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -897,7 +825,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/custom', 'POST',
+        '/notification/custom', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -914,7 +842,6 @@ export default class NotificationApi {
     /**
      * Update Notification Template
      * Update a notification template. Developers will only be able to update notification templates for their own applications.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user.
      * @param {Number} notificationTemplateId The notification template ID to update.
      * @param {Object} opts Optional parameters
@@ -924,13 +851,9 @@ export default class NotificationApi {
      * @param {module:api/NotificationApi~updateNotificationTemplateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NotificationTemplateResponse}
      */
-    updateNotificationTemplate(version, accountId, notificationTemplateId, opts, callback) {
+    updateNotificationTemplate(accountId, notificationTemplateId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateNotificationTemplate");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateNotificationTemplate");
@@ -941,7 +864,6 @@ export default class NotificationApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -960,7 +882,7 @@ export default class NotificationApi {
       let accepts = ['*/*'];
       let returnType = NotificationTemplateResponse;
       return this.apiClient.callApi(
-        '/api/{version}/notification/template/update', 'POST',
+        '/notification/template/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

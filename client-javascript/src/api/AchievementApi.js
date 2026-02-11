@@ -39,8 +39,8 @@ export default class AchievementApi {
 
 
     /**
-     * Callback function to receive the result of the apiVersionAchievementTierSearchPost operation.
-     * @callback module:api/AchievementApi~apiVersionAchievementTierSearchPostCallback
+     * Callback function to receive the result of the achievementTierSearchPost operation.
+     * @callback module:api/AchievementApi~achievementTierSearchPostCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AchievementTierResponse} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -49,7 +49,6 @@ export default class AchievementApi {
     /**
      * Searches an Achievement Tier
      * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -62,19 +61,14 @@ export default class AchievementApi {
      * @param {Boolean} [descendingGoal] determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement)
      * @param {Number} [start] The start of the index for pagination
      * @param {Number} [limit] the limit for pagination (has a hard limit of 1000)
-     * @param {module:api/AchievementApi~apiVersionAchievementTierSearchPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AchievementApi~achievementTierSearchPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AchievementTierResponse}
      */
-    apiVersionAchievementTierSearchPost(version, opts, callback) {
+    achievementTierSearchPost(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling apiVersionAchievementTierSearchPost");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -99,7 +93,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = AchievementTierResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/tier/search', 'POST',
+        '/achievement/tier/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -116,7 +110,6 @@ export default class AchievementApi {
     /**
      * Create Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param {Number} version 
      * @param {String} appKey the application key the achievement is for
      * @param {String} title the title of the achievement (255 character limit)
      * @param {Object} opts Optional parameters
@@ -134,13 +127,9 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~createAchievementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AchievementResponse}
      */
-    createAchievement(version, appKey, title, opts, callback) {
+    createAchievement(appKey, title, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createAchievement");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling createAchievement");
@@ -151,7 +140,6 @@ export default class AchievementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -178,7 +166,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = AchievementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/create', 'POST',
+        '/achievement/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -195,7 +183,6 @@ export default class AchievementApi {
     /**
      * Create Achievement Tier
      * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param {Number} version 
      * @param {Number} achievementId the achievement id for adding a new tier
      * @param {Boolean} scoreAllInstances score all instances
      * @param {Object} opts Optional parameters
@@ -214,13 +201,9 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~createAchievementTierCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AchievementTierResponse}
      */
-    createAchievementTier(version, achievementId, scoreAllInstances, opts, callback) {
+    createAchievementTier(achievementId, scoreAllInstances, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createAchievementTier");
-      }
       // verify the required parameter 'achievementId' is set
       if (achievementId === undefined || achievementId === null) {
         throw new Error("Missing the required parameter 'achievementId' when calling createAchievementTier");
@@ -231,7 +214,6 @@ export default class AchievementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -259,7 +241,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = AchievementTierResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/tier/create', 'POST',
+        '/achievement/tier/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -276,27 +258,21 @@ export default class AchievementApi {
     /**
      * Delete Achievement
      * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param {Number} version 
      * @param {Number} achievementId The ID of the achievement
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
      * @param {module:api/AchievementApi~deleteAchievementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteAchievement(version, achievementId, opts, callback) {
+    deleteAchievement(achievementId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteAchievement");
-      }
       // verify the required parameter 'achievementId' is set
       if (achievementId === undefined || achievementId === null) {
         throw new Error("Missing the required parameter 'achievementId' when calling deleteAchievement");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -312,7 +288,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/delete', 'POST',
+        '/achievement/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -329,27 +305,21 @@ export default class AchievementApi {
     /**
      * Delete Achievement Tier
      * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-     * @param {Number} version 
      * @param {Number} achievementTierId the achievement id for deletion
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required).
      * @param {module:api/AchievementApi~deleteAchievementTierCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteAchievementTier(version, achievementTierId, opts, callback) {
+    deleteAchievementTier(achievementTierId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteAchievementTier");
-      }
       // verify the required parameter 'achievementTierId' is set
       if (achievementTierId === undefined || achievementTierId === null) {
         throw new Error("Missing the required parameter 'achievementTierId' when calling deleteAchievementTier");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -365,7 +335,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/tier/delete', 'POST',
+        '/achievement/tier/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -382,7 +352,6 @@ export default class AchievementApi {
     /**
      * Get Achievement
      * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param {Number} version 
      * @param {Number} achievementId The ID of the achievement
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
@@ -391,20 +360,15 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~getAchievementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AchievementTierResponse}
      */
-    getAchievement(version, achievementId, opts, callback) {
+    getAchievement(achievementId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAchievement");
-      }
       // verify the required parameter 'achievementId' is set
       if (achievementId === undefined || achievementId === null) {
         throw new Error("Missing the required parameter 'achievementId' when calling getAchievement");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -422,7 +386,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = AchievementTierResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/get', 'GET',
+        '/achievement/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -439,18 +403,13 @@ export default class AchievementApi {
     /**
      * Gets an achievement tier
      * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user (deviceId or accountId required)
      * @param {Number} achievementTierId the achievement tier id that is being retrieved
      * @param {module:api/AchievementApi~getAchievementTierCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AchievementTierResponse}
      */
-    getAchievementTier(version, accountId, achievementTierId, callback) {
+    getAchievementTier(accountId, achievementTierId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getAchievementTier");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getAchievementTier");
@@ -461,7 +420,6 @@ export default class AchievementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -477,7 +435,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = AchievementTierResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/tier/get', 'POST',
+        '/achievement/tier/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -494,7 +452,6 @@ export default class AchievementApi {
     /**
      * Get Achievement Progress
      * Gets a list of user achievements.
-     * @param {Number} version 
      * @param {Boolean} returnNulls determines whether to return null fields in the response
      * @param {String} appKey the application key for filtering results by application
      * @param {Boolean} includeUndiscovered determines whether to return achievements that the user has not discovered yet
@@ -510,13 +467,9 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~getUserAchievementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AchievementProgressResponse>}
      */
-    getUserAchievements(version, returnNulls, appKey, includeUndiscovered, opts, callback) {
+    getUserAchievements(returnNulls, appKey, includeUndiscovered, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getUserAchievements");
-      }
       // verify the required parameter 'returnNulls' is set
       if (returnNulls === undefined || returnNulls === null) {
         throw new Error("Missing the required parameter 'returnNulls' when calling getUserAchievements");
@@ -531,7 +484,6 @@ export default class AchievementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'returnNulls': returnNulls,
@@ -556,7 +508,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = [AchievementProgressResponse];
       return this.apiClient.callApi(
-        '/api/{version}/achievement/progress/get', 'GET',
+        '/achievement/progress/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -573,22 +525,16 @@ export default class AchievementApi {
     /**
      * List Achievement Tags
      * List achievement tags by application
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [appKey] filter results by application key
      * @param {module:api/AchievementApi~listAchievementTagsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    listAchievementTags(version, opts, callback) {
+    listAchievementTags(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listAchievementTags");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': opts['appKey']
@@ -603,7 +549,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/tag/list', 'GET',
+        '/achievement/tag/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -620,7 +566,6 @@ export default class AchievementApi {
     /**
      * List Achievements
      * List achievements by billable.
-     * @param {Number} version 
      * @param {module:model/String} sortField the field to sort by. See AchievementApiMap
      * @param {Boolean} descending determines whether the sorted list is in descending or ascending order
      * @param {Number} start the start index for pagination
@@ -636,13 +581,9 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~listAchievementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AchievementShortResponse>}
      */
-    listAchievements(version, sortField, descending, start, limit, activeOnly, opts, callback) {
+    listAchievements(sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling listAchievements");
-      }
       // verify the required parameter 'sortField' is set
       if (sortField === undefined || sortField === null) {
         throw new Error("Missing the required parameter 'sortField' when calling listAchievements");
@@ -665,7 +606,6 @@ export default class AchievementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -690,7 +630,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = [AchievementShortResponse];
       return this.apiClient.callApi(
-        '/api/{version}/achievement/list', 'GET',
+        '/achievement/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -707,7 +647,6 @@ export default class AchievementApi {
     /**
      * Search Achievements
      * Searches achievements by application for consumers.
-     * @param {Number} version 
      * @param {String} appKey the application key
      * @param {module:model/String} sortField the field to sort by. See AchievementApiMap
      * @param {Boolean} descending determines whether the sorted list is in descending or ascending order
@@ -724,13 +663,9 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~searchAchievementsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AchievementShortResponse>}
      */
-    searchAchievements(version, appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, opts, callback) {
+    searchAchievements(appKey, sortField, descending, includeTiers, includeInactiveTiers, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchAchievements");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling searchAchievements");
@@ -761,7 +696,6 @@ export default class AchievementApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -787,7 +721,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = [AchievementShortResponse];
       return this.apiClient.callApi(
-        '/api/{version}/achievement/search', 'GET',
+        '/achievement/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -804,7 +738,6 @@ export default class AchievementApi {
     /**
      * Update Achievement
      * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -824,16 +757,11 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~updateAchievementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AchievementResponse}
      */
-    updateAchievement(version, opts, callback) {
+    updateAchievement(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateAchievement");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -862,7 +790,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = AchievementResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/update', 'POST',
+        '/achievement/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -879,7 +807,6 @@ export default class AchievementApi {
     /**
      * Update Achievement Tier
      * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-     * @param {Number} version 
      * @param {Number} achievementTierId the achievement tier id for updating
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
@@ -898,20 +825,15 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~updateAchievementTierCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AchievementTierResponse}
      */
-    updateAchievementTier(version, achievementTierId, opts, callback) {
+    updateAchievementTier(achievementTierId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateAchievementTier");
-      }
       // verify the required parameter 'achievementTierId' is set
       if (achievementTierId === undefined || achievementTierId === null) {
         throw new Error("Missing the required parameter 'achievementTierId' when calling updateAchievementTier");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -939,7 +861,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = AchievementTierResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/tier/update', 'POST',
+        '/achievement/tier/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -956,7 +878,6 @@ export default class AchievementApi {
     /**
      * Update Achievement Progress
      * Update user achievement progress.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {Object} opts Optional parameters
      * @param {Number} [achievementId] the achievement id (achievementId or tag required)
@@ -969,20 +890,15 @@ export default class AchievementApi {
      * @param {module:api/AchievementApi~updateUserAchievementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    updateUserAchievement(version, accountId, opts, callback) {
+    updateUserAchievement(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateUserAchievement");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateUserAchievement");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -1004,7 +920,7 @@ export default class AchievementApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/achievement/progress/update', 'POST',
+        '/achievement/progress/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

@@ -108,7 +108,6 @@ var SirqulIoTPlatform = require('sirqul_io_t_platform');
 
 
 var api = new SirqulIoTPlatform.AMQPApi()
-var version = 3.16; // {Number} 
 var appKey = "appKey_example"; // {String} The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
 var name = "name_example"; // {String} The name of the queue to connect to
 var hostname = "hostname_example"; // {String} The hostname of the server the queue is hosted on
@@ -132,699 +131,699 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.consumerCreate(version, appKey, name, hostname, username, password, dataMapping, opts, callback);
+api.consumerCreate(appKey, name, hostname, username, password, dataMapping, opts, callback);
 
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://dev.sirqul.com/api/3.18*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SirqulIoTPlatform.AMQPApi* | [**consumerCreate**](docs/AMQPApi.md#consumerCreate) | **POST** /api/{version}/queue/consumer/create | Create Consumer
-*SirqulIoTPlatform.AMQPApi* | [**consumerUpdate**](docs/AMQPApi.md#consumerUpdate) | **POST** /api/{version}/queue/consumer/update | Update Consumer
-*SirqulIoTPlatform.AMQPApi* | [**queueCreate**](docs/AMQPApi.md#queueCreate) | **POST** /api/{version}/queue/create | Create Queue
-*SirqulIoTPlatform.AMQPApi* | [**queueDelete**](docs/AMQPApi.md#queueDelete) | **POST** /api/{version}/queue/delete | Delete Queue
-*SirqulIoTPlatform.AMQPApi* | [**queueGet**](docs/AMQPApi.md#queueGet) | **GET** /api/{version}/queue/get | Get Queue
-*SirqulIoTPlatform.AMQPApi* | [**queuePublish**](docs/AMQPApi.md#queuePublish) | **POST** /api/{version}/queue/publish | Publish Queue
-*SirqulIoTPlatform.AMQPApi* | [**queueSearch**](docs/AMQPApi.md#queueSearch) | **GET** /api/{version}/queue/search | Search Queue
-*SirqulIoTPlatform.AMQPApi* | [**queueUpdate**](docs/AMQPApi.md#queueUpdate) | **POST** /api/{version}/queue/update | Update Queue
-*SirqulIoTPlatform.AccountApi* | [**accountLocationSearch**](docs/AccountApi.md#accountLocationSearch) | **GET** /api/{version}/account/search | Search Accounts by Location
-*SirqulIoTPlatform.AccountApi* | [**blockAccount**](docs/AccountApi.md#blockAccount) | **POST** /api/{version}/account/block | Block Account
-*SirqulIoTPlatform.AccountApi* | [**createAccount**](docs/AccountApi.md#createAccount) | **POST** /api/{version}/account/create | Create Account
-*SirqulIoTPlatform.AccountApi* | [**editAccount**](docs/AccountApi.md#editAccount) | **POST** /api/{version}/account/profile/update | Update Account
-*SirqulIoTPlatform.AccountApi* | [**editUsername**](docs/AccountApi.md#editUsername) | **POST** /api/{version}/account/username/update | Update Username and Email
-*SirqulIoTPlatform.AccountApi* | [**getAccount**](docs/AccountApi.md#getAccount) | **GET** /api/{version}/account/profile/get | Get Account
-*SirqulIoTPlatform.AccountApi* | [**getProfileAssets**](docs/AccountApi.md#getProfileAssets) | **GET** /api/{version}/account/profile/assets | Get Profile Assets
-*SirqulIoTPlatform.AccountApi* | [**getReferralList**](docs/AccountApi.md#getReferralList) | **GET** /api/{version}/account/referral/list | Search Accounts
-*SirqulIoTPlatform.AccountApi* | [**getSettings**](docs/AccountApi.md#getSettings) | **GET** /api/{version}/account/settings/get | Get Account Settings
-*SirqulIoTPlatform.AccountApi* | [**loginDelegate**](docs/AccountApi.md#loginDelegate) | **POST** /api/{version}/account/login/delegate | Login as Account
-*SirqulIoTPlatform.AccountApi* | [**loginGeneral**](docs/AccountApi.md#loginGeneral) | **POST** /api/{version}/account/login | Login Account
-*SirqulIoTPlatform.AccountApi* | [**loginUsername**](docs/AccountApi.md#loginUsername) | **POST** /api/{version}/account/get | Login Account (Username)
-*SirqulIoTPlatform.AccountApi* | [**logout**](docs/AccountApi.md#logout) | **POST** /api/{version}/account/logout | Logout Account
-*SirqulIoTPlatform.AccountApi* | [**mergeAccount**](docs/AccountApi.md#mergeAccount) | **POST** /api/{version}/account/merge | Merge Account
-*SirqulIoTPlatform.AccountApi* | [**passwordChange**](docs/AccountApi.md#passwordChange) | **POST** /api/{version}/account/passwordchange | Update Password
-*SirqulIoTPlatform.AccountApi* | [**passwordReset**](docs/AccountApi.md#passwordReset) | **POST** /api/{version}/account/passwordreset | Reset Password
-*SirqulIoTPlatform.AccountApi* | [**requestPasswordReset**](docs/AccountApi.md#requestPasswordReset) | **POST** /api/{version}/account/requestpasswordreset | Request Password Reset
-*SirqulIoTPlatform.AccountApi* | [**requestValidateAccount**](docs/AccountApi.md#requestValidateAccount) | **POST** /api/{version}/account/requestValidateAccount | Send Validation Request
-*SirqulIoTPlatform.AccountApi* | [**searchAccounts**](docs/AccountApi.md#searchAccounts) | **GET** /api/{version}/account/profile/search | Search Accounts
-*SirqulIoTPlatform.AccountApi* | [**secureLogin**](docs/AccountApi.md#secureLogin) | **POST** /api/{version}/account/login/validate | Login Account (Encrypted Username)
-*SirqulIoTPlatform.AccountApi* | [**secureSignup**](docs/AccountApi.md#secureSignup) | **POST** /api/{version}/account/create/validate | Create Account (Encrypted Username)
-*SirqulIoTPlatform.AccountApi* | [**setMatchToken**](docs/AccountApi.md#setMatchToken) | **POST** /api/{version}/consumer/profile/matchToken | Save Match Token
-*SirqulIoTPlatform.AccountApi* | [**updateActveStatus**](docs/AccountApi.md#updateActveStatus) | **POST** /api/{version}/account/active/update | Update Account Active Status
-*SirqulIoTPlatform.AccountApi* | [**updateLocation**](docs/AccountApi.md#updateLocation) | **POST** /api/{version}/account/location/update | Update Location
-*SirqulIoTPlatform.AccountApi* | [**updateSettings**](docs/AccountApi.md#updateSettings) | **POST** /api/{version}/account/settings/update | Update Account Settings
-*SirqulIoTPlatform.AccountApi* | [**validateAccountSignup**](docs/AccountApi.md#validateAccountSignup) | **POST** /api/{version}/account/validateAccountSignup | Save Validation Status
-*SirqulIoTPlatform.AccountApi* | [**validatePasswordReset**](docs/AccountApi.md#validatePasswordReset) | **POST** /api/{version}/account/validatepasswordreset | Validate Password Reset Token
-*SirqulIoTPlatform.AchievementApi* | [**apiVersionAchievementTierSearchPost**](docs/AchievementApi.md#apiVersionAchievementTierSearchPost) | **POST** /api/{version}/achievement/tier/search | Searches an Achievement Tier
-*SirqulIoTPlatform.AchievementApi* | [**createAchievement**](docs/AchievementApi.md#createAchievement) | **POST** /api/{version}/achievement/create | Create Achievement
-*SirqulIoTPlatform.AchievementApi* | [**createAchievementTier**](docs/AchievementApi.md#createAchievementTier) | **POST** /api/{version}/achievement/tier/create | Create Achievement Tier
-*SirqulIoTPlatform.AchievementApi* | [**deleteAchievement**](docs/AchievementApi.md#deleteAchievement) | **POST** /api/{version}/achievement/delete | Delete Achievement
-*SirqulIoTPlatform.AchievementApi* | [**deleteAchievementTier**](docs/AchievementApi.md#deleteAchievementTier) | **POST** /api/{version}/achievement/tier/delete | Delete Achievement Tier
-*SirqulIoTPlatform.AchievementApi* | [**getAchievement**](docs/AchievementApi.md#getAchievement) | **GET** /api/{version}/achievement/get | Get Achievement
-*SirqulIoTPlatform.AchievementApi* | [**getAchievementTier**](docs/AchievementApi.md#getAchievementTier) | **POST** /api/{version}/achievement/tier/get | Gets an achievement tier
-*SirqulIoTPlatform.AchievementApi* | [**getUserAchievements**](docs/AchievementApi.md#getUserAchievements) | **GET** /api/{version}/achievement/progress/get | Get Achievement Progress
-*SirqulIoTPlatform.AchievementApi* | [**listAchievementTags**](docs/AchievementApi.md#listAchievementTags) | **GET** /api/{version}/achievement/tag/list | List Achievement Tags
-*SirqulIoTPlatform.AchievementApi* | [**listAchievements**](docs/AchievementApi.md#listAchievements) | **GET** /api/{version}/achievement/list | List Achievements
-*SirqulIoTPlatform.AchievementApi* | [**searchAchievements**](docs/AchievementApi.md#searchAchievements) | **GET** /api/{version}/achievement/search | Search Achievements
-*SirqulIoTPlatform.AchievementApi* | [**updateAchievement**](docs/AchievementApi.md#updateAchievement) | **POST** /api/{version}/achievement/update | Update Achievement
-*SirqulIoTPlatform.AchievementApi* | [**updateAchievementTier**](docs/AchievementApi.md#updateAchievementTier) | **POST** /api/{version}/achievement/tier/update | Update Achievement Tier
-*SirqulIoTPlatform.AchievementApi* | [**updateUserAchievement**](docs/AchievementApi.md#updateUserAchievement) | **POST** /api/{version}/achievement/progress/update | Update Achievement Progress
-*SirqulIoTPlatform.ActivityApi* | [**createEntityReference**](docs/ActivityApi.md#createEntityReference) | **POST** /api/{version}/entity/reference | Create an entity reference.
-*SirqulIoTPlatform.AlbumApi* | [**addAlbumCollection**](docs/AlbumApi.md#addAlbumCollection) | **POST** /api/{version}/album/create | Create Album
-*SirqulIoTPlatform.AlbumApi* | [**addAlbumUsers**](docs/AlbumApi.md#addAlbumUsers) | **POST** /api/{version}/album/user/add | Add Album Users
-*SirqulIoTPlatform.AlbumApi* | [**approveAlbum**](docs/AlbumApi.md#approveAlbum) | **POST** /api/{version}/album/approve | Approve Album
-*SirqulIoTPlatform.AlbumApi* | [**getAlbumCollection**](docs/AlbumApi.md#getAlbumCollection) | **GET** /api/{version}/album/get |  Get Album
-*SirqulIoTPlatform.AlbumApi* | [**leaveAlbum**](docs/AlbumApi.md#leaveAlbum) | **POST** /api/{version}/album/user/leave | Leave Album
-*SirqulIoTPlatform.AlbumApi* | [**removeAlbum**](docs/AlbumApi.md#removeAlbum) | **POST** /api/{version}/album/delete | Delete Album
-*SirqulIoTPlatform.AlbumApi* | [**removeAlbumUsers**](docs/AlbumApi.md#removeAlbumUsers) | **POST** /api/{version}/album/user/delete | Remove Album Users
-*SirqulIoTPlatform.AlbumApi* | [**searchAlbums**](docs/AlbumApi.md#searchAlbums) | **GET** /api/{version}/album/search | Search Albums
-*SirqulIoTPlatform.AlbumApi* | [**updateAlbumCollection**](docs/AlbumApi.md#updateAlbumCollection) | **POST** /api/{version}/album/update | Update Album
-*SirqulIoTPlatform.AnalyticsApi* | [**activities**](docs/AnalyticsApi.md#activities) | **GET** /api/{version}/analytics/useractivity | Get User Activity
-*SirqulIoTPlatform.AnalyticsApi* | [**aggregatedFilteredUsage**](docs/AnalyticsApi.md#aggregatedFilteredUsage) | **GET** /api/{version}/analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
-*SirqulIoTPlatform.AnalyticsApi* | [**filteredUsage**](docs/AnalyticsApi.md#filteredUsage) | **GET** /api/{version}/analytics/filteredUsage | Get Filtered Usage
-*SirqulIoTPlatform.AnalyticsApi* | [**usage**](docs/AnalyticsApi.md#usage) | **POST** /api/{version}/analytics/usage | Create Usage Record
-*SirqulIoTPlatform.AnalyticsApi* | [**usageBatch**](docs/AnalyticsApi.md#usageBatch) | **POST** /api/{version}/analytics/usage/batch | Create Multiple Usage Records
-*SirqulIoTPlatform.AppDataApi* | [**getAppData**](docs/AppDataApi.md#getAppData) | **GET** /api/{version}/app/get | Get App Data
-*SirqulIoTPlatform.AppDataApi* | [**postAppData**](docs/AppDataApi.md#postAppData) | **POST** /api/{version}/app/post | Create App Data
-*SirqulIoTPlatform.AppDataApi* | [**regenAppData**](docs/AppDataApi.md#regenAppData) | **POST** /api/{version}/app/regen | Regenerate App Data
-*SirqulIoTPlatform.ApplicationApi* | [**createApplication**](docs/ApplicationApi.md#createApplication) | **POST** /api/{version}/application/create | Create Application
-*SirqulIoTPlatform.ApplicationApi* | [**createApplicationPlacement**](docs/ApplicationApi.md#createApplicationPlacement) | **POST** /api/{version}/application/placement/create | Create Ad Placement
-*SirqulIoTPlatform.ApplicationApi* | [**deleteApplication**](docs/ApplicationApi.md#deleteApplication) | **POST** /api/{version}/application/delete | Delete Application
-*SirqulIoTPlatform.ApplicationApi* | [**deleteApplicationPlacement**](docs/ApplicationApi.md#deleteApplicationPlacement) | **POST** /api/{version}/application/placement/delete | Delete Ad Placement
-*SirqulIoTPlatform.ApplicationApi* | [**getApplication**](docs/ApplicationApi.md#getApplication) | **GET** /api/{version}/application/get | Get Application
-*SirqulIoTPlatform.ApplicationApi* | [**getApplicationPlacement**](docs/ApplicationApi.md#getApplicationPlacement) | **GET** /api/{version}/application/placement/get | Get Ad Placement
-*SirqulIoTPlatform.ApplicationApi* | [**getApplicationVersions**](docs/ApplicationApi.md#getApplicationVersions) | **GET** /api/{version}/application/versions | Get API versions
-*SirqulIoTPlatform.ApplicationApi* | [**getUniqueUsersByApp**](docs/ApplicationApi.md#getUniqueUsersByApp) | **GET** /api/{version}/application/users | Search Application Users
-*SirqulIoTPlatform.ApplicationApi* | [**listApplications**](docs/ApplicationApi.md#listApplications) | **GET** /api/{version}/application/list | List Applications
-*SirqulIoTPlatform.ApplicationApi* | [**searchApplicationPlacement**](docs/ApplicationApi.md#searchApplicationPlacement) | **GET** /api/{version}/application/placement/search | Search for Ad Placements
-*SirqulIoTPlatform.ApplicationApi* | [**searchApplicationSettings**](docs/ApplicationApi.md#searchApplicationSettings) | **GET** /api/{version}/application/settings/search | Search for Application Settings
-*SirqulIoTPlatform.ApplicationApi* | [**searchApplications**](docs/ApplicationApi.md#searchApplications) | **GET** /api/{version}/application/search | Search Applications
-*SirqulIoTPlatform.ApplicationApi* | [**updateApplication**](docs/ApplicationApi.md#updateApplication) | **POST** /api/{version}/application/update | Update Application
-*SirqulIoTPlatform.ApplicationApi* | [**updateApplicationActive**](docs/ApplicationApi.md#updateApplicationActive) | **POST** /api/{version}/application/active | Change Appliation Status
-*SirqulIoTPlatform.ApplicationApi* | [**updateApplicationPlacement**](docs/ApplicationApi.md#updateApplicationPlacement) | **POST** /api/{version}/application/placement/update | Update Ad Placement
-*SirqulIoTPlatform.ApplicationApi* | [**uploadApplicationCertificate**](docs/ApplicationApi.md#uploadApplicationCertificate) | **POST** /api/{version}/application/certificate/create | Create Application Certificate
-*SirqulIoTPlatform.ApplicationConfigApi* | [**createApplicationConfig**](docs/ApplicationConfigApi.md#createApplicationConfig) | **POST** /api/{version}/appconfig/create | Create AppConfig
-*SirqulIoTPlatform.ApplicationConfigApi* | [**deleteApplicationConfig**](docs/ApplicationConfigApi.md#deleteApplicationConfig) | **POST** /api/{version}/appconfig/delete | Delete AppConfig
-*SirqulIoTPlatform.ApplicationConfigApi* | [**getApplicationConfig**](docs/ApplicationConfigApi.md#getApplicationConfig) | **GET** /api/{version}/appconfig/get | Get AppConfig
-*SirqulIoTPlatform.ApplicationConfigApi* | [**getApplicationConfigByConfigVersion**](docs/ApplicationConfigApi.md#getApplicationConfigByConfigVersion) | **GET** /api/{version}/appconfig/getbyversion | Get AppConfig by Version
-*SirqulIoTPlatform.ApplicationConfigApi* | [**searchApplicationConfig**](docs/ApplicationConfigApi.md#searchApplicationConfig) | **GET** /api/{version}/appconfig/search | Search AppConfigs
-*SirqulIoTPlatform.ApplicationConfigApi* | [**updateApplicationConfig**](docs/ApplicationConfigApi.md#updateApplicationConfig) | **POST** /api/{version}/appconfig/update | Update AppConfig
-*SirqulIoTPlatform.AssetApi* | [**assetDownload**](docs/AssetApi.md#assetDownload) | **GET** /api/{version}/asset/download/{filename} | Download Asset
-*SirqulIoTPlatform.AssetApi* | [**assetMorph**](docs/AssetApi.md#assetMorph) | **POST** /api/{version}/asset/morph | Convert Offer to Creative
-*SirqulIoTPlatform.AssetApi* | [**createAsset**](docs/AssetApi.md#createAsset) | **POST** /api/{version}/asset/create | Create Asset
-*SirqulIoTPlatform.AssetApi* | [**deleteAsset**](docs/AssetApi.md#deleteAsset) | **POST** /api/{version}/asset/delete | Delete Asset
-*SirqulIoTPlatform.AssetApi* | [**getAsset**](docs/AssetApi.md#getAsset) | **GET** /api/{version}/asset/get | Get Asset
-*SirqulIoTPlatform.AssetApi* | [**removeAsset**](docs/AssetApi.md#removeAsset) | **POST** /api/{version}/asset/remove | Remove Asset from Collection
-*SirqulIoTPlatform.AssetApi* | [**searchAssets**](docs/AssetApi.md#searchAssets) | **GET** /api/{version}/asset/search | Search Assets
-*SirqulIoTPlatform.AssetApi* | [**updateAsset**](docs/AssetApi.md#updateAsset) | **POST** /api/{version}/asset/update | Update Asset
-*SirqulIoTPlatform.AssignmentApi* | [**assigmentAssigneeAccountSearch**](docs/AssignmentApi.md#assigmentAssigneeAccountSearch) | **GET** /api/{version}/assignment/assignee/search | Search Assignment Assignees
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentCreate**](docs/AssignmentApi.md#assignmentCreate) | **POST** /api/{version}/assignment/create | Create Assignment
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentDelete**](docs/AssignmentApi.md#assignmentDelete) | **POST** /api/{version}/assignment/delete | Delete Assignment
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentGet**](docs/AssignmentApi.md#assignmentGet) | **GET** /api/{version}/assignment/get | Get Assignment
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentSearch**](docs/AssignmentApi.md#assignmentSearch) | **GET** /api/{version}/assignment/search | Search Assignments
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusCreate**](docs/AssignmentApi.md#assignmentStatusCreate) | **POST** /api/{version}/assignment/status/create | Create Assignment Status
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusDelete**](docs/AssignmentApi.md#assignmentStatusDelete) | **POST** /api/{version}/assignment/status/delete | Deletes Assignment Status
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusGet**](docs/AssignmentApi.md#assignmentStatusGet) | **GET** /api/{version}/assignment/status/get | Get Assignment Status
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusSearch**](docs/AssignmentApi.md#assignmentStatusSearch) | **GET** /api/{version}/assignment/status/search | Search Assignment Statuses
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusUpdate**](docs/AssignmentApi.md#assignmentStatusUpdate) | **POST** /api/{version}/assignment/status/update | Update Assignment Status
-*SirqulIoTPlatform.AssignmentApi* | [**assignmentUpdate**](docs/AssignmentApi.md#assignmentUpdate) | **POST** /api/{version}/assignment/update | Update Assignment
-*SirqulIoTPlatform.AudienceApi* | [**createAudience**](docs/AudienceApi.md#createAudience) | **POST** /api/{version}/audience/create | Create Audience
-*SirqulIoTPlatform.AudienceApi* | [**deleteAudience**](docs/AudienceApi.md#deleteAudience) | **POST** /api/{version}/audience/delete | Delete Audience
-*SirqulIoTPlatform.AudienceApi* | [**getAgeGroups**](docs/AudienceApi.md#getAgeGroups) | **GET** /api/{version}/audience/ageGroups | Get Age Groups
-*SirqulIoTPlatform.AudienceApi* | [**getAudience**](docs/AudienceApi.md#getAudience) | **GET** /api/{version}/audience/get | Get Audience
-*SirqulIoTPlatform.AudienceApi* | [**getAudienceList**](docs/AudienceApi.md#getAudienceList) | **GET** /api/{version}/audience/search | Search Audiences
-*SirqulIoTPlatform.AudienceApi* | [**getDevices**](docs/AudienceApi.md#getDevices) | **GET** /api/{version}/audience/devices | Get Devices
-*SirqulIoTPlatform.AudienceApi* | [**getExperiences**](docs/AudienceApi.md#getExperiences) | **GET** /api/{version}/audience/experiences | Get Experiences
-*SirqulIoTPlatform.AudienceApi* | [**getGroupedAudiences**](docs/AudienceApi.md#getGroupedAudiences) | **GET** /api/{version}/audience/grouped/get | Get GroupedAudiences
-*SirqulIoTPlatform.AudienceApi* | [**listByAccount**](docs/AudienceApi.md#listByAccount) | **POST** /api/{version}/audience/suggestion/list | List Suggestions by Audience
-*SirqulIoTPlatform.AudienceApi* | [**listByAudience**](docs/AudienceApi.md#listByAudience) | **GET** /api/{version}/audience/suggestion/offersByAudience | List Offers by Audience
-*SirqulIoTPlatform.AudienceApi* | [**listLastestByAccount**](docs/AudienceApi.md#listLastestByAccount) | **GET** /api/{version}/audience/suggestion/latest | List Sent Suggestions 
-*SirqulIoTPlatform.AudienceApi* | [**sendByAccount**](docs/AudienceApi.md#sendByAccount) | **POST** /api/{version}/audience/suggestion/send | Send Suggestions
-*SirqulIoTPlatform.AudienceApi* | [**updateAudience**](docs/AudienceApi.md#updateAudience) | **POST** /api/{version}/audience/update | Update Audience
-*SirqulIoTPlatform.BidApi* | [**createBid**](docs/BidApi.md#createBid) | **POST** /api/{version}/bid/create | Create Bid
-*SirqulIoTPlatform.BidApi* | [**deleteBid**](docs/BidApi.md#deleteBid) | **POST** /api/{version}/bid/delete | Delete Bid
-*SirqulIoTPlatform.BidApi* | [**getBid**](docs/BidApi.md#getBid) | **GET** /api/{version}/bid/get | Get Bid
-*SirqulIoTPlatform.BidApi* | [**updateBid**](docs/BidApi.md#updateBid) | **POST** /api/{version}/bid/update | Update Bid
-*SirqulIoTPlatform.BillableEntityApi* | [**createBillableEntity**](docs/BillableEntityApi.md#createBillableEntity) | **POST** /api/{version}/billable/create | Create Billable
-*SirqulIoTPlatform.BillableEntityApi* | [**deleteBillableEntity**](docs/BillableEntityApi.md#deleteBillableEntity) | **POST** /api/{version}/billable/delete | Delete Billable
-*SirqulIoTPlatform.BillableEntityApi* | [**getBillableEntity**](docs/BillableEntityApi.md#getBillableEntity) | **GET** /api/{version}/billable/get | Get Billable
-*SirqulIoTPlatform.BillableEntityApi* | [**updateBillableEntity**](docs/BillableEntityApi.md#updateBillableEntity) | **POST** /api/{version}/billable/update | Update Billable
-*SirqulIoTPlatform.BillingInfoApi* | [**addPaymentMethod**](docs/BillingInfoApi.md#addPaymentMethod) | **POST** /api/{version}/billing/update | Update Payment Method
-*SirqulIoTPlatform.BillingInfoApi* | [**createPaymentMethod**](docs/BillingInfoApi.md#createPaymentMethod) | **POST** /api/{version}/billing/create | Create Payment Method
-*SirqulIoTPlatform.BillingInfoApi* | [**createSmartContract**](docs/BillingInfoApi.md#createSmartContract) | **POST** /api/{version}/billing/crypto/transfer | Create Smart Contract
-*SirqulIoTPlatform.BillingInfoApi* | [**getCryptoBalance**](docs/BillingInfoApi.md#getCryptoBalance) | **GET** /api/{version}/billing/crypto/get | Get Crypto Balances
-*SirqulIoTPlatform.BillingInfoApi* | [**getPaymentMethod**](docs/BillingInfoApi.md#getPaymentMethod) | **GET** /api/{version}/billing/get | Get Payment Method
-*SirqulIoTPlatform.BillingInfoApi* | [**searchPaymentMethod**](docs/BillingInfoApi.md#searchPaymentMethod) | **GET** /api/{version}/billing/search | Search Payment Methods
-*SirqulIoTPlatform.CSVImportApi* | [**getStatusCSV**](docs/CSVImportApi.md#getStatusCSV) | **GET** /api/{version}/csvimport/batch/status/details | Detail Status
-*SirqulIoTPlatform.CSVImportApi* | [**listStatusCSV**](docs/CSVImportApi.md#listStatusCSV) | **GET** /api/{version}/csvimport/batch/list | Search Status
-*SirqulIoTPlatform.CSVImportApi* | [**statusCSV**](docs/CSVImportApi.md#statusCSV) | **GET** /api/{version}/csvimport/batch/status | Batch Status
-*SirqulIoTPlatform.CSVImportApi* | [**uploadCSV**](docs/CSVImportApi.md#uploadCSV) | **POST** /api/{version}/csvimport/upload | Upload CSV
-*SirqulIoTPlatform.CargoTypeApi* | [**createCargoType**](docs/CargoTypeApi.md#createCargoType) | **POST** /api/{version}/cargo/type | Create Cargo Type
-*SirqulIoTPlatform.CargoTypeApi* | [**deleteCargoType**](docs/CargoTypeApi.md#deleteCargoType) | **DELETE** /api/{version}/cargo/type/{cargoTypeId} | Delete Cargo Type
-*SirqulIoTPlatform.CargoTypeApi* | [**getCargoType**](docs/CargoTypeApi.md#getCargoType) | **GET** /api/{version}/cargo/type/{cargoTypeId} | Get Cargo Type
-*SirqulIoTPlatform.CargoTypeApi* | [**searchCargoTypes**](docs/CargoTypeApi.md#searchCargoTypes) | **GET** /api/{version}/cargo/type | Search Cargo Type
-*SirqulIoTPlatform.CargoTypeApi* | [**updateCargoType**](docs/CargoTypeApi.md#updateCargoType) | **PUT** /api/{version}/cargo/type/{cargoTypeId} | Update Cargo Type
-*SirqulIoTPlatform.CarrierApi* | [**searchCarriers**](docs/CarrierApi.md#searchCarriers) | **GET** /api/{version}/carrier/search | Search Carriers
-*SirqulIoTPlatform.CategoryApi* | [**categoryDistanceSearch**](docs/CategoryApi.md#categoryDistanceSearch) | **GET** /api/{version}/category/distancesearch | Search Categories by Distance
-*SirqulIoTPlatform.CategoryApi* | [**createCategory**](docs/CategoryApi.md#createCategory) | **POST** /api/{version}/category/create | Create Category
-*SirqulIoTPlatform.CategoryApi* | [**deleteCategory**](docs/CategoryApi.md#deleteCategory) | **POST** /api/{version}/category/delete | Delete Category
-*SirqulIoTPlatform.CategoryApi* | [**duplicateCategory**](docs/CategoryApi.md#duplicateCategory) | **POST** /api/{version}/category/duplicate | Duplicate Category
-*SirqulIoTPlatform.CategoryApi* | [**getCategory**](docs/CategoryApi.md#getCategory) | **GET** /api/{version}/category/get | Get Category
-*SirqulIoTPlatform.CategoryApi* | [**searchCategories**](docs/CategoryApi.md#searchCategories) | **GET** /api/{version}/category/search | Search Categories
-*SirqulIoTPlatform.CategoryApi* | [**updateCategory**](docs/CategoryApi.md#updateCategory) | **POST** /api/{version}/category/update | Update Category
-*SirqulIoTPlatform.ConnectionApi* | [**addConnectionToGroup**](docs/ConnectionApi.md#addConnectionToGroup) | **POST** /api/{version}/consumer/connection/group/addConnection | Add Connection
-*SirqulIoTPlatform.ConnectionApi* | [**addConnectionsToGroup**](docs/ConnectionApi.md#addConnectionsToGroup) | **POST** /api/{version}/connection/group/addConnections | Add Connections
-*SirqulIoTPlatform.ConnectionApi* | [**addSubGroups**](docs/ConnectionApi.md#addSubGroups) | **POST** /api/{version}/consumer/connection/group/addSubGroup | Add Connection Groups
-*SirqulIoTPlatform.ConnectionApi* | [**createOrUpdateConnection**](docs/ConnectionApi.md#createOrUpdateConnection) | **POST** /api/{version}/consumer/connection/add | Create or Update Connection
-*SirqulIoTPlatform.ConnectionApi* | [**createOrUpdateGroup**](docs/ConnectionApi.md#createOrUpdateGroup) | **POST** /api/{version}/consumer/connection/group | Create or Update Connection Group
-*SirqulIoTPlatform.ConnectionApi* | [**followAccept**](docs/ConnectionApi.md#followAccept) | **POST** /api/{version}/consumer/follow/accept | Accept Follow Request
-*SirqulIoTPlatform.ConnectionApi* | [**followReject**](docs/ConnectionApi.md#followReject) | **POST** /api/{version}/consumer/follow/reject | Reject Follow Request
-*SirqulIoTPlatform.ConnectionApi* | [**followRemove**](docs/ConnectionApi.md#followRemove) | **POST** /api/{version}/consumer/follow/remove | Remove Follower / Unfollow
-*SirqulIoTPlatform.ConnectionApi* | [**followRequest**](docs/ConnectionApi.md#followRequest) | **POST** /api/{version}/consumer/follow/request | Send Follow Request
-*SirqulIoTPlatform.ConnectionApi* | [**friendAccept**](docs/ConnectionApi.md#friendAccept) | **POST** /api/{version}/consumer/friend/accept | Accept Friend
-*SirqulIoTPlatform.ConnectionApi* | [**friendReject**](docs/ConnectionApi.md#friendReject) | **POST** /api/{version}/consumer/friend/reject | Decline Friend
-*SirqulIoTPlatform.ConnectionApi* | [**friendRemove**](docs/ConnectionApi.md#friendRemove) | **POST** /api/{version}/consumer/friend/remove | Delete Friend
-*SirqulIoTPlatform.ConnectionApi* | [**friendRequest**](docs/ConnectionApi.md#friendRequest) | **POST** /api/{version}/consumer/friend/request | Request Friend
-*SirqulIoTPlatform.ConnectionApi* | [**getConnectionSentFriendRequests**](docs/ConnectionApi.md#getConnectionSentFriendRequests) | **GET** /api/{version}/consumer/connection/getRequested | Get Sent Friend Requests
-*SirqulIoTPlatform.ConnectionApi* | [**getConnections**](docs/ConnectionApi.md#getConnections) | **GET** /api/{version}/consumer/connection/get | Search Connections
-*SirqulIoTPlatform.ConnectionApi* | [**getGroupDetails**](docs/ConnectionApi.md#getGroupDetails) | **GET** /api/{version}/consumer/connection/group/details/get | Get Connection Group
-*SirqulIoTPlatform.ConnectionApi* | [**groupSearch**](docs/ConnectionApi.md#groupSearch) | **GET** /api/{version}/connection/group/search | Search Connection Groups
-*SirqulIoTPlatform.ConnectionApi* | [**removeConnectionFromGroup**](docs/ConnectionApi.md#removeConnectionFromGroup) | **POST** /api/{version}/consumer/connection/group/removeConnection | Delete Connection
-*SirqulIoTPlatform.ConnectionApi* | [**removeConnectionsFromGroup**](docs/ConnectionApi.md#removeConnectionsFromGroup) | **POST** /api/{version}/connection/group/removeConnections | Remove Connections
-*SirqulIoTPlatform.ConnectionApi* | [**removeGroup**](docs/ConnectionApi.md#removeGroup) | **POST** /api/{version}/consumer/connection/group/remove | Delete Connection Group
-*SirqulIoTPlatform.ConnectionApi* | [**removeSubGroups**](docs/ConnectionApi.md#removeSubGroups) | **POST** /api/{version}/consumer/connection/group/removeSubGroup | Remove Connection Groups
-*SirqulIoTPlatform.ConnectionApi* | [**searchConnections**](docs/ConnectionApi.md#searchConnections) | **GET** /api/{version}/connection/search | Search Possible Connections
-*SirqulIoTPlatform.ContestApi* | [**addOrUpdateAlbumContest**](docs/ContestApi.md#addOrUpdateAlbumContest) | **POST** /api/{version}/consumer/album/contest | Create or Update Contest
-*SirqulIoTPlatform.ContestApi* | [**approveAlbumContest**](docs/ContestApi.md#approveAlbumContest) | **POST** /api/{version}/consumer/album/contest/approve | Approve Contest
-*SirqulIoTPlatform.ContestApi* | [**deleteContest**](docs/ContestApi.md#deleteContest) | **POST** /api/{version}/consumer/album/contest/remove | Delete Contest
-*SirqulIoTPlatform.ContestApi* | [**getAlbumContest**](docs/ContestApi.md#getAlbumContest) | **GET** /api/{version}/consumer/album/contest/get | Get Contest
-*SirqulIoTPlatform.ContestApi* | [**getAlbumContests**](docs/ContestApi.md#getAlbumContests) | **GET** /api/{version}/consumer/album/contest/search | Search Contests
-*SirqulIoTPlatform.ContestApi* | [**voteOnAlbumContest**](docs/ContestApi.md#voteOnAlbumContest) | **POST** /api/{version}/consumer/album/contest/vote | Vote on Contest
-*SirqulIoTPlatform.CreativeApi* | [**addPreview**](docs/CreativeApi.md#addPreview) | **POST** /api/{version}/creative/addpreview | Add Preview
-*SirqulIoTPlatform.CreativeApi* | [**adsFind**](docs/CreativeApi.md#adsFind) | **GET** /api/{version}/ads/find | Find Missions
-*SirqulIoTPlatform.CreativeApi* | [**createCreative**](docs/CreativeApi.md#createCreative) | **POST** /api/{version}/creative/create | Create Creative
-*SirqulIoTPlatform.CreativeApi* | [**deleteCreative**](docs/CreativeApi.md#deleteCreative) | **POST** /api/{version}/creative/delete | Delete Creative
-*SirqulIoTPlatform.CreativeApi* | [**getCreative**](docs/CreativeApi.md#getCreative) | **GET** /api/{version}/creative/get | Get Creative
-*SirqulIoTPlatform.CreativeApi* | [**getCreativesByApplication**](docs/CreativeApi.md#getCreativesByApplication) | **GET** /api/{version}/creative/search | Search Creatives
-*SirqulIoTPlatform.CreativeApi* | [**removePreview**](docs/CreativeApi.md#removePreview) | **POST** /api/{version}/creative/removepreview | Remove Preview
-*SirqulIoTPlatform.CreativeApi* | [**updateCreative**](docs/CreativeApi.md#updateCreative) | **POST** /api/{version}/creative/update | Update Creative
-*SirqulIoTPlatform.DependentApi* | [**create**](docs/DependentApi.md#create) | **PUT** /api/{version}/cargo/dependent/{accountId} | Create Dependent
-*SirqulIoTPlatform.DependentApi* | [**getDependents**](docs/DependentApi.md#getDependents) | **GET** /api/{version}/cargo/dependent/{accountId} | Get dependent list of an account
-*SirqulIoTPlatform.DependentApi* | [**removeDependent**](docs/DependentApi.md#removeDependent) | **DELETE** /api/{version}/cargo/dependent/{accountId} | Delete Dependent
-*SirqulIoTPlatform.DisbursementApi* | [**checkDisbursements**](docs/DisbursementApi.md#checkDisbursements) | **GET** /api/{version}/disbursement/check | Check Disbursements
-*SirqulIoTPlatform.DisbursementApi* | [**createDisbursement**](docs/DisbursementApi.md#createDisbursement) | **POST** /api/{version}/disbursement/create | Create Disbursement
-*SirqulIoTPlatform.DisbursementApi* | [**getDisbursement**](docs/DisbursementApi.md#getDisbursement) | **GET** /api/{version}/disbursement/get | Get Disbursement
-*SirqulIoTPlatform.DisbursementApi* | [**searchDisbursements**](docs/DisbursementApi.md#searchDisbursements) | **GET** /api/{version}/disbursement/search | Search Disbursements
-*SirqulIoTPlatform.DisbursementApi* | [**updateDisbursement**](docs/DisbursementApi.md#updateDisbursement) | **POST** /api/{version}/disbursement/update | Update Disbursement
-*SirqulIoTPlatform.EmployeeApi* | [**assignEmployee**](docs/EmployeeApi.md#assignEmployee) | **POST** /api/{version}/employee/assign | Assign Employee
-*SirqulIoTPlatform.EmployeeApi* | [**assignToLocationEmployee**](docs/EmployeeApi.md#assignToLocationEmployee) | **POST** /api/{version}/employee/assignToLocation | Assign Employee to Location
-*SirqulIoTPlatform.EmployeeApi* | [**createEmployee**](docs/EmployeeApi.md#createEmployee) | **POST** /api/{version}/employee/create | Create Employee
-*SirqulIoTPlatform.EmployeeApi* | [**deleteEmployee**](docs/EmployeeApi.md#deleteEmployee) | **POST** /api/{version}/employee/delete | Delete Employee
-*SirqulIoTPlatform.EmployeeApi* | [**getEmployee**](docs/EmployeeApi.md#getEmployee) | **POST** /api/{version}/employee/get | Get Employee
-*SirqulIoTPlatform.EmployeeApi* | [**searchEmployees**](docs/EmployeeApi.md#searchEmployees) | **POST** /api/{version}/employee/search | Search Employees
-*SirqulIoTPlatform.EmployeeApi* | [**unassignEmployee**](docs/EmployeeApi.md#unassignEmployee) | **POST** /api/{version}/employee/unassign | Unassign Employee
-*SirqulIoTPlatform.EmployeeApi* | [**updateEmployee**](docs/EmployeeApi.md#updateEmployee) | **POST** /api/{version}/employee/update | Update Employee
-*SirqulIoTPlatform.EventApi* | [**attendEvent**](docs/EventApi.md#attendEvent) | **POST** /api/{version}/event/attend | Attend Event
-*SirqulIoTPlatform.EventApi* | [**createEvent**](docs/EventApi.md#createEvent) | **POST** /api/{version}/event/create | Create Event
-*SirqulIoTPlatform.EventApi* | [**deleteEvent**](docs/EventApi.md#deleteEvent) | **POST** /api/{version}/event/delete | Delete Event
-*SirqulIoTPlatform.EventApi* | [**getEvent**](docs/EventApi.md#getEvent) | **GET** /api/{version}/event/get | Get Event
-*SirqulIoTPlatform.EventApi* | [**searchEventTransactions**](docs/EventApi.md#searchEventTransactions) | **GET** /api/{version}/event/attendance/search | Search Event Attendance
-*SirqulIoTPlatform.EventApi* | [**searchEvents**](docs/EventApi.md#searchEvents) | **GET** /api/{version}/event/search | Search Events
-*SirqulIoTPlatform.EventApi* | [**updateEvent**](docs/EventApi.md#updateEvent) | **POST** /api/{version}/event/update | Update Event
-*SirqulIoTPlatform.FacebookApi* | [**getToken**](docs/FacebookApi.md#getToken) | **GET** /api/{version}/facebook/getfbtoken | Get Facebook Token
-*SirqulIoTPlatform.FacebookApi* | [**graphInterface**](docs/FacebookApi.md#graphInterface) | **POST** /api/{version}/facebook/graph | Post to Facebook
-*SirqulIoTPlatform.FavoriteApi* | [**addFavorite**](docs/FavoriteApi.md#addFavorite) | **POST** /api/{version}/favorite/create | Create Favorite
-*SirqulIoTPlatform.FavoriteApi* | [**deleteFavorite**](docs/FavoriteApi.md#deleteFavorite) | **POST** /api/{version}/favorite/delete | Delete Favorite
-*SirqulIoTPlatform.FavoriteApi* | [**getFavorite**](docs/FavoriteApi.md#getFavorite) | **GET** /api/{version}/favorite/get | Get Favorite
-*SirqulIoTPlatform.FavoriteApi* | [**searchFavorites**](docs/FavoriteApi.md#searchFavorites) | **GET** /api/{version}/favorite/search | Search Favorites
-*SirqulIoTPlatform.FavoriteApi* | [**whoHasFavorited**](docs/FavoriteApi.md#whoHasFavorited) | **GET** /api/{version}/favorite/whois | Who has Favorited
-*SirqulIoTPlatform.FilterApi* | [**createFilter**](docs/FilterApi.md#createFilter) | **POST** /api/{version}/filter/create | Create Filter
-*SirqulIoTPlatform.FilterApi* | [**deleteFilter**](docs/FilterApi.md#deleteFilter) | **POST** /api/{version}/filter/delete | Delete Filter
-*SirqulIoTPlatform.FilterApi* | [**getFilter**](docs/FilterApi.md#getFilter) | **GET** /api/{version}/filter/get | Get Filter
-*SirqulIoTPlatform.FilterApi* | [**searchFilters**](docs/FilterApi.md#searchFilters) | **GET** /api/{version}/filter/search | Search Filters
-*SirqulIoTPlatform.FilterApi* | [**updateFilter**](docs/FilterApi.md#updateFilter) | **POST** /api/{version}/filter/update | Update Filter
-*SirqulIoTPlatform.FlagApi* | [**createFlag**](docs/FlagApi.md#createFlag) | **POST** /api/{version}/flag/create | Create Flag
-*SirqulIoTPlatform.FlagApi* | [**deleteFlag**](docs/FlagApi.md#deleteFlag) | **POST** /api/{version}/flag/delete | Delete Flag
-*SirqulIoTPlatform.FlagApi* | [**getFlag**](docs/FlagApi.md#getFlag) | **GET** /api/{version}/flag/get | Get Flag
-*SirqulIoTPlatform.FlagApi* | [**getFlagThreshold**](docs/FlagApi.md#getFlagThreshold) | **GET** /api/{version}/flag/threshold/get | Get Flag Threshold
-*SirqulIoTPlatform.FlagApi* | [**updateFlagThreshold**](docs/FlagApi.md#updateFlagThreshold) | **POST** /api/{version}/flag/threshold/update | Update Flag Threshold
-*SirqulIoTPlatform.GameApi* | [**createGame**](docs/GameApi.md#createGame) | **POST** /api/{version}/game/create | Create a Game
-*SirqulIoTPlatform.GameApi* | [**deleteGame**](docs/GameApi.md#deleteGame) | **POST** /api/{version}/game/delete | Delete a Game
-*SirqulIoTPlatform.GameApi* | [**getGame**](docs/GameApi.md#getGame) | **GET** /api/{version}/game/get | Get a Game by id
-*SirqulIoTPlatform.GameApi* | [**searchGames**](docs/GameApi.md#searchGames) | **GET** /api/{version}/game/search | Search a Game
-*SirqulIoTPlatform.GameApi* | [**updateGame**](docs/GameApi.md#updateGame) | **POST** /api/{version}/game/update | Update a Game
-*SirqulIoTPlatform.GameLevelApi* | [**createGameLevel**](docs/GameLevelApi.md#createGameLevel) | **POST** /api/{version}/level/create | Create Game Level
-*SirqulIoTPlatform.GameLevelApi* | [**deleteGameLevel**](docs/GameLevelApi.md#deleteGameLevel) | **POST** /api/{version}/level/delete | Delete Game Level
-*SirqulIoTPlatform.GameLevelApi* | [**getGameLevel**](docs/GameLevelApi.md#getGameLevel) | **GET** /api/{version}/level/get | Get Game Level
-*SirqulIoTPlatform.GameLevelApi* | [**getGameLevelsByApplication**](docs/GameLevelApi.md#getGameLevelsByApplication) | **GET** /api/{version}/level/search | Search Game Levels
-*SirqulIoTPlatform.GameLevelApi* | [**getGameLevelsByBillableEntity**](docs/GameLevelApi.md#getGameLevelsByBillableEntity) | **GET** /api/{version}/level/searchByBillableEntity | Search Game Level by Billable Entity
-*SirqulIoTPlatform.GameLevelApi* | [**getQuestionsInLevel**](docs/GameLevelApi.md#getQuestionsInLevel) | **GET** /api/{version}/level/questions/get | Get Level Questions
-*SirqulIoTPlatform.GameLevelApi* | [**getWordsInLevel**](docs/GameLevelApi.md#getWordsInLevel) | **GET** /api/{version}/level/words/get | Get Level Words
-*SirqulIoTPlatform.GameLevelApi* | [**updateGameLevel**](docs/GameLevelApi.md#updateGameLevel) | **POST** /api/{version}/level/update | Update Game Level
-*SirqulIoTPlatform.GameLevelApi* | [**updateQuestionsInLevel**](docs/GameLevelApi.md#updateQuestionsInLevel) | **POST** /api/{version}/level/questions/update | Update Level Questions
-*SirqulIoTPlatform.GameLevelApi* | [**updateWordsInLevel**](docs/GameLevelApi.md#updateWordsInLevel) | **POST** /api/{version}/level/words/update | Update Level Words
-*SirqulIoTPlatform.InviteApi* | [**acceptInvite**](docs/InviteApi.md#acceptInvite) | **POST** /api/{version}/invite/accept | Accept Invite
-*SirqulIoTPlatform.InviteApi* | [**albumContestInvite**](docs/InviteApi.md#albumContestInvite) | **POST** /api/{version}/invite/albumContest | Invite to Contest
-*SirqulIoTPlatform.InviteApi* | [**albumInvite**](docs/InviteApi.md#albumInvite) | **POST** /api/{version}/invite/album | Invite to Collection
-*SirqulIoTPlatform.InviteApi* | [**eventInvite**](docs/InviteApi.md#eventInvite) | **POST** /api/{version}/invite/event | Invite to Event
-*SirqulIoTPlatform.InviteApi* | [**gameInvite**](docs/InviteApi.md#gameInvite) | **POST** /api/{version}/invite/gameLevel | Invite to Game Level
-*SirqulIoTPlatform.InviteApi* | [**getInvite**](docs/InviteApi.md#getInvite) | **GET** /api/{version}/invite/get | Get Invite
-*SirqulIoTPlatform.InviteApi* | [**missionInvite**](docs/InviteApi.md#missionInvite) | **POST** /api/{version}/invite/mission | Invite to Mission
-*SirqulIoTPlatform.InviteApi* | [**offerInvite**](docs/InviteApi.md#offerInvite) | **POST** /api/{version}/invite/offer | Invite to Offer
-*SirqulIoTPlatform.InviteApi* | [**offerLocationInvite**](docs/InviteApi.md#offerLocationInvite) | **POST** /api/{version}/invite/offerLocation | Invite to Offer Location
-*SirqulIoTPlatform.InviteApi* | [**retailerLocationInvite**](docs/InviteApi.md#retailerLocationInvite) | **POST** /api/{version}/invite/retailerLocation | Invite to Retailer Location
-*SirqulIoTPlatform.LeaderboardApi* | [**createLeaderboard**](docs/LeaderboardApi.md#createLeaderboard) | **POST** /api/{version}/leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*SirqulIoTPlatform.LeaderboardApi* | [**deleteLeaderboard**](docs/LeaderboardApi.md#deleteLeaderboard) | **POST** /api/{version}/leaderboard/delete | Delete the Leader Board
-*SirqulIoTPlatform.LeaderboardApi* | [**getLeaderboard**](docs/LeaderboardApi.md#getLeaderboard) | **GET** /api/{version}/leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
-*SirqulIoTPlatform.LeaderboardApi* | [**searchLeaderboards**](docs/LeaderboardApi.md#searchLeaderboards) | **GET** /api/{version}/leaderboard/search | Search leaderboard and retrieve the matching ranking list
-*SirqulIoTPlatform.LeaderboardApi* | [**updateLeaderboard**](docs/LeaderboardApi.md#updateLeaderboard) | **POST** /api/{version}/leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*SirqulIoTPlatform.LikeApi* | [**registerLike**](docs/LikeApi.md#registerLike) | **POST** /api/{version}/like | Create Like
-*SirqulIoTPlatform.LikeApi* | [**removeLike**](docs/LikeApi.md#removeLike) | **POST** /api/{version}/like/delete | Delete Like
-*SirqulIoTPlatform.LikeApi* | [**searchLikes**](docs/LikeApi.md#searchLikes) | **GET** /api/{version}/like/search | Search Likes
-*SirqulIoTPlatform.ListingApi* | [**createListing**](docs/ListingApi.md#createListing) | **POST** /api/{version}/listing/create | Create Listing
-*SirqulIoTPlatform.ListingApi* | [**deleteListing**](docs/ListingApi.md#deleteListing) | **POST** /api/{version}/listing/delete | Delete Listing
-*SirqulIoTPlatform.ListingApi* | [**getListing**](docs/ListingApi.md#getListing) | **GET** /api/{version}/listing/get | Get Listing
-*SirqulIoTPlatform.ListingApi* | [**searchListing**](docs/ListingApi.md#searchListing) | **GET** /api/{version}/listing/search | Search Listings
-*SirqulIoTPlatform.ListingApi* | [**summaryListing**](docs/ListingApi.md#summaryListing) | **GET** /api/{version}/listing/summary | Summary Listing
-*SirqulIoTPlatform.ListingApi* | [**updateListing**](docs/ListingApi.md#updateListing) | **POST** /api/{version}/listing/update | Update Listing
-*SirqulIoTPlatform.LocationApi* | [**cacheTrilaterationData**](docs/LocationApi.md#cacheTrilaterationData) | **POST** /api/{version}/location/trilaterate/cache | Create Trilateration Data with File
-*SirqulIoTPlatform.LocationApi* | [**cacheTrilaterationDataGzip**](docs/LocationApi.md#cacheTrilaterationDataGzip) | **POST** /api/{version}/location/trilaterate/cache/submit | Create Trilateration Data with Rest
-*SirqulIoTPlatform.LocationApi* | [**getLocationByIp**](docs/LocationApi.md#getLocationByIp) | **GET** /api/{version}/location/ip | Get Location by IP
-*SirqulIoTPlatform.LocationApi* | [**getLocationByTrilateration**](docs/LocationApi.md#getLocationByTrilateration) | **GET** /api/{version}/account/location/trilaterate | Get Location by Trilateration
-*SirqulIoTPlatform.LocationApi* | [**getLocations**](docs/LocationApi.md#getLocations) | **GET** /api/{version}/location/search | Search Regions or Postal Codes
-*SirqulIoTPlatform.LocationApiV2Api* | [**createLocationV2**](docs/LocationApiV2Api.md#createLocationV2) | **POST** /api/{version}/location | Create new location
-*SirqulIoTPlatform.LocationApiV2Api* | [**updateLocationV2**](docs/LocationApiV2Api.md#updateLocationV2) | **POST** /api/{version}/location/{id} | Update an existing location
-*SirqulIoTPlatform.MediaApi* | [**createMedia**](docs/MediaApi.md#createMedia) | **POST** /api/{version}/media/create | Create Media
-*SirqulIoTPlatform.MediaApi* | [**deleteMedia**](docs/MediaApi.md#deleteMedia) | **POST** /api/{version}/media/delete | Delete Media
-*SirqulIoTPlatform.MediaApi* | [**getMedia**](docs/MediaApi.md#getMedia) | **GET** /api/{version}/media/get | Media Get
-*SirqulIoTPlatform.MediaApi* | [**searchMedia**](docs/MediaApi.md#searchMedia) | **GET** /api/{version}/media/search | Search Media
-*SirqulIoTPlatform.MediaApi* | [**updateMedia**](docs/MediaApi.md#updateMedia) | **POST** /api/{version}/media/update | Update Media
-*SirqulIoTPlatform.MissionApi* | [**createMission**](docs/MissionApi.md#createMission) | **POST** /api/{version}/mission/create | Create Mission
-*SirqulIoTPlatform.MissionApi* | [**deleteMission**](docs/MissionApi.md#deleteMission) | **POST** /api/{version}/mission/delete | Delete Mission
-*SirqulIoTPlatform.MissionApi* | [**findMissions**](docs/MissionApi.md#findMissions) | **GET** /api/{version}/mission/find | Find Missions
-*SirqulIoTPlatform.MissionApi* | [**getMission**](docs/MissionApi.md#getMission) | **GET** /api/{version}/mission/get | Get Mission
-*SirqulIoTPlatform.MissionApi* | [**importMission**](docs/MissionApi.md#importMission) | **POST** /api/{version}/mission/import | Import Mission
-*SirqulIoTPlatform.MissionApi* | [**searchMissionFormats**](docs/MissionApi.md#searchMissionFormats) | **GET** /api/{version}/mission/format/search | Search Mission Formats
-*SirqulIoTPlatform.MissionApi* | [**searchMissions**](docs/MissionApi.md#searchMissions) | **GET** /api/{version}/mission/search | Search Missions
-*SirqulIoTPlatform.MissionApi* | [**searchMissionsByBillableEntity**](docs/MissionApi.md#searchMissionsByBillableEntity) | **GET** /api/{version}/mission/searchByBillableEntity | Search Missions by Billable Entity
-*SirqulIoTPlatform.MissionApi* | [**updateMission**](docs/MissionApi.md#updateMission) | **POST** /api/{version}/mission/update | Update Mission
-*SirqulIoTPlatform.MissionInviteApi* | [**createMissionInvite**](docs/MissionInviteApi.md#createMissionInvite) | **POST** /api/{version}/mission/invite/create | Create Mission Invite
-*SirqulIoTPlatform.MissionInviteApi* | [**deleteMissionInvite**](docs/MissionInviteApi.md#deleteMissionInvite) | **POST** /api/{version}/mission/invite/delete | Delete Mission Invite
-*SirqulIoTPlatform.MissionInviteApi* | [**getMissionInvite**](docs/MissionInviteApi.md#getMissionInvite) | **GET** /api/{version}/mission/invite/get | Get Mission Invite
-*SirqulIoTPlatform.MissionInviteApi* | [**searchMissionInvites**](docs/MissionInviteApi.md#searchMissionInvites) | **GET** /api/{version}/mission/invite/search | Search Mission Invites
-*SirqulIoTPlatform.MissionInviteApi* | [**updateMissionInvite**](docs/MissionInviteApi.md#updateMissionInvite) | **POST** /api/{version}/mission/invite/update | Update Mission Invite
-*SirqulIoTPlatform.NoteApi* | [**batchOperation**](docs/NoteApi.md#batchOperation) | **POST** /api/{version}/note/batch | Batch Note Operation
-*SirqulIoTPlatform.NoteApi* | [**createNote**](docs/NoteApi.md#createNote) | **POST** /api/{version}/note/create | Create Note
-*SirqulIoTPlatform.NoteApi* | [**deleteNote**](docs/NoteApi.md#deleteNote) | **POST** /api/{version}/note/delete | Delete Note
-*SirqulIoTPlatform.NoteApi* | [**getNote**](docs/NoteApi.md#getNote) | **POST** /api/{version}/note/get | Get Note
-*SirqulIoTPlatform.NoteApi* | [**searchNotes**](docs/NoteApi.md#searchNotes) | **POST** /api/{version}/note/search | Search Notes
-*SirqulIoTPlatform.NoteApi* | [**updateNote**](docs/NoteApi.md#updateNote) | **POST** /api/{version}/note/update | Update Note
-*SirqulIoTPlatform.NotificationApi* | [**createNotificationTemplate**](docs/NotificationApi.md#createNotificationTemplate) | **POST** /api/{version}/notification/template/create | Create Notification Template
-*SirqulIoTPlatform.NotificationApi* | [**createOrUpdateBlockedNotifications**](docs/NotificationApi.md#createOrUpdateBlockedNotifications) | **POST** /api/{version}/notification/blocked/batch | Create or update blocked notification settings
-*SirqulIoTPlatform.NotificationApi* | [**deleteNotificationTemplate**](docs/NotificationApi.md#deleteNotificationTemplate) | **POST** /api/{version}/notification/template/delete | Delete Notification Template
-*SirqulIoTPlatform.NotificationApi* | [**getNotificationTemplate**](docs/NotificationApi.md#getNotificationTemplate) | **GET** /api/{version}/notification/template/get | Get Notification Template
-*SirqulIoTPlatform.NotificationApi* | [**getNotifications**](docs/NotificationApi.md#getNotifications) | **GET** /api/{version}/notification/search | Get Notifications
-*SirqulIoTPlatform.NotificationApi* | [**registerNotificationToken**](docs/NotificationApi.md#registerNotificationToken) | **POST** /api/{version}/notification/token | Register Notification Token
-*SirqulIoTPlatform.NotificationApi* | [**searchBlockedNotifications**](docs/NotificationApi.md#searchBlockedNotifications) | **GET** /api/{version}/notification/blocked/search | Search on the user&#39;s blocked notification settings
-*SirqulIoTPlatform.NotificationApi* | [**searchNotificationTemplate**](docs/NotificationApi.md#searchNotificationTemplate) | **GET** /api/{version}/notification/template/search | Search Notification Templates
-*SirqulIoTPlatform.NotificationApi* | [**searchRecipients**](docs/NotificationApi.md#searchRecipients) | **GET** /api/{version}/notification/recipient/search | Search for Recipients
-*SirqulIoTPlatform.NotificationApi* | [**searchRecipientsCount**](docs/NotificationApi.md#searchRecipientsCount) | **GET** /api/{version}/notification/recipient/search/count | Search for Recipients (Counts/Grouped)
-*SirqulIoTPlatform.NotificationApi* | [**sendBatchNotifications**](docs/NotificationApi.md#sendBatchNotifications) | **POST** /api/{version}/notification/batch | Send Batch Notifications
-*SirqulIoTPlatform.NotificationApi* | [**sendCustomNotifications**](docs/NotificationApi.md#sendCustomNotifications) | **POST** /api/{version}/notification/custom | Send Custom Notifications
-*SirqulIoTPlatform.NotificationApi* | [**updateNotificationTemplate**](docs/NotificationApi.md#updateNotificationTemplate) | **POST** /api/{version}/notification/template/update | Update Notification Template
-*SirqulIoTPlatform.ObjectStoreApi* | [**addField**](docs/ObjectStoreApi.md#addField) | **POST** /api/{version}/object/field/add | Create Field
-*SirqulIoTPlatform.ObjectStoreApi* | [**createData**](docs/ObjectStoreApi.md#createData) | **POST** /api/{version}/object/data/{objectName} | Create Data
-*SirqulIoTPlatform.ObjectStoreApi* | [**createObject**](docs/ObjectStoreApi.md#createObject) | **POST** /api/{version}/object/create | Create Object
-*SirqulIoTPlatform.ObjectStoreApi* | [**deleteData**](docs/ObjectStoreApi.md#deleteData) | **DELETE** /api/{version}/object/data/{objectName}/{objectId} | Delete Data
-*SirqulIoTPlatform.ObjectStoreApi* | [**deleteField**](docs/ObjectStoreApi.md#deleteField) | **POST** /api/{version}/object/field/delete | Delete Field
-*SirqulIoTPlatform.ObjectStoreApi* | [**deleteObject**](docs/ObjectStoreApi.md#deleteObject) | **POST** /api/{version}/object/delete | Delete Object
-*SirqulIoTPlatform.ObjectStoreApi* | [**getData**](docs/ObjectStoreApi.md#getData) | **GET** /api/{version}/object/data/{objectName}/{objectId} | Get Data
-*SirqulIoTPlatform.ObjectStoreApi* | [**getObject**](docs/ObjectStoreApi.md#getObject) | **GET** /api/{version}/object/get | Get Object
-*SirqulIoTPlatform.ObjectStoreApi* | [**searchData**](docs/ObjectStoreApi.md#searchData) | **GET** /api/{version}/object/data/{objectName} | Search Data
-*SirqulIoTPlatform.ObjectStoreApi* | [**searchObject**](docs/ObjectStoreApi.md#searchObject) | **GET** /api/{version}/object/search | Search Objects
-*SirqulIoTPlatform.ObjectStoreApi* | [**updateData**](docs/ObjectStoreApi.md#updateData) | **PUT** /api/{version}/object/data/{objectName}/{objectId} | Update Data
-*SirqulIoTPlatform.OfferApi* | [**batchUpdateOfferLocations**](docs/OfferApi.md#batchUpdateOfferLocations) | **POST** /api/{version}/retailer/offer/location/batchUpdate | Update Offer Locations
-*SirqulIoTPlatform.OfferApi* | [**createOffer**](docs/OfferApi.md#createOffer) | **POST** /api/{version}/retailer/offer/create | Create Offer
-*SirqulIoTPlatform.OfferApi* | [**deleteOffer**](docs/OfferApi.md#deleteOffer) | **POST** /api/{version}/retailer/offer/delete | Delete Offer
-*SirqulIoTPlatform.OfferApi* | [**deleteOfferLocation**](docs/OfferApi.md#deleteOfferLocation) | **POST** /api/{version}/retailer/offer/location/delete | Delete Offer Location
-*SirqulIoTPlatform.OfferApi* | [**getOffer**](docs/OfferApi.md#getOffer) | **GET** /api/{version}/retailer/offer/get | Get Offer
-*SirqulIoTPlatform.OfferApi* | [**getOfferDetails**](docs/OfferApi.md#getOfferDetails) | **GET** /api/{version}/offer/get | Get Offer
-*SirqulIoTPlatform.OfferApi* | [**getOfferListCounts**](docs/OfferApi.md#getOfferListCounts) | **GET** /api/{version}/offer/lists/count | Get Offers (Counts)
-*SirqulIoTPlatform.OfferApi* | [**getOfferLocation**](docs/OfferApi.md#getOfferLocation) | **GET** /api/{version}/offer/location/get | Get Offer Location
-*SirqulIoTPlatform.OfferApi* | [**getOfferLocationsForRetailers**](docs/OfferApi.md#getOfferLocationsForRetailers) | **GET** /api/{version}/retailer/offer/location/search | Search Offer Locations
-*SirqulIoTPlatform.OfferApi* | [**getOffersForRetailers**](docs/OfferApi.md#getOffersForRetailers) | **GET** /api/{version}/retailer/offer/search | Search Offers
-*SirqulIoTPlatform.OfferApi* | [**redeemOfferTransaction**](docs/OfferApi.md#redeemOfferTransaction) | **POST** /api/{version}/retailer/offer/transaction/update | Update Offer Transaction
-*SirqulIoTPlatform.OfferApi* | [**searchOfferTransactionsForRetailers**](docs/OfferApi.md#searchOfferTransactionsForRetailers) | **GET** /api/{version}/retailer/offer/transaction/search | Search Offer Transactions
-*SirqulIoTPlatform.OfferApi* | [**searchOffersForConsumer**](docs/OfferApi.md#searchOffersForConsumer) | **GET** /api/{version}/offer/lists | Search Offers
-*SirqulIoTPlatform.OfferApi* | [**topOfferTransactions**](docs/OfferApi.md#topOfferTransactions) | **GET** /api/{version}/offer/top | Get Offers (Top)
-*SirqulIoTPlatform.OfferApi* | [**updateOffer**](docs/OfferApi.md#updateOffer) | **POST** /api/{version}/retailer/offer/update | Update Offer
-*SirqulIoTPlatform.OfferApi* | [**updateOfferStatus**](docs/OfferApi.md#updateOfferStatus) | **POST** /api/{version}/retailer/offer/status | Activate Offer
-*SirqulIoTPlatform.OfferStatusApi* | [**createOfferTransactionStatus**](docs/OfferStatusApi.md#createOfferTransactionStatus) | **POST** /api/{version}/offer/status/create | Create Offer Status
-*SirqulIoTPlatform.OfferStatusApi* | [**deleteOfferTransactionStatus**](docs/OfferStatusApi.md#deleteOfferTransactionStatus) | **POST** /api/{version}/offer/status/delete | Delete Offer Status
-*SirqulIoTPlatform.OfferStatusApi* | [**getOfferTransactionStatus**](docs/OfferStatusApi.md#getOfferTransactionStatus) | **GET** /api/{version}/offer/status/get | Get Offer Status
-*SirqulIoTPlatform.OfferStatusApi* | [**searchOfferTransactionStatuses**](docs/OfferStatusApi.md#searchOfferTransactionStatuses) | **GET** /api/{version}/offer/status/search | Search Offer Status
-*SirqulIoTPlatform.OfferStatusApi* | [**updateOfferTransactionStatus**](docs/OfferStatusApi.md#updateOfferTransactionStatus) | **POST** /api/{version}/offer/status/update | Update Offer Status
-*SirqulIoTPlatform.OpenAIApi* | [**imageGeneration**](docs/OpenAIApi.md#imageGeneration) | **POST** /api/{version}/openai/v1/images/generations | Generate images with OpenAI
-*SirqulIoTPlatform.OptimizeApi* | [**getOptimizationResult**](docs/OptimizeApi.md#getOptimizationResult) | **GET** /api/{version}/optimize/result/{batchID} | Get Optimization Result
-*SirqulIoTPlatform.OptimizeApi* | [**requestOptimization**](docs/OptimizeApi.md#requestOptimization) | **POST** /api/{version}/optimize/request | Request Optimization
-*SirqulIoTPlatform.OrsonApi* | [**addMovie**](docs/OrsonApi.md#addMovie) | **POST** /api/{version}/orson/ai/addMovie | Add Movie
-*SirqulIoTPlatform.OrsonApi* | [**aiDocs**](docs/OrsonApi.md#aiDocs) | **GET** /api/{version}/orson/ai/docs | Search Docs
-*SirqulIoTPlatform.OrsonApi* | [**aiFindImages**](docs/OrsonApi.md#aiFindImages) | **GET** /api/{version}/orson/ai/img | Find images
-*SirqulIoTPlatform.OrsonApi* | [**aiTags**](docs/OrsonApi.md#aiTags) | **GET** /api/{version}/orson/ai/tags | Search Tags
-*SirqulIoTPlatform.OrsonApi* | [**aiText**](docs/OrsonApi.md#aiText) | **GET** /api/{version}/orson/ai/text | Search Text
-*SirqulIoTPlatform.OrsonApi* | [**batch**](docs/OrsonApi.md#batch) | **POST** /api/{version}/orson/ai/batch | Batch Analysis
-*SirqulIoTPlatform.OrsonApi* | [**createInstantEpisode**](docs/OrsonApi.md#createInstantEpisode) | **POST** /api/{version}/orson/stories/episodes/instant | Creates an instant episode
-*SirqulIoTPlatform.OrsonApi* | [**createVoiceCanvas**](docs/OrsonApi.md#createVoiceCanvas) | **POST** /api/{version}/orson/ai/voiceCanvas | Create VoiceCanvas images
-*SirqulIoTPlatform.OrsonApi* | [**emotion**](docs/OrsonApi.md#emotion) | **POST** /api/{version}/orson/ai/emotion | Detect emotions
-*SirqulIoTPlatform.OrsonApi* | [**getAddMovieResult**](docs/OrsonApi.md#getAddMovieResult) | **GET** /api/{version}/orson/ai/addMovie/{requestId} | Get Add Movie Result
-*SirqulIoTPlatform.OrsonApi* | [**getBatch**](docs/OrsonApi.md#getBatch) | **GET** /api/{version}/orson/ai/batch/{requestId} | Get Batch Analysis Results
-*SirqulIoTPlatform.OrsonApi* | [**getEmotion**](docs/OrsonApi.md#getEmotion) | **GET** /api/{version}/orson/ai/emotion/{requestId} | Get Emotion Results
-*SirqulIoTPlatform.OrsonApi* | [**getEpisodeStatus**](docs/OrsonApi.md#getEpisodeStatus) | **GET** /api/{version}/orson/stories/episodes/{episodeId}/status | Check episode status
-*SirqulIoTPlatform.OrsonApi* | [**getRenderStatus**](docs/OrsonApi.md#getRenderStatus) | **GET** /api/{version}/orson/stories/renders/{renderId}/status | Check episode status
-*SirqulIoTPlatform.OrsonApi* | [**getSTT**](docs/OrsonApi.md#getSTT) | **GET** /api/{version}/orson/ai/stt/{requestId} | Get Speach to Text Result
-*SirqulIoTPlatform.OrsonApi* | [**getTTS**](docs/OrsonApi.md#getTTS) | **GET** /api/{version}/orson/ai/tts/{requestId} | Get Text to Speach Result
-*SirqulIoTPlatform.OrsonApi* | [**getTechTune**](docs/OrsonApi.md#getTechTune) | **GET** /api/{version}/orson/ai/techTune/{requestId} | Get TechTune Results
-*SirqulIoTPlatform.OrsonApi* | [**getTopics**](docs/OrsonApi.md#getTopics) | **GET** /api/{version}/orson/ai/topics/{requestId} | Get Topics
-*SirqulIoTPlatform.OrsonApi* | [**getVoiceCanvas**](docs/OrsonApi.md#getVoiceCanvas) | **GET** /api/{version}/orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
-*SirqulIoTPlatform.OrsonApi* | [**startVideoRender**](docs/OrsonApi.md#startVideoRender) | **POST** /api/{version}/orson/stories/renders | Starts a StoryStitch video render
-*SirqulIoTPlatform.OrsonApi* | [**stt**](docs/OrsonApi.md#stt) | **POST** /api/{version}/orson/ai/stt | Speach to Text
-*SirqulIoTPlatform.OrsonApi* | [**summarizeTopics**](docs/OrsonApi.md#summarizeTopics) | **POST** /api/{version}/orson/ai/topics | Summarize Topics
-*SirqulIoTPlatform.OrsonApi* | [**techTune**](docs/OrsonApi.md#techTune) | **POST** /api/{version}/orson/ai/techTune | Detect Technical Issues
-*SirqulIoTPlatform.OrsonApi* | [**tts**](docs/OrsonApi.md#tts) | **POST** /api/{version}/orson/ai/tts | Text to Speach
-*SirqulIoTPlatform.PackApi* | [**createPack**](docs/PackApi.md#createPack) | **POST** /api/{version}/pack/create | Create Pack
-*SirqulIoTPlatform.PackApi* | [**deletePack**](docs/PackApi.md#deletePack) | **POST** /api/{version}/pack/delete | Delete Pack
-*SirqulIoTPlatform.PackApi* | [**getPack**](docs/PackApi.md#getPack) | **GET** /api/{version}/pack/get | Get Pack
-*SirqulIoTPlatform.PackApi* | [**searchPacks**](docs/PackApi.md#searchPacks) | **GET** /api/{version}/pack/search | Search Packs
-*SirqulIoTPlatform.PackApi* | [**updatePack**](docs/PackApi.md#updatePack) | **POST** /api/{version}/pack/update | Update Pack
-*SirqulIoTPlatform.ParticipantsApi* | [**processAllParticipants**](docs/ParticipantsApi.md#processAllParticipants) | **POST** /api/{version}/participant/process/all | Process All Participant Feeds
-*SirqulIoTPlatform.ParticipantsApi* | [**processParticipants**](docs/ParticipantsApi.md#processParticipants) | **POST** /api/{version}/participant/process | Process Participants Feed
-*SirqulIoTPlatform.PathingApi* | [**computePath**](docs/PathingApi.md#computePath) | **GET** /api/{version}/pathing/compute | Calculate Path
-*SirqulIoTPlatform.PostalCodeApi* | [**createPostalCode**](docs/PostalCodeApi.md#createPostalCode) | **POST** /api/{version}/postalCode/create | Create Postal Code
-*SirqulIoTPlatform.PostalCodeApi* | [**deletePostalCode**](docs/PostalCodeApi.md#deletePostalCode) | **POST** /api/{version}/postalCode/delete | Delete Postal Code
-*SirqulIoTPlatform.PostalCodeApi* | [**getPostalCode**](docs/PostalCodeApi.md#getPostalCode) | **GET** /api/{version}/postalCode/get | Get Postal Code
-*SirqulIoTPlatform.PostalCodeApi* | [**getPostalCodes**](docs/PostalCodeApi.md#getPostalCodes) | **GET** /api/{version}/postalCode/search | Search Postal Codes
-*SirqulIoTPlatform.PostalCodeApi* | [**updatePostalCode**](docs/PostalCodeApi.md#updatePostalCode) | **POST** /api/{version}/postalCode/update | Update Postal Code
-*SirqulIoTPlatform.PreviewPersonaApi* | [**createPersona**](docs/PreviewPersonaApi.md#createPersona) | **POST** /api/{version}/persona/create | Create Persona
-*SirqulIoTPlatform.PreviewPersonaApi* | [**deletePersona**](docs/PreviewPersonaApi.md#deletePersona) | **POST** /api/{version}/persona/delete | Delete Persona
-*SirqulIoTPlatform.PreviewPersonaApi* | [**getPersonaList**](docs/PreviewPersonaApi.md#getPersonaList) | **GET** /api/{version}/persona/get | Get Persona
-*SirqulIoTPlatform.PreviewPersonaApi* | [**searchPersona**](docs/PreviewPersonaApi.md#searchPersona) | **GET** /api/{version}/persona/search | Search Personas
-*SirqulIoTPlatform.PreviewPersonaApi* | [**updatePersona**](docs/PreviewPersonaApi.md#updatePersona) | **POST** /api/{version}/persona/update | Update Persona
-*SirqulIoTPlatform.ProgramApi* | [**createProgram**](docs/ProgramApi.md#createProgram) | **POST** /api/{version}/program | Create Program
-*SirqulIoTPlatform.ProgramApi* | [**deleteProgram**](docs/ProgramApi.md#deleteProgram) | **DELETE** /api/{version}/program/{id} | Delete Program
-*SirqulIoTPlatform.ProgramApi* | [**getProgram**](docs/ProgramApi.md#getProgram) | **GET** /api/{version}/program/{id} | Get Program
-*SirqulIoTPlatform.ProgramApi* | [**postProgram**](docs/ProgramApi.md#postProgram) | **POST** /api/{version}/program/{id} | Update Program
-*SirqulIoTPlatform.ProgramApi* | [**putProgram**](docs/ProgramApi.md#putProgram) | **PUT** /api/{version}/program/{id} | Update Program
-*SirqulIoTPlatform.ProgramApi* | [**searchPrograms**](docs/ProgramApi.md#searchPrograms) | **GET** /api/{version}/program | Search Programs
-*SirqulIoTPlatform.PurchaseItemApi* | [**createPurchaseItem**](docs/PurchaseItemApi.md#createPurchaseItem) | **POST** /api/{version}/purchase/create | Create Purchase
-*SirqulIoTPlatform.PurchaseItemApi* | [**deletePurchaseItem**](docs/PurchaseItemApi.md#deletePurchaseItem) | **POST** /api/{version}/purchase/delete | Delete Purchase
-*SirqulIoTPlatform.PurchaseItemApi* | [**getPurchaseItem**](docs/PurchaseItemApi.md#getPurchaseItem) | **GET** /api/{version}/purchase/get | Get Purchase
-*SirqulIoTPlatform.PurchaseItemApi* | [**searchPurchaseItems**](docs/PurchaseItemApi.md#searchPurchaseItems) | **GET** /api/{version}/purchase/search | Search Purchases
-*SirqulIoTPlatform.PurchaseItemApi* | [**updatePurchaseItem**](docs/PurchaseItemApi.md#updatePurchaseItem) | **POST** /api/{version}/purchase/update | Update Purchase
-*SirqulIoTPlatform.PurchaseOrderApi* | [**createOrder**](docs/PurchaseOrderApi.md#createOrder) | **POST** /api/{version}/order/create | Create Order
-*SirqulIoTPlatform.PurchaseOrderApi* | [**deleteOrder**](docs/PurchaseOrderApi.md#deleteOrder) | **POST** /api/{version}/order/delete | Delete Order
-*SirqulIoTPlatform.PurchaseOrderApi* | [**getOrder**](docs/PurchaseOrderApi.md#getOrder) | **GET** /api/{version}/order/get | Get Order
-*SirqulIoTPlatform.PurchaseOrderApi* | [**previewOrder**](docs/PurchaseOrderApi.md#previewOrder) | **POST** /api/{version}/order/preview | Preview Order
-*SirqulIoTPlatform.PurchaseOrderApi* | [**searchOrders**](docs/PurchaseOrderApi.md#searchOrders) | **GET** /api/{version}/order/search | Search Orders
-*SirqulIoTPlatform.PurchaseOrderApi* | [**updateOrder**](docs/PurchaseOrderApi.md#updateOrder) | **POST** /api/{version}/order/update | Update Order
-*SirqulIoTPlatform.QuestionApi* | [**createQuestion**](docs/QuestionApi.md#createQuestion) | **POST** /api/{version}/game/question/create | Create Question
-*SirqulIoTPlatform.QuestionApi* | [**deleteQuestion**](docs/QuestionApi.md#deleteQuestion) | **POST** /api/{version}/game/question/delete | Delete Question
-*SirqulIoTPlatform.QuestionApi* | [**getQuestion**](docs/QuestionApi.md#getQuestion) | **GET** /api/{version}/game/question/get | Get Question
-*SirqulIoTPlatform.QuestionApi* | [**searchQuestions**](docs/QuestionApi.md#searchQuestions) | **GET** /api/{version}/game/question/search | Search Questions
-*SirqulIoTPlatform.QuestionApi* | [**updateQuestion**](docs/QuestionApi.md#updateQuestion) | **POST** /api/{version}/game/question/update | Update Question
-*SirqulIoTPlatform.RankingApi* | [**getHistoricalRankings**](docs/RankingApi.md#getHistoricalRankings) | **GET** /api/{version}/ranking/historical/search | Search Historical Rankings
-*SirqulIoTPlatform.RankingApi* | [**getRankings**](docs/RankingApi.md#getRankings) | **GET** /api/{version}/ranking/search | Search Rankings
-*SirqulIoTPlatform.RankingApi* | [**getUserRank**](docs/RankingApi.md#getUserRank) | **POST** /api/{version}/ranking/personal/ranks | Get Personal Rankings
-*SirqulIoTPlatform.RankingApi* | [**overrideUserRank**](docs/RankingApi.md#overrideUserRank) | **POST** /api/{version}/ranking/override | Override User Rank
-*SirqulIoTPlatform.RankingApi* | [**updateRankings**](docs/RankingApi.md#updateRankings) | **POST** /api/{version}/ranking/update | Update Ranking
-*SirqulIoTPlatform.RatingApi* | [**createRating**](docs/RatingApi.md#createRating) | **POST** /api/{version}/rating/create | Create Rating
-*SirqulIoTPlatform.RatingApi* | [**deleteRating**](docs/RatingApi.md#deleteRating) | **POST** /api/{version}/rating/delete | Delete Rating
-*SirqulIoTPlatform.RatingApi* | [**searchLocationRatingIndexes**](docs/RatingApi.md#searchLocationRatingIndexes) | **GET** /api/{version}/location/rating/index/search | Search Location Rating Indexes
-*SirqulIoTPlatform.RatingApi* | [**searchRatingIndexes**](docs/RatingApi.md#searchRatingIndexes) | **GET** /api/{version}/rating/index/search | Search Rating Indexes
-*SirqulIoTPlatform.RatingApi* | [**searchRatings**](docs/RatingApi.md#searchRatings) | **GET** /api/{version}/rating/search | Search Ratings
-*SirqulIoTPlatform.RatingApi* | [**updateRating**](docs/RatingApi.md#updateRating) | **POST** /api/{version}/rating/update | Update Rating
-*SirqulIoTPlatform.RegionApi* | [**createRegion**](docs/RegionApi.md#createRegion) | **POST** /api/{version}/region/create | Create Region
-*SirqulIoTPlatform.RegionApi* | [**deleteRegion**](docs/RegionApi.md#deleteRegion) | **POST** /api/{version}/region/delete | Delete Region
-*SirqulIoTPlatform.RegionApi* | [**getRegion**](docs/RegionApi.md#getRegion) | **GET** /api/{version}/region/get | Get Region
-*SirqulIoTPlatform.RegionApi* | [**searchRegions**](docs/RegionApi.md#searchRegions) | **GET** /api/{version}/region/search | Search Regions
-*SirqulIoTPlatform.RegionApi* | [**updateRegion**](docs/RegionApi.md#updateRegion) | **POST** /api/{version}/region/update | Update Region
-*SirqulIoTPlatform.ReportingApi* | [**createBatch**](docs/ReportingApi.md#createBatch) | **POST** /api/{version}/report/batch/create | Create Offline Report
-*SirqulIoTPlatform.ReportingApi* | [**createRegionLegSummaryBatch**](docs/ReportingApi.md#createRegionLegSummaryBatch) | **POST** /api/{version}/report/region/summary/batch | Create Offline Report
-*SirqulIoTPlatform.ReportingApi* | [**deleteBatch**](docs/ReportingApi.md#deleteBatch) | **POST** /api/{version}/report/batch/delete | Delete Offline Report
-*SirqulIoTPlatform.ReportingApi* | [**getReportBatch**](docs/ReportingApi.md#getReportBatch) | **GET** /api/{version}/report/batch/get | Get Offline Report
-*SirqulIoTPlatform.ReportingApi* | [**runReport**](docs/ReportingApi.md#runReport) | **POST** /api/{version}/report/run | Run Report
-*SirqulIoTPlatform.ReportingApi* | [**searchBatch**](docs/ReportingApi.md#searchBatch) | **GET** /api/{version}/report/batch/search | Search Offline Reports
-*SirqulIoTPlatform.ReservationApi* | [**createReservation**](docs/ReservationApi.md#createReservation) | **POST** /api/{version}/reservation/create | Create Reservation
-*SirqulIoTPlatform.ReservationApi* | [**deleteReservation**](docs/ReservationApi.md#deleteReservation) | **POST** /api/{version}/reservation/delete | Delete Reservation
-*SirqulIoTPlatform.ReservationApi* | [**reservableAvailability**](docs/ReservationApi.md#reservableAvailability) | **POST** /api/{version}/reservable/availability/update | Update Availability
-*SirqulIoTPlatform.ReservationApi* | [**searchAvailability**](docs/ReservationApi.md#searchAvailability) | **GET** /api/{version}/reservable/availability/search | Search Availability
-*SirqulIoTPlatform.ReservationApi* | [**searchReservations**](docs/ReservationApi.md#searchReservations) | **GET** /api/{version}/reservation/search | Search Reservations
-*SirqulIoTPlatform.ReservationApi* | [**searchSchedule**](docs/ReservationApi.md#searchSchedule) | **GET** /api/{version}/reservable/schedule/search | Search Schedule
-*SirqulIoTPlatform.RetailerApi* | [**createRetailer**](docs/RetailerApi.md#createRetailer) | **POST** /api/{version}/retailer/create | Create Retailer
-*SirqulIoTPlatform.RetailerApi* | [**deleteRetailer**](docs/RetailerApi.md#deleteRetailer) | **POST** /api/{version}/retailer/delete | Delete Retailer
-*SirqulIoTPlatform.RetailerApi* | [**getRetailer**](docs/RetailerApi.md#getRetailer) | **GET** /api/{version}/retailer/get | Get Retailer
-*SirqulIoTPlatform.RetailerApi* | [**getRetailers**](docs/RetailerApi.md#getRetailers) | **GET** /api/{version}/retailer/search | Search Retailers
-*SirqulIoTPlatform.RetailerApi* | [**retailerLoginCheck**](docs/RetailerApi.md#retailerLoginCheck) | **POST** /api/{version}/retailer/login | Login Retailer
-*SirqulIoTPlatform.RetailerApi* | [**updateRetailer**](docs/RetailerApi.md#updateRetailer) | **POST** /api/{version}/retailer/update | Update Retailer
-*SirqulIoTPlatform.RetailerLocationApi* | [**createRetailerLocationConsumer**](docs/RetailerLocationApi.md#createRetailerLocationConsumer) | **POST** /api/{version}/location/create | Create Retailer Location (Consumer)
-*SirqulIoTPlatform.RetailerLocationApi* | [**createRetailerLocations**](docs/RetailerLocationApi.md#createRetailerLocations) | **POST** /api/{version}/retailer/location/create | Create Retailer Location
-*SirqulIoTPlatform.RetailerLocationApi* | [**deleteRetailerLocation**](docs/RetailerLocationApi.md#deleteRetailerLocation) | **POST** /api/{version}/retailer/location/delete | Delete Retailer Location
-*SirqulIoTPlatform.RetailerLocationApi* | [**getRetailerLocation**](docs/RetailerLocationApi.md#getRetailerLocation) | **GET** /api/{version}/retailer/location/get | Get Retailer Location
-*SirqulIoTPlatform.RetailerLocationApi* | [**getRetailerLocationConsumer**](docs/RetailerLocationApi.md#getRetailerLocationConsumer) | **GET** /api/{version}/location/get | Get Retailer Location (Consumer)
-*SirqulIoTPlatform.RetailerLocationApi* | [**indexedRetailerLocationDistanceSearch**](docs/RetailerLocationApi.md#indexedRetailerLocationDistanceSearch) | **GET** /api/{version}/retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
-*SirqulIoTPlatform.RetailerLocationApi* | [**indexedRetailerLocationSearch**](docs/RetailerLocationApi.md#indexedRetailerLocationSearch) | **GET** /api/{version}/retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
-*SirqulIoTPlatform.RetailerLocationApi* | [**searchRetailerLocations**](docs/RetailerLocationApi.md#searchRetailerLocations) | **GET** /api/{version}/retailer/location/search | Search Retailer Locations (Owned)
-*SirqulIoTPlatform.RetailerLocationApi* | [**updateRetailerLocations**](docs/RetailerLocationApi.md#updateRetailerLocations) | **POST** /api/{version}/retailer/location/update | Update Retailer Location
-*SirqulIoTPlatform.RetailerV2Api* | [**getRetaokiler**](docs/RetailerV2Api.md#getRetaokiler) | **GET** /api/{version}/retailer | Get Retailer
-*SirqulIoTPlatform.RouteApi* | [**approveRoute**](docs/RouteApi.md#approveRoute) | **POST** /api/{version}/route/{routeId}/approve | Approve Route
-*SirqulIoTPlatform.RouteApi* | [**copyRoute**](docs/RouteApi.md#copyRoute) | **POST** /api/{version}/route/{routeId}/copy | Copy Route
-*SirqulIoTPlatform.RouteApi* | [**createRoute**](docs/RouteApi.md#createRoute) | **POST** /api/{version}/route | Create Route
-*SirqulIoTPlatform.RouteApi* | [**createRouteDirections**](docs/RouteApi.md#createRouteDirections) | **PUT** /api/{version}/route/{routeId}/directions | Update Route Directions
-*SirqulIoTPlatform.RouteApi* | [**createRoutePolyline**](docs/RouteApi.md#createRoutePolyline) | **PUT** /api/{version}/route/{routeId}/polyline | Create Route Polyline
-*SirqulIoTPlatform.RouteApi* | [**deleteRoute**](docs/RouteApi.md#deleteRoute) | **DELETE** /api/{version}/route/{routeId} | Delete Route
-*SirqulIoTPlatform.RouteApi* | [**disapproveRoute**](docs/RouteApi.md#disapproveRoute) | **POST** /api/{version}/route/{routeId}/disapprove | Disapprove Route
-*SirqulIoTPlatform.RouteApi* | [**getRoute**](docs/RouteApi.md#getRoute) | **GET** /api/{version}/route/{routeId} | Get Route
-*SirqulIoTPlatform.RouteApi* | [**getRouteDirections**](docs/RouteApi.md#getRouteDirections) | **GET** /api/{version}/route/{routeId}/directions | Get Route Directions
-*SirqulIoTPlatform.RouteApi* | [**getRouteShipments**](docs/RouteApi.md#getRouteShipments) | **GET** /api/{version}/route/{routeId}/shipments | Get Route Shipments
-*SirqulIoTPlatform.RouteApi* | [**getRouteStop**](docs/RouteApi.md#getRouteStop) | **GET** /api/{version}/route/{routeId}/stop/{stopId} | Get Route Stop
-*SirqulIoTPlatform.RouteApi* | [**getRouteStops**](docs/RouteApi.md#getRouteStops) | **GET** /api/{version}/route/{routeId}/stops | Get Route Stops
-*SirqulIoTPlatform.RouteApi* | [**getShipmentsAtStop**](docs/RouteApi.md#getShipmentsAtStop) | **GET** /api/{version}/route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
-*SirqulIoTPlatform.RouteApi* | [**optimizeRoute**](docs/RouteApi.md#optimizeRoute) | **POST** /api/{version}/route/{routeId}/optimize | Optimize Route
-*SirqulIoTPlatform.RouteApi* | [**removeStop**](docs/RouteApi.md#removeStop) | **DELETE** /api/{version}/route/{routeId}/stop/{stopId} | Delete Stop
-*SirqulIoTPlatform.RouteApi* | [**reorderRouteStopsPatch**](docs/RouteApi.md#reorderRouteStopsPatch) | **PATCH** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*SirqulIoTPlatform.RouteApi* | [**reorderRouteStopsPost**](docs/RouteApi.md#reorderRouteStopsPost) | **POST** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*SirqulIoTPlatform.RouteApi* | [**searchRoutes**](docs/RouteApi.md#searchRoutes) | **GET** /api/{version}/route | Search Routes
-*SirqulIoTPlatform.RouteApi* | [**setDriver**](docs/RouteApi.md#setDriver) | **POST** /api/{version}/route/{id}/driver/{driverId} | Set Driver
-*SirqulIoTPlatform.RouteApi* | [**updateRoute**](docs/RouteApi.md#updateRoute) | **PUT** /api/{version}/route/{routeId} | Update Route
-*SirqulIoTPlatform.RouteApi* | [**updateRouteStop**](docs/RouteApi.md#updateRouteStop) | **PUT** /api/{version}/route/{routeId}/stop/{stopId} | Update Route Stop
-*SirqulIoTPlatform.RouteSettingApi* | [**createRouteSettings**](docs/RouteSettingApi.md#createRouteSettings) | **POST** /api/{version}/route/setting | Create Route Setting
-*SirqulIoTPlatform.RouteSettingApi* | [**deleteRouteSettings**](docs/RouteSettingApi.md#deleteRouteSettings) | **DELETE** /api/{version}/route/setting/{routeSettingsId} | Delete Route Setting
-*SirqulIoTPlatform.RouteSettingApi* | [**getRouteSettings**](docs/RouteSettingApi.md#getRouteSettings) | **GET** /api/{version}/route/setting/{routeSettingsId} | Get Route Setting
-*SirqulIoTPlatform.RouteSettingApi* | [**searchRouteSettings**](docs/RouteSettingApi.md#searchRouteSettings) | **GET** /api/{version}/route/setting | Search Route Settings
-*SirqulIoTPlatform.RouteSettingApi* | [**updateRouteSettings**](docs/RouteSettingApi.md#updateRouteSettings) | **PUT** /api/{version}/route/setting/{routeSettingsId} | Update Route Setting
-*SirqulIoTPlatform.RoutingApi* | [**computeRouting**](docs/RoutingApi.md#computeRouting) | **POST** /api/{version}/routing/compute | Compute Route
-*SirqulIoTPlatform.ScheduledNotificationApi* | [**createScheduledNotification**](docs/ScheduledNotificationApi.md#createScheduledNotification) | **POST** /api/{version}/notification/schedule/create | Create Scheduled Notification
-*SirqulIoTPlatform.ScheduledNotificationApi* | [**deleteScheduledNotification**](docs/ScheduledNotificationApi.md#deleteScheduledNotification) | **POST** /api/{version}/notification/schedule/delete | Delete Scheduled Notification
-*SirqulIoTPlatform.ScheduledNotificationApi* | [**getScheduledNotification**](docs/ScheduledNotificationApi.md#getScheduledNotification) | **GET** /api/{version}/notification/schedule/get | Get Scheduled Notification
-*SirqulIoTPlatform.ScheduledNotificationApi* | [**scheduleNotificationListings**](docs/ScheduledNotificationApi.md#scheduleNotificationListings) | **POST** /api/{version}/notification/schedule/generate | Generate Schedule Notifications
-*SirqulIoTPlatform.ScheduledNotificationApi* | [**searchScheduledNotifications**](docs/ScheduledNotificationApi.md#searchScheduledNotifications) | **GET** /api/{version}/notification/schedule/search | Search Scheduled Notifications
-*SirqulIoTPlatform.ScheduledNotificationApi* | [**updateScheduledNotification**](docs/ScheduledNotificationApi.md#updateScheduledNotification) | **POST** /api/{version}/notification/schedule/update | Update Scheduled Notification
-*SirqulIoTPlatform.ScoreApi* | [**createScore**](docs/ScoreApi.md#createScore) | **POST** /api/{version}/score/create | Create Score
-*SirqulIoTPlatform.ScoreApi* | [**getScore**](docs/ScoreApi.md#getScore) | **GET** /api/{version}/score/get | Get Score
-*SirqulIoTPlatform.ScoreApi* | [**searchScores**](docs/ScoreApi.md#searchScores) | **GET** /api/{version}/score/search | Search Score
-*SirqulIoTPlatform.SecureAppApi* | [**createSecureApplication**](docs/SecureAppApi.md#createSecureApplication) | **POST** /api/{version}/secure/application/create | Create Secure Application
-*SirqulIoTPlatform.SecureAppApi* | [**deleteSecureApplication**](docs/SecureAppApi.md#deleteSecureApplication) | **POST** /api/{version}/secure/application/delete | Delete Secure Application
-*SirqulIoTPlatform.SecureAppApi* | [**loginSecure**](docs/SecureAppApi.md#loginSecure) | **POST** /api/{version}/secure/login | Login Clear
-*SirqulIoTPlatform.SecureAppApi* | [**purchaseSecure**](docs/SecureAppApi.md#purchaseSecure) | **POST** /api/{version}/secure/purchase | Purchase Clear
-*SirqulIoTPlatform.SecureAppApi* | [**resetSecure**](docs/SecureAppApi.md#resetSecure) | **POST** /api/{version}/secure/application/reset | Rest Secure Application
-*SirqulIoTPlatform.SecureAppApi* | [**updateSecureApplication**](docs/SecureAppApi.md#updateSecureApplication) | **POST** /api/{version}/secure/application/update | Update Secure Application
-*SirqulIoTPlatform.ServiceHubApi* | [**createServiceHub**](docs/ServiceHubApi.md#createServiceHub) | **POST** /api/{version}/hub | Create Service Hub
-*SirqulIoTPlatform.ServiceHubApi* | [**deleteServiceHub**](docs/ServiceHubApi.md#deleteServiceHub) | **DELETE** /api/{version}/hub/{id} | Delete Service Hub
-*SirqulIoTPlatform.ServiceHubApi* | [**getServiceHub**](docs/ServiceHubApi.md#getServiceHub) | **GET** /api/{version}/hub/{id} | Get Service Hub
-*SirqulIoTPlatform.ServiceHubApi* | [**postServiceHub**](docs/ServiceHubApi.md#postServiceHub) | **POST** /api/{version}/hub/{id} | Update Service Hub
-*SirqulIoTPlatform.ServiceHubApi* | [**putServiceHub**](docs/ServiceHubApi.md#putServiceHub) | **PUT** /api/{version}/hub/{id} | Update Service Hub
-*SirqulIoTPlatform.ServiceHubApi* | [**searchServiceHubs**](docs/ServiceHubApi.md#searchServiceHubs) | **GET** /api/{version}/hub | Search Service Hubs
-*SirqulIoTPlatform.ShipmentApi* | [**cancelShipment**](docs/ShipmentApi.md#cancelShipment) | **POST** /api/{version}/shipment/{id}/cancel | Cancel Shipment
-*SirqulIoTPlatform.ShipmentApi* | [**createShipment**](docs/ShipmentApi.md#createShipment) | **POST** /api/{version}/shipment | Create Shipment
-*SirqulIoTPlatform.ShipmentApi* | [**deleteShipment**](docs/ShipmentApi.md#deleteShipment) | **DELETE** /api/{version}/shipment/{id} | Delete Shipment
-*SirqulIoTPlatform.ShipmentApi* | [**getShipment**](docs/ShipmentApi.md#getShipment) | **GET** /api/{version}/shipment/{id} | Get Shipment
-*SirqulIoTPlatform.ShipmentApi* | [**searchShipments**](docs/ShipmentApi.md#searchShipments) | **GET** /api/{version}/shipment | Search Shipments
-*SirqulIoTPlatform.ShipmentApi* | [**updateShipment**](docs/ShipmentApi.md#updateShipment) | **PUT** /api/{version}/shipment/{id} | Update Shipment
-*SirqulIoTPlatform.ShipmentApi* | [**updateShipmentStatus**](docs/ShipmentApi.md#updateShipmentStatus) | **POST** /api/{version}/shipment/{id}/status | Uupdate Shipment Status
-*SirqulIoTPlatform.ShipmentBatchApi* | [**createShipmentBatch**](docs/ShipmentBatchApi.md#createShipmentBatch) | **POST** /api/{version}/shipment/batch | Create Shipment Batch
-*SirqulIoTPlatform.ShipmentBatchApi* | [**deleteShipmentBatch**](docs/ShipmentBatchApi.md#deleteShipmentBatch) | **DELETE** /api/{version}/shipment/batch/{batchId} | Delete Shipment Batch
-*SirqulIoTPlatform.ShipmentBatchApi* | [**getShipmentBatch**](docs/ShipmentBatchApi.md#getShipmentBatch) | **GET** /api/{version}/shipment/batch/{batchId} | Get Shipment Batch
-*SirqulIoTPlatform.ShipmentBatchApi* | [**getShipmentBatchStatus**](docs/ShipmentBatchApi.md#getShipmentBatchStatus) | **GET** /api/{version}/shipment/batch/{batchId}/status | Get Shipment Batch Status
-*SirqulIoTPlatform.ShipmentBatchApi* | [**searchShipmentBatch**](docs/ShipmentBatchApi.md#searchShipmentBatch) | **GET** /api/{version}/shipment/batch | Search Shipment Batch
-*SirqulIoTPlatform.SimulationApi* | [**simulation**](docs/SimulationApi.md#simulation) | **POST** /api/{version}/simulation/routing | Routing Simulation
-*SirqulIoTPlatform.StopApi* | [**getStop**](docs/StopApi.md#getStop) | **GET** /api/{version}/stop/{id} | Get Stop
-*SirqulIoTPlatform.StopApi* | [**updateStop**](docs/StopApi.md#updateStop) | **PUT** /api/{version}/stop/{id} | Update Stop
-*SirqulIoTPlatform.StripeApi* | [**createStripeCheckoutSession**](docs/StripeApi.md#createStripeCheckoutSession) | **POST** /api/{version}/stripe/checkout/session/create | Create Stripe Checkout Session
-*SirqulIoTPlatform.SubscriptionApi* | [**createSubscription**](docs/SubscriptionApi.md#createSubscription) | **POST** /api/{version}/subscription/create | Create Subscription
-*SirqulIoTPlatform.SubscriptionApi* | [**deleteSubscription**](docs/SubscriptionApi.md#deleteSubscription) | **POST** /api/{version}/subscription/delete | Delete Subscription
-*SirqulIoTPlatform.SubscriptionApi* | [**getSubscription**](docs/SubscriptionApi.md#getSubscription) | **GET** /api/{version}/subscription/get | Get Subscription
-*SirqulIoTPlatform.SubscriptionApi* | [**getSubscriptionPlan**](docs/SubscriptionApi.md#getSubscriptionPlan) | **GET** /api/{version}/subscription/plan/get | Get Subscription Plan
-*SirqulIoTPlatform.SubscriptionApi* | [**getSubscriptionPlans**](docs/SubscriptionApi.md#getSubscriptionPlans) | **GET** /api/{version}/subscription/plan/list | List Subscription Plans
-*SirqulIoTPlatform.SubscriptionApi* | [**getSubscriptionUsage**](docs/SubscriptionApi.md#getSubscriptionUsage) | **GET** /api/{version}/subscription/usage/get | Get Subscription Usage
-*SirqulIoTPlatform.SubscriptionApi* | [**updateSubscription**](docs/SubscriptionApi.md#updateSubscription) | **POST** /api/{version}/subscription/update | Update Subscription
-*SirqulIoTPlatform.TaskApi* | [**createTask**](docs/TaskApi.md#createTask) | **POST** /api/{version}/task/create | Create Task
-*SirqulIoTPlatform.TaskApi* | [**deleteTask**](docs/TaskApi.md#deleteTask) | **POST** /api/{version}/task/delete | Delete Task
-*SirqulIoTPlatform.TaskApi* | [**getTask**](docs/TaskApi.md#getTask) | **GET** /api/{version}/task/get | Get Task
-*SirqulIoTPlatform.TaskApi* | [**searchTasks**](docs/TaskApi.md#searchTasks) | **GET** /api/{version}/task/search | Search Tasks
-*SirqulIoTPlatform.TaskApi* | [**updateTask**](docs/TaskApi.md#updateTask) | **POST** /api/{version}/task/update | Update Task
-*SirqulIoTPlatform.TerritoryApi* | [**createTerritory**](docs/TerritoryApi.md#createTerritory) | **POST** /api/{version}/territory/create | Create Territory
-*SirqulIoTPlatform.TerritoryApi* | [**deleteTerritory**](docs/TerritoryApi.md#deleteTerritory) | **POST** /api/{version}/territory/delete | Delete Territory
-*SirqulIoTPlatform.TerritoryApi* | [**getTerritory**](docs/TerritoryApi.md#getTerritory) | **GET** /api/{version}/territory/get | Get Territory
-*SirqulIoTPlatform.TerritoryApi* | [**searchTerritories**](docs/TerritoryApi.md#searchTerritories) | **GET** /api/{version}/territory/search | Search Territories
-*SirqulIoTPlatform.TerritoryApi* | [**updateTerritory**](docs/TerritoryApi.md#updateTerritory) | **POST** /api/{version}/territory/update | Update Territory
-*SirqulIoTPlatform.ThemeDescriptorApi* | [**addOrUpdateThemeDescriptor**](docs/ThemeDescriptorApi.md#addOrUpdateThemeDescriptor) | **POST** /api/{version}/consumer/theme | Create/Update Theme
-*SirqulIoTPlatform.ThemeDescriptorApi* | [**getThemeDescriptor**](docs/ThemeDescriptorApi.md#getThemeDescriptor) | **GET** /api/{version}/consumer/theme/get | Get Theme
-*SirqulIoTPlatform.ThemeDescriptorApi* | [**getThemeDescriptors**](docs/ThemeDescriptorApi.md#getThemeDescriptors) | **GET** /api/{version}/consumer/theme/search | Search Themes
-*SirqulIoTPlatform.ThemeDescriptorApi* | [**removeThemeDescriptor**](docs/ThemeDescriptorApi.md#removeThemeDescriptor) | **POST** /api/{version}/consumer/theme/remove | Delete Theme
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**createCredential**](docs/ThirdPartyCredentialsApi.md#createCredential) | **POST** /api/{version}/thirdparty/credential/create | Create Credential
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**createNetwork**](docs/ThirdPartyCredentialsApi.md#createNetwork) | **POST** /api/{version}/thirdparty/network/create | Create Network
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**deleteCredential**](docs/ThirdPartyCredentialsApi.md#deleteCredential) | **POST** /api/{version}/thirdparty/credential/delete | Delete Credential
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**deleteNetwork**](docs/ThirdPartyCredentialsApi.md#deleteNetwork) | **POST** /api/{version}/thirdparty/network/delete | Delete Network
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**getCredential**](docs/ThirdPartyCredentialsApi.md#getCredential) | **POST** /api/{version}/thirdparty/credential/get | Get Credential
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**getNetwork**](docs/ThirdPartyCredentialsApi.md#getNetwork) | **GET** /api/{version}/thirdparty/network/get | Get Network
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**searchCredentials**](docs/ThirdPartyCredentialsApi.md#searchCredentials) | **GET** /api/{version}/thirdparty/credential/search | Search Credentials
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**searchNetworks**](docs/ThirdPartyCredentialsApi.md#searchNetworks) | **GET** /api/{version}/thirdparty/network/search | Search Networks
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**sendMFAChallenge**](docs/ThirdPartyCredentialsApi.md#sendMFAChallenge) | **POST** /api/{version}/thirdparty/credential/mfa/send | Send MFA Challenge
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**updateCredential**](docs/ThirdPartyCredentialsApi.md#updateCredential) | **POST** /api/{version}/thirdparty/credential/update | Update Credential
-*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**updateNetwork**](docs/ThirdPartyCredentialsApi.md#updateNetwork) | **POST** /api/{version}/thirdparty/network/update | Update Network
-*SirqulIoTPlatform.TicketApi* | [**getTicketCount**](docs/TicketApi.md#getTicketCount) | **GET** /api/{version}/ticket/count | Get Ticket Count
-*SirqulIoTPlatform.TicketApi* | [**getTicketList**](docs/TicketApi.md#getTicketList) | **GET** /api/{version}/ticket/getList | Get Ticket List
-*SirqulIoTPlatform.TicketApi* | [**giftPurchase**](docs/TicketApi.md#giftPurchase) | **POST** /api/{version}/purchase/gift | Gift Tickets
-*SirqulIoTPlatform.TicketApi* | [**saveTicket**](docs/TicketApi.md#saveTicket) | **POST** /api/{version}/ticket/save | Save Ticket
-*SirqulIoTPlatform.TicketApi* | [**saveTicketViaFileUpload**](docs/TicketApi.md#saveTicketViaFileUpload) | **POST** /api/{version}/ticket/save/fileUpload | Save Ticket with Reciept
-*SirqulIoTPlatform.TicketApi* | [**ticketOffers**](docs/TicketApi.md#ticketOffers) | **GET** /api/{version}/ticket/ticketoffers | Get Ticket Offers
-*SirqulIoTPlatform.TournamentApi* | [**createTournament**](docs/TournamentApi.md#createTournament) | **POST** /api/{version}/tournament/create | Create Tournament
-*SirqulIoTPlatform.TournamentApi* | [**deleteTournament**](docs/TournamentApi.md#deleteTournament) | **POST** /api/{version}/tournament/delete | Delete Tournament
-*SirqulIoTPlatform.TournamentApi* | [**getTournament**](docs/TournamentApi.md#getTournament) | **GET** /api/{version}/tournament/get | Get Tournament
-*SirqulIoTPlatform.TournamentApi* | [**searchObjects**](docs/TournamentApi.md#searchObjects) | **GET** /api/{version}/tournament/object/search | Search Tournament Objects
-*SirqulIoTPlatform.TournamentApi* | [**searchRounds**](docs/TournamentApi.md#searchRounds) | **GET** /api/{version}/tournament/round/search | Search Tournament Rounds
-*SirqulIoTPlatform.TournamentApi* | [**searchTournaments**](docs/TournamentApi.md#searchTournaments) | **GET** /api/{version}/tournament/search | Search Tournaments
-*SirqulIoTPlatform.TournamentApi* | [**submitTournamentScore**](docs/TournamentApi.md#submitTournamentScore) | **POST** /api/{version}/tournament/score | Submit Tournament Score
-*SirqulIoTPlatform.TournamentApi* | [**submitTournamentVote**](docs/TournamentApi.md#submitTournamentVote) | **POST** /api/{version}/tournament/vote | Submit a vote for a multi-stage album tournament.
-*SirqulIoTPlatform.TournamentApi* | [**substituteTournamentPlayer**](docs/TournamentApi.md#substituteTournamentPlayer) | **POST** /api/{version}/tournament/substitute | Substitute Tournament Player
-*SirqulIoTPlatform.TournamentApi* | [**updateTournament**](docs/TournamentApi.md#updateTournament) | **POST** /api/{version}/tournament/update | Update Tournament
-*SirqulIoTPlatform.TrackingApi* | [**batchSaveTracking**](docs/TrackingApi.md#batchSaveTracking) | **POST** /api/{version}/tracking/batch/create | Create Batch Tracking
-*SirqulIoTPlatform.TrackingApi* | [**getPredictedLocations**](docs/TrackingApi.md#getPredictedLocations) | **GET** /api/{version}/tracking/predicted/get | Get Predicted Locations
-*SirqulIoTPlatform.TrackingApi* | [**getPredictedPath**](docs/TrackingApi.md#getPredictedPath) | **GET** /api/{version}/tracking/path/get | Get Tracking Path
-*SirqulIoTPlatform.TrackingApi* | [**getPreferredLocations**](docs/TrackingApi.md#getPreferredLocations) | **GET** /api/{version}/tracking/preferred/search | Search Preferred Locations
-*SirqulIoTPlatform.TrackingApi* | [**getTrackingLegs**](docs/TrackingApi.md#getTrackingLegs) | **GET** /api/{version}/tracking/search | Search Tracking
-*SirqulIoTPlatform.TrackingApi* | [**saveTrackingLeg**](docs/TrackingApi.md#saveTrackingLeg) | **POST** /api/{version}/tracking/leg/create | Create Tracking Leg
-*SirqulIoTPlatform.TrackingApi* | [**saveTrackingStep**](docs/TrackingApi.md#saveTrackingStep) | **POST** /api/{version}/tracking/step/create | Create Tracking Step
-*SirqulIoTPlatform.TrackingApi* | [**searchAccountsWithTrackingLegs**](docs/TrackingApi.md#searchAccountsWithTrackingLegs) | **GET** /api/{version}/tracking/list | List Tracking
-*SirqulIoTPlatform.TrackingApi* | [**searchTrackingLegs**](docs/TrackingApi.md#searchTrackingLegs) | **GET** /api/{version}/tracking/searchByBillable | Search Tracking (Billable)
-*SirqulIoTPlatform.TriggerApi* | [**createTrigger**](docs/TriggerApi.md#createTrigger) | **POST** /api/{version}/trigger/create | Create Trigger
-*SirqulIoTPlatform.TriggerApi* | [**deleteTrigger**](docs/TriggerApi.md#deleteTrigger) | **POST** /api/{version}/trigger/delete | Delete Trigger
-*SirqulIoTPlatform.TriggerApi* | [**getTrigger**](docs/TriggerApi.md#getTrigger) | **GET** /api/{version}/trigger/get | Get Trigger
-*SirqulIoTPlatform.TriggerApi* | [**searchTriggers**](docs/TriggerApi.md#searchTriggers) | **GET** /api/{version}/trigger/search | Search Triggers
-*SirqulIoTPlatform.TriggerApi* | [**updateTrigger**](docs/TriggerApi.md#updateTrigger) | **POST** /api/{version}/trigger/update | Update Trigger
-*SirqulIoTPlatform.TripApi* | [**callDelete**](docs/TripApi.md#callDelete) | **DELETE** /api/{version}/trip/{id} | Delete Trip
-*SirqulIoTPlatform.TripApi* | [**createTrip**](docs/TripApi.md#createTrip) | **POST** /api/{version}/trip | Create Trip
-*SirqulIoTPlatform.TripApi* | [**driveTrip**](docs/TripApi.md#driveTrip) | **POST** /api/{version}/trip/{id}/drive | Set Trip Preference Driver
-*SirqulIoTPlatform.TripApi* | [**flexibleTrip**](docs/TripApi.md#flexibleTrip) | **POST** /api/{version}/trip/{id}/flexible | Set Trip Preference Flexible
-*SirqulIoTPlatform.TripApi* | [**getTrip**](docs/TripApi.md#getTrip) | **GET** /api/{version}/trip/{id} | Get Trip
-*SirqulIoTPlatform.TripApi* | [**getTripMatches**](docs/TripApi.md#getTripMatches) | **GET** /api/{version}/trip/{id}/match | Get Trip Matches
-*SirqulIoTPlatform.TripApi* | [**processTripMatches**](docs/TripApi.md#processTripMatches) | **POST** /api/{version}/trip/match/process | Process Trip Matches
-*SirqulIoTPlatform.TripApi* | [**ride**](docs/TripApi.md#ride) | **POST** /api/{version}/trip/{id}/ride | Set Trip Preference Rider
-*SirqulIoTPlatform.TripApi* | [**search**](docs/TripApi.md#search) | **GET** /api/{version}/trip | Search Trips
-*SirqulIoTPlatform.TripApi* | [**searchTrips**](docs/TripApi.md#searchTrips) | **GET** /api/{version}/trip/match | Search Trips
-*SirqulIoTPlatform.TripApi* | [**updateLocations**](docs/TripApi.md#updateLocations) | **POST** /api/{version}/trip/{id}/locations | Update Trip Locations
-*SirqulIoTPlatform.TripApi* | [**updateRecurrenceLocations**](docs/TripApi.md#updateRecurrenceLocations) | **POST** /api/{version}/trip/{id}/locations/recurrence | Update Recurrence Locations
-*SirqulIoTPlatform.TripApi* | [**updateRecurrenceShipments**](docs/TripApi.md#updateRecurrenceShipments) | **POST** /api/{version}/trip/{id}/shipments/recurrence | Update Recurrence Shipments
-*SirqulIoTPlatform.TripApi* | [**updateShipments**](docs/TripApi.md#updateShipments) | **POST** /api/{version}/trip/{id}/shipments | Update Trip Shipments
-*SirqulIoTPlatform.TripApi* | [**updateTrip**](docs/TripApi.md#updateTrip) | **PUT** /api/{version}/trip/{id} | Update Trip
-*SirqulIoTPlatform.TripApi* | [**updateTripNotifications**](docs/TripApi.md#updateTripNotifications) | **POST** /api/{version}/trip/notifications | Trip Notifications
-*SirqulIoTPlatform.TwilioApi* | [**smsBuyOffer**](docs/TwilioApi.md#smsBuyOffer) | **POST** /api/{version}/sms/buyoffer/{appKey} | Buy Offer by SMS
-*SirqulIoTPlatform.TwitterApi* | [**authorizeTwitter**](docs/TwitterApi.md#authorizeTwitter) | **POST** /api/{version}/twitter/authorize | Authorize Twitter
-*SirqulIoTPlatform.TwitterApi* | [**loginTwitter**](docs/TwitterApi.md#loginTwitter) | **POST** /api/{version}/twitter/login | Login Twitter
-*SirqulIoTPlatform.UserPermissionsApi* | [**addUsersToPermissionable**](docs/UserPermissionsApi.md#addUsersToPermissionable) | **POST** /api/{version}/consumer/permissions/add | Add User
-*SirqulIoTPlatform.UserPermissionsApi* | [**approvePermissionable**](docs/UserPermissionsApi.md#approvePermissionable) | **POST** /api/{version}/permissionable/approve | Approve Permissionable
-*SirqulIoTPlatform.UserPermissionsApi* | [**leaveFromPermissionable**](docs/UserPermissionsApi.md#leaveFromPermissionable) | **POST** /api/{version}/consumer/permissions/leave | Leave
-*SirqulIoTPlatform.UserPermissionsApi* | [**removeUsersFromPermissionable**](docs/UserPermissionsApi.md#removeUsersFromPermissionable) | **POST** /api/{version}/consumer/permissions/remove | Remove User
-*SirqulIoTPlatform.UserPermissionsApi* | [**searchPermissionables**](docs/UserPermissionsApi.md#searchPermissionables) | **GET** /api/{version}/permissions/search | Search Permissionables
-*SirqulIoTPlatform.UserPermissionsApi* | [**searchPermissionablesFollowingDistance**](docs/UserPermissionsApi.md#searchPermissionablesFollowingDistance) | **GET** /api/{version}/permissions/distancesearch | Search Permissionables by Distnace
-*SirqulIoTPlatform.VatomApi* | [**createFollowing**](docs/VatomApi.md#createFollowing) | **POST** /api/{version}/vatom/me/rels/following/create | Create following
-*SirqulIoTPlatform.VatomApi* | [**createSpace**](docs/VatomApi.md#createSpace) | **POST** /api/{version}/vatom/b/spaces/create | Create Vatom Space
-*SirqulIoTPlatform.VatomApi* | [**createVatomEvent**](docs/VatomApi.md#createVatomEvent) | **POST** /api/{version}/vatom/b/events/create | Create Vatom Event
-*SirqulIoTPlatform.VatomApi* | [**deleteFollowing**](docs/VatomApi.md#deleteFollowing) | **POST** /api/{version}/vatom/me/rels/following/delete | Delete following
-*SirqulIoTPlatform.VatomApi* | [**deletePointsBalance**](docs/VatomApi.md#deletePointsBalance) | **POST** /api/{version}/vatom/b/campaign/points/delete | Reset All Points Balance
-*SirqulIoTPlatform.VatomApi* | [**deleteSpace**](docs/VatomApi.md#deleteSpace) | **POST** /api/{version}/vatom/b/spaces/delete | Delete Vatom Space
-*SirqulIoTPlatform.VatomApi* | [**deleteVatomEvent**](docs/VatomApi.md#deleteVatomEvent) | **POST** /api/{version}/vatom/b/events/delete | Delete Vatom Event
-*SirqulIoTPlatform.VatomApi* | [**deleteVatomNFT**](docs/VatomApi.md#deleteVatomNFT) | **POST** /api/{version}/vatom/vatoms/delete | Delete Vatom NFT
-*SirqulIoTPlatform.VatomApi* | [**executeActionOnNFT**](docs/VatomApi.md#executeActionOnNFT) | **POST** /api/{version}/vatom/vatoms/execute-action | Execute Action on NFT
-*SirqulIoTPlatform.VatomApi* | [**geomapSearch**](docs/VatomApi.md#geomapSearch) | **GET** /api/{version}/vatom/vatoms/geo-map/search | Search Vatom Geo Map
-*SirqulIoTPlatform.VatomApi* | [**getBusinessBehaviors**](docs/VatomApi.md#getBusinessBehaviors) | **GET** /api/{version}/vatom/b/behaviors | Get Vatom Business Behaviors
-*SirqulIoTPlatform.VatomApi* | [**getBusinessCoinsBalance**](docs/VatomApi.md#getBusinessCoinsBalance) | **GET** /api/{version}/vatom/b/coins/get | Get the coins for a Business
-*SirqulIoTPlatform.VatomApi* | [**getBusinessIds**](docs/VatomApi.md#getBusinessIds) | **GET** /api/{version}/vatom/me/businesses | Get the user business ids
-*SirqulIoTPlatform.VatomApi* | [**getBusinessInfo**](docs/VatomApi.md#getBusinessInfo) | **GET** /api/{version}/vatom/b/get | Get Vatom Business Info
-*SirqulIoTPlatform.VatomApi* | [**getBusinessUsers**](docs/VatomApi.md#getBusinessUsers) | **GET** /api/{version}/vatom/b/users | Get Vatom Business Users
-*SirqulIoTPlatform.VatomApi* | [**getCampaignGroupEntities**](docs/VatomApi.md#getCampaignGroupEntities) | **GET** /api/{version}/vatom/b/campaign-groups/entities | Get Campaign Group Entities
-*SirqulIoTPlatform.VatomApi* | [**getCampaignGroupRules**](docs/VatomApi.md#getCampaignGroupRules) | **GET** /api/{version}/vatom/b/campaign-groups/rules | Get Campaign Group Rules
-*SirqulIoTPlatform.VatomApi* | [**getCampaignGroupStats**](docs/VatomApi.md#getCampaignGroupStats) | **GET** /api/{version}/vatom/b/campaign-groups/stats | Get Campaign Group Stats
-*SirqulIoTPlatform.VatomApi* | [**getCampaignInfo**](docs/VatomApi.md#getCampaignInfo) | **GET** /api/{version}/vatom/b/campaign-groups/get | Get Campaign Info
-*SirqulIoTPlatform.VatomApi* | [**getEventGuestList**](docs/VatomApi.md#getEventGuestList) | **GET** /api/{version}/vatom/b/events/guests/get | Get Vatom Event Guest List
-*SirqulIoTPlatform.VatomApi* | [**getInventory**](docs/VatomApi.md#getInventory) | **GET** /api/{version}/vatom/me/inventory | Get Vatom User&#39;s Inventory
-*SirqulIoTPlatform.VatomApi* | [**getMyFollowing**](docs/VatomApi.md#getMyFollowing) | **GET** /api/{version}/vatom/me/rels/following | Get following
-*SirqulIoTPlatform.VatomApi* | [**getPointsBalance**](docs/VatomApi.md#getPointsBalance) | **GET** /api/{version}/vatom/u/campaign/points/get | Get Points Balance
-*SirqulIoTPlatform.VatomApi* | [**getPointsBalanceAsBusiness**](docs/VatomApi.md#getPointsBalanceAsBusiness) | **GET** /api/{version}/vatom/b/campaign/u/points/get | Get Points Balance as Business
-*SirqulIoTPlatform.VatomApi* | [**getSpace**](docs/VatomApi.md#getSpace) | **GET** /api/{version}/vatom/b/spaces/get | Get Vatom Space
-*SirqulIoTPlatform.VatomApi* | [**getUserCoinsAsBusiness**](docs/VatomApi.md#getUserCoinsAsBusiness) | **GET** /api/{version}/vatom/b/users/coins/get | Get the coins for a user (as a Business)
-*SirqulIoTPlatform.VatomApi* | [**getUserCoinsBalance**](docs/VatomApi.md#getUserCoinsBalance) | **GET** /api/{version}/vatom/u/coins/get | Gets the coins balance for a Vatom User
-*SirqulIoTPlatform.VatomApi* | [**getUserFollowers**](docs/VatomApi.md#getUserFollowers) | **GET** /api/{version}/vatom/users/rels/followers | Get user followers
-*SirqulIoTPlatform.VatomApi* | [**getUserFollowing**](docs/VatomApi.md#getUserFollowing) | **GET** /api/{version}/vatom/users/rels/following | Get user following
-*SirqulIoTPlatform.VatomApi* | [**getUserInfo**](docs/VatomApi.md#getUserInfo) | **GET** /api/{version}/vatom/user/get | Get User Info
-*SirqulIoTPlatform.VatomApi* | [**getUserProfile**](docs/VatomApi.md#getUserProfile) | **GET** /api/{version}/vatom/me/get | Get Vatom User Profile
-*SirqulIoTPlatform.VatomApi* | [**getVatomEvent**](docs/VatomApi.md#getVatomEvent) | **GET** /api/{version}/vatom/b/events/get | Get Vatom Event
-*SirqulIoTPlatform.VatomApi* | [**getVatomNFT**](docs/VatomApi.md#getVatomNFT) | **GET** /api/{version}/vatom/vatoms/get | Get Vatom NFT Details
-*SirqulIoTPlatform.VatomApi* | [**listCommunities**](docs/VatomApi.md#listCommunities) | **GET** /api/{version}/vatom/b/communities/search | List Vatom Communities
-*SirqulIoTPlatform.VatomApi* | [**listEvents**](docs/VatomApi.md#listEvents) | **GET** /api/{version}/vatom/b/events/search | List Vatom Events
-*SirqulIoTPlatform.VatomApi* | [**listSpaces**](docs/VatomApi.md#listSpaces) | **GET** /api/{version}/vatom/b/spaces/search | List Vatom Spaces
-*SirqulIoTPlatform.VatomApi* | [**listUserCoinTransactions**](docs/VatomApi.md#listUserCoinTransactions) | **GET** /api/{version}/vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
-*SirqulIoTPlatform.VatomApi* | [**listUserCoinTransactionsAsBusiness**](docs/VatomApi.md#listUserCoinTransactionsAsBusiness) | **GET** /api/{version}/vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
-*SirqulIoTPlatform.VatomApi* | [**performActionOnNFT**](docs/VatomApi.md#performActionOnNFT) | **POST** /api/{version}/vatom/me/vatoms/actions | Perform Action on NFT
-*SirqulIoTPlatform.VatomApi* | [**redeemNFT**](docs/VatomApi.md#redeemNFT) | **POST** /api/{version}/vatom/b/redemptions | Redeem NFT
-*SirqulIoTPlatform.VatomApi* | [**redeemUserCoinsAsBusiness**](docs/VatomApi.md#redeemUserCoinsAsBusiness) | **POST** /api/{version}/vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
-*SirqulIoTPlatform.VatomApi* | [**searchBusinesses**](docs/VatomApi.md#searchBusinesses) | **GET** /api/{version}/vatom/b/search | Search for Vatom Businesses
-*SirqulIoTPlatform.VatomApi* | [**searchCampaignGroups**](docs/VatomApi.md#searchCampaignGroups) | **GET** /api/{version}/vatom/b/campaign-groups/search | Search Campaign Groups
-*SirqulIoTPlatform.VatomApi* | [**searchIdentities**](docs/VatomApi.md#searchIdentities) | **GET** /api/{version}/vatom/me/identities/search | Search User Identities
-*SirqulIoTPlatform.VatomApi* | [**searchInventory**](docs/VatomApi.md#searchInventory) | **GET** /api/{version}/vatom/user-inventory/search | Search Vatom User&#39;s Inventory
-*SirqulIoTPlatform.VatomApi* | [**sendNFT**](docs/VatomApi.md#sendNFT) | **POST** /api/{version}/vatom/b/campaigns/send | Send NFT
-*SirqulIoTPlatform.VatomApi* | [**setPointsBalanceAsBusiness**](docs/VatomApi.md#setPointsBalanceAsBusiness) | **POST** /api/{version}/vatom/b/campaign/u/points/update | Set Points Balance as Business
-*SirqulIoTPlatform.VatomApi* | [**transferUserCoins**](docs/VatomApi.md#transferUserCoins) | **POST** /api/{version}/vatom/u/coins/transfer | Transfer coins from Vatom Users
-*SirqulIoTPlatform.VatomApi* | [**updateBusinessCoins**](docs/VatomApi.md#updateBusinessCoins) | **POST** /api/{version}/vatom/b/coins/update | Fund coins for a Business
-*SirqulIoTPlatform.VatomApi* | [**updateEventGuestList**](docs/VatomApi.md#updateEventGuestList) | **POST** /api/{version}/vatom/b/events/guests/update | Update Vatom Event Guest List
-*SirqulIoTPlatform.VatomApi* | [**updateSpace**](docs/VatomApi.md#updateSpace) | **POST** /api/{version}/vatom/b/spaces/update | Update Vatom Space
-*SirqulIoTPlatform.VatomApi* | [**updateUserCoinsAsBusiness**](docs/VatomApi.md#updateUserCoinsAsBusiness) | **POST** /api/{version}/vatom/b/users/coins/update | Update the coins for a user (as a Business)
-*SirqulIoTPlatform.VatomApi* | [**updateUserProfile**](docs/VatomApi.md#updateUserProfile) | **POST** /api/{version}/vatom/me/update | Update Vatom User Profile
-*SirqulIoTPlatform.VatomApi* | [**updateVatomEvent**](docs/VatomApi.md#updateVatomEvent) | **POST** /api/{version}/vatom/b/events/update | Update Vatom Event
-*SirqulIoTPlatform.VehicleApi* | [**createVehicle**](docs/VehicleApi.md#createVehicle) | **POST** /api/{version}/vehicle | Create Vehicle
-*SirqulIoTPlatform.VehicleApi* | [**deleteVehicle**](docs/VehicleApi.md#deleteVehicle) | **DELETE** /api/{version}/vehicle/{id} | Delete Vehicle
-*SirqulIoTPlatform.VehicleApi* | [**getVehicle**](docs/VehicleApi.md#getVehicle) | **GET** /api/{version}/vehicle/{id} | Get Vehicle
-*SirqulIoTPlatform.VehicleApi* | [**searchVehicle**](docs/VehicleApi.md#searchVehicle) | **GET** /api/{version}/vehicle | Search Vehicle
-*SirqulIoTPlatform.VehicleApi* | [**updateVehicle**](docs/VehicleApi.md#updateVehicle) | **PUT** /api/{version}/vehicle/{id} | Update Vehicle
-*SirqulIoTPlatform.VehicleTypeApi* | [**createVehicleType**](docs/VehicleTypeApi.md#createVehicleType) | **POST** /api/{version}/vehicle/type | Create Vehicle Type
-*SirqulIoTPlatform.VehicleTypeApi* | [**deleteVehicleType**](docs/VehicleTypeApi.md#deleteVehicleType) | **DELETE** /api/{version}/vehicle/type/{vehicleTypeId} | Delete Vehicle Type
-*SirqulIoTPlatform.VehicleTypeApi* | [**getVehicleType**](docs/VehicleTypeApi.md#getVehicleType) | **GET** /api/{version}/vehicle/type/{vehicleTypeId} | Get Vehicle Type
-*SirqulIoTPlatform.VehicleTypeApi* | [**searchVehicleTypes**](docs/VehicleTypeApi.md#searchVehicleTypes) | **GET** /api/{version}/vehicle/type | Search Vehicle Type
-*SirqulIoTPlatform.VehicleTypeApi* | [**updateVehicleType**](docs/VehicleTypeApi.md#updateVehicleType) | **PUT** /api/{version}/vehicle/type/{vehicleTypeId} | Update Vehicle Type
-*SirqulIoTPlatform.WalletApi* | [**createOfferTransaction**](docs/WalletApi.md#createOfferTransaction) | **POST** /api/{version}/wallet/create | Create Wallet Offers
-*SirqulIoTPlatform.WalletApi* | [**deleteOfferTransaction**](docs/WalletApi.md#deleteOfferTransaction) | **POST** /api/{version}/wallet/delete | Delete Wallet Offer
-*SirqulIoTPlatform.WalletApi* | [**getOfferTransaction**](docs/WalletApi.md#getOfferTransaction) | **GET** /api/{version}/wallet/get | Get Wallet Offer
-*SirqulIoTPlatform.WalletApi* | [**previewOfferTransaction**](docs/WalletApi.md#previewOfferTransaction) | **POST** /api/{version}/wallet/preview | Preview Wallet Offers
-*SirqulIoTPlatform.WalletApi* | [**searchOfferTransactions**](docs/WalletApi.md#searchOfferTransactions) | **GET** /api/{version}/wallet/search | Search Wallet Offers
-*SirqulIoTPlatform.WalletApi* | [**updateOfferTransaction**](docs/WalletApi.md#updateOfferTransaction) | **POST** /api/{version}/wallet/update | Update Wallet Offer
-*SirqulIoTPlatform.WeatherApi* | [**searchWeather**](docs/WeatherApi.md#searchWeather) | **GET** /api/{version}/weather/search | Search Weather
-*SirqulIoTPlatform.WordApi* | [**createWord**](docs/WordApi.md#createWord) | **POST** /api/{version}/game/word/create | Create Word
-*SirqulIoTPlatform.WordApi* | [**deleteWord**](docs/WordApi.md#deleteWord) | **DELETE** /api/{version}/game/word/delete | Delete Word
-*SirqulIoTPlatform.WordApi* | [**getWord**](docs/WordApi.md#getWord) | **GET** /api/{version}/game/word/get | Get Word
-*SirqulIoTPlatform.WordApi* | [**getWords**](docs/WordApi.md#getWords) | **GET** /api/{version}/game/word/search | Search Words
-*SirqulIoTPlatform.WordApi* | [**updateWord**](docs/WordApi.md#updateWord) | **POST** /api/{version}/game/word/update | Update Word
-*SirqulIoTPlatform.WorkflowApi* | [**runWorkflow**](docs/WorkflowApi.md#runWorkflow) | **POST** /api/{version}/workflow/run | Run Workflow
+*SirqulIoTPlatform.AMQPApi* | [**consumerCreate**](docs/AMQPApi.md#consumerCreate) | **POST** /queue/consumer/create | Create Consumer
+*SirqulIoTPlatform.AMQPApi* | [**consumerUpdate**](docs/AMQPApi.md#consumerUpdate) | **POST** /queue/consumer/update | Update Consumer
+*SirqulIoTPlatform.AMQPApi* | [**queueCreate**](docs/AMQPApi.md#queueCreate) | **POST** /queue/create | Create Queue
+*SirqulIoTPlatform.AMQPApi* | [**queueDelete**](docs/AMQPApi.md#queueDelete) | **POST** /queue/delete | Delete Queue
+*SirqulIoTPlatform.AMQPApi* | [**queueGet**](docs/AMQPApi.md#queueGet) | **GET** /queue/get | Get Queue
+*SirqulIoTPlatform.AMQPApi* | [**queuePublish**](docs/AMQPApi.md#queuePublish) | **POST** /queue/publish | Publish Queue
+*SirqulIoTPlatform.AMQPApi* | [**queueSearch**](docs/AMQPApi.md#queueSearch) | **GET** /queue/search | Search Queue
+*SirqulIoTPlatform.AMQPApi* | [**queueUpdate**](docs/AMQPApi.md#queueUpdate) | **POST** /queue/update | Update Queue
+*SirqulIoTPlatform.AccountApi* | [**accountLocationSearch**](docs/AccountApi.md#accountLocationSearch) | **GET** /account/search | Search Accounts by Location
+*SirqulIoTPlatform.AccountApi* | [**blockAccount**](docs/AccountApi.md#blockAccount) | **POST** /account/block | Block Account
+*SirqulIoTPlatform.AccountApi* | [**createAccount**](docs/AccountApi.md#createAccount) | **POST** /account/create | Create Account
+*SirqulIoTPlatform.AccountApi* | [**editAccount**](docs/AccountApi.md#editAccount) | **POST** /account/profile/update | Update Account
+*SirqulIoTPlatform.AccountApi* | [**editUsername**](docs/AccountApi.md#editUsername) | **POST** /account/username/update | Update Username and Email
+*SirqulIoTPlatform.AccountApi* | [**getAccount**](docs/AccountApi.md#getAccount) | **GET** /account/profile/get | Get Account
+*SirqulIoTPlatform.AccountApi* | [**getProfileAssets**](docs/AccountApi.md#getProfileAssets) | **GET** /account/profile/assets | Get Profile Assets
+*SirqulIoTPlatform.AccountApi* | [**getReferralList**](docs/AccountApi.md#getReferralList) | **GET** /account/referral/list | Search Accounts
+*SirqulIoTPlatform.AccountApi* | [**getSettings**](docs/AccountApi.md#getSettings) | **GET** /account/settings/get | Get Account Settings
+*SirqulIoTPlatform.AccountApi* | [**loginDelegate**](docs/AccountApi.md#loginDelegate) | **POST** /account/login/delegate | Login as Account
+*SirqulIoTPlatform.AccountApi* | [**loginGeneral**](docs/AccountApi.md#loginGeneral) | **POST** /account/login | Login Account
+*SirqulIoTPlatform.AccountApi* | [**loginUsername**](docs/AccountApi.md#loginUsername) | **POST** /account/get | Login Account (Username)
+*SirqulIoTPlatform.AccountApi* | [**logout**](docs/AccountApi.md#logout) | **POST** /account/logout | Logout Account
+*SirqulIoTPlatform.AccountApi* | [**mergeAccount**](docs/AccountApi.md#mergeAccount) | **POST** /account/merge | Merge Account
+*SirqulIoTPlatform.AccountApi* | [**passwordChange**](docs/AccountApi.md#passwordChange) | **POST** /account/passwordchange | Update Password
+*SirqulIoTPlatform.AccountApi* | [**passwordReset**](docs/AccountApi.md#passwordReset) | **POST** /account/passwordreset | Reset Password
+*SirqulIoTPlatform.AccountApi* | [**requestPasswordReset**](docs/AccountApi.md#requestPasswordReset) | **POST** /account/requestpasswordreset | Request Password Reset
+*SirqulIoTPlatform.AccountApi* | [**requestValidateAccount**](docs/AccountApi.md#requestValidateAccount) | **POST** /account/requestValidateAccount | Send Validation Request
+*SirqulIoTPlatform.AccountApi* | [**searchAccounts**](docs/AccountApi.md#searchAccounts) | **GET** /account/profile/search | Search Accounts
+*SirqulIoTPlatform.AccountApi* | [**secureLogin**](docs/AccountApi.md#secureLogin) | **POST** /account/login/validate | Login Account (Encrypted Username)
+*SirqulIoTPlatform.AccountApi* | [**secureSignup**](docs/AccountApi.md#secureSignup) | **POST** /account/create/validate | Create Account (Encrypted Username)
+*SirqulIoTPlatform.AccountApi* | [**setMatchToken**](docs/AccountApi.md#setMatchToken) | **POST** /consumer/profile/matchToken | Save Match Token
+*SirqulIoTPlatform.AccountApi* | [**updateActveStatus**](docs/AccountApi.md#updateActveStatus) | **POST** /account/active/update | Update Account Active Status
+*SirqulIoTPlatform.AccountApi* | [**updateLocation**](docs/AccountApi.md#updateLocation) | **POST** /account/location/update | Update Location
+*SirqulIoTPlatform.AccountApi* | [**updateSettings**](docs/AccountApi.md#updateSettings) | **POST** /account/settings/update | Update Account Settings
+*SirqulIoTPlatform.AccountApi* | [**validateAccountSignup**](docs/AccountApi.md#validateAccountSignup) | **POST** /account/validateAccountSignup | Save Validation Status
+*SirqulIoTPlatform.AccountApi* | [**validatePasswordReset**](docs/AccountApi.md#validatePasswordReset) | **POST** /account/validatepasswordreset | Validate Password Reset Token
+*SirqulIoTPlatform.AchievementApi* | [**achievementTierSearchPost**](docs/AchievementApi.md#achievementTierSearchPost) | **POST** /achievement/tier/search | Searches an Achievement Tier
+*SirqulIoTPlatform.AchievementApi* | [**createAchievement**](docs/AchievementApi.md#createAchievement) | **POST** /achievement/create | Create Achievement
+*SirqulIoTPlatform.AchievementApi* | [**createAchievementTier**](docs/AchievementApi.md#createAchievementTier) | **POST** /achievement/tier/create | Create Achievement Tier
+*SirqulIoTPlatform.AchievementApi* | [**deleteAchievement**](docs/AchievementApi.md#deleteAchievement) | **POST** /achievement/delete | Delete Achievement
+*SirqulIoTPlatform.AchievementApi* | [**deleteAchievementTier**](docs/AchievementApi.md#deleteAchievementTier) | **POST** /achievement/tier/delete | Delete Achievement Tier
+*SirqulIoTPlatform.AchievementApi* | [**getAchievement**](docs/AchievementApi.md#getAchievement) | **GET** /achievement/get | Get Achievement
+*SirqulIoTPlatform.AchievementApi* | [**getAchievementTier**](docs/AchievementApi.md#getAchievementTier) | **POST** /achievement/tier/get | Gets an achievement tier
+*SirqulIoTPlatform.AchievementApi* | [**getUserAchievements**](docs/AchievementApi.md#getUserAchievements) | **GET** /achievement/progress/get | Get Achievement Progress
+*SirqulIoTPlatform.AchievementApi* | [**listAchievementTags**](docs/AchievementApi.md#listAchievementTags) | **GET** /achievement/tag/list | List Achievement Tags
+*SirqulIoTPlatform.AchievementApi* | [**listAchievements**](docs/AchievementApi.md#listAchievements) | **GET** /achievement/list | List Achievements
+*SirqulIoTPlatform.AchievementApi* | [**searchAchievements**](docs/AchievementApi.md#searchAchievements) | **GET** /achievement/search | Search Achievements
+*SirqulIoTPlatform.AchievementApi* | [**updateAchievement**](docs/AchievementApi.md#updateAchievement) | **POST** /achievement/update | Update Achievement
+*SirqulIoTPlatform.AchievementApi* | [**updateAchievementTier**](docs/AchievementApi.md#updateAchievementTier) | **POST** /achievement/tier/update | Update Achievement Tier
+*SirqulIoTPlatform.AchievementApi* | [**updateUserAchievement**](docs/AchievementApi.md#updateUserAchievement) | **POST** /achievement/progress/update | Update Achievement Progress
+*SirqulIoTPlatform.ActivityApi* | [**createEntityReference**](docs/ActivityApi.md#createEntityReference) | **POST** /entity/reference | Create an entity reference.
+*SirqulIoTPlatform.AlbumApi* | [**addAlbumCollection**](docs/AlbumApi.md#addAlbumCollection) | **POST** /album/create | Create Album
+*SirqulIoTPlatform.AlbumApi* | [**addAlbumUsers**](docs/AlbumApi.md#addAlbumUsers) | **POST** /album/user/add | Add Album Users
+*SirqulIoTPlatform.AlbumApi* | [**approveAlbum**](docs/AlbumApi.md#approveAlbum) | **POST** /album/approve | Approve Album
+*SirqulIoTPlatform.AlbumApi* | [**getAlbumCollection**](docs/AlbumApi.md#getAlbumCollection) | **GET** /album/get |  Get Album
+*SirqulIoTPlatform.AlbumApi* | [**leaveAlbum**](docs/AlbumApi.md#leaveAlbum) | **POST** /album/user/leave | Leave Album
+*SirqulIoTPlatform.AlbumApi* | [**removeAlbum**](docs/AlbumApi.md#removeAlbum) | **POST** /album/delete | Delete Album
+*SirqulIoTPlatform.AlbumApi* | [**removeAlbumUsers**](docs/AlbumApi.md#removeAlbumUsers) | **POST** /album/user/delete | Remove Album Users
+*SirqulIoTPlatform.AlbumApi* | [**searchAlbums**](docs/AlbumApi.md#searchAlbums) | **GET** /album/search | Search Albums
+*SirqulIoTPlatform.AlbumApi* | [**updateAlbumCollection**](docs/AlbumApi.md#updateAlbumCollection) | **POST** /album/update | Update Album
+*SirqulIoTPlatform.AnalyticsApi* | [**activities**](docs/AnalyticsApi.md#activities) | **GET** /analytics/useractivity | Get User Activity
+*SirqulIoTPlatform.AnalyticsApi* | [**aggregatedFilteredUsage**](docs/AnalyticsApi.md#aggregatedFilteredUsage) | **GET** /analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
+*SirqulIoTPlatform.AnalyticsApi* | [**filteredUsage**](docs/AnalyticsApi.md#filteredUsage) | **GET** /analytics/filteredUsage | Get Filtered Usage
+*SirqulIoTPlatform.AnalyticsApi* | [**usage**](docs/AnalyticsApi.md#usage) | **POST** /analytics/usage | Create Usage Record
+*SirqulIoTPlatform.AnalyticsApi* | [**usageBatch**](docs/AnalyticsApi.md#usageBatch) | **POST** /analytics/usage/batch | Create Multiple Usage Records
+*SirqulIoTPlatform.AppDataApi* | [**getAppData**](docs/AppDataApi.md#getAppData) | **GET** /app/get | Get App Data
+*SirqulIoTPlatform.AppDataApi* | [**postAppData**](docs/AppDataApi.md#postAppData) | **POST** /app/post | Create App Data
+*SirqulIoTPlatform.AppDataApi* | [**regenAppData**](docs/AppDataApi.md#regenAppData) | **POST** /app/regen | Regenerate App Data
+*SirqulIoTPlatform.ApplicationApi* | [**createApplication**](docs/ApplicationApi.md#createApplication) | **POST** /application/create | Create Application
+*SirqulIoTPlatform.ApplicationApi* | [**createApplicationPlacement**](docs/ApplicationApi.md#createApplicationPlacement) | **POST** /application/placement/create | Create Ad Placement
+*SirqulIoTPlatform.ApplicationApi* | [**deleteApplication**](docs/ApplicationApi.md#deleteApplication) | **POST** /application/delete | Delete Application
+*SirqulIoTPlatform.ApplicationApi* | [**deleteApplicationPlacement**](docs/ApplicationApi.md#deleteApplicationPlacement) | **POST** /application/placement/delete | Delete Ad Placement
+*SirqulIoTPlatform.ApplicationApi* | [**getApplication**](docs/ApplicationApi.md#getApplication) | **GET** /application/get | Get Application
+*SirqulIoTPlatform.ApplicationApi* | [**getApplicationPlacement**](docs/ApplicationApi.md#getApplicationPlacement) | **GET** /application/placement/get | Get Ad Placement
+*SirqulIoTPlatform.ApplicationApi* | [**getApplicationVersions**](docs/ApplicationApi.md#getApplicationVersions) | **GET** /application/versions | Get API versions
+*SirqulIoTPlatform.ApplicationApi* | [**getUniqueUsersByApp**](docs/ApplicationApi.md#getUniqueUsersByApp) | **GET** /application/users | Search Application Users
+*SirqulIoTPlatform.ApplicationApi* | [**listApplications**](docs/ApplicationApi.md#listApplications) | **GET** /application/list | List Applications
+*SirqulIoTPlatform.ApplicationApi* | [**searchApplicationPlacement**](docs/ApplicationApi.md#searchApplicationPlacement) | **GET** /application/placement/search | Search for Ad Placements
+*SirqulIoTPlatform.ApplicationApi* | [**searchApplicationSettings**](docs/ApplicationApi.md#searchApplicationSettings) | **GET** /application/settings/search | Search for Application Settings
+*SirqulIoTPlatform.ApplicationApi* | [**searchApplications**](docs/ApplicationApi.md#searchApplications) | **GET** /application/search | Search Applications
+*SirqulIoTPlatform.ApplicationApi* | [**updateApplication**](docs/ApplicationApi.md#updateApplication) | **POST** /application/update | Update Application
+*SirqulIoTPlatform.ApplicationApi* | [**updateApplicationActive**](docs/ApplicationApi.md#updateApplicationActive) | **POST** /application/active | Change Appliation Status
+*SirqulIoTPlatform.ApplicationApi* | [**updateApplicationPlacement**](docs/ApplicationApi.md#updateApplicationPlacement) | **POST** /application/placement/update | Update Ad Placement
+*SirqulIoTPlatform.ApplicationApi* | [**uploadApplicationCertificate**](docs/ApplicationApi.md#uploadApplicationCertificate) | **POST** /application/certificate/create | Create Application Certificate
+*SirqulIoTPlatform.ApplicationConfigApi* | [**createApplicationConfig**](docs/ApplicationConfigApi.md#createApplicationConfig) | **POST** /appconfig/create | Create AppConfig
+*SirqulIoTPlatform.ApplicationConfigApi* | [**deleteApplicationConfig**](docs/ApplicationConfigApi.md#deleteApplicationConfig) | **POST** /appconfig/delete | Delete AppConfig
+*SirqulIoTPlatform.ApplicationConfigApi* | [**getApplicationConfig**](docs/ApplicationConfigApi.md#getApplicationConfig) | **GET** /appconfig/get | Get AppConfig
+*SirqulIoTPlatform.ApplicationConfigApi* | [**getApplicationConfigByConfigVersion**](docs/ApplicationConfigApi.md#getApplicationConfigByConfigVersion) | **GET** /appconfig/getbyversion | Get AppConfig by Version
+*SirqulIoTPlatform.ApplicationConfigApi* | [**searchApplicationConfig**](docs/ApplicationConfigApi.md#searchApplicationConfig) | **GET** /appconfig/search | Search AppConfigs
+*SirqulIoTPlatform.ApplicationConfigApi* | [**updateApplicationConfig**](docs/ApplicationConfigApi.md#updateApplicationConfig) | **POST** /appconfig/update | Update AppConfig
+*SirqulIoTPlatform.AssetApi* | [**assetDownload**](docs/AssetApi.md#assetDownload) | **GET** /asset/download/{filename} | Download Asset
+*SirqulIoTPlatform.AssetApi* | [**assetMorph**](docs/AssetApi.md#assetMorph) | **POST** /asset/morph | Convert Offer to Creative
+*SirqulIoTPlatform.AssetApi* | [**createAsset**](docs/AssetApi.md#createAsset) | **POST** /asset/create | Create Asset
+*SirqulIoTPlatform.AssetApi* | [**deleteAsset**](docs/AssetApi.md#deleteAsset) | **POST** /asset/delete | Delete Asset
+*SirqulIoTPlatform.AssetApi* | [**getAsset**](docs/AssetApi.md#getAsset) | **GET** /asset/get | Get Asset
+*SirqulIoTPlatform.AssetApi* | [**removeAsset**](docs/AssetApi.md#removeAsset) | **POST** /asset/remove | Remove Asset from Collection
+*SirqulIoTPlatform.AssetApi* | [**searchAssets**](docs/AssetApi.md#searchAssets) | **GET** /asset/search | Search Assets
+*SirqulIoTPlatform.AssetApi* | [**updateAsset**](docs/AssetApi.md#updateAsset) | **POST** /asset/update | Update Asset
+*SirqulIoTPlatform.AssignmentApi* | [**assigmentAssigneeAccountSearch**](docs/AssignmentApi.md#assigmentAssigneeAccountSearch) | **GET** /assignment/assignee/search | Search Assignment Assignees
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentCreate**](docs/AssignmentApi.md#assignmentCreate) | **POST** /assignment/create | Create Assignment
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentDelete**](docs/AssignmentApi.md#assignmentDelete) | **POST** /assignment/delete | Delete Assignment
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentGet**](docs/AssignmentApi.md#assignmentGet) | **GET** /assignment/get | Get Assignment
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentSearch**](docs/AssignmentApi.md#assignmentSearch) | **GET** /assignment/search | Search Assignments
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusCreate**](docs/AssignmentApi.md#assignmentStatusCreate) | **POST** /assignment/status/create | Create Assignment Status
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusDelete**](docs/AssignmentApi.md#assignmentStatusDelete) | **POST** /assignment/status/delete | Deletes Assignment Status
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusGet**](docs/AssignmentApi.md#assignmentStatusGet) | **GET** /assignment/status/get | Get Assignment Status
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusSearch**](docs/AssignmentApi.md#assignmentStatusSearch) | **GET** /assignment/status/search | Search Assignment Statuses
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentStatusUpdate**](docs/AssignmentApi.md#assignmentStatusUpdate) | **POST** /assignment/status/update | Update Assignment Status
+*SirqulIoTPlatform.AssignmentApi* | [**assignmentUpdate**](docs/AssignmentApi.md#assignmentUpdate) | **POST** /assignment/update | Update Assignment
+*SirqulIoTPlatform.AudienceApi* | [**createAudience**](docs/AudienceApi.md#createAudience) | **POST** /audience/create | Create Audience
+*SirqulIoTPlatform.AudienceApi* | [**deleteAudience**](docs/AudienceApi.md#deleteAudience) | **POST** /audience/delete | Delete Audience
+*SirqulIoTPlatform.AudienceApi* | [**getAgeGroups**](docs/AudienceApi.md#getAgeGroups) | **GET** /audience/ageGroups | Get Age Groups
+*SirqulIoTPlatform.AudienceApi* | [**getAudience**](docs/AudienceApi.md#getAudience) | **GET** /audience/get | Get Audience
+*SirqulIoTPlatform.AudienceApi* | [**getAudienceList**](docs/AudienceApi.md#getAudienceList) | **GET** /audience/search | Search Audiences
+*SirqulIoTPlatform.AudienceApi* | [**getDevices**](docs/AudienceApi.md#getDevices) | **GET** /audience/devices | Get Devices
+*SirqulIoTPlatform.AudienceApi* | [**getExperiences**](docs/AudienceApi.md#getExperiences) | **GET** /audience/experiences | Get Experiences
+*SirqulIoTPlatform.AudienceApi* | [**getGroupedAudiences**](docs/AudienceApi.md#getGroupedAudiences) | **GET** /audience/grouped/get | Get GroupedAudiences
+*SirqulIoTPlatform.AudienceApi* | [**listByAccount**](docs/AudienceApi.md#listByAccount) | **POST** /audience/suggestion/list | List Suggestions by Audience
+*SirqulIoTPlatform.AudienceApi* | [**listByAudience**](docs/AudienceApi.md#listByAudience) | **GET** /audience/suggestion/offersByAudience | List Offers by Audience
+*SirqulIoTPlatform.AudienceApi* | [**listLastestByAccount**](docs/AudienceApi.md#listLastestByAccount) | **GET** /audience/suggestion/latest | List Sent Suggestions 
+*SirqulIoTPlatform.AudienceApi* | [**sendByAccount**](docs/AudienceApi.md#sendByAccount) | **POST** /audience/suggestion/send | Send Suggestions
+*SirqulIoTPlatform.AudienceApi* | [**updateAudience**](docs/AudienceApi.md#updateAudience) | **POST** /audience/update | Update Audience
+*SirqulIoTPlatform.BidApi* | [**createBid**](docs/BidApi.md#createBid) | **POST** /bid/create | Create Bid
+*SirqulIoTPlatform.BidApi* | [**deleteBid**](docs/BidApi.md#deleteBid) | **POST** /bid/delete | Delete Bid
+*SirqulIoTPlatform.BidApi* | [**getBid**](docs/BidApi.md#getBid) | **GET** /bid/get | Get Bid
+*SirqulIoTPlatform.BidApi* | [**updateBid**](docs/BidApi.md#updateBid) | **POST** /bid/update | Update Bid
+*SirqulIoTPlatform.BillableEntityApi* | [**createBillableEntity**](docs/BillableEntityApi.md#createBillableEntity) | **POST** /billable/create | Create Billable
+*SirqulIoTPlatform.BillableEntityApi* | [**deleteBillableEntity**](docs/BillableEntityApi.md#deleteBillableEntity) | **POST** /billable/delete | Delete Billable
+*SirqulIoTPlatform.BillableEntityApi* | [**getBillableEntity**](docs/BillableEntityApi.md#getBillableEntity) | **GET** /billable/get | Get Billable
+*SirqulIoTPlatform.BillableEntityApi* | [**updateBillableEntity**](docs/BillableEntityApi.md#updateBillableEntity) | **POST** /billable/update | Update Billable
+*SirqulIoTPlatform.BillingInfoApi* | [**addPaymentMethod**](docs/BillingInfoApi.md#addPaymentMethod) | **POST** /billing/update | Update Payment Method
+*SirqulIoTPlatform.BillingInfoApi* | [**createPaymentMethod**](docs/BillingInfoApi.md#createPaymentMethod) | **POST** /billing/create | Create Payment Method
+*SirqulIoTPlatform.BillingInfoApi* | [**createSmartContract**](docs/BillingInfoApi.md#createSmartContract) | **POST** /billing/crypto/transfer | Create Smart Contract
+*SirqulIoTPlatform.BillingInfoApi* | [**getCryptoBalance**](docs/BillingInfoApi.md#getCryptoBalance) | **GET** /billing/crypto/get | Get Crypto Balances
+*SirqulIoTPlatform.BillingInfoApi* | [**getPaymentMethod**](docs/BillingInfoApi.md#getPaymentMethod) | **GET** /billing/get | Get Payment Method
+*SirqulIoTPlatform.BillingInfoApi* | [**searchPaymentMethod**](docs/BillingInfoApi.md#searchPaymentMethod) | **GET** /billing/search | Search Payment Methods
+*SirqulIoTPlatform.CSVImportApi* | [**getStatusCSV**](docs/CSVImportApi.md#getStatusCSV) | **GET** /csvimport/batch/status/details | Detail Status
+*SirqulIoTPlatform.CSVImportApi* | [**listStatusCSV**](docs/CSVImportApi.md#listStatusCSV) | **GET** /csvimport/batch/list | Search Status
+*SirqulIoTPlatform.CSVImportApi* | [**statusCSV**](docs/CSVImportApi.md#statusCSV) | **GET** /csvimport/batch/status | Batch Status
+*SirqulIoTPlatform.CSVImportApi* | [**uploadCSV**](docs/CSVImportApi.md#uploadCSV) | **POST** /csvimport/upload | Upload CSV
+*SirqulIoTPlatform.CargoTypeApi* | [**createCargoType**](docs/CargoTypeApi.md#createCargoType) | **POST** /cargo/type | Create Cargo Type
+*SirqulIoTPlatform.CargoTypeApi* | [**deleteCargoType**](docs/CargoTypeApi.md#deleteCargoType) | **DELETE** /cargo/type/{cargoTypeId} | Delete Cargo Type
+*SirqulIoTPlatform.CargoTypeApi* | [**getCargoType**](docs/CargoTypeApi.md#getCargoType) | **GET** /cargo/type/{cargoTypeId} | Get Cargo Type
+*SirqulIoTPlatform.CargoTypeApi* | [**searchCargoTypes**](docs/CargoTypeApi.md#searchCargoTypes) | **GET** /cargo/type | Search Cargo Type
+*SirqulIoTPlatform.CargoTypeApi* | [**updateCargoType**](docs/CargoTypeApi.md#updateCargoType) | **PUT** /cargo/type/{cargoTypeId} | Update Cargo Type
+*SirqulIoTPlatform.CarrierApi* | [**searchCarriers**](docs/CarrierApi.md#searchCarriers) | **GET** /carrier/search | Search Carriers
+*SirqulIoTPlatform.CategoryApi* | [**categoryDistanceSearch**](docs/CategoryApi.md#categoryDistanceSearch) | **GET** /category/distancesearch | Search Categories by Distance
+*SirqulIoTPlatform.CategoryApi* | [**createCategory**](docs/CategoryApi.md#createCategory) | **POST** /category/create | Create Category
+*SirqulIoTPlatform.CategoryApi* | [**deleteCategory**](docs/CategoryApi.md#deleteCategory) | **POST** /category/delete | Delete Category
+*SirqulIoTPlatform.CategoryApi* | [**duplicateCategory**](docs/CategoryApi.md#duplicateCategory) | **POST** /category/duplicate | Duplicate Category
+*SirqulIoTPlatform.CategoryApi* | [**getCategory**](docs/CategoryApi.md#getCategory) | **GET** /category/get | Get Category
+*SirqulIoTPlatform.CategoryApi* | [**searchCategories**](docs/CategoryApi.md#searchCategories) | **GET** /category/search | Search Categories
+*SirqulIoTPlatform.CategoryApi* | [**updateCategory**](docs/CategoryApi.md#updateCategory) | **POST** /category/update | Update Category
+*SirqulIoTPlatform.ConnectionApi* | [**addConnectionToGroup**](docs/ConnectionApi.md#addConnectionToGroup) | **POST** /consumer/connection/group/addConnection | Add Connection
+*SirqulIoTPlatform.ConnectionApi* | [**addConnectionsToGroup**](docs/ConnectionApi.md#addConnectionsToGroup) | **POST** /connection/group/addConnections | Add Connections
+*SirqulIoTPlatform.ConnectionApi* | [**addSubGroups**](docs/ConnectionApi.md#addSubGroups) | **POST** /consumer/connection/group/addSubGroup | Add Connection Groups
+*SirqulIoTPlatform.ConnectionApi* | [**createOrUpdateConnection**](docs/ConnectionApi.md#createOrUpdateConnection) | **POST** /consumer/connection/add | Create or Update Connection
+*SirqulIoTPlatform.ConnectionApi* | [**createOrUpdateGroup**](docs/ConnectionApi.md#createOrUpdateGroup) | **POST** /consumer/connection/group | Create or Update Connection Group
+*SirqulIoTPlatform.ConnectionApi* | [**followAccept**](docs/ConnectionApi.md#followAccept) | **POST** /consumer/follow/accept | Accept Follow Request
+*SirqulIoTPlatform.ConnectionApi* | [**followReject**](docs/ConnectionApi.md#followReject) | **POST** /consumer/follow/reject | Reject Follow Request
+*SirqulIoTPlatform.ConnectionApi* | [**followRemove**](docs/ConnectionApi.md#followRemove) | **POST** /consumer/follow/remove | Remove Follower / Unfollow
+*SirqulIoTPlatform.ConnectionApi* | [**followRequest**](docs/ConnectionApi.md#followRequest) | **POST** /consumer/follow/request | Send Follow Request
+*SirqulIoTPlatform.ConnectionApi* | [**friendAccept**](docs/ConnectionApi.md#friendAccept) | **POST** /consumer/friend/accept | Accept Friend
+*SirqulIoTPlatform.ConnectionApi* | [**friendReject**](docs/ConnectionApi.md#friendReject) | **POST** /consumer/friend/reject | Decline Friend
+*SirqulIoTPlatform.ConnectionApi* | [**friendRemove**](docs/ConnectionApi.md#friendRemove) | **POST** /consumer/friend/remove | Delete Friend
+*SirqulIoTPlatform.ConnectionApi* | [**friendRequest**](docs/ConnectionApi.md#friendRequest) | **POST** /consumer/friend/request | Request Friend
+*SirqulIoTPlatform.ConnectionApi* | [**getConnectionSentFriendRequests**](docs/ConnectionApi.md#getConnectionSentFriendRequests) | **GET** /consumer/connection/getRequested | Get Sent Friend Requests
+*SirqulIoTPlatform.ConnectionApi* | [**getConnections**](docs/ConnectionApi.md#getConnections) | **GET** /consumer/connection/get | Search Connections
+*SirqulIoTPlatform.ConnectionApi* | [**getGroupDetails**](docs/ConnectionApi.md#getGroupDetails) | **GET** /consumer/connection/group/details/get | Get Connection Group
+*SirqulIoTPlatform.ConnectionApi* | [**groupSearch**](docs/ConnectionApi.md#groupSearch) | **GET** /connection/group/search | Search Connection Groups
+*SirqulIoTPlatform.ConnectionApi* | [**removeConnectionFromGroup**](docs/ConnectionApi.md#removeConnectionFromGroup) | **POST** /consumer/connection/group/removeConnection | Delete Connection
+*SirqulIoTPlatform.ConnectionApi* | [**removeConnectionsFromGroup**](docs/ConnectionApi.md#removeConnectionsFromGroup) | **POST** /connection/group/removeConnections | Remove Connections
+*SirqulIoTPlatform.ConnectionApi* | [**removeGroup**](docs/ConnectionApi.md#removeGroup) | **POST** /consumer/connection/group/remove | Delete Connection Group
+*SirqulIoTPlatform.ConnectionApi* | [**removeSubGroups**](docs/ConnectionApi.md#removeSubGroups) | **POST** /consumer/connection/group/removeSubGroup | Remove Connection Groups
+*SirqulIoTPlatform.ConnectionApi* | [**searchConnections**](docs/ConnectionApi.md#searchConnections) | **GET** /connection/search | Search Possible Connections
+*SirqulIoTPlatform.ContestApi* | [**addOrUpdateAlbumContest**](docs/ContestApi.md#addOrUpdateAlbumContest) | **POST** /consumer/album/contest | Create or Update Contest
+*SirqulIoTPlatform.ContestApi* | [**approveAlbumContest**](docs/ContestApi.md#approveAlbumContest) | **POST** /consumer/album/contest/approve | Approve Contest
+*SirqulIoTPlatform.ContestApi* | [**deleteContest**](docs/ContestApi.md#deleteContest) | **POST** /consumer/album/contest/remove | Delete Contest
+*SirqulIoTPlatform.ContestApi* | [**getAlbumContest**](docs/ContestApi.md#getAlbumContest) | **GET** /consumer/album/contest/get | Get Contest
+*SirqulIoTPlatform.ContestApi* | [**getAlbumContests**](docs/ContestApi.md#getAlbumContests) | **GET** /consumer/album/contest/search | Search Contests
+*SirqulIoTPlatform.ContestApi* | [**voteOnAlbumContest**](docs/ContestApi.md#voteOnAlbumContest) | **POST** /consumer/album/contest/vote | Vote on Contest
+*SirqulIoTPlatform.CreativeApi* | [**addPreview**](docs/CreativeApi.md#addPreview) | **POST** /creative/addpreview | Add Preview
+*SirqulIoTPlatform.CreativeApi* | [**adsFind**](docs/CreativeApi.md#adsFind) | **GET** /ads/find | Find Missions
+*SirqulIoTPlatform.CreativeApi* | [**createCreative**](docs/CreativeApi.md#createCreative) | **POST** /creative/create | Create Creative
+*SirqulIoTPlatform.CreativeApi* | [**deleteCreative**](docs/CreativeApi.md#deleteCreative) | **POST** /creative/delete | Delete Creative
+*SirqulIoTPlatform.CreativeApi* | [**getCreative**](docs/CreativeApi.md#getCreative) | **GET** /creative/get | Get Creative
+*SirqulIoTPlatform.CreativeApi* | [**getCreativesByApplication**](docs/CreativeApi.md#getCreativesByApplication) | **GET** /creative/search | Search Creatives
+*SirqulIoTPlatform.CreativeApi* | [**removePreview**](docs/CreativeApi.md#removePreview) | **POST** /creative/removepreview | Remove Preview
+*SirqulIoTPlatform.CreativeApi* | [**updateCreative**](docs/CreativeApi.md#updateCreative) | **POST** /creative/update | Update Creative
+*SirqulIoTPlatform.DependentApi* | [**create**](docs/DependentApi.md#create) | **PUT** /cargo/dependent/{accountId} | Create Dependent
+*SirqulIoTPlatform.DependentApi* | [**getDependents**](docs/DependentApi.md#getDependents) | **GET** /cargo/dependent/{accountId} | Get dependent list of an account
+*SirqulIoTPlatform.DependentApi* | [**removeDependent**](docs/DependentApi.md#removeDependent) | **DELETE** /cargo/dependent/{accountId} | Delete Dependent
+*SirqulIoTPlatform.DisbursementApi* | [**checkDisbursements**](docs/DisbursementApi.md#checkDisbursements) | **GET** /disbursement/check | Check Disbursements
+*SirqulIoTPlatform.DisbursementApi* | [**createDisbursement**](docs/DisbursementApi.md#createDisbursement) | **POST** /disbursement/create | Create Disbursement
+*SirqulIoTPlatform.DisbursementApi* | [**getDisbursement**](docs/DisbursementApi.md#getDisbursement) | **GET** /disbursement/get | Get Disbursement
+*SirqulIoTPlatform.DisbursementApi* | [**searchDisbursements**](docs/DisbursementApi.md#searchDisbursements) | **GET** /disbursement/search | Search Disbursements
+*SirqulIoTPlatform.DisbursementApi* | [**updateDisbursement**](docs/DisbursementApi.md#updateDisbursement) | **POST** /disbursement/update | Update Disbursement
+*SirqulIoTPlatform.EmployeeApi* | [**assignEmployee**](docs/EmployeeApi.md#assignEmployee) | **POST** /employee/assign | Assign Employee
+*SirqulIoTPlatform.EmployeeApi* | [**assignToLocationEmployee**](docs/EmployeeApi.md#assignToLocationEmployee) | **POST** /employee/assignToLocation | Assign Employee to Location
+*SirqulIoTPlatform.EmployeeApi* | [**createEmployee**](docs/EmployeeApi.md#createEmployee) | **POST** /employee/create | Create Employee
+*SirqulIoTPlatform.EmployeeApi* | [**deleteEmployee**](docs/EmployeeApi.md#deleteEmployee) | **POST** /employee/delete | Delete Employee
+*SirqulIoTPlatform.EmployeeApi* | [**getEmployee**](docs/EmployeeApi.md#getEmployee) | **POST** /employee/get | Get Employee
+*SirqulIoTPlatform.EmployeeApi* | [**searchEmployees**](docs/EmployeeApi.md#searchEmployees) | **POST** /employee/search | Search Employees
+*SirqulIoTPlatform.EmployeeApi* | [**unassignEmployee**](docs/EmployeeApi.md#unassignEmployee) | **POST** /employee/unassign | Unassign Employee
+*SirqulIoTPlatform.EmployeeApi* | [**updateEmployee**](docs/EmployeeApi.md#updateEmployee) | **POST** /employee/update | Update Employee
+*SirqulIoTPlatform.EventApi* | [**attendEvent**](docs/EventApi.md#attendEvent) | **POST** /event/attend | Attend Event
+*SirqulIoTPlatform.EventApi* | [**createEvent**](docs/EventApi.md#createEvent) | **POST** /event/create | Create Event
+*SirqulIoTPlatform.EventApi* | [**deleteEvent**](docs/EventApi.md#deleteEvent) | **POST** /event/delete | Delete Event
+*SirqulIoTPlatform.EventApi* | [**getEvent**](docs/EventApi.md#getEvent) | **GET** /event/get | Get Event
+*SirqulIoTPlatform.EventApi* | [**searchEventTransactions**](docs/EventApi.md#searchEventTransactions) | **GET** /event/attendance/search | Search Event Attendance
+*SirqulIoTPlatform.EventApi* | [**searchEvents**](docs/EventApi.md#searchEvents) | **GET** /event/search | Search Events
+*SirqulIoTPlatform.EventApi* | [**updateEvent**](docs/EventApi.md#updateEvent) | **POST** /event/update | Update Event
+*SirqulIoTPlatform.FacebookApi* | [**getToken**](docs/FacebookApi.md#getToken) | **GET** /facebook/getfbtoken | Get Facebook Token
+*SirqulIoTPlatform.FacebookApi* | [**graphInterface**](docs/FacebookApi.md#graphInterface) | **POST** /facebook/graph | Post to Facebook
+*SirqulIoTPlatform.FavoriteApi* | [**addFavorite**](docs/FavoriteApi.md#addFavorite) | **POST** /favorite/create | Create Favorite
+*SirqulIoTPlatform.FavoriteApi* | [**deleteFavorite**](docs/FavoriteApi.md#deleteFavorite) | **POST** /favorite/delete | Delete Favorite
+*SirqulIoTPlatform.FavoriteApi* | [**getFavorite**](docs/FavoriteApi.md#getFavorite) | **GET** /favorite/get | Get Favorite
+*SirqulIoTPlatform.FavoriteApi* | [**searchFavorites**](docs/FavoriteApi.md#searchFavorites) | **GET** /favorite/search | Search Favorites
+*SirqulIoTPlatform.FavoriteApi* | [**whoHasFavorited**](docs/FavoriteApi.md#whoHasFavorited) | **GET** /favorite/whois | Who has Favorited
+*SirqulIoTPlatform.FilterApi* | [**createFilter**](docs/FilterApi.md#createFilter) | **POST** /filter/create | Create Filter
+*SirqulIoTPlatform.FilterApi* | [**deleteFilter**](docs/FilterApi.md#deleteFilter) | **POST** /filter/delete | Delete Filter
+*SirqulIoTPlatform.FilterApi* | [**getFilter**](docs/FilterApi.md#getFilter) | **GET** /filter/get | Get Filter
+*SirqulIoTPlatform.FilterApi* | [**searchFilters**](docs/FilterApi.md#searchFilters) | **GET** /filter/search | Search Filters
+*SirqulIoTPlatform.FilterApi* | [**updateFilter**](docs/FilterApi.md#updateFilter) | **POST** /filter/update | Update Filter
+*SirqulIoTPlatform.FlagApi* | [**createFlag**](docs/FlagApi.md#createFlag) | **POST** /flag/create | Create Flag
+*SirqulIoTPlatform.FlagApi* | [**deleteFlag**](docs/FlagApi.md#deleteFlag) | **POST** /flag/delete | Delete Flag
+*SirqulIoTPlatform.FlagApi* | [**getFlag**](docs/FlagApi.md#getFlag) | **GET** /flag/get | Get Flag
+*SirqulIoTPlatform.FlagApi* | [**getFlagThreshold**](docs/FlagApi.md#getFlagThreshold) | **GET** /flag/threshold/get | Get Flag Threshold
+*SirqulIoTPlatform.FlagApi* | [**updateFlagThreshold**](docs/FlagApi.md#updateFlagThreshold) | **POST** /flag/threshold/update | Update Flag Threshold
+*SirqulIoTPlatform.GameApi* | [**createGame**](docs/GameApi.md#createGame) | **POST** /game/create | Create a Game
+*SirqulIoTPlatform.GameApi* | [**deleteGame**](docs/GameApi.md#deleteGame) | **POST** /game/delete | Delete a Game
+*SirqulIoTPlatform.GameApi* | [**getGame**](docs/GameApi.md#getGame) | **GET** /game/get | Get a Game by id
+*SirqulIoTPlatform.GameApi* | [**searchGames**](docs/GameApi.md#searchGames) | **GET** /game/search | Search a Game
+*SirqulIoTPlatform.GameApi* | [**updateGame**](docs/GameApi.md#updateGame) | **POST** /game/update | Update a Game
+*SirqulIoTPlatform.GameLevelApi* | [**createGameLevel**](docs/GameLevelApi.md#createGameLevel) | **POST** /level/create | Create Game Level
+*SirqulIoTPlatform.GameLevelApi* | [**deleteGameLevel**](docs/GameLevelApi.md#deleteGameLevel) | **POST** /level/delete | Delete Game Level
+*SirqulIoTPlatform.GameLevelApi* | [**getGameLevel**](docs/GameLevelApi.md#getGameLevel) | **GET** /level/get | Get Game Level
+*SirqulIoTPlatform.GameLevelApi* | [**getGameLevelsByApplication**](docs/GameLevelApi.md#getGameLevelsByApplication) | **GET** /level/search | Search Game Levels
+*SirqulIoTPlatform.GameLevelApi* | [**getGameLevelsByBillableEntity**](docs/GameLevelApi.md#getGameLevelsByBillableEntity) | **GET** /level/searchByBillableEntity | Search Game Level by Billable Entity
+*SirqulIoTPlatform.GameLevelApi* | [**getQuestionsInLevel**](docs/GameLevelApi.md#getQuestionsInLevel) | **GET** /level/questions/get | Get Level Questions
+*SirqulIoTPlatform.GameLevelApi* | [**getWordsInLevel**](docs/GameLevelApi.md#getWordsInLevel) | **GET** /level/words/get | Get Level Words
+*SirqulIoTPlatform.GameLevelApi* | [**updateGameLevel**](docs/GameLevelApi.md#updateGameLevel) | **POST** /level/update | Update Game Level
+*SirqulIoTPlatform.GameLevelApi* | [**updateQuestionsInLevel**](docs/GameLevelApi.md#updateQuestionsInLevel) | **POST** /level/questions/update | Update Level Questions
+*SirqulIoTPlatform.GameLevelApi* | [**updateWordsInLevel**](docs/GameLevelApi.md#updateWordsInLevel) | **POST** /level/words/update | Update Level Words
+*SirqulIoTPlatform.InviteApi* | [**acceptInvite**](docs/InviteApi.md#acceptInvite) | **POST** /invite/accept | Accept Invite
+*SirqulIoTPlatform.InviteApi* | [**albumContestInvite**](docs/InviteApi.md#albumContestInvite) | **POST** /invite/albumContest | Invite to Contest
+*SirqulIoTPlatform.InviteApi* | [**albumInvite**](docs/InviteApi.md#albumInvite) | **POST** /invite/album | Invite to Collection
+*SirqulIoTPlatform.InviteApi* | [**eventInvite**](docs/InviteApi.md#eventInvite) | **POST** /invite/event | Invite to Event
+*SirqulIoTPlatform.InviteApi* | [**gameInvite**](docs/InviteApi.md#gameInvite) | **POST** /invite/gameLevel | Invite to Game Level
+*SirqulIoTPlatform.InviteApi* | [**getInvite**](docs/InviteApi.md#getInvite) | **GET** /invite/get | Get Invite
+*SirqulIoTPlatform.InviteApi* | [**missionInvite**](docs/InviteApi.md#missionInvite) | **POST** /invite/mission | Invite to Mission
+*SirqulIoTPlatform.InviteApi* | [**offerInvite**](docs/InviteApi.md#offerInvite) | **POST** /invite/offer | Invite to Offer
+*SirqulIoTPlatform.InviteApi* | [**offerLocationInvite**](docs/InviteApi.md#offerLocationInvite) | **POST** /invite/offerLocation | Invite to Offer Location
+*SirqulIoTPlatform.InviteApi* | [**retailerLocationInvite**](docs/InviteApi.md#retailerLocationInvite) | **POST** /invite/retailerLocation | Invite to Retailer Location
+*SirqulIoTPlatform.LeaderboardApi* | [**createLeaderboard**](docs/LeaderboardApi.md#createLeaderboard) | **POST** /leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*SirqulIoTPlatform.LeaderboardApi* | [**deleteLeaderboard**](docs/LeaderboardApi.md#deleteLeaderboard) | **POST** /leaderboard/delete | Delete the Leader Board
+*SirqulIoTPlatform.LeaderboardApi* | [**getLeaderboard**](docs/LeaderboardApi.md#getLeaderboard) | **GET** /leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
+*SirqulIoTPlatform.LeaderboardApi* | [**searchLeaderboards**](docs/LeaderboardApi.md#searchLeaderboards) | **GET** /leaderboard/search | Search leaderboard and retrieve the matching ranking list
+*SirqulIoTPlatform.LeaderboardApi* | [**updateLeaderboard**](docs/LeaderboardApi.md#updateLeaderboard) | **POST** /leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*SirqulIoTPlatform.LikeApi* | [**registerLike**](docs/LikeApi.md#registerLike) | **POST** /like | Create Like
+*SirqulIoTPlatform.LikeApi* | [**removeLike**](docs/LikeApi.md#removeLike) | **POST** /like/delete | Delete Like
+*SirqulIoTPlatform.LikeApi* | [**searchLikes**](docs/LikeApi.md#searchLikes) | **GET** /like/search | Search Likes
+*SirqulIoTPlatform.ListingApi* | [**createListing**](docs/ListingApi.md#createListing) | **POST** /listing/create | Create Listing
+*SirqulIoTPlatform.ListingApi* | [**deleteListing**](docs/ListingApi.md#deleteListing) | **POST** /listing/delete | Delete Listing
+*SirqulIoTPlatform.ListingApi* | [**getListing**](docs/ListingApi.md#getListing) | **GET** /listing/get | Get Listing
+*SirqulIoTPlatform.ListingApi* | [**searchListing**](docs/ListingApi.md#searchListing) | **GET** /listing/search | Search Listings
+*SirqulIoTPlatform.ListingApi* | [**summaryListing**](docs/ListingApi.md#summaryListing) | **GET** /listing/summary | Summary Listing
+*SirqulIoTPlatform.ListingApi* | [**updateListing**](docs/ListingApi.md#updateListing) | **POST** /listing/update | Update Listing
+*SirqulIoTPlatform.LocationApi* | [**cacheTrilaterationData**](docs/LocationApi.md#cacheTrilaterationData) | **POST** /location/trilaterate/cache | Create Trilateration Data with File
+*SirqulIoTPlatform.LocationApi* | [**cacheTrilaterationDataGzip**](docs/LocationApi.md#cacheTrilaterationDataGzip) | **POST** /location/trilaterate/cache/submit | Create Trilateration Data with Rest
+*SirqulIoTPlatform.LocationApi* | [**getLocationByIp**](docs/LocationApi.md#getLocationByIp) | **GET** /location/ip | Get Location by IP
+*SirqulIoTPlatform.LocationApi* | [**getLocationByTrilateration**](docs/LocationApi.md#getLocationByTrilateration) | **GET** /account/location/trilaterate | Get Location by Trilateration
+*SirqulIoTPlatform.LocationApi* | [**getLocations**](docs/LocationApi.md#getLocations) | **GET** /location/search | Search Regions or Postal Codes
+*SirqulIoTPlatform.LocationApiV2Api* | [**createLocationV2**](docs/LocationApiV2Api.md#createLocationV2) | **POST** /location | Create new location
+*SirqulIoTPlatform.LocationApiV2Api* | [**updateLocationV2**](docs/LocationApiV2Api.md#updateLocationV2) | **POST** /location/{id} | Update an existing location
+*SirqulIoTPlatform.MediaApi* | [**createMedia**](docs/MediaApi.md#createMedia) | **POST** /media/create | Create Media
+*SirqulIoTPlatform.MediaApi* | [**deleteMedia**](docs/MediaApi.md#deleteMedia) | **POST** /media/delete | Delete Media
+*SirqulIoTPlatform.MediaApi* | [**getMedia**](docs/MediaApi.md#getMedia) | **GET** /media/get | Media Get
+*SirqulIoTPlatform.MediaApi* | [**searchMedia**](docs/MediaApi.md#searchMedia) | **GET** /media/search | Search Media
+*SirqulIoTPlatform.MediaApi* | [**updateMedia**](docs/MediaApi.md#updateMedia) | **POST** /media/update | Update Media
+*SirqulIoTPlatform.MissionApi* | [**createMission**](docs/MissionApi.md#createMission) | **POST** /mission/create | Create Mission
+*SirqulIoTPlatform.MissionApi* | [**deleteMission**](docs/MissionApi.md#deleteMission) | **POST** /mission/delete | Delete Mission
+*SirqulIoTPlatform.MissionApi* | [**findMissions**](docs/MissionApi.md#findMissions) | **GET** /mission/find | Find Missions
+*SirqulIoTPlatform.MissionApi* | [**getMission**](docs/MissionApi.md#getMission) | **GET** /mission/get | Get Mission
+*SirqulIoTPlatform.MissionApi* | [**importMission**](docs/MissionApi.md#importMission) | **POST** /mission/import | Import Mission
+*SirqulIoTPlatform.MissionApi* | [**searchMissionFormats**](docs/MissionApi.md#searchMissionFormats) | **GET** /mission/format/search | Search Mission Formats
+*SirqulIoTPlatform.MissionApi* | [**searchMissions**](docs/MissionApi.md#searchMissions) | **GET** /mission/search | Search Missions
+*SirqulIoTPlatform.MissionApi* | [**searchMissionsByBillableEntity**](docs/MissionApi.md#searchMissionsByBillableEntity) | **GET** /mission/searchByBillableEntity | Search Missions by Billable Entity
+*SirqulIoTPlatform.MissionApi* | [**updateMission**](docs/MissionApi.md#updateMission) | **POST** /mission/update | Update Mission
+*SirqulIoTPlatform.MissionInviteApi* | [**createMissionInvite**](docs/MissionInviteApi.md#createMissionInvite) | **POST** /mission/invite/create | Create Mission Invite
+*SirqulIoTPlatform.MissionInviteApi* | [**deleteMissionInvite**](docs/MissionInviteApi.md#deleteMissionInvite) | **POST** /mission/invite/delete | Delete Mission Invite
+*SirqulIoTPlatform.MissionInviteApi* | [**getMissionInvite**](docs/MissionInviteApi.md#getMissionInvite) | **GET** /mission/invite/get | Get Mission Invite
+*SirqulIoTPlatform.MissionInviteApi* | [**searchMissionInvites**](docs/MissionInviteApi.md#searchMissionInvites) | **GET** /mission/invite/search | Search Mission Invites
+*SirqulIoTPlatform.MissionInviteApi* | [**updateMissionInvite**](docs/MissionInviteApi.md#updateMissionInvite) | **POST** /mission/invite/update | Update Mission Invite
+*SirqulIoTPlatform.NoteApi* | [**batchOperation**](docs/NoteApi.md#batchOperation) | **POST** /note/batch | Batch Note Operation
+*SirqulIoTPlatform.NoteApi* | [**createNote**](docs/NoteApi.md#createNote) | **POST** /note/create | Create Note
+*SirqulIoTPlatform.NoteApi* | [**deleteNote**](docs/NoteApi.md#deleteNote) | **POST** /note/delete | Delete Note
+*SirqulIoTPlatform.NoteApi* | [**getNote**](docs/NoteApi.md#getNote) | **POST** /note/get | Get Note
+*SirqulIoTPlatform.NoteApi* | [**searchNotes**](docs/NoteApi.md#searchNotes) | **POST** /note/search | Search Notes
+*SirqulIoTPlatform.NoteApi* | [**updateNote**](docs/NoteApi.md#updateNote) | **POST** /note/update | Update Note
+*SirqulIoTPlatform.NotificationApi* | [**createNotificationTemplate**](docs/NotificationApi.md#createNotificationTemplate) | **POST** /notification/template/create | Create Notification Template
+*SirqulIoTPlatform.NotificationApi* | [**createOrUpdateBlockedNotifications**](docs/NotificationApi.md#createOrUpdateBlockedNotifications) | **POST** /notification/blocked/batch | Create or update blocked notification settings
+*SirqulIoTPlatform.NotificationApi* | [**deleteNotificationTemplate**](docs/NotificationApi.md#deleteNotificationTemplate) | **POST** /notification/template/delete | Delete Notification Template
+*SirqulIoTPlatform.NotificationApi* | [**getNotificationTemplate**](docs/NotificationApi.md#getNotificationTemplate) | **GET** /notification/template/get | Get Notification Template
+*SirqulIoTPlatform.NotificationApi* | [**getNotifications**](docs/NotificationApi.md#getNotifications) | **GET** /notification/search | Get Notifications
+*SirqulIoTPlatform.NotificationApi* | [**registerNotificationToken**](docs/NotificationApi.md#registerNotificationToken) | **POST** /notification/token | Register Notification Token
+*SirqulIoTPlatform.NotificationApi* | [**searchBlockedNotifications**](docs/NotificationApi.md#searchBlockedNotifications) | **GET** /notification/blocked/search | Search on the user&#39;s blocked notification settings
+*SirqulIoTPlatform.NotificationApi* | [**searchNotificationTemplate**](docs/NotificationApi.md#searchNotificationTemplate) | **GET** /notification/template/search | Search Notification Templates
+*SirqulIoTPlatform.NotificationApi* | [**searchRecipients**](docs/NotificationApi.md#searchRecipients) | **GET** /notification/recipient/search | Search for Recipients
+*SirqulIoTPlatform.NotificationApi* | [**searchRecipientsCount**](docs/NotificationApi.md#searchRecipientsCount) | **GET** /notification/recipient/search/count | Search for Recipients (Counts/Grouped)
+*SirqulIoTPlatform.NotificationApi* | [**sendBatchNotifications**](docs/NotificationApi.md#sendBatchNotifications) | **POST** /notification/batch | Send Batch Notifications
+*SirqulIoTPlatform.NotificationApi* | [**sendCustomNotifications**](docs/NotificationApi.md#sendCustomNotifications) | **POST** /notification/custom | Send Custom Notifications
+*SirqulIoTPlatform.NotificationApi* | [**updateNotificationTemplate**](docs/NotificationApi.md#updateNotificationTemplate) | **POST** /notification/template/update | Update Notification Template
+*SirqulIoTPlatform.ObjectStoreApi* | [**addField**](docs/ObjectStoreApi.md#addField) | **POST** /object/field/add | Create Field
+*SirqulIoTPlatform.ObjectStoreApi* | [**createData**](docs/ObjectStoreApi.md#createData) | **POST** /object/data/{objectName} | Create Data
+*SirqulIoTPlatform.ObjectStoreApi* | [**createObject**](docs/ObjectStoreApi.md#createObject) | **POST** /object/create | Create Object
+*SirqulIoTPlatform.ObjectStoreApi* | [**deleteData**](docs/ObjectStoreApi.md#deleteData) | **DELETE** /object/data/{objectName}/{objectId} | Delete Data
+*SirqulIoTPlatform.ObjectStoreApi* | [**deleteField**](docs/ObjectStoreApi.md#deleteField) | **POST** /object/field/delete | Delete Field
+*SirqulIoTPlatform.ObjectStoreApi* | [**deleteObject**](docs/ObjectStoreApi.md#deleteObject) | **POST** /object/delete | Delete Object
+*SirqulIoTPlatform.ObjectStoreApi* | [**getData**](docs/ObjectStoreApi.md#getData) | **GET** /object/data/{objectName}/{objectId} | Get Data
+*SirqulIoTPlatform.ObjectStoreApi* | [**getObject**](docs/ObjectStoreApi.md#getObject) | **GET** /object/get | Get Object
+*SirqulIoTPlatform.ObjectStoreApi* | [**searchData**](docs/ObjectStoreApi.md#searchData) | **GET** /object/data/{objectName} | Search Data
+*SirqulIoTPlatform.ObjectStoreApi* | [**searchObject**](docs/ObjectStoreApi.md#searchObject) | **GET** /object/search | Search Objects
+*SirqulIoTPlatform.ObjectStoreApi* | [**updateData**](docs/ObjectStoreApi.md#updateData) | **PUT** /object/data/{objectName}/{objectId} | Update Data
+*SirqulIoTPlatform.OfferApi* | [**batchUpdateOfferLocations**](docs/OfferApi.md#batchUpdateOfferLocations) | **POST** /retailer/offer/location/batchUpdate | Update Offer Locations
+*SirqulIoTPlatform.OfferApi* | [**createOffer**](docs/OfferApi.md#createOffer) | **POST** /retailer/offer/create | Create Offer
+*SirqulIoTPlatform.OfferApi* | [**deleteOffer**](docs/OfferApi.md#deleteOffer) | **POST** /retailer/offer/delete | Delete Offer
+*SirqulIoTPlatform.OfferApi* | [**deleteOfferLocation**](docs/OfferApi.md#deleteOfferLocation) | **POST** /retailer/offer/location/delete | Delete Offer Location
+*SirqulIoTPlatform.OfferApi* | [**getOffer**](docs/OfferApi.md#getOffer) | **GET** /retailer/offer/get | Get Offer
+*SirqulIoTPlatform.OfferApi* | [**getOfferDetails**](docs/OfferApi.md#getOfferDetails) | **GET** /offer/get | Get Offer
+*SirqulIoTPlatform.OfferApi* | [**getOfferListCounts**](docs/OfferApi.md#getOfferListCounts) | **GET** /offer/lists/count | Get Offers (Counts)
+*SirqulIoTPlatform.OfferApi* | [**getOfferLocation**](docs/OfferApi.md#getOfferLocation) | **GET** /offer/location/get | Get Offer Location
+*SirqulIoTPlatform.OfferApi* | [**getOfferLocationsForRetailers**](docs/OfferApi.md#getOfferLocationsForRetailers) | **GET** /retailer/offer/location/search | Search Offer Locations
+*SirqulIoTPlatform.OfferApi* | [**getOffersForRetailers**](docs/OfferApi.md#getOffersForRetailers) | **GET** /retailer/offer/search | Search Offers
+*SirqulIoTPlatform.OfferApi* | [**redeemOfferTransaction**](docs/OfferApi.md#redeemOfferTransaction) | **POST** /retailer/offer/transaction/update | Update Offer Transaction
+*SirqulIoTPlatform.OfferApi* | [**searchOfferTransactionsForRetailers**](docs/OfferApi.md#searchOfferTransactionsForRetailers) | **GET** /retailer/offer/transaction/search | Search Offer Transactions
+*SirqulIoTPlatform.OfferApi* | [**searchOffersForConsumer**](docs/OfferApi.md#searchOffersForConsumer) | **GET** /offer/lists | Search Offers
+*SirqulIoTPlatform.OfferApi* | [**topOfferTransactions**](docs/OfferApi.md#topOfferTransactions) | **GET** /offer/top | Get Offers (Top)
+*SirqulIoTPlatform.OfferApi* | [**updateOffer**](docs/OfferApi.md#updateOffer) | **POST** /retailer/offer/update | Update Offer
+*SirqulIoTPlatform.OfferApi* | [**updateOfferStatus**](docs/OfferApi.md#updateOfferStatus) | **POST** /retailer/offer/status | Activate Offer
+*SirqulIoTPlatform.OfferStatusApi* | [**createOfferTransactionStatus**](docs/OfferStatusApi.md#createOfferTransactionStatus) | **POST** /offer/status/create | Create Offer Status
+*SirqulIoTPlatform.OfferStatusApi* | [**deleteOfferTransactionStatus**](docs/OfferStatusApi.md#deleteOfferTransactionStatus) | **POST** /offer/status/delete | Delete Offer Status
+*SirqulIoTPlatform.OfferStatusApi* | [**getOfferTransactionStatus**](docs/OfferStatusApi.md#getOfferTransactionStatus) | **GET** /offer/status/get | Get Offer Status
+*SirqulIoTPlatform.OfferStatusApi* | [**searchOfferTransactionStatuses**](docs/OfferStatusApi.md#searchOfferTransactionStatuses) | **GET** /offer/status/search | Search Offer Status
+*SirqulIoTPlatform.OfferStatusApi* | [**updateOfferTransactionStatus**](docs/OfferStatusApi.md#updateOfferTransactionStatus) | **POST** /offer/status/update | Update Offer Status
+*SirqulIoTPlatform.OpenAIApi* | [**imageGeneration**](docs/OpenAIApi.md#imageGeneration) | **POST** /openai/v1/images/generations | Generate images with OpenAI
+*SirqulIoTPlatform.OptimizeApi* | [**getOptimizationResult**](docs/OptimizeApi.md#getOptimizationResult) | **GET** /optimize/result/{batchID} | Get Optimization Result
+*SirqulIoTPlatform.OptimizeApi* | [**requestOptimization**](docs/OptimizeApi.md#requestOptimization) | **POST** /optimize/request | Request Optimization
+*SirqulIoTPlatform.OrsonApi* | [**addMovie**](docs/OrsonApi.md#addMovie) | **POST** /orson/ai/addMovie | Add Movie
+*SirqulIoTPlatform.OrsonApi* | [**aiDocs**](docs/OrsonApi.md#aiDocs) | **GET** /orson/ai/docs | Search Docs
+*SirqulIoTPlatform.OrsonApi* | [**aiFindImages**](docs/OrsonApi.md#aiFindImages) | **GET** /orson/ai/img | Find images
+*SirqulIoTPlatform.OrsonApi* | [**aiTags**](docs/OrsonApi.md#aiTags) | **GET** /orson/ai/tags | Search Tags
+*SirqulIoTPlatform.OrsonApi* | [**aiText**](docs/OrsonApi.md#aiText) | **GET** /orson/ai/text | Search Text
+*SirqulIoTPlatform.OrsonApi* | [**batch**](docs/OrsonApi.md#batch) | **POST** /orson/ai/batch | Batch Analysis
+*SirqulIoTPlatform.OrsonApi* | [**createInstantEpisode**](docs/OrsonApi.md#createInstantEpisode) | **POST** /orson/stories/episodes/instant | Creates an instant episode
+*SirqulIoTPlatform.OrsonApi* | [**createVoiceCanvas**](docs/OrsonApi.md#createVoiceCanvas) | **POST** /orson/ai/voiceCanvas | Create VoiceCanvas images
+*SirqulIoTPlatform.OrsonApi* | [**emotion**](docs/OrsonApi.md#emotion) | **POST** /orson/ai/emotion | Detect emotions
+*SirqulIoTPlatform.OrsonApi* | [**getAddMovieResult**](docs/OrsonApi.md#getAddMovieResult) | **GET** /orson/ai/addMovie/{requestId} | Get Add Movie Result
+*SirqulIoTPlatform.OrsonApi* | [**getBatch**](docs/OrsonApi.md#getBatch) | **GET** /orson/ai/batch/{requestId} | Get Batch Analysis Results
+*SirqulIoTPlatform.OrsonApi* | [**getEmotion**](docs/OrsonApi.md#getEmotion) | **GET** /orson/ai/emotion/{requestId} | Get Emotion Results
+*SirqulIoTPlatform.OrsonApi* | [**getEpisodeStatus**](docs/OrsonApi.md#getEpisodeStatus) | **GET** /orson/stories/episodes/{episodeId}/status | Check episode status
+*SirqulIoTPlatform.OrsonApi* | [**getRenderStatus**](docs/OrsonApi.md#getRenderStatus) | **GET** /orson/stories/renders/{renderId}/status | Check episode status
+*SirqulIoTPlatform.OrsonApi* | [**getSTT**](docs/OrsonApi.md#getSTT) | **GET** /orson/ai/stt/{requestId} | Get Speach to Text Result
+*SirqulIoTPlatform.OrsonApi* | [**getTTS**](docs/OrsonApi.md#getTTS) | **GET** /orson/ai/tts/{requestId} | Get Text to Speach Result
+*SirqulIoTPlatform.OrsonApi* | [**getTechTune**](docs/OrsonApi.md#getTechTune) | **GET** /orson/ai/techTune/{requestId} | Get TechTune Results
+*SirqulIoTPlatform.OrsonApi* | [**getTopics**](docs/OrsonApi.md#getTopics) | **GET** /orson/ai/topics/{requestId} | Get Topics
+*SirqulIoTPlatform.OrsonApi* | [**getVoiceCanvas**](docs/OrsonApi.md#getVoiceCanvas) | **GET** /orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
+*SirqulIoTPlatform.OrsonApi* | [**startVideoRender**](docs/OrsonApi.md#startVideoRender) | **POST** /orson/stories/renders | Starts a StoryStitch video render
+*SirqulIoTPlatform.OrsonApi* | [**stt**](docs/OrsonApi.md#stt) | **POST** /orson/ai/stt | Speach to Text
+*SirqulIoTPlatform.OrsonApi* | [**summarizeTopics**](docs/OrsonApi.md#summarizeTopics) | **POST** /orson/ai/topics | Summarize Topics
+*SirqulIoTPlatform.OrsonApi* | [**techTune**](docs/OrsonApi.md#techTune) | **POST** /orson/ai/techTune | Detect Technical Issues
+*SirqulIoTPlatform.OrsonApi* | [**tts**](docs/OrsonApi.md#tts) | **POST** /orson/ai/tts | Text to Speach
+*SirqulIoTPlatform.PackApi* | [**createPack**](docs/PackApi.md#createPack) | **POST** /pack/create | Create Pack
+*SirqulIoTPlatform.PackApi* | [**deletePack**](docs/PackApi.md#deletePack) | **POST** /pack/delete | Delete Pack
+*SirqulIoTPlatform.PackApi* | [**getPack**](docs/PackApi.md#getPack) | **GET** /pack/get | Get Pack
+*SirqulIoTPlatform.PackApi* | [**searchPacks**](docs/PackApi.md#searchPacks) | **GET** /pack/search | Search Packs
+*SirqulIoTPlatform.PackApi* | [**updatePack**](docs/PackApi.md#updatePack) | **POST** /pack/update | Update Pack
+*SirqulIoTPlatform.ParticipantsApi* | [**processAllParticipants**](docs/ParticipantsApi.md#processAllParticipants) | **POST** /participant/process/all | Process All Participant Feeds
+*SirqulIoTPlatform.ParticipantsApi* | [**processParticipants**](docs/ParticipantsApi.md#processParticipants) | **POST** /participant/process | Process Participants Feed
+*SirqulIoTPlatform.PathingApi* | [**computePath**](docs/PathingApi.md#computePath) | **GET** /pathing/compute | Calculate Path
+*SirqulIoTPlatform.PostalCodeApi* | [**createPostalCode**](docs/PostalCodeApi.md#createPostalCode) | **POST** /postalCode/create | Create Postal Code
+*SirqulIoTPlatform.PostalCodeApi* | [**deletePostalCode**](docs/PostalCodeApi.md#deletePostalCode) | **POST** /postalCode/delete | Delete Postal Code
+*SirqulIoTPlatform.PostalCodeApi* | [**getPostalCode**](docs/PostalCodeApi.md#getPostalCode) | **GET** /postalCode/get | Get Postal Code
+*SirqulIoTPlatform.PostalCodeApi* | [**getPostalCodes**](docs/PostalCodeApi.md#getPostalCodes) | **GET** /postalCode/search | Search Postal Codes
+*SirqulIoTPlatform.PostalCodeApi* | [**updatePostalCode**](docs/PostalCodeApi.md#updatePostalCode) | **POST** /postalCode/update | Update Postal Code
+*SirqulIoTPlatform.PreviewPersonaApi* | [**createPersona**](docs/PreviewPersonaApi.md#createPersona) | **POST** /persona/create | Create Persona
+*SirqulIoTPlatform.PreviewPersonaApi* | [**deletePersona**](docs/PreviewPersonaApi.md#deletePersona) | **POST** /persona/delete | Delete Persona
+*SirqulIoTPlatform.PreviewPersonaApi* | [**getPersonaList**](docs/PreviewPersonaApi.md#getPersonaList) | **GET** /persona/get | Get Persona
+*SirqulIoTPlatform.PreviewPersonaApi* | [**searchPersona**](docs/PreviewPersonaApi.md#searchPersona) | **GET** /persona/search | Search Personas
+*SirqulIoTPlatform.PreviewPersonaApi* | [**updatePersona**](docs/PreviewPersonaApi.md#updatePersona) | **POST** /persona/update | Update Persona
+*SirqulIoTPlatform.ProgramApi* | [**createProgram**](docs/ProgramApi.md#createProgram) | **POST** /program | Create Program
+*SirqulIoTPlatform.ProgramApi* | [**deleteProgram**](docs/ProgramApi.md#deleteProgram) | **DELETE** /program/{id} | Delete Program
+*SirqulIoTPlatform.ProgramApi* | [**getProgram**](docs/ProgramApi.md#getProgram) | **GET** /program/{id} | Get Program
+*SirqulIoTPlatform.ProgramApi* | [**postProgram**](docs/ProgramApi.md#postProgram) | **POST** /program/{id} | Update Program
+*SirqulIoTPlatform.ProgramApi* | [**putProgram**](docs/ProgramApi.md#putProgram) | **PUT** /program/{id} | Update Program
+*SirqulIoTPlatform.ProgramApi* | [**searchPrograms**](docs/ProgramApi.md#searchPrograms) | **GET** /program | Search Programs
+*SirqulIoTPlatform.PurchaseItemApi* | [**createPurchaseItem**](docs/PurchaseItemApi.md#createPurchaseItem) | **POST** /purchase/create | Create Purchase
+*SirqulIoTPlatform.PurchaseItemApi* | [**deletePurchaseItem**](docs/PurchaseItemApi.md#deletePurchaseItem) | **POST** /purchase/delete | Delete Purchase
+*SirqulIoTPlatform.PurchaseItemApi* | [**getPurchaseItem**](docs/PurchaseItemApi.md#getPurchaseItem) | **GET** /purchase/get | Get Purchase
+*SirqulIoTPlatform.PurchaseItemApi* | [**searchPurchaseItems**](docs/PurchaseItemApi.md#searchPurchaseItems) | **GET** /purchase/search | Search Purchases
+*SirqulIoTPlatform.PurchaseItemApi* | [**updatePurchaseItem**](docs/PurchaseItemApi.md#updatePurchaseItem) | **POST** /purchase/update | Update Purchase
+*SirqulIoTPlatform.PurchaseOrderApi* | [**createOrder**](docs/PurchaseOrderApi.md#createOrder) | **POST** /order/create | Create Order
+*SirqulIoTPlatform.PurchaseOrderApi* | [**deleteOrder**](docs/PurchaseOrderApi.md#deleteOrder) | **POST** /order/delete | Delete Order
+*SirqulIoTPlatform.PurchaseOrderApi* | [**getOrder**](docs/PurchaseOrderApi.md#getOrder) | **GET** /order/get | Get Order
+*SirqulIoTPlatform.PurchaseOrderApi* | [**previewOrder**](docs/PurchaseOrderApi.md#previewOrder) | **POST** /order/preview | Preview Order
+*SirqulIoTPlatform.PurchaseOrderApi* | [**searchOrders**](docs/PurchaseOrderApi.md#searchOrders) | **GET** /order/search | Search Orders
+*SirqulIoTPlatform.PurchaseOrderApi* | [**updateOrder**](docs/PurchaseOrderApi.md#updateOrder) | **POST** /order/update | Update Order
+*SirqulIoTPlatform.QuestionApi* | [**createQuestion**](docs/QuestionApi.md#createQuestion) | **POST** /game/question/create | Create Question
+*SirqulIoTPlatform.QuestionApi* | [**deleteQuestion**](docs/QuestionApi.md#deleteQuestion) | **POST** /game/question/delete | Delete Question
+*SirqulIoTPlatform.QuestionApi* | [**getQuestion**](docs/QuestionApi.md#getQuestion) | **GET** /game/question/get | Get Question
+*SirqulIoTPlatform.QuestionApi* | [**searchQuestions**](docs/QuestionApi.md#searchQuestions) | **GET** /game/question/search | Search Questions
+*SirqulIoTPlatform.QuestionApi* | [**updateQuestion**](docs/QuestionApi.md#updateQuestion) | **POST** /game/question/update | Update Question
+*SirqulIoTPlatform.RankingApi* | [**getHistoricalRankings**](docs/RankingApi.md#getHistoricalRankings) | **GET** /ranking/historical/search | Search Historical Rankings
+*SirqulIoTPlatform.RankingApi* | [**getRankings**](docs/RankingApi.md#getRankings) | **GET** /ranking/search | Search Rankings
+*SirqulIoTPlatform.RankingApi* | [**getUserRank**](docs/RankingApi.md#getUserRank) | **POST** /ranking/personal/ranks | Get Personal Rankings
+*SirqulIoTPlatform.RankingApi* | [**overrideUserRank**](docs/RankingApi.md#overrideUserRank) | **POST** /ranking/override | Override User Rank
+*SirqulIoTPlatform.RankingApi* | [**updateRankings**](docs/RankingApi.md#updateRankings) | **POST** /ranking/update | Update Ranking
+*SirqulIoTPlatform.RatingApi* | [**createRating**](docs/RatingApi.md#createRating) | **POST** /rating/create | Create Rating
+*SirqulIoTPlatform.RatingApi* | [**deleteRating**](docs/RatingApi.md#deleteRating) | **POST** /rating/delete | Delete Rating
+*SirqulIoTPlatform.RatingApi* | [**searchLocationRatingIndexes**](docs/RatingApi.md#searchLocationRatingIndexes) | **GET** /location/rating/index/search | Search Location Rating Indexes
+*SirqulIoTPlatform.RatingApi* | [**searchRatingIndexes**](docs/RatingApi.md#searchRatingIndexes) | **GET** /rating/index/search | Search Rating Indexes
+*SirqulIoTPlatform.RatingApi* | [**searchRatings**](docs/RatingApi.md#searchRatings) | **GET** /rating/search | Search Ratings
+*SirqulIoTPlatform.RatingApi* | [**updateRating**](docs/RatingApi.md#updateRating) | **POST** /rating/update | Update Rating
+*SirqulIoTPlatform.RegionApi* | [**createRegion**](docs/RegionApi.md#createRegion) | **POST** /region/create | Create Region
+*SirqulIoTPlatform.RegionApi* | [**deleteRegion**](docs/RegionApi.md#deleteRegion) | **POST** /region/delete | Delete Region
+*SirqulIoTPlatform.RegionApi* | [**getRegion**](docs/RegionApi.md#getRegion) | **GET** /region/get | Get Region
+*SirqulIoTPlatform.RegionApi* | [**searchRegions**](docs/RegionApi.md#searchRegions) | **GET** /region/search | Search Regions
+*SirqulIoTPlatform.RegionApi* | [**updateRegion**](docs/RegionApi.md#updateRegion) | **POST** /region/update | Update Region
+*SirqulIoTPlatform.ReportingApi* | [**createBatch**](docs/ReportingApi.md#createBatch) | **POST** /report/batch/create | Create Offline Report
+*SirqulIoTPlatform.ReportingApi* | [**createRegionLegSummaryBatch**](docs/ReportingApi.md#createRegionLegSummaryBatch) | **POST** /report/region/summary/batch | Create Offline Report
+*SirqulIoTPlatform.ReportingApi* | [**deleteBatch**](docs/ReportingApi.md#deleteBatch) | **POST** /report/batch/delete | Delete Offline Report
+*SirqulIoTPlatform.ReportingApi* | [**getReportBatch**](docs/ReportingApi.md#getReportBatch) | **GET** /report/batch/get | Get Offline Report
+*SirqulIoTPlatform.ReportingApi* | [**runReport**](docs/ReportingApi.md#runReport) | **POST** /report/run | Run Report
+*SirqulIoTPlatform.ReportingApi* | [**searchBatch**](docs/ReportingApi.md#searchBatch) | **GET** /report/batch/search | Search Offline Reports
+*SirqulIoTPlatform.ReservationApi* | [**createReservation**](docs/ReservationApi.md#createReservation) | **POST** /reservation/create | Create Reservation
+*SirqulIoTPlatform.ReservationApi* | [**deleteReservation**](docs/ReservationApi.md#deleteReservation) | **POST** /reservation/delete | Delete Reservation
+*SirqulIoTPlatform.ReservationApi* | [**reservableAvailability**](docs/ReservationApi.md#reservableAvailability) | **POST** /reservable/availability/update | Update Availability
+*SirqulIoTPlatform.ReservationApi* | [**searchAvailability**](docs/ReservationApi.md#searchAvailability) | **GET** /reservable/availability/search | Search Availability
+*SirqulIoTPlatform.ReservationApi* | [**searchReservations**](docs/ReservationApi.md#searchReservations) | **GET** /reservation/search | Search Reservations
+*SirqulIoTPlatform.ReservationApi* | [**searchSchedule**](docs/ReservationApi.md#searchSchedule) | **GET** /reservable/schedule/search | Search Schedule
+*SirqulIoTPlatform.RetailerApi* | [**createRetailer**](docs/RetailerApi.md#createRetailer) | **POST** /retailer/create | Create Retailer
+*SirqulIoTPlatform.RetailerApi* | [**deleteRetailer**](docs/RetailerApi.md#deleteRetailer) | **POST** /retailer/delete | Delete Retailer
+*SirqulIoTPlatform.RetailerApi* | [**getRetailer**](docs/RetailerApi.md#getRetailer) | **GET** /retailer/get | Get Retailer
+*SirqulIoTPlatform.RetailerApi* | [**getRetailers**](docs/RetailerApi.md#getRetailers) | **GET** /retailer/search | Search Retailers
+*SirqulIoTPlatform.RetailerApi* | [**retailerLoginCheck**](docs/RetailerApi.md#retailerLoginCheck) | **POST** /retailer/login | Login Retailer
+*SirqulIoTPlatform.RetailerApi* | [**updateRetailer**](docs/RetailerApi.md#updateRetailer) | **POST** /retailer/update | Update Retailer
+*SirqulIoTPlatform.RetailerLocationApi* | [**createRetailerLocationConsumer**](docs/RetailerLocationApi.md#createRetailerLocationConsumer) | **POST** /location/create | Create Retailer Location (Consumer)
+*SirqulIoTPlatform.RetailerLocationApi* | [**createRetailerLocations**](docs/RetailerLocationApi.md#createRetailerLocations) | **POST** /retailer/location/create | Create Retailer Location
+*SirqulIoTPlatform.RetailerLocationApi* | [**deleteRetailerLocation**](docs/RetailerLocationApi.md#deleteRetailerLocation) | **POST** /retailer/location/delete | Delete Retailer Location
+*SirqulIoTPlatform.RetailerLocationApi* | [**getRetailerLocation**](docs/RetailerLocationApi.md#getRetailerLocation) | **GET** /retailer/location/get | Get Retailer Location
+*SirqulIoTPlatform.RetailerLocationApi* | [**getRetailerLocationConsumer**](docs/RetailerLocationApi.md#getRetailerLocationConsumer) | **GET** /location/get | Get Retailer Location (Consumer)
+*SirqulIoTPlatform.RetailerLocationApi* | [**indexedRetailerLocationDistanceSearch**](docs/RetailerLocationApi.md#indexedRetailerLocationDistanceSearch) | **GET** /retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
+*SirqulIoTPlatform.RetailerLocationApi* | [**indexedRetailerLocationSearch**](docs/RetailerLocationApi.md#indexedRetailerLocationSearch) | **GET** /retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
+*SirqulIoTPlatform.RetailerLocationApi* | [**searchRetailerLocations**](docs/RetailerLocationApi.md#searchRetailerLocations) | **GET** /retailer/location/search | Search Retailer Locations (Owned)
+*SirqulIoTPlatform.RetailerLocationApi* | [**updateRetailerLocations**](docs/RetailerLocationApi.md#updateRetailerLocations) | **POST** /retailer/location/update | Update Retailer Location
+*SirqulIoTPlatform.RetailerV2Api* | [**getRetaokiler**](docs/RetailerV2Api.md#getRetaokiler) | **GET** /retailer | Get Retailer
+*SirqulIoTPlatform.RouteApi* | [**approveRoute**](docs/RouteApi.md#approveRoute) | **POST** /route/{routeId}/approve | Approve Route
+*SirqulIoTPlatform.RouteApi* | [**copyRoute**](docs/RouteApi.md#copyRoute) | **POST** /route/{routeId}/copy | Copy Route
+*SirqulIoTPlatform.RouteApi* | [**createRoute**](docs/RouteApi.md#createRoute) | **POST** /route | Create Route
+*SirqulIoTPlatform.RouteApi* | [**createRouteDirections**](docs/RouteApi.md#createRouteDirections) | **PUT** /route/{routeId}/directions | Update Route Directions
+*SirqulIoTPlatform.RouteApi* | [**createRoutePolyline**](docs/RouteApi.md#createRoutePolyline) | **PUT** /route/{routeId}/polyline | Create Route Polyline
+*SirqulIoTPlatform.RouteApi* | [**deleteRoute**](docs/RouteApi.md#deleteRoute) | **DELETE** /route/{routeId} | Delete Route
+*SirqulIoTPlatform.RouteApi* | [**disapproveRoute**](docs/RouteApi.md#disapproveRoute) | **POST** /route/{routeId}/disapprove | Disapprove Route
+*SirqulIoTPlatform.RouteApi* | [**getRoute**](docs/RouteApi.md#getRoute) | **GET** /route/{routeId} | Get Route
+*SirqulIoTPlatform.RouteApi* | [**getRouteDirections**](docs/RouteApi.md#getRouteDirections) | **GET** /route/{routeId}/directions | Get Route Directions
+*SirqulIoTPlatform.RouteApi* | [**getRouteShipments**](docs/RouteApi.md#getRouteShipments) | **GET** /route/{routeId}/shipments | Get Route Shipments
+*SirqulIoTPlatform.RouteApi* | [**getRouteStop**](docs/RouteApi.md#getRouteStop) | **GET** /route/{routeId}/stop/{stopId} | Get Route Stop
+*SirqulIoTPlatform.RouteApi* | [**getRouteStops**](docs/RouteApi.md#getRouteStops) | **GET** /route/{routeId}/stops | Get Route Stops
+*SirqulIoTPlatform.RouteApi* | [**getShipmentsAtStop**](docs/RouteApi.md#getShipmentsAtStop) | **GET** /route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
+*SirqulIoTPlatform.RouteApi* | [**optimizeRoute**](docs/RouteApi.md#optimizeRoute) | **POST** /route/{routeId}/optimize | Optimize Route
+*SirqulIoTPlatform.RouteApi* | [**removeStop**](docs/RouteApi.md#removeStop) | **DELETE** /route/{routeId}/stop/{stopId} | Delete Stop
+*SirqulIoTPlatform.RouteApi* | [**reorderRouteStopsPatch**](docs/RouteApi.md#reorderRouteStopsPatch) | **PATCH** /route/{routeId}/stops/reorder | Reorder Route Stops
+*SirqulIoTPlatform.RouteApi* | [**reorderRouteStopsPost**](docs/RouteApi.md#reorderRouteStopsPost) | **POST** /route/{routeId}/stops/reorder | Reorder Route Stops
+*SirqulIoTPlatform.RouteApi* | [**searchRoutes**](docs/RouteApi.md#searchRoutes) | **GET** /route | Search Routes
+*SirqulIoTPlatform.RouteApi* | [**setDriver**](docs/RouteApi.md#setDriver) | **POST** /route/{id}/driver/{driverId} | Set Driver
+*SirqulIoTPlatform.RouteApi* | [**updateRoute**](docs/RouteApi.md#updateRoute) | **PUT** /route/{routeId} | Update Route
+*SirqulIoTPlatform.RouteApi* | [**updateRouteStop**](docs/RouteApi.md#updateRouteStop) | **PUT** /route/{routeId}/stop/{stopId} | Update Route Stop
+*SirqulIoTPlatform.RouteSettingApi* | [**createRouteSettings**](docs/RouteSettingApi.md#createRouteSettings) | **POST** /route/setting | Create Route Setting
+*SirqulIoTPlatform.RouteSettingApi* | [**deleteRouteSettings**](docs/RouteSettingApi.md#deleteRouteSettings) | **DELETE** /route/setting/{routeSettingsId} | Delete Route Setting
+*SirqulIoTPlatform.RouteSettingApi* | [**getRouteSettings**](docs/RouteSettingApi.md#getRouteSettings) | **GET** /route/setting/{routeSettingsId} | Get Route Setting
+*SirqulIoTPlatform.RouteSettingApi* | [**searchRouteSettings**](docs/RouteSettingApi.md#searchRouteSettings) | **GET** /route/setting | Search Route Settings
+*SirqulIoTPlatform.RouteSettingApi* | [**updateRouteSettings**](docs/RouteSettingApi.md#updateRouteSettings) | **PUT** /route/setting/{routeSettingsId} | Update Route Setting
+*SirqulIoTPlatform.RoutingApi* | [**computeRouting**](docs/RoutingApi.md#computeRouting) | **POST** /routing/compute | Compute Route
+*SirqulIoTPlatform.ScheduledNotificationApi* | [**createScheduledNotification**](docs/ScheduledNotificationApi.md#createScheduledNotification) | **POST** /notification/schedule/create | Create Scheduled Notification
+*SirqulIoTPlatform.ScheduledNotificationApi* | [**deleteScheduledNotification**](docs/ScheduledNotificationApi.md#deleteScheduledNotification) | **POST** /notification/schedule/delete | Delete Scheduled Notification
+*SirqulIoTPlatform.ScheduledNotificationApi* | [**getScheduledNotification**](docs/ScheduledNotificationApi.md#getScheduledNotification) | **GET** /notification/schedule/get | Get Scheduled Notification
+*SirqulIoTPlatform.ScheduledNotificationApi* | [**scheduleNotificationListings**](docs/ScheduledNotificationApi.md#scheduleNotificationListings) | **POST** /notification/schedule/generate | Generate Schedule Notifications
+*SirqulIoTPlatform.ScheduledNotificationApi* | [**searchScheduledNotifications**](docs/ScheduledNotificationApi.md#searchScheduledNotifications) | **GET** /notification/schedule/search | Search Scheduled Notifications
+*SirqulIoTPlatform.ScheduledNotificationApi* | [**updateScheduledNotification**](docs/ScheduledNotificationApi.md#updateScheduledNotification) | **POST** /notification/schedule/update | Update Scheduled Notification
+*SirqulIoTPlatform.ScoreApi* | [**createScore**](docs/ScoreApi.md#createScore) | **POST** /score/create | Create Score
+*SirqulIoTPlatform.ScoreApi* | [**getScore**](docs/ScoreApi.md#getScore) | **GET** /score/get | Get Score
+*SirqulIoTPlatform.ScoreApi* | [**searchScores**](docs/ScoreApi.md#searchScores) | **GET** /score/search | Search Score
+*SirqulIoTPlatform.SecureAppApi* | [**createSecureApplication**](docs/SecureAppApi.md#createSecureApplication) | **POST** /secure/application/create | Create Secure Application
+*SirqulIoTPlatform.SecureAppApi* | [**deleteSecureApplication**](docs/SecureAppApi.md#deleteSecureApplication) | **POST** /secure/application/delete | Delete Secure Application
+*SirqulIoTPlatform.SecureAppApi* | [**loginSecure**](docs/SecureAppApi.md#loginSecure) | **POST** /secure/login | Login Clear
+*SirqulIoTPlatform.SecureAppApi* | [**purchaseSecure**](docs/SecureAppApi.md#purchaseSecure) | **POST** /secure/purchase | Purchase Clear
+*SirqulIoTPlatform.SecureAppApi* | [**resetSecure**](docs/SecureAppApi.md#resetSecure) | **POST** /secure/application/reset | Rest Secure Application
+*SirqulIoTPlatform.SecureAppApi* | [**updateSecureApplication**](docs/SecureAppApi.md#updateSecureApplication) | **POST** /secure/application/update | Update Secure Application
+*SirqulIoTPlatform.ServiceHubApi* | [**createServiceHub**](docs/ServiceHubApi.md#createServiceHub) | **POST** /hub | Create Service Hub
+*SirqulIoTPlatform.ServiceHubApi* | [**deleteServiceHub**](docs/ServiceHubApi.md#deleteServiceHub) | **DELETE** /hub/{id} | Delete Service Hub
+*SirqulIoTPlatform.ServiceHubApi* | [**getServiceHub**](docs/ServiceHubApi.md#getServiceHub) | **GET** /hub/{id} | Get Service Hub
+*SirqulIoTPlatform.ServiceHubApi* | [**postServiceHub**](docs/ServiceHubApi.md#postServiceHub) | **POST** /hub/{id} | Update Service Hub
+*SirqulIoTPlatform.ServiceHubApi* | [**putServiceHub**](docs/ServiceHubApi.md#putServiceHub) | **PUT** /hub/{id} | Update Service Hub
+*SirqulIoTPlatform.ServiceHubApi* | [**searchServiceHubs**](docs/ServiceHubApi.md#searchServiceHubs) | **GET** /hub | Search Service Hubs
+*SirqulIoTPlatform.ShipmentApi* | [**cancelShipment**](docs/ShipmentApi.md#cancelShipment) | **POST** /shipment/{id}/cancel | Cancel Shipment
+*SirqulIoTPlatform.ShipmentApi* | [**createShipment**](docs/ShipmentApi.md#createShipment) | **POST** /shipment | Create Shipment
+*SirqulIoTPlatform.ShipmentApi* | [**deleteShipment**](docs/ShipmentApi.md#deleteShipment) | **DELETE** /shipment/{id} | Delete Shipment
+*SirqulIoTPlatform.ShipmentApi* | [**getShipment**](docs/ShipmentApi.md#getShipment) | **GET** /shipment/{id} | Get Shipment
+*SirqulIoTPlatform.ShipmentApi* | [**searchShipments**](docs/ShipmentApi.md#searchShipments) | **GET** /shipment | Search Shipments
+*SirqulIoTPlatform.ShipmentApi* | [**updateShipment**](docs/ShipmentApi.md#updateShipment) | **PUT** /shipment/{id} | Update Shipment
+*SirqulIoTPlatform.ShipmentApi* | [**updateShipmentStatus**](docs/ShipmentApi.md#updateShipmentStatus) | **POST** /shipment/{id}/status | Uupdate Shipment Status
+*SirqulIoTPlatform.ShipmentBatchApi* | [**createShipmentBatch**](docs/ShipmentBatchApi.md#createShipmentBatch) | **POST** /shipment/batch | Create Shipment Batch
+*SirqulIoTPlatform.ShipmentBatchApi* | [**deleteShipmentBatch**](docs/ShipmentBatchApi.md#deleteShipmentBatch) | **DELETE** /shipment/batch/{batchId} | Delete Shipment Batch
+*SirqulIoTPlatform.ShipmentBatchApi* | [**getShipmentBatch**](docs/ShipmentBatchApi.md#getShipmentBatch) | **GET** /shipment/batch/{batchId} | Get Shipment Batch
+*SirqulIoTPlatform.ShipmentBatchApi* | [**getShipmentBatchStatus**](docs/ShipmentBatchApi.md#getShipmentBatchStatus) | **GET** /shipment/batch/{batchId}/status | Get Shipment Batch Status
+*SirqulIoTPlatform.ShipmentBatchApi* | [**searchShipmentBatch**](docs/ShipmentBatchApi.md#searchShipmentBatch) | **GET** /shipment/batch | Search Shipment Batch
+*SirqulIoTPlatform.SimulationApi* | [**simulation**](docs/SimulationApi.md#simulation) | **POST** /simulation/routing | Routing Simulation
+*SirqulIoTPlatform.StopApi* | [**getStop**](docs/StopApi.md#getStop) | **GET** /stop/{id} | Get Stop
+*SirqulIoTPlatform.StopApi* | [**updateStop**](docs/StopApi.md#updateStop) | **PUT** /stop/{id} | Update Stop
+*SirqulIoTPlatform.StripeApi* | [**createStripeCheckoutSession**](docs/StripeApi.md#createStripeCheckoutSession) | **POST** /stripe/checkout/session/create | Create Stripe Checkout Session
+*SirqulIoTPlatform.SubscriptionApi* | [**createSubscription**](docs/SubscriptionApi.md#createSubscription) | **POST** /subscription/create | Create Subscription
+*SirqulIoTPlatform.SubscriptionApi* | [**deleteSubscription**](docs/SubscriptionApi.md#deleteSubscription) | **POST** /subscription/delete | Delete Subscription
+*SirqulIoTPlatform.SubscriptionApi* | [**getSubscription**](docs/SubscriptionApi.md#getSubscription) | **GET** /subscription/get | Get Subscription
+*SirqulIoTPlatform.SubscriptionApi* | [**getSubscriptionPlan**](docs/SubscriptionApi.md#getSubscriptionPlan) | **GET** /subscription/plan/get | Get Subscription Plan
+*SirqulIoTPlatform.SubscriptionApi* | [**getSubscriptionPlans**](docs/SubscriptionApi.md#getSubscriptionPlans) | **GET** /subscription/plan/list | List Subscription Plans
+*SirqulIoTPlatform.SubscriptionApi* | [**getSubscriptionUsage**](docs/SubscriptionApi.md#getSubscriptionUsage) | **GET** /subscription/usage/get | Get Subscription Usage
+*SirqulIoTPlatform.SubscriptionApi* | [**updateSubscription**](docs/SubscriptionApi.md#updateSubscription) | **POST** /subscription/update | Update Subscription
+*SirqulIoTPlatform.TaskApi* | [**createTask**](docs/TaskApi.md#createTask) | **POST** /task/create | Create Task
+*SirqulIoTPlatform.TaskApi* | [**deleteTask**](docs/TaskApi.md#deleteTask) | **POST** /task/delete | Delete Task
+*SirqulIoTPlatform.TaskApi* | [**getTask**](docs/TaskApi.md#getTask) | **GET** /task/get | Get Task
+*SirqulIoTPlatform.TaskApi* | [**searchTasks**](docs/TaskApi.md#searchTasks) | **GET** /task/search | Search Tasks
+*SirqulIoTPlatform.TaskApi* | [**updateTask**](docs/TaskApi.md#updateTask) | **POST** /task/update | Update Task
+*SirqulIoTPlatform.TerritoryApi* | [**createTerritory**](docs/TerritoryApi.md#createTerritory) | **POST** /territory/create | Create Territory
+*SirqulIoTPlatform.TerritoryApi* | [**deleteTerritory**](docs/TerritoryApi.md#deleteTerritory) | **POST** /territory/delete | Delete Territory
+*SirqulIoTPlatform.TerritoryApi* | [**getTerritory**](docs/TerritoryApi.md#getTerritory) | **GET** /territory/get | Get Territory
+*SirqulIoTPlatform.TerritoryApi* | [**searchTerritories**](docs/TerritoryApi.md#searchTerritories) | **GET** /territory/search | Search Territories
+*SirqulIoTPlatform.TerritoryApi* | [**updateTerritory**](docs/TerritoryApi.md#updateTerritory) | **POST** /territory/update | Update Territory
+*SirqulIoTPlatform.ThemeDescriptorApi* | [**addOrUpdateThemeDescriptor**](docs/ThemeDescriptorApi.md#addOrUpdateThemeDescriptor) | **POST** /consumer/theme | Create/Update Theme
+*SirqulIoTPlatform.ThemeDescriptorApi* | [**getThemeDescriptor**](docs/ThemeDescriptorApi.md#getThemeDescriptor) | **GET** /consumer/theme/get | Get Theme
+*SirqulIoTPlatform.ThemeDescriptorApi* | [**getThemeDescriptors**](docs/ThemeDescriptorApi.md#getThemeDescriptors) | **GET** /consumer/theme/search | Search Themes
+*SirqulIoTPlatform.ThemeDescriptorApi* | [**removeThemeDescriptor**](docs/ThemeDescriptorApi.md#removeThemeDescriptor) | **POST** /consumer/theme/remove | Delete Theme
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**createCredential**](docs/ThirdPartyCredentialsApi.md#createCredential) | **POST** /thirdparty/credential/create | Create Credential
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**createNetwork**](docs/ThirdPartyCredentialsApi.md#createNetwork) | **POST** /thirdparty/network/create | Create Network
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**deleteCredential**](docs/ThirdPartyCredentialsApi.md#deleteCredential) | **POST** /thirdparty/credential/delete | Delete Credential
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**deleteNetwork**](docs/ThirdPartyCredentialsApi.md#deleteNetwork) | **POST** /thirdparty/network/delete | Delete Network
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**getCredential**](docs/ThirdPartyCredentialsApi.md#getCredential) | **POST** /thirdparty/credential/get | Get Credential
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**getNetwork**](docs/ThirdPartyCredentialsApi.md#getNetwork) | **GET** /thirdparty/network/get | Get Network
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**searchCredentials**](docs/ThirdPartyCredentialsApi.md#searchCredentials) | **GET** /thirdparty/credential/search | Search Credentials
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**searchNetworks**](docs/ThirdPartyCredentialsApi.md#searchNetworks) | **GET** /thirdparty/network/search | Search Networks
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**sendMFAChallenge**](docs/ThirdPartyCredentialsApi.md#sendMFAChallenge) | **POST** /thirdparty/credential/mfa/send | Send MFA Challenge
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**updateCredential**](docs/ThirdPartyCredentialsApi.md#updateCredential) | **POST** /thirdparty/credential/update | Update Credential
+*SirqulIoTPlatform.ThirdPartyCredentialsApi* | [**updateNetwork**](docs/ThirdPartyCredentialsApi.md#updateNetwork) | **POST** /thirdparty/network/update | Update Network
+*SirqulIoTPlatform.TicketApi* | [**getTicketCount**](docs/TicketApi.md#getTicketCount) | **GET** /ticket/count | Get Ticket Count
+*SirqulIoTPlatform.TicketApi* | [**getTicketList**](docs/TicketApi.md#getTicketList) | **GET** /ticket/getList | Get Ticket List
+*SirqulIoTPlatform.TicketApi* | [**giftPurchase**](docs/TicketApi.md#giftPurchase) | **POST** /purchase/gift | Gift Tickets
+*SirqulIoTPlatform.TicketApi* | [**saveTicket**](docs/TicketApi.md#saveTicket) | **POST** /ticket/save | Save Ticket
+*SirqulIoTPlatform.TicketApi* | [**saveTicketViaFileUpload**](docs/TicketApi.md#saveTicketViaFileUpload) | **POST** /ticket/save/fileUpload | Save Ticket with Reciept
+*SirqulIoTPlatform.TicketApi* | [**ticketOffers**](docs/TicketApi.md#ticketOffers) | **GET** /ticket/ticketoffers | Get Ticket Offers
+*SirqulIoTPlatform.TournamentApi* | [**createTournament**](docs/TournamentApi.md#createTournament) | **POST** /tournament/create | Create Tournament
+*SirqulIoTPlatform.TournamentApi* | [**deleteTournament**](docs/TournamentApi.md#deleteTournament) | **POST** /tournament/delete | Delete Tournament
+*SirqulIoTPlatform.TournamentApi* | [**getTournament**](docs/TournamentApi.md#getTournament) | **GET** /tournament/get | Get Tournament
+*SirqulIoTPlatform.TournamentApi* | [**searchObjects**](docs/TournamentApi.md#searchObjects) | **GET** /tournament/object/search | Search Tournament Objects
+*SirqulIoTPlatform.TournamentApi* | [**searchRounds**](docs/TournamentApi.md#searchRounds) | **GET** /tournament/round/search | Search Tournament Rounds
+*SirqulIoTPlatform.TournamentApi* | [**searchTournaments**](docs/TournamentApi.md#searchTournaments) | **GET** /tournament/search | Search Tournaments
+*SirqulIoTPlatform.TournamentApi* | [**submitTournamentScore**](docs/TournamentApi.md#submitTournamentScore) | **POST** /tournament/score | Submit Tournament Score
+*SirqulIoTPlatform.TournamentApi* | [**submitTournamentVote**](docs/TournamentApi.md#submitTournamentVote) | **POST** /tournament/vote | Submit a vote for a multi-stage album tournament.
+*SirqulIoTPlatform.TournamentApi* | [**substituteTournamentPlayer**](docs/TournamentApi.md#substituteTournamentPlayer) | **POST** /tournament/substitute | Substitute Tournament Player
+*SirqulIoTPlatform.TournamentApi* | [**updateTournament**](docs/TournamentApi.md#updateTournament) | **POST** /tournament/update | Update Tournament
+*SirqulIoTPlatform.TrackingApi* | [**batchSaveTracking**](docs/TrackingApi.md#batchSaveTracking) | **POST** /tracking/batch/create | Create Batch Tracking
+*SirqulIoTPlatform.TrackingApi* | [**getPredictedLocations**](docs/TrackingApi.md#getPredictedLocations) | **GET** /tracking/predicted/get | Get Predicted Locations
+*SirqulIoTPlatform.TrackingApi* | [**getPredictedPath**](docs/TrackingApi.md#getPredictedPath) | **GET** /tracking/path/get | Get Tracking Path
+*SirqulIoTPlatform.TrackingApi* | [**getPreferredLocations**](docs/TrackingApi.md#getPreferredLocations) | **GET** /tracking/preferred/search | Search Preferred Locations
+*SirqulIoTPlatform.TrackingApi* | [**getTrackingLegs**](docs/TrackingApi.md#getTrackingLegs) | **GET** /tracking/search | Search Tracking
+*SirqulIoTPlatform.TrackingApi* | [**saveTrackingLeg**](docs/TrackingApi.md#saveTrackingLeg) | **POST** /tracking/leg/create | Create Tracking Leg
+*SirqulIoTPlatform.TrackingApi* | [**saveTrackingStep**](docs/TrackingApi.md#saveTrackingStep) | **POST** /tracking/step/create | Create Tracking Step
+*SirqulIoTPlatform.TrackingApi* | [**searchAccountsWithTrackingLegs**](docs/TrackingApi.md#searchAccountsWithTrackingLegs) | **GET** /tracking/list | List Tracking
+*SirqulIoTPlatform.TrackingApi* | [**searchTrackingLegs**](docs/TrackingApi.md#searchTrackingLegs) | **GET** /tracking/searchByBillable | Search Tracking (Billable)
+*SirqulIoTPlatform.TriggerApi* | [**createTrigger**](docs/TriggerApi.md#createTrigger) | **POST** /trigger/create | Create Trigger
+*SirqulIoTPlatform.TriggerApi* | [**deleteTrigger**](docs/TriggerApi.md#deleteTrigger) | **POST** /trigger/delete | Delete Trigger
+*SirqulIoTPlatform.TriggerApi* | [**getTrigger**](docs/TriggerApi.md#getTrigger) | **GET** /trigger/get | Get Trigger
+*SirqulIoTPlatform.TriggerApi* | [**searchTriggers**](docs/TriggerApi.md#searchTriggers) | **GET** /trigger/search | Search Triggers
+*SirqulIoTPlatform.TriggerApi* | [**updateTrigger**](docs/TriggerApi.md#updateTrigger) | **POST** /trigger/update | Update Trigger
+*SirqulIoTPlatform.TripApi* | [**callDelete**](docs/TripApi.md#callDelete) | **DELETE** /trip/{id} | Delete Trip
+*SirqulIoTPlatform.TripApi* | [**createTrip**](docs/TripApi.md#createTrip) | **POST** /trip | Create Trip
+*SirqulIoTPlatform.TripApi* | [**driveTrip**](docs/TripApi.md#driveTrip) | **POST** /trip/{id}/drive | Set Trip Preference Driver
+*SirqulIoTPlatform.TripApi* | [**flexibleTrip**](docs/TripApi.md#flexibleTrip) | **POST** /trip/{id}/flexible | Set Trip Preference Flexible
+*SirqulIoTPlatform.TripApi* | [**getTrip**](docs/TripApi.md#getTrip) | **GET** /trip/{id} | Get Trip
+*SirqulIoTPlatform.TripApi* | [**getTripMatches**](docs/TripApi.md#getTripMatches) | **GET** /trip/{id}/match | Get Trip Matches
+*SirqulIoTPlatform.TripApi* | [**processTripMatches**](docs/TripApi.md#processTripMatches) | **POST** /trip/match/process | Process Trip Matches
+*SirqulIoTPlatform.TripApi* | [**ride**](docs/TripApi.md#ride) | **POST** /trip/{id}/ride | Set Trip Preference Rider
+*SirqulIoTPlatform.TripApi* | [**search**](docs/TripApi.md#search) | **GET** /trip | Search Trips
+*SirqulIoTPlatform.TripApi* | [**searchTrips**](docs/TripApi.md#searchTrips) | **GET** /trip/match | Search Trips
+*SirqulIoTPlatform.TripApi* | [**updateLocations**](docs/TripApi.md#updateLocations) | **POST** /trip/{id}/locations | Update Trip Locations
+*SirqulIoTPlatform.TripApi* | [**updateRecurrenceLocations**](docs/TripApi.md#updateRecurrenceLocations) | **POST** /trip/{id}/locations/recurrence | Update Recurrence Locations
+*SirqulIoTPlatform.TripApi* | [**updateRecurrenceShipments**](docs/TripApi.md#updateRecurrenceShipments) | **POST** /trip/{id}/shipments/recurrence | Update Recurrence Shipments
+*SirqulIoTPlatform.TripApi* | [**updateShipments**](docs/TripApi.md#updateShipments) | **POST** /trip/{id}/shipments | Update Trip Shipments
+*SirqulIoTPlatform.TripApi* | [**updateTrip**](docs/TripApi.md#updateTrip) | **PUT** /trip/{id} | Update Trip
+*SirqulIoTPlatform.TripApi* | [**updateTripNotifications**](docs/TripApi.md#updateTripNotifications) | **POST** /trip/notifications | Trip Notifications
+*SirqulIoTPlatform.TwilioApi* | [**smsBuyOffer**](docs/TwilioApi.md#smsBuyOffer) | **POST** /sms/buyoffer/{appKey} | Buy Offer by SMS
+*SirqulIoTPlatform.TwitterApi* | [**authorizeTwitter**](docs/TwitterApi.md#authorizeTwitter) | **POST** /twitter/authorize | Authorize Twitter
+*SirqulIoTPlatform.TwitterApi* | [**loginTwitter**](docs/TwitterApi.md#loginTwitter) | **POST** /twitter/login | Login Twitter
+*SirqulIoTPlatform.UserPermissionsApi* | [**addUsersToPermissionable**](docs/UserPermissionsApi.md#addUsersToPermissionable) | **POST** /consumer/permissions/add | Add User
+*SirqulIoTPlatform.UserPermissionsApi* | [**approvePermissionable**](docs/UserPermissionsApi.md#approvePermissionable) | **POST** /permissionable/approve | Approve Permissionable
+*SirqulIoTPlatform.UserPermissionsApi* | [**leaveFromPermissionable**](docs/UserPermissionsApi.md#leaveFromPermissionable) | **POST** /consumer/permissions/leave | Leave
+*SirqulIoTPlatform.UserPermissionsApi* | [**removeUsersFromPermissionable**](docs/UserPermissionsApi.md#removeUsersFromPermissionable) | **POST** /consumer/permissions/remove | Remove User
+*SirqulIoTPlatform.UserPermissionsApi* | [**searchPermissionables**](docs/UserPermissionsApi.md#searchPermissionables) | **GET** /permissions/search | Search Permissionables
+*SirqulIoTPlatform.UserPermissionsApi* | [**searchPermissionablesFollowingDistance**](docs/UserPermissionsApi.md#searchPermissionablesFollowingDistance) | **GET** /permissions/distancesearch | Search Permissionables by Distnace
+*SirqulIoTPlatform.VatomApi* | [**createFollowing**](docs/VatomApi.md#createFollowing) | **POST** /vatom/me/rels/following/create | Create following
+*SirqulIoTPlatform.VatomApi* | [**createSpace**](docs/VatomApi.md#createSpace) | **POST** /vatom/b/spaces/create | Create Vatom Space
+*SirqulIoTPlatform.VatomApi* | [**createVatomEvent**](docs/VatomApi.md#createVatomEvent) | **POST** /vatom/b/events/create | Create Vatom Event
+*SirqulIoTPlatform.VatomApi* | [**deleteFollowing**](docs/VatomApi.md#deleteFollowing) | **POST** /vatom/me/rels/following/delete | Delete following
+*SirqulIoTPlatform.VatomApi* | [**deletePointsBalance**](docs/VatomApi.md#deletePointsBalance) | **POST** /vatom/b/campaign/points/delete | Reset All Points Balance
+*SirqulIoTPlatform.VatomApi* | [**deleteSpace**](docs/VatomApi.md#deleteSpace) | **POST** /vatom/b/spaces/delete | Delete Vatom Space
+*SirqulIoTPlatform.VatomApi* | [**deleteVatomEvent**](docs/VatomApi.md#deleteVatomEvent) | **POST** /vatom/b/events/delete | Delete Vatom Event
+*SirqulIoTPlatform.VatomApi* | [**deleteVatomNFT**](docs/VatomApi.md#deleteVatomNFT) | **POST** /vatom/vatoms/delete | Delete Vatom NFT
+*SirqulIoTPlatform.VatomApi* | [**executeActionOnNFT**](docs/VatomApi.md#executeActionOnNFT) | **POST** /vatom/vatoms/execute-action | Execute Action on NFT
+*SirqulIoTPlatform.VatomApi* | [**geomapSearch**](docs/VatomApi.md#geomapSearch) | **GET** /vatom/vatoms/geo-map/search | Search Vatom Geo Map
+*SirqulIoTPlatform.VatomApi* | [**getBusinessBehaviors**](docs/VatomApi.md#getBusinessBehaviors) | **GET** /vatom/b/behaviors | Get Vatom Business Behaviors
+*SirqulIoTPlatform.VatomApi* | [**getBusinessCoinsBalance**](docs/VatomApi.md#getBusinessCoinsBalance) | **GET** /vatom/b/coins/get | Get the coins for a Business
+*SirqulIoTPlatform.VatomApi* | [**getBusinessIds**](docs/VatomApi.md#getBusinessIds) | **GET** /vatom/me/businesses | Get the user business ids
+*SirqulIoTPlatform.VatomApi* | [**getBusinessInfo**](docs/VatomApi.md#getBusinessInfo) | **GET** /vatom/b/get | Get Vatom Business Info
+*SirqulIoTPlatform.VatomApi* | [**getBusinessUsers**](docs/VatomApi.md#getBusinessUsers) | **GET** /vatom/b/users | Get Vatom Business Users
+*SirqulIoTPlatform.VatomApi* | [**getCampaignGroupEntities**](docs/VatomApi.md#getCampaignGroupEntities) | **GET** /vatom/b/campaign-groups/entities | Get Campaign Group Entities
+*SirqulIoTPlatform.VatomApi* | [**getCampaignGroupRules**](docs/VatomApi.md#getCampaignGroupRules) | **GET** /vatom/b/campaign-groups/rules | Get Campaign Group Rules
+*SirqulIoTPlatform.VatomApi* | [**getCampaignGroupStats**](docs/VatomApi.md#getCampaignGroupStats) | **GET** /vatom/b/campaign-groups/stats | Get Campaign Group Stats
+*SirqulIoTPlatform.VatomApi* | [**getCampaignInfo**](docs/VatomApi.md#getCampaignInfo) | **GET** /vatom/b/campaign-groups/get | Get Campaign Info
+*SirqulIoTPlatform.VatomApi* | [**getEventGuestList**](docs/VatomApi.md#getEventGuestList) | **GET** /vatom/b/events/guests/get | Get Vatom Event Guest List
+*SirqulIoTPlatform.VatomApi* | [**getInventory**](docs/VatomApi.md#getInventory) | **GET** /vatom/me/inventory | Get Vatom User&#39;s Inventory
+*SirqulIoTPlatform.VatomApi* | [**getMyFollowing**](docs/VatomApi.md#getMyFollowing) | **GET** /vatom/me/rels/following | Get following
+*SirqulIoTPlatform.VatomApi* | [**getPointsBalance**](docs/VatomApi.md#getPointsBalance) | **GET** /vatom/u/campaign/points/get | Get Points Balance
+*SirqulIoTPlatform.VatomApi* | [**getPointsBalanceAsBusiness**](docs/VatomApi.md#getPointsBalanceAsBusiness) | **GET** /vatom/b/campaign/u/points/get | Get Points Balance as Business
+*SirqulIoTPlatform.VatomApi* | [**getSpace**](docs/VatomApi.md#getSpace) | **GET** /vatom/b/spaces/get | Get Vatom Space
+*SirqulIoTPlatform.VatomApi* | [**getUserCoinsAsBusiness**](docs/VatomApi.md#getUserCoinsAsBusiness) | **GET** /vatom/b/users/coins/get | Get the coins for a user (as a Business)
+*SirqulIoTPlatform.VatomApi* | [**getUserCoinsBalance**](docs/VatomApi.md#getUserCoinsBalance) | **GET** /vatom/u/coins/get | Gets the coins balance for a Vatom User
+*SirqulIoTPlatform.VatomApi* | [**getUserFollowers**](docs/VatomApi.md#getUserFollowers) | **GET** /vatom/users/rels/followers | Get user followers
+*SirqulIoTPlatform.VatomApi* | [**getUserFollowing**](docs/VatomApi.md#getUserFollowing) | **GET** /vatom/users/rels/following | Get user following
+*SirqulIoTPlatform.VatomApi* | [**getUserInfo**](docs/VatomApi.md#getUserInfo) | **GET** /vatom/user/get | Get User Info
+*SirqulIoTPlatform.VatomApi* | [**getUserProfile**](docs/VatomApi.md#getUserProfile) | **GET** /vatom/me/get | Get Vatom User Profile
+*SirqulIoTPlatform.VatomApi* | [**getVatomEvent**](docs/VatomApi.md#getVatomEvent) | **GET** /vatom/b/events/get | Get Vatom Event
+*SirqulIoTPlatform.VatomApi* | [**getVatomNFT**](docs/VatomApi.md#getVatomNFT) | **GET** /vatom/vatoms/get | Get Vatom NFT Details
+*SirqulIoTPlatform.VatomApi* | [**listCommunities**](docs/VatomApi.md#listCommunities) | **GET** /vatom/b/communities/search | List Vatom Communities
+*SirqulIoTPlatform.VatomApi* | [**listEvents**](docs/VatomApi.md#listEvents) | **GET** /vatom/b/events/search | List Vatom Events
+*SirqulIoTPlatform.VatomApi* | [**listSpaces**](docs/VatomApi.md#listSpaces) | **GET** /vatom/b/spaces/search | List Vatom Spaces
+*SirqulIoTPlatform.VatomApi* | [**listUserCoinTransactions**](docs/VatomApi.md#listUserCoinTransactions) | **GET** /vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
+*SirqulIoTPlatform.VatomApi* | [**listUserCoinTransactionsAsBusiness**](docs/VatomApi.md#listUserCoinTransactionsAsBusiness) | **GET** /vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
+*SirqulIoTPlatform.VatomApi* | [**performActionOnNFT**](docs/VatomApi.md#performActionOnNFT) | **POST** /vatom/me/vatoms/actions | Perform Action on NFT
+*SirqulIoTPlatform.VatomApi* | [**redeemNFT**](docs/VatomApi.md#redeemNFT) | **POST** /vatom/b/redemptions | Redeem NFT
+*SirqulIoTPlatform.VatomApi* | [**redeemUserCoinsAsBusiness**](docs/VatomApi.md#redeemUserCoinsAsBusiness) | **POST** /vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
+*SirqulIoTPlatform.VatomApi* | [**searchBusinesses**](docs/VatomApi.md#searchBusinesses) | **GET** /vatom/b/search | Search for Vatom Businesses
+*SirqulIoTPlatform.VatomApi* | [**searchCampaignGroups**](docs/VatomApi.md#searchCampaignGroups) | **GET** /vatom/b/campaign-groups/search | Search Campaign Groups
+*SirqulIoTPlatform.VatomApi* | [**searchIdentities**](docs/VatomApi.md#searchIdentities) | **GET** /vatom/me/identities/search | Search User Identities
+*SirqulIoTPlatform.VatomApi* | [**searchInventory**](docs/VatomApi.md#searchInventory) | **GET** /vatom/user-inventory/search | Search Vatom User&#39;s Inventory
+*SirqulIoTPlatform.VatomApi* | [**sendNFT**](docs/VatomApi.md#sendNFT) | **POST** /vatom/b/campaigns/send | Send NFT
+*SirqulIoTPlatform.VatomApi* | [**setPointsBalanceAsBusiness**](docs/VatomApi.md#setPointsBalanceAsBusiness) | **POST** /vatom/b/campaign/u/points/update | Set Points Balance as Business
+*SirqulIoTPlatform.VatomApi* | [**transferUserCoins**](docs/VatomApi.md#transferUserCoins) | **POST** /vatom/u/coins/transfer | Transfer coins from Vatom Users
+*SirqulIoTPlatform.VatomApi* | [**updateBusinessCoins**](docs/VatomApi.md#updateBusinessCoins) | **POST** /vatom/b/coins/update | Fund coins for a Business
+*SirqulIoTPlatform.VatomApi* | [**updateEventGuestList**](docs/VatomApi.md#updateEventGuestList) | **POST** /vatom/b/events/guests/update | Update Vatom Event Guest List
+*SirqulIoTPlatform.VatomApi* | [**updateSpace**](docs/VatomApi.md#updateSpace) | **POST** /vatom/b/spaces/update | Update Vatom Space
+*SirqulIoTPlatform.VatomApi* | [**updateUserCoinsAsBusiness**](docs/VatomApi.md#updateUserCoinsAsBusiness) | **POST** /vatom/b/users/coins/update | Update the coins for a user (as a Business)
+*SirqulIoTPlatform.VatomApi* | [**updateUserProfile**](docs/VatomApi.md#updateUserProfile) | **POST** /vatom/me/update | Update Vatom User Profile
+*SirqulIoTPlatform.VatomApi* | [**updateVatomEvent**](docs/VatomApi.md#updateVatomEvent) | **POST** /vatom/b/events/update | Update Vatom Event
+*SirqulIoTPlatform.VehicleApi* | [**createVehicle**](docs/VehicleApi.md#createVehicle) | **POST** /vehicle | Create Vehicle
+*SirqulIoTPlatform.VehicleApi* | [**deleteVehicle**](docs/VehicleApi.md#deleteVehicle) | **DELETE** /vehicle/{id} | Delete Vehicle
+*SirqulIoTPlatform.VehicleApi* | [**getVehicle**](docs/VehicleApi.md#getVehicle) | **GET** /vehicle/{id} | Get Vehicle
+*SirqulIoTPlatform.VehicleApi* | [**searchVehicle**](docs/VehicleApi.md#searchVehicle) | **GET** /vehicle | Search Vehicle
+*SirqulIoTPlatform.VehicleApi* | [**updateVehicle**](docs/VehicleApi.md#updateVehicle) | **PUT** /vehicle/{id} | Update Vehicle
+*SirqulIoTPlatform.VehicleTypeApi* | [**createVehicleType**](docs/VehicleTypeApi.md#createVehicleType) | **POST** /vehicle/type | Create Vehicle Type
+*SirqulIoTPlatform.VehicleTypeApi* | [**deleteVehicleType**](docs/VehicleTypeApi.md#deleteVehicleType) | **DELETE** /vehicle/type/{vehicleTypeId} | Delete Vehicle Type
+*SirqulIoTPlatform.VehicleTypeApi* | [**getVehicleType**](docs/VehicleTypeApi.md#getVehicleType) | **GET** /vehicle/type/{vehicleTypeId} | Get Vehicle Type
+*SirqulIoTPlatform.VehicleTypeApi* | [**searchVehicleTypes**](docs/VehicleTypeApi.md#searchVehicleTypes) | **GET** /vehicle/type | Search Vehicle Type
+*SirqulIoTPlatform.VehicleTypeApi* | [**updateVehicleType**](docs/VehicleTypeApi.md#updateVehicleType) | **PUT** /vehicle/type/{vehicleTypeId} | Update Vehicle Type
+*SirqulIoTPlatform.WalletApi* | [**createOfferTransaction**](docs/WalletApi.md#createOfferTransaction) | **POST** /wallet/create | Create Wallet Offers
+*SirqulIoTPlatform.WalletApi* | [**deleteOfferTransaction**](docs/WalletApi.md#deleteOfferTransaction) | **POST** /wallet/delete | Delete Wallet Offer
+*SirqulIoTPlatform.WalletApi* | [**getOfferTransaction**](docs/WalletApi.md#getOfferTransaction) | **GET** /wallet/get | Get Wallet Offer
+*SirqulIoTPlatform.WalletApi* | [**previewOfferTransaction**](docs/WalletApi.md#previewOfferTransaction) | **POST** /wallet/preview | Preview Wallet Offers
+*SirqulIoTPlatform.WalletApi* | [**searchOfferTransactions**](docs/WalletApi.md#searchOfferTransactions) | **GET** /wallet/search | Search Wallet Offers
+*SirqulIoTPlatform.WalletApi* | [**updateOfferTransaction**](docs/WalletApi.md#updateOfferTransaction) | **POST** /wallet/update | Update Wallet Offer
+*SirqulIoTPlatform.WeatherApi* | [**searchWeather**](docs/WeatherApi.md#searchWeather) | **GET** /weather/search | Search Weather
+*SirqulIoTPlatform.WordApi* | [**createWord**](docs/WordApi.md#createWord) | **POST** /game/word/create | Create Word
+*SirqulIoTPlatform.WordApi* | [**deleteWord**](docs/WordApi.md#deleteWord) | **DELETE** /game/word/delete | Delete Word
+*SirqulIoTPlatform.WordApi* | [**getWord**](docs/WordApi.md#getWord) | **GET** /game/word/get | Get Word
+*SirqulIoTPlatform.WordApi* | [**getWords**](docs/WordApi.md#getWords) | **GET** /game/word/search | Search Words
+*SirqulIoTPlatform.WordApi* | [**updateWord**](docs/WordApi.md#updateWord) | **POST** /game/word/update | Update Word
+*SirqulIoTPlatform.WorkflowApi* | [**runWorkflow**](docs/WorkflowApi.md#runWorkflow) | **POST** /workflow/run | Run Workflow
 
 
 ## Documentation for Models

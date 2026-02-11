@@ -47,7 +47,6 @@ export default class MissionApi {
     /**
      * Create Mission
      * Create a user defined mission.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} title The title of the mission
      * @param {Object} opts Optional parameters
@@ -78,13 +77,9 @@ export default class MissionApi {
      * @param {module:api/MissionApi~createMissionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionResponse}
      */
-    createMission(version, accountId, title, opts, callback) {
+    createMission(accountId, title, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createMission");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createMission");
@@ -95,7 +90,6 @@ export default class MissionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -135,7 +129,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = MissionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/create', 'POST',
+        '/mission/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -152,18 +146,13 @@ export default class MissionApi {
     /**
      * Delete Mission
      * Delete a mission.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} missionId the id of the mission to delete
      * @param {module:api/MissionApi~deleteMissionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteMission(version, accountId, missionId, callback) {
+    deleteMission(accountId, missionId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteMission");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteMission");
@@ -174,7 +163,6 @@ export default class MissionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -190,7 +178,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/delete', 'POST',
+        '/mission/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -207,7 +195,6 @@ export default class MissionApi {
     /**
      * Find Missions
      * Get a set of ad filtered by the parameters provided.
-     * @param {Number} version 
      * @param {String} appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
      * @param {Object} opts Optional parameters
      * @param {String} [suffix] The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
@@ -231,20 +218,15 @@ export default class MissionApi {
      * @param {module:api/MissionApi~findMissionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionResponse}
      */
-    findMissions(version, appKey, opts, callback) {
+    findMissions(appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling findMissions");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling findMissions");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': appKey,
@@ -277,7 +259,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = MissionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/find', 'GET',
+        '/mission/find', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -294,7 +276,6 @@ export default class MissionApi {
     /**
      * Get Mission
      * Get a mission.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} missionId The id of the mission to return.
      * @param {Object} opts Optional parameters
@@ -302,13 +283,9 @@ export default class MissionApi {
      * @param {module:api/MissionApi~getMissionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionResponse}
      */
-    getMission(version, accountId, missionId, opts, callback) {
+    getMission(accountId, missionId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getMission");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getMission");
@@ -319,7 +296,6 @@ export default class MissionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -336,7 +312,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = MissionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/get', 'GET',
+        '/mission/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -353,7 +329,6 @@ export default class MissionApi {
     /**
      * Import Mission
      * Create a mission using a source item such as an offer location.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} latitude The current location of the requesting device
      * @param {Number} longitude The current location of the requesting device
@@ -366,13 +341,9 @@ export default class MissionApi {
      * @param {module:api/MissionApi~importMissionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    importMission(version, accountId, latitude, longitude, appKey, opts, callback) {
+    importMission(accountId, latitude, longitude, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling importMission");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling importMission");
@@ -391,7 +362,6 @@ export default class MissionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -413,7 +383,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/import', 'POST',
+        '/mission/import', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -430,19 +400,14 @@ export default class MissionApi {
     /**
      * Search Mission Formats
      * Searches on pre-defined mission formats
-     * @param {Number} version 
      * @param {Number} start The starting index in the result set to return. Default is 0.
      * @param {Number} limit The total number of records to return. Default is 20.
      * @param {Boolean} activeOnly Determines whether to return only active results. Default is false.
      * @param {module:api/MissionApi~searchMissionFormatsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MissionFormatResponse>}
      */
-    searchMissionFormats(version, start, limit, activeOnly, callback) {
+    searchMissionFormats(start, limit, activeOnly, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchMissionFormats");
-      }
       // verify the required parameter 'start' is set
       if (start === undefined || start === null) {
         throw new Error("Missing the required parameter 'start' when calling searchMissionFormats");
@@ -457,7 +422,6 @@ export default class MissionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'start': start,
@@ -474,7 +438,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = [MissionFormatResponse];
       return this.apiClient.callApi(
-        '/api/{version}/mission/format/search', 'GET',
+        '/mission/format/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -491,7 +455,6 @@ export default class MissionApi {
     /**
      * Search Missions
      * Get the list missions available to the account.  
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
      * @param {String} [keyword] Filter by keyword
@@ -507,20 +470,15 @@ export default class MissionApi {
      * @param {module:api/MissionApi~searchMissionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MissionResponse>}
      */
-    searchMissions(version, accountId, opts, callback) {
+    searchMissions(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchMissions");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchMissions");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -545,7 +503,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = [MissionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/mission/search', 'GET',
+        '/mission/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -562,7 +520,6 @@ export default class MissionApi {
     /**
      * Search Missions by Billable Entity
      * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Object} opts Optional parameters
      * @param {String} [keyword] Filter by keyword
@@ -577,20 +534,15 @@ export default class MissionApi {
      * @param {module:api/MissionApi~searchMissionsByBillableEntityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MissionResponse>}
      */
-    searchMissionsByBillableEntity(version, accountId, opts, callback) {
+    searchMissionsByBillableEntity(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchMissionsByBillableEntity");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchMissionsByBillableEntity");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -614,7 +566,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = [MissionResponse];
       return this.apiClient.callApi(
-        '/api/{version}/mission/searchByBillableEntity', 'GET',
+        '/mission/searchByBillableEntity', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -631,7 +583,6 @@ export default class MissionApi {
     /**
      * Update Mission
      * Update a mission.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} missionId The id of the mission to update.
      * @param {Object} opts Optional parameters
@@ -661,13 +612,9 @@ export default class MissionApi {
      * @param {module:api/MissionApi~updateMissionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MissionResponse}
      */
-    updateMission(version, accountId, missionId, opts, callback) {
+    updateMission(accountId, missionId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateMission");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateMission");
@@ -678,7 +625,6 @@ export default class MissionApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -717,7 +663,7 @@ export default class MissionApi {
       let accepts = ['*/*'];
       let returnType = MissionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/mission/update', 'POST',
+        '/mission/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

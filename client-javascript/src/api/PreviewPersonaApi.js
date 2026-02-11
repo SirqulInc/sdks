@@ -46,7 +46,6 @@ export default class PreviewPersonaApi {
     /**
      * Create Persona
      * Creates a new persona. If the given params are null those attributes will be override by null.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user
      * @param {String} title the title of the persona
      * @param {Object} opts Optional parameters
@@ -60,13 +59,9 @@ export default class PreviewPersonaApi {
      * @param {module:api/PreviewPersonaApi~createPersonaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PreviewPersonaResponse}
      */
-    createPersona(version, accountId, title, opts, callback) {
+    createPersona(accountId, title, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createPersona");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createPersona");
@@ -77,7 +72,6 @@ export default class PreviewPersonaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -100,7 +94,7 @@ export default class PreviewPersonaApi {
       let accepts = ['*/*'];
       let returnType = PreviewPersonaResponse;
       return this.apiClient.callApi(
-        '/api/{version}/persona/create', 'POST',
+        '/persona/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -117,18 +111,13 @@ export default class PreviewPersonaApi {
     /**
      * Delete Persona
      * Mark the persona for deletion.
-     * @param {Number} version 
      * @param {Number} accountId the account id of the user
      * @param {Number} personaId the id of the persona to delete
      * @param {module:api/PreviewPersonaApi~deletePersonaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deletePersona(version, accountId, personaId, callback) {
+    deletePersona(accountId, personaId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deletePersona");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deletePersona");
@@ -139,7 +128,6 @@ export default class PreviewPersonaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -155,7 +143,7 @@ export default class PreviewPersonaApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/persona/delete', 'POST',
+        '/persona/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -172,18 +160,13 @@ export default class PreviewPersonaApi {
     /**
      * Get Persona
      * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user
      * @param {Number} personaId the persona ID of the persona
      * @param {module:api/PreviewPersonaApi~getPersonaListCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PreviewPersonaResponse}
      */
-    getPersonaList(version, accountId, personaId, callback) {
+    getPersonaList(accountId, personaId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getPersonaList");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getPersonaList");
@@ -194,7 +177,6 @@ export default class PreviewPersonaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -210,7 +192,7 @@ export default class PreviewPersonaApi {
       let accepts = ['*/*'];
       let returnType = PreviewPersonaResponse;
       return this.apiClient.callApi(
-        '/api/{version}/persona/get', 'GET',
+        '/persona/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -227,19 +209,14 @@ export default class PreviewPersonaApi {
     /**
      * Search Personas
      * Search for persona that the account owns by the given account ID.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user
      * @param {Number} start the start index for pagination
      * @param {Number} limit the limit for pagination (There is a hard limit of 100)
      * @param {module:api/PreviewPersonaApi~searchPersonaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PreviewPersonaResponse}
      */
-    searchPersona(version, accountId, start, limit, callback) {
+    searchPersona(accountId, start, limit, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchPersona");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchPersona");
@@ -254,7 +231,6 @@ export default class PreviewPersonaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -271,7 +247,7 @@ export default class PreviewPersonaApi {
       let accepts = ['*/*'];
       let returnType = PreviewPersonaResponse;
       return this.apiClient.callApi(
-        '/api/{version}/persona/search', 'GET',
+        '/persona/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -288,7 +264,6 @@ export default class PreviewPersonaApi {
     /**
      * Update Persona
      * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-     * @param {Number} version 
      * @param {Number} accountId the account ID of the user
      * @param {Number} personaId the persona ID of the persona to update
      * @param {Object} opts Optional parameters
@@ -304,13 +279,9 @@ export default class PreviewPersonaApi {
      * @param {module:api/PreviewPersonaApi~updatePersonaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PreviewPersonaResponse}
      */
-    updatePersona(version, accountId, personaId, opts, callback) {
+    updatePersona(accountId, personaId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updatePersona");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updatePersona");
@@ -321,7 +292,6 @@ export default class PreviewPersonaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -346,7 +316,7 @@ export default class PreviewPersonaApi {
       let accepts = ['*/*'];
       let returnType = PreviewPersonaResponse;
       return this.apiClient.callApi(
-        '/api/{version}/persona/update', 'POST',
+        '/persona/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

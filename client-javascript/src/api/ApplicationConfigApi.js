@@ -46,7 +46,6 @@ export default class ApplicationConfigApi {
     /**
      * Create AppConfig
      * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user
      * @param {String} appKey The application key that the newly created applicationConfig will be associated to
      * @param {String} configVersion The application configuration, has to be unique within the application
@@ -58,13 +57,9 @@ export default class ApplicationConfigApi {
      * @param {module:api/ApplicationConfigApi~createApplicationConfigCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationConfigResponse}
      */
-    createApplicationConfig(version, accountId, appKey, configVersion, assetId, opts, callback) {
+    createApplicationConfig(accountId, appKey, configVersion, assetId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createApplicationConfig");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createApplicationConfig");
@@ -83,7 +78,6 @@ export default class ApplicationConfigApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -104,7 +98,7 @@ export default class ApplicationConfigApi {
       let accepts = ['*/*'];
       let returnType = ApplicationConfigResponse;
       return this.apiClient.callApi(
-        '/api/{version}/appconfig/create', 'POST',
+        '/appconfig/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -121,18 +115,13 @@ export default class ApplicationConfigApi {
     /**
      * Delete AppConfig
      * Mark the application configuration for deletion.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user
      * @param {Number} configId The config ID of the application configuration to delete
      * @param {module:api/ApplicationConfigApi~deleteApplicationConfigCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteApplicationConfig(version, accountId, configId, callback) {
+    deleteApplicationConfig(accountId, configId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteApplicationConfig");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteApplicationConfig");
@@ -143,7 +132,6 @@ export default class ApplicationConfigApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -159,7 +147,7 @@ export default class ApplicationConfigApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/appconfig/delete', 'POST',
+        '/appconfig/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -176,18 +164,13 @@ export default class ApplicationConfigApi {
     /**
      * Get AppConfig
      * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user
      * @param {Number} configId The config ID of the application configuration
      * @param {module:api/ApplicationConfigApi~getApplicationConfigCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationConfigResponse}
      */
-    getApplicationConfig(version, accountId, configId, callback) {
+    getApplicationConfig(accountId, configId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getApplicationConfig");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getApplicationConfig");
@@ -198,7 +181,6 @@ export default class ApplicationConfigApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -214,7 +196,7 @@ export default class ApplicationConfigApi {
       let accepts = ['*/*'];
       let returnType = ApplicationConfigResponse;
       return this.apiClient.callApi(
-        '/api/{version}/appconfig/get', 'GET',
+        '/appconfig/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -231,7 +213,6 @@ export default class ApplicationConfigApi {
     /**
      * Get AppConfig by Version
      * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-     * @param {Number} version 
      * @param {String} appKey The application key
      * @param {String} configVersion The version of the application configuration
      * @param {Object} opts Optional parameters
@@ -242,13 +223,9 @@ export default class ApplicationConfigApi {
      * @param {module:api/ApplicationConfigApi~getApplicationConfigByConfigVersionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationConfigResponse}
      */
-    getApplicationConfigByConfigVersion(version, appKey, configVersion, opts, callback) {
+    getApplicationConfigByConfigVersion(appKey, configVersion, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getApplicationConfigByConfigVersion");
-      }
       // verify the required parameter 'appKey' is set
       if (appKey === undefined || appKey === null) {
         throw new Error("Missing the required parameter 'appKey' when calling getApplicationConfigByConfigVersion");
@@ -259,7 +236,6 @@ export default class ApplicationConfigApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'appKey': appKey,
@@ -279,7 +255,7 @@ export default class ApplicationConfigApi {
       let accepts = ['*/*'];
       let returnType = ApplicationConfigResponse;
       return this.apiClient.callApi(
-        '/api/{version}/appconfig/getbyversion', 'GET',
+        '/appconfig/getbyversion', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -296,7 +272,6 @@ export default class ApplicationConfigApi {
     /**
      * Search AppConfigs
      * Gets all versions of application configurations in a particular app by the given appKey.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user
      * @param {Object} opts Optional parameters
      * @param {String} [appKey] The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
@@ -311,20 +286,15 @@ export default class ApplicationConfigApi {
      * @param {module:api/ApplicationConfigApi~searchApplicationConfigCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ApplicationConfigResponse>}
      */
-    searchApplicationConfig(version, accountId, opts, callback) {
+    searchApplicationConfig(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchApplicationConfig");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchApplicationConfig");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -348,7 +318,7 @@ export default class ApplicationConfigApi {
       let accepts = ['*/*'];
       let returnType = [ApplicationConfigResponse];
       return this.apiClient.callApi(
-        '/api/{version}/appconfig/search', 'GET',
+        '/appconfig/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -365,7 +335,6 @@ export default class ApplicationConfigApi {
     /**
      * Update AppConfig
      * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
-     * @param {Number} version 
      * @param {Number} accountId The account ID of the user
      * @param {Number} configId The config ID of the application configuration to update
      * @param {Object} opts Optional parameters
@@ -378,13 +347,9 @@ export default class ApplicationConfigApi {
      * @param {module:api/ApplicationConfigApi~updateApplicationConfigCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationConfigResponse}
      */
-    updateApplicationConfig(version, accountId, configId, opts, callback) {
+    updateApplicationConfig(accountId, configId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateApplicationConfig");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateApplicationConfig");
@@ -395,7 +360,6 @@ export default class ApplicationConfigApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -417,7 +381,7 @@ export default class ApplicationConfigApi {
       let accepts = ['*/*'];
       let returnType = ApplicationConfigResponse;
       return this.apiClient.callApi(
-        '/api/{version}/appconfig/update', 'POST',
+        '/appconfig/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

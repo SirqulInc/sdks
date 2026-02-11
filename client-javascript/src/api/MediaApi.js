@@ -46,7 +46,6 @@ export default class MediaApi {
     /**
      * Create Media
      * Create a media offering.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the logged in user
      * @param {String} title The title (255 char limit)
      * @param {module:model/String} barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -108,13 +107,9 @@ export default class MediaApi {
      * @param {module:api/MediaApi~createMediaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MediaOfferResponse}
      */
-    createMedia(version, accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, opts, callback) {
+    createMedia(accountId, title, barcodeType, noExpiration, availableLimit, availableLimitPerUser, addedLimit, viewLimit, maxPrints, ticketPrice, fullPrice, discountPrice, specialOfferType, offerVisibility, active, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createMedia");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createMedia");
@@ -177,7 +172,6 @@ export default class MediaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -248,7 +242,7 @@ export default class MediaApi {
       let accepts = ['*/*'];
       let returnType = MediaOfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/media/create', 'POST',
+        '/media/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -265,18 +259,13 @@ export default class MediaApi {
     /**
      * Delete Media
      * Delete a media offering that the user has permissions to.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} mediaId the ID of the media to delete
      * @param {module:api/MediaApi~deleteMediaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteMedia(version, accountId, mediaId, callback) {
+    deleteMedia(accountId, mediaId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteMedia");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteMedia");
@@ -287,7 +276,6 @@ export default class MediaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -303,7 +291,7 @@ export default class MediaApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/media/delete', 'POST',
+        '/media/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -320,18 +308,13 @@ export default class MediaApi {
     /**
      * Media Get
      * Get a media offering.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {Number} mediaId the id of the media to get
      * @param {module:api/MediaApi~getMediaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MediaOfferResponse}
      */
-    getMedia(version, accountId, mediaId, callback) {
+    getMedia(accountId, mediaId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getMedia");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getMedia");
@@ -342,7 +325,6 @@ export default class MediaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -358,7 +340,7 @@ export default class MediaApi {
       let accepts = ['*/*'];
       let returnType = MediaOfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/media/get', 'GET',
+        '/media/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -375,7 +357,6 @@ export default class MediaApi {
     /**
      * Search Media
      * Searches on events that the account has access to.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Boolean} activeOnly Return only active results
      * @param {module:model/String} sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -389,13 +370,9 @@ export default class MediaApi {
      * @param {module:api/MediaApi~searchMediaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/MediaOfferResponse>}
      */
-    searchMedia(version, accountId, activeOnly, sortField, descending, opts, callback) {
+    searchMedia(accountId, activeOnly, sortField, descending, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchMedia");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchMedia");
@@ -414,7 +391,6 @@ export default class MediaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -437,7 +413,7 @@ export default class MediaApi {
       let accepts = ['*/*'];
       let returnType = [MediaOfferResponse];
       return this.apiClient.callApi(
-        '/api/{version}/media/search', 'GET',
+        '/media/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -454,7 +430,6 @@ export default class MediaApi {
     /**
      * Update Media
      * Update a media offering.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
      * @param {Number} mediaId 
      * @param {Object} opts Optional parameters
@@ -518,13 +493,9 @@ export default class MediaApi {
      * @param {module:api/MediaApi~updateMediaCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MediaOfferResponse}
      */
-    updateMedia(version, accountId, mediaId, opts, callback) {
+    updateMedia(accountId, mediaId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateMedia");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateMedia");
@@ -535,7 +506,6 @@ export default class MediaApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -608,7 +578,7 @@ export default class MediaApi {
       let accepts = ['*/*'];
       let returnType = MediaOfferResponse;
       return this.apiClient.callApi(
-        '/api/{version}/media/update', 'POST',
+        '/media/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

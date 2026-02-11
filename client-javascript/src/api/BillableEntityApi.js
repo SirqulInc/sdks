@@ -46,7 +46,6 @@ export default class BillableEntityApi {
     /**
      * Create Billable
      * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param {Number} [accountId] The unique accountId that made the request (either deviceId or accountId must be used)
@@ -63,16 +62,11 @@ export default class BillableEntityApi {
      * @param {module:api/BillableEntityApi~createBillableEntityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BillableEntityResponse}
      */
-    createBillableEntity(version, opts, callback) {
+    createBillableEntity(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createBillableEntity");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -98,7 +92,7 @@ export default class BillableEntityApi {
       let accepts = ['*/*'];
       let returnType = BillableEntityResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billable/create', 'POST',
+        '/billable/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -115,23 +109,17 @@ export default class BillableEntityApi {
     /**
      * Delete Billable
      * Mark the billable as deleted
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account used to perform the delete, must have rights to edit the billable entity.
      * @param {module:api/BillableEntityApi~deleteBillableEntityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteBillableEntity(version, opts, callback) {
+    deleteBillableEntity(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteBillableEntity");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -147,7 +135,7 @@ export default class BillableEntityApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billable/delete', 'POST',
+        '/billable/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -164,7 +152,6 @@ export default class BillableEntityApi {
     /**
      * Get Billable
      * Used to determine the associated BillableEntity of an account
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param {Number} [accountId] The unique accountId that made the request (either deviceId or accountId must be used)
@@ -173,16 +160,11 @@ export default class BillableEntityApi {
      * @param {module:api/BillableEntityApi~getBillableEntityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BillableEntityResponse}
      */
-    getBillableEntity(version, opts, callback) {
+    getBillableEntity(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getBillableEntity");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -200,7 +182,7 @@ export default class BillableEntityApi {
       let accepts = ['*/*'];
       let returnType = BillableEntityResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billable/get', 'GET',
+        '/billable/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -217,7 +199,6 @@ export default class BillableEntityApi {
     /**
      * Update Billable
      * Updates the billable record for an account
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
      * @param {Number} [accountId] The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
@@ -234,16 +215,11 @@ export default class BillableEntityApi {
      * @param {module:api/BillableEntityApi~updateBillableEntityCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/BillableEntityResponse}
      */
-    updateBillableEntity(version, opts, callback) {
+    updateBillableEntity(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateBillableEntity");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -269,7 +245,7 @@ export default class BillableEntityApi {
       let accepts = ['*/*'];
       let returnType = BillableEntityResponse;
       return this.apiClient.callApi(
-        '/api/{version}/billable/update', 'POST',
+        '/billable/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

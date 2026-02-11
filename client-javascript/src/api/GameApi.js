@@ -46,7 +46,6 @@ export default class GameApi {
     /**
      * Create a Game
      * Create a Game.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The logged in user.
      * @param {String} [appKey] The game application key to save the level for.
@@ -58,16 +57,11 @@ export default class GameApi {
      * @param {module:api/GameApi~createGameCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameResponse}
      */
-    createGame(version, opts, callback) {
+    createGame(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createGame");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -88,7 +82,7 @@ export default class GameApi {
       let accepts = ['*/*'];
       let returnType = GameResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/create', 'POST',
+        '/game/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -105,18 +99,13 @@ export default class GameApi {
     /**
      * Delete a Game
      * Delete a game.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} gameId the updating game's id.
      * @param {module:api/GameApi~deleteGameCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteGame(version, accountId, gameId, callback) {
+    deleteGame(accountId, gameId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteGame");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteGame");
@@ -127,7 +116,6 @@ export default class GameApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -143,7 +131,7 @@ export default class GameApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/delete', 'POST',
+        '/game/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -160,7 +148,6 @@ export default class GameApi {
     /**
      * Get a Game by id
      * Get a Game by id.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {Number} gameId the updating game's id.
      * @param {Object} opts Optional parameters
@@ -168,13 +155,9 @@ export default class GameApi {
      * @param {module:api/GameApi~getGameCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameResponse}
      */
-    getGame(version, accountId, gameId, opts, callback) {
+    getGame(accountId, gameId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getGame");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getGame");
@@ -185,7 +168,6 @@ export default class GameApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -202,7 +184,7 @@ export default class GameApi {
       let accepts = ['*/*'];
       let returnType = GameResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/get', 'GET',
+        '/game/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -219,7 +201,6 @@ export default class GameApi {
     /**
      * Search a Game
      * Get a list of games for an application, just those the account has permissions to view.
-     * @param {Number} version 
      * @param {Number} accountId The logged in user.
      * @param {String} appKey the application key
      * @param {Number} start Start the result set at some index.
@@ -232,13 +213,9 @@ export default class GameApi {
      * @param {module:api/GameApi~searchGamesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameResponse}
      */
-    searchGames(version, accountId, appKey, start, limit, opts, callback) {
+    searchGames(accountId, appKey, start, limit, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchGames");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchGames");
@@ -257,7 +234,6 @@ export default class GameApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -279,7 +255,7 @@ export default class GameApi {
       let accepts = ['*/*'];
       let returnType = GameResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/search', 'GET',
+        '/game/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -296,7 +272,6 @@ export default class GameApi {
     /**
      * Update a Game
      * Update a Game
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Number} [accountId] The logged in user.
      * @param {Number} [gameId] the updating game's id
@@ -309,16 +284,11 @@ export default class GameApi {
      * @param {module:api/GameApi~updateGameCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GameResponse}
      */
-    updateGame(version, opts, callback) {
+    updateGame(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateGame");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -340,7 +310,7 @@ export default class GameApi {
       let accepts = ['*/*'];
       let returnType = GameResponse;
       return this.apiClient.callApi(
-        '/api/{version}/game/update', 'POST',
+        '/game/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

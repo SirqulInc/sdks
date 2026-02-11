@@ -45,7 +45,6 @@ export default class CarrierApi {
     /**
      * Search Carriers
      * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [keyword] The keyword to search on
      * @param {Boolean} [descending = false)] Determines whether the sorted list is in descending or ascending order
@@ -55,16 +54,11 @@ export default class CarrierApi {
      * @param {module:api/CarrierApi~searchCarriersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CellCarrierResponse>}
      */
-    searchCarriers(version, opts, callback) {
+    searchCarriers(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchCarriers");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'keyword': opts['keyword'],
@@ -83,7 +77,7 @@ export default class CarrierApi {
       let accepts = ['*/*'];
       let returnType = [CellCarrierResponse];
       return this.apiClient.callApi(
-        '/api/{version}/carrier/search', 'GET',
+        '/carrier/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

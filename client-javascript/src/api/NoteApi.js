@@ -46,7 +46,6 @@ export default class NoteApi {
     /**
      * Batch Note Operation
      * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-     * @param {Number} version 
      * @param {Number} notableId The id of the notable object the batch operation will affect
      * @param {String} notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
      * @param {Object} opts Optional parameters
@@ -56,13 +55,9 @@ export default class NoteApi {
      * @param {module:api/NoteApi~batchOperationCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    batchOperation(version, notableId, notableType, opts, callback) {
+    batchOperation(notableId, notableType, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling batchOperation");
-      }
       // verify the required parameter 'notableId' is set
       if (notableId === undefined || notableId === null) {
         throw new Error("Missing the required parameter 'notableId' when calling batchOperation");
@@ -73,7 +68,6 @@ export default class NoteApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -92,7 +86,7 @@ export default class NoteApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/note/batch', 'POST',
+        '/note/batch', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -109,7 +103,6 @@ export default class NoteApi {
     /**
      * Create Note
      * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-     * @param {Number} version 
      * @param {String} comment The message the user wishes to leave a comment on
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -156,20 +149,15 @@ export default class NoteApi {
      * @param {module:api/NoteApi~createNoteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NoteResponse}
      */
-    createNote(version, comment, opts, callback) {
+    createNote(comment, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createNote");
-      }
       // verify the required parameter 'comment' is set
       if (comment === undefined || comment === null) {
         throw new Error("Missing the required parameter 'comment' when calling createNote");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -225,7 +213,7 @@ export default class NoteApi {
       let accepts = ['*/*'];
       let returnType = NoteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/note/create', 'POST',
+        '/note/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -242,7 +230,6 @@ export default class NoteApi {
     /**
      * Delete Note
      * Sets a comment (note) as deleted.
-     * @param {Number} version 
      * @param {Number} noteId The ID of the note to delete
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -253,20 +240,15 @@ export default class NoteApi {
      * @param {module:api/NoteApi~deleteNoteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteNote(version, noteId, opts, callback) {
+    deleteNote(noteId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteNote");
-      }
       // verify the required parameter 'noteId' is set
       if (noteId === undefined || noteId === null) {
         throw new Error("Missing the required parameter 'noteId' when calling deleteNote");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -286,7 +268,7 @@ export default class NoteApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/note/delete', 'POST',
+        '/note/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -303,7 +285,6 @@ export default class NoteApi {
     /**
      * Get Note
      * Get for a note based on its Id.
-     * @param {Number} version 
      * @param {Number} noteId the id of the note to get
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -312,20 +293,15 @@ export default class NoteApi {
      * @param {module:api/NoteApi~getNoteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    getNote(version, noteId, opts, callback) {
+    getNote(noteId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getNote");
-      }
       // verify the required parameter 'noteId' is set
       if (noteId === undefined || noteId === null) {
         throw new Error("Missing the required parameter 'noteId' when calling getNote");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -343,7 +319,7 @@ export default class NoteApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/note/get', 'POST',
+        '/note/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -360,7 +336,6 @@ export default class NoteApi {
     /**
      * Search Notes
      * Search for notes on a notable object.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The device id (deviceId or accountId required)
      * @param {Number} [accountId] The account id of the user (deviceId or accountId required)
@@ -382,16 +357,11 @@ export default class NoteApi {
      * @param {module:api/NoteApi~searchNotesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/NoteResponse>}
      */
-    searchNotes(version, opts, callback) {
+    searchNotes(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchNotes");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -422,7 +392,7 @@ export default class NoteApi {
       let accepts = ['*/*'];
       let returnType = [NoteResponse];
       return this.apiClient.callApi(
-        '/api/{version}/note/search', 'POST',
+        '/note/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -439,7 +409,6 @@ export default class NoteApi {
     /**
      * Update Note
      * Update an existing comment (note). Only the creator of the note have permission to update.
-     * @param {Number} version 
      * @param {Number} noteId The id of the note, used when editing a comment
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -485,20 +454,15 @@ export default class NoteApi {
      * @param {module:api/NoteApi~updateNoteCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/NoteResponse}
      */
-    updateNote(version, noteId, opts, callback) {
+    updateNote(noteId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateNote");
-      }
       // verify the required parameter 'noteId' is set
       if (noteId === undefined || noteId === null) {
         throw new Error("Missing the required parameter 'noteId' when calling updateNote");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -553,7 +517,7 @@ export default class NoteApi {
       let accepts = ['*/*'];
       let returnType = NoteResponse;
       return this.apiClient.callApi(
-        '/api/{version}/note/update', 'POST',
+        '/note/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

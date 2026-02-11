@@ -49,7 +49,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Create Credential
      * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-     * @param {Number} version 
      * @param {String} thirdPartyId the third party user account id
      * @param {String} thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)
      * @param {String} networkUID the access provider to authenticate against
@@ -71,13 +70,9 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~createCredentialCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    createCredential(version, thirdPartyId, thirdPartyToken, networkUID, appKey, opts, callback) {
+    createCredential(thirdPartyId, thirdPartyToken, networkUID, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createCredential");
-      }
       // verify the required parameter 'thirdPartyId' is set
       if (thirdPartyId === undefined || thirdPartyId === null) {
         throw new Error("Missing the required parameter 'thirdPartyId' when calling createCredential");
@@ -96,7 +91,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -127,7 +121,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/credential/create', 'POST',
+        '/thirdparty/credential/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -144,7 +138,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Create Network
      * Creates a custom third party network.
-     * @param {Number} version 
      * @param {Number} accountId The account id making the request
      * @param {String} name The name of the network
      * @param {Boolean} enableIntrospection Whether the network uses introspection calls
@@ -166,13 +159,9 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~createNetworkCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ThirdPartyNetworkResponse}
      */
-    createNetwork(version, accountId, name, enableIntrospection, opts, callback) {
+    createNetwork(accountId, name, enableIntrospection, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createNetwork");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createNetwork");
@@ -187,7 +176,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -217,7 +205,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = ThirdPartyNetworkResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/network/create', 'POST',
+        '/thirdparty/network/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -234,7 +222,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Delete Credential
      * Delete a third party network on a Sirqul account.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {String} networkUID The third party network identifier
      * @param {String} thirdPartyId The third party user id
@@ -242,12 +229,8 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~deleteCredentialCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteCredential(version, accountId, networkUID, thirdPartyId, appKey, callback) {
+    deleteCredential(accountId, networkUID, thirdPartyId, appKey, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteCredential");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteCredential");
@@ -266,7 +249,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -284,7 +266,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/credential/delete', 'POST',
+        '/thirdparty/credential/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -301,18 +283,13 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Delete Network
      * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-     * @param {Number} version 
      * @param {Number} accountId the id of the logged in user
      * @param {String} networkUID The unique identifier for the third party network defined by Sirqul
      * @param {module:api/ThirdPartyCredentialsApi~deleteNetworkCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteNetwork(version, accountId, networkUID, callback) {
+    deleteNetwork(accountId, networkUID, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteNetwork");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteNetwork");
@@ -323,7 +300,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -339,7 +315,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/network/delete', 'POST',
+        '/thirdparty/network/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -356,7 +332,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Get Credential
      * Gets the account information given a third party token.
-     * @param {Number} version 
      * @param {String} networkUID the access provider to authenticate against
      * @param {String} appKey the application key
      * @param {Object} opts Optional parameters
@@ -376,13 +351,9 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~getCredentialCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    getCredential(version, networkUID, appKey, opts, callback) {
+    getCredential(networkUID, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getCredential");
-      }
       // verify the required parameter 'networkUID' is set
       if (networkUID === undefined || networkUID === null) {
         throw new Error("Missing the required parameter 'networkUID' when calling getCredential");
@@ -393,7 +364,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': opts['accountId'],
@@ -422,7 +392,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/credential/get', 'POST',
+        '/thirdparty/credential/get', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -439,18 +409,13 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Get Network
      * Get the details of a third party network. Only the network owners and managers have access to this.
-     * @param {Number} version 
      * @param {Number} accountId The account id making the request
      * @param {String} networkUID The unique identifier for the third party network defined by Sirqul
      * @param {module:api/ThirdPartyCredentialsApi~getNetworkCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ThirdPartyNetworkResponse}
      */
-    getNetwork(version, accountId, networkUID, callback) {
+    getNetwork(accountId, networkUID, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getNetwork");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getNetwork");
@@ -461,7 +426,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -477,7 +441,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = ThirdPartyNetworkResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/network/get', 'GET',
+        '/thirdparty/network/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -494,7 +458,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Search Credentials
      * Search on a user's linked third party networks.
-     * @param {Number} version 
      * @param {Number} accountId The account id of the user
      * @param {Object} opts Optional parameters
      * @param {String} [keyword] The keyword used to search on the third party name and network string
@@ -505,20 +468,15 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~searchCredentialsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ThirdPartyCredentialResponse>}
      */
-    searchCredentials(version, accountId, opts, callback) {
+    searchCredentials(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchCredentials");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchCredentials");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -538,7 +496,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = [ThirdPartyCredentialResponse];
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/credential/search', 'GET',
+        '/thirdparty/credential/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -555,7 +513,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Search Networks
      * Search on supported third party networks and custom networks from external users.
-     * @param {Number} version 
      * @param {Number} accountId The account id making the request
      * @param {module:model/String} sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
      * @param {Boolean} descending The order to return the search results
@@ -568,13 +525,9 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~searchNetworksCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/ThirdPartyNetworkShortResponse>}
      */
-    searchNetworks(version, accountId, sortField, descending, start, limit, activeOnly, opts, callback) {
+    searchNetworks(accountId, sortField, descending, start, limit, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling searchNetworks");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling searchNetworks");
@@ -601,7 +554,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -623,7 +575,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = [ThirdPartyNetworkShortResponse];
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/network/search', 'GET',
+        '/thirdparty/network/search', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -640,7 +592,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Send MFA Challenge
      * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-     * @param {Number} version 
      * @param {String} networkUID the third party network provider that has MFA enabled
      * @param {String} appKey the application key
      * @param {Object} opts Optional parameters
@@ -650,13 +601,9 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~sendMFAChallengeCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    sendMFAChallenge(version, networkUID, appKey, opts, callback) {
+    sendMFAChallenge(networkUID, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling sendMFAChallenge");
-      }
       // verify the required parameter 'networkUID' is set
       if (networkUID === undefined || networkUID === null) {
         throw new Error("Missing the required parameter 'networkUID' when calling sendMFAChallenge");
@@ -667,7 +614,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'thirdPartyToken': opts['thirdPartyToken'],
@@ -686,7 +632,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/credential/mfa/send', 'POST',
+        '/thirdparty/credential/mfa/send', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -703,7 +649,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Update Credential
      * Updates a third-party login for an account.
-     * @param {Number} version 
      * @param {String} networkUID the access provider to authenticate against
      * @param {String} thirdPartyId the third party user account id
      * @param {String} appKey the application key
@@ -717,13 +662,9 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~updateCredentialCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ProfileResponse}
      */
-    updateCredential(version, networkUID, thirdPartyId, appKey, opts, callback) {
+    updateCredential(networkUID, thirdPartyId, appKey, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateCredential");
-      }
       // verify the required parameter 'networkUID' is set
       if (networkUID === undefined || networkUID === null) {
         throw new Error("Missing the required parameter 'networkUID' when calling updateCredential");
@@ -738,7 +679,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -761,7 +701,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = ProfileResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/credential/update', 'POST',
+        '/thirdparty/credential/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -778,7 +718,6 @@ export default class ThirdPartyCredentialsApi {
     /**
      * Update Network
      * Updates a custom third party network. Only the network owners and managers have access to this.
-     * @param {Number} version 
      * @param {Number} accountId The account id making the request
      * @param {String} networkUID The unique identifier for the third party network defined by Sirqul
      * @param {Object} opts Optional parameters
@@ -801,13 +740,9 @@ export default class ThirdPartyCredentialsApi {
      * @param {module:api/ThirdPartyCredentialsApi~updateNetworkCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ThirdPartyNetworkResponse}
      */
-    updateNetwork(version, accountId, networkUID, opts, callback) {
+    updateNetwork(accountId, networkUID, opts, callback) {
       opts = opts || {};
       let postBody = opts['body'];
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateNetwork");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateNetwork");
@@ -818,7 +753,6 @@ export default class ThirdPartyCredentialsApi {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -849,7 +783,7 @@ export default class ThirdPartyCredentialsApi {
       let accepts = ['*/*'];
       let returnType = ThirdPartyNetworkResponse;
       return this.apiClient.callApi(
-        '/api/{version}/thirdparty/network/update', 'POST',
+        '/thirdparty/network/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

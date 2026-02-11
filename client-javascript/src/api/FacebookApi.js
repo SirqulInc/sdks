@@ -46,7 +46,6 @@ export default class FacebookApi {
     /**
      * Get Facebook Token
      * Gets a user's Facebook token.
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
      * @param {Number} [accountId] the account id of the user (deviceId or accountId required)
@@ -55,16 +54,11 @@ export default class FacebookApi {
      * @param {module:api/FacebookApi~getTokenCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TokenResponse}
      */
-    getToken(version, opts, callback) {
+    getToken(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getToken");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -82,7 +76,7 @@ export default class FacebookApi {
       let accepts = ['*/*'];
       let returnType = TokenResponse;
       return this.apiClient.callApi(
-        '/api/{version}/facebook/getfbtoken', 'GET',
+        '/facebook/getfbtoken', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -99,7 +93,6 @@ export default class FacebookApi {
     /**
      * Post to Facebook
      * Make Facebook posts on behalf of the user.
-     * @param {Number} version 
      * @param {String} event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
      * @param {Object} opts Optional parameters
      * @param {String} [deviceId] a unique id given by the device (deviceId or accountId required)
@@ -114,20 +107,15 @@ export default class FacebookApi {
      * @param {module:api/FacebookApi~graphInterfaceCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    graphInterface(version, event, opts, callback) {
+    graphInterface(event, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling graphInterface");
-      }
       // verify the required parameter 'event' is set
       if (event === undefined || event === null) {
         throw new Error("Missing the required parameter 'event' when calling graphInterface");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'deviceId': opts['deviceId'],
@@ -151,7 +139,7 @@ export default class FacebookApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/facebook/graph', 'POST',
+        '/facebook/graph', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

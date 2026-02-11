@@ -45,7 +45,6 @@ export default class RetailerV2Api {
     /**
      * Get Retailer
      * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-     * @param {Number} version 
      * @param {Number} retailerId the id of the retailer
      * @param {Boolean} activeOnly whether to return results that are active only or all
      * @param {Object} opts Optional parameters
@@ -56,13 +55,9 @@ export default class RetailerV2Api {
      * @param {module:api/RetailerV2Api~getRetaokilerCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    getRetaokiler(version, retailerId, activeOnly, opts, callback) {
+    getRetaokiler(retailerId, activeOnly, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getRetaokiler");
-      }
       // verify the required parameter 'retailerId' is set
       if (retailerId === undefined || retailerId === null) {
         throw new Error("Missing the required parameter 'retailerId' when calling getRetaokiler");
@@ -73,7 +68,6 @@ export default class RetailerV2Api {
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'keyword': opts['keyword'],
@@ -93,7 +87,7 @@ export default class RetailerV2Api {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/retailer', 'GET',
+        '/retailer', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

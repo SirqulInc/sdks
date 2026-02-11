@@ -48,7 +48,6 @@ export default class SubscriptionApi {
     /**
      * Create Subscription
      * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the create, must be the responsible manager
      * @param {Object} opts Optional parameters
      * @param {Number} [planId] The plan to subscribe to, if null use default plan
@@ -56,20 +55,15 @@ export default class SubscriptionApi {
      * @param {module:api/SubscriptionApi~createSubscriptionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SubscriptionResponse}
      */
-    createSubscription(version, accountId, opts, callback) {
+    createSubscription(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling createSubscription");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling createSubscription");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -86,7 +80,7 @@ export default class SubscriptionApi {
       let accepts = ['*/*'];
       let returnType = SubscriptionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/subscription/create', 'POST',
+        '/subscription/create', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -103,24 +97,18 @@ export default class SubscriptionApi {
     /**
      * Delete Subscription
      * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the delete, must be the responsible manager
      * @param {module:api/SubscriptionApi~deleteSubscriptionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SirqulResponse}
      */
-    deleteSubscription(version, accountId, callback) {
+    deleteSubscription(accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling deleteSubscription");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling deleteSubscription");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId
@@ -135,7 +123,7 @@ export default class SubscriptionApi {
       let accepts = ['*/*'];
       let returnType = SirqulResponse;
       return this.apiClient.callApi(
-        '/api/{version}/subscription/delete', 'POST',
+        '/subscription/delete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -152,24 +140,18 @@ export default class SubscriptionApi {
     /**
      * Get Subscription
      * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the lookup
      * @param {module:api/SubscriptionApi~getSubscriptionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SubscriptionResponse}
      */
-    getSubscription(version, accountId, callback) {
+    getSubscription(accountId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getSubscription");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getSubscription");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId
@@ -184,7 +166,7 @@ export default class SubscriptionApi {
       let accepts = ['*/*'];
       let returnType = SubscriptionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/subscription/get', 'GET',
+        '/subscription/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -201,24 +183,18 @@ export default class SubscriptionApi {
     /**
      * Get Subscription Plan
      * Get the matched subscription plan
-     * @param {Number} version 
      * @param {Number} planId The ID of the plan to get
      * @param {module:api/SubscriptionApi~getSubscriptionPlanCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SubscriptionPlanResponse}
      */
-    getSubscriptionPlan(version, planId, callback) {
+    getSubscriptionPlan(planId, callback) {
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getSubscriptionPlan");
-      }
       // verify the required parameter 'planId' is set
       if (planId === undefined || planId === null) {
         throw new Error("Missing the required parameter 'planId' when calling getSubscriptionPlan");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'planId': planId
@@ -233,7 +209,7 @@ export default class SubscriptionApi {
       let accepts = ['*/*'];
       let returnType = SubscriptionPlanResponse;
       return this.apiClient.callApi(
-        '/api/{version}/subscription/plan/get', 'GET',
+        '/subscription/plan/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -250,23 +226,17 @@ export default class SubscriptionApi {
     /**
      * List Subscription Plans
      * Get the matched subscription plan
-     * @param {Number} version 
      * @param {Object} opts Optional parameters
      * @param {Boolean} [visible] Include visible only (true), hidden only (false), or all (null)
      * @param {String} [role] The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
      * @param {module:api/SubscriptionApi~getSubscriptionPlansCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SubscriptionPlanResponse>}
      */
-    getSubscriptionPlans(version, opts, callback) {
+    getSubscriptionPlans(opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getSubscriptionPlans");
-      }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'visible': opts['visible'],
@@ -282,7 +252,7 @@ export default class SubscriptionApi {
       let accepts = ['*/*'];
       let returnType = [SubscriptionPlanResponse];
       return this.apiClient.callApi(
-        '/api/{version}/subscription/plan/list', 'GET',
+        '/subscription/plan/list', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -299,7 +269,6 @@ export default class SubscriptionApi {
     /**
      * Get Subscription Usage
      * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the lookup
      * @param {Object} opts Optional parameters
      * @param {Number} [applicationId] Get for just 1 application instead of the BillableEntity
@@ -308,20 +277,15 @@ export default class SubscriptionApi {
      * @param {module:api/SubscriptionApi~getSubscriptionUsageCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApplicationUsageResponse}
      */
-    getSubscriptionUsage(version, accountId, opts, callback) {
+    getSubscriptionUsage(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling getSubscriptionUsage");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling getSubscriptionUsage");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -339,7 +303,7 @@ export default class SubscriptionApi {
       let accepts = ['*/*'];
       let returnType = ApplicationUsageResponse;
       return this.apiClient.callApi(
-        '/api/{version}/subscription/usage/get', 'GET',
+        '/subscription/usage/get', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -356,7 +320,6 @@ export default class SubscriptionApi {
     /**
      * Update Subscription
      * Updates the subscription for the billable entity for an account
-     * @param {Number} version 
      * @param {Number} accountId The account used to perform the update, must be the responsible manager
      * @param {Object} opts Optional parameters
      * @param {Number} [planId] The plan to subscribe to
@@ -365,20 +328,15 @@ export default class SubscriptionApi {
      * @param {module:api/SubscriptionApi~updateSubscriptionCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SubscriptionResponse}
      */
-    updateSubscription(version, accountId, opts, callback) {
+    updateSubscription(accountId, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'version' is set
-      if (version === undefined || version === null) {
-        throw new Error("Missing the required parameter 'version' when calling updateSubscription");
-      }
       // verify the required parameter 'accountId' is set
       if (accountId === undefined || accountId === null) {
         throw new Error("Missing the required parameter 'accountId' when calling updateSubscription");
       }
 
       let pathParams = {
-        'version': version
       };
       let queryParams = {
         'accountId': accountId,
@@ -396,7 +354,7 @@ export default class SubscriptionApi {
       let accepts = ['*/*'];
       let returnType = SubscriptionResponse;
       return this.apiClient.callApi(
-        '/api/{version}/subscription/update', 'POST',
+        '/subscription/update', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
